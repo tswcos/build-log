@@ -1,0 +1,1769 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| sysvinit 2.93-8 (armhf)                      Thu, 07 Mar 2019 04:18:01 +0000 |
++==============================================================================+
+
+Package: sysvinit
+Version: 2.93-8
+Source Version: 2.93-8
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-e9916457-dc39-4d81-9c9b-7ee58a9f8775' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/sysvinit-uo3RL2/resolver-JI3nNs' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/s/sysvinit/sysvinit_2.93-8.dsc exists in /home/build/sbuild-setup/repo/pool/main/s/sysvinit; copying to chroot
+I: NOTICE: Log filtering will replace 'build/sysvinit-uo3RL2/sysvinit-2.93' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/sysvinit-uo3RL2' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper-compat (= 11), libselinux1-dev (>= 1.14), libsepol1-dev, po-debconf, quilt (>= 0.40), build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper-compat (= 11), libselinux1-dev (>= 1.14), libsepol1-dev, po-debconf, quilt (>= 0.40), build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [448 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [523 B]
+Fetched 1928 B in 0s (129 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism diffstat dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libncurses6 libpcre16-3:armhf libpcre3:armhf
+  libpcre3-dev:armhf libpcre32-3:armhf libpcrecpp0v5:armhf libpipeline1
+  libselinux1:armhf libselinux1-dev:armhf libsepol1:armhf libsepol1-dev:armhf
+  libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf libtool libubsan1:armhf
+  libuchardet0 linux-libc-dev:armhf m4 man-db po-debconf quilt
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  libstdc++-8-doc:armhf libtool-doc gfortran | fortran95-compiler gcj-jdk
+  m4-doc apparmor less www-browser libmail-box-perl default-mta
+  | mail-transport-agent graphviz procmail
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpm2 libltdl-dev libmail-sendmail-perl
+  less
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism diffstat dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libncurses6 libpcre16-3:armhf libpcre3:armhf
+  libpcre3-dev:armhf libpcre32-3:armhf libpcrecpp0v5:armhf libpipeline1
+  libselinux1:armhf libselinux1-dev:armhf libsepol1:armhf libsepol1-dev:armhf
+  libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf libtool libubsan1:armhf
+  libuchardet0 linux-libc-dev:armhf m4 man-db po-debconf quilt
+  sbuild-build-depends-main-dummy:armhf
+0 upgraded, 51 newly installed, 0 to remove and 0 not upgraded.
+Need to get 948 B/21.2 MB of archives.
+After this operation, 85.5 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [948 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 948 B in 0s (0 B/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16441 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../07-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../08-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../09-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../10-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../11-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../12-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../13-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../14-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../15-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../16-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../17-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../18-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../19-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../20-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../21-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../22-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../23-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../24-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../25-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../26-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package diffstat.
+Preparing to unpack .../27-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../28-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../29-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../30-libc6_2.28-8_armhf.deb ...
+Unpacking libc6:armhf (2.28-8) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../31-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../32-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../33-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../34-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../35-libc6-dev_2.28-8_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-8) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../36-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../37-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../38-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libpcre16-3:armhf.
+Preparing to unpack .../39-libpcre16-3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre16-3:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcre3:armhf.
+Preparing to unpack .../40-libpcre3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre3:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcre32-3:armhf.
+Preparing to unpack .../41-libpcre32-3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre32-3:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcrecpp0v5:armhf.
+Preparing to unpack .../42-libpcrecpp0v5_2%3a8.39-11_armhf.deb ...
+Unpacking libpcrecpp0v5:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcre3-dev:armhf.
+Preparing to unpack .../43-libpcre3-dev_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre3-dev:armhf (2:8.39-11) ...
+Selecting previously unselected package libselinux1:armhf.
+Preparing to unpack .../44-libselinux1_2.8-1+b1_armhf.deb ...
+Unpacking libselinux1:armhf (2.8-1+b1) ...
+Selecting previously unselected package libsepol1:armhf.
+Preparing to unpack .../45-libsepol1_2.8-1_armhf.deb ...
+Unpacking libsepol1:armhf (2.8-1) ...
+Selecting previously unselected package libsepol1-dev:armhf.
+Preparing to unpack .../46-libsepol1-dev_2.8-1_armhf.deb ...
+Unpacking libsepol1-dev:armhf (2.8-1) ...
+Selecting previously unselected package libselinux1-dev:armhf.
+Preparing to unpack .../47-libselinux1-dev_2.8-1+b1_armhf.deb ...
+Unpacking libselinux1-dev:armhf (2.8-1+b1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../48-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package quilt.
+Preparing to unpack .../49-quilt_0.65-3_all.deb ...
+Unpacking quilt (0.65-3) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../50-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up diffstat (1.62-1) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-3) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up quilt (0.65-3) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-8) ...
+Setting up libsepol1:armhf (2.8-1) ...
+Setting up libc6-dev:armhf (2.28-8) ...
+Setting up libpcre16-3:armhf (2:8.39-11) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libsepol1-dev:armhf (2.8-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libpcre3:armhf (2:8.39-11) ...
+Setting up libpcre32-3:armhf (2:8.39-11) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libpcrecpp0v5:armhf (2:8.39-11) ...
+Setting up libpcre3-dev:armhf (2:8.39-11) ...
+Setting up debhelper (12.1.1) ...
+Setting up libselinux1:armhf (2.8-1+b1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libselinux1-dev:armhf (2.8-1+b1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-8) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-15 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-8 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-15 binutils-arm-linux-gnueabihf_2.31.1-15 binutils-common_2.31.1-15 binutils-x86-64-linux-gnu_2.31.1-15 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.6 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-3 cpp_4:8.3.0-1 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.3.0-2cross1 cpp-arm-linux-gnueabihf_4:8.3.0-1 cross-config_2.6.15-2 crossbuild-essential-armhf_12.6 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffstat_1.62-1 diffutils_1:3.7-2 dirmngr_2.2.13-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.6-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-4 findutils_4.6.0+git+20190209-2 g++_4:8.3.0-1 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.3.0-2cross1 g++-arm-linux-gnueabihf_4:8.3.0-1 gcc_4:8.3.0-1 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.3.0-2cross1 gcc-8-arm-linux-gnueabihf-base_8.3.0-2cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.3.0-2cross1 gcc-arm-linux-gnueabihf_4:8.3.0-1 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.13-1 gnupg-l10n_2.2.13-1 gnupg-utils_2.2.13-1 gpg_2.2.13-1 gpg-agent_2.2.13-1 gpg-wks-client_2.2.13-1 gpg-wks-server_2.2.13-1 gpgconf_2.2.13-1 gpgsm_2.2.13-1 gpgv_2.2.13-1 grep_3.3-1 groff-base_1.22.4-3 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.53-4 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.3.0-2cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.3.0-2cross1 libattr1_1:2.4.48-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-15 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-8 libc-dev-bin_2.28-8 libc6_2.28-8 libc6-armhf-cross_2.28-7cross1 libc6-dev_2.28-8 libc6-dev-armhf-cross_2.28-7cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.6-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.248 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.6-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.3.0-2cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.3.0-2cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.3.0-2cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-3 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-4 libmagic1_1:5.35-4 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre16-3_2:8.39-11 libpcre3_2:8.39-11 libpcre3-dev_2:8.39-11 libpcre32-3_2:8.39-11 libpcrecpp0v5_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libselinux1-dev_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsepol1-dev_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.6-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.3.0-2cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-4 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.20-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 quilt_0.65-3 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-2 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: sysvinit
+Binary: sysvinit-core, sysvinit-utils, sysv-rc, initscripts, bootlogd
+Architecture: any all
+Version: 2.93-8
+Maintainer: Debian sysvinit maintainers <debian-init-diversity@chiark.greenend.org.uk>
+Uploaders:  Ian Jackson <ijackson@chiark.greenend.org.uk>, Benda Xu <heroxbd@gentoo.org>, Dmitry Bogatov <KAction@debian.org>, Vincenzo (KatolaZ) Nicosia <katolaz@freaknet.org>,
+Homepage: http://savannah.nongnu.org/projects/sysvinit
+Standards-Version: 4.3.0
+Vcs-Browser: https://salsa.debian.org/debian/sysvinit
+Vcs-Git: https://salsa.debian.org/debian/sysvinit.git
+Build-Depends: debhelper-compat (= 11), libselinux1-dev (>= 1.14) [linux-any], libsepol1-dev [linux-any], po-debconf, quilt (>= 0.40)
+Package-List:
+ bootlogd deb admin optional arch=any
+ initscripts deb admin optional arch=any
+ sysv-rc deb admin optional arch=all
+ sysvinit-core deb admin optional arch=any
+ sysvinit-utils deb admin required arch=any essential=yes
+Checksums-Sha1:
+ fa706acd2a60f13d4364c0952bf4325d491c6ad2 117580 sysvinit_2.93.orig.tar.xz
+ b803c875a1c1b162aeed4304623e862163fda41d 1076 sysvinit_2.93.orig.tar.xz.asc
+ 00a5f2b1451bba3ad3d01c405b54bef8ce2c8eee 127136 sysvinit_2.93-8.debian.tar.xz
+Checksums-Sha256:
+ 472d460e233d981488509a167125a82925c8c9aba6b5608cb22598fdf326a8ff 117580 sysvinit_2.93.orig.tar.xz
+ cf2b374a96276a16e3ef07ad2be596420f0d8d77227aad3144d7ab4ea165a4af 1076 sysvinit_2.93.orig.tar.xz.asc
+ 2db2ae46048acf743445545151cbc0bc5530eca1f2eec51df3175d8ab26edfa6 127136 sysvinit_2.93-8.debian.tar.xz
+Files:
+ 041dbe36a5dd80b2108aff305bc10620 117580 sysvinit_2.93.orig.tar.xz
+ 93d42c8c7bf2e85c2395bea0983f2938 1076 sysvinit_2.93.orig.tar.xz.asc
+ 861e7f2e6ba48ebba02bcca36d5f78bf 127136 sysvinit_2.93-8.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJHBAEBCgAxFiEEhnHVzDbtdH7ktKj4SBLY3qgmEeYFAlxl11ITHGthY3Rpb25A
+ZGViaWFuLm9yZwAKCRBIEtjeqCYR5tgID/4/5pCTlE+qO4BxskL8MNUQhHH9hFqi
+7L8LIG/uNvsmQHrx0AeBROm2WeZzXE+4XyP3tykagCFu6zrB81Nk4Udv4EHkpPel
+fNt4tMQf5uce/TrnUloVDPkJbn572K3K68FFbuRP4Cmr/MwF5AbDypKANpJuJmVy
+yBGNuD+o4VYry13N7P3JNySOK6WFEZ1F0tureB3IPG9g/qOFf9+STDA3F0zyj7Aw
+PoN1TSzmuCsuXMzsW973nCYh4EQQVWN8vSY9S65bxuAHWrIqMyLoPvzhdjMlRlmL
+PiBOu2CY2r9U0iLAGI0DEv1VW1BG+EYkimfCW8Jff+xv+and5FqrAzDqKmL541m2
+m2Q5453gvQcwYq9xniEWcNU9kK4tOXRcQ8cHZ1yh5B1U+z/3XXA7Vi2cE5a/+FHr
+t3t7eJy/Vw+pC/kQYWfhGdWejwn7a/NRsw2PndDrWfvStZ9yTWgQVH6/X2VG8p/k
+R8Ci4wFHAGDqu66Xo9qZfhUhmnTyICu/w1l1VEmTy/8l4KK1tmJ/7qX24PScwi5I
+mu8Y1V4XSerDu+UTzSYQlG1+KabEPb7/TtOZcaAPlhQMRxRY3mEbG5D5ebM2soXA
+JTCYyRLsT+xaJOvzLdVL+H1JnMZA5ub0FvG4qq8c2XblxZ0EjKY51hWA3vDQUvrs
+X63ZrzX7z90wXA==
+=xdZG
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Thu Feb 14 21:02:10 2019 UTC
+gpgv:                using RSA key 8671D5CC36ED747EE4B4A8F84812D8DEA82611E6
+gpgv:                issuer "kaction@debian.org"
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./sysvinit_2.93-8.dsc
+dpkg-source: info: extracting sysvinit in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking sysvinit_2.93.orig.tar.xz
+dpkg-source: info: unpacking sysvinit_2.93-8.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 11_run_nologin.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-e9916457-dc39-4d81-9c9b-7ee58a9f8775
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package sysvinit
+dpkg-buildpackage: info: source version 2.93-8
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Dmitry Bogatov <KAction@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean 
+   dh_auto_clean
+	make -j16 distclean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+make VERSION=2.93 -C src distclean
+make[2]: Entering directory '/<<PKGBUILDDIR>>/src'
+rm -f *.o *.bak
+rm -f  init halt shutdown runlevel killall5 fstab-decode sulogin bootlogd last mesg readbootlog utmpdump wall
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_clean
+/usr/bin/make -C src clobber
+make[2]: Entering directory '/<<PKGBUILDDIR>>/src'
+rm -f *.o *.bak
+rm -f  init halt shutdown runlevel killall5 fstab-decode sulogin bootlogd last mesg readbootlog utmpdump wall
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+ debian/rules build-arch
+dh build-arch 
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+   dh_auto_configure -a
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make CC=arm-linux-gnueabihf-gcc WITH_SELINUX="yes" DISTRO=Debian LIBDIR=/usr/lib/arm-linux-gnueabihf CFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro"
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make VERSION=2.93 -C src all
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF -DWITH_SELINUX  -c -o init.o init.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF -DINIT_MAIN -c -o init_utmp.o utmp.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF  -c -o runlevellog.o runlevellog.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF  -c -o halt.o halt.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF  -c -o ifdown.o ifdown.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF  -c -o hddown.o hddown.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF  -c -o utmp.o utmp.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF  -c -o shutdown.o shutdown.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF  -c -o dowall.o dowall.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF  -c -o runlevel.o runlevel.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF -Wl,-z,relro  killall5.c   -o killall5
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF  -c -o fstab-decode.o fstab-decode.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF -DWITH_SELINUX  -c -o sulogin.o sulogin.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF  -c -o consoles.o consoles.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF  -c -o bootlogd.o bootlogd.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF  -c -o last.o last.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF  -c -o mesg.o mesg.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -ansi -fomit-frame-pointer -fstack-protector-strong -W -Wall -Wunreachable-code -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2 -D_XOPEN_SOURCE -D_GNU_SOURCE -DVERSION=\"2.93\"   -DACCTON_OFF  -c -o readbootlog.o readbootlog.c
+arm-linux-gnueabihf-gcc -Wl,-z,relro  runlevel.o runlevellog.o   -o runlevel
+arm-linux-gnueabihf-gcc -Wl,-z,relro  fstab-decode.o   -o fstab-decode
+arm-linux-gnueabihf-gcc -Wl,-z,relro  mesg.o   -o mesg
+arm-linux-gnueabihf-gcc -Wl,-z,relro  readbootlog.o bootlogd.h   -o readbootlog
+arm-linux-gnueabihf-gcc -Wl,-z,relro  halt.o ifdown.o hddown.o utmp.o runlevellog.o   -o halt
+dowall.c: In function 'wall':
+dowall.c:204:35: warning: '%s' directive output may be truncated writing up to 64 bytes into a region of size between 24 and 55 [-Wformat-truncation=]
+    "\r\nBroadcast message from %s@%s %s(%s):\r\n\r\n",
+                                   ^~
+    user, hostname, tty, date);
+          ~~~~~~~~                  
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from dowall.c:33:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: '__builtin___snprintf_chk' output 35 or more bytes (assuming 165) into a destination of size 81
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -Wl,-z,relro  last.o   -o last
+arm-linux-gnueabihf-gcc -Wl,-z,relro  shutdown.o dowall.o utmp.o   -o shutdown
+arm-linux-gnueabihf-gcc -Wl,-z,relro  bootlogd.o bootlogd.h  -lutil  -o bootlogd
+arm-linux-gnueabihf-gcc -Wl,-z,relro  sulogin.o consoles.o  -lselinux	 -lcrypt  -o sulogin
+arm-linux-gnueabihf-gcc -Wl,-z,relro  init.o init_utmp.o runlevellog.o  -lsepol -lselinux  -o init
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_test -a
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary-arch
+dh binary-arch 
+   debian/rules install-arch
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh build-arch 
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+   dh_auto_configure -a
+   debian/rules override_dh_auto_build
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make CC=arm-linux-gnueabihf-gcc WITH_SELINUX="yes" DISTRO=Debian LIBDIR=/usr/lib/arm-linux-gnueabihf CFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro"
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make VERSION=2.93 -C src all
+make[4]: Entering directory '/<<PKGBUILDDIR>>/src'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_test -a
+   create-stamp debian/debhelper-build-stamp
+dh install-arch 
+   dh_testroot -a
+   dh_prep -a
+   dh_installdirs -a
+   debian/rules override_dh_auto_install-arch
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make -C debian/src/bootlogd install DESTDIR=/<<PKGBUILDDIR>>/debian/bootlogd
+make[3]: Entering directory '/<<PKGBUILDDIR>>/debian/src/bootlogd'
+install -m755 -o root -g root -d /<<PKGBUILDDIR>>/debian/bootlogd/etc/.
+cp -afv etc/* /<<PKGBUILDDIR>>/debian/bootlogd/etc
+'etc/init.d' -> '/<<PKGBUILDDIR>>/debian/bootlogd/etc/init.d'
+'etc/init.d/bootlogd' -> '/<<PKGBUILDDIR>>/debian/bootlogd/etc/init.d/bootlogd'
+'etc/init.d/stop-bootlogd' -> '/<<PKGBUILDDIR>>/debian/bootlogd/etc/init.d/stop-bootlogd'
+'etc/init.d/stop-bootlogd-single' -> '/<<PKGBUILDDIR>>/debian/bootlogd/etc/init.d/stop-bootlogd-single'
+find /<<PKGBUILDDIR>>/debian/bootlogd/etc -type d -name .svn -print0 |xargs -r0 rm -r
+chmod 755 /<<PKGBUILDDIR>>/debian/bootlogd/etc/init.d/[a-z]*
+chmod -R g-w /<<PKGBUILDDIR>>/debian/bootlogd
+chown -R root:root /<<PKGBUILDDIR>>/debian/bootlogd
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/debian/src/bootlogd'
+/usr/bin/make -C debian/src/initscripts install DESTDIR=/<<PKGBUILDDIR>>/debian/initscripts
+make[3]: Entering directory '/<<PKGBUILDDIR>>/debian/src/initscripts'
+install -m755 -o root -g root -d /<<PKGBUILDDIR>>/debian/initscripts/lib/init/.
+install -m755 -o root -g root -d /<<PKGBUILDDIR>>/debian/initscripts/run/.
+install -m755 -o root -g root -d /<<PKGBUILDDIR>>/debian/initscripts/var/lib/initscripts/.
+install -m755 -o root -g root -d /<<PKGBUILDDIR>>/debian/initscripts/var/lib/urandom/.
+install -m755 -o root -g root -d /<<PKGBUILDDIR>>/debian/initscripts/var/log/fsck/.
+install -m755 -o root -g root -d /<<PKGBUILDDIR>>/debian/initscripts/usr/share/doc/initscripts/.
+install -m644 -o root -g root doc/* /<<PKGBUILDDIR>>/debian/initscripts/usr/share/doc/initscripts
+install -m755 -o root -g root -d /<<PKGBUILDDIR>>/debian/initscripts/etc/.
+install -m755 -o root -g root -d /<<PKGBUILDDIR>>/debian/initscripts/etc/default
+cp -afv etc/* /<<PKGBUILDDIR>>/debian/initscripts/etc
+'etc/default/devpts' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/default/devpts'
+'etc/default/halt' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/default/halt'
+'etc/default/rcS' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/default/rcS'
+'etc/default/tmpfs' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/default/tmpfs'
+'etc/hurd' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/hurd'
+'etc/hurd/runsystem.sysv' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/hurd/runsystem.sysv'
+'etc/init.d' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d'
+'etc/init.d/bootlogs' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/bootlogs'
+'etc/init.d/bootmisc.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/bootmisc.sh'
+'etc/init.d/brightness' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/brightness'
+'etc/init.d/checkfs.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/checkfs.sh'
+'etc/init.d/checkroot-bootclean.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/checkroot-bootclean.sh'
+'etc/init.d/checkroot.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/checkroot.sh'
+'etc/init.d/halt' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/halt'
+'etc/init.d/hostname.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/hostname.sh'
+'etc/init.d/killprocs' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/killprocs'
+'etc/init.d/mountall-bootclean.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/mountall-bootclean.sh'
+'etc/init.d/mountall.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/mountall.sh'
+'etc/init.d/mountdevsubfs.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/mountdevsubfs.sh'
+'etc/init.d/mountkernfs.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/mountkernfs.sh'
+'etc/init.d/mountnfs-bootclean.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/mountnfs-bootclean.sh'
+'etc/init.d/mountnfs.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/mountnfs.sh'
+'etc/init.d/rc.local' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/rc.local'
+'etc/init.d/reboot' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/reboot'
+'etc/init.d/rmnologin' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/rmnologin'
+'etc/init.d/sendsigs' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/sendsigs'
+'etc/init.d/single' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/single'
+'etc/init.d/umountfs' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/umountfs'
+'etc/init.d/umountnfs.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/umountnfs.sh'
+'etc/init.d/umountroot' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/umountroot'
+'etc/init.d/urandom' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/urandom'
+'etc/network' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/network'
+'etc/network/if-up.d' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/network/if-up.d'
+'etc/network/if-up.d/mountnfs' -> '/<<PKGBUILDDIR>>/debian/initscripts/etc/network/if-up.d/mountnfs'
+find /<<PKGBUILDDIR>>/debian/initscripts/etc -type d -name .svn -print0 |xargs -r0 rm -r
+cp -afv lib/init/* /<<PKGBUILDDIR>>/debian/initscripts/lib/init
+'lib/init/bootclean.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/lib/init/bootclean.sh'
+'lib/init/mount-functions.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/lib/init/mount-functions.sh'
+'lib/init/tmpfs.sh' -> '/<<PKGBUILDDIR>>/debian/initscripts/lib/init/tmpfs.sh'
+find /<<PKGBUILDDIR>>/debian/initscripts/lib -type d -name .svn  -print0 |xargs -r0 rm -r
+chmod 755 /<<PKGBUILDDIR>>/debian/initscripts/etc/init.d/[a-z]*
+chmod 755 /<<PKGBUILDDIR>>/debian/initscripts/etc/network/if-up.d/[a-z]*
+chmod 644 /<<PKGBUILDDIR>>/debian/initscripts/lib/init/*.sh
+chmod -R g-w /<<PKGBUILDDIR>>/debian/initscripts
+chown -R root:root /<<PKGBUILDDIR>>/debian/initscripts
+install -m755 -o root -g root -d /<<PKGBUILDDIR>>/debian/initscripts/sbin/.
+install -m755 -o root -g root sbin/fsck.nfs /<<PKGBUILDDIR>>/debian/initscripts/sbin/fsck.nfs
+install -m755 -o root -g root -d /<<PKGBUILDDIR>>/debian/initscripts/usr/share/man/man8
+install -m644 -o root -g root man/fsck.nfs.8 \
+	/<<PKGBUILDDIR>>/debian/initscripts/usr/share/man/man8/fsck.nfs.8
+install -m755 -o root -g root -d /<<PKGBUILDDIR>>/debian/initscripts/usr/share/man/man5
+install -m644 -o root -g root man/*.5 /<<PKGBUILDDIR>>/debian/initscripts/usr/share/man/man5/.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/debian/src/initscripts'
+/usr/bin/make -C src CC=arm-linux-gnueabihf-gcc ROOT=/<<PKGBUILDDIR>>/debian/tmp DISTRO=Debian install
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+install -m 755 -d /<<PKGBUILDDIR>>/debian/tmp/bin/ /<<PKGBUILDDIR>>/debian/tmp/sbin/
+install -m 755 -d /<<PKGBUILDDIR>>/debian/tmp/usr/bin/
+for i in ; do \
+		install -o root -g root -m 755 $i /<<PKGBUILDDIR>>/debian/tmp/bin/ ; \
+	done
+for i in init halt shutdown runlevel killall5 fstab-decode sulogin bootlogd; do \
+		install -o root -g root -m 755 $i /<<PKGBUILDDIR>>/debian/tmp/sbin/ ; \
+	done
+for i in last mesg readbootlog; do \
+		install -o root -g root -m 755 $i /<<PKGBUILDDIR>>/debian/tmp/usr/bin/ ; \
+	done
+# install -m 755 -d /<<PKGBUILDDIR>>/debian/tmp/etc/
+# install -o root -g root -m 755 ../doc/initscript.sample /<<PKGBUILDDIR>>/debian/tmp/etc/
+ln -sf halt /<<PKGBUILDDIR>>/debian/tmp/sbin/reboot
+ln -sf halt /<<PKGBUILDDIR>>/debian/tmp/sbin/poweroff
+ln -sf init /<<PKGBUILDDIR>>/debian/tmp/sbin/telinit
+ln -sf /sbin/killall5 /<<PKGBUILDDIR>>/debian/tmp/bin/pidof
+if [ ! -f /<<PKGBUILDDIR>>/debian/tmp/usr/bin/lastb ]; then \
+		ln -sf last /<<PKGBUILDDIR>>/debian/tmp/usr/bin/lastb; \
+	fi
+install -m 755 -d /<<PKGBUILDDIR>>/debian/tmp/usr/include/
+install -o root -g root -m 644 initreq.h /<<PKGBUILDDIR>>/debian/tmp/usr/include/
+install -m 755 -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man1/
+install -m 755 -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man5/
+install -m 755 -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man8/
+for man in last.1 lastb.1 mesg.1 readbootlog.1; do \
+		install -o root -g root -m 644 ../man/$man /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man1/; \
+		sed -i "1{ ; }" /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man1/$man ; \
+	done
+for man in initscript.5 inittab.5 initctl.5; do \
+		install -o root -g root -m 644 ../man/$man /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man5/; \
+		sed -i "1{ ; }" /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man5/$man ; \
+	done
+for man in halt.8 init.8 killall5.8 pidof.8 poweroff.8 reboot.8 runlevel.8 shutdown.8 telinit.8 fstab-decode.8 sulogin.8 bootlogd.8; do \
+		install -o root -g root -m 644 ../man/$man /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man8/; \
+		sed -i "1{ ; }" /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man8/$man ; \
+	done
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_install-arch
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+dh_install
+# sysvinit package
+if test -e debian/share/inittab.arm-linux-gnueabihf ; \
+then \
+	install -o root -g root -m 644 \
+		debian/share/inittab.arm-linux-gnueabihf \
+		/<<PKGBUILDDIR>>/debian/sysvinit-core/usr/share/sysvinit/inittab ; \
+elif test -e debian/share/inittab.linux-gnueabihf ; \
+then \
+	install -o root -g root -m 644 \
+		debian/share/inittab.linux-gnueabihf \
+		/<<PKGBUILDDIR>>/debian/sysvinit-core/usr/share/sysvinit/inittab ; \
+else \
+	install -o root -g root -m 644 debian/share/inittab \
+		/<<PKGBUILDDIR>>/debian/sysvinit-core/usr/share/sysvinit/inittab ; \
+fi
+# initscripts package may include /sys
+install -o root -g root -m 755 -d /<<PKGBUILDDIR>>/debian/initscripts/sys
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installdocs -a
+   debian/rules override_dh_installchangelogs-arch
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+dh_installchangelogs -psysvinit-core doc/Changelog
+dh_installchangelogs -psysvinit-utils doc/Changelog
+sed -i -ne '/sysvinit (2.86.ds1-47)/q' -e p \
+	/<<PKGBUILDDIR>>/debian/sysvinit-utils/usr/share/doc/sysvinit-utils/changelog.Debian
+dh_installchangelogs -pinitscripts
+sed -i -ne '/sysvinit (2.86.ds1-47)/q' -e p \
+	/<<PKGBUILDDIR>>/debian/initscripts/usr/share/doc/initscripts/changelog.Debian
+dh_installchangelogs -pbootlogd
+sed -i -ne '/sysvinit (2.86.ds1-47)/q' -e p \
+	/<<PKGBUILDDIR>>/debian/bootlogd/usr/share/doc/bootlogd/changelog.Debian
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installman -a
+   dh_installdebconf -a
+   dh_lintian -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   debian/rules override_dh_fixperms
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+dh_fixperms -X/etc/init.d/skeleton -X/etc/init.d/README
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_missing -a
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/sysvinit-core/sbin/init was not linked against libsepol.so.1 (it uses none of the library's symbols)
+   debian/rules override_dh_installdeb-arch
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_installdeb
+# Override autogenerated conffiles
+install -o root -g root -m 644 debian/initscripts.conffiles \
+	/<<PKGBUILDDIR>>/debian/initscripts/DEBIAN/conffiles
+rm -rf /<<PKGBUILDDIR>>/debian/initscripts/etc/hurd
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_gencontrol -a
+dpkg-gencontrol: warning: Depends field of package initscripts: substitution variable ${shlibs:Depends} used, but is not defined
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'sysvinit-core' in '../sysvinit-core_2.93-8_armhf.deb'.
+dpkg-deb: building package 'sysvinit-core-dbgsym' in '../sysvinit-core-dbgsym_2.93-8_armhf.deb'.
+dpkg-deb: building package 'sysvinit-utils' in '../sysvinit-utils_2.93-8_armhf.deb'.
+dpkg-deb: building package 'sysvinit-utils-dbgsym' in '../sysvinit-utils-dbgsym_2.93-8_armhf.deb'.
+dpkg-deb: building package 'bootlogd-dbgsym' in '../bootlogd-dbgsym_2.93-8_armhf.deb'.
+dpkg-deb: building package 'bootlogd' in '../bootlogd_2.93-8_armhf.deb'.
+dpkg-deb: building package 'initscripts' in '../initscripts_2.93-8_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../sysvinit_2.93-8_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-07T04:18:19Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+sysvinit_2.93-8_armhf.changes:
+------------------------------
+
+Format: 1.8
+Date: Thu, 14 Feb 2019 20:33:13 +0000
+Source: sysvinit
+Binary: bootlogd bootlogd-dbgsym initscripts sysvinit-core sysvinit-core-dbgsym sysvinit-utils sysvinit-utils-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 2.93-8
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Debian sysvinit maintainers <debian-init-diversity@chiark.greenend.org.uk>
+Changed-By: Dmitry Bogatov <KAction@debian.org>
+Description:
+ bootlogd   - daemon to log boot messages
+ initscripts - scripts for initializing and shutting down the system
+ sysvinit-core - System-V-like init utilities
+ sysvinit-utils - System-V-like utilities
+Changes:
+ sysvinit (2.93-8) unstable; urgency=medium
+ .
+   * Return alternative dependency on file-rc for convenience of
+     stretch -> bustern upgrade for file-rc users.
+Checksums-Sha1:
+ 7ce4b6f6ab24f088ca2b86bfa3eab78f1c8c06b4 15092 bootlogd-dbgsym_2.93-8_armhf.deb
+ f09f31783f0b9286b0b0ee2dd8936bb9942f6332 69944 bootlogd_2.93-8_armhf.deb
+ 6a10a466866be5dde9ad7ffaf28ce2c40369376f 93808 initscripts_2.93-8_armhf.deb
+ b464d2bd734c745fe12220c9ac56ccc59a3f99ab 96300 sysvinit-core-dbgsym_2.93-8_armhf.deb
+ 11a1c0d21f78087eb14739a2351050abd06281b0 144656 sysvinit-core_2.93-8_armhf.deb
+ 4d3db5e085b755738284e15d339e111ee900c2eb 28104 sysvinit-utils-dbgsym_2.93-8_armhf.deb
+ 267e287ac5a4ea7f8e0a3163eb24623dcf523769 76804 sysvinit-utils_2.93-8_armhf.deb
+ 99408771b23242586486d299e1105340fd88d4f9 6063 sysvinit_2.93-8_armhf.buildinfo
+Checksums-Sha256:
+ 292cbcd8f89137fb0ba783f30b8634da5c5b3a196207fcf56c9289a15302e167 15092 bootlogd-dbgsym_2.93-8_armhf.deb
+ 1026a87586bef6d8e46043f708f5cd63a3cdd133d20e7c96c93f5dffd7e10563 69944 bootlogd_2.93-8_armhf.deb
+ aa6d0b85f7a5cbfb4ad17dc5e5f5f1f12580b71cf5015217a4836119a2bca8e8 93808 initscripts_2.93-8_armhf.deb
+ 089ac59f9c1fd046a1501388f2567ae77a54fdaea0eacc5b99b0159423e052b2 96300 sysvinit-core-dbgsym_2.93-8_armhf.deb
+ e351caf3245d0d77c10fba4c3eeee4fccb2780f3d24e1e58b6758b87a6e9dfdb 144656 sysvinit-core_2.93-8_armhf.deb
+ f077033f03411de5dec955308bbfea4ce2faf8b7f8b97e584464fa6b67b7d072 28104 sysvinit-utils-dbgsym_2.93-8_armhf.deb
+ f4ead606319a0a50f6bcc6f993b3d9f132cf91ab5ea9723a9ee555241d299bd0 76804 sysvinit-utils_2.93-8_armhf.deb
+ f8eb97a227c838347e605ff2131901240de46c2b9c6f9e5cffec0138807f29f2 6063 sysvinit_2.93-8_armhf.buildinfo
+Files:
+ 914f2c89c7a1a3b9b9393328c4862943 15092 debug optional bootlogd-dbgsym_2.93-8_armhf.deb
+ 1b1f99781362f09ee8a4dcd22d26354a 69944 admin optional bootlogd_2.93-8_armhf.deb
+ 8b7f1fe853d3c5311b4ed30cd67fa368 93808 admin optional initscripts_2.93-8_armhf.deb
+ 9c55fc9c9c34872de8763a2b03569e3e 96300 debug optional sysvinit-core-dbgsym_2.93-8_armhf.deb
+ 0fe221ea6248b1ade2faf86d1d7767cc 144656 admin optional sysvinit-core_2.93-8_armhf.deb
+ de797d1d8eb7623d7f25431691273a45 28104 debug optional sysvinit-utils-dbgsym_2.93-8_armhf.deb
+ ef64634499d7459ddeb343ab58dc9164 76804 admin required sysvinit-utils_2.93-8_armhf.deb
+ 372022539e203883a4c48b8688d57ef1 6063 admin optional sysvinit_2.93-8_armhf.buildinfo
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: sysvinit
+Binary: sysvinit-core sysvinit-utils sysv-rc initscripts bootlogd
+Architecture: armhf
+Version: 2.93-8
+Checksums-Md5:
+ 914f2c89c7a1a3b9b9393328c4862943 15092 bootlogd-dbgsym_2.93-8_armhf.deb
+ 1b1f99781362f09ee8a4dcd22d26354a 69944 bootlogd_2.93-8_armhf.deb
+ 8b7f1fe853d3c5311b4ed30cd67fa368 93808 initscripts_2.93-8_armhf.deb
+ 9c55fc9c9c34872de8763a2b03569e3e 96300 sysvinit-core-dbgsym_2.93-8_armhf.deb
+ 0fe221ea6248b1ade2faf86d1d7767cc 144656 sysvinit-core_2.93-8_armhf.deb
+ de797d1d8eb7623d7f25431691273a45 28104 sysvinit-utils-dbgsym_2.93-8_armhf.deb
+ ef64634499d7459ddeb343ab58dc9164 76804 sysvinit-utils_2.93-8_armhf.deb
+Checksums-Sha1:
+ 7ce4b6f6ab24f088ca2b86bfa3eab78f1c8c06b4 15092 bootlogd-dbgsym_2.93-8_armhf.deb
+ f09f31783f0b9286b0b0ee2dd8936bb9942f6332 69944 bootlogd_2.93-8_armhf.deb
+ 6a10a466866be5dde9ad7ffaf28ce2c40369376f 93808 initscripts_2.93-8_armhf.deb
+ b464d2bd734c745fe12220c9ac56ccc59a3f99ab 96300 sysvinit-core-dbgsym_2.93-8_armhf.deb
+ 11a1c0d21f78087eb14739a2351050abd06281b0 144656 sysvinit-core_2.93-8_armhf.deb
+ 4d3db5e085b755738284e15d339e111ee900c2eb 28104 sysvinit-utils-dbgsym_2.93-8_armhf.deb
+ 267e287ac5a4ea7f8e0a3163eb24623dcf523769 76804 sysvinit-utils_2.93-8_armhf.deb
+Checksums-Sha256:
+ 292cbcd8f89137fb0ba783f30b8634da5c5b3a196207fcf56c9289a15302e167 15092 bootlogd-dbgsym_2.93-8_armhf.deb
+ 1026a87586bef6d8e46043f708f5cd63a3cdd133d20e7c96c93f5dffd7e10563 69944 bootlogd_2.93-8_armhf.deb
+ aa6d0b85f7a5cbfb4ad17dc5e5f5f1f12580b71cf5015217a4836119a2bca8e8 93808 initscripts_2.93-8_armhf.deb
+ 089ac59f9c1fd046a1501388f2567ae77a54fdaea0eacc5b99b0159423e052b2 96300 sysvinit-core-dbgsym_2.93-8_armhf.deb
+ e351caf3245d0d77c10fba4c3eeee4fccb2780f3d24e1e58b6758b87a6e9dfdb 144656 sysvinit-core_2.93-8_armhf.deb
+ f077033f03411de5dec955308bbfea4ce2faf8b7f8b97e584464fa6b67b7d072 28104 sysvinit-utils-dbgsym_2.93-8_armhf.deb
+ f4ead606319a0a50f6bcc6f993b3d9f132cf91ab5ea9723a9ee555241d299bd0 76804 sysvinit-utils_2.93-8_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Thu, 07 Mar 2019 04:18:19 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-15),
+ binutils-common (= 2.31.1-15),
+ binutils-x86-64-linux-gnu (= 2.31.1-15),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.6),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-3),
+ cpp (= 4:8.3.0-1),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffstat (= 1.62-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-4),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.3.0-1),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.3.0-1),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-3),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.53-4),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.48-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-15),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-8),
+ libc-dev-bin (= 2.28-8),
+ libc6 (= 2.28-8),
+ libc6-dev (= 2.28-8),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.248),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-4),
+ libmagic1 (= 1:5.35-4),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre16-3 (= 2:8.39-11),
+ libpcre3 (= 2:8.39-11),
+ libpcre3-dev (= 2:8.39-11),
+ libpcre32-3 (= 2:8.39-11),
+ libpcrecpp0v5 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libquadmath0 (= 8.3.0-2),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libselinux1-dev (= 2.8-1+b1),
+ libsepol1 (= 2.8-1),
+ libsepol1-dev (= 2.8-1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ po-debconf (= 1.0.21),
+ quilt (= 0.65-3),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1550176393"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+bootlogd-dbgsym_2.93-8_armhf.deb
+--------------------------------
+
+ new Debian package, version 2.0.
+ size 15092 bytes: control archive=540 bytes.
+     373 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: bootlogd-dbgsym
+ Source: sysvinit
+ Version: 2.93-8
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian sysvinit maintainers <debian-init-diversity@chiark.greenend.org.uk>
+ Installed-Size: 29
+ Depends: bootlogd (= 2.93-8)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for bootlogd
+ Build-Ids: a4368f2789a3977d352f0dd4f2e4d51a6f9d62e8
+
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/debug/.build-id/a4/
+-rw-r--r-- root/root     19172 2019-02-14 20:33 ./usr/lib/debug/.build-id/a4/368f2789a3977d352f0dd4f2e4d51a6f9d62e8.debug
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2019-02-14 20:33 ./usr/share/doc/bootlogd-dbgsym -> bootlogd
+
+
+bootlogd_2.93-8_armhf.deb
+-------------------------
+
+ new Debian package, version 2.0.
+ size 69944 bytes: control archive=1484 bytes.
+      80 bytes,     3 lines      conffiles            
+     673 bytes,    17 lines      control              
+     400 bytes,     6 lines      md5sums              
+     748 bytes,    33 lines   *  postinst             #!/bin/sh
+     611 bytes,    33 lines   *  postrm               #!/bin/sh
+ Package: bootlogd
+ Source: sysvinit
+ Version: 2.93-8
+ Architecture: armhf
+ Maintainer: Debian sysvinit maintainers <debian-init-diversity@chiark.greenend.org.uk>
+ Installed-Size: 95
+ Depends: lsb-base (>= 3.2-14), libc6 (>= 2.28)
+ Section: admin
+ Priority: optional
+ Homepage: http://savannah.nongnu.org/projects/sysvinit
+ Description: daemon to log boot messages
+  bootlogd logs all messages printed to the system console during system boot,
+  and records those messages to a logfile.
+  .
+  Note that not all init systems print messages to the system console,
+  so that the logfile may remain empty; this is the case with systemd
+  (the default init system). Try "journalctl -b" instead.
+
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./etc/
+drwxr-xr-x root/root         0 2019-02-03 19:37 ./etc/init.d/
+-rwxr-xr-x root/root      2572 2019-02-03 19:37 ./etc/init.d/bootlogd
+-rwxr-xr-x root/root       599 2018-10-29 02:00 ./etc/init.d/stop-bootlogd
+-rwxr-xr-x root/root      1175 2018-10-29 02:00 ./etc/init.d/stop-bootlogd-single
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./sbin/
+-rwxr-xr-x root/root     10004 2019-02-14 20:33 ./sbin/bootlogd
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/doc/bootlogd/
+-rw-r--r-- root/root     39377 2019-02-14 20:33 ./usr/share/doc/bootlogd/changelog.Debian.gz
+-rw-r--r-- root/root     18428 2018-11-24 16:38 ./usr/share/doc/bootlogd/changelog.gz
+-rw-r--r-- root/root      2267 2018-11-03 18:50 ./usr/share/doc/bootlogd/copyright
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/lintian/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/lintian/overrides/
+-rw-r--r-- root/root       549 2018-11-01 16:40 ./usr/share/lintian/overrides/bootlogd
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/man/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/man/man8/
+-rw-r--r-- root/root      1540 2019-02-14 20:33 ./usr/share/man/man8/bootlogd.8.gz
+
+
+initscripts_2.93-8_armhf.deb
+----------------------------
+
+ new Debian package, version 2.0.
+ size 93808 bytes: control archive=4604 bytes.
+     681 bytes,    29 lines      conffiles            
+     731 bytes,    16 lines      control              
+     920 bytes,    14 lines      md5sums              
+    6716 bytes,   243 lines   *  postinst             #!/bin/sh
+    1886 bytes,    82 lines   *  postrm               #!/bin/sh
+    1731 bytes,    58 lines   *  preinst              #!/bin/sh
+     460 bytes,     8 lines   *  prerm                #!/bin/sh
+ Package: initscripts
+ Source: sysvinit
+ Version: 2.93-8
+ Architecture: armhf
+ Maintainer: Debian sysvinit maintainers <debian-init-diversity@chiark.greenend.org.uk>
+ Installed-Size: 213
+ Depends: coreutils (>= 5.93), debianutils (>= 4), lsb-base (>= 3.2-14), sysv-rc | file-rc | openrc, sysvinit-utils (>= 2.88dsf-59.5), mount
+ Recommends: e2fsprogs, psmisc
+ Breaks: hurd (<< 0.5.git20131101~), ifupdown (<< 0.7.46), util-linux (<< 2.26.2-4~)
+ Section: admin
+ Priority: optional
+ Multi-Arch: foreign
+ Homepage: http://savannah.nongnu.org/projects/sysvinit
+ Description: scripts for initializing and shutting down the system
+  The scripts in this package initialize a standard Debian
+  system at boot time and shut it down at halt or reboot time.
+
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./etc/
+drwxr-xr-x root/root         0 2018-12-29 09:28 ./etc/default/
+-rw-r--r-- root/root        92 2018-10-26 04:36 ./etc/default/devpts
+-rw-r--r-- root/root        86 2018-10-26 04:36 ./etc/default/halt
+-rw-r--r-- root/root       821 2018-10-26 04:36 ./etc/default/rcS
+-rw-r--r-- root/root      1318 2018-10-26 04:36 ./etc/default/tmpfs
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./etc/init.d/
+-rwxr-xr-x root/root      1276 2019-02-14 20:33 ./etc/init.d/bootlogs
+-rwxr-xr-x root/root      1232 2019-02-03 19:37 ./etc/init.d/bootmisc.sh
+-rwxr-xr-x root/root      2178 2019-02-03 19:37 ./etc/init.d/brightness
+-rwxr-xr-x root/root      3643 2019-02-03 19:37 ./etc/init.d/checkfs.sh
+-rwxr-xr-x root/root      1072 2018-10-26 04:36 ./etc/init.d/checkroot-bootclean.sh
+-rwxr-xr-x root/root      9522 2019-02-03 19:37 ./etc/init.d/checkroot.sh
+-rwxr-xr-x root/root      1336 2018-10-26 04:36 ./etc/init.d/halt
+-rwxr-xr-x root/root       927 2019-02-03 19:37 ./etc/init.d/hostname.sh
+-rwxr-xr-x root/root      1300 2018-10-26 04:36 ./etc/init.d/killprocs
+-rwxr-xr-x root/root       677 2018-10-26 04:36 ./etc/init.d/mountall-bootclean.sh
+-rwxr-xr-x root/root      2731 2019-02-03 19:37 ./etc/init.d/mountall.sh
+-rwxr-xr-x root/root      1461 2018-10-26 04:36 ./etc/init.d/mountdevsubfs.sh
+-rwxr-xr-x root/root      1564 2018-10-26 04:36 ./etc/init.d/mountkernfs.sh
+-rwxr-xr-x root/root       685 2018-10-26 04:36 ./etc/init.d/mountnfs-bootclean.sh
+-rwxr-xr-x root/root      2446 2019-02-03 19:37 ./etc/init.d/mountnfs.sh
+-rwxr-xr-x root/root       820 2018-10-26 04:36 ./etc/init.d/rc.local
+-rwxr-xr-x root/root       661 2018-10-26 04:36 ./etc/init.d/reboot
+-rwxr-xr-x root/root      1037 2018-10-29 02:00 ./etc/init.d/rmnologin
+-rwxr-xr-x root/root      3207 2018-10-26 04:36 ./etc/init.d/sendsigs
+-rwxr-xr-x root/root       592 2018-10-29 02:00 ./etc/init.d/single
+-rwxr-xr-x root/root      2770 2019-02-03 19:37 ./etc/init.d/umountfs
+-rwxr-xr-x root/root      2260 2019-02-03 19:37 ./etc/init.d/umountnfs.sh
+-rwxr-xr-x root/root      1234 2018-10-26 04:36 ./etc/init.d/umountroot
+-rwxr-xr-x root/root      3111 2018-10-26 04:36 ./etc/init.d/urandom
+drwxr-xr-x root/root         0 2018-10-26 04:36 ./etc/network/
+drwxr-xr-x root/root         0 2019-02-03 19:37 ./etc/network/if-up.d/
+-rwxr-xr-x root/root      4948 2019-02-03 19:37 ./etc/network/if-up.d/mountnfs
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./lib/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./lib/init/
+-rw-r--r-- root/root      4628 2019-02-03 19:37 ./lib/init/bootclean.sh
+-rw-r--r-- root/root     17686 2019-02-14 20:33 ./lib/init/mount-functions.sh
+-rw-r--r-- root/root      3336 2018-10-26 04:36 ./lib/init/tmpfs.sh
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./run/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./sbin/
+-rwxr-xr-x root/root       333 2019-02-14 20:33 ./sbin/fsck.nfs
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./sys/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/doc/initscripts/
+-rw-r--r-- root/root       921 2018-10-26 04:36 ./usr/share/doc/initscripts/NEWS.Debian.gz
+-rw-r--r-- root/root      2116 2019-02-14 20:33 ./usr/share/doc/initscripts/README.Debian
+-rw-r--r-- root/root     39377 2019-02-14 20:33 ./usr/share/doc/initscripts/changelog.Debian.gz
+-rw-r--r-- root/root     18428 2018-11-24 16:38 ./usr/share/doc/initscripts/changelog.gz
+-rw-r--r-- root/root      2267 2018-11-03 18:50 ./usr/share/doc/initscripts/copyright
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/lintian/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/lintian/overrides/
+-rw-r--r-- root/root      2246 2019-02-03 19:37 ./usr/share/lintian/overrides/initscripts
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/man/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/man/man5/
+-rw-r--r-- root/root       966 2019-02-14 20:33 ./usr/share/man/man5/halt.5.gz
+-rw-r--r-- root/root      1802 2019-02-14 20:33 ./usr/share/man/man5/rcS.5.gz
+-rw-r--r-- root/root      2607 2019-02-14 20:33 ./usr/share/man/man5/tmpfs.5.gz
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/man/man8/
+-rw-r--r-- root/root       326 2019-02-14 20:33 ./usr/share/man/man8/fsck.nfs.8.gz
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./var/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./var/lib/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./var/lib/initscripts/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./var/lib/urandom/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./var/log/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./var/log/fsck/
+
+
+sysvinit-core-dbgsym_2.93-8_armhf.deb
+-------------------------------------
+
+ new Debian package, version 2.0.
+ size 96300 bytes: control archive=704 bytes.
+     512 bytes,    12 lines      control              
+     424 bytes,     4 lines      md5sums              
+ Package: sysvinit-core-dbgsym
+ Source: sysvinit
+ Version: 2.93-8
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian sysvinit maintainers <debian-init-diversity@chiark.greenend.org.uk>
+ Installed-Size: 135
+ Depends: sysvinit-core (= 2.93-8)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for sysvinit-core
+ Build-Ids: 00dce18d0a1f587df26131459137fc781d4867d5 2bb97d8c9862194315aeae29e63e085113adf54a 75018b30f54549030a9614ac958bcc5d75b4ebdc 953849c92689ae6d68eb431bd768885becc681f8
+
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/debug/.build-id/00/
+-rw-r--r-- root/root     54024 2019-02-14 20:33 ./usr/lib/debug/.build-id/00/dce18d0a1f587df26131459137fc781d4867d5.debug
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/debug/.build-id/2b/
+-rw-r--r-- root/root     25728 2019-02-14 20:33 ./usr/lib/debug/.build-id/2b/b97d8c9862194315aeae29e63e085113adf54a.debug
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/debug/.build-id/75/
+-rw-r--r-- root/root      9212 2019-02-14 20:33 ./usr/lib/debug/.build-id/75/018b30f54549030a9614ac958bcc5d75b4ebdc.debug
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/debug/.build-id/95/
+-rw-r--r-- root/root     34180 2019-02-14 20:33 ./usr/lib/debug/.build-id/95/3849c92689ae6d68eb431bd768885becc681f8.debug
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2019-02-14 20:33 ./usr/share/doc/sysvinit-core-dbgsym -> sysvinit-core
+
+
+sysvinit-core_2.93-8_armhf.deb
+------------------------------
+
+ new Debian package, version 2.0.
+ size 144656 bytes: control archive=4208 bytes.
+    1019 bytes,    44 lines   *  config               #!/bin/sh
+     955 bytes,    21 lines      control              
+     925 bytes,    15 lines      md5sums              
+    2487 bytes,   136 lines   *  postinst             #!/bin/sh
+     213 bytes,     8 lines   *  postrm               #!/bin/sh
+    3101 bytes,    32 lines      templates            
+ Package: sysvinit-core
+ Source: sysvinit
+ Version: 2.93-8
+ Architecture: armhf
+ Maintainer: Debian sysvinit maintainers <debian-init-diversity@chiark.greenend.org.uk>
+ Installed-Size: 215
+ Depends: debianutils (>= 4), initscripts (>= 2.88dsf-13.3), sysv-rc | file-rc | openrc, sysvinit-utils (>= 2.86.ds1-66), debconf (>= 0.5) | debconf-2.0, libc6 (>= 2.28), libselinux1 (>= 1.32), libsepol1 (>= 2.4)
+ Suggests: bootlogd
+ Conflicts: systemd-sysv, upstart
+ Replaces: systemd-sysv, sysvinit (<< 2.88dsf-44~), upstart
+ Section: admin
+ Priority: optional
+ Homepage: http://savannah.nongnu.org/projects/sysvinit
+ Description: System-V-like init utilities
+  This package contains programs required for booting
+  a Debian system and doing basic process management.
+  .
+  The most important program in the package is /sbin/init.
+  It is the first process started on boot and continues
+  to run as process number 1 until the system halts. All
+  other processes are descended from it.
+
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./sbin/
+-rwxr-xr-x root/root     14008 2019-02-14 20:33 ./sbin/halt
+-rwxr-xr-x root/root     31212 2019-02-14 20:33 ./sbin/init
+lrwxrwxrwx root/root         0 2019-02-14 20:33 ./sbin/poweroff -> halt
+lrwxrwxrwx root/root         0 2019-02-14 20:33 ./sbin/reboot -> halt
+-rwxr-xr-x root/root      5644 2019-02-14 20:33 ./sbin/runlevel
+-rwxr-xr-x root/root     18252 2019-02-14 20:33 ./sbin/shutdown
+lrwxrwxrwx root/root         0 2019-02-14 20:33 ./sbin/telinit -> init
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/include/
+-rw-r--r-- root/root      2446 2019-02-14 20:33 ./usr/include/initreq.h
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/doc/sysvinit-core/
+-rw-r--r-- root/root     72991 2019-02-14 20:33 ./usr/share/doc/sysvinit-core/changelog.Debian.gz
+-rw-r--r-- root/root     18428 2018-11-24 16:38 ./usr/share/doc/sysvinit-core/changelog.gz
+-rw-r--r-- root/root      2267 2018-11-03 18:50 ./usr/share/doc/sysvinit-core/copyright
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/man/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/man/man5/
+-rw-r--r-- root/root      1289 2019-02-14 20:33 ./usr/share/man/man5/initscript.5.gz
+-rw-r--r-- root/root      3328 2019-02-14 20:33 ./usr/share/man/man5/inittab.5.gz
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/man/man8/
+-rw-r--r-- root/root      1831 2019-02-14 20:33 ./usr/share/man/man8/halt.8.gz
+-rw-r--r-- root/root      5530 2019-02-14 20:33 ./usr/share/man/man8/init.8.gz
+lrwxrwxrwx root/root         0 2019-02-14 20:33 ./usr/share/man/man8/poweroff.8.gz -> halt.8.gz
+lrwxrwxrwx root/root         0 2019-02-14 20:33 ./usr/share/man/man8/reboot.8.gz -> halt.8.gz
+-rw-r--r-- root/root      1035 2019-02-14 20:33 ./usr/share/man/man8/runlevel.8.gz
+-rw-r--r-- root/root      3732 2019-02-14 20:33 ./usr/share/man/man8/shutdown.8.gz
+lrwxrwxrwx root/root         0 2019-02-14 20:33 ./usr/share/man/man8/telinit.8.gz -> init.8.gz
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/sysvinit/
+-rw-r--r-- root/root      2338 2019-02-14 20:33 ./usr/share/sysvinit/inittab
+
+
+sysvinit-utils-dbgsym_2.93-8_armhf.deb
+--------------------------------------
+
+ new Debian package, version 2.0.
+ size 28104 bytes: control archive=600 bytes.
+     432 bytes,    12 lines      control              
+     212 bytes,     2 lines      md5sums              
+ Package: sysvinit-utils-dbgsym
+ Source: sysvinit
+ Version: 2.93-8
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian sysvinit maintainers <debian-init-diversity@chiark.greenend.org.uk>
+ Installed-Size: 48
+ Depends: sysvinit-utils (= 2.93-8)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for sysvinit-utils
+ Build-Ids: 5b907a3fb77f58e35af6d65328118bb327f0b170 e4e3985c4d6967faa5a492e3585d82bf5e773c18
+
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/debug/.build-id/5b/
+-rw-r--r-- root/root      7972 2019-02-14 20:33 ./usr/lib/debug/.build-id/5b/907a3fb77f58e35af6d65328118bb327f0b170.debug
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/lib/debug/.build-id/e4/
+-rw-r--r-- root/root     29228 2019-02-14 20:33 ./usr/lib/debug/.build-id/e4/e3985c4d6967faa5a492e3585d82bf5e773c18.debug
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2019-02-14 20:33 ./usr/share/doc/sysvinit-utils-dbgsym -> sysvinit-utils
+
+
+sysvinit-utils_2.93-8_armhf.deb
+-------------------------------
+
+ new Debian package, version 2.0.
+ size 76804 bytes: control archive=1020 bytes.
+     611 bytes,    19 lines      control              
+     792 bytes,    12 lines      md5sums              
+ Package: sysvinit-utils
+ Source: sysvinit
+ Version: 2.93-8
+ Architecture: armhf
+ Essential: yes
+ Maintainer: Debian sysvinit maintainers <debian-init-diversity@chiark.greenend.org.uk>
+ Installed-Size: 109
+ Depends: init-system-helpers (>= 1.25~), util-linux (>> 2.28-2~), libc6 (>= 2.4)
+ Breaks: systemd (<< 215)
+ Replaces: initscripts (<< 2.88dsf-59.5)
+ Section: admin
+ Priority: required
+ Multi-Arch: foreign
+ Homepage: http://savannah.nongnu.org/projects/sysvinit
+ Description: System-V-like utilities
+  This package contains the important System-V-like utilities.
+  .
+  Specifically, this package includes:
+  killall5, pidof
+
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./bin/
+lrwxrwxrwx root/root         0 2019-02-14 20:33 ./bin/pidof -> /sbin/killall5
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./lib/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./lib/init/
+-rwxr-xr-x root/root      5870 2019-02-14 20:33 ./lib/init/init-d-script
+-rw-r--r-- root/root      1212 2018-10-26 04:36 ./lib/init/vars.sh
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./sbin/
+-rwxr-xr-x root/root      5620 2019-02-14 20:33 ./sbin/fstab-decode
+-rwxr-xr-x root/root     14136 2019-02-14 20:33 ./sbin/killall5
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/doc/sysvinit-utils/
+-rw-r--r-- root/root       301 2018-10-26 04:36 ./usr/share/doc/sysvinit-utils/NEWS.Debian.gz
+-rw-r--r-- root/root     39377 2019-02-14 20:33 ./usr/share/doc/sysvinit-utils/changelog.Debian.gz
+-rw-r--r-- root/root     18428 2018-11-24 16:38 ./usr/share/doc/sysvinit-utils/changelog.gz
+-rw-r--r-- root/root      2267 2018-11-03 18:50 ./usr/share/doc/sysvinit-utils/copyright
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/man/
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/man/man5/
+-rw-r--r-- root/root      1257 2019-02-14 20:33 ./usr/share/man/man5/init-d-script.5.gz
+drwxr-xr-x root/root         0 2019-02-14 20:33 ./usr/share/man/man8/
+-rw-r--r-- root/root       852 2019-02-14 20:33 ./usr/share/man/man8/fstab-decode.8.gz
+-rw-r--r-- root/root      1023 2019-02-14 20:33 ./usr/share/man/man8/killall5.8.gz
+-rw-r--r-- root/root      1720 2019-02-14 20:33 ./usr/share/man/man8/pidof.8.gz
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [579 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [656 B]
+Fetched 2198 B in 0s (167 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl libclass-accessor-perl
+  libclone-perl libdigest-hmac-perl libemail-valid-perl libexporter-tiny-perl
+  libfile-basedir-perl libfuture-perl libio-async-perl libio-pty-perl
+  libipc-run-perl libipc-system-simple-perl liblist-moreutils-perl
+  libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl libclass-accessor-perl
+  libclone-perl libdigest-hmac-perl libemail-valid-perl libexporter-tiny-perl
+  libfile-basedir-perl libfuture-perl libio-async-perl libio-pty-perl
+  libipc-run-perl libipc-system-simple-perl liblist-moreutils-perl
+  libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 27 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2938 kB of archives.
+After this operation, 9286 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [848 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://cdn-fastly.deb.debian.org/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://cdn-fastly.deb.debian.org/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://cdn-fastly.deb.debian.org/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 5s (584 kB/s)
+Selecting previously unselected package libapt-pkg-perl.
+(Reading database ... 19674 files and directories currently installed.)
+Preparing to unpack .../00-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../01-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../02-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../03-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../04-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../05-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../06-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../07-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../08-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../09-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../10-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../11-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../12-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../13-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../14-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../15-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../16-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../17-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../18-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../19-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../20-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../21-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../22-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../23-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../24-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../25-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../26-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+N: 37 tags overridden (6 errors, 30 warnings, 1 info); 3 unused overrides
+N: Some overrides were ignored, since the tags were marked "non-overridable".
+N: Use --verbose for more information.
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* dwz* gcc-8-base:armhf*
+  gettext* gettext-base* groff-base* intltool-debian* libapt-pkg-perl*
+  libarchive-zip-perl* libasan5:armhf* libatomic1:armhf* libbsd0* libc6:armhf*
+  libc6-dev:armhf* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclone-perl* libcroco3* libdigest-hmac-perl*
+  libelf1* libemail-valid-perl* libexporter-tiny-perl* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfuture-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libglib2.0-0* libgomp1:armhf* libio-async-perl*
+  libio-pty-perl* libipc-run-perl* libipc-system-simple-perl*
+  liblist-moreutils-perl* libncurses6* libnet-dns-perl*
+  libnet-domain-tld-perl* libnet-ip-perl* libparse-debianchangelog-perl*
+  libpath-tiny-perl* libpcre16-3:armhf* libpcre3:armhf* libpcre3-dev:armhf*
+  libpcre32-3:armhf* libpcrecpp0v5:armhf* libpipeline1* libselinux1:armhf*
+  libselinux1-dev:armhf* libsepol1:armhf* libsepol1-dev:armhf* libsigsegv2*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libstruct-dumb-perl*
+  libsub-name-perl* libtext-levenshtein-perl* libtool* libubsan1:armhf*
+  libuchardet0* lintian* linux-libc-dev:armhf* m4* man-db* patchutils*
+  po-debconf* quilt* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils*
+0 upgraded, 0 newly installed, 78 to remove and 0 not upgraded.
+After this operation, 94.7 MB disk space will be freed.
+(Reading database ... 20945 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing quilt (0.65-3) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libselinux1-dev:armhf (2.8-1+b1) ...
+Removing libpcre3-dev:armhf (2:8.39-11) ...
+Removing libpcrecpp0v5:armhf (2:8.39-11) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libpcre32-3:armhf (2:8.39-11) ...
+Removing libc6-dev:armhf (2.28-8) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libpcre16-3:armhf (2:8.39-11) ...
+Removing libselinux1:armhf (2.8-1+b1) ...
+Removing libpcre3:armhf (2:8.39-11) ...
+Removing libsepol1-dev:armhf (2.8-1) ...
+Removing libsepol1:armhf (2.8-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-3) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-8) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-8) ...
+(Reading database ... 16460 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for quilt (0.65-3) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-8) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 7
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 8
+Job: /home/build/sbuild-setup/repo/pool/main/s/sysvinit/sysvinit_2.93-8.dsc
+Lintian: pass
+Machine Architecture: amd64
+Package: sysvinit
+Package-Time: 18
+Source-Version: 2.93-8
+Space: n/a
+Status: successful
+Version: 2.93-8
+--------------------------------------------------------------------------------
+Finished at 2019-03-07T04:18:19Z
+Build needed 00:00:18, no disk space

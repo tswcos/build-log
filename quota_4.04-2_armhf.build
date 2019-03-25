@@ -1,0 +1,1852 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| quota 4.04-2 (armhf)                         Fri, 08 Mar 2019 08:21:31 +0000 |
++==============================================================================+
+
+Package: quota
+Version: 4.04-2
+Source Version: 4.04-2
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-11ff3cfc-55a4-4b91-a5fb-d24648acb9f9' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/quota-l65cNE/resolver-UJD50u' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/q/quota/quota_4.04-2.dsc exists in /home/build/sbuild-setup/repo/pool/main/q/quota; copying to chroot
+I: NOTICE: Log filtering will replace 'build/quota-l65cNE/quota-4.04' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/quota-l65cNE' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 11), gettext, libwrap0-dev, e2fslibs-dev, po-debconf (>= 0.5.0), libldap2-dev, quilt (>= 0.46-7), libnl-3-dev, libnl-genl-3-dev, libdbus-1-dev, libtirpc-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 11), gettext, libwrap0-dev, e2fslibs-dev, po-debconf (>= 0.5.0), libldap2-dev, quilt (>= 0.46-7), libnl-3-dev, libnl-genl-3-dev, libdbus-1-dev, libtirpc-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [464 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [553 B]
+Fetched 1974 B in 0s (151 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils comerr-dev:armhf
+  debhelper dh-autoreconf dh-strip-nondeterminism diffstat dwz
+  gcc-8-base:armhf gettext gettext-base groff-base intltool-debian
+  libarchive-zip-perl libasan5:armhf libatomic1:armhf libbsd0 libc6:armhf
+  libc6-dev:armhf libcom-err2:armhf libcroco3 libdb5.3:armhf libdbus-1-3:armhf
+  libdbus-1-dev:armhf libelf1 libext2fs-dev:armhf libext2fs2:armhf
+  libffi6:armhf libfile-stripnondeterminism-perl libgcc-8-dev:armhf
+  libgcc1:armhf libgcrypt20:armhf libglib2.0-0 libgmp10:armhf
+  libgnutls30:armhf libgomp1:armhf libgpg-error0:armhf libgssapi-krb5-2:armhf
+  libhogweed4:armhf libidn2-0:armhf libk5crypto3:armhf libkeyutils1:armhf
+  libkrb5-3:armhf libkrb5support0:armhf libldap-2.4-2:armhf libldap2-dev:armhf
+  liblz4-1:armhf liblzma5:armhf libncurses6 libnettle6:armhf libnl-3-200:armhf
+  libnl-3-dev:armhf libnl-genl-3-200:armhf libnl-genl-3-dev:armhf
+  libp11-kit0:armhf libpipeline1 libsasl2-2:armhf libsasl2-modules-db:armhf
+  libsigsegv2 libssl1.1:armhf libstdc++-8-dev:armhf libstdc++6:armhf
+  libsystemd0:armhf libtasn1-6:armhf libtirpc-common libtirpc-dev:armhf
+  libtirpc3:armhf libtool libubsan1:armhf libuchardet0 libunistring2:armhf
+  libwrap0:armhf libwrap0-dev:armhf linux-libc-dev:armhf m4 man-db pkg-config
+  po-debconf quilt
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation doc-base:armhf dh-make gettext-doc libasprintf-dev libgettextpo-dev
+  groff glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  rng-tools:armhf gnutls-bin:armhf krb5-doc:armhf krb5-user:armhf
+  libstdc++-8-doc:armhf libtool-doc gfortran | fortran95-compiler gcj-jdk
+  m4-doc apparmor less www-browser libmail-box-perl default-mta
+  | mail-transport-agent graphviz procmail
+Recommended packages:
+  curl | wget | lynx dbus:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpg-error-l10n:armhf krb5-locales:armhf
+  libgpm2 libsasl2-modules:armhf libltdl-dev libmail-sendmail-perl less
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils comerr-dev:armhf
+  debhelper dh-autoreconf dh-strip-nondeterminism diffstat dwz
+  gcc-8-base:armhf gettext gettext-base groff-base intltool-debian
+  libarchive-zip-perl libasan5:armhf libatomic1:armhf libbsd0 libc6:armhf
+  libc6-dev:armhf libcom-err2:armhf libcroco3 libdb5.3:armhf libdbus-1-3:armhf
+  libdbus-1-dev:armhf libelf1 libext2fs-dev:armhf libext2fs2:armhf
+  libffi6:armhf libfile-stripnondeterminism-perl libgcc-8-dev:armhf
+  libgcc1:armhf libgcrypt20:armhf libglib2.0-0 libgmp10:armhf
+  libgnutls30:armhf libgomp1:armhf libgpg-error0:armhf libgssapi-krb5-2:armhf
+  libhogweed4:armhf libidn2-0:armhf libk5crypto3:armhf libkeyutils1:armhf
+  libkrb5-3:armhf libkrb5support0:armhf libldap-2.4-2:armhf libldap2-dev:armhf
+  liblz4-1:armhf liblzma5:armhf libncurses6 libnettle6:armhf libnl-3-200:armhf
+  libnl-3-dev:armhf libnl-genl-3-200:armhf libnl-genl-3-dev:armhf
+  libp11-kit0:armhf libpipeline1 libsasl2-2:armhf libsasl2-modules-db:armhf
+  libsigsegv2 libssl1.1:armhf libstdc++-8-dev:armhf libstdc++6:armhf
+  libsystemd0:armhf libtasn1-6:armhf libtirpc-common libtirpc-dev:armhf
+  libtirpc3:armhf libtool libubsan1:armhf libuchardet0 libunistring2:armhf
+  libwrap0:armhf libwrap0-dev:armhf linux-libc-dev:armhf m4 man-db pkg-config
+  po-debconf quilt sbuild-build-depends-main-dummy:armhf
+0 upgraded, 83 newly installed, 0 to remove and 0 not upgraded.
+Need to get 5563 kB/32.0 MB of archives.
+After this operation, 106 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [976 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main armhf comerr-dev armhf 2.1-1.45.0-1 [162 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main armhf libext2fs2 armhf 1.45.0-1 [240 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian sid/main armhf libext2fs-dev armhf 1.45.0-1 [4911 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian sid/main armhf libnl-genl-3-200 armhf 3.4.0-1 [19.3 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian sid/main armhf libnl-genl-3-dev armhf 3.4.0-1 [19.3 kB]
+Get:7 http://cdn-fastly.deb.debian.org/debian sid/main armhf libtirpc-dev armhf 1.1.4-0.4 [191 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian sid/main armhf libwrap0-dev armhf 7.6.q-28 [19.7 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 5563 kB in 2s (2653 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16452 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../06-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../07-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../08-libc6_2.28-8_armhf.deb ...
+Unpacking libc6:armhf (2.28-8) ...
+Selecting previously unselected package libgpg-error0:armhf.
+Preparing to unpack .../09-libgpg-error0_1.35-1_armhf.deb ...
+Unpacking libgpg-error0:armhf (1.35-1) ...
+Selecting previously unselected package libgcrypt20:armhf.
+Preparing to unpack .../10-libgcrypt20_1.8.4-5_armhf.deb ...
+Unpacking libgcrypt20:armhf (1.8.4-5) ...
+Selecting previously unselected package liblz4-1:armhf.
+Preparing to unpack .../11-liblz4-1_1.8.3-1_armhf.deb ...
+Unpacking liblz4-1:armhf (1.8.3-1) ...
+Selecting previously unselected package liblzma5:armhf.
+Preparing to unpack .../12-liblzma5_5.2.4-1_armhf.deb ...
+Unpacking liblzma5:armhf (5.2.4-1) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libc6:armhf (2.28-8) ...
+Setting up libgpg-error0:armhf (1.35-1) ...
+Setting up libgcrypt20:armhf (1.8.4-5) ...
+Setting up liblz4-1:armhf (1.8.3-1) ...
+Setting up liblzma5:armhf (5.2.4-1) ...
+Selecting previously unselected package libsystemd0:armhf.
+(Reading database ... 17401 files and directories currently installed.)
+Preparing to unpack .../00-libsystemd0_241-1_armhf.deb ...
+Unpacking libsystemd0:armhf (241-1) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../01-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../02-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../03-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../04-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../05-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../06-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../07-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../08-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../09-libc6-dev_2.28-8_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-8) ...
+Selecting previously unselected package libcom-err2:armhf.
+Preparing to unpack .../10-libcom-err2_1.45.0-1_armhf.deb ...
+Unpacking libcom-err2:armhf (1.45.0-1) ...
+Selecting previously unselected package comerr-dev:armhf.
+Preparing to unpack .../11-comerr-dev_2.1-1.45.0-1_armhf.deb ...
+Unpacking comerr-dev:armhf (2.1-1.45.0-1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../12-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../13-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../14-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../15-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../16-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../17-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../18-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../19-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../20-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../21-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../22-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../23-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../24-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../25-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package diffstat.
+Preparing to unpack .../26-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../27-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../28-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../29-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libdb5.3:armhf.
+Preparing to unpack .../30-libdb5.3_5.3.28+dfsg1-0.5_armhf.deb ...
+Unpacking libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Selecting previously unselected package libdbus-1-3:armhf.
+Preparing to unpack .../31-libdbus-1-3_1.12.12-1_armhf.deb ...
+Unpacking libdbus-1-3:armhf (1.12.12-1) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../32-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package libdbus-1-dev:armhf.
+Preparing to unpack .../33-libdbus-1-dev_1.12.12-1_armhf.deb ...
+Unpacking libdbus-1-dev:armhf (1.12.12-1) ...
+Selecting previously unselected package libext2fs2:armhf.
+Preparing to unpack .../34-libext2fs2_1.45.0-1_armhf.deb ...
+Unpacking libext2fs2:armhf (1.45.0-1) ...
+Selecting previously unselected package libext2fs-dev:armhf.
+Preparing to unpack .../35-libext2fs-dev_1.45.0-1_armhf.deb ...
+Unpacking libext2fs-dev:armhf (1.45.0-1) ...
+Selecting previously unselected package libffi6:armhf.
+Preparing to unpack .../36-libffi6_3.2.1-9_armhf.deb ...
+Unpacking libffi6:armhf (3.2.1-9) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../37-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../38-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../39-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libgmp10:armhf.
+Preparing to unpack .../40-libgmp10_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libnettle6:armhf.
+Preparing to unpack .../41-libnettle6_3.4.1-1_armhf.deb ...
+Unpacking libnettle6:armhf (3.4.1-1) ...
+Selecting previously unselected package libhogweed4:armhf.
+Preparing to unpack .../42-libhogweed4_3.4.1-1_armhf.deb ...
+Unpacking libhogweed4:armhf (3.4.1-1) ...
+Selecting previously unselected package libunistring2:armhf.
+Preparing to unpack .../43-libunistring2_0.9.10-1_armhf.deb ...
+Unpacking libunistring2:armhf (0.9.10-1) ...
+Selecting previously unselected package libidn2-0:armhf.
+Preparing to unpack .../44-libidn2-0_2.0.5-1_armhf.deb ...
+Unpacking libidn2-0:armhf (2.0.5-1) ...
+Selecting previously unselected package libp11-kit0:armhf.
+Preparing to unpack .../45-libp11-kit0_0.23.15-2_armhf.deb ...
+Unpacking libp11-kit0:armhf (0.23.15-2) ...
+Selecting previously unselected package libtasn1-6:armhf.
+Preparing to unpack .../46-libtasn1-6_4.13-3_armhf.deb ...
+Unpacking libtasn1-6:armhf (4.13-3) ...
+Selecting previously unselected package libgnutls30:armhf.
+Preparing to unpack .../47-libgnutls30_3.6.6-2_armhf.deb ...
+Unpacking libgnutls30:armhf (3.6.6-2) ...
+Selecting previously unselected package libkeyutils1:armhf.
+Preparing to unpack .../48-libkeyutils1_1.6-6_armhf.deb ...
+Unpacking libkeyutils1:armhf (1.6-6) ...
+Selecting previously unselected package libkrb5support0:armhf.
+Preparing to unpack .../49-libkrb5support0_1.17-2_armhf.deb ...
+Unpacking libkrb5support0:armhf (1.17-2) ...
+Selecting previously unselected package libk5crypto3:armhf.
+Preparing to unpack .../50-libk5crypto3_1.17-2_armhf.deb ...
+Unpacking libk5crypto3:armhf (1.17-2) ...
+Selecting previously unselected package libssl1.1:armhf.
+Preparing to unpack .../51-libssl1.1_1.1.1b-1_armhf.deb ...
+Unpacking libssl1.1:armhf (1.1.1b-1) ...
+Selecting previously unselected package libkrb5-3:armhf.
+Preparing to unpack .../52-libkrb5-3_1.17-2_armhf.deb ...
+Unpacking libkrb5-3:armhf (1.17-2) ...
+Selecting previously unselected package libgssapi-krb5-2:armhf.
+Preparing to unpack .../53-libgssapi-krb5-2_1.17-2_armhf.deb ...
+Unpacking libgssapi-krb5-2:armhf (1.17-2) ...
+Selecting previously unselected package libsasl2-modules-db:armhf.
+Preparing to unpack .../54-libsasl2-modules-db_2.1.27+dfsg-1_armhf.deb ...
+Unpacking libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Selecting previously unselected package libsasl2-2:armhf.
+Preparing to unpack .../55-libsasl2-2_2.1.27+dfsg-1_armhf.deb ...
+Unpacking libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Selecting previously unselected package libldap-2.4-2:armhf.
+Preparing to unpack .../56-libldap-2.4-2_2.4.47+dfsg-3_armhf.deb ...
+Unpacking libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Selecting previously unselected package libldap2-dev:armhf.
+Preparing to unpack .../57-libldap2-dev_2.4.47+dfsg-3_armhf.deb ...
+Unpacking libldap2-dev:armhf (2.4.47+dfsg-3) ...
+Selecting previously unselected package libnl-3-200:armhf.
+Preparing to unpack .../58-libnl-3-200_3.4.0-1_armhf.deb ...
+Unpacking libnl-3-200:armhf (3.4.0-1) ...
+Selecting previously unselected package libnl-3-dev:armhf.
+Preparing to unpack .../59-libnl-3-dev_3.4.0-1_armhf.deb ...
+Unpacking libnl-3-dev:armhf (3.4.0-1) ...
+Selecting previously unselected package libnl-genl-3-200:armhf.
+Preparing to unpack .../60-libnl-genl-3-200_3.4.0-1_armhf.deb ...
+Unpacking libnl-genl-3-200:armhf (3.4.0-1) ...
+Selecting previously unselected package libnl-genl-3-dev:armhf.
+Preparing to unpack .../61-libnl-genl-3-dev_3.4.0-1_armhf.deb ...
+Unpacking libnl-genl-3-dev:armhf (3.4.0-1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../62-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libtirpc-common.
+Preparing to unpack .../63-libtirpc-common_1.1.4-0.4_all.deb ...
+Unpacking libtirpc-common (1.1.4-0.4) ...
+Selecting previously unselected package libtirpc3:armhf.
+Preparing to unpack .../64-libtirpc3_1.1.4-0.4_armhf.deb ...
+Unpacking libtirpc3:armhf (1.1.4-0.4) ...
+Selecting previously unselected package libtirpc-dev:armhf.
+Preparing to unpack .../65-libtirpc-dev_1.1.4-0.4_armhf.deb ...
+Unpacking libtirpc-dev:armhf (1.1.4-0.4) ...
+Selecting previously unselected package libwrap0:armhf.
+Preparing to unpack .../66-libwrap0_7.6.q-28_armhf.deb ...
+Unpacking libwrap0:armhf (7.6.q-28) ...
+Selecting previously unselected package libwrap0-dev:armhf.
+Preparing to unpack .../67-libwrap0-dev_7.6.q-28_armhf.deb ...
+Unpacking libwrap0-dev:armhf (7.6.q-28) ...
+Selecting previously unselected package quilt.
+Preparing to unpack .../68-quilt_0.65-3_all.deb ...
+Unpacking quilt (0.65-3) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../69-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libkeyutils1:armhf (1.6-6) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up libssl1.1:armhf (1.1.1b-1) ...
+Setting up libtirpc-common (1.1.4-0.4) ...
+Setting up libunistring2:armhf (0.9.10-1) ...
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up libffi6:armhf (3.2.1-9) ...
+Setting up libidn2-0:armhf (2.0.5-1) ...
+Setting up libcom-err2:armhf (1.45.0-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libsystemd0:armhf (241-1) ...
+Setting up libkrb5support0:armhf (1.17-2) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libext2fs2:armhf (1.45.0-1) ...
+Setting up libwrap0:armhf (7.6.q-28) ...
+Setting up libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libdbus-1-3:armhf (1.12.12-1) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up libp11-kit0:armhf (0.23.15-2) ...
+Setting up diffstat (1.62-1) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libk5crypto3:armhf (1.17-2) ...
+Setting up libnettle6:armhf (3.4.1-1) ...
+Setting up libwrap0-dev:armhf (7.6.q-28) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libnl-3-200:armhf (3.4.0-1) ...
+Setting up libtasn1-6:armhf (4.13-3) ...
+Setting up libc6-dev:armhf (2.28-8) ...
+Setting up libkrb5-3:armhf (1.17-2) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up libhogweed4:armhf (3.4.1-1) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libgnutls30:armhf (3.6.6-2) ...
+Setting up libdbus-1-dev:armhf (1.12.12-1) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up comerr-dev:armhf (2.1-1.45.0-1) ...
+Setting up libgssapi-krb5-2:armhf (1.17-2) ...
+Setting up libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Setting up autoconf (2.69-11) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up dwz (0.12-3) ...
+Setting up libnl-3-dev:armhf (3.4.0-1) ...
+Setting up groff-base (1.22.4-3) ...
+Setting up libnl-genl-3-200:armhf (3.4.0-1) ...
+Setting up libext2fs-dev:armhf (1.45.0-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up libtirpc3:armhf (1.1.4-0.4) ...
+Setting up po-debconf (1.0.21) ...
+Setting up libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Setting up quilt (0.65-3) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libnl-genl-3-dev:armhf (3.4.0-1) ...
+Setting up libldap2-dev:armhf (2.4.47+dfsg-3) ...
+Setting up libtirpc-dev:armhf (1.1.4-0.4) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up dh-autoreconf (19) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-8) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-15 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-8 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-15 binutils-arm-linux-gnueabihf_2.31.1-15 binutils-common_2.31.1-15 binutils-x86-64-linux-gnu_2.31.1-15 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.6 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 comerr-dev_2.1-1.45.0-1 coreutils_8.30-3 cpp_4:8.3.0-1 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.3.0-2cross1 cpp-arm-linux-gnueabihf_4:8.3.0-1 cross-config_2.6.15-2 crossbuild-essential-armhf_12.6 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffstat_1.62-1 diffutils_1:3.7-2 dirmngr_2.2.13-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.45.0-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-4 findutils_4.6.0+git+20190209-2 g++_4:8.3.0-1 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.3.0-2cross1 g++-arm-linux-gnueabihf_4:8.3.0-1 gcc_4:8.3.0-1 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.3.0-2cross1 gcc-8-arm-linux-gnueabihf-base_8.3.0-2cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.3.0-2cross1 gcc-arm-linux-gnueabihf_4:8.3.0-1 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.13-1 gnupg-l10n_2.2.13-1 gnupg-utils_2.2.13-1 gpg_2.2.13-1 gpg-agent_2.2.13-1 gpg-wks-client_2.2.13-1 gpg-wks-server_2.2.13-1 gpgconf_2.2.13-1 gpgsm_2.2.13-1 gpgv_2.2.13-1 grep_3.3-1 groff-base_1.22.4-3 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.53-4 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.3.0-2cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.3.0-2cross1 libattr1_1:2.4.48-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-15 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-8 libc-dev-bin_2.28-8 libc6_2.28-8 libc6-armhf-cross_2.28-7cross1 libc6-dev_2.28-8 libc6-dev-armhf-cross_2.28-7cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.45.0-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdbus-1-3_1.12.12-1 libdbus-1-dev_1.12.12-1 libdebconfclient0_0.248 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs-dev_1.45.0-1 libext2fs2_1.45.0-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.3.0-2cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.3.0-2cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.3.0-2cross1 libgpg-error0_1.35-1 libgssapi-krb5-2_1.17-2 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-3 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libk5crypto3_1.17-2 libkeyutils1_1.6-6 libkrb5-3_1.17-2 libkrb5support0_1.17-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 libldap2-dev_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-4 libmagic1_1:5.35-4 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnl-3-200_3.4.0-1 libnl-3-dev_3.4.0-1 libnl-genl-3-200_3.4.0-1 libnl-genl-3-dev_3.4.0-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-12 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.45.0-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtirpc-common_1.1.4-0.4 libtirpc-dev_1.1.4-0.4 libtirpc3_1.1.4-0.4 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.3.0-2cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwrap0_7.6.q-28 libwrap0-dev_7.6.q-28 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-4 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.20-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 quilt_0.65-3 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-2 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: quota
+Binary: quota
+Architecture: any
+Version: 4.04-2
+Maintainer: Michael Meskes <meskes@debian.org>
+Homepage: http://sourceforge.net/projects/linuxquota
+Standards-Version: 4.1.3
+Build-Depends: debhelper (>= 11), gettext, libwrap0-dev, e2fslibs-dev, po-debconf (>= 0.5.0), libldap2-dev, quilt (>= 0.46-7), libnl-3-dev, libnl-genl-3-dev, libdbus-1-dev, libtirpc-dev
+Package-List:
+ quota deb admin optional arch=any
+Checksums-Sha1:
+ 38e6cc7538d504891a8454bbdabef058bd1adc11 577303 quota_4.04.orig.tar.gz
+ af4d51c704d52f1bcb9b55133068976571090772 39536 quota_4.04-2.debian.tar.xz
+Checksums-Sha256:
+ 735be1887e7f51f54165e778ae43fc859c04e44d88834ecb2f470e91d4ef8edf 577303 quota_4.04.orig.tar.gz
+ 9a1a30d5ab8fe956180eeef4adc81baaac43fec412800a0bbfa32f99c393d323 39536 quota_4.04-2.debian.tar.xz
+Files:
+ f46f3b0b5141f032f25684005dac49d3 577303 quota_4.04.orig.tar.gz
+ 492b80d8ecf419d55d1c0a8c782aa4df 39536 quota_4.04-2.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJKBAEBCAA0FiEEZ/2RWVGI6sRsEOjtNdhXwLvLOyUFAlpzASQWHG1lc2tlc0Bw
+b3N0Z3Jlc3FsLm9yZwAKCRA12FfAu8s7JY8OEAC1Sj1SehJFr4ikAOTEOmsnyC7N
+8CL4Ywd7qo97usJ0O2tuQjPxmbg69eLb4ySSFzLc4JRYIja2HD2f9PaBl3qQGxOv
+8+Ch2aWTvIE4fcQAThKd4NAL4wq3bK5RPC5/zb3YXuzcHxYF0p0pDAUF4dINfmkW
+58754fayvJV01QdwZCTQKxZd4M6Q+PdYDxdIaUIBQGymEcgpk+oHqvMwDC9t8wCl
+cG3qg4pfaLTkkm6rcrlpoz3+fLuG8rXCBoZ3GzHIKzZ49CxBUoCrXJ/RNMmXVlZG
+Fx9jT+7Q0ENbAPxXvpkkYMWlFSdvE+COM1Quie/IkdLd7lwEZioKrroCSJdP4vHd
+Yztyip+CoV0m+LpXAdAmieHGHT0FK/6SU1LxXOdbf7PpIxd3Ra/RKCmCXvMCExOD
+ZSYx6edKGaEDDLfuxJFmnlsA6m3YYxrPfYvLXZB5f3Xmig9lHBs2wmLRS3ZkJzFg
+t3JL2B8QVkMRtWEMXaPA3Zj0zRvSM/UugcM+zF7BEQOZVzfrk9hW9e9hpggQb1v/
+Buqe4JIK77VqHyOktAr2wzGOozlxTAJ6SpJ9p/7rFHJltS/2+6n5ROoo9xLEaDrr
+dHozWQ8lD/vHpnaGaobkP4JUedeJgw2DJQ0PHr1PfUhVnK5uWYGlbl8h1FV/NLxe
+Q9zthpTzw9ES9gJ1bg==
+=148S
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Thu Feb  1 11:59:32 2018 UTC
+gpgv:                using RSA key 67FD91595188EAC46C10E8ED35D857C0BBCB3B25
+gpgv:                issuer "meskes@postgresql.org"
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./quota_4.04-2.dsc
+dpkg-source: info: extracting quota in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking quota_4.04.orig.tar.gz
+dpkg-source: info: unpacking quota_4.04-2.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying editor.diff
+dpkg-source: info: applying loop.diff
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-11ff3cfc-55a4-4b91-a5fb-d24648acb9f9
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package quota
+dpkg-buildpackage: info: source version 4.04-2
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Michael Meskes <meskes@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp *~ debian/*~ stamp-h1 configure-stamp
+# Add here commands to clean up after the build process.
+[ ! -f Makefile ] || /usr/bin/make distclean
+debconf-updatepo
+dh_autoreconf_clean
+dh_clean
+dpkg-buildpackage: warning: debian/rules must be updated to support the 'build-arch' and 'build-indep' targets (at least 'build-arch' seems to be missing)
+ debian/rules build
+dh_testdir
+dh_autoreconf
+Copying file m4/codeset.m4
+Copying file m4/glibc21.m4
+Copying file m4/intdiv0.m4
+Copying file m4/inttypes-pri.m4
+Copying file m4/inttypes.m4
+Copying file m4/inttypes_h.m4
+Copying file m4/isc-posix.m4
+Copying file m4/lcmessage.m4
+Copying file m4/stdint_h.m4
+Copying file m4/uintmax_t.m4
+Copying file m4/ulonglong.m4
+Copying file mkinstalldirs
+Copying file po/Makevars.template
+configure.ac:22: installing './compile'
+# Add here commands to configure the package.
+LIBS="-ltirpc"; dh_auto_configure -- --enable-rpcsetquota=yes
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --enable-rpcsetquota=yes
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking the archiver (arm-linux-gnueabihf-ar) interface... ar
+checking for arm-linux-gnueabihf-cc... (cached) arm-linux-gnueabihf-gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... (cached) yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... (cached) yes
+checking dependency style of arm-linux-gnueabihf-gcc... (cached) none
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking whether ln -s works... yes
+checking whether make sets $(MAKE)... (cached) yes
+checking for arm-linux-gnueabihf-pkg-config... /usr/bin/arm-linux-gnueabihf-pkg-config
+checking pkg-config is at least version 0.20... yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for nl_langinfo... yes
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for ld used by GCC... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for shared library run path origin... done
+checking whether NLS is requested... yes
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for ldap_initialize in -lldap... yes
+checking for COM_ERR... yes
+checking for EXT2FS... yes
+checking for DBUS... yes
+checking for LIBNL3... yes
+checking tcpd.h usability... yes
+checking tcpd.h presence... yes
+checking for tcpd.h... yes
+checking for rpcgen... /usr/bin/rpcgen
+checking for TIRPC... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating po/Makefile.in
+config.status: WARNING:  'po/Makefile.in.in' seems to ignore the --datarootdir setting
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing default-1 commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+configure:
+==============================================================================
+Build configuration:
+	bsd-behaviour:   yes
+	ext2-direct:     yes
+	ldap-mail:       yes
+	libwrap:         yes
+	netlink:         yes
+	nls:             yes
+	proc-mounts:     /proc/mounts
+	rpc:             yes
+	rpcsetquota:     yes
+	xfs-roothack:    no
+	werror:          no
+==============================================================================
+
+touch configure-stamp
+dh_testdir
+# Add here commands to compile the package.
+/usr/bin/make
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make  all-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in po
+make[3]: Entering directory '/<<PKGBUILDDIR>>/po'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/po'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o quota.o quota.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o quotaops.o quotaops.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o libquota_a-quotaio.o `test -f 'quotaio.c' || echo './'`quotaio.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o libquota_a-quotaio_v1.o `test -f 'quotaio_v1.c' || echo './'`quotaio_v1.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o libquota_a-quotaio_v2.o `test -f 'quotaio_v2.c' || echo './'`quotaio_v2.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o libquota_a-quotaio_tree.o `test -f 'quotaio_tree.c' || echo './'`quotaio_tree.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o libquota_a-quotaio_rpc.o `test -f 'quotaio_rpc.c' || echo './'`quotaio_rpc.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o libquota_a-quotaio_xfs.o `test -f 'quotaio_xfs.c' || echo './'`quotaio_xfs.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o libquota_a-quotaio_meta.o `test -f 'quotaio_meta.c' || echo './'`quotaio_meta.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o libquota_a-quotaio_generic.o `test -f 'quotaio_generic.c' || echo './'`quotaio_generic.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o libquota_a-bylabel.o `test -f 'bylabel.c' || echo './'`bylabel.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o libquota_a-common.o `test -f 'common.c' || echo './'`common.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o libquota_a-quotasys.o `test -f 'quotasys.c' || echo './'`quotasys.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o libquota_a-pot.o `test -f 'pot.c' || echo './'`pot.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -Wno-unused -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o librpcclient_a-rquota.o `test -f 'rquota.c' || echo './'`rquota.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -Wno-unused -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o librpcclient_a-rquota_client.o `test -f 'rquota_client.c' || echo './'`rquota_client.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -Wno-unused -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o librpcclient_a-rquota_clnt.o `test -f 'rquota_clnt.c' || echo './'`rquota_clnt.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o quotasync.o quotasync.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o quotacheck-quotacheck.o `test -f 'quotacheck.c' || echo './'`quotacheck.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o quotacheck-quotacheck_v1.o `test -f 'quotacheck_v1.c' || echo './'`quotacheck_v1.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o quotacheck-quotacheck_v2.o `test -f 'quotacheck_v2.c' || echo './'`quotacheck_v2.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o quotacheck-quotaops.o `test -f 'quotaops.c' || echo './'`quotaops.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o quotaon.o quotaon.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o quotaon_xfs.o quotaon_xfs.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o quot.o quot.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o repquota.o repquota.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o warnquota.o warnquota.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o quotastats.o quotastats.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o common.o common.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o pot.o pot.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o xqmstats.o xqmstats.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o edquota.o edquota.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o setquota.o setquota.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o convertquota.o convertquota.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o rpc_rquotad-rquota_server.o `test -f 'rquota_server.c' || echo './'`rquota_server.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o rpc_rquotad-rquota_svc.o `test -f 'rquota_svc.c' || echo './'`rquota_svc.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o rpc_rquotad-svc_socket.o `test -f 'svc_socket.c' || echo './'`svc_socket.c
+xqmstats.c: In function ‘main’:
+xqmstats.c:42:3: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+   fgets(buffer, 256, stats);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.   -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include -I/usr/include/libnl3 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -c -o quota_nld-quota_nld.o `test -f 'quota_nld.c' || echo './'`quota_nld.c
+quotastats.c: In function ‘get_proc_num’:
+quotastats.c:51:2: warning: ignoring return value of ‘fscanf’, declared with attribute warn_unused_result [-Wunused-result]
+  fscanf(f, "%d", &ret);
+  ^~~~~~~~~~~~~~~~~~~~~
+rm -f librpcclient.a
+arm-linux-gnueabihf-ar cru librpcclient.a librpcclient_a-rquota.o librpcclient_a-rquota_client.o librpcclient_a-rquota_clnt.o 
+warnquota.c: In function ‘lookup_user’:
+warnquota.c:415:29: warning: ‘%s’ directive output may be truncated writing up to 2047 bytes into a region of size 255 [-Wformat-truncation=]
+  snprintf(searchbuf, 256, "(%s=%s)", config->ldap_search_attr, user);
+                             ^~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from warnquota.c:21:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 4 or more bytes (assuming 2051) into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+warnquota.c: In function ‘warn_quota’:
+warnquota.c:896:51: warning: ‘%s’ directive output may be truncated writing up to 2047 bytes into a region of size 2041 [-Wformat-truncation=]
+    snprintf(config->ldap_uri, CNF_BUFFER, "ldap://%s:%d", config->ldap_host, config->ldap_port);
+                                                   ^~      ~~~~~~~~~~~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from warnquota.c:21:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 10 and 2067 bytes into a destination of size 2048
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib librpcclient.a
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -pie -Wl,-z,relro -Wl,-z,now -o quotastats quotastats.o common.o pot.o  
+rquota_svc.c: In function ‘main’:
+rquota_svc.c:536:3: warning: ignoring return value of ‘daemon’, declared with attribute warn_unused_result [-Wunused-result]
+   daemon(0, 0);
+   ^~~~~~~~~~~~
+quota_nld.c: In function ‘main’:
+quota_nld.c:485:3: warning: ignoring return value of ‘daemon’, declared with attribute warn_unused_result [-Wunused-result]
+   daemon(0, 0);
+   ^~~~~~~~~~~~
+quota_nld.c: In function ‘write_console_warning’:
+quota_nld.c:273:7: warning: ‘strcmp’ argument 2 declared attribute ‘nonstring’ is smaller than the specified bound 64 [-Wstringop-overflow=]
+   if (strcmp(user, uent->ut_user))
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/utmp.h:29,
+                 from quota_nld.c:23:
+/usr/arm-linux-gnueabihf/include/bits/utmp.h:65:8: note: argument ‘ut_user’ declared here
+   char ut_user[UT_NAMESIZE]
+        ^~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -pie -Wl,-z,relro -Wl,-z,now -o xqmstats xqmstats.o common.o pot.o  
+rm -f libquota.a
+arm-linux-gnueabihf-ar cru libquota.a libquota_a-quotaio.o libquota_a-quotaio_v1.o libquota_a-quotaio_v2.o libquota_a-quotaio_tree.o libquota_a-quotaio_rpc.o libquota_a-quotaio_xfs.o libquota_a-quotaio_meta.o libquota_a-quotaio_generic.o libquota_a-bylabel.o libquota_a-common.o libquota_a-quotasys.o libquota_a-pot.o librpcclient.a
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib libquota.a
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -pie -Wl,-z,relro -Wl,-z,now -o quotasync quotasync.o libquota.a librpcclient.a -L/usr/lib/arm-linux-gnueabihf -ltirpc 
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -pie -Wl,-z,relro -Wl,-z,now -o warnquota warnquota.o libquota.a -lldap -llber librpcclient.a -L/usr/lib/arm-linux-gnueabihf -ltirpc 
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -pie -Wl,-z,relro -Wl,-z,now -o edquota edquota.o quotaops.o libquota.a librpcclient.a -L/usr/lib/arm-linux-gnueabihf -ltirpc 
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -pie -Wl,-z,relro -Wl,-z,now -o repquota repquota.o libquota.a librpcclient.a -L/usr/lib/arm-linux-gnueabihf -ltirpc 
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -pie -Wl,-z,relro -Wl,-z,now -o quotaon quotaon.o quotaon_xfs.o libquota.a librpcclient.a -L/usr/lib/arm-linux-gnueabihf -ltirpc 
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -pie -Wl,-z,relro -Wl,-z,now -o quot quot.o libquota.a librpcclient.a -L/usr/lib/arm-linux-gnueabihf -ltirpc 
+arm-linux-gnueabihf-gcc -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -pie -Wl,-z,relro -Wl,-z,now -o quotacheck quotacheck-quotacheck.o quotacheck-quotacheck_v1.o quotacheck-quotacheck_v2.o quotacheck-quotaops.o libquota.a -L/usr/lib/arm-linux-gnueabihf -lext2fs -L/usr/lib/arm-linux-gnueabihf -lcom_err librpcclient.a -L/usr/lib/arm-linux-gnueabihf -ltirpc 
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -pie -Wl,-z,relro -Wl,-z,now -o setquota setquota.o quotaops.o libquota.a librpcclient.a -L/usr/lib/arm-linux-gnueabihf -ltirpc 
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -pie -Wl,-z,relro -Wl,-z,now -o quota quota.o quotaops.o libquota.a librpcclient.a -L/usr/lib/arm-linux-gnueabihf -ltirpc 
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -pie -Wl,-z,relro -Wl,-z,now -o convertquota convertquota.o libquota.a librpcclient.a -L/usr/lib/arm-linux-gnueabihf -ltirpc 
+arm-linux-gnueabihf-gcc -I/usr/include/tirpc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -pie -Wl,-z,relro -Wl,-z,now -o rpc.rquotad rpc_rquotad-rquota_server.o rpc_rquotad-rquota_svc.o rpc_rquotad-svc_socket.o libquota.a -lwrap librpcclient.a -L/usr/lib/arm-linux-gnueabihf -ltirpc 
+arm-linux-gnueabihf-gcc -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include -I/usr/include/libnl3 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_GNU_SOURCE -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -I/usr/include/tirpc -Wall -fPIC -pie -Wl,-z,relro -Wl,-z,now -o quota_nld quota_nld-quota_nld.o libquota.a librpcclient.a -L/usr/lib/arm-linux-gnueabihf -ltirpc -L/usr/lib/arm-linux-gnueabihf -ldbus-1 -L/usr/lib/arm-linux-gnueabihf -lnl-genl-3 -lnl-3 
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+touch build-stamp
+ fakeroot debian/rules binary-arch
+dh_testdir
+dh_testroot
+dh_prep
+dh_installdirs
+# Add here commands to install the package into debian/quota.
+/usr/bin/make DESTDIR=`pwd`/debian/quota install
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make  install-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making install in po
+make[3]: Entering directory '/<<PKGBUILDDIR>>/po'
+/bin/sh .././mkinstalldirs /<<PKGBUILDDIR>>/debian/quota/usr/share
+mkdir -p -- /<<PKGBUILDDIR>>/debian/quota/usr/share/locale/cs/LC_MESSAGES
+installing cs.gmo as /<<PKGBUILDDIR>>/debian/quota/usr/share/locale/cs/LC_MESSAGES/quota.mo
+mkdir -p -- /<<PKGBUILDDIR>>/debian/quota/usr/share/locale/de/LC_MESSAGES
+installing de.gmo as /<<PKGBUILDDIR>>/debian/quota/usr/share/locale/de/LC_MESSAGES/quota.mo
+mkdir -p -- /<<PKGBUILDDIR>>/debian/quota/usr/share/locale/fr/LC_MESSAGES
+installing fr.gmo as /<<PKGBUILDDIR>>/debian/quota/usr/share/locale/fr/LC_MESSAGES/quota.mo
+mkdir -p -- /<<PKGBUILDDIR>>/debian/quota/usr/share/locale/pl/LC_MESSAGES
+installing pl.gmo as /<<PKGBUILDDIR>>/debian/quota/usr/share/locale/pl/LC_MESSAGES/quota.mo
+if test "quota" = "gettext-tools"; then \
+  /bin/sh .././mkinstalldirs /<<PKGBUILDDIR>>/debian/quota/usr/share/gettext/po; \
+  for file in Makefile.in.in remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot   Makevars.template; do \
+    /usr/bin/install -c -m 644 ./$file \
+		    /<<PKGBUILDDIR>>/debian/quota/usr/share/gettext/po/$file; \
+  done; \
+  for file in Makevars; do \
+    rm -f /<<PKGBUILDDIR>>/debian/quota/usr/share/gettext/po/$file; \
+  done; \
+else \
+  : ; \
+fi
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/po'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[4]: Entering directory '/<<PKGBUILDDIR>>'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/quota/usr/bin'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/quota/usr/sbin'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/quota/etc'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/quota/usr/share/doc/quota'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/quota/usr/share/man/man1'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/quota/usr/share/man/man5'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/quota/usr/share/man/man8'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/quota/usr/share/man/man3'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/quota/usr/include/rpcsvc'
+  /usr/bin/install -c quota quotasync '/<<PKGBUILDDIR>>/debian/quota/usr/bin'
+  /usr/bin/install -c quotacheck quotaon quot repquota warnquota quotastats xqmstats edquota setquota convertquota rpc.rquotad quota_nld '/<<PKGBUILDDIR>>/debian/quota/usr/sbin'
+ /usr/bin/install -c -m 644 warnquota.conf quotatab quotagrpadmins '/<<PKGBUILDDIR>>/debian/quota/etc'
+ /usr/bin/install -c -m 644 README.mailserver README.ldap-support set_limits_example.c doc/quotadoc.sgml doc/quotas.ms doc/quotas.preformated doc/quotas-1.eps '/<<PKGBUILDDIR>>/debian/quota/usr/share/doc/quota'
+ /usr/bin/install -c -m 644 rquota.h rquota.x '/<<PKGBUILDDIR>>/debian/quota/usr/include/rpcsvc'
+ /usr/bin/install -c -m 644 rquota.3 '/<<PKGBUILDDIR>>/debian/quota/usr/share/man/man3'
+ /usr/bin/install -c -m 644 quotagrpadmins.5 quotatab.5 warnquota.conf.5 '/<<PKGBUILDDIR>>/debian/quota/usr/share/man/man5'
+ /usr/bin/install -c -m 644 quotasync.1 quota.1 '/<<PKGBUILDDIR>>/debian/quota/usr/share/man/man1'
+ /usr/bin/install -c -m 644 convertquota.8 edquota.8 quotacheck.8 quotaon.8 quotastats.8 quot.8 repquota.8 setquota.8 warnquota.8 xqmstats.8 quota_nld.8 rpc.rquotad.8 '/<<PKGBUILDDIR>>/debian/quota/usr/share/man/man8'
+/usr/bin/make  install-exec-hook
+/usr/bin/make  install-data-hook
+make[5]: Entering directory '/<<PKGBUILDDIR>>'
+rm -f /<<PKGBUILDDIR>>/debian/quota/usr/sbin/quotaoff
+make[5]: Entering directory '/<<PKGBUILDDIR>>'
+rm -f /<<PKGBUILDDIR>>/debian/quota/usr/share/man/man8/quotaoff.8
+make[5]: Leaving directory '/<<PKGBUILDDIR>>'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+mv `pwd`/debian/quota/usr/sbin/quotacheck `pwd`/debian/quota/sbin
+mv `pwd`/debian/quota/usr/sbin/quotaon `pwd`/debian/quota/sbin
+mv `pwd`/debian/quota/usr/sbin/quotaoff `pwd`/debian/quota/sbin
+dh_testdir
+dh_testroot
+dh_install
+chmod 755 `pwd`/debian/quota/usr/share/quota/ldap/setquota-ldap.pl
+chmod 755 `pwd`/debian/quota/usr/share/quota/*.sh
+dh_installdebconf	
+dh_installdocs
+dh_installexamples
+dh_installmenu
+dh_installsystemd quota.service
+dh_installsystemd --name=quotarpc quotarpc.service
+dh_installinit --no-start
+dh_installinit --name=quotarpc
+#
+# dh_installinit cannot be configured to not install the defaults
+# file for quotarpc, so we have to manually delete it
+#
+rm -rf `pwd`/debian/quota/etc/default/quotarpc
+dh_installcron
+dh_installman
+# remove man pages already in libc
+rm -rf `pwd`/debian/quota/usr/share/man/man2
+# and include files in libc-dev
+rm -rf `pwd`/debian/quota/usr/include
+dh_installinfo
+dh_installchangelogs Changelog
+dh_lintian
+dh_link
+dh_strip
+dh_compress
+dh_fixperms
+dh_installdeb
+dh_shlibdeps
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/quota/sbin/quotacheck was not linked against libcom_err.so.2 (it uses none of the library's symbols)
+dh_gencontrol
+dh_md5sums
+dh_builddeb
+dpkg-deb: building package 'quota-dbgsym' in '../quota-dbgsym_4.04-2_armhf.deb'.
+dpkg-deb: building package 'quota' in '../quota_4.04-2_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../quota_4.04-2_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-08T08:22:47Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+quota_4.04-2_armhf.changes:
+---------------------------
+
+Format: 1.8
+Date: Thu, 01 Feb 2018 12:53:43 +0100
+Source: quota
+Binary: quota quota-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 4.04-2
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Michael Meskes <meskes@debian.org>
+Changed-By: Michael Meskes <meskes@debian.org>
+Description:
+ quota      - disk quota management tools
+Closes: 888586
+Changes:
+ quota (4.04-2) unstable; urgency=medium
+ .
+   * Bumped Standards-Version to 4.1.3, no changes needed.
+   * Prevent quotacheck from running into an endless loop.
+     Thanks to Christoph Biedl <debian.axhn@manchmal.in-ulm.de> (Closes: #888586)
+Checksums-Sha1:
+ aa27e085b9cdb196a7eca2617093188c5f4dd3f5 1446008 quota-dbgsym_4.04-2_armhf.deb
+ 8734a46b465eacb001a00dc8ed0820a7aadbd9ae 5420 quota_4.04-2_armhf.buildinfo
+ 20c859c7cc5384805693ceb24e2103355efd0a04 302088 quota_4.04-2_armhf.deb
+Checksums-Sha256:
+ b9e6db6ca33b5fbcfe33c2eda156505c2b57576c6dee38a5e2f1d799a193a2e6 1446008 quota-dbgsym_4.04-2_armhf.deb
+ ba11421b4dafcf562a017f1a6e8f00240930a43fc436242ea538905744ce7967 5420 quota_4.04-2_armhf.buildinfo
+ ffe709a73b703781833219a7b806285d94039be93c79ea325480c006aae7566a 302088 quota_4.04-2_armhf.deb
+Files:
+ 6a30eed251428fb2f531f89012ecb06c 1446008 debug optional quota-dbgsym_4.04-2_armhf.deb
+ a35cdd4e7b8f175dd67e1400686eb3b6 5420 admin optional quota_4.04-2_armhf.buildinfo
+ b4ac49a89e7484c0bbc634e250723b51 302088 admin optional quota_4.04-2_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: quota
+Binary: quota
+Architecture: armhf
+Version: 4.04-2
+Checksums-Md5:
+ 6a30eed251428fb2f531f89012ecb06c 1446008 quota-dbgsym_4.04-2_armhf.deb
+ b4ac49a89e7484c0bbc634e250723b51 302088 quota_4.04-2_armhf.deb
+Checksums-Sha1:
+ aa27e085b9cdb196a7eca2617093188c5f4dd3f5 1446008 quota-dbgsym_4.04-2_armhf.deb
+ 20c859c7cc5384805693ceb24e2103355efd0a04 302088 quota_4.04-2_armhf.deb
+Checksums-Sha256:
+ b9e6db6ca33b5fbcfe33c2eda156505c2b57576c6dee38a5e2f1d799a193a2e6 1446008 quota-dbgsym_4.04-2_armhf.deb
+ ffe709a73b703781833219a7b806285d94039be93c79ea325480c006aae7566a 302088 quota_4.04-2_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Fri, 08 Mar 2019 08:22:47 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-15),
+ binutils-common (= 2.31.1-15),
+ binutils-x86-64-linux-gnu (= 2.31.1-15),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.6),
+ bzip2 (= 1.0.6-9),
+ comerr-dev (= 2.1-1.45.0-1),
+ coreutils (= 8.30-3),
+ cpp (= 4:8.3.0-1),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffstat (= 1.62-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-4),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.3.0-1),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.3.0-1),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-3),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.53-4),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.48-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-15),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-8),
+ libc-dev-bin (= 2.28-8),
+ libc6 (= 2.28-8),
+ libc6-dev (= 2.28-8),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcom-err2 (= 1.45.0-1),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdbus-1-3 (= 1.12.12-1),
+ libdbus-1-dev (= 1.12.12-1),
+ libdebconfclient0 (= 0.248),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libext2fs-dev (= 1.45.0-1),
+ libext2fs2 (= 1.45.0-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgnutls30 (= 3.6.6-2),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libgssapi-krb5-2 (= 1.17-2),
+ libhogweed4 (= 3.4.1-1),
+ libicu63 (= 63.1-6),
+ libidn2-0 (= 2.0.5-1),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ libk5crypto3 (= 1.17-2),
+ libkeyutils1 (= 1.6-6),
+ libkrb5-3 (= 1.17-2),
+ libkrb5support0 (= 1.17-2),
+ libldap-2.4-2 (= 2.4.47+dfsg-3),
+ libldap-common (= 2.4.47+dfsg-3),
+ libldap2-dev (= 2.4.47+dfsg-3),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-4),
+ libmagic1 (= 1:5.35-4),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libnettle6 (= 3.4.1-1),
+ libnl-3-200 (= 3.4.0-1),
+ libnl-3-dev (= 3.4.0-1),
+ libnl-genl-3-200 (= 3.4.0-1),
+ libnl-genl-3-dev (= 3.4.0-1),
+ libp11-kit0 (= 0.23.15-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-12),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libquadmath0 (= 8.3.0-2),
+ libsasl2-2 (= 2.1.27+dfsg-1),
+ libsasl2-modules-db (= 2.1.27+dfsg-1),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libssl1.1 (= 1.1.1b-1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtasn1-6 (= 4.13-3),
+ libtinfo6 (= 6.1+20181013-2),
+ libtirpc-common (= 1.1.4-0.4),
+ libtirpc-dev (= 1.1.4-0.4),
+ libtirpc3 (= 1.1.4-0.4),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libwrap0 (= 7.6.q-28),
+ libwrap0-dev (= 7.6.q-28),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ quilt (= 0.65-3),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1517486023"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+quota-dbgsym_4.04-2_armhf.deb
+-----------------------------
+
+ new Debian package, version 2.0.
+ size 1446008 bytes: control archive=1160 bytes.
+     856 bytes,    12 lines      control              
+    1484 bytes,    14 lines      md5sums              
+ Package: quota-dbgsym
+ Source: quota
+ Version: 4.04-2
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Michael Meskes <meskes@debian.org>
+ Installed-Size: 1680
+ Depends: quota (= 4.04-2)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for quota
+ Build-Ids: 10f75ee7ea67c248285ba7ae6d5882e7706b0a72 2258a25c0fa692a812890146549a368cfe98bd2e 2414bee70fc4aacd9d628114f66aaca083618c49 31181fd373ee1f1c55719191a9f3e6c2083e38b7 31a3b1775aae1ff68af75a6c53301dbe6e93257a 3d6f9a9d33370680852392de94002d39b86e0461 5ede8c3d7f5203bec4169bdaf4403098b80af8c2 5fac45e019b5020a2ea5e8ae0567e8db6d7a6e5f 8a9363290c34e1a0fe33838ac961b2ecf10124bc 9405f36ea89ab344a73c8e7f64a09af7adf76b7e c8c0e6489ea22b2897a1310b581121762c19a852 c93f8a490f84ea701cd8c17f20967517aa5111b1 ec68e290bebd42921157b4a511e430dbffc959db f0df004b0a08ca59f4c974c8d9f73f7943a43063
+
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/.build-id/10/
+-rw-r--r-- root/root    126584 2018-02-01 11:53 ./usr/lib/debug/.build-id/10/f75ee7ea67c248285ba7ae6d5882e7706b0a72.debug
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/.build-id/22/
+-rw-r--r-- root/root    141552 2018-02-01 11:53 ./usr/lib/debug/.build-id/22/58a25c0fa692a812890146549a368cfe98bd2e.debug
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/.build-id/24/
+-rw-r--r-- root/root    144392 2018-02-01 11:53 ./usr/lib/debug/.build-id/24/14bee70fc4aacd9d628114f66aaca083618c49.debug
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/.build-id/31/
+-rw-r--r-- root/root    128608 2018-02-01 11:53 ./usr/lib/debug/.build-id/31/181fd373ee1f1c55719191a9f3e6c2083e38b7.debug
+-rw-r--r-- root/root    175532 2018-02-01 11:53 ./usr/lib/debug/.build-id/31/a3b1775aae1ff68af75a6c53301dbe6e93257a.debug
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/.build-id/3d/
+-rw-r--r-- root/root    144820 2018-02-01 11:53 ./usr/lib/debug/.build-id/3d/6f9a9d33370680852392de94002d39b86e0461.debug
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/.build-id/5e/
+-rw-r--r-- root/root    122352 2018-02-01 11:53 ./usr/lib/debug/.build-id/5e/de8c3d7f5203bec4169bdaf4403098b80af8c2.debug
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/.build-id/5f/
+-rw-r--r-- root/root    142708 2018-02-01 11:53 ./usr/lib/debug/.build-id/5f/ac45e019b5020a2ea5e8ae0567e8db6d7a6e5f.debug
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/.build-id/8a/
+-rw-r--r-- root/root    143744 2018-02-01 11:53 ./usr/lib/debug/.build-id/8a/9363290c34e1a0fe33838ac961b2ecf10124bc.debug
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/.build-id/94/
+-rw-r--r-- root/root    127800 2018-02-01 11:53 ./usr/lib/debug/.build-id/94/05f36ea89ab344a73c8e7f64a09af7adf76b7e.debug
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/.build-id/c8/
+-rw-r--r-- root/root    130684 2018-02-01 11:53 ./usr/lib/debug/.build-id/c8/c0e6489ea22b2897a1310b581121762c19a852.debug
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/.build-id/c9/
+-rw-r--r-- root/root     18068 2018-02-01 11:53 ./usr/lib/debug/.build-id/c9/3f8a490f84ea701cd8c17f20967517aa5111b1.debug
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/.build-id/ec/
+-rw-r--r-- root/root    129848 2018-02-01 11:53 ./usr/lib/debug/.build-id/ec/68e290bebd42921157b4a511e430dbffc959db.debug
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/lib/debug/.build-id/f0/
+-rw-r--r-- root/root     13864 2018-02-01 11:53 ./usr/lib/debug/.build-id/f0/df004b0a08ca59f4c974c8d9f73f7943a43063.debug
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2018-02-01 11:53 ./usr/share/doc/quota-dbgsym -> quota
+
+
+quota_4.04-2_armhf.deb
+----------------------
+
+ new Debian package, version 2.0.
+ size 302088 bytes: control archive=16764 bytes.
+     134 bytes,     7 lines      conffiles            
+    5287 bytes,   176 lines   *  config               #!/bin/sh
+     945 bytes,    16 lines      control              
+    3914 bytes,    60 lines      md5sums              
+    8009 bytes,   270 lines   *  postinst             #!/bin/sh
+    2763 bytes,    92 lines   *  postrm               #!/bin/sh
+     532 bytes,    35 lines   *  preinst              #!/bin/sh
+    1799 bytes,    65 lines   *  prerm                #!/bin/sh
+   50982 bytes,   451 lines      templates            
+ Package: quota
+ Version: 4.04-2
+ Architecture: armhf
+ Maintainer: Michael Meskes <meskes@debian.org>
+ Installed-Size: 1165
+ Depends: libc6 (>= 2.7), libcom-err2 (>= 1.43.9), libdbus-1-3 (>= 1.9.14), libext2fs2 (>= 1.37), libldap-2.4-2 (>= 2.4.7), libnl-3-200 (>= 3.2.7), libnl-genl-3-200 (>= 3.2.7), libtirpc3 (>= 1.0.2), libwrap0 (>= 7.6-4~), debconf (>= 1.2.9) | debconf-2.0, lsb-base (>= 3.2-13)
+ Suggests: libnet-ldap-perl, rpcbind, default-mta | mail-transport-agent
+ Section: admin
+ Priority: optional
+ Homepage: http://sourceforge.net/projects/linuxquota
+ Description: disk quota management tools
+  This package provides the standard set of utilities for manipulating
+  file system usage caps via the Linux Diskquota system. It can set hard
+  or soft limits with adjustable grace periods on block or inode usage for
+  users and groups. It allows users to check their quota status,
+  integrates with LDAP, and supports quotas on remote machines via NFS.
+
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./etc/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./etc/cron.daily/
+-rwxr-xr-x root/root       349 2018-02-01 11:53 ./etc/cron.daily/quota
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./etc/default/
+-rw-r--r-- root/root       123 2018-02-01 11:53 ./etc/default/quota
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./etc/init.d/
+-rwxr-xr-x root/root       951 2018-02-01 11:53 ./etc/init.d/quota
+-rwxr-xr-x root/root      1131 2018-02-01 11:53 ./etc/init.d/quotarpc
+-rw-r--r-- root/root       220 2018-02-01 11:53 ./etc/quotagrpadmins
+-rw-r--r-- root/root       526 2018-02-01 11:53 ./etc/quotatab
+-rw-r--r-- root/root       314 2018-02-01 11:53 ./etc/warnquota.conf
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./lib/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./lib/systemd/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./lib/systemd/system/
+-rw-r--r-- root/root       410 2018-02-01 11:53 ./lib/systemd/system/quota.service
+-rw-r--r-- root/root       313 2018-02-01 11:53 ./lib/systemd/system/quotarpc.service
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./sbin/
+-rwxr-xr-x root/root     75904 2018-02-01 11:53 ./sbin/quotacheck
+lrwxrwxrwx root/root         0 2018-02-01 11:53 ./sbin/quotaoff -> quotaon
+-rwxr-xr-x root/root     51148 2018-02-01 11:53 ./sbin/quotaon
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/bin/
+-rwxr-xr-x root/root     59484 2018-02-01 11:53 ./usr/bin/quota
+-rwxr-xr-x root/root     46968 2018-02-01 11:53 ./usr/bin/quotasync
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/sbin/
+-rwxr-xr-x root/root     51064 2018-02-01 11:53 ./usr/sbin/convertquota
+-rwxr-xr-x root/root     55276 2018-02-01 11:53 ./usr/sbin/edquota
+-rwxr-xr-x root/root     46864 2018-02-01 11:53 ./usr/sbin/quot
+-rwxr-xr-x root/root     50996 2018-02-01 11:53 ./usr/sbin/quota_nld
+-rwxr-xr-x root/root     13732 2018-02-01 11:53 ./usr/sbin/quotastats
+-rwxr-xr-x root/root     51228 2018-02-01 11:53 ./usr/sbin/repquota
+-rwxr-xr-x root/root     55192 2018-02-01 11:53 ./usr/sbin/rpc.rquotad
+-rwxr-xr-x root/root     59404 2018-02-01 11:53 ./usr/sbin/setquota
+-rwxr-xr-x root/root     59348 2018-02-01 11:53 ./usr/sbin/warnquota
+-rwxr-xr-x root/root      9636 2018-02-01 11:53 ./usr/sbin/xqmstats
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/doc/quota/
+-rw-r--r-- root/root       787 2018-02-01 11:53 ./usr/share/doc/quota/README.Debian
+-rw-r--r-- root/root      1380 2013-03-27 07:38 ./usr/share/doc/quota/README.ldap-support
+-rw-r--r-- root/root       621 2013-03-27 07:38 ./usr/share/doc/quota/README.mailserver
+-rw-r--r-- root/root     11817 2018-02-01 11:53 ./usr/share/doc/quota/changelog.Debian.gz
+-rw-r--r-- root/root     17915 2017-09-05 14:53 ./usr/share/doc/quota/changelog.gz
+-rw-r--r-- root/root       939 2018-02-01 11:53 ./usr/share/doc/quota/copyright
+-rw-r--r-- root/root      3888 2013-03-27 07:38 ./usr/share/doc/quota/quotadoc.sgml.gz
+-rw-r--r-- root/root     49826 2013-03-27 07:38 ./usr/share/doc/quota/quotas-1.eps.gz
+-rw-r--r-- root/root      5086 2013-03-27 07:38 ./usr/share/doc/quota/quotas.ms.gz
+-rw-r--r-- root/root      4888 2013-03-27 07:38 ./usr/share/doc/quota/quotas.preformated.gz
+-rw-r--r-- root/root      1378 2018-02-01 11:53 ./usr/share/doc/quota/set_limits_example.c
+-rw-r--r-- root/root      3360 2015-12-16 17:15 ./usr/share/doc/quota/warnquota.conf
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/lintian/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/lintian/overrides/
+-rw-r--r-- root/root        62 2018-02-01 11:53 ./usr/share/lintian/overrides/quota
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/locale/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/locale/cs/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/locale/cs/LC_MESSAGES/
+-rw-r--r-- root/root     64476 2018-02-01 11:53 ./usr/share/locale/cs/LC_MESSAGES/quota.mo
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/locale/de/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/locale/de/LC_MESSAGES/
+-rw-r--r-- root/root     58081 2018-02-01 11:53 ./usr/share/locale/de/LC_MESSAGES/quota.mo
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/locale/fr/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/locale/fr/LC_MESSAGES/
+-rw-r--r-- root/root     27716 2018-02-01 11:53 ./usr/share/locale/fr/LC_MESSAGES/quota.mo
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/locale/pl/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/locale/pl/LC_MESSAGES/
+-rw-r--r-- root/root     65191 2018-02-01 11:53 ./usr/share/locale/pl/LC_MESSAGES/quota.mo
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/man/man1/
+-rw-r--r-- root/root      1879 2018-02-01 11:53 ./usr/share/man/man1/quota.1.gz
+-rw-r--r-- root/root       722 2018-02-01 11:53 ./usr/share/man/man1/quotasync.1.gz
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/man/man3/
+-rw-r--r-- root/root       375 2018-02-01 11:53 ./usr/share/man/man3/rquota.3.gz
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/man/man5/
+-rw-r--r-- root/root       418 2018-02-01 11:53 ./usr/share/man/man5/quotagrpadmins.5.gz
+-rw-r--r-- root/root       460 2018-02-01 11:53 ./usr/share/man/man5/quotatab.5.gz
+-rw-r--r-- root/root      1792 2018-02-01 11:53 ./usr/share/man/man5/warnquota.conf.5.gz
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/man/man8/
+-rw-r--r-- root/root       713 2018-02-01 11:53 ./usr/share/man/man8/convertquota.8.gz
+-rw-r--r-- root/root      2119 2018-02-01 11:53 ./usr/share/man/man8/edquota.8.gz
+-rw-r--r-- root/root       674 2018-02-01 11:53 ./usr/share/man/man8/quot.8.gz
+-rw-r--r-- root/root       714 2018-02-01 11:53 ./usr/share/man/man8/quota_nld.8.gz
+-rw-r--r-- root/root      2312 2018-02-01 11:53 ./usr/share/man/man8/quotacheck.8.gz
+lrwxrwxrwx root/root         0 2018-02-01 11:53 ./usr/share/man/man8/quotaoff.8.gz -> quotaon.8.gz
+-rw-r--r-- root/root      1876 2018-02-01 11:53 ./usr/share/man/man8/quotaon.8.gz
+-rw-r--r-- root/root       390 2018-02-01 11:53 ./usr/share/man/man8/quotastats.8.gz
+-rw-r--r-- root/root      1845 2018-02-01 11:53 ./usr/share/man/man8/repquota.8.gz
+-rw-r--r-- root/root      1101 2018-02-01 11:53 ./usr/share/man/man8/rpc.rquotad.8.gz
+-rw-r--r-- root/root      1736 2018-02-01 11:53 ./usr/share/man/man8/setquota.8.gz
+-rw-r--r-- root/root      1112 2018-02-01 11:53 ./usr/share/man/man8/warnquota.8.gz
+-rw-r--r-- root/root       363 2018-02-01 11:53 ./usr/share/man/man8/xqmstats.8.gz
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/quota/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./usr/share/quota/ldap/
+-rwxr-xr-x root/root      3246 2018-02-01 11:53 ./usr/share/quota/ldap/applySystemQuotas.pl
+-rwxr-xr-x root/root      1243 2018-02-01 11:53 ./usr/share/quota/ldap/edquota_editor
+-rw-r--r-- root/root       552 2018-02-01 11:53 ./usr/share/quota/ldap/quota.schema
+-rwxr-xr-x root/root      3930 2018-02-01 11:53 ./usr/share/quota/ldap/setSystemQuotas.pl
+-rwxr-xr-x root/root      6039 2018-02-01 11:53 ./usr/share/quota/ldap/setquota-ldap.pl
+-rwxr-xr-x root/root       675 2018-02-01 11:53 ./usr/share/quota/quota-initial-check.sh
+-rwxr-xr-x root/root       294 2018-02-01 11:53 ./usr/share/quota/quotaoff.sh
+-rwxr-xr-x root/root      2787 2018-02-01 11:53 ./usr/share/quota/quotaon.sh
+-rwxr-xr-x root/root      1012 2018-02-01 11:53 ./usr/share/quota/quotarpc.sh
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./var/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./var/lib/
+drwxr-xr-x root/root         0 2018-02-01 11:53 ./var/lib/quota/
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [596 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [684 B]
+Fetched 2243 B in 0s (211 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl libclass-accessor-perl
+  libclone-perl libdigest-hmac-perl libemail-valid-perl libexporter-tiny-perl
+  libfile-basedir-perl libfuture-perl libio-async-perl libio-pty-perl
+  libipc-run-perl libipc-system-simple-perl liblist-moreutils-perl
+  libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl libclass-accessor-perl
+  libclone-perl libdigest-hmac-perl libemail-valid-perl libexporter-tiny-perl
+  libfile-basedir-perl libfuture-perl libio-async-perl libio-pty-perl
+  libipc-run-perl libipc-system-simple-perl liblist-moreutils-perl
+  libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 27 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2938 kB of archives.
+After this operation, 9286 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [840 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://cdn-fastly.deb.debian.org/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://cdn-fastly.deb.debian.org/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://cdn-fastly.deb.debian.org/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 7s (408 kB/s)
+Selecting previously unselected package libapt-pkg-perl.
+(Reading database ... 19952 files and directories currently installed.)
+Preparing to unpack .../00-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../01-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../02-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../03-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../04-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../05-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../06-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../07-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../08-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../09-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../10-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../11-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../12-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../13-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../14-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../15-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../16-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../17-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../18-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../19-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../20-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../21-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../22-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../23-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../24-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../25-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../26-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+N: 0 tags overridden; 1 unused override
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils*
+  comerr-dev:armhf* debhelper* dh-autoreconf* dh-strip-nondeterminism*
+  diffstat* dwz* gcc-8-base:armhf* gettext* gettext-base* groff-base*
+  intltool-debian* libapt-pkg-perl* libarchive-zip-perl* libasan5:armhf*
+  libatomic1:armhf* libbsd0* libc6:armhf* libc6-dev:armhf*
+  libcapture-tiny-perl* libcgi-pm-perl* libclass-accessor-perl* libclone-perl*
+  libcom-err2:armhf* libcroco3* libdb5.3:armhf* libdbus-1-3:armhf*
+  libdbus-1-dev:armhf* libdigest-hmac-perl* libelf1* libemail-valid-perl*
+  libexporter-tiny-perl* libext2fs-dev:armhf* libext2fs2:armhf* libffi6:armhf*
+  libfile-basedir-perl* libfile-stripnondeterminism-perl* libfuture-perl*
+  libgcc-8-dev:armhf* libgcc1:armhf* libgcrypt20:armhf* libglib2.0-0*
+  libgmp10:armhf* libgnutls30:armhf* libgomp1:armhf* libgpg-error0:armhf*
+  libgssapi-krb5-2:armhf* libhogweed4:armhf* libidn2-0:armhf*
+  libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* libk5crypto3:armhf* libkeyutils1:armhf*
+  libkrb5-3:armhf* libkrb5support0:armhf* libldap-2.4-2:armhf*
+  libldap2-dev:armhf* liblist-moreutils-perl* liblz4-1:armhf* liblzma5:armhf*
+  libncurses6* libnet-dns-perl* libnet-domain-tld-perl* libnet-ip-perl*
+  libnettle6:armhf* libnl-3-200:armhf* libnl-3-dev:armhf*
+  libnl-genl-3-200:armhf* libnl-genl-3-dev:armhf* libp11-kit0:armhf*
+  libparse-debianchangelog-perl* libpath-tiny-perl* libpipeline1*
+  libsasl2-2:armhf* libsasl2-modules-db:armhf* libsigsegv2* libssl1.1:armhf*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libstruct-dumb-perl*
+  libsub-name-perl* libsystemd0:armhf* libtasn1-6:armhf*
+  libtext-levenshtein-perl* libtirpc-common* libtirpc-dev:armhf*
+  libtirpc3:armhf* libtool* libubsan1:armhf* libuchardet0*
+  libunistring2:armhf* libwrap0:armhf* libwrap0-dev:armhf* lintian*
+  linux-libc-dev:armhf* m4* man-db* patchutils* pkg-config* po-debconf* quilt*
+  sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils*
+0 upgraded, 0 newly installed, 110 to remove and 0 not upgraded.
+After this operation, 115 MB disk space will be freed.
+(Reading database ... 21223 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing quilt (0.65-3) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing libext2fs-dev:armhf (1.45.0-1) ...
+Removing comerr-dev:armhf (2.1-1.45.0-1) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libdbus-1-dev:armhf (1.12.12-1) ...
+Removing libdbus-1-3:armhf (1.12.12-1) ...
+Removing libsystemd0:armhf (241-1) ...
+Removing liblzma5:armhf (5.2.4-1) ...
+Removing libwrap0-dev:armhf (7.6.q-28) ...
+Removing libwrap0:armhf (7.6.q-28) ...
+Removing libc6-dev:armhf (2.28-8) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libtirpc-dev:armhf (1.1.4-0.4) ...
+Removing libtirpc3:armhf (1.1.4-0.4) ...
+Removing libgssapi-krb5-2:armhf (1.17-2) ...
+Removing libkrb5-3:armhf (1.17-2) ...
+Removing libcom-err2:armhf (1.45.0-1) ...
+Removing libldap2-dev:armhf (2.4.47+dfsg-3) ...
+Removing libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Removing libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Removing libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Removing libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libext2fs2:armhf (1.45.0-1) ...
+Removing libgnutls30:armhf (3.6.6-2) ...
+Removing libp11-kit0:armhf (0.23.15-2) ...
+Removing libffi6:armhf (3.2.1-9) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libgcrypt20:armhf (1.8.4-5) ...
+Removing pkg-config (0.29-6) ...
+Removing libhogweed4:armhf (3.4.1-1) ...
+Removing libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libgpg-error0:armhf (1.35-1) ...
+Removing libidn2-0:armhf (2.0.5-1) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libk5crypto3:armhf (1.17-2) ...
+Removing libkrb5support0:armhf (1.17-2) ...
+Removing libkeyutils1:armhf (1.6-6) ...
+Removing liblz4-1:armhf (1.8.3-1) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libnettle6:armhf (3.4.1-1) ...
+Removing libnl-genl-3-dev:armhf (3.4.0-1) ...
+Removing libnl-genl-3-200:armhf (3.4.0-1) ...
+Removing libnl-3-dev:armhf (3.4.0-1) ...
+Removing libnl-3-200:armhf (3.4.0-1) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libssl1.1:armhf (1.1.1b-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtasn1-6:armhf (4.13-3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libtirpc-common (1.1.4-0.4) ...
+Removing libunistring2:armhf (0.9.10-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-3) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-8) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-8) ...
+(Reading database ... 16476 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for libssl1.1:armhf (1.1.1b-1) ...
+Purging configuration files for libtirpc-common (1.1.4-0.4) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for quilt (0.65-3) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libwrap0:armhf (7.6.q-28) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for comerr-dev:armhf (2.1-1.45.0-1) ...
+Purging configuration files for libgssapi-krb5-2:armhf (1.17-2) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-8) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+Purging configuration files for libnl-3-200:armhf (3.4.0-1) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 52
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 19
+Job: /home/build/sbuild-setup/repo/pool/main/q/quota/quota_4.04-2.dsc
+Lintian: pass
+Machine Architecture: amd64
+Package: quota
+Package-Time: 76
+Source-Version: 4.04-2
+Space: n/a
+Status: successful
+Version: 4.04-2
+--------------------------------------------------------------------------------
+Finished at 2019-03-08T08:22:47Z
+Build needed 00:01:16, no disk space

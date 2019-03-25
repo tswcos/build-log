@@ -1,0 +1,2529 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| llvm-defaults 0.47 (armhf)                   Tue, 05 Mar 2019 12:31:46 +0000 |
++==============================================================================+
+
+Package: llvm-defaults
+Version: 0.47
+Source Version: 0.47
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-680acc53-af4f-4f5d-8fa9-9d2a44af49bd' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/llvm-defaults-3pHC6d/resolver-sREzIt' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/l/llvm-defaults/llvm-defaults_0.47.dsc exists in /home/build/sbuild-setup/repo/pool/main/l/llvm-defaults; copying to chroot
+I: NOTICE: Log filtering will replace 'build/llvm-defaults-3pHC6d/llvm-defaults-0.47' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/llvm-defaults-3pHC6d' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 9), dpkg-dev (>= 1.13.9), lsb-release, m4, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 9), dpkg-dev (>= 1.13.9), lsb-release, m4, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [414 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [500 B]
+Fetched 1871 B in 0s (170 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism distro-info-data dwz gcc-8-base:armhf
+  gettext gettext-base groff-base intltool-debian libarchive-zip-perl
+  libasan5:armhf libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf
+  libcroco3 libelf1 libfile-stripnondeterminism-perl libgcc-8-dev:armhf
+  libgcc1:armhf libglib2.0-0 libgomp1:armhf libmpdec2 libncurses6 libpipeline1
+  libpython3-stdlib libpython3.7-minimal libpython3.7-stdlib libsigsegv2
+  libstdc++-8-dev:armhf libstdc++6:armhf libtool libubsan1:armhf libuchardet0
+  linux-libc-dev:armhf lsb-release m4 man-db mime-support po-debconf python3
+  python3-minimal python3.7 python3.7-minimal
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  libstdc++-8-doc:armhf libtool-doc gfortran | fortran95-compiler gcj-jdk lsb
+  m4-doc apparmor less www-browser libmail-box-perl python3-doc python3-tk
+  python3-venv python3.7-venv python3.7-doc binfmt-support
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpm2 libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism distro-info-data dwz gcc-8-base:armhf
+  gettext gettext-base groff-base intltool-debian libarchive-zip-perl
+  libasan5:armhf libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf
+  libcroco3 libelf1 libfile-stripnondeterminism-perl libgcc-8-dev:armhf
+  libgcc1:armhf libglib2.0-0 libgomp1:armhf libmpdec2 libncurses6 libpipeline1
+  libpython3-stdlib libpython3.7-minimal libpython3.7-stdlib libsigsegv2
+  libstdc++-8-dev:armhf libstdc++6:armhf libtool libubsan1:armhf libuchardet0
+  linux-libc-dev:armhf lsb-release m4 man-db mime-support po-debconf python3
+  python3-minimal python3.7 python3.7-minimal
+  sbuild-build-depends-main-dummy:armhf
+0 upgraded, 51 newly installed, 0 to remove and 0 not upgraded.
+Need to get 34.6 kB/23.2 MB of archives.
+After this operation, 103 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [928 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 distro-info-data all 0.39 [6272 B]
+Get:3 http://10.116.41.102/debian sid/main amd64 lsb-release all 10.2018112800 [27.4 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 34.6 kB in 0s (0 B/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../0-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../1-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../2-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../3-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../4-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../5-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package libpython3.7-minimal:amd64.
+Preparing to unpack .../6-libpython3.7-minimal_3.7.2-2_amd64.deb ...
+Unpacking libpython3.7-minimal:amd64 (3.7.2-2) ...
+Selecting previously unselected package python3.7-minimal.
+Preparing to unpack .../7-python3.7-minimal_3.7.2-2_amd64.deb ...
+Unpacking python3.7-minimal (3.7.2-2) ...
+Setting up libpython3.7-minimal:amd64 (3.7.2-2) ...
+Setting up python3.7-minimal (3.7.2-2) ...
+Selecting previously unselected package python3-minimal.
+(Reading database ... 17315 files and directories currently installed.)
+Preparing to unpack .../0-python3-minimal_3.7.2-1_amd64.deb ...
+Unpacking python3-minimal (3.7.2-1) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../1-mime-support_3.62_all.deb ...
+Unpacking mime-support (3.62) ...
+Selecting previously unselected package libmpdec2:amd64.
+Preparing to unpack .../2-libmpdec2_2.4.2-2_amd64.deb ...
+Unpacking libmpdec2:amd64 (2.4.2-2) ...
+Selecting previously unselected package libpython3.7-stdlib:amd64.
+Preparing to unpack .../3-libpython3.7-stdlib_3.7.2-2_amd64.deb ...
+Unpacking libpython3.7-stdlib:amd64 (3.7.2-2) ...
+Selecting previously unselected package python3.7.
+Preparing to unpack .../4-python3.7_3.7.2-2_amd64.deb ...
+Unpacking python3.7 (3.7.2-2) ...
+Selecting previously unselected package libpython3-stdlib:amd64.
+Preparing to unpack .../5-libpython3-stdlib_3.7.2-1_amd64.deb ...
+Unpacking libpython3-stdlib:amd64 (3.7.2-1) ...
+Setting up python3-minimal (3.7.2-1) ...
+Selecting previously unselected package python3.
+(Reading database ... 17749 files and directories currently installed.)
+Preparing to unpack .../00-python3_3.7.2-1_amd64.deb ...
+Unpacking python3 (3.7.2-1) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../01-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../02-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../03-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../04-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../05-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../06-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../07-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../08-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../09-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../10-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../11-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../12-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../13-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../14-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../15-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../16-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../17-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../18-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../19-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../20-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../21-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package distro-info-data.
+Preparing to unpack .../22-distro-info-data_0.39_all.deb ...
+Unpacking distro-info-data (0.39) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../23-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../24-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../25-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../26-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../27-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../28-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../29-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../30-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../31-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../32-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../33-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../34-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package lsb-release.
+Preparing to unpack .../35-lsb-release_10.2018112800_all.deb ...
+Unpacking lsb-release (10.2018112800) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../36-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up mime-support (3.62) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up distro-info-data (0.39) ...
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libmpdec2:amd64 (2.4.2-2) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up libpython3.7-stdlib:amd64 (3.7.2-2) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up libpython3-stdlib:amd64 (3.7.2-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up python3.7 (3.7.2-2) ...
+Setting up po-debconf (1.0.21) ...
+Setting up python3 (3.7.2-1) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up lsb-release (10.2018112800) ...
+Setting up dh-autoreconf (19) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 distro-info-data_0.39 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpdec2_2.4.2-2 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpython3-stdlib_3.7.2-1 libpython3.7-minimal_3.7.2-2 libpython3.7-stdlib_3.7.2-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 lsb-release_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mime-support_3.62 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 python3_3.7.2-1 python3-minimal_3.7.2-1 python3.7_3.7.2-2 python3.7-minimal_3.7.2-2 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (native)
+Source: llvm-defaults
+Binary: llvm, llvm-runtime, llvm-dev, libllvm-ocaml-dev, clang, clang-tools, clang-tidy, clang-format, libclang1, libclang-dev, liblldb-dev, lldb, lld, python-clang, python-lldb, libomp-dev, libomp5, libc++1, libc++-dev, libc++abi1, libc++abi-dev
+Architecture: any
+Version: 0.47
+Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+Uploaders: Matthias Klose <doko@debian.org>, Sylvestre Ledru <sylvestre@debian.org>
+Standards-Version: 4.2.1
+Vcs-Browser: https://salsa.debian.org/pkg-llvm-team/llvm-defaults/
+Vcs-Git: https://salsa.debian.org/pkg-llvm-team/llvm-defaults.git
+Build-Depends: debhelper (>= 9), dpkg-dev (>= 1.13.9), lsb-release, m4
+Package-List:
+ clang deb devel optional arch=any
+ clang-format deb devel optional arch=any
+ clang-tidy deb devel optional arch=any
+ clang-tools deb devel optional arch=any
+ libc++-dev deb libdevel optional arch=any
+ libc++1 deb libs optional arch=any
+ libc++abi-dev deb libdevel optional arch=any
+ libc++abi1 deb libs optional arch=any
+ libclang-dev deb libdevel optional arch=any
+ libclang1 deb libs optional arch=any
+ liblldb-dev deb libdevel optional arch=any
+ libllvm-ocaml-dev deb ocaml optional arch=amd64,arm64,armhf,i386
+ libomp-dev deb libdevel optional arch=amd64,arm64,armhf,i386,mips64el,ppc64el,ppc64
+ libomp5 deb devel optional arch=amd64,arm64,armhf,i386,mips64el,ppc64el,ppc64
+ lld deb devel optional arch=any
+ lldb deb devel optional arch=any
+ llvm deb devel optional arch=any
+ llvm-dev deb devel optional arch=any
+ llvm-runtime deb devel optional arch=any
+ python-clang deb python optional arch=any
+ python-lldb deb python optional arch=any
+Checksums-Sha1:
+ 740a4ea2b60c60e1869f16c4ef0a3f776151bf1c 11216 llvm-defaults_0.47.tar.xz
+Checksums-Sha256:
+ 2515650cfffc86ebdc151bf9819ef549b727ef171e45683c78054862c3240239 11216 llvm-defaults_0.47.tar.xz
+Files:
+ 285e7b86e854c5dbf59ff61254f93e0c 11216 llvm-defaults_0.47.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEtg21mU05vsTRqVzPfmUo2nUvG+EFAlwjYPQACgkQfmUo2nUv
+G+F4nw/9HOPB/TERLonF2Io7m86ocWWFIwpgpQL6Br4AQfpFWsPOflfqx7fj/bXw
+I8VkOZ4fD1NuPqTZZsGJgs2On+4hjRGZZpUL//mv4WzF9qjDh/xgXR2ESSUZBVIi
+N1I12J9fYY8WvVOtOK8TdIsvGaOYaZzIjtSIN8HyiIEsTZmlrRf6IILPmNC+0fhK
+VVQ1zlWO49kiYdsgwY1Ufzhdw/WZvyPh0yAHEoL0Vbu4WrbKpTFLlPX+T4oTmd1G
+PCAFfb5ncxLpmeG4AL5WVWxJHZjTC1iuRFfo46UnRem3jxKzvwpXzhijptAL1Qgf
+U9bdn/kRJ9QbF+YqGyLydTMB9S2evDmqaUMkhzBnhDVsET3Zs3FEP+rNfVwcNyMP
+5xHSwyjpjU2dx5WZ5psyAA+0GvgqLA9Aj1992+Svw4r9vVsFmxdC2TX4NOjdVab7
+u5oLgUqWfGXG8wwGGQSzH5W5yXmDIzuTT3f7DVN8fdYol51ATAaW74zhKPWYgo9c
+VcXjGukQ2dQ145bAPrc4H3y6xkALGxoqhBgWTePGJGPhSr/JcIGY1OmIZTCV6j/G
+o3cXtAxB8rCUnd0+680k0blaQDtj6BuXexl5ejnBoJ1oxHT5ViDwldvvft36C7iU
+lPJsF/0vkSKo30voNi+3lsNOM113eaPhexl31410FInar4ndO60=
+=QFBQ
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Wed Dec 26 11:07:32 2018 UTC
+gpgv:                using RSA key B60DB5994D39BEC4D1A95CCF7E6528DA752F1BE1
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./llvm-defaults_0.47.dsc
+dpkg-source: info: extracting llvm-defaults in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking llvm-defaults_0.47.tar.xz
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-680acc53-af4f-4f5d-8fa9-9d2a44af49bd
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package llvm-defaults
+dpkg-buildpackage: info: source version 0.47
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Sylvestre Ledru <sylvestre@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f *-stamp
+rm -f debian/substvars.local
+dh_clean
+ debian/rules build-arch
+dh_testdir
+touch build-stamp
+ fakeroot debian/rules binary-arch
+m4 -DPACKAGES="llvm llvm-runtime llvm-dev clang clang-tools libclang1 libclang-dev clang-format clang-tidy python-clang libomp5 libomp-dev libc++1 libc++-dev libc++abi1 libc++abi-dev libllvm-ocaml-dev lldb lld liblldb-dev python-lldb" \
+   -DOS_NAME=Linux \
+   -DDEB_ARCH=armhf \
+   -DPV_LLVM=7 \
+   debian/README.Debian.m4 > debian/README.Debian.tmp2
+( \
+  echo 'version:llvm=1:7.0-47'; \
+  echo 'pv:llvm=7'; \
+  echo 'reqv:llvm=(>= 7~)'; \
+) > debian/substvars.local
+uniq debian/README.Debian.tmp2 > debian/README.Debian.tmp
+rm -f debian/README.Debian.tmp2
+[ -e debian/README.Debian ] \
+  && cmp -s debian/README.Debian debian/README.Debian.tmp \
+  && rm -f debian/README.Debian.tmp && exit 0; \
+  mv debian/README.Debian.tmp debian/README.Debian
+dh_testdir
+dh_testroot
+dh_prep
+for p in llvm llvm-runtime llvm-dev clang clang-tools libclang1 libclang-dev clang-format clang-tidy python-clang libomp5 libomp-dev libc++1 libc++-dev libc++abi1 libc++abi-dev libllvm-ocaml-dev lldb lld liblldb-dev python-lldb; do \
+  cp -l debian/substvars.local debian/$p.substvars; \
+done
+: # llvm
+dh_installdirs -pllvm \
+	usr/bin usr/share/man/man1
+for bin in \
+	bugpoint llc llvm-ar llvm-as llvm-bcanalyzer llvm-config \
+	llvm-cov llvm-diff llvm-dis llvm-dwarfdump llvm-extract \
+	llvm-link llvm-mc llvm-nm llvm-objdump \
+	llvm-ranlib llvm-rtdyld llvm-size llvm-tblgen llvm-profdata \
+	llvm-symbolizer dsymutil llvm-PerfectShuffle llvm-c-test llvm-cat \
+	llvm-cfi-verify llvm-cvtres llvm-cxxdump llvm-cxxfilt llvm-dlltool \
+	llvm-dwp llvm-exegesis llvm-lib llvm-lto llvm-lto2 llvm-mca llvm-modextract \
+	llvm-mt llvm-objcopy llvm-opt-report llvm-pdbutil llvm-rc llvm-readelf \
+	llvm-readobj llvm-split llvm-stress llvm-strings llvm-strip llvm-undname \
+	llvm-xray sanstats opt \
+	; do \
+	dh_link -pllvm \
+		/usr/lib/llvm-7/bin/$bin \
+		/usr/bin/$bin ; \
+done
+for bin in \
+	yaml2obj obj2yaml verify-uselistorder \
+	; do \
+	dh_link -pllvm \
+		/usr/lib/llvm-7/bin/$bin \
+		/usr/bin/$bin ; \
+done
+for man in \
+	bugpoint lit llc llvm-ar llvm-as llvm-bcanalyzer llvm-config \
+	llvm-diff llvm-dis llvm-extract llvm-link llvm-nm llvm-profdata \
+	llvm-ranlib opt tblgen llvm-symbolizer llvm-cov llvm-dwarfdump \
+	llvm-objdump llvm-rtdyld llvm-size llvm-mc dsymutil llvm-exegesis \
+	llvm-lib llvm-mca llvm-pdbutil llvm-readobj llvm-stress; do \
+	dh_link -pllvm \
+		/usr/share/man/man1/$man-7.1.gz \
+		/usr/share/man/man1/$man.1.gz ; \
+done
+for man in \
+	clang; do \
+	dh_link -pclang \
+		/usr/share/man/man1/$man-7.1.gz \
+		/usr/share/man/man1/$man.1.gz ; \
+done
+for man in \
+	clang-apply-replacements clang-check clang-query \
+	scan-build scan-view sancov; do \
+	dh_link -pclang-tools \
+		/usr/share/man/man1/$man-7.1.gz \
+		/usr/share/man/man1/$man.1.gz ; \
+done
+for man in \
+	clang-format clang-format-diff; do \
+	dh_link -pclang-format \
+		/usr/share/man/man1/$man-7.1.gz \
+		/usr/share/man/man1/$man.1.gz ; \
+done
+for man in \
+	clang-tidy; do \
+	dh_link -pclang-tidy \
+		/usr/share/man/man1/$man-7.1.gz \
+		/usr/share/man/man1/$man.1.gz ; \
+done
+for man in \
+	lldb lldb-mi; do \
+	dh_link -plldb \
+		/usr/share/man/man1/$man-7.1.gz \
+		/usr/share/man/man1/$man.1.gz ; \
+done
+for man in \
+	ld.lld lld; do \
+	dh_link -plld \
+		/usr/share/man/man1/$man-7.1.gz \
+		/usr/share/man/man1/$man.1.gz ; \
+done
+: # llvm-runtime
+dh_installdirs -pllvm-runtime \
+	usr/bin usr/share/man/man1
+dh_link -pllvm-runtime \
+	/usr/lib/llvm-7/bin/lli /usr/bin/lli
+dh_link -pllvm-runtime \
+  /usr/share/man/man1/lli-7.1.gz /usr/share/man/man1/lli.1.gz
+: # llvm-dev
+dh_installdirs -pllvm-dev \
+	/usr/include \
+	/usr/share/vim/addons/syntax/ \
+	/usr/lib
+dh_link -pllvm-dev \
+	/usr/lib/llvm-7/include/llvm /usr/include/llvm \
+	/usr/lib/llvm-7/include/llvm-c /usr/include/llvm-c \
+	/usr/share/vim/addons/syntax/llvm-7.vim /usr/share/vim/addons/syntax/llvm.vim \
+	/usr/share/vim/addons/syntax/tablegen-7.vim /usr/share/vim/addons/syntax/tablegen.vim \
+	/usr/share/emacs/site-lisp/llvm-7 /usr/share/emacs/site-lisp/llvm
+for lib in \
+	libLTO.so LLVMgold.so; do \
+	dh_link -pllvm-dev \
+	/usr/lib/llvm-7/lib/$lib /usr/lib/$lib; \
+done
+: # liblldb-dev
+dh_installdirs -pliblldb-dev \
+	/usr/include \
+	/usr/lib
+dh_link -pliblldb-dev \
+	/usr/lib/llvm-7/include/lldb /usr/include/lldb \
+
+for lib in \
+	liblldb.so; do \
+	dh_link -pliblldb-dev \
+	/usr/lib/llvm-7/lib/$lib /usr/lib/$lib; \
+done
+: libllvm-ocaml-dev
+dh_installdirs -plibllvm-ocaml-dev \
+ 	/usr/lib/ocaml/METAS
+dh_link -plibllvm-ocaml-dev \
+ 	/usr/lib/ocaml/llvm-7/META.llvm /usr/lib/ocaml/METAS/META.llvm
+dh_installdirs -pclang \
+	usr/bin usr/share/man/man1
+for bin in \
+	clang clang++ \
+	; do \
+	dh_link -pclang \
+		/usr/lib/llvm-7/bin/$bin \
+		/usr/bin/$bin ; \
+done
+dh_installdirs -pclang-tools \
+	usr/bin usr/share/man/man1
+for bin in \
+	clang-check c-index-test \
+	clang-apply-replacements clang-query sancov \
+	clangd; do \
+	dh_link -pclang-tools \
+		/usr/lib/llvm-7/bin/$bin \
+		/usr/bin/$bin ; \
+done
+for bin in \
+	clang-tidy \
+	; do \
+	dh_link -pclang-tidy \
+		/usr/lib/llvm-7/bin/$bin \
+		/usr/bin/$bin ; \
+done
+dh_link -pclang-tidy \
+	/usr/bin/run-clang-tidy-7.py  \
+	/usr/bin/run-clang-tidy
+dh_link -pclang-tidy \
+	/usr/bin/clang-tidy-diff-7.py  \
+	/usr/bin/clang-tidy-diff
+dh_link -pclang-format \
+	/usr/bin/clang-format-7 \
+	/usr/bin/clang-format
+dh_link -pclang-format \
+	/usr/bin/clang-format-diff-7 \
+	/usr/bin/clang-format-diff
+dh_link -pclang-format \
+	/usr/bin/git-clang-format-7 \
+	/usr/bin/git-clang-format
+dh_link -pclang-format \
+	/usr/share/vim/addons/syntax/clang-format-7.py \
+	/usr/share/vim/addons/syntax/clang-format.py
+dh_link -pclang-format \
+	/usr/share/emacs/site-lisp/clang-format-7 \
+	/usr/share/emacs/site-lisp/clang-format
+dh_link -pclang-tools \
+		/usr/bin/scan-build-7 \
+		/usr/bin/scan-build
+dh_link -pclang-tools \
+		/usr/bin/scan-view-7 \
+		/usr/bin/scan-view
+dh_link -pclang \
+		/usr/bin/asan_symbolize-7 \
+		/usr/bin/asan_symbolize
+dh_link -plldb \
+		/usr/bin/lldb-7 \
+		/usr/bin/lldb
+dh_link -plldb \
+		/usr/bin/lldb-argdumper-7 \
+		/usr/bin/lldb-argdumper
+dh_link -plldb \
+		/usr/bin/lldb-mi-7 \
+		/usr/bin/lldb-mi
+dh_link -plldb \
+		/usr/bin/lldb-server-7 \
+		/usr/bin/lldb-server
+dh_link -plld \
+		/usr/bin/lld-7 \
+		/usr/bin/lld
+dh_link -plld \
+		/usr/bin/ld.lld-7 \
+		/usr/bin/ld.lld
+dh_testdir
+dh_testroot
+dh_lintian
+dh_installchangelogs -a 
+dh_installdocs -a  debian/README.Debian
+dh_compress -a  -X README.Debian
+dh_fixperms -a 
+dh_installdeb -a 
+for p in llvm llvm-runtime llvm-dev clang clang-tools libclang1 libclang-dev clang-format clang-tidy python-clang libomp5 libomp-dev libc++1 libc++-dev libc++abi1 libc++abi-dev libllvm-ocaml-dev lldb lld liblldb-dev python-lldb ; do \
+  dh_gencontrol -p$p -- -v1:7.0-47 ; \
+done
+dpkg-gencontrol: warning: package llvm: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: package llvm-runtime: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: package llvm-dev: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: package clang: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: package clang-tools: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: Depends field of package libclang1: substitution variable ${shlibs:Depends} used, but is not defined
+dpkg-gencontrol: warning: Depends field of package libclang1: substitution variable ${dep:devlibs} used, but is not defined
+dpkg-gencontrol: warning: package libclang1: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: Depends field of package libclang-dev: substitution variable ${shlibs:Depends} used, but is not defined
+dpkg-gencontrol: warning: Depends field of package libclang-dev: substitution variable ${dep:devlibs} used, but is not defined
+dpkg-gencontrol: warning: package libclang-dev: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: package clang-format: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: package clang-tidy: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: package python-clang: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: Depends field of package libomp5: substitution variable ${shlibs:Depends} used, but is not defined
+dpkg-gencontrol: warning: package libomp5: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: Depends field of package libomp-dev: substitution variable ${shlibs:Depends} used, but is not defined
+dpkg-gencontrol: warning: Depends field of package libomp-dev: substitution variable ${dep:devlibs} used, but is not defined
+dpkg-gencontrol: warning: package libomp-dev: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: Depends field of package libc++1: substitution variable ${shlibs:Depends} used, but is not defined
+dpkg-gencontrol: warning: package libc++1: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: package libc++-dev: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: Depends field of package libc++abi1: substitution variable ${shlibs:Depends} used, but is not defined
+dpkg-gencontrol: warning: package libc++abi1: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: package libc++abi-dev: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: package libllvm-ocaml-dev: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: package lldb: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: package lld: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: Depends field of package liblldb-dev: substitution variable ${shlibs:Depends} used, but is not defined
+dpkg-gencontrol: warning: Depends field of package liblldb-dev: substitution variable ${dep:devlibs} used, but is not defined
+dpkg-gencontrol: warning: package liblldb-dev: substitution variable ${version:llvm} unused, but is defined
+dpkg-gencontrol: warning: package python-lldb: substitution variable ${version:llvm} unused, but is defined
+dh_md5sums -a 
+dh_builddeb -a 
+dpkg-deb: building package 'llvm' in '../llvm_7.0-47_armhf.deb'.
+dpkg-deb: building package 'clang' in '../clang_7.0-47_armhf.deb'.
+dpkg-deb: building package 'liblldb-dev' in '../liblldb-dev_7.0-47_armhf.deb'.
+dpkg-deb: building package 'clang-tidy' in '../clang-tidy_7.0-47_armhf.deb'.
+dpkg-deb: building package 'llvm-dev' in '../llvm-dev_7.0-47_armhf.deb'.
+dpkg-deb: building package 'libc++-dev' in '../libc++-dev_7.0-47_armhf.deb'.
+dpkg-deb: building package 'libc++abi-dev' in '../libc++abi-dev_7.0-47_armhf.deb'.
+dpkg-deb: building package 'libclang1' in '../libclang1_7.0-47_armhf.deb'.
+dpkg-deb: building package 'lld' in '../lld_7.0-47_armhf.deb'.
+dpkg-deb: building package 'libomp5' in '../libomp5_7.0-47_armhf.deb'.
+dpkg-deb: building package 'python-lldb' in '../python-lldb_7.0-47_armhf.deb'.
+dpkg-deb: building package 'clang-format' in '../clang-format_7.0-47_armhf.deb'.
+dpkg-deb: building package 'lldb' in '../lldb_7.0-47_armhf.deb'.
+dpkg-deb: building package 'libclang-dev' in '../libclang-dev_7.0-47_armhf.deb'.
+dpkg-deb: building package 'clang-tools' in '../clang-tools_7.0-47_armhf.deb'.
+dpkg-deb: building package 'python-clang' in '../python-clang_7.0-47_armhf.deb'.
+dpkg-deb: building package 'libc++abi1' in '../libc++abi1_7.0-47_armhf.deb'.
+dpkg-deb: building package 'libomp-dev' in '../libomp-dev_7.0-47_armhf.deb'.
+dpkg-deb: building package 'libc++1' in '../libc++1_7.0-47_armhf.deb'.
+dpkg-deb: building package 'libllvm-ocaml-dev' in '../libllvm-ocaml-dev_7.0-47_armhf.deb'.
+dpkg-deb: building package 'llvm-runtime' in '../llvm-runtime_7.0-47_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../llvm-defaults_0.47_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-05T12:32:25Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+llvm-defaults_0.47_armhf.changes:
+---------------------------------
+
+Format: 1.8
+Date: Wed, 26 Dec 2018 12:02:35 +0100
+Source: llvm-defaults
+Binary: clang clang-format clang-tidy clang-tools libc++-dev libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 lld lldb llvm llvm-dev llvm-runtime python-clang python-lldb
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 0.47
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+Changed-By: Sylvestre Ledru <sylvestre@debian.org>
+Description:
+ clang      - C, C++ and Objective-C compiler (LLVM based)
+ clang-format - Tool to format C/C++/Obj-C code
+ clang-tidy - clang-based C++ linter tool
+ clang-tools - clang-based tools
+ libc++-dev - LLVM C++ Standard library (development files)
+ libc++1    - LLVM C++ Standard library
+ libc++abi-dev - LLVM low level support for a standard C++ library (development fi
+ libc++abi1 - LLVM low level support for a standard C++ library
+ libclang-dev - clang library - Development package
+ libclang1  - C, C++ and Objective-C compiler (LLVM based)
+ liblldb-dev - Next generation, high-performance debugger, header files
+ libllvm-ocaml-dev - Low-Level Virtual Machine (LLVM), bindings for OCaml
+ libomp-dev - LLVM OpenMP runtime - dev package
+ libomp5    - LLVM OpenMP runtime
+ lld        - LLVM-based linker
+ lldb       - Next generation, high-performance debugger
+ llvm       - Low-Level Virtual Machine (LLVM)
+ llvm-dev   - Low-Level Virtual Machine (LLVM), libraries and headers
+ llvm-runtime - Low-Level Virtual Machine (LLVM), bytecode interpreter
+ python-clang - Clang Python Bindings
+ python-lldb - Next generation, high-performance debugger, python lib
+Closes: 917311
+Changes:
+ llvm-defaults (0.47) unstable; urgency=medium
+ .
+   * Provide unversioned tools in llvm:
+    - dsymutil
+    - llvm-PerfectShuffle
+    - llvm-c-test
+    - llvm-cat
+    - llvm-cfi-verify
+    - llvm-cvtres
+    - llvm-cxxdump
+    - llvm-cxxfilt
+    - llvm-dlltool
+    - llvm-dwp
+    - llvm-exegesis
+    - llvm-lib
+    - llvm-lto
+    - llvm-lto2
+    - llvm-mca
+    - llvm-modextract
+    - llvm-mt
+    - llvm-objcopy
+    - llvm-opt-report
+    - llvm-pdbutil
+    - llvm-rc
+    - llvm-readelf
+    - llvm-readobj
+    - llvm-split
+    - llvm-stress
+    - llvm-strings
+    - llvm-strip
+    - llvm-undname
+    - llvm-xray
+    - sanstats
+    With the manpages when existing
+    (Closes: #917311)
+Checksums-Sha1:
+ 128f3b24fd5d411b73e1a39705db54f1d29b8364 7456 clang-format_7.0-47_armhf.deb
+ 56f9536c44961eb8d10240d607676bed643e0a85 7232 clang-tidy_7.0-47_armhf.deb
+ 2f288ff754b6a5f87329487a04a3aae8d7434ee3 7368 clang-tools_7.0-47_armhf.deb
+ 109468e38e6629ac1962c8514505c27904d69f51 7468 clang_7.0-47_armhf.deb
+ c46d3f1f9529a50c6f3aa5e54ef83851cd2d8bbb 7136 libc++-dev_7.0-47_armhf.deb
+ f4a41ae571fda49949d758d51a3693f66436e759 7112 libc++1_7.0-47_armhf.deb
+ 0b88f66a04c146838564fc3ddf9fabdbe7d7cdf4 7068 libc++abi-dev_7.0-47_armhf.deb
+ e9ee4cf14fb06edb38f17f1ec281c7f47e712ca7 7044 libc++abi1_7.0-47_armhf.deb
+ 3fd2cedefec334f1c49a0f445b756e52223ac589 7088 libclang-dev_7.0-47_armhf.deb
+ a297d462b6f386e3a6cff5c4cf3050d3a3e05b00 7256 libclang1_7.0-47_armhf.deb
+ d2b5ceda9f430d16d7bfc6608efcd91941d42024 7140 liblldb-dev_7.0-47_armhf.deb
+ 4168eb947aa3eaa1766437cb9898876a6a5f6b0e 7236 libllvm-ocaml-dev_7.0-47_armhf.deb
+ db5f3b593f7b1204bf01efb245ff97261084baf9 7036 libomp-dev_7.0-47_armhf.deb
+ 2a46b05e2854bc1e1bb9a2cbb9027e852a00ed54 7012 libomp5_7.0-47_armhf.deb
+ cd0fc876007e74c5634f34f4b308256e72cca4f2 7060 lld_7.0-47_armhf.deb
+ 99eb3cfb3ffb981279130ea97599bf11b1180a56 7176 lldb_7.0-47_armhf.deb
+ 4cdabfd81157653663f5a9887cfc724ab5190323 9667 llvm-defaults_0.47_armhf.buildinfo
+ acb8b25c4b2b8c3ccf1fbe72fb8a9d0de79925f4 7392 llvm-dev_7.0-47_armhf.deb
+ df307bdff433cb175f987833e8897c1421cc4921 7132 llvm-runtime_7.0-47_armhf.deb
+ 4795359014c539c682a6c646e35e3dc5818686ca 9468 llvm_7.0-47_armhf.deb
+ 6d145f748ae3b8ee68b858d690af85867eaa9a3e 7248 python-clang_7.0-47_armhf.deb
+ 7558f47f56cac634b18292581b7d225fd0342a09 7216 python-lldb_7.0-47_armhf.deb
+Checksums-Sha256:
+ 7a7a3d104d4f4505e275f9b821d5ad2d020747ad0971c35831c2f80d15f32b5b 7456 clang-format_7.0-47_armhf.deb
+ d9fe35690af3155e5e20f6e12753f12c1746280d761a878a67a7575211685b0c 7232 clang-tidy_7.0-47_armhf.deb
+ fb95077c2686c463b303c47c8667b858b2bcad990247a41649c2a2bfd4beb1f3 7368 clang-tools_7.0-47_armhf.deb
+ 6cffa8c1e0fcd13639ffa7efa0d43272e05522547c564b57e94f635494fe7dc5 7468 clang_7.0-47_armhf.deb
+ 650524b1fd9e02d3cb1f4852041a106ab170ff7201d6f876bd78e22fe679a40c 7136 libc++-dev_7.0-47_armhf.deb
+ c51147887915c2e85499bf3740ac4b049c9192cd8fe1544343d6e5f3e22adf54 7112 libc++1_7.0-47_armhf.deb
+ 12c062bba26f2d858b132bf5f3f8d236b7102e1aadd15848eb145e893d52bd21 7068 libc++abi-dev_7.0-47_armhf.deb
+ d8010b9e6141598b7e7101ba9dde96b9471482c1ba3d7237a1c08cec3b724a38 7044 libc++abi1_7.0-47_armhf.deb
+ 3a4ae075ba3dfc641810affbe4a47793af8d425025626a55f470b79f46eff532 7088 libclang-dev_7.0-47_armhf.deb
+ 2c001862956a1f06e6326a31dcf32e9d0d84745aa7e9152ab4f1fabe5daf2f4d 7256 libclang1_7.0-47_armhf.deb
+ b739d6a6b905f4146659b48fc58051507d6df0a01a6e3d6cfe0e23902168ab67 7140 liblldb-dev_7.0-47_armhf.deb
+ f2bf4dc4b3ea490a226093fa08cdea94ee351bd92909bfe0c9cca9063e459f6a 7236 libllvm-ocaml-dev_7.0-47_armhf.deb
+ f4cea2d3cc5ec985bbb48e91332f3fc1fed5e161cb0e3ffdd6496e6242cfd122 7036 libomp-dev_7.0-47_armhf.deb
+ 9ffebb2abcfd5f86bc5aba8f1920f955cb1eb1610c2ab2bac03132796561b351 7012 libomp5_7.0-47_armhf.deb
+ 11ab495baddd7b1d6d7a81146a6d26b3cb9affb8de43df113a75b1c5cc0c0d8e 7060 lld_7.0-47_armhf.deb
+ 1f56ecdc9ea5e10421cd7a871cea1a3f873d510e7c283cc438170b572ea534e5 7176 lldb_7.0-47_armhf.deb
+ 2f571e7533283c194c64fe9c7a9ef91fb08b60b6ccf36f4d2cb3b317dbc11960 9667 llvm-defaults_0.47_armhf.buildinfo
+ 1159438114d98ff70ce451bbdb4152d5f0011a6ec9e8093a310c5caaaed19ee1 7392 llvm-dev_7.0-47_armhf.deb
+ abfde4445793df3bf35b6dea4eefb372ae3a687d64366cb8e1283f51aac35b38 7132 llvm-runtime_7.0-47_armhf.deb
+ 495b0f0db48526952b7d186eb38dda80f6febfef0e2e424f6be063a6f381db38 9468 llvm_7.0-47_armhf.deb
+ 9a661cdac34c52c2326c28a4c11044c501970bcc6a5827b3169c0974f3753e96 7248 python-clang_7.0-47_armhf.deb
+ 2f2742d029f9db87c7cfb8e370b320c9c5bbe6beeaeb1b547193057309ba21ec 7216 python-lldb_7.0-47_armhf.deb
+Files:
+ c7714db6e720c300477a410773ded7bb 7456 devel optional clang-format_7.0-47_armhf.deb
+ 2cae3125961e1cc959417c4e85a2940a 7232 devel optional clang-tidy_7.0-47_armhf.deb
+ e0b4d094d266e72be79b1683c24d6457 7368 devel optional clang-tools_7.0-47_armhf.deb
+ e54e777640bece48fba7e09a103501d3 7468 devel optional clang_7.0-47_armhf.deb
+ f6f8526212418684a0a0cd8095a3f5b1 7136 libdevel optional libc++-dev_7.0-47_armhf.deb
+ 3c0aa1544ac6b8f0bfb8d4e8e091b704 7112 libs optional libc++1_7.0-47_armhf.deb
+ 0be083ddc8675b5cfb3f0c7b4ce8078e 7068 libdevel optional libc++abi-dev_7.0-47_armhf.deb
+ 822d5cc69dab9f3f5404412c4efb4361 7044 libs optional libc++abi1_7.0-47_armhf.deb
+ 3200db9f447a5961fc852162a97c39e9 7088 libdevel optional libclang-dev_7.0-47_armhf.deb
+ 33c0a9facbd3386cb5c656db73faf521 7256 libs optional libclang1_7.0-47_armhf.deb
+ cbf016184f928bf5d83d48c47ec2a454 7140 libdevel optional liblldb-dev_7.0-47_armhf.deb
+ 48beb01bf8d177541ccfc6d7ec151e9f 7236 ocaml optional libllvm-ocaml-dev_7.0-47_armhf.deb
+ 97c749947eb10517b54641ebfa2227cd 7036 libdevel optional libomp-dev_7.0-47_armhf.deb
+ a60ae9c3e4fc54caa8cd79e637f1c5e8 7012 devel optional libomp5_7.0-47_armhf.deb
+ f264c1b3b99d2497b81564be22d29d02 7060 devel optional lld_7.0-47_armhf.deb
+ bffccdc911a966c50c79fcd287e1deaf 7176 devel optional lldb_7.0-47_armhf.deb
+ 4bdedafd1fd0b3465c47a27a5a69dc5d 9667 devel optional llvm-defaults_0.47_armhf.buildinfo
+ 21707d9b6c6948e78534b40b7beccfe1 7392 devel optional llvm-dev_7.0-47_armhf.deb
+ 53c43a65a116186ed616670245042171 7132 devel optional llvm-runtime_7.0-47_armhf.deb
+ 426e543578ff9c0414ca6502a7e16237 9468 devel optional llvm_7.0-47_armhf.deb
+ 866b02f3f2c4ec04f5c95637460d2186 7248 python optional python-clang_7.0-47_armhf.deb
+ 90500c82e83e5f5c3e10c730798cc060 7216 python optional python-lldb_7.0-47_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: llvm-defaults
+Binary: llvm llvm-runtime llvm-dev libllvm-ocaml-dev clang clang-tools clang-tidy clang-format libclang1 libclang-dev liblldb-dev lldb lld python-clang python-lldb libomp-dev libomp5 libc++1 libc++-dev libc++abi1 libc++abi-dev
+Architecture: armhf
+Version: 0.47
+Checksums-Md5:
+ c7714db6e720c300477a410773ded7bb 7456 clang-format_7.0-47_armhf.deb
+ 2cae3125961e1cc959417c4e85a2940a 7232 clang-tidy_7.0-47_armhf.deb
+ e0b4d094d266e72be79b1683c24d6457 7368 clang-tools_7.0-47_armhf.deb
+ e54e777640bece48fba7e09a103501d3 7468 clang_7.0-47_armhf.deb
+ f6f8526212418684a0a0cd8095a3f5b1 7136 libc++-dev_7.0-47_armhf.deb
+ 3c0aa1544ac6b8f0bfb8d4e8e091b704 7112 libc++1_7.0-47_armhf.deb
+ 0be083ddc8675b5cfb3f0c7b4ce8078e 7068 libc++abi-dev_7.0-47_armhf.deb
+ 822d5cc69dab9f3f5404412c4efb4361 7044 libc++abi1_7.0-47_armhf.deb
+ 3200db9f447a5961fc852162a97c39e9 7088 libclang-dev_7.0-47_armhf.deb
+ 33c0a9facbd3386cb5c656db73faf521 7256 libclang1_7.0-47_armhf.deb
+ cbf016184f928bf5d83d48c47ec2a454 7140 liblldb-dev_7.0-47_armhf.deb
+ 48beb01bf8d177541ccfc6d7ec151e9f 7236 libllvm-ocaml-dev_7.0-47_armhf.deb
+ 97c749947eb10517b54641ebfa2227cd 7036 libomp-dev_7.0-47_armhf.deb
+ a60ae9c3e4fc54caa8cd79e637f1c5e8 7012 libomp5_7.0-47_armhf.deb
+ f264c1b3b99d2497b81564be22d29d02 7060 lld_7.0-47_armhf.deb
+ bffccdc911a966c50c79fcd287e1deaf 7176 lldb_7.0-47_armhf.deb
+ 21707d9b6c6948e78534b40b7beccfe1 7392 llvm-dev_7.0-47_armhf.deb
+ 53c43a65a116186ed616670245042171 7132 llvm-runtime_7.0-47_armhf.deb
+ 426e543578ff9c0414ca6502a7e16237 9468 llvm_7.0-47_armhf.deb
+ 866b02f3f2c4ec04f5c95637460d2186 7248 python-clang_7.0-47_armhf.deb
+ 90500c82e83e5f5c3e10c730798cc060 7216 python-lldb_7.0-47_armhf.deb
+Checksums-Sha1:
+ 128f3b24fd5d411b73e1a39705db54f1d29b8364 7456 clang-format_7.0-47_armhf.deb
+ 56f9536c44961eb8d10240d607676bed643e0a85 7232 clang-tidy_7.0-47_armhf.deb
+ 2f288ff754b6a5f87329487a04a3aae8d7434ee3 7368 clang-tools_7.0-47_armhf.deb
+ 109468e38e6629ac1962c8514505c27904d69f51 7468 clang_7.0-47_armhf.deb
+ c46d3f1f9529a50c6f3aa5e54ef83851cd2d8bbb 7136 libc++-dev_7.0-47_armhf.deb
+ f4a41ae571fda49949d758d51a3693f66436e759 7112 libc++1_7.0-47_armhf.deb
+ 0b88f66a04c146838564fc3ddf9fabdbe7d7cdf4 7068 libc++abi-dev_7.0-47_armhf.deb
+ e9ee4cf14fb06edb38f17f1ec281c7f47e712ca7 7044 libc++abi1_7.0-47_armhf.deb
+ 3fd2cedefec334f1c49a0f445b756e52223ac589 7088 libclang-dev_7.0-47_armhf.deb
+ a297d462b6f386e3a6cff5c4cf3050d3a3e05b00 7256 libclang1_7.0-47_armhf.deb
+ d2b5ceda9f430d16d7bfc6608efcd91941d42024 7140 liblldb-dev_7.0-47_armhf.deb
+ 4168eb947aa3eaa1766437cb9898876a6a5f6b0e 7236 libllvm-ocaml-dev_7.0-47_armhf.deb
+ db5f3b593f7b1204bf01efb245ff97261084baf9 7036 libomp-dev_7.0-47_armhf.deb
+ 2a46b05e2854bc1e1bb9a2cbb9027e852a00ed54 7012 libomp5_7.0-47_armhf.deb
+ cd0fc876007e74c5634f34f4b308256e72cca4f2 7060 lld_7.0-47_armhf.deb
+ 99eb3cfb3ffb981279130ea97599bf11b1180a56 7176 lldb_7.0-47_armhf.deb
+ acb8b25c4b2b8c3ccf1fbe72fb8a9d0de79925f4 7392 llvm-dev_7.0-47_armhf.deb
+ df307bdff433cb175f987833e8897c1421cc4921 7132 llvm-runtime_7.0-47_armhf.deb
+ 4795359014c539c682a6c646e35e3dc5818686ca 9468 llvm_7.0-47_armhf.deb
+ 6d145f748ae3b8ee68b858d690af85867eaa9a3e 7248 python-clang_7.0-47_armhf.deb
+ 7558f47f56cac634b18292581b7d225fd0342a09 7216 python-lldb_7.0-47_armhf.deb
+Checksums-Sha256:
+ 7a7a3d104d4f4505e275f9b821d5ad2d020747ad0971c35831c2f80d15f32b5b 7456 clang-format_7.0-47_armhf.deb
+ d9fe35690af3155e5e20f6e12753f12c1746280d761a878a67a7575211685b0c 7232 clang-tidy_7.0-47_armhf.deb
+ fb95077c2686c463b303c47c8667b858b2bcad990247a41649c2a2bfd4beb1f3 7368 clang-tools_7.0-47_armhf.deb
+ 6cffa8c1e0fcd13639ffa7efa0d43272e05522547c564b57e94f635494fe7dc5 7468 clang_7.0-47_armhf.deb
+ 650524b1fd9e02d3cb1f4852041a106ab170ff7201d6f876bd78e22fe679a40c 7136 libc++-dev_7.0-47_armhf.deb
+ c51147887915c2e85499bf3740ac4b049c9192cd8fe1544343d6e5f3e22adf54 7112 libc++1_7.0-47_armhf.deb
+ 12c062bba26f2d858b132bf5f3f8d236b7102e1aadd15848eb145e893d52bd21 7068 libc++abi-dev_7.0-47_armhf.deb
+ d8010b9e6141598b7e7101ba9dde96b9471482c1ba3d7237a1c08cec3b724a38 7044 libc++abi1_7.0-47_armhf.deb
+ 3a4ae075ba3dfc641810affbe4a47793af8d425025626a55f470b79f46eff532 7088 libclang-dev_7.0-47_armhf.deb
+ 2c001862956a1f06e6326a31dcf32e9d0d84745aa7e9152ab4f1fabe5daf2f4d 7256 libclang1_7.0-47_armhf.deb
+ b739d6a6b905f4146659b48fc58051507d6df0a01a6e3d6cfe0e23902168ab67 7140 liblldb-dev_7.0-47_armhf.deb
+ f2bf4dc4b3ea490a226093fa08cdea94ee351bd92909bfe0c9cca9063e459f6a 7236 libllvm-ocaml-dev_7.0-47_armhf.deb
+ f4cea2d3cc5ec985bbb48e91332f3fc1fed5e161cb0e3ffdd6496e6242cfd122 7036 libomp-dev_7.0-47_armhf.deb
+ 9ffebb2abcfd5f86bc5aba8f1920f955cb1eb1610c2ab2bac03132796561b351 7012 libomp5_7.0-47_armhf.deb
+ 11ab495baddd7b1d6d7a81146a6d26b3cb9affb8de43df113a75b1c5cc0c0d8e 7060 lld_7.0-47_armhf.deb
+ 1f56ecdc9ea5e10421cd7a871cea1a3f873d510e7c283cc438170b572ea534e5 7176 lldb_7.0-47_armhf.deb
+ 1159438114d98ff70ce451bbdb4152d5f0011a6ec9e8093a310c5caaaed19ee1 7392 llvm-dev_7.0-47_armhf.deb
+ abfde4445793df3bf35b6dea4eefb372ae3a687d64366cb8e1283f51aac35b38 7132 llvm-runtime_7.0-47_armhf.deb
+ 495b0f0db48526952b7d186eb38dda80f6febfef0e2e424f6be063a6f381db38 9468 llvm_7.0-47_armhf.deb
+ 9a661cdac34c52c2326c28a4c11044c501970bcc6a5827b3169c0974f3753e96 7248 python-clang_7.0-47_armhf.deb
+ 2f2742d029f9db87c7cfb8e370b320c9c5bbe6beeaeb1b547193057309ba21ec 7216 python-lldb_7.0-47_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Tue, 05 Mar 2019 12:32:25 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ distro-info-data (= 0.39),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.52-5),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libexpat1 (= 2.2.6-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpdec2 (= 2.4.2-2),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libpython3-stdlib (= 3.7.2-1),
+ libpython3.7-minimal (= 3.7.2-2),
+ libpython3.7-stdlib (= 3.7.2-2),
+ libquadmath0 (= 8.3.0-2),
+ libreadline7 (= 7.0-5),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libsqlite3-0 (= 3.27.2-1),
+ libssl1.1 (= 1.1.1b-1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ lsb-release (= 10.2018112800),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ mime-support (= 3.62),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ po-debconf (= 1.0.21),
+ python3 (= 3.7.2-1),
+ python3-minimal (= 3.7.2-1),
+ python3.7 (= 3.7.2-2),
+ python3.7-minimal (= 3.7.2-2),
+ readline-common (= 7.0-5),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1545822155"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+clang-format_7.0-47_armhf.deb
+-----------------------------
+
+ new Debian package, version 2.0.
+ size 7456 bytes: control archive=928 bytes.
+     936 bytes,    22 lines      control              
+     221 bytes,     3 lines      md5sums              
+ Package: clang-format
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 29
+ Depends: clang-format-7 (>= 7~)
+ Breaks: clang (<< 1:3.6-28)
+ Replaces: clang (<< 1:3.6-28)
+ Section: devel
+ Priority: optional
+ Description: Tool to format C/C++/Obj-C code
+  Clang-format is both a library and a stand-alone tool with the goal of
+  automatically reformatting C++ sources files according to configurable
+  style guides. To do so, clang-format uses Clang's Lexer to transform an
+  input file into a token stream and then changes all the whitespace around
+  those tokens. The goal is for clang-format to both serve both as a user
+  tool (ideally with powerful IDE integrations) and part of other
+  refactoring tools, e.g. to do a reformatting of all the lines changed
+  during a renaming.
+  .
+  This is a dependency package providing the clang format tool.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/bin/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/clang-format -> clang-format-7
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/clang-format-diff -> clang-format-diff-7
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/git-clang-format -> git-clang-format-7
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/clang-format/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/clang-format/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/clang-format/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/clang-format/copyright
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/emacs/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/emacs/site-lisp/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/emacs/site-lisp/clang-format -> clang-format-7
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/man1/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/clang-format-diff.1.gz -> clang-format-diff-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/clang-format.1.gz -> clang-format-7.1.gz
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/vim/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/vim/addons/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/vim/addons/syntax/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/vim/addons/syntax/clang-format.py -> clang-format-7.py
+
+
+clang-tidy_7.0-47_armhf.deb
+---------------------------
+
+ new Debian package, version 2.0.
+ size 7232 bytes: control archive=808 bytes.
+     707 bytes,    20 lines      control              
+     215 bytes,     3 lines      md5sums              
+ Package: clang-tidy
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 21
+ Depends: clang-tidy-7 (>= 7~)
+ Breaks: clang (<< 1:3.6-28)
+ Replaces: clang (<< 1:3.6-28)
+ Section: devel
+ Priority: optional
+ Description: clang-based C++ linter tool
+  Provide an extensible framework for diagnosing and fixing typical programming
+  errors, like style violations, interface misuse, or bugs that can be deduced
+  via static analysis. clang-tidy is modular and provides a convenient interface
+  for writing new checks.
+  .
+  clang-tidy replaces clang-modernize
+  .
+  This is a dependency package providing the clang tidy tool.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/bin/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/clang-tidy -> ../lib/llvm-7/bin/clang-tidy
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/clang-tidy-diff -> clang-tidy-diff-7.py
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/run-clang-tidy -> run-clang-tidy-7.py
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/clang-tidy/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/clang-tidy/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/clang-tidy/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/clang-tidy/copyright
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/man1/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/clang-tidy.1.gz -> clang-tidy-7.1.gz
+
+
+clang-tools_7.0-47_armhf.deb
+----------------------------
+
+ new Debian package, version 2.0.
+ size 7368 bytes: control archive=784 bytes.
+     682 bytes,    20 lines      control              
+     218 bytes,     3 lines      md5sums              
+ Package: clang-tools
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 31
+ Depends: clang-tools-7 (>= 7~)
+ Breaks: clang (<< 1:4.0-42)
+ Replaces: clang (<< 1:4.0-42)
+ Section: devel
+ Priority: optional
+ Description: clang-based tools
+  Clang project is a C, C++, Objective C and Objective C++ front-end
+  for the LLVM compiler. Its goal is to offer a replacement to the GNU Compiler
+  Collection (GCC).
+  .
+  Clang implements all of the ISO C++ 1998, 11 and 14 standards and also
+  provides most of the support of C++17.
+  .
+  This is a dependency package providing the clang tools package.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/bin/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/c-index-test -> ../lib/llvm-7/bin/c-index-test
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/clang-apply-replacements -> ../lib/llvm-7/bin/clang-apply-replacements
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/clang-check -> ../lib/llvm-7/bin/clang-check
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/clang-query -> ../lib/llvm-7/bin/clang-query
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/clangd -> ../lib/llvm-7/bin/clangd
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/sancov -> ../lib/llvm-7/bin/sancov
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/scan-build -> scan-build-7
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/scan-view -> scan-view-7
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/clang-tools/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/clang-tools/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/clang-tools/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/clang-tools/copyright
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/man1/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/clang-apply-replacements.1.gz -> clang-apply-replacements-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/clang-check.1.gz -> clang-check-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/clang-query.1.gz -> clang-query-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/sancov.1.gz -> sancov-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/scan-build.1.gz -> scan-build-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/scan-view.1.gz -> scan-view-7.1.gz
+
+
+clang_7.0-47_armhf.deb
+----------------------
+
+ new Debian package, version 2.0.
+ size 7468 bytes: control archive=1044 bytes.
+     855 bytes,    20 lines      control              
+     200 bytes,     3 lines      md5sums              
+     405 bytes,    32 lines   *  postinst             #!/bin/sh
+     330 bytes,    14 lines   *  prerm                #!/bin/sh
+ Package: clang
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 23
+ Depends: clang-7 (>= 7~)
+ Breaks: clang-3.2, clang-3.3, clang-3.4 (<< 1:3.4.2-7~exp1), clang-3.5 (<< 1:3.5~+rc1-3~exp1)
+ Replaces: clang (<< 3.2-1~exp2), clang-3.2, clang-3.3, clang-3.4 (<< 1:3.4.2-7~exp1), clang-3.5 (<< 1:3.5~+rc1-3~exp1)
+ Section: devel
+ Priority: optional
+ Description: C, C++ and Objective-C compiler (LLVM based)
+  Clang project is a C, C++, Objective C and Objective C++ front-end
+  for the LLVM compiler. Its goal is to offer a replacement to the GNU Compiler
+  Collection (GCC).
+  .
+  Clang implements all of the ISO C++ 1998, 11 and 14 standards and also
+  provides most of the support of C++17.
+  .
+  This is a dependency package providing the default clang compiler.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/bin/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/asan_symbolize -> asan_symbolize-7
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/clang -> ../lib/llvm-7/bin/clang
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/clang++ -> ../lib/llvm-7/bin/clang++
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/clang/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/clang/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/clang/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/clang/copyright
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/man1/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/clang.1.gz -> clang-7.1.gz
+
+
+libc++-dev_7.0-47_armhf.deb
+---------------------------
+
+ new Debian package, version 2.0.
+ size 7136 bytes: control archive=832 bytes.
+     787 bytes,    24 lines      control              
+     215 bytes,     3 lines      md5sums              
+ Package: libc++-dev
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 14
+ Depends: libc++-7-dev (>= 7~)
+ Section: libdevel
+ Priority: optional
+ Multi-Arch: same
+ Description: LLVM C++ Standard library (development files)
+  libc++ is another implementation of the C++ standard library
+  .
+  Features and Goals
+  .
+    * Correctness as defined by the C++ standards.
+    * Fast execution.
+    * Minimal memory use.
+    * Fast compile times.
+    * ABI compatibility with gcc's libstdc++ for some low-level features such
+      as exception objects, rtti and memory allocation.
+    * Extensive unit tests.
+  This is a dependency package providing the default LLVM C++ Standard library
+  development files.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/libc++-dev/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/libc++-dev/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/libc++-dev/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/libc++-dev/copyright
+
+
+libc++1_7.0-47_armhf.deb
+------------------------
+
+ new Debian package, version 2.0.
+ size 7112 bytes: control archive=812 bytes.
+     739 bytes,    23 lines      control              
+     206 bytes,     3 lines      md5sums              
+ Package: libc++1
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 14
+ Depends: libc++1-7 (>= 7~)
+ Section: libs
+ Priority: optional
+ Multi-Arch: same
+ Description: LLVM C++ Standard library
+  libc++ is another implementation of the C++ standard library.
+  .
+  Features and Goals
+  .
+    * Correctness as defined by the C++ standards.
+    * Fast execution.
+    * Minimal memory use.
+    * Fast compile times.
+    * ABI compatibility with gcc's libstdc++ for some low-level features such
+      as exception objects, rtti and memory allocation.
+    * Extensive unit tests.
+  This is a dependency package providing the default LLVM C++ Standard library.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/libc++1/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/libc++1/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/libc++1/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/libc++1/copyright
+
+
+libc++abi-dev_7.0-47_armhf.deb
+------------------------------
+
+ new Debian package, version 2.0.
+ size 7068 bytes: control archive=764 bytes.
+     666 bytes,    20 lines      control              
+     224 bytes,     3 lines      md5sums              
+ Package: libc++abi-dev
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 14
+ Depends: libc++abi-7-dev (>= 7~)
+ Section: libdevel
+ Priority: optional
+ Multi-Arch: same
+ Description: LLVM low level support for a standard C++ library (development files)
+  libc++abi is another implementation of low level support for a standard C++
+  library.
+  .
+  Features and Goals
+  .
+    * Correctness as defined by the C++ standards.
+    * Provide a portable sublayer to ease the porting of libc++
+  This is a dependency package providing low level support to
+  LLVM C++ Standard library.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/libc++abi-dev/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/libc++abi-dev/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/libc++abi-dev/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/libc++abi-dev/copyright
+
+
+libc++abi1_7.0-47_armhf.deb
+---------------------------
+
+ new Debian package, version 2.0.
+ size 7044 bytes: control archive=744 bytes.
+     636 bytes,    20 lines      control              
+     215 bytes,     3 lines      md5sums              
+ Package: libc++abi1
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 14
+ Depends: libc++abi1-7 (>= 7~)
+ Section: libs
+ Priority: optional
+ Multi-Arch: same
+ Description: LLVM low level support for a standard C++ library
+  libc++abi is another implementation of low level support for a standard C++
+  library.
+  .
+  Features and Goals
+  .
+    * Correctness as defined by the C++ standards.
+    * Provide a portable sublayer to ease the porting of libc++
+  This is a dependency package providing low level support to
+  LLVM C++ Standard library.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/libc++abi1/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/libc++abi1/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/libc++abi1/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/libc++abi1/copyright
+
+
+libclang-dev_7.0-47_armhf.deb
+-----------------------------
+
+ new Debian package, version 2.0.
+ size 7088 bytes: control archive=784 bytes.
+     667 bytes,    19 lines      control              
+     221 bytes,     3 lines      md5sums              
+ Package: libclang-dev
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 14
+ Depends: libclang-7-dev (>= 7~)
+ Section: libdevel
+ Priority: optional
+ Description: clang library - Development package
+  Clang project is a C, C++, Objective C and Objective C++ front-end
+  for the LLVM compiler. Its goal is to offer a replacement to the GNU Compiler
+  Collection (GCC).
+  .
+  Clang implements all of the ISO C++ 1998, 11 and 14 standards and also
+  provides most of the support of C++17.
+  .
+  This is a dependency package providing the default libclang libraries and
+  headers.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/libclang-dev/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/libclang-dev/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/libclang-dev/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/libclang-dev/copyright
+
+
+libclang1_7.0-47_armhf.deb
+--------------------------
+
+ new Debian package, version 2.0.
+ size 7256 bytes: control archive=956 bytes.
+     998 bytes,    25 lines      control              
+     212 bytes,     3 lines      md5sums              
+ Package: libclang1
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 14
+ Depends: libclang1-7 (>= 7~)
+ Section: libs
+ Priority: optional
+ Multi-Arch: same
+ Description: C, C++ and Objective-C compiler (LLVM based)
+  Clang project is a C, C++, Objective C and Objective C++ front-end
+  for the LLVM compiler. Its goal is to offer a replacement to the GNU Compiler
+  Collection (GCC).
+  .
+  Clang implements all of the ISO C++ 1998, 11 and 14 standards and also
+  provides most of the support of C++17.
+  .
+  This is a dependency package providing the default clang libraries.
+  .
+  The C Interface to Clang provides a relatively small API that exposes
+  facilities for parsing source code into an abstract syntax tree (AST),
+  loading already-parsed ASTs, traversing the AST, associating physical source
+  locations with elements within the AST, and other facilities that support
+  Clang-based development tools.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/libclang1/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/libclang1/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/libclang1/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/libclang1/copyright
+
+
+liblldb-dev_7.0-47_armhf.deb
+----------------------------
+
+ new Debian package, version 2.0.
+ size 7140 bytes: control archive=764 bytes.
+     619 bytes,    15 lines      control              
+     218 bytes,     3 lines      md5sums              
+ Package: liblldb-dev
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 18
+ Depends: liblldb-7-dev (>= 7~)
+ Section: libdevel
+ Priority: optional
+ Description: Next generation, high-performance debugger, header files
+  LLDB is a next generation, high-performance debugger. It is built as a set of
+  reusable components which highly leverage existing libraries in the larger LLVM
+  Project, such as the Clang expression parser and LLVM disassembler.
+  .
+  This package provides the header files to build extension over lldb.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/include/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/include/lldb -> ../lib/llvm-7/include/lldb
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/lib/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/lib/liblldb.so -> llvm-7/lib/liblldb.so
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/liblldb-dev/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/liblldb-dev/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/liblldb-dev/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/liblldb-dev/copyright
+
+
+libllvm-ocaml-dev_7.0-47_armhf.deb
+----------------------------------
+
+ new Debian package, version 2.0.
+ size 7236 bytes: control archive=864 bytes.
+     625 bytes,    15 lines      control              
+     236 bytes,     3 lines      md5sums              
+     152 bytes,    10 lines   *  preinst              #!/bin/sh
+ Package: libllvm-ocaml-dev
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 19
+ Depends: llvm-runtime (= 1:7.0-47), libllvm-7-ocaml-dev (>= 7~)
+ Section: ocaml
+ Priority: optional
+ Description: Low-Level Virtual Machine (LLVM), bindings for OCaml
+  The Low-Level Virtual Machine (LLVM) is a collection of libraries and
+  tools that make it easy to build compilers, optimizers, Just-In-Time
+  code generators, and many other compiler-related programs.
+  .
+  This is a dependency package providing the default bindings for OCaml.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/lib/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/lib/ocaml/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/lib/ocaml/METAS/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/lib/ocaml/METAS/META.llvm -> ../llvm-7/META.llvm
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/libllvm-ocaml-dev/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/libllvm-ocaml-dev/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/libllvm-ocaml-dev/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/libllvm-ocaml-dev/copyright
+
+
+libomp-dev_7.0-47_armhf.deb
+---------------------------
+
+ new Debian package, version 2.0.
+ size 7036 bytes: control archive=732 bytes.
+     596 bytes,    17 lines      control              
+     215 bytes,     3 lines      md5sums              
+ Package: libomp-dev
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 14
+ Depends: libomp-7-dev (>= 7~)
+ Breaks: libomp-dev (<< 7)
+ Replaces: libomp-dev (<< 7)
+ Section: libdevel
+ Priority: optional
+ Description: LLVM OpenMP runtime - dev package
+  The runtime is the part of the OpenMP implementation that your code is
+  linked against, and that manages the multiple threads in an OpenMP program
+  while it is executing.
+  This is a dependency package providing the default LLVM OpenMP dev
+  package.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/libomp-dev/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/libomp-dev/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/libomp-dev/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/libomp-dev/copyright
+
+
+libomp5_7.0-47_armhf.deb
+------------------------
+
+ new Debian package, version 2.0.
+ size 7012 bytes: control archive=712 bytes.
+     531 bytes,    15 lines      control              
+     206 bytes,     3 lines      md5sums              
+ Package: libomp5
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 14
+ Depends: libomp5-7 (>= 7~)
+ Section: devel
+ Priority: optional
+ Multi-Arch: same
+ Description: LLVM OpenMP runtime
+  The runtime is the part of the OpenMP implementation that your code is
+  linked against, and that manages the multiple threads in an OpenMP program
+  while it is executing.
+  This is a dependency package providing the default LLVM OpenMP runtime.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/libomp5/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/libomp5/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/libomp5/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/libomp5/copyright
+
+
+lld_7.0-47_armhf.deb
+--------------------
+
+ new Debian package, version 2.0.
+ size 7060 bytes: control archive=660 bytes.
+     414 bytes,    13 lines      control              
+     194 bytes,     3 lines      md5sums              
+ Package: lld
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 21
+ Depends: lld-7 (>= 7~)
+ Section: devel
+ Priority: optional
+ Description: LLVM-based linker
+  LLD is a new, high-performance linker. It is built as a set of reusable
+  components which highly leverage existing libraries in the larger LLVM
+  Project.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/bin/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/ld.lld -> ld.lld-7
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/lld -> lld-7
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/lld/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/lld/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/lld/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/lld/copyright
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/man1/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/ld.lld.1.gz -> ld.lld-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/lld.1.gz -> lld-7.1.gz
+
+
+lldb_7.0-47_armhf.deb
+---------------------
+
+ new Debian package, version 2.0.
+ size 7176 bytes: control archive=744 bytes.
+     587 bytes,    15 lines      control              
+     197 bytes,     3 lines      md5sums              
+ Package: lldb
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 23
+ Depends: lldb-7 (>= 7~)
+ Section: devel
+ Priority: optional
+ Description: Next generation, high-performance debugger
+  LLDB is a next generation, high-performance debugger. It is built as a set of
+  reusable components which highly leverage existing libraries in the larger LLVM
+  Project, such as the Clang expression parser and LLVM disassembler.
+  .
+  This is a dependency package providing the default version of lldb.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/bin/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/lldb -> lldb-7
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/lldb-argdumper -> lldb-argdumper-7
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/lldb-mi -> lldb-mi-7
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/lldb-server -> lldb-server-7
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/lldb/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/lldb/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/lldb/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/lldb/copyright
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/man1/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/lldb-mi.1.gz -> lldb-mi-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/lldb.1.gz -> lldb-7.1.gz
+
+
+llvm-dev_7.0-47_armhf.deb
+-------------------------
+
+ new Debian package, version 2.0.
+ size 7392 bytes: control archive=856 bytes.
+     619 bytes,    15 lines      control              
+     209 bytes,     3 lines      md5sums              
+     143 bytes,    10 lines   *  preinst              #!/bin/sh
+ Package: llvm-dev
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 29
+ Depends: llvm-runtime (= 1:7.0-47), llvm-7-dev (>= 7~), llvm
+ Section: devel
+ Priority: optional
+ Description: Low-Level Virtual Machine (LLVM), libraries and headers
+  The Low-Level Virtual Machine (LLVM) is a collection of libraries and
+  tools that make it easy to build compilers, optimizers, Just-In-Time
+  code generators, and many other compiler-related programs.
+  .
+  This is a dependency package providing the default libraries and headers.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/include/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/include/llvm -> ../lib/llvm-7/include/llvm
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/include/llvm-c -> ../lib/llvm-7/include/llvm-c
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/lib/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/lib/LLVMgold.so -> llvm-7/lib/LLVMgold.so
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/lib/libLTO.so -> llvm-7/lib/libLTO.so
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/llvm-dev/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/llvm-dev/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/llvm-dev/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/llvm-dev/copyright
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/emacs/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/emacs/site-lisp/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/emacs/site-lisp/llvm -> llvm-7
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/vim/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/vim/addons/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/vim/addons/syntax/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/vim/addons/syntax/llvm.vim -> llvm-7.vim
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/vim/addons/syntax/tablegen.vim -> tablegen-7.vim
+
+
+llvm-runtime_7.0-47_armhf.deb
+-----------------------------
+
+ new Debian package, version 2.0.
+ size 7132 bytes: control archive=740 bytes.
+     592 bytes,    15 lines      control              
+     221 bytes,     3 lines      md5sums              
+ Package: llvm-runtime
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 19
+ Depends: llvm-7-runtime (>= 7~)
+ Section: devel
+ Priority: optional
+ Description: Low-Level Virtual Machine (LLVM), bytecode interpreter
+  The Low-Level Virtual Machine (LLVM) is a collection of libraries and
+  tools that make it easy to build compilers, optimizers, Just-In-Time
+  code generators, and many other compiler-related programs.
+  .
+  This is a dependency package providing the default bytecode interpreter.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/bin/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/lli -> ../lib/llvm-7/bin/lli
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/llvm-runtime/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/llvm-runtime/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/llvm-runtime/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/llvm-runtime/copyright
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/man1/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/lli.1.gz -> lli-7.1.gz
+
+
+llvm_7.0-47_armhf.deb
+---------------------
+
+ new Debian package, version 2.0.
+ size 9468 bytes: control archive=884 bytes.
+     574 bytes,    15 lines      control              
+     264 bytes,     4 lines      md5sums              
+     139 bytes,    10 lines   *  preinst              #!/bin/sh
+ Package: llvm
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 106
+ Depends: llvm-runtime (= 1:7.0-47), llvm-7 (>= 7~)
+ Section: devel
+ Priority: optional
+ Description: Low-Level Virtual Machine (LLVM)
+  The Low-Level Virtual Machine (LLVM) is a collection of libraries and
+  tools that make it easy to build compilers, optimizers, Just-In-Time
+  code generators, and many other compiler-related programs.
+  .
+  This is a dependency package providing the default llvm package.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/bin/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/bugpoint -> ../lib/llvm-7/bin/bugpoint
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/dsymutil -> ../lib/llvm-7/bin/dsymutil
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llc -> ../lib/llvm-7/bin/llc
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-PerfectShuffle -> ../lib/llvm-7/bin/llvm-PerfectShuffle
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-ar -> ../lib/llvm-7/bin/llvm-ar
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-as -> ../lib/llvm-7/bin/llvm-as
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-bcanalyzer -> ../lib/llvm-7/bin/llvm-bcanalyzer
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-c-test -> ../lib/llvm-7/bin/llvm-c-test
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-cat -> ../lib/llvm-7/bin/llvm-cat
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-cfi-verify -> ../lib/llvm-7/bin/llvm-cfi-verify
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-config -> ../lib/llvm-7/bin/llvm-config
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-cov -> ../lib/llvm-7/bin/llvm-cov
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-cvtres -> ../lib/llvm-7/bin/llvm-cvtres
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-cxxdump -> ../lib/llvm-7/bin/llvm-cxxdump
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-cxxfilt -> ../lib/llvm-7/bin/llvm-cxxfilt
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-diff -> ../lib/llvm-7/bin/llvm-diff
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-dis -> ../lib/llvm-7/bin/llvm-dis
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-dlltool -> ../lib/llvm-7/bin/llvm-dlltool
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-dwarfdump -> ../lib/llvm-7/bin/llvm-dwarfdump
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-dwp -> ../lib/llvm-7/bin/llvm-dwp
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-exegesis -> ../lib/llvm-7/bin/llvm-exegesis
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-extract -> ../lib/llvm-7/bin/llvm-extract
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-lib -> ../lib/llvm-7/bin/llvm-lib
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-link -> ../lib/llvm-7/bin/llvm-link
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-lto -> ../lib/llvm-7/bin/llvm-lto
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-lto2 -> ../lib/llvm-7/bin/llvm-lto2
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-mc -> ../lib/llvm-7/bin/llvm-mc
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-mca -> ../lib/llvm-7/bin/llvm-mca
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-modextract -> ../lib/llvm-7/bin/llvm-modextract
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-mt -> ../lib/llvm-7/bin/llvm-mt
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-nm -> ../lib/llvm-7/bin/llvm-nm
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-objcopy -> ../lib/llvm-7/bin/llvm-objcopy
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-objdump -> ../lib/llvm-7/bin/llvm-objdump
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-opt-report -> ../lib/llvm-7/bin/llvm-opt-report
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-pdbutil -> ../lib/llvm-7/bin/llvm-pdbutil
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-profdata -> ../lib/llvm-7/bin/llvm-profdata
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-ranlib -> ../lib/llvm-7/bin/llvm-ranlib
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-rc -> ../lib/llvm-7/bin/llvm-rc
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-readelf -> ../lib/llvm-7/bin/llvm-readelf
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-readobj -> ../lib/llvm-7/bin/llvm-readobj
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-rtdyld -> ../lib/llvm-7/bin/llvm-rtdyld
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-size -> ../lib/llvm-7/bin/llvm-size
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-split -> ../lib/llvm-7/bin/llvm-split
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-stress -> ../lib/llvm-7/bin/llvm-stress
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-strings -> ../lib/llvm-7/bin/llvm-strings
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-strip -> ../lib/llvm-7/bin/llvm-strip
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-symbolizer -> ../lib/llvm-7/bin/llvm-symbolizer
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-tblgen -> ../lib/llvm-7/bin/llvm-tblgen
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-undname -> ../lib/llvm-7/bin/llvm-undname
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/llvm-xray -> ../lib/llvm-7/bin/llvm-xray
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/obj2yaml -> ../lib/llvm-7/bin/obj2yaml
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/opt -> ../lib/llvm-7/bin/opt
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/sanstats -> ../lib/llvm-7/bin/sanstats
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/verify-uselistorder -> ../lib/llvm-7/bin/verify-uselistorder
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/bin/yaml2obj -> ../lib/llvm-7/bin/yaml2obj
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/llvm/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/llvm/NEWS.Debian.gz
+-rw-r--r-- root/root      2594 2018-12-26 11:02 ./usr/share/doc/llvm/README.Debian
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/llvm/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/llvm/copyright
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/man/man1/
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/bugpoint.1.gz -> bugpoint-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/dsymutil.1.gz -> dsymutil-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/lit.1.gz -> lit-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llc.1.gz -> llc-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-ar.1.gz -> llvm-ar-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-as.1.gz -> llvm-as-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-bcanalyzer.1.gz -> llvm-bcanalyzer-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-config.1.gz -> llvm-config-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-cov.1.gz -> llvm-cov-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-diff.1.gz -> llvm-diff-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-dis.1.gz -> llvm-dis-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-dwarfdump.1.gz -> llvm-dwarfdump-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-exegesis.1.gz -> llvm-exegesis-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-extract.1.gz -> llvm-extract-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-lib.1.gz -> llvm-lib-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-link.1.gz -> llvm-link-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-mc.1.gz -> llvm-mc-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-mca.1.gz -> llvm-mca-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-nm.1.gz -> llvm-nm-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-objdump.1.gz -> llvm-objdump-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-pdbutil.1.gz -> llvm-pdbutil-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-profdata.1.gz -> llvm-profdata-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-ranlib.1.gz -> llvm-ranlib-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-readobj.1.gz -> llvm-readobj-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-rtdyld.1.gz -> llvm-rtdyld-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-size.1.gz -> llvm-size-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-stress.1.gz -> llvm-stress-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/llvm-symbolizer.1.gz -> llvm-symbolizer-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/opt.1.gz -> opt-7.1.gz
+lrwxrwxrwx root/root         0 2018-12-26 11:02 ./usr/share/man/man1/tblgen.1.gz -> tblgen-7.1.gz
+
+
+python-clang_7.0-47_armhf.deb
+-----------------------------
+
+ new Debian package, version 2.0.
+ size 7248 bytes: control archive=812 bytes.
+     646 bytes,    18 lines      control              
+     296 bytes,     4 lines      md5sums              
+ Package: python-clang
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 17
+ Depends: python-clang-7 (>= 7~)
+ Section: python
+ Priority: optional
+ Description: Clang Python Bindings
+  Clang project is a C, C++, Objective C and Objective C++ front-end
+  based on the LLVM compiler. Its goal is to offer a replacement to the
+  GNU Compiler Collection (GCC).
+  .
+  Clang implements all of the ISO C++ 1998, 11 and 14 standards and also
+  provides most of the support of C++17.
+  .
+  This binding package provides access to the Clang compiler and libraries.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/python-clang/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/python-clang/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/python-clang/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/python-clang/copyright
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/lintian/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/lintian/overrides/
+-rw-r--r-- root/root       127 2018-09-06 21:39 ./usr/share/lintian/overrides/python-clang
+
+
+python-lldb_7.0-47_armhf.deb
+----------------------------
+
+ new Debian package, version 2.0.
+ size 7216 bytes: control archive=784 bytes.
+     592 bytes,    15 lines      control              
+     292 bytes,     4 lines      md5sums              
+ Package: python-lldb
+ Source: llvm-defaults (0.47)
+ Version: 1:7.0-47
+ Architecture: armhf
+ Maintainer: LLVM Packaging Team <pkg-llvm-team@lists.alioth.debian.org>
+ Installed-Size: 17
+ Depends: python-lldb-7 (>= 7~)
+ Section: python
+ Priority: optional
+ Description: Next generation, high-performance debugger, python lib
+  LLDB is a next generation, high-performance debugger. It is built as a set of
+  reusable components which highly leverage existing libraries in the larger LLVM
+  Project, such as the Clang expression parser and LLVM disassembler.
+  .
+  This binding package provides access to lldb.
+
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/doc/python-lldb/
+-rw-r--r-- root/root       290 2018-02-24 20:35 ./usr/share/doc/python-lldb/NEWS.Debian.gz
+-rw-r--r-- root/root      5157 2018-12-26 11:02 ./usr/share/doc/python-lldb/changelog.gz
+-rw-r--r-- root/root       405 2018-02-24 20:35 ./usr/share/doc/python-lldb/copyright
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/lintian/
+drwxr-xr-x root/root         0 2018-12-26 11:02 ./usr/share/lintian/overrides/
+-rw-r--r-- root/root       125 2018-09-06 21:39 ./usr/share/lintian/overrides/python-lldb
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [546 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [629 B]
+Fetched 2138 B in 0s (212 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 0s (40.8 MB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 19879 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+W: llvm-defaults source: python-foo-but-no-python3-foo python-clang
+W: llvm-defaults source: python-foo-but-no-python3-foo python-lldb
+W: lldb: binary-without-manpage usr/bin/lldb-argdumper
+W: lldb: binary-without-manpage usr/bin/lldb-server
+W: clang: binary-without-manpage usr/bin/asan_symbolize
+W: clang: binary-without-manpage usr/bin/clang++
+W: clang-format: binary-without-manpage usr/bin/git-clang-format
+W: clang-tools: binary-without-manpage usr/bin/c-index-test
+W: clang-tools: binary-without-manpage usr/bin/clangd
+W: clang-tidy: binary-without-manpage usr/bin/clang-tidy-diff
+W: clang-tidy: binary-without-manpage usr/bin/run-clang-tidy
+W: llvm: binary-without-manpage usr/bin/llvm-PerfectShuffle
+W: llvm: binary-without-manpage usr/bin/llvm-c-test
+W: llvm: binary-without-manpage usr/bin/llvm-cat
+W: llvm: binary-without-manpage usr/bin/llvm-cfi-verify
+W: llvm: binary-without-manpage usr/bin/llvm-cvtres
+W: llvm: binary-without-manpage usr/bin/llvm-cxxdump
+W: llvm: binary-without-manpage usr/bin/llvm-cxxfilt
+W: llvm: binary-without-manpage usr/bin/llvm-dlltool
+W: llvm: binary-without-manpage usr/bin/llvm-dwp
+W: llvm: binary-without-manpage usr/bin/llvm-lto
+W: llvm: binary-without-manpage usr/bin/llvm-lto2
+W: llvm: binary-without-manpage usr/bin/llvm-modextract
+W: llvm: binary-without-manpage usr/bin/llvm-mt
+W: llvm: binary-without-manpage usr/bin/llvm-objcopy
+W: llvm: binary-without-manpage usr/bin/llvm-opt-report
+W: llvm: binary-without-manpage usr/bin/llvm-rc
+W: llvm: binary-without-manpage usr/bin/llvm-readelf
+W: llvm: binary-without-manpage usr/bin/llvm-split
+W: llvm: binary-without-manpage usr/bin/llvm-strings
+W: llvm: binary-without-manpage usr/bin/llvm-strip
+W: llvm: binary-without-manpage usr/bin/llvm-tblgen
+W: llvm: binary-without-manpage usr/bin/llvm-undname
+W: llvm: binary-without-manpage usr/bin/llvm-xray
+W: llvm: binary-without-manpage usr/bin/obj2yaml
+W: llvm: binary-without-manpage usr/bin/sanstats
+W: llvm: binary-without-manpage usr/bin/verify-uselistorder
+W: llvm: binary-without-manpage usr/bin/yaml2obj
+W: libomp-dev: package-relation-with-self breaks: libomp-dev (<< 7)
+N: 2 tags overridden (2 warnings)
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* distro-info-data* dwz*
+  gcc-8-base:armhf* gettext* gettext-base* groff-base* intltool-debian*
+  libapt-pkg-perl* libarchive-zip-perl* libasan5:armhf* libatomic1:armhf*
+  libbsd0* libc6:armhf* libc6-dev:armhf* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclone-perl* libcroco3* libdigest-hmac-perl*
+  libelf1* libemail-valid-perl* libexporter-tiny-perl* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfuture-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libglib2.0-0* libgomp1:armhf* libio-async-perl*
+  libio-pty-perl* libipc-run-perl* libipc-system-simple-perl*
+  liblist-moreutils-perl* libmpdec2* libncurses6* libnet-dns-perl*
+  libnet-domain-tld-perl* libnet-ip-perl* libparse-debianchangelog-perl*
+  libpath-tiny-perl* libpipeline1* libpython3-stdlib* libpython3.7-minimal*
+  libpython3.7-stdlib* libsigsegv2* libstdc++-8-dev:armhf* libstdc++6:armhf*
+  libstruct-dumb-perl* libsub-name-perl* libtext-levenshtein-perl* libtool*
+  libubsan1:armhf* libuchardet0* lintian* linux-libc-dev:armhf* lsb-release*
+  m4* man-db* mime-support* patchutils* po-debconf* python3* python3-minimal*
+  python3.7* python3.7-minimal* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils*
+0 upgraded, 0 newly installed, 79 to remove and 0 not upgraded.
+After this operation, 112 MB disk space will be freed.
+(Reading database ... 21157 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing lsb-release (10.2018112800) ...
+Removing distro-info-data (0.39) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing python3 (3.7.2-1) ...
+Removing python3.7 (3.7.2-2) ...
+Removing libpython3-stdlib:amd64 (3.7.2-1) ...
+Removing libpython3.7-stdlib:amd64 (3.7.2-2) ...
+find: ‘/usr/lib/python3’: No such file or directory
+Removing libmpdec2:amd64 (2.4.2-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing python3-minimal (3.7.2-1) ...
+Removing python3.7-minimal (3.7.2-2) ...
+Removing libpython3.7-minimal:amd64 (3.7.2-2) ...
+find: ‘/usr/lib/python3’: No such file or directory
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing mime-support (3.62) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16463 files and directories currently installed.)
+Purging configuration files for mime-support (3.62) ...
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for python3 (3.7.2-1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libpython3.7-minimal:amd64 (3.7.2-2) ...
+dpkg: warning: while removing libpython3.7-minimal:amd64, directory '/usr/lib/python3.7' not empty so not removed
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for python3.7-minimal (3.7.2-2) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+Purging configuration files for lsb-release (10.2018112800) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 25
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 10
+Job: /home/build/sbuild-setup/repo/pool/main/l/llvm-defaults/llvm-defaults_0.47.dsc
+Lintian: warn
+Machine Architecture: amd64
+Package: llvm-defaults
+Package-Time: 39
+Source-Version: 0.47
+Space: n/a
+Status: successful
+Version: 0.47
+--------------------------------------------------------------------------------
+Finished at 2019-03-05T12:32:25Z
+Build needed 00:00:39, no disk space

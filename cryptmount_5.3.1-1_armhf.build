@@ -1,0 +1,1686 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| cryptmount 5.3.1-1 (armhf)                   Fri, 01 Mar 2019 12:45:05 +0000 |
++==============================================================================+
+
+Package: cryptmount
+Version: 5.3.1-1
+Source Version: 5.3.1-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-60cc4ef5-e9c1-4941-971b-952dcca4fc29' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/cryptmount-jAxwcp/resolver-9MoDcn' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/c/cryptmount/cryptmount_5.3.1-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/c/cryptmount; copying to chroot
+I: NOTICE: Log filtering will replace 'build/cryptmount-jAxwcp/cryptmount-5.3.1' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/cryptmount-jAxwcp' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: automake, debhelper (>= 10), libcryptsetup-dev (>= 1.6), libdevmapper-dev, libgcrypt20-dev (>= 1.5), pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: automake, debhelper (>= 10), libcryptsetup-dev (>= 1.6), libdevmapper-dev, libgcrypt20-dev (>= 1.5), pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [441 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [530 B]
+Fetched 1928 B in 0s (133 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dmsetup dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl
+  libargon2-1:armhf libasan5:armhf libatomic1:armhf libblkid1:armhf libbsd0
+  libc6:armhf libc6-dev:armhf libcroco3 libcryptsetup-dev:armhf
+  libcryptsetup12:armhf libdevmapper-dev:armhf libdevmapper-event1.02.1:armhf
+  libdevmapper1.02.1 libdevmapper1.02.1:armhf libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libgcrypt20:armhf libgcrypt20-dev:armhf libglib2.0-0 libgomp1:armhf
+  libgpg-error-dev:armhf libgpg-error0:armhf libjson-c3:armhf libncurses6
+  libpcre16-3:armhf libpcre3:armhf libpcre3-dev:armhf libpcre32-3:armhf
+  libpcrecpp0v5:armhf libpipeline1 libselinux1:armhf libselinux1-dev:armhf
+  libsepol1:armhf libsepol1-dev:armhf libsigsegv2 libssl1.1:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libtool libubsan1:armhf libuchardet0
+  libudev-dev:armhf libudev1:armhf libuuid1:armhf linux-libc-dev:armhf m4
+  man-db pkg-config po-debconf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  rng-tools:armhf libgcrypt20-doc:armhf libstdc++-8-doc:armhf libtool-doc
+  gfortran | fortran95-compiler gcj-jdk m4-doc apparmor less www-browser
+  libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpg-error-l10n:armhf libgpm2 libltdl-dev
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dmsetup dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl
+  libargon2-1:armhf libasan5:armhf libatomic1:armhf libblkid1:armhf libbsd0
+  libc6:armhf libc6-dev:armhf libcroco3 libcryptsetup-dev:armhf
+  libcryptsetup12:armhf libdevmapper-dev:armhf libdevmapper-event1.02.1:armhf
+  libdevmapper1.02.1 libdevmapper1.02.1:armhf libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libgcrypt20:armhf libgcrypt20-dev:armhf libglib2.0-0 libgomp1:armhf
+  libgpg-error-dev:armhf libgpg-error0:armhf libjson-c3:armhf libncurses6
+  libpcre16-3:armhf libpcre3:armhf libpcre3-dev:armhf libpcre32-3:armhf
+  libpcrecpp0v5:armhf libpipeline1 libselinux1:armhf libselinux1-dev:armhf
+  libsepol1:armhf libsepol1-dev:armhf libsigsegv2 libssl1.1:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libtool libubsan1:armhf libuchardet0
+  libudev-dev:armhf libudev1:armhf libuuid1:armhf linux-libc-dev:armhf m4
+  man-db pkg-config po-debconf sbuild-build-depends-main-dummy:armhf
+0 upgraded, 68 newly installed, 0 to remove and 0 not upgraded.
+Need to get 490 kB/24.6 MB of archives.
+After this operation, 92.8 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [948 B]
+Get:2 http://10.116.41.102/debian sid/main armhf libargon2-1 armhf 0~20171227-0.2 [20.4 kB]
+Get:3 http://10.116.41.102/debian sid/main armhf libdevmapper1.02.1 armhf 2:1.02.155-2 [131 kB]
+Get:4 http://10.116.41.102/debian sid/main armhf libjson-c3 armhf 0.12.1+ds-2 [24.9 kB]
+Get:5 http://10.116.41.102/debian sid/main armhf libcryptsetup12 armhf 2:2.1.0-1 [173 kB]
+Get:6 http://10.116.41.102/debian sid/main armhf libcryptsetup-dev armhf 2:2.1.0-1 [66.4 kB]
+Get:7 http://10.116.41.102/debian sid/main armhf libdevmapper-event1.02.1 armhf 2:1.02.155-2 [21.4 kB]
+Get:8 http://10.116.41.102/debian sid/main armhf libdevmapper-dev armhf 2:1.02.155-2 [51.4 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 490 kB in 0s (1875 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../07-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../08-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../09-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../10-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../11-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../12-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../13-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../14-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../15-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../16-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../17-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../18-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../19-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../20-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../21-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../22-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../23-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../24-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../25-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../26-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package libdevmapper1.02.1:amd64.
+Preparing to unpack .../27-libdevmapper1.02.1_2%3a1.02.155-2_amd64.deb ...
+Unpacking libdevmapper1.02.1:amd64 (2:1.02.155-2) ...
+Selecting previously unselected package dmsetup.
+Preparing to unpack .../28-dmsetup_2%3a1.02.155-2_amd64.deb ...
+Unpacking dmsetup (2:1.02.155-2) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../29-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../30-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../31-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libargon2-1:armhf.
+Preparing to unpack .../32-libargon2-1_0~20171227-0.2_armhf.deb ...
+Unpacking libargon2-1:armhf (0~20171227-0.2) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../33-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../34-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../35-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libuuid1:armhf.
+Preparing to unpack .../36-libuuid1_2.33.1-0.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libblkid1:armhf.
+Preparing to unpack .../37-libblkid1_2.33.1-0.1_armhf.deb ...
+Unpacking libblkid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../38-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../39-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libpcre3:armhf.
+Preparing to unpack .../40-libpcre3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre3:armhf (2:8.39-11) ...
+Selecting previously unselected package libselinux1:armhf.
+Preparing to unpack .../41-libselinux1_2.8-1+b1_armhf.deb ...
+Unpacking libselinux1:armhf (2.8-1+b1) ...
+Selecting previously unselected package libudev1:armhf.
+Preparing to unpack .../42-libudev1_241-1_armhf.deb ...
+Unpacking libudev1:armhf (241-1) ...
+Selecting previously unselected package libdevmapper1.02.1:armhf.
+Preparing to unpack .../43-libdevmapper1.02.1_2%3a1.02.155-2_armhf.deb ...
+Unpacking libdevmapper1.02.1:armhf (2:1.02.155-2) ...
+Selecting previously unselected package libjson-c3:armhf.
+Preparing to unpack .../44-libjson-c3_0.12.1+ds-2_armhf.deb ...
+Unpacking libjson-c3:armhf (0.12.1+ds-2) ...
+Selecting previously unselected package libssl1.1:armhf.
+Preparing to unpack .../45-libssl1.1_1.1.1b-1_armhf.deb ...
+Unpacking libssl1.1:armhf (1.1.1b-1) ...
+Selecting previously unselected package libcryptsetup12:armhf.
+Preparing to unpack .../46-libcryptsetup12_2%3a2.1.0-1_armhf.deb ...
+Unpacking libcryptsetup12:armhf (2:2.1.0-1) ...
+Selecting previously unselected package libcryptsetup-dev:armhf.
+Preparing to unpack .../47-libcryptsetup-dev_2%3a2.1.0-1_armhf.deb ...
+Unpacking libcryptsetup-dev:armhf (2:2.1.0-1) ...
+Selecting previously unselected package libdevmapper-event1.02.1:armhf.
+Preparing to unpack .../48-libdevmapper-event1.02.1_2%3a1.02.155-2_armhf.deb ...
+Unpacking libdevmapper-event1.02.1:armhf (2:1.02.155-2) ...
+Selecting previously unselected package libudev-dev:armhf.
+Preparing to unpack .../49-libudev-dev_241-1_armhf.deb ...
+Unpacking libudev-dev:armhf (241-1) ...
+Selecting previously unselected package libsepol1:armhf.
+Preparing to unpack .../50-libsepol1_2.8-1_armhf.deb ...
+Unpacking libsepol1:armhf (2.8-1) ...
+Selecting previously unselected package libsepol1-dev:armhf.
+Preparing to unpack .../51-libsepol1-dev_2.8-1_armhf.deb ...
+Unpacking libsepol1-dev:armhf (2.8-1) ...
+Selecting previously unselected package libpcre16-3:armhf.
+Preparing to unpack .../52-libpcre16-3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre16-3:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcre32-3:armhf.
+Preparing to unpack .../53-libpcre32-3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre32-3:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcrecpp0v5:armhf.
+Preparing to unpack .../54-libpcrecpp0v5_2%3a8.39-11_armhf.deb ...
+Unpacking libpcrecpp0v5:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcre3-dev:armhf.
+Preparing to unpack .../55-libpcre3-dev_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre3-dev:armhf (2:8.39-11) ...
+Selecting previously unselected package libselinux1-dev:armhf.
+Preparing to unpack .../56-libselinux1-dev_2.8-1+b1_armhf.deb ...
+Unpacking libselinux1-dev:armhf (2.8-1+b1) ...
+Selecting previously unselected package libdevmapper-dev:armhf.
+Preparing to unpack .../57-libdevmapper-dev_2%3a1.02.155-2_armhf.deb ...
+Unpacking libdevmapper-dev:armhf (2:1.02.155-2) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../58-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../59-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../60-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libgpg-error0:armhf.
+Preparing to unpack .../61-libgpg-error0_1.35-1_armhf.deb ...
+Unpacking libgpg-error0:armhf (1.35-1) ...
+Selecting previously unselected package libgcrypt20:armhf.
+Preparing to unpack .../62-libgcrypt20_1.8.4-5_armhf.deb ...
+Unpacking libgcrypt20:armhf (1.8.4-5) ...
+Selecting previously unselected package libgpg-error-dev:armhf.
+Preparing to unpack .../63-libgpg-error-dev_1.35-1_armhf.deb ...
+Unpacking libgpg-error-dev:armhf (1.35-1) ...
+Selecting previously unselected package libgcrypt20-dev:armhf.
+Preparing to unpack .../64-libgcrypt20-dev_1.8.4-5_armhf.deb ...
+Unpacking libgcrypt20-dev:armhf (1.8.4-5) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../65-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../66-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../67-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-7) ...
+Setting up libudev1:armhf (241-1) ...
+Setting up libsepol1:armhf (2.8-1) ...
+Setting up libdevmapper1.02.1:amd64 (2:1.02.155-2) ...
+Setting up dmsetup (2:1.02.155-2) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libjson-c3:armhf (0.12.1+ds-2) ...
+Setting up libpcre16-3:armhf (2:8.39-11) ...
+Setting up libgpg-error0:armhf (1.35-1) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libssl1.1:armhf (1.1.1b-1) ...
+Setting up libargon2-1:armhf (0~20171227-0.2) ...
+Setting up libsepol1-dev:armhf (2.8-1) ...
+Setting up libgcrypt20:armhf (1.8.4-5) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libpcre3:armhf (2:8.39-11) ...
+Setting up libgpg-error-dev:armhf (1.35-1) ...
+Setting up libpcre32-3:armhf (2:8.39-11) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libuuid1:armhf (2.33.1-0.1) ...
+Setting up libudev-dev:armhf (241-1) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libblkid1:armhf (2.33.1-0.1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libpcrecpp0v5:armhf (2:8.39-11) ...
+Setting up libpcre3-dev:armhf (2:8.39-11) ...
+Setting up debhelper (12.1.1) ...
+Setting up libselinux1:armhf (2.8-1+b1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libgcrypt20-dev:armhf (1.8.4-5) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libdevmapper1.02.1:armhf (2:1.02.155-2) ...
+Setting up libcryptsetup12:armhf (2:2.1.0-1) ...
+Setting up libdevmapper-event1.02.1:armhf (2:1.02.155-2) ...
+Setting up libcryptsetup-dev:armhf (2:2.1.0-1) ...
+Setting up libselinux1-dev:armhf (2.8-1+b1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libdevmapper-dev:armhf (2:1.02.155-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in linux-any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dmsetup_2:1.02.155-2 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libargon2-1_0~20171227-0.2 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libcryptsetup-dev_2:2.1.0-1 libcryptsetup12_2:2.1.0-1 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdevmapper-dev_2:1.02.155-2 libdevmapper-event1.02.1_2:1.02.155-2 libdevmapper1.02.1_2:1.02.155-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgcrypt20-dev_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error-dev_1.35-1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libjson-c3_0.12.1+ds-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre16-3_2:8.39-11 libpcre3_2:8.39-11 libpcre3-dev_2:8.39-11 libpcre32-3_2:8.39-11 libpcrecpp0v5_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libselinux1-dev_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsepol1-dev_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev-dev_241-1 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: cryptmount
+Binary: cryptmount
+Architecture: linux-any
+Version: 5.3.1-1
+Maintainer: RW Penney <rwpenney@users.sourceforge.net>
+Homepage: http://cryptmount.sourceforge.net
+Standards-Version: 4.3.0
+Build-Depends: automake, debhelper (>= 10), libcryptsetup-dev (>= 1.6), libdevmapper-dev, libgcrypt20-dev (>= 1.5), pkg-config
+Package-List:
+ cryptmount deb admin optional arch=linux-any
+Checksums-Sha1:
+ d1f6e0e5b97ed78de8e9fc3c02dca4b539571882 748020 cryptmount_5.3.1.orig.tar.gz
+ 6670f95e258ade0f73316cebb4e78ade6ac90ae7 8532 cryptmount_5.3.1-1.debian.tar.xz
+Checksums-Sha256:
+ c531aa2286bbd194b71f103fb411c4821083317c0d1f2b700382328a57e99631 748020 cryptmount_5.3.1.orig.tar.gz
+ 11f61e33efc0bd19023ea4407aca82bd868c5a6aac899678c0ebef906b0d20d0 8532 cryptmount_5.3.1-1.debian.tar.xz
+Files:
+ 7c6d76adbd6bd418a0d92e55a6c93e65 748020 cryptmount_5.3.1.orig.tar.gz
+ 0b8e139b636b6d44042c6a1b39ab109d 8532 cryptmount_5.3.1-1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEfYh9yLp7u6e4NeO63OMQ54ZMyL8FAlwxT9cACgkQ3OMQ54ZM
+yL9+0BAAk+h0H4bm4CYZ4dp6ZAgG1fkNoBRso5p+Wph2yogp/SLTwA62wQOPQdBi
+biHxENGdWP0aBC4x1zJwqaFNEJythguVslYpJcoLnJTgcS2Q4ESTku+h9fFu0JfY
+Q7tejTvK2F1z0QOOIYHwiKDAUH+z0qpFYhzBs+4u6IxIzD6e0yqqMBt6xtTcA0x3
+7HAN07IrZW+vHsSzNWYIpBlyayzpi6oT0nBCHR8WLjLa8CYnSGVnZ0yCVTvRb7zQ
+HuB9qRS/p/RLt59VJvhyKJwtR4hkqrUSADvl/NuDLYAsvCjjWIHKxpr+50wOsZSp
+qNTRRjviXFTwIsmI/ccAYNrYQl8zpdWlVdFNOQpDJa+iwpeXeH//Qt5rfWADS5OT
+joeElpzErCnsQaBtXEETR9QGcS93yEoHeFLYWlhVJC0gk+cytstti8zaeIFM/GGD
+o55dMIW/h9eSWQareBY22cTtd0AuiX8N9EEmDxKy55iqJmobtT0xgWeAkZEntoZc
+W4NT2rIjbz2UZ9ClrQH6W/KQ6LHpnhVoFawk33yjnc9uWMtvaCF47POBTOQC3CQ6
+Jb4NSMkMZejDTgB/h9roqG7/zclwQGL4Z6gTQn9jsqDq6k3jqRnzoV81RidKybBY
+KEV8EFfY1zviwqC+nwBL2zK1hTakK22NgcIw3y7pt5ueMZYhjds=
+=OHI8
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sun Jan  6 00:46:15 2019 UTC
+gpgv:                using RSA key 7D887DC8BA7BBBA7B835E3BADCE310E7864CC8BF
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./cryptmount_5.3.1-1.dsc
+dpkg-source: info: extracting cryptmount in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking cryptmount_5.3.1.orig.tar.gz
+dpkg-source: info: unpacking cryptmount_5.3.1-1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying docfiles-pathnames.patch
+dpkg-source: info: applying systemd-paths.patch
+dpkg-source: info: applying install-example-cmtab.patch
+dpkg-source: info: applying init.d-script.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-60cc4ef5-e9c1-4941-971b-952dcca4fc29
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package cryptmount
+dpkg-buildpackage: info: source version 5.3.1-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by RW Penney <rwpenney@users.sourceforge.net>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean  --with autoreconf,systemd
+   dh_clean
+ debian/rules build-arch
+dh build-arch  --with autoreconf,systemd
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+Creating directory m4
+Copying file m4/codeset.m4
+Copying file m4/gettext.m4
+Copying file m4/glibc2.m4
+Copying file m4/glibc21.m4
+Copying file m4/iconv.m4
+Copying file m4/intdiv0.m4
+Copying file m4/intl.m4
+Copying file m4/intldir.m4
+Copying file m4/intmax.m4
+Copying file m4/inttypes-pri.m4
+Copying file m4/inttypes_h.m4
+Copying file m4/lcmessage.m4
+Copying file m4/lib-ld.m4
+Copying file m4/lib-link.m4
+Copying file m4/lib-prefix.m4
+Copying file m4/lock.m4
+Copying file m4/longdouble.m4
+Copying file m4/longlong.m4
+Copying file m4/nls.m4
+Copying file m4/po.m4
+Copying file m4/printf-posix.m4
+Copying file m4/progtest.m4
+Copying file m4/size_max.m4
+Copying file m4/stdint_h.m4
+Copying file m4/uintmax_t.m4
+Copying file m4/ulonglong.m4
+Copying file m4/visibility.m4
+Copying file m4/wchar_t.m4
+Copying file m4/wint_t.m4
+Copying file m4/xsize.m4
+Copying file po/Makevars.template
+Makefile.am:18: warning: shell echo "${cryptmount_SOURCES}" | sed 's%\<[^ ]*\.h\>%%g': non-POSIX variable name
+Makefile.am:18: (probably a GNU make extension)
+testing/Makefile.am:6: warning: shell ls keys/*.hdr: non-POSIX variable name
+testing/Makefile.am:6: (probably a GNU make extension)
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_configure -- \
+	--prefix=/usr --sysconfdir=/etc --with-sysrundir=/run \
+	--with-systemd --with-libgcrypt --enable-luks \
+	--enable-delegation --enable-fsck \
+	--enable-cswap --enable-openssl-compat
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --prefix=/usr --sysconfdir=/etc --with-sysrundir=/run --with-systemd --with-libgcrypt --enable-luks --enable-delegation --enable-fsck --enable-cswap --enable-openssl-compat
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --disable-dependency-tracking
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for arm-linux-gnueabihf-gcc... (cached) arm-linux-gnueabihf-gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... (cached) yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... (cached) yes
+checking whether make sets $(MAKE)... (cached) yes
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking for library containing nanosleep... none required
+checking for library containing tcgetattr... none required
+checking for ANSI C header files... (cached) yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking mntent.h usability... yes
+checking mntent.h presence... yes
+checking for mntent.h... yes
+checking linux/fs.h usability... yes
+checking linux/fs.h presence... yes
+checking for linux/fs.h... yes
+checking linux/loop.h usability... yes
+checking linux/loop.h presence... yes
+checking for linux/loop.h... yes
+checking sys/sysmacros.h usability... yes
+checking sys/sysmacros.h presence... yes
+checking for sys/sysmacros.h... yes
+checking for ioctl... yes
+checking for memset... yes
+checking for mknod... yes
+checking for open... yes
+checking for strncpy... yes
+checking for syslog... yes
+checking for library containing log... -lm
+checking for an ANSI C-conforming const... yes
+checking libdevmapper.h usability... yes
+checking libdevmapper.h presence... yes
+checking for libdevmapper.h... yes
+checking for library containing dm_task_create... -ldevmapper
+checking whether dm_task_secure_data is declared... yes
+checking gcrypt.h usability... yes
+checking gcrypt.h presence... yes
+checking for gcrypt.h... yes
+checking for library containing gcry_cipher_open... -lgcrypt
+checking for arm-linux-gnueabihf-pkg-config... /usr/bin/arm-linux-gnueabihf-pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for libcryptsetup... yes
+checking for library containing crypt_keyslot_change_by_passphrase... none required
+checking for mount... 0
+checking for mount... /bin/mount
+checking for umount... 0
+checking for umount... /bin/umount
+checking for library containing swapon... none required
+checking for mkswap... 1
+checking for mkswap... /sbin/mkswap
+checking for fsck... 1
+checking for fsck... /sbin/fsck
+checking for a sed that does not truncate output... /bin/sed
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for shared library run path origin... done
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for doxygen... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating delegates.h
+config.status: creating man/Makefile
+config.status: creating man/fr/Makefile
+config.status: creating po/Makefile.in
+config.status: creating sysinit/Makefile
+config.status: creating testing/Makefile
+config.status: creating doxygen.conf
+config.status: creating config.h
+config.status: executing po-directories commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --disable-dependency-tracking
+configure:
+
+    cryptmount-5.3.1 is now configured with:
+
+        Source location:                .
+        Installation prefix:            /usr
+        Configuration directory:        /etc/cryptmount
+        Run-state directory:            /run
+        Filesystem mounting:            /bin/mount
+        Filesystem unmounting:          /bin/umount
+        Filesystem checking:            /sbin/fsck
+        Crypto-swap support:            yes
+        libgcrypt support:              yes (with OpenSSL emulator)
+        libudev support (EXPERIMENTAL): no
+        LUKS support:                   yes
+
+
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_build -a
+	make -j16
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+make  all-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in man
+make[3]: Entering directory '/<<PKGBUILDDIR>>/man'
+Making all in fr
+make[4]: Entering directory '/<<PKGBUILDDIR>>/man/fr'
+sed "s,@PACKAGE_VERSION\@,5.3.1,g; s,@CM_SYSCONF_DIR\@,/etc/cryptmount,g; s,@CM_SYSRUN_DIR\@,/run,g; s,@CM_DEFAULT_CIPHER\@,aes-cbc-plain,g; s,@DFLT_KEYHASH\@,,g; s,@DFLT_KEYCIPHER\@,,g; s,@CM_DEFAULT_SUPATH\@,/sbin:/bin:/usr/sbin:/usr/bin,g; /^___DELETE_CSWAP_1/,/^___END_CSWAP_/d; /^___DELETE_FSCK_1/,/^___END_FSCK_/d; /^___/d" cmtab.5.in > cmtab.5
+sed "s,@PACKAGE_VERSION\@,5.3.1,g; s,@CM_SYSCONF_DIR\@,/etc/cryptmount,g; s,@CM_SYSRUN_DIR\@,/run,g; s,@CM_DEFAULT_CIPHER\@,aes-cbc-plain,g; s,@DFLT_KEYHASH\@,,g; s,@DFLT_KEYCIPHER\@,,g; s,@CM_DEFAULT_SUPATH\@,/sbin:/bin:/usr/sbin:/usr/bin,g; /^___DELETE_CSWAP_1/,/^___END_CSWAP_/d; /^___DELETE_FSCK_1/,/^___END_FSCK_/d; /^___/d" cryptmount.8.in > cryptmount.8
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/man/fr'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/man'
+sed "s,@PACKAGE_VERSION\@,5.3.1,g; s,@CM_SYSCONF_DIR\@,/etc/cryptmount,g; s,@CM_SYSRUN_DIR\@,/run,g; s,@CM_DEFAULT_CIPHER\@,aes-cbc-plain,g; s,@DFLT_KEYHASH\@,,g; s,@DFLT_KEYCIPHER\@,,g; s,@CM_DEFAULT_SUPATH\@,/sbin:/bin:/usr/sbin:/usr/bin,g; /^___DELETE_CSWAP_1/,/^___END_CSWAP_/d; /^___DELETE_FSCK_1/,/^___END_FSCK_/d; /^___/d" cmtab.5.in > cmtab.5
+sed "s,@PACKAGE_VERSION\@,5.3.1,g; s,@CM_SYSCONF_DIR\@,/etc/cryptmount,g; s,@CM_SYSRUN_DIR\@,/run,g; s,@CM_DEFAULT_CIPHER\@,aes-cbc-plain,g; s,@DFLT_KEYHASH\@,,g; s,@DFLT_KEYCIPHER\@,,g; s,@CM_DEFAULT_SUPATH\@,/sbin:/bin:/usr/sbin:/usr/bin,g; /^___DELETE_CSWAP_1/,/^___END_CSWAP_/d; /^___DELETE_FSCK_1/,/^___END_FSCK_/d; /^___/d" cryptmount.8.in > cryptmount.8
+sed "s,@PACKAGE_VERSION\@,5.3.1,g; s,@CM_SYSCONF_DIR\@,/etc/cryptmount,g; s,@CM_SYSRUN_DIR\@,/run,g; s,@CM_DEFAULT_CIPHER\@,aes-cbc-plain,g; s,@DFLT_KEYHASH\@,,g; s,@DFLT_KEYCIPHER\@,,g; s,@CM_DEFAULT_SUPATH\@,/sbin:/bin:/usr/sbin:/usr/bin,g; /^___DELETE_CSWAP_1/,/^___END_CSWAP_/d; /^___DELETE_FSCK_1/,/^___END_FSCK_/d; /^___/d" cryptmount-setup.8.in > cryptmount-setup.8
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/man'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/man'
+Making all in po
+make[3]: Entering directory '/<<PKGBUILDDIR>>/po'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/po'
+Making all in sysinit
+make[3]: Entering directory '/<<PKGBUILDDIR>>/sysinit'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/sysinit'
+Making all in testing
+make[3]: Entering directory '/<<PKGBUILDDIR>>/testing'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/testing'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -DCM_SYSCONF_DIR="\"/etc/cryptmount\"" -DCM_SYSRUN_DIR="\"/run\"" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o cryptmount.o cryptmount.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -DCM_SYSCONF_DIR="\"/etc/cryptmount\"" -DCM_SYSRUN_DIR="\"/run\"" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o armour.o armour.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -DCM_SYSCONF_DIR="\"/etc/cryptmount\"" -DCM_SYSRUN_DIR="\"/run\"" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o armour-builtin.o armour-builtin.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -DCM_SYSCONF_DIR="\"/etc/cryptmount\"" -DCM_SYSRUN_DIR="\"/run\"" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o armour-gcry.o armour-gcry.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -DCM_SYSCONF_DIR="\"/etc/cryptmount\"" -DCM_SYSRUN_DIR="\"/run\"" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o armour-luks.o armour-luks.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -DCM_SYSCONF_DIR="\"/etc/cryptmount\"" -DCM_SYSRUN_DIR="\"/run\"" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o blowfish.o blowfish.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -DCM_SYSCONF_DIR="\"/etc/cryptmount\"" -DCM_SYSRUN_DIR="\"/run\"" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o dmutils.o dmutils.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -DCM_SYSCONF_DIR="\"/etc/cryptmount\"" -DCM_SYSRUN_DIR="\"/run\"" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsutils.o fsutils.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -DCM_SYSCONF_DIR="\"/etc/cryptmount\"" -DCM_SYSRUN_DIR="\"/run\"" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o looputils.o looputils.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -DCM_SYSCONF_DIR="\"/etc/cryptmount\"" -DCM_SYSRUN_DIR="\"/run\"" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o tables.o tables.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -DCM_SYSCONF_DIR="\"/etc/cryptmount\"" -DCM_SYSRUN_DIR="\"/run\"" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o utils.o utils.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -DCM_SYSCONF_DIR="\"/etc/cryptmount\"" -DCM_SYSRUN_DIR="\"/run\"" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o cmtesting.o cmtesting.c
+armour-luks.c: In function ‘luks_patch_uid’:
+armour-luks.c:216:15: warning: ignoring return value of ‘setuid’, declared with attribute warn_unused_result [-Wunused-result]
+         (void)setuid(geteuid());
+               ^~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o cryptmount cryptmount.o armour.o armour-builtin.o armour-gcry.o armour-luks.o blowfish.o dmutils.o fsutils.o looputils.o tables.o utils.o cmtesting.o -L/lib/arm-linux-gnueabihf -lcryptsetup -lgcrypt -ldevmapper -lm  -L/lib/arm-linux-gnueabihf -lcryptsetup
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_test -a
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary-arch
+dh binary-arch  --with autoreconf,systemd
+   dh_testroot -a
+   dh_prep -a
+   dh_auto_install -a
+	make -j16 install DESTDIR=/<<PKGBUILDDIR>>/debian/cryptmount AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+Making install in man
+make[2]: Entering directory '/<<PKGBUILDDIR>>/man'
+Making install in fr
+make[3]: Entering directory '/<<PKGBUILDDIR>>/man/fr'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/man/fr'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/cryptmount/usr/share/man/fr/man5'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/cryptmount/usr/share/man/fr/man8'
+ /usr/bin/install -c -m 644 cryptmount.8 '/<<PKGBUILDDIR>>/debian/cryptmount/usr/share/man/fr/man8'
+ /usr/bin/install -c -m 644 cmtab.5 '/<<PKGBUILDDIR>>/debian/cryptmount/usr/share/man/fr/man5'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/man/fr'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/man/fr'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/man'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/man'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/cryptmount/usr/share/man/man8'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/cryptmount/usr/share/man/man5'
+ /usr/bin/install -c -m 644 cryptmount.8 cryptmount-setup.8 '/<<PKGBUILDDIR>>/debian/cryptmount/usr/share/man/man8'
+ /usr/bin/install -c -m 644 cmtab.5 '/<<PKGBUILDDIR>>/debian/cryptmount/usr/share/man/man5'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/man'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/man'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/man'
+Making install in po
+make[2]: Entering directory '/<<PKGBUILDDIR>>/po'
+/bin/mkdir -p /<<PKGBUILDDIR>>/debian/cryptmount/usr/share
+installing de.gmo as /<<PKGBUILDDIR>>/debian/cryptmount/usr/share/locale/de/LC_MESSAGES/cryptmount.mo
+installing fr.gmo as /<<PKGBUILDDIR>>/debian/cryptmount/usr/share/locale/fr/LC_MESSAGES/cryptmount.mo
+if test "cryptmount" = "gettext-tools"; then \
+  /bin/mkdir -p /<<PKGBUILDDIR>>/debian/cryptmount/usr/share/gettext/po; \
+  for file in Makefile.in.in remove-potcdate.sin quot.sed boldquot.sed en@quot.header en@boldquot.header insert-header.sin Rules-quot   Makevars.template; do \
+    /usr/bin/install -c -m 644 ./$file \
+		    /<<PKGBUILDDIR>>/debian/cryptmount/usr/share/gettext/po/$file; \
+  done; \
+  for file in Makevars; do \
+    rm -f /<<PKGBUILDDIR>>/debian/cryptmount/usr/share/gettext/po/$file; \
+  done; \
+else \
+  : ; \
+fi
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/po'
+Making install in sysinit
+make[2]: Entering directory '/<<PKGBUILDDIR>>/sysinit'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/sysinit'
+make  install-exec-hook
+make[3]: Nothing to be done for 'install-data-am'.
+make[4]: Entering directory '/<<PKGBUILDDIR>>/sysinit'
+sed 's,@EXENAME@,/usr/bin/cryptmount,g; s,@SYSCONF_DIR@,/etc/cryptmount,g; s,@PKG_NAME@,cryptmount,g; s,@PKG_VERSION@,5.3.1,g; s,@LCL_DIR@,/usr/share/locale,g' cryptmount.service.in > cryptmount.service
+sed 's,@EXENAME@,/usr/bin/cryptmount,g; s,@SYSCONF_DIR@,/etc/cryptmount,g; s,@PKG_NAME@,cryptmount,g; s,@PKG_VERSION@,5.3.1,g; s,@LCL_DIR@,/usr/share/locale,g' initscript.in > initscript
+sed 's,@EXENAME@,/usr/bin/cryptmount,g; s,@SYSCONF_DIR@,/etc/cryptmount,g; s,@PKG_NAME@,cryptmount,g; s,@PKG_VERSION@,5.3.1,g; s,@LCL_DIR@,/usr/share/locale,g' setupscript.sh.in > setupscript
+test -d "/<<PKGBUILDDIR>>/debian/cryptmount/lib/systemd/system" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/cryptmount/lib/systemd/system"
+test -d "/<<PKGBUILDDIR>>/debian/cryptmount/usr/sbin" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/cryptmount/usr/sbin"
+if test -d "/<<PKGBUILDDIR>>/debian/cryptmount/lib/systemd/system" ; then \
+     /usr/bin/install -c -m 644 cryptmount.service "/<<PKGBUILDDIR>>/debian/cryptmount/lib/systemd/system"; \
+fi
+/usr/bin/install -c setupscript "/<<PKGBUILDDIR>>/debian/cryptmount/usr/sbin/cryptmount-setup"
+test -d "/<<PKGBUILDDIR>>/debian/cryptmount/etc/modules-load.d" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/cryptmount/etc/modules-load.d"
+/usr/bin/install -c -m 644 modules-load.conf "/<<PKGBUILDDIR>>/debian/cryptmount/etc/modules-load.d/cryptmount.conf";
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/sysinit'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/sysinit'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/sysinit'
+Making install in testing
+make[2]: Entering directory '/<<PKGBUILDDIR>>/testing'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/testing'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/testing'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/testing'
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Nothing to be done for 'install-data-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/cryptmount/usr/bin'
+  /usr/bin/install -c cryptmount '/<<PKGBUILDDIR>>/debian/cryptmount/usr/bin'
+make  install-exec-hook
+make[4]: Entering directory '/<<PKGBUILDDIR>>'
+if test ! -d "/<<PKGBUILDDIR>>/debian/cryptmount/etc/cryptmount" ; then \
+    /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/cryptmount/etc/cryptmount" ; \
+fi
+if test ! -f "/<<PKGBUILDDIR>>/debian/cryptmount/etc/cryptmount/cmtab" ; then \
+    echo -e "# /etc/cryptmount/cmtab - encrypted filesystem information for cryptmount\n# try 'man 8 cryptmount' or 'man 5 cmtab' for more details\n" >> "/<<PKGBUILDDIR>>/debian/cryptmount/etc/cryptmount/cmtab"; \
+fi
+/bin/mkdir -p "/<<PKGBUILDDIR>>/debian/cryptmount/usr/share/doc/cryptmount/examples"
+/usr/bin/install -c -m 644 cmtab.example "/<<PKGBUILDDIR>>/debian/cryptmount/usr/share/doc/cryptmount/examples/cmtab"
+chown root.root /<<PKGBUILDDIR>>/debian/cryptmount/usr/bin/cryptmount
+chmod u+srwx,go-w,go+r /<<PKGBUILDDIR>>/debian/cryptmount/usr/bin/cryptmount
+make[4]: Leaving directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installdocs -a
+   dh_installchangelogs -a
+   dh_installman -a
+   dh_systemd_enable -a
+   dh_systemd_start -a
+   dh_lintian -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+	Normalized debian/cryptmount/usr/share/locale/fr/LC_MESSAGES/cryptmount.mo
+	Normalized debian/cryptmount/usr/share/locale/de/LC_MESSAGES/cryptmount.mo
+   dh_compress -a
+   debian/rules override_dh_fixperms
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_fixperms --exclude usr/bin/cryptmount
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_missing -a
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+   dh_installdeb -a
+   dh_gencontrol -a
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'cryptmount' in '../cryptmount_5.3.1-1_armhf.deb'.
+dpkg-deb: building package 'cryptmount-dbgsym' in '../cryptmount-dbgsym_5.3.1-1_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../cryptmount_5.3.1-1_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T12:45:37Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+cryptmount_5.3.1-1_armhf.changes:
+---------------------------------
+
+Format: 1.8
+Date: Sat, 05 Jan 2019 16:20:00 +0000
+Source: cryptmount
+Binary: cryptmount cryptmount-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 5.3.1-1
+Distribution: unstable-amd64-sbuild
+Urgency: low
+Maintainer: RW Penney <rwpenney@users.sourceforge.net>
+Changed-By: RW Penney <rwpenney@users.sourceforge.net>
+Description:
+ cryptmount - Management of encrypted file systems
+Changes:
+ cryptmount (5.3.1-1) unstable; urgency=low
+ .
+   * New upstream release:
+     - fixed memory cleanup error on application exit
+ .
+   * Updated to Debian Standards Version 4.3.0
+Checksums-Sha1:
+ a7b58b340a7fa364b877d77fbb527c2e25260d6a 126864 cryptmount-dbgsym_5.3.1-1_armhf.deb
+ d56e2f21c653fb8d2349e52e1a845b91f41a9345 5100 cryptmount_5.3.1-1_armhf.buildinfo
+ da7d29a9a432329409c540e021b4a90f0d5d82b6 89092 cryptmount_5.3.1-1_armhf.deb
+Checksums-Sha256:
+ 5d05b7820c356d4648b713aaabef92d354ca778a46aaeb8ebd000a80b47d07b6 126864 cryptmount-dbgsym_5.3.1-1_armhf.deb
+ 71132dd093588a3a630c663b155a1a8c99ae428097e6611f215c5a34cfa01d3c 5100 cryptmount_5.3.1-1_armhf.buildinfo
+ 0c32567fede7149dd700d6bef25c7e43395679e5efb37eca628b43be96e0d968 89092 cryptmount_5.3.1-1_armhf.deb
+Files:
+ c20b3e1b2b373fb9e9dfef569667d7c5 126864 debug optional cryptmount-dbgsym_5.3.1-1_armhf.deb
+ b70d80645a412ea90b05703b173ae04b 5100 admin optional cryptmount_5.3.1-1_armhf.buildinfo
+ ffc5d64db20a93acfef06e6326a8fc35 89092 admin optional cryptmount_5.3.1-1_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: cryptmount
+Binary: cryptmount
+Architecture: armhf
+Version: 5.3.1-1
+Checksums-Md5:
+ c20b3e1b2b373fb9e9dfef569667d7c5 126864 cryptmount-dbgsym_5.3.1-1_armhf.deb
+ ffc5d64db20a93acfef06e6326a8fc35 89092 cryptmount_5.3.1-1_armhf.deb
+Checksums-Sha1:
+ a7b58b340a7fa364b877d77fbb527c2e25260d6a 126864 cryptmount-dbgsym_5.3.1-1_armhf.deb
+ da7d29a9a432329409c540e021b4a90f0d5d82b6 89092 cryptmount_5.3.1-1_armhf.deb
+Checksums-Sha256:
+ 5d05b7820c356d4648b713aaabef92d354ca778a46aaeb8ebd000a80b47d07b6 126864 cryptmount-dbgsym_5.3.1-1_armhf.deb
+ 0c32567fede7149dd700d6bef25c7e43395679e5efb37eca628b43be96e0d968 89092 cryptmount_5.3.1-1_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Fri, 01 Mar 2019 12:45:37 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dmsetup (= 2:1.02.155-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.52-5),
+ libarchive-zip-perl (= 1.64-1),
+ libargon2-1 (= 0~20171227-0.2),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libcryptsetup-dev (= 2:2.1.0-1),
+ libcryptsetup12 (= 2:2.1.0-1),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.247),
+ libdevmapper-dev (= 2:1.02.155-2),
+ libdevmapper-event1.02.1 (= 2:1.02.155-2),
+ libdevmapper1.02.1 (= 2:1.02.155-2),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgcrypt20-dev (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error-dev (= 1.35-1),
+ libgpg-error0 (= 1.35-1),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ libjson-c3 (= 0.12.1+ds-2),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre16-3 (= 2:8.39-11),
+ libpcre3 (= 2:8.39-11),
+ libpcre3-dev (= 2:8.39-11),
+ libpcre32-3 (= 2:8.39-11),
+ libpcrecpp0v5 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libquadmath0 (= 8.3.0-2),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libselinux1-dev (= 2.8-1+b1),
+ libsepol1 (= 2.8-1),
+ libsepol1-dev (= 2.8-1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libssl1.1 (= 1.1.1b-1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev-dev (= 241-1),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1546705200"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+cryptmount-dbgsym_5.3.1-1_armhf.deb
+-----------------------------------
+
+ new Debian package, version 2.0.
+ size 126864 bytes: control archive=520 bytes.
+     352 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: cryptmount-dbgsym
+ Source: cryptmount
+ Version: 5.3.1-1
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: RW Penney <rwpenney@users.sourceforge.net>
+ Installed-Size: 147
+ Depends: cryptmount (= 5.3.1-1)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for cryptmount
+ Build-Ids: 9df42360f744639e902a5d6bcec4222c6e7c97be
+
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/lib/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/lib/debug/.build-id/9d/
+-rw-r--r-- root/root    140276 2019-01-05 16:20 ./usr/lib/debug/.build-id/9d/f42360f744639e902a5d6bcec4222c6e7c97be.debug
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2019-01-05 16:20 ./usr/share/doc/cryptmount-dbgsym -> cryptmount
+
+
+cryptmount_5.3.1-1_armhf.deb
+----------------------------
+
+ new Debian package, version 2.0.
+ size 89092 bytes: control archive=2888 bytes.
+      58 bytes,     2 lines      conffiles            
+    1466 bytes,    30 lines      control              
+    1479 bytes,    21 lines      md5sums              
+    2511 bytes,    76 lines   *  postinst             #!/bin/sh
+     817 bytes,    32 lines   *  postrm               #!/bin/sh
+     770 bytes,    39 lines   *  preinst              #!/bin/sh
+     225 bytes,     7 lines   *  prerm                #!/bin/sh
+ Package: cryptmount
+ Version: 5.3.1-1
+ Architecture: armhf
+ Maintainer: RW Penney <rwpenney@users.sourceforge.net>
+ Installed-Size: 190
+ Depends: libc6 (>= 2.7), libcryptsetup12 (>= 2:1.4), libdevmapper1.02.1 (>= 2:1.02.97), libgcrypt20 (>= 1.8.0)
+ Recommends: e2fsprogs (>= 1.42.12), udev
+ Suggests: openssl, dmsetup
+ Section: admin
+ Priority: optional
+ Homepage: http://cryptmount.sourceforge.net
+ Description: Management of encrypted file systems
+  cryptmount is a utility for creating encrypted filesystems & swap partitions
+  and which allows an ordinary user to mount/unmount filesystems
+  without requiring superuser privileges.
+  .
+  It offers the following features:
+     * easy and safe on-demand access to filesystems without su/sudo;
+     * access passwords can be changed easily without involving the sys-admin;
+     * filesystems can reside on raw disk partitions or ordinary files;
+     * supports LUKS encrypted filesystems created by cryptsetup;
+     * encrypted access keys can be stored on removable media
+       (e.g. USB flash disks);
+     * includes support for encrypted swap partitions;
+     * multiple filesystems can be stored in a single disk partition;
+     * encrypted filesystems can be initialized at boot-up or on demand;
+     * temporary filesystems can be setup via command-line,
+       for use in shell-scripts;
+     * transparent configuration of dm-crypt & loopback devices during mounting;
+     * access keys can optionally be made compatible with OpenSSL.
+
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./etc/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./etc/cryptmount/
+-rw-r--r-- root/root       134 2019-01-05 16:20 ./etc/cryptmount/cmtab
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./etc/modules-load.d/
+-rw-r--r-- root/root        52 2019-01-05 16:20 ./etc/modules-load.d/cryptmount.conf
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./lib/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./lib/systemd/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./lib/systemd/system/
+-rw-r--r-- root/root       378 2019-01-05 16:20 ./lib/systemd/system/cryptmount.service
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/bin/
+-rwsr-xr-x root/root     60060 2019-01-05 16:20 ./usr/bin/cryptmount
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/sbin/
+-rwxr-xr-x root/root     10932 2019-01-05 16:20 ./usr/sbin/cryptmount-setup
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/doc/cryptmount/
+-rw-r--r-- root/root        91 2010-06-04 14:55 ./usr/share/doc/cryptmount/NEWS.gz
+-rw-r--r-- root/root      1945 2010-06-04 14:55 ./usr/share/doc/cryptmount/README.OpenSSL.gz
+-rw-r--r-- root/root      2916 2019-01-05 16:20 ./usr/share/doc/cryptmount/README.gz
+-rw-r--r-- root/root      2617 2015-03-06 18:33 ./usr/share/doc/cryptmount/README.sshfs
+-rw-r--r-- root/root      4615 2019-01-05 16:18 ./usr/share/doc/cryptmount/RELNOTES.gz
+-rw-r--r-- root/root       460 2015-10-22 04:48 ./usr/share/doc/cryptmount/ToDo
+-rw-r--r-- root/root      2247 2019-01-05 16:19 ./usr/share/doc/cryptmount/changelog.Debian.gz
+-rw-r--r-- root/root      7085 2019-01-05 14:40 ./usr/share/doc/cryptmount/changelog.gz
+-rw-r--r-- root/root      1201 2019-01-05 16:02 ./usr/share/doc/cryptmount/copyright
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/doc/cryptmount/examples/
+-rw-r--r-- root/root      1304 2019-01-05 16:20 ./usr/share/doc/cryptmount/examples/cmtab
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/lintian/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/lintian/overrides/
+-rw-r--r-- root/root       172 2015-08-16 16:14 ./usr/share/lintian/overrides/cryptmount
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/locale/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/locale/de/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/locale/de/LC_MESSAGES/
+-rw-r--r-- root/root     16062 2019-01-05 16:20 ./usr/share/locale/de/LC_MESSAGES/cryptmount.mo
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/locale/fr/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/locale/fr/LC_MESSAGES/
+-rw-r--r-- root/root     14472 2019-01-05 16:20 ./usr/share/locale/fr/LC_MESSAGES/cryptmount.mo
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/man/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/man/fr/
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/man/fr/man5/
+-rw-r--r-- root/root      4995 2019-01-05 16:20 ./usr/share/man/fr/man5/cmtab.5.gz
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/man/fr/man8/
+-rw-r--r-- root/root      3113 2019-01-05 16:20 ./usr/share/man/fr/man8/cryptmount.8.gz
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/man/man5/
+-rw-r--r-- root/root      6470 2019-01-05 16:20 ./usr/share/man/man5/cmtab.5.gz
+drwxr-xr-x root/root         0 2019-01-05 16:20 ./usr/share/man/man8/
+-rw-r--r-- root/root       543 2019-01-05 16:20 ./usr/share/man/man8/cryptmount-setup.8.gz
+-rw-r--r-- root/root      4042 2019-01-05 16:20 ./usr/share/man/man8/cryptmount.8.gz
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [574 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [659 B]
+Fetched 2196 B in 0s (163 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [848 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 1s (5343 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 19797 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+W: cryptmount source: orig-tarball-missing-upstream-signature cryptmount_5.3.1.orig.tar.gz
+N: 1 tag overridden (1 warning)
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* dmsetup* dwz*
+  gcc-8-base:armhf* gettext* gettext-base* groff-base* intltool-debian*
+  libapt-pkg-perl* libarchive-zip-perl* libargon2-1:armhf* libasan5:armhf*
+  libatomic1:armhf* libblkid1:armhf* libbsd0* libc6:armhf* libc6-dev:armhf*
+  libcapture-tiny-perl* libcgi-pm-perl* libclass-accessor-perl* libclone-perl*
+  libcroco3* libcryptsetup-dev:armhf* libcryptsetup12:armhf*
+  libdevmapper-dev:armhf* libdevmapper-event1.02.1:armhf* libdevmapper1.02.1*
+  libdevmapper1.02.1:armhf* libdigest-hmac-perl* libelf1* libemail-valid-perl*
+  libexporter-tiny-perl* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfuture-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libgcrypt20:armhf* libgcrypt20-dev:armhf* libglib2.0-0*
+  libgomp1:armhf* libgpg-error-dev:armhf* libgpg-error0:armhf*
+  libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* libjson-c3:armhf* liblist-moreutils-perl*
+  libncurses6* libnet-dns-perl* libnet-domain-tld-perl* libnet-ip-perl*
+  libparse-debianchangelog-perl* libpath-tiny-perl* libpcre16-3:armhf*
+  libpcre3:armhf* libpcre3-dev:armhf* libpcre32-3:armhf* libpcrecpp0v5:armhf*
+  libpipeline1* libselinux1:armhf* libselinux1-dev:armhf* libsepol1:armhf*
+  libsepol1-dev:armhf* libsigsegv2* libssl1.1:armhf* libstdc++-8-dev:armhf*
+  libstdc++6:armhf* libstruct-dumb-perl* libsub-name-perl*
+  libtext-levenshtein-perl* libtool* libubsan1:armhf* libuchardet0*
+  libudev-dev:armhf* libudev1:armhf* libuuid1:armhf* lintian*
+  linux-libc-dev:armhf* m4* man-db* patchutils* pkg-config* po-debconf*
+  sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils*
+0 upgraded, 0 newly installed, 96 to remove and 0 not upgraded.
+After this operation, 102 MB disk space will be freed.
+(Reading database ... 21075 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing libdevmapper-dev:armhf (2:1.02.155-2) ...
+Removing libdevmapper-event1.02.1:armhf (2:1.02.155-2) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libselinux1-dev:armhf (2.8-1+b1) ...
+Removing libpcre3-dev:armhf (2:8.39-11) ...
+Removing libpcrecpp0v5:armhf (2:8.39-11) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libcryptsetup-dev:armhf (2:2.1.0-1) ...
+Removing libcryptsetup12:armhf (2:2.1.0-1) ...
+Removing libargon2-1:armhf (0~20171227-0.2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libudev-dev:armhf (241-1) ...
+Removing libgcrypt20-dev:armhf (1.8.4-5) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libgcrypt20:armhf (1.8.4-5) ...
+Removing pkg-config (0.29-6) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libgpg-error-dev:armhf (1.35-1) ...
+Removing libgpg-error0:armhf (1.35-1) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libjson-c3:armhf (0.12.1+ds-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libpcre16-3:armhf (2:8.39-11) ...
+Removing libpcre32-3:armhf (2:8.39-11) ...
+Removing libsepol1-dev:armhf (2.8-1) ...
+Removing libsepol1:armhf (2.8-1) ...
+Removing libssl1.1:armhf (1.1.1b-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libdevmapper1.02.1:armhf (2:1.02.155-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libblkid1:armhf (2.33.1-0.1) ...
+Removing libuuid1:armhf (2.33.1-0.1) ...
+Removing libudev1:armhf (241-1) ...
+Removing libselinux1:armhf (2.8-1+b1) ...
+Removing libpcre3:armhf (2:8.39-11) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dmsetup (2:1.02.155-2) ...
+Removing libdevmapper1.02.1:amd64 (2:1.02.155-2) ...
+Removing dwz (0.12-3) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing libc6:armhf (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16459 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for libssl1.1:armhf (1.1.1b-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for libudev-dev:armhf (241-1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 20
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 8
+Job: /home/build/sbuild-setup/repo/pool/main/c/cryptmount/cryptmount_5.3.1-1.dsc
+Lintian: warn
+Machine Architecture: amd64
+Package: cryptmount
+Package-Time: 32
+Source-Version: 5.3.1-1
+Space: n/a
+Status: successful
+Version: 5.3.1-1
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T12:45:37Z
+Build needed 00:00:32, no disk space

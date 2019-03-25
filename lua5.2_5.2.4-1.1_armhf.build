@@ -1,0 +1,798 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| lua5.2 5.2.4-1.1 (armhf)                     Tue, 05 Mar 2019 13:02:12 +0000 |
++==============================================================================+
+
+Package: lua5.2
+Version: 5.2.4-1.1
+Source Version: 5.2.4-1.1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-249aa7bd-98ac-4662-959e-1483a6a378b7' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/lua5.2-B6bArd/resolver-125bDV' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/l/lua5.2/lua5.2_5.2.4-1.1.dsc exists in /home/build/sbuild-setup/repo/pool/main/l/lua5.2; copying to chroot
+I: NOTICE: Log filtering will replace 'build/lua5.2-B6bArd/lua5.2-5.2.4' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/lua5.2-B6bArd' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 9), quilt (>= 0.40), libtool-bin, libreadline-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 9), quilt (>= 0.40), libtool-bin, libreadline-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [416 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [506 B]
+Fetched 1879 B in 0s (142 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism diffstat dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libncurses-dev:armhf libncurses6
+  libncurses6:armhf libncursesw6:armhf libpipeline1 libreadline-dev:armhf
+  libreadline7:armhf libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf
+  libtinfo6:armhf libtool libtool-bin:armhf libubsan1:armhf libuchardet0
+  linux-libc-dev:armhf m4 man-db po-debconf quilt
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  ncurses-doc:armhf readline-doc:armhf libstdc++-8-doc:armhf libtool-doc
+  gfortran | fortran95-compiler gcj-jdk m4-doc apparmor less www-browser
+  libmail-box-perl default-mta | mail-transport-agent graphviz procmail
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpm2 libgpm2:armhf libltdl-dev
+  libmail-sendmail-perl less
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism diffstat dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libncurses-dev:armhf libncurses6
+  libncurses6:armhf libncursesw6:armhf libpipeline1 libreadline-dev:armhf
+  libreadline7:armhf libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf
+  libtinfo6:armhf libtool libtool-bin:armhf libubsan1:armhf libuchardet0
+  linux-libc-dev:armhf m4 man-db po-debconf quilt
+  sbuild-build-depends-main-dummy:armhf
+0 upgraded, 49 newly installed, 0 to remove and 0 not upgraded.
+Need to get 432 kB/20.4 MB of archives.
+After this operation, 84.0 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [928 B]
+Get:2 http://10.116.41.102/debian sid/main armhf libtool-bin armhf 2.4.6-10 [431 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 432 kB in 0s (39.9 MB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../07-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../08-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../09-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../10-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../11-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../12-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../13-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../14-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../15-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../16-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../17-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../18-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../19-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../20-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../21-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../22-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../23-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../24-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../25-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../26-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package diffstat.
+Preparing to unpack .../27-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../28-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../29-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../30-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../31-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../32-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../33-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../34-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../35-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../36-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../37-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../38-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../39-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../40-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../41-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../42-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libreadline7:armhf.
+Preparing to unpack .../43-libreadline7_7.0-5_armhf.deb ...
+Unpacking libreadline7:armhf (7.0-5) ...
+Selecting previously unselected package libreadline-dev:armhf.
+Preparing to unpack .../44-libreadline-dev_7.0-5_armhf.deb ...
+Unpacking libreadline-dev:armhf (7.0-5) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../45-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libtool-bin:armhf.
+Preparing to unpack .../46-libtool-bin_2.4.6-10_armhf.deb ...
+Unpacking libtool-bin:armhf (2.4.6-10) ...
+Selecting previously unselected package quilt.
+Preparing to unpack .../47-quilt_0.65-3_all.deb ...
+Unpacking quilt (0.65-3) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../48-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up diffstat (1.62-1) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up libtool-bin:armhf (2.4.6-10) ...
+Setting up po-debconf (1.0.21) ...
+Setting up quilt (0.65-3) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-7) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libreadline7:armhf (7.0-5) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libreadline-dev:armhf (7.0-5) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffstat_1.62-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libquadmath0_8.3.0-2 libreadline-dev_7.0-5 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtool-bin_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 quilt_0.65-3 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: lua5.2
+Binary: lua5.2-doc, lua5.2, liblua5.2-dev, liblua5.2-0, liblua5.2-0-dbg
+Architecture: any all
+Version: 5.2.4-1.1
+Maintainer: Enrico Tassi <gareuselesinge@debian.org>
+Uploaders: John V. Belmonte <jbelmonte@debian.org>
+Homepage: http://www.lua.org
+Standards-Version: 3.9.3
+Vcs-Browser: http://git.debian.org/?p=pkg-lua/lua5.2.git
+Vcs-Git: git://git.debian.org/git/pkg-lua/lua5.2.git
+Build-Depends: debhelper (>= 9), quilt (>= 0.40), libtool-bin, libreadline-dev
+Package-List:
+ liblua5.2-0 deb libs optional arch=any
+ liblua5.2-0-dbg deb debug extra arch=any
+ liblua5.2-dev deb libdevel optional arch=any
+ lua5.2 deb interpreters optional arch=any
+ lua5.2-doc deb doc optional arch=all
+Checksums-Sha1:
+ fce2b2680802120cffba00060d38b310b759e32d 248218 lua5.2_5.2.4.orig.tar.gz
+ ff7048b721afa84c801a54a17f54835b3e582603 9956 lua5.2_5.2.4-1.1.debian.tar.xz
+Checksums-Sha256:
+ 86fb7e23cbbddfcd92684e5f8017ff41c9112251d1656dbece415a97fad171c0 248218 lua5.2_5.2.4.orig.tar.gz
+ 12c14f345e42de3b0eb3557d1436d74abb20ff2f03567919de8fb73f19084795 9956 lua5.2_5.2.4-1.1.debian.tar.xz
+Files:
+ 2882ccc7c651642c37734ef10f3ff0e4 248218 lua5.2_5.2.4.orig.tar.gz
+ a75bbc8483aad457dc75615c3f498003 9956 lua5.2_5.2.4-1.1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAEBCgAGBQJXnkoQAAoJELqceAYd3YybGbMP/3RTG4IOoab05KPxijXLvFDY
+T2PyuS7FlPS5kM3slAkgmRGEd2rDkT89Fn5VZR31EbyCY97aAnfKzaAyTN5ym1yf
+c3yOS4UNS/5z2Xj6jzcOXaWCNZfnkEYokYQkepOVBLUQcYrhztNv8U+V6XjuUGbF
+SCk8qe+VROa9qfdbatacvJ+9hU4s7VaPHPRCnB2RWK/+RfPMNdeRZXS1+AAPHQwO
+Xr0eQXyzvVcvFaLR6unl/mIfp4PieVF2DSWHlrT7RN/440Kxp12audf00D0yDWjQ
+LTe0oCzky9WyFFPo8uk9PkihmEjQTFmQVAomIF9gYMtQyvsyX8FnA83AhRRWXC6V
+CHo4/a61+pIoaZVPBmV3javuenhRAQNN/lk9IvGBhFZ1JXW4t8vpl+pBP3ZHE4ac
+dA6WCfJBVTHsFOjy75g5CU+2w0wbK3drNQkKfbnlQVqJLiff3ABdoQKVvt0Ny2ZF
+/EqS31EjmSqgUa1QB/tvcsvCPi+hjcIxKTSEptV2nAtkmO3yNksxGRHJlK5kpRid
+yKMuy2JxIYqXdZRkzbwWFobPd6xcMJjHadOyM26fVPBzAkeurga74mriOuD7NoPj
+XFBMs/6JMiU1sD37spx1RU+Aozm03wnn4QyIO+fYLy5Hmb0/i/dbXuHoiGI1hI6q
+sEmLZXSlJxIO0DGzSpxT
+=/qtw
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sun Jul 31 18:57:20 2016 UTC
+gpgv:                using RSA key BA9C78061DDD8C9B
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./lua5.2_5.2.4-1.1.dsc
+dpkg-source: info: extracting lua5.2 in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking lua5.2_5.2.4.orig.tar.gz
+dpkg-source: info: unpacking lua5.2_5.2.4-1.1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 0001-debian-make.patch
+dpkg-source: info: applying 0002-debian-paths.patch
+dpkg-source: info: applying 0003-extern_C.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-249aa7bd-98ac-4662-959e-1483a6a378b7
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package lua5.2
+dpkg-buildpackage: info: source version 5.2.4-1.1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Aurelien Jarno <aurel32@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_clean
+	make -j1 clean
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+cd src && make clean INSTALL_LIB=/usr/lib/arm-linux-gnueabihf
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+rm -f liblua5.2.la liblua5.2-c++.la lua5.2 luac5.2 lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o lmem.o lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o ltm.o lundump.o lvm.o lzio.o lauxlib.o lbaselib.o lbitlib.o lcorolib.o ldblib.o liolib.o lmathlib.o loslib.o lstrlib.o ltablib.o loadlib.o linit.o  lua.o luac.o
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+rm -f lua5.2.1 luac5.2.1
+rm -f src/lua5.2-deb-multiarch.h
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+echo "#ifndef _LUA_DEB_MULTIARCH_" > src/lua5.2-deb-multiarch.h
+echo "#define _LUA_DEB_MULTIARCH_" >> src/lua5.2-deb-multiarch.h
+echo "#define DEB_HOST_MULTIARCH \"arm-linux-gnueabihf\"" >> \
+	src/lua5.2-deb-multiarch.h
+echo "#endif" >> src/lua5.2-deb-multiarch.h
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make linux \
+MYCFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security" \
+MYLDFLAGS="-Wl,-z,relro" \
+MYLIBS=
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+cd src && /usr/bin/make linux INSTALL_LIB=/usr/lib/arm-linux-gnueabihf
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+/usr/bin/make all SYSCFLAGS="-DLUA_USE_LINUX" SYSLIBS="-Wl,-E -ldl -lreadline"
+make[4]: Entering directory '/<<PKGBUILDDIR>>/src'
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lapi.c -o lapi.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lcode.c -o lcode.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lctype.c -o lctype.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ldebug.c -o ldebug.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lctype.c -o lctype-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ldo.c -o ldo.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ldump.c -o ldump.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lfunc.c -o lfunc.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lgc.c -o lgc.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c llex.c -o llex.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ldump.c -o ldump-c++.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lapi.c -o lapi-c++.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lcode.c -o lcode-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lmem.c -o lmem.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ldebug.c -o ldebug-c++.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lfunc.c -o lfunc-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lobject.c -o lobject.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ldo.c -o ldo-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lopcodes.c -o lopcodes.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lmem.c -o lmem-c++.o
+llex.c: In function ‘llex’:
+llex.c:477:17: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         else if (!lisdigit(ls->current)) return '.';
+                 ^
+llex.c:480:7: note: here
+       case '0': case '1': case '2': case '3': case '4':
+       ^~~~
+lgc.c: In function ‘freeobj’:
+lgc.c:679:22: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       G(L)->strt.nuse--;
+lgc.c:681:5: note: here
+     case LUA_TLNGSTR: {
+     ^~~~
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lparser.c -o lparser.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lstate.c -o lstate.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lopcodes.c -o lopcodes-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lstring.c -o lstring.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c llex.c -o llex-c++.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lobject.c -o lobject-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ltable.c -o ltable.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lgc.c -o lgc-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ltm.c -o ltm.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lstate.c -o lstate-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lundump.c -o lundump.o
+llex.c: In function ‘int llex(LexState*, SemInfo*)’:
+llex.c:477:14: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         else if (!lisdigit(ls->current)) return '.';
+              ^~
+llex.c:480:7: note: here
+       case '0': case '1': case '2': case '3': case '4':
+       ^~~~
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lstring.c -o lstring-c++.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ltm.c -o ltm-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lvm.c -o lvm.o
+ltable.c: In function ‘luaH_get’:
+ltable.c:485:23: warning: this statement may fall through [-Wimplicit-fallthrough=]
+     case LUA_TNUMBER: {
+                       ^
+ltable.c:493:5: note: here
+     default: {
+     ^~~~~~~
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lzio.c -o lzio.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ltable.c -o ltable-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lauxlib.c -o lauxlib.o
+lgc.c: In function ‘void freeobj(lua_State*, GCObject*)’:
+lgc.c:679:22: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       G(L)->strt.nuse--;
+lgc.c:681:5: note: here
+     case LUA_TLNGSTR: {
+     ^~~~
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lundump.c -o lundump-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lbaselib.c -o lbaselib.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lzio.c -o lzio-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lbitlib.c -o lbitlib.o
+ltable.c: In function ‘const TValue* luaH_get(Table*, const TValue*)’:
+ltable.c:490:33: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         return luaH_getint(t, k);  /* use specialized version */
+                                 ^
+ltable.c:493:5: note: here
+     default: {
+     ^~~~~~~
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lcorolib.c -o lcorolib.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lparser.c -o lparser-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ldblib.c -o ldblib.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c liolib.c -o liolib.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lbitlib.c -o lbitlib-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lmathlib.c -o lmathlib.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lcorolib.c -o lcorolib-c++.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lbaselib.c -o lbaselib-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c loslib.c -o loslib.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lstrlib.c -o lstrlib.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lauxlib.c -o lauxlib-c++.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ldblib.c -o ldblib-c++.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lvm.c -o lvm-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ltablib.c -o ltablib.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c loadlib.c -o loadlib.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lmathlib.c -o lmathlib-c++.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c liolib.c -o liolib-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c linit.c -o linit.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c loslib.c -o loslib-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lua.c -o lua.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ltablib.c -o ltablib-c++.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c linit.c -o linit-c++.o
+libtool --quiet --mode=compile --tag=CC gcc -std=gnu99 -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c luac.c -o luac.o
+lstrlib.c: In function ‘match’:
+lstrlib.c:492:16: warning: this statement may fall through [-Wimplicit-fallthrough=]
+               s++;  /* 1 match already done */
+               ~^~
+lstrlib.c:494:13: note: here
+             case '*':  /* 0 or more repetitions */
+             ^~~~
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c loadlib.c -o loadlib-c++.o
+lua.c: In function ‘collectargs’:
+lua.c:373:21: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         args[has_i] = 1;  /* go through */
+         ~~~~~~~~~~~~^~~
+lua.c:374:7: note: here
+       case 'v':
+       ^~~~
+lua.c:379:21: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         args[has_e] = 1;  /* go through */
+         ~~~~~~~~~~~~^~~
+lua.c:380:7: note: here
+       case 'l':  /* both options need an argument */
+       ^~~~
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lua.c -o lua-c++.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lstrlib.c -o lstrlib-c++.o
+libtool --quiet --mode=compile --tag=CXX g++ -Wall -Wextra -DLUA_COMPAT_ALL -DLUA_USE_LINUX -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c luac.c -o luac-c++.o
+lua.c: In function ‘int collectargs(char**, int*)’:
+lua.c:373:21: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         args[has_i] = 1;  /* go through */
+         ~~~~~~~~~~~~^~~
+lua.c:374:7: note: here
+       case 'v':
+       ^~~~
+lua.c:379:21: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         args[has_e] = 1;  /* go through */
+         ~~~~~~~~~~~~^~~
+lua.c:380:7: note: here
+       case 'l':  /* both options need an argument */
+       ^~~~
+lstrlib.c: In function ‘const char* match(MatchState*, const char*, const char*)’:
+lstrlib.c:492:16: warning: this statement may fall through [-Wimplicit-fallthrough=]
+               s++;  /* 1 match already done */
+               ~^~
+lstrlib.c:494:13: note: here
+             case '*':  /* 0 or more repetitions */
+             ^~~~
+libtool --quiet --mode=link --tag=CC  gcc -std=gnu99   -Wl,-z,relro -lm -ldl lapi.lo lcode.lo lctype.lo ldebug.lo ldo.lo ldump.lo lfunc.lo lgc.lo llex.lo lmem.lo lobject.lo lopcodes.lo lparser.lo lstate.lo lstring.lo ltable.lo ltm.lo lundump.lo lvm.lo lzio.lo lauxlib.lo lbaselib.lo lbitlib.lo lcorolib.lo ldblib.lo liolib.lo lmathlib.lo loslib.lo lstrlib.lo ltablib.lo loadlib.lo linit.lo     -rpath /usr/lib/arm-linux-gnueabihf -version-info 0:0:0 -Wl,--version-script,../debian/version-script -o liblua5.2.la
+libtool --quiet --mode=link --tag=CC  gcc -std=gnu99   -Wl,-z,relro -lm -ldl lapi.lo lcode.lo lctype.lo ldebug.lo ldo.lo ldump.lo lfunc.lo lgc.lo llex.lo lmem.lo lobject.lo lopcodes.lo lparser.lo lstate.lo lstring.lo ltable.lo ltm.lo lundump.lo lvm.lo lzio.lo lauxlib.lo lbaselib.lo lbitlib.lo lcorolib.lo ldblib.lo liolib.lo lmathlib.lo loslib.lo lstrlib.lo ltablib.lo loadlib.lo linit.lo     -rpath /usr/lib/arm-linux-gnueabihf -version-info 0:0:0 -Wl,--version-script,../debian/version-script -o liblua5.2.la
+ar: `u' modifier ignored since `D' is the default (see `U')
+libtool --quiet --mode=link --tag=CXX g++  -Wl,-z,relro -lm -ldl lapi-c++.lo lcode-c++.lo lctype-c++.lo ldebug-c++.lo ldo-c++.lo ldump-c++.lo lfunc-c++.lo lgc-c++.lo llex-c++.lo lmem-c++.lo lobject-c++.lo lopcodes-c++.lo lparser-c++.lo lstate-c++.lo lstring-c++.lo ltable-c++.lo ltm-c++.lo lundump-c++.lo lvm-c++.lo lzio-c++.lo lauxlib-c++.lo lbaselib-c++.lo lbitlib-c++.lo lcorolib-c++.lo ldblib-c++.lo liolib-c++.lo lmathlib-c++.lo loslib-c++.lo lstrlib-c++.lo ltablib-c++.lo loadlib-c++.lo linit-c++.lo -rpath /usr/lib/arm-linux-gnueabihf -version-info 0:0:0 -Wl,--version-script,../debian/version-script -o liblua5.2-c++.la
+ar: `u' modifier ignored since `D' is the default (see `U')
+libtool --quiet --mode=link --tag=CXX g++  -Wl,-z,relro -lm -ldl lapi-c++.lo lcode-c++.lo lctype-c++.lo ldebug-c++.lo ldo-c++.lo ldump-c++.lo lfunc-c++.lo lgc-c++.lo llex-c++.lo lmem-c++.lo lobject-c++.lo lopcodes-c++.lo lparser-c++.lo lstate-c++.lo lstring-c++.lo ltable-c++.lo ltm-c++.lo lundump-c++.lo lvm-c++.lo lzio-c++.lo lauxlib-c++.lo lbaselib-c++.lo lbitlib-c++.lo lcorolib-c++.lo ldblib-c++.lo liolib-c++.lo lmathlib-c++.lo loslib-c++.lo lstrlib-c++.lo ltablib-c++.lo loadlib-c++.lo linit-c++.lo -rpath /usr/lib/arm-linux-gnueabihf -version-info 0:0:0 -Wl,--version-script,../debian/version-script -o liblua5.2-c++.la
+ar: `u' modifier ignored since `D' is the default (see `U')
+ar: `u' modifier ignored since `D' is the default (see `U')
+libtool --quiet --mode=link --tag=CC gcc -std=gnu99  -Wl,-z,relro -lm -Wl,-E -ldl -lreadline  -Wl,--version-script,../debian/version-script -static liblua5.2.la -Wl,-E lua.lo -o lua5.2
+libtool --quiet --mode=link --tag=CC gcc -std=gnu99  -Wl,-z,relro -Wl,--version-script,../debian/version-script -static liblua5.2.la luac.lo -o luac5.2
+/usr/bin/ld: cannot find -lreadline
+collect2: error: ld returned 1 exit status
+make[4]: *** [Makefile:68: lua5.2] Error 1
+make[4]: *** Waiting for unfinished jobs....
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[3]: *** [Makefile:111: linux] Error 2
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[2]: *** [Makefile:58: linux] Error 2
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: *** [debian/rules:11: override_dh_auto_build] Error 2
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make: *** [debian/rules:8: build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-03-05T13:02:32Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* dwz* gcc-8-base:armhf*
+  gettext* gettext-base* groff-base* intltool-debian* libarchive-zip-perl*
+  libasan5:armhf* libatomic1:armhf* libbsd0* libc6:armhf* libc6-dev:armhf*
+  libcroco3* libelf1* libfile-stripnondeterminism-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libglib2.0-0* libgomp1:armhf* libncurses-dev:armhf*
+  libncurses6* libncurses6:armhf* libncursesw6:armhf* libpipeline1*
+  libreadline-dev:armhf* libreadline7:armhf* libsigsegv2*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libtinfo6:armhf* libtool*
+  libtool-bin:armhf* libubsan1:armhf* libuchardet0* linux-libc-dev:armhf* m4*
+  man-db* po-debconf* quilt* sbuild-build-depends-main-dummy:armhf*
+0 upgraded, 0 newly installed, 49 to remove and 0 not upgraded.
+After this operation, 84.0 MB disk space will be freed.
+(Reading database ... 19373 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing libtool-bin:armhf (2.4.6-10) ...
+Removing quilt (0.65-3) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libreadline-dev:armhf (7.0-5) ...
+Removing libreadline7:armhf (7.0-5) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16458 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for quilt (0.65-3) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 9
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 7
+Job: /home/build/sbuild-setup/repo/pool/main/l/lua5.2/lua5.2_5.2.4-1.1.dsc
+Machine Architecture: amd64
+Package: lua5.2
+Package-Time: 20
+Source-Version: 5.2.4-1.1
+Space: n/a
+Status: attempted
+Version: 5.2.4-1.1
+--------------------------------------------------------------------------------
+Finished at 2019-03-05T13:02:32Z
+Build needed 00:00:20, no disk space

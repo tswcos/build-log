@@ -1,0 +1,2939 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| gle 3.1.0-7.2 (armhf)                        Mon, 04 Mar 2019 04:34:55 +0000 |
++==============================================================================+
+
+Package: gle
+Version: 3.1.0-7.2
+Source Version: 3.1.0-7.2
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-9ae9dd93-58d5-4af7-a5b7-270bffcf41b9' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/gle-njd8Xf/resolver-rMWLEm' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/g/gle/gle_3.1.0-7.2.dsc exists in /home/build/sbuild-setup/repo/pool/main/g/gle; copying to chroot
+I: NOTICE: Log filtering will replace 'build/gle-njd8Xf/gle-3.1.0' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/gle-njd8Xf' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 10), libxmu-dev, libgl1-mesa-dev | libgl-dev, libglu1-mesa-dev, freeglut3-dev | libglut3-dev, libxi-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 10), libxmu-dev, libgl1-mesa-dev, libglu1-mesa-dev, freeglut3-dev, libxi-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [432 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [512 B]
+Fetched 1901 B in 0s (169 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz freeglut3:armhf
+  freeglut3-dev:armhf gcc-8-base:armhf gettext gettext-base groff-base
+  intltool-debian libarchive-zip-perl libasan5:armhf libatomic1:armhf libbsd0
+  libbsd0:armhf libc6:armhf libc6-dev:armhf libcroco3 libdrm-amdgpu1:armhf
+  libdrm-common libdrm-dev:armhf libdrm-etnaviv1:armhf libdrm-exynos1:armhf
+  libdrm-freedreno1:armhf libdrm-nouveau2:armhf libdrm-omap1:armhf
+  libdrm-radeon1:armhf libdrm-tegra0:armhf libdrm2:armhf libedit2:armhf
+  libegl-mesa0:armhf libegl1:armhf libelf1 libelf1:armhf libexpat1:armhf
+  libffi6:armhf libfile-stripnondeterminism-perl libgbm1:armhf
+  libgcc-8-dev:armhf libgcc1:armhf libgl1:armhf libgl1-mesa-dev:armhf
+  libgl1-mesa-dri:armhf libglapi-mesa:armhf libgles1:armhf libgles2:armhf
+  libglib2.0-0 libglu1-mesa:armhf libglu1-mesa-dev:armhf
+  libglvnd-core-dev:armhf libglvnd-dev:armhf libglvnd0:armhf
+  libglx-mesa0:armhf libglx0:armhf libgomp1:armhf libice-dev:armhf
+  libice6:armhf libllvm7:armhf libncurses6 libopengl0:armhf libpipeline1
+  libpthread-stubs0-dev libpthread-stubs0-dev:armhf libsensors-config
+  libsensors5:armhf libsigsegv2 libsm-dev:armhf libsm6:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libtinfo6:armhf libtool
+  libubsan1:armhf libuchardet0 libuuid1:armhf libwayland-client0:armhf
+  libwayland-server0:armhf libx11-6 libx11-6:armhf libx11-data libx11-dev
+  libx11-dev:armhf libx11-xcb-dev:armhf libx11-xcb1:armhf libxau-dev
+  libxau-dev:armhf libxau6 libxau6:armhf libxcb-dri2-0:armhf
+  libxcb-dri2-0-dev:armhf libxcb-dri3-0:armhf libxcb-dri3-dev:armhf
+  libxcb-glx0:armhf libxcb-glx0-dev:armhf libxcb-present-dev:armhf
+  libxcb-present0:armhf libxcb-randr0:armhf libxcb-randr0-dev:armhf
+  libxcb-render0:armhf libxcb-render0-dev:armhf libxcb-shape0:armhf
+  libxcb-shape0-dev:armhf libxcb-sync-dev:armhf libxcb-sync1:armhf
+  libxcb-xfixes0:armhf libxcb-xfixes0-dev:armhf libxcb1 libxcb1:armhf
+  libxcb1-dev libxcb1-dev:armhf libxdamage-dev:armhf libxdamage1:armhf
+  libxdmcp-dev libxdmcp-dev:armhf libxdmcp6 libxdmcp6:armhf libxext-dev:armhf
+  libxext6:armhf libxfixes-dev:armhf libxfixes3:armhf libxi-dev:armhf
+  libxi6:armhf libxmu-dev:armhf libxmu-headers libxmu6:armhf
+  libxshmfence-dev:armhf libxshmfence1:armhf libxt-dev:armhf libxt6:armhf
+  libxxf86vm-dev:armhf libxxf86vm1:armhf linux-libc-dev:armhf m4 man-db
+  mesa-common-dev:armhf po-debconf x11-common x11proto-core-dev
+  x11proto-damage-dev x11proto-dev x11proto-fixes-dev x11proto-input-dev
+  x11proto-xext-dev x11proto-xf86vidmode-dev xorg-sgml-doctools xtrans-dev
+  zlib1g:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  libice-doc:armhf lm-sensors lm-sensors:armhf libsm-doc:armhf
+  libstdc++-8-doc:armhf libtool-doc gfortran | fortran95-compiler gcj-jdk
+  libx11-doc libx11-doc:armhf libxcb-doc libxcb-doc:armhf libxext-doc:armhf
+  libxt-doc:armhf m4-doc apparmor less www-browser libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpm2 libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz freeglut3:armhf
+  freeglut3-dev:armhf gcc-8-base:armhf gettext gettext-base groff-base
+  intltool-debian libarchive-zip-perl libasan5:armhf libatomic1:armhf libbsd0
+  libbsd0:armhf libc6:armhf libc6-dev:armhf libcroco3 libdrm-amdgpu1:armhf
+  libdrm-common libdrm-dev:armhf libdrm-etnaviv1:armhf libdrm-exynos1:armhf
+  libdrm-freedreno1:armhf libdrm-nouveau2:armhf libdrm-omap1:armhf
+  libdrm-radeon1:armhf libdrm-tegra0:armhf libdrm2:armhf libedit2:armhf
+  libegl-mesa0:armhf libegl1:armhf libelf1 libelf1:armhf libexpat1:armhf
+  libffi6:armhf libfile-stripnondeterminism-perl libgbm1:armhf
+  libgcc-8-dev:armhf libgcc1:armhf libgl1:armhf libgl1-mesa-dev:armhf
+  libgl1-mesa-dri:armhf libglapi-mesa:armhf libgles1:armhf libgles2:armhf
+  libglib2.0-0 libglu1-mesa:armhf libglu1-mesa-dev:armhf
+  libglvnd-core-dev:armhf libglvnd-dev:armhf libglvnd0:armhf
+  libglx-mesa0:armhf libglx0:armhf libgomp1:armhf libice-dev:armhf
+  libice6:armhf libllvm7:armhf libncurses6 libopengl0:armhf libpipeline1
+  libpthread-stubs0-dev libpthread-stubs0-dev:armhf libsensors-config
+  libsensors5:armhf libsigsegv2 libsm-dev:armhf libsm6:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libtinfo6:armhf libtool
+  libubsan1:armhf libuchardet0 libuuid1:armhf libwayland-client0:armhf
+  libwayland-server0:armhf libx11-6 libx11-6:armhf libx11-data libx11-dev
+  libx11-dev:armhf libx11-xcb-dev:armhf libx11-xcb1:armhf libxau-dev
+  libxau-dev:armhf libxau6 libxau6:armhf libxcb-dri2-0:armhf
+  libxcb-dri2-0-dev:armhf libxcb-dri3-0:armhf libxcb-dri3-dev:armhf
+  libxcb-glx0:armhf libxcb-glx0-dev:armhf libxcb-present-dev:armhf
+  libxcb-present0:armhf libxcb-randr0:armhf libxcb-randr0-dev:armhf
+  libxcb-render0:armhf libxcb-render0-dev:armhf libxcb-shape0:armhf
+  libxcb-shape0-dev:armhf libxcb-sync-dev:armhf libxcb-sync1:armhf
+  libxcb-xfixes0:armhf libxcb-xfixes0-dev:armhf libxcb1 libxcb1:armhf
+  libxcb1-dev libxcb1-dev:armhf libxdamage-dev:armhf libxdamage1:armhf
+  libxdmcp-dev libxdmcp-dev:armhf libxdmcp6 libxdmcp6:armhf libxext-dev:armhf
+  libxext6:armhf libxfixes-dev:armhf libxfixes3:armhf libxi-dev:armhf
+  libxi6:armhf libxmu-dev:armhf libxmu-headers libxmu6:armhf
+  libxshmfence-dev:armhf libxshmfence1:armhf libxt-dev:armhf libxt6:armhf
+  libxxf86vm-dev:armhf libxxf86vm1:armhf linux-libc-dev:armhf m4 man-db
+  mesa-common-dev:armhf po-debconf sbuild-build-depends-main-dummy:armhf
+  x11-common x11proto-core-dev x11proto-damage-dev x11proto-dev
+  x11proto-fixes-dev x11proto-input-dev x11proto-xext-dev
+  x11proto-xf86vidmode-dev xorg-sgml-doctools xtrans-dev zlib1g:armhf
+0 upgraded, 154 newly installed, 0 to remove and 0 not upgraded.
+Need to get 282 kB/46.4 MB of archives.
+After this operation, 312 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [936 B]
+Get:2 http://10.116.41.102/debian sid/main armhf freeglut3 armhf 2.8.1-3 [112 kB]
+Get:3 http://10.116.41.102/debian sid/main armhf freeglut3-dev armhf 2.8.1-3 [169 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 282 kB in 0s (9081 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../000-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../001-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../002-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../003-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../004-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../005-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../006-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../007-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../008-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../009-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../010-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../011-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../012-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../013-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../014-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../015-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../016-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../017-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../018-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../019-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../020-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../021-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../022-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../023-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../024-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../025-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../026-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../027-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../028-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../029-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libglvnd0:armhf.
+Preparing to unpack .../030-libglvnd0_1.1.0-1_armhf.deb ...
+Unpacking libglvnd0:armhf (1.1.0-1) ...
+Selecting previously unselected package libxau6:armhf.
+Preparing to unpack .../031-libxau6_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau6:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libbsd0:armhf.
+Preparing to unpack .../032-libbsd0_0.9.1-2_armhf.deb ...
+Unpacking libbsd0:armhf (0.9.1-2) ...
+Selecting previously unselected package libxdmcp6:armhf.
+Preparing to unpack .../033-libxdmcp6_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp6:armhf (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:armhf.
+Preparing to unpack .../034-libxcb1_1.13.1-2_armhf.deb ...
+Unpacking libxcb1:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-data.
+Preparing to unpack .../035-libx11-data_2%3a1.6.7-1_all.deb ...
+Unpacking libx11-data (2:1.6.7-1) ...
+Selecting previously unselected package libx11-6:armhf.
+Preparing to unpack .../036-libx11-6_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-6:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxext6:armhf.
+Preparing to unpack .../037-libxext6_2%3a1.3.3-1+b2_armhf.deb ...
+Unpacking libxext6:armhf (2:1.3.3-1+b2) ...
+Selecting previously unselected package libdrm-common.
+Preparing to unpack .../038-libdrm-common_2.4.97-1_all.deb ...
+Unpacking libdrm-common (2.4.97-1) ...
+Selecting previously unselected package libdrm2:armhf.
+Preparing to unpack .../039-libdrm2_2.4.97-1_armhf.deb ...
+Unpacking libdrm2:armhf (2.4.97-1) ...
+Selecting previously unselected package libexpat1:armhf.
+Preparing to unpack .../040-libexpat1_2.2.6-1_armhf.deb ...
+Unpacking libexpat1:armhf (2.2.6-1) ...
+Selecting previously unselected package libglapi-mesa:armhf.
+Preparing to unpack .../041-libglapi-mesa_18.3.4-1_armhf.deb ...
+Unpacking libglapi-mesa:armhf (18.3.4-1) ...
+Selecting previously unselected package libx11-xcb1:armhf.
+Preparing to unpack .../042-libx11-xcb1_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-xcb1:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxcb-dri2-0:armhf.
+Preparing to unpack .../043-libxcb-dri2-0_1.13.1-2_armhf.deb ...
+Unpacking libxcb-dri2-0:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-dri3-0:armhf.
+Preparing to unpack .../044-libxcb-dri3-0_1.13.1-2_armhf.deb ...
+Unpacking libxcb-dri3-0:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-glx0:armhf.
+Preparing to unpack .../045-libxcb-glx0_1.13.1-2_armhf.deb ...
+Unpacking libxcb-glx0:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-present0:armhf.
+Preparing to unpack .../046-libxcb-present0_1.13.1-2_armhf.deb ...
+Unpacking libxcb-present0:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-sync1:armhf.
+Preparing to unpack .../047-libxcb-sync1_1.13.1-2_armhf.deb ...
+Unpacking libxcb-sync1:armhf (1.13.1-2) ...
+Selecting previously unselected package libxfixes3:armhf.
+Preparing to unpack .../048-libxfixes3_1%3a5.0.3-1_armhf.deb ...
+Unpacking libxfixes3:armhf (1:5.0.3-1) ...
+Selecting previously unselected package libxdamage1:armhf.
+Preparing to unpack .../049-libxdamage1_1%3a1.1.4-3_armhf.deb ...
+Unpacking libxdamage1:armhf (1:1.1.4-3) ...
+Selecting previously unselected package libxshmfence1:armhf.
+Preparing to unpack .../050-libxshmfence1_1.3-1_armhf.deb ...
+Unpacking libxshmfence1:armhf (1.3-1) ...
+Selecting previously unselected package libxxf86vm1:armhf.
+Preparing to unpack .../051-libxxf86vm1_1%3a1.1.4-1+b2_armhf.deb ...
+Unpacking libxxf86vm1:armhf (1:1.1.4-1+b2) ...
+Selecting previously unselected package libdrm-amdgpu1:armhf.
+Preparing to unpack .../052-libdrm-amdgpu1_2.4.97-1_armhf.deb ...
+Unpacking libdrm-amdgpu1:armhf (2.4.97-1) ...
+Selecting previously unselected package libdrm-etnaviv1:armhf.
+Preparing to unpack .../053-libdrm-etnaviv1_2.4.97-1_armhf.deb ...
+Unpacking libdrm-etnaviv1:armhf (2.4.97-1) ...
+Selecting previously unselected package libdrm-nouveau2:armhf.
+Preparing to unpack .../054-libdrm-nouveau2_2.4.97-1_armhf.deb ...
+Unpacking libdrm-nouveau2:armhf (2.4.97-1) ...
+Selecting previously unselected package libdrm-radeon1:armhf.
+Preparing to unpack .../055-libdrm-radeon1_2.4.97-1_armhf.deb ...
+Unpacking libdrm-radeon1:armhf (2.4.97-1) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../056-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libelf1:armhf.
+Preparing to unpack .../057-libelf1_0.176-1_armhf.deb ...
+Unpacking libelf1:armhf (0.176-1) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../058-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libedit2:armhf.
+Preparing to unpack .../059-libedit2_3.1-20181209-1_armhf.deb ...
+Unpacking libedit2:armhf (3.1-20181209-1) ...
+Selecting previously unselected package libffi6:armhf.
+Preparing to unpack .../060-libffi6_3.2.1-9_armhf.deb ...
+Unpacking libffi6:armhf (3.2.1-9) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../061-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libllvm7:armhf.
+Preparing to unpack .../062-libllvm7_1%3a7.0.1-6_armhf.deb ...
+Unpacking libllvm7:armhf (1:7.0.1-6) ...
+Selecting previously unselected package libsensors-config.
+Preparing to unpack .../063-libsensors-config_1%3a3.5.0-3_all.deb ...
+Unpacking libsensors-config (1:3.5.0-3) ...
+Selecting previously unselected package libsensors5:armhf.
+Preparing to unpack .../064-libsensors5_1%3a3.5.0-3_armhf.deb ...
+Unpacking libsensors5:armhf (1:3.5.0-3) ...
+Selecting previously unselected package libgl1-mesa-dri:armhf.
+Preparing to unpack .../065-libgl1-mesa-dri_18.3.4-1_armhf.deb ...
+Unpacking libgl1-mesa-dri:armhf (18.3.4-1) ...
+Selecting previously unselected package libglx-mesa0:armhf.
+Preparing to unpack .../066-libglx-mesa0_18.3.4-1_armhf.deb ...
+Unpacking libglx-mesa0:armhf (18.3.4-1) ...
+Selecting previously unselected package libglx0:armhf.
+Preparing to unpack .../067-libglx0_1.1.0-1_armhf.deb ...
+Unpacking libglx0:armhf (1.1.0-1) ...
+Selecting previously unselected package libgl1:armhf.
+Preparing to unpack .../068-libgl1_1.1.0-1_armhf.deb ...
+Unpacking libgl1:armhf (1.1.0-1) ...
+Selecting previously unselected package libxi6:armhf.
+Preparing to unpack .../069-libxi6_2%3a1.7.9-1_armhf.deb ...
+Unpacking libxi6:armhf (2:1.7.9-1) ...
+Selecting previously unselected package freeglut3:armhf.
+Preparing to unpack .../070-freeglut3_2.8.1-3_armhf.deb ...
+Unpacking freeglut3:armhf (2.8.1-3) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Preparing to unpack .../071-xorg-sgml-doctools_1%3a1.11-1_all.deb ...
+Unpacking xorg-sgml-doctools (1:1.11-1) ...
+Selecting previously unselected package x11proto-dev.
+Preparing to unpack .../072-x11proto-dev_2018.4-4_all.deb ...
+Unpacking x11proto-dev (2018.4-4) ...
+Selecting previously unselected package x11proto-core-dev.
+Preparing to unpack .../073-x11proto-core-dev_2018.4-4_all.deb ...
+Unpacking x11proto-core-dev (2018.4-4) ...
+Selecting previously unselected package libxau-dev:armhf.
+Preparing to unpack .../074-libxau-dev_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau-dev:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp-dev:armhf.
+Preparing to unpack .../075-libxdmcp-dev_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp-dev:armhf (1:1.1.2-3) ...
+Selecting previously unselected package x11proto-input-dev.
+Preparing to unpack .../076-x11proto-input-dev_2018.4-4_all.deb ...
+Unpacking x11proto-input-dev (2018.4-4) ...
+Selecting previously unselected package xtrans-dev.
+Preparing to unpack .../077-xtrans-dev_1.3.5-1_all.deb ...
+Unpacking xtrans-dev (1.3.5-1) ...
+Selecting previously unselected package libpthread-stubs0-dev:armhf.
+Preparing to unpack .../078-libpthread-stubs0-dev_0.4-1_armhf.deb ...
+Unpacking libpthread-stubs0-dev:armhf (0.4-1) ...
+Selecting previously unselected package libxcb1-dev:armhf.
+Preparing to unpack .../079-libxcb1-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb1-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-dev:armhf.
+Preparing to unpack .../080-libx11-dev_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-dev:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libdrm-omap1:armhf.
+Preparing to unpack .../081-libdrm-omap1_2.4.97-1_armhf.deb ...
+Unpacking libdrm-omap1:armhf (2.4.97-1) ...
+Selecting previously unselected package libdrm-freedreno1:armhf.
+Preparing to unpack .../082-libdrm-freedreno1_2.4.97-1_armhf.deb ...
+Unpacking libdrm-freedreno1:armhf (2.4.97-1) ...
+Selecting previously unselected package libdrm-exynos1:armhf.
+Preparing to unpack .../083-libdrm-exynos1_2.4.97-1_armhf.deb ...
+Unpacking libdrm-exynos1:armhf (2.4.97-1) ...
+Selecting previously unselected package libdrm-tegra0:armhf.
+Preparing to unpack .../084-libdrm-tegra0_2.4.97-1_armhf.deb ...
+Unpacking libdrm-tegra0:armhf (2.4.97-1) ...
+Selecting previously unselected package libdrm-dev:armhf.
+Preparing to unpack .../085-libdrm-dev_2.4.97-1_armhf.deb ...
+Unpacking libdrm-dev:armhf (2.4.97-1) ...
+Selecting previously unselected package mesa-common-dev:armhf.
+Preparing to unpack .../086-mesa-common-dev_18.3.4-1_armhf.deb ...
+Unpacking mesa-common-dev:armhf (18.3.4-1) ...
+Selecting previously unselected package libglvnd-core-dev:armhf.
+Preparing to unpack .../087-libglvnd-core-dev_1.1.0-1_armhf.deb ...
+Unpacking libglvnd-core-dev:armhf (1.1.0-1) ...
+Selecting previously unselected package libwayland-server0:armhf.
+Preparing to unpack .../088-libwayland-server0_1.16.0-1_armhf.deb ...
+Unpacking libwayland-server0:armhf (1.16.0-1) ...
+Selecting previously unselected package libgbm1:armhf.
+Preparing to unpack .../089-libgbm1_18.3.4-1_armhf.deb ...
+Unpacking libgbm1:armhf (18.3.4-1) ...
+Selecting previously unselected package libwayland-client0:armhf.
+Preparing to unpack .../090-libwayland-client0_1.16.0-1_armhf.deb ...
+Unpacking libwayland-client0:armhf (1.16.0-1) ...
+Selecting previously unselected package libxcb-xfixes0:armhf.
+Preparing to unpack .../091-libxcb-xfixes0_1.13.1-2_armhf.deb ...
+Unpacking libxcb-xfixes0:armhf (1.13.1-2) ...
+Selecting previously unselected package libegl-mesa0:armhf.
+Preparing to unpack .../092-libegl-mesa0_18.3.4-1_armhf.deb ...
+Unpacking libegl-mesa0:armhf (18.3.4-1) ...
+Selecting previously unselected package libegl1:armhf.
+Preparing to unpack .../093-libegl1_1.1.0-1_armhf.deb ...
+Unpacking libegl1:armhf (1.1.0-1) ...
+Selecting previously unselected package libgles1:armhf.
+Preparing to unpack .../094-libgles1_1.1.0-1_armhf.deb ...
+Unpacking libgles1:armhf (1.1.0-1) ...
+Selecting previously unselected package libgles2:armhf.
+Preparing to unpack .../095-libgles2_1.1.0-1_armhf.deb ...
+Unpacking libgles2:armhf (1.1.0-1) ...
+Selecting previously unselected package libopengl0:armhf.
+Preparing to unpack .../096-libopengl0_1.1.0-1_armhf.deb ...
+Unpacking libopengl0:armhf (1.1.0-1) ...
+Selecting previously unselected package libglvnd-dev:armhf.
+Preparing to unpack .../097-libglvnd-dev_1.1.0-1_armhf.deb ...
+Unpacking libglvnd-dev:armhf (1.1.0-1) ...
+Selecting previously unselected package libx11-xcb-dev:armhf.
+Preparing to unpack .../098-libx11-xcb-dev_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-xcb-dev:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxcb-dri3-dev:armhf.
+Preparing to unpack .../099-libxcb-dri3-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb-dri3-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-randr0:armhf.
+Preparing to unpack .../100-libxcb-randr0_1.13.1-2_armhf.deb ...
+Unpacking libxcb-randr0:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-render0:armhf.
+Preparing to unpack .../101-libxcb-render0_1.13.1-2_armhf.deb ...
+Unpacking libxcb-render0:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-render0-dev:armhf.
+Preparing to unpack .../102-libxcb-render0-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb-render0-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-randr0-dev:armhf.
+Preparing to unpack .../103-libxcb-randr0-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb-randr0-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-shape0:armhf.
+Preparing to unpack .../104-libxcb-shape0_1.13.1-2_armhf.deb ...
+Unpacking libxcb-shape0:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-shape0-dev:armhf.
+Preparing to unpack .../105-libxcb-shape0-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb-shape0-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-xfixes0-dev:armhf.
+Preparing to unpack .../106-libxcb-xfixes0-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb-xfixes0-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-sync-dev:armhf.
+Preparing to unpack .../107-libxcb-sync-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb-sync-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-present-dev:armhf.
+Preparing to unpack .../108-libxcb-present-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb-present-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libxshmfence-dev:armhf.
+Preparing to unpack .../109-libxshmfence-dev_1.3-1_armhf.deb ...
+Unpacking libxshmfence-dev:armhf (1.3-1) ...
+Selecting previously unselected package libxcb-dri2-0-dev:armhf.
+Preparing to unpack .../110-libxcb-dri2-0-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb-dri2-0-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-glx0-dev:armhf.
+Preparing to unpack .../111-libxcb-glx0-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb-glx0-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package x11proto-fixes-dev.
+Preparing to unpack .../112-x11proto-fixes-dev_1%3a2018.4-4_all.deb ...
+Unpacking x11proto-fixes-dev (1:2018.4-4) ...
+Selecting previously unselected package libxfixes-dev:armhf.
+Preparing to unpack .../113-libxfixes-dev_1%3a5.0.3-1_armhf.deb ...
+Unpacking libxfixes-dev:armhf (1:5.0.3-1) ...
+Selecting previously unselected package x11proto-damage-dev.
+Preparing to unpack .../114-x11proto-damage-dev_1%3a2018.4-4_all.deb ...
+Unpacking x11proto-damage-dev (1:2018.4-4) ...
+Selecting previously unselected package libxdamage-dev:armhf.
+Preparing to unpack .../115-libxdamage-dev_1%3a1.1.4-3_armhf.deb ...
+Unpacking libxdamage-dev:armhf (1:1.1.4-3) ...
+Selecting previously unselected package x11proto-xext-dev.
+Preparing to unpack .../116-x11proto-xext-dev_2018.4-4_all.deb ...
+Unpacking x11proto-xext-dev (2018.4-4) ...
+Selecting previously unselected package libxext-dev:armhf.
+Preparing to unpack .../117-libxext-dev_2%3a1.3.3-1+b2_armhf.deb ...
+Unpacking libxext-dev:armhf (2:1.3.3-1+b2) ...
+Selecting previously unselected package x11proto-xf86vidmode-dev.
+Preparing to unpack .../118-x11proto-xf86vidmode-dev_2018.4-4_all.deb ...
+Unpacking x11proto-xf86vidmode-dev (2018.4-4) ...
+Selecting previously unselected package libxxf86vm-dev:armhf.
+Preparing to unpack .../119-libxxf86vm-dev_1%3a1.1.4-1+b2_armhf.deb ...
+Unpacking libxxf86vm-dev:armhf (1:1.1.4-1+b2) ...
+Selecting previously unselected package libgl1-mesa-dev:armhf.
+Preparing to unpack .../120-libgl1-mesa-dev_18.3.4-1_armhf.deb ...
+Unpacking libgl1-mesa-dev:armhf (18.3.4-1) ...
+Selecting previously unselected package libglu1-mesa:armhf.
+Preparing to unpack .../121-libglu1-mesa_9.0.0-2.1_armhf.deb ...
+Unpacking libglu1-mesa:armhf (9.0.0-2.1) ...
+Selecting previously unselected package libglu1-mesa-dev:armhf.
+Preparing to unpack .../122-libglu1-mesa-dev_9.0.0-2.1_armhf.deb ...
+Unpacking libglu1-mesa-dev:armhf (9.0.0-2.1) ...
+Selecting previously unselected package x11-common.
+Preparing to unpack .../123-x11-common_1%3a7.7+19_all.deb ...
+Unpacking x11-common (1:7.7+19) ...
+Selecting previously unselected package libice6:armhf.
+Preparing to unpack .../124-libice6_2%3a1.0.9-2_armhf.deb ...
+Unpacking libice6:armhf (2:1.0.9-2) ...
+Selecting previously unselected package libuuid1:armhf.
+Preparing to unpack .../125-libuuid1_2.33.1-0.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libsm6:armhf.
+Preparing to unpack .../126-libsm6_2%3a1.2.3-1_armhf.deb ...
+Unpacking libsm6:armhf (2:1.2.3-1) ...
+Selecting previously unselected package libxt6:armhf.
+Preparing to unpack .../127-libxt6_1%3a1.1.5-1_armhf.deb ...
+Unpacking libxt6:armhf (1:1.1.5-1) ...
+Selecting previously unselected package libice-dev:armhf.
+Preparing to unpack .../128-libice-dev_2%3a1.0.9-2_armhf.deb ...
+Unpacking libice-dev:armhf (2:1.0.9-2) ...
+Selecting previously unselected package libsm-dev:armhf.
+Preparing to unpack .../129-libsm-dev_2%3a1.2.3-1_armhf.deb ...
+Unpacking libsm-dev:armhf (2:1.2.3-1) ...
+Selecting previously unselected package libxt-dev:armhf.
+Preparing to unpack .../130-libxt-dev_1%3a1.1.5-1_armhf.deb ...
+Unpacking libxt-dev:armhf (1:1.1.5-1) ...
+Selecting previously unselected package freeglut3-dev:armhf.
+Preparing to unpack .../131-freeglut3-dev_2.8.1-3_armhf.deb ...
+Unpacking freeglut3-dev:armhf (2.8.1-3) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../132-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../133-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../134-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../135-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../136-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../137-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../138-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libpthread-stubs0-dev:amd64.
+Preparing to unpack .../139-libpthread-stubs0-dev_0.4-1_amd64.deb ...
+Unpacking libpthread-stubs0-dev:amd64 (0.4-1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../140-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libxau6:amd64.
+Preparing to unpack .../141-libxau6_1%3a1.0.8-1+b2_amd64.deb ...
+Unpacking libxau6:amd64 (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Preparing to unpack .../142-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:amd64.
+Preparing to unpack .../143-libxcb1_1.13.1-2_amd64.deb ...
+Unpacking libxcb1:amd64 (1.13.1-2) ...
+Selecting previously unselected package libx11-6:amd64.
+Preparing to unpack .../144-libx11-6_2%3a1.6.7-1_amd64.deb ...
+Unpacking libx11-6:amd64 (2:1.6.7-1) ...
+Selecting previously unselected package libxau-dev:amd64.
+Preparing to unpack .../145-libxau-dev_1%3a1.0.8-1+b2_amd64.deb ...
+Unpacking libxau-dev:amd64 (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp-dev:amd64.
+Preparing to unpack .../146-libxdmcp-dev_1%3a1.1.2-3_amd64.deb ...
+Unpacking libxdmcp-dev:amd64 (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1-dev:amd64.
+Preparing to unpack .../147-libxcb1-dev_1.13.1-2_amd64.deb ...
+Unpacking libxcb1-dev:amd64 (1.13.1-2) ...
+Selecting previously unselected package libx11-dev:amd64.
+Preparing to unpack .../148-libx11-dev_2%3a1.6.7-1_amd64.deb ...
+Unpacking libx11-dev:amd64 (2:1.6.7-1) ...
+Selecting previously unselected package libxi-dev:armhf.
+Preparing to unpack .../149-libxi-dev_2%3a1.7.9-1_armhf.deb ...
+Unpacking libxi-dev:armhf (2:1.7.9-1) ...
+Selecting previously unselected package libxmu6:armhf.
+Preparing to unpack .../150-libxmu6_2%3a1.1.2-2_armhf.deb ...
+Unpacking libxmu6:armhf (2:1.1.2-2) ...
+Selecting previously unselected package libxmu-headers.
+Preparing to unpack .../151-libxmu-headers_2%3a1.1.2-2_all.deb ...
+Unpacking libxmu-headers (2:1.1.2-2) ...
+Selecting previously unselected package libxmu-dev:armhf.
+Preparing to unpack .../152-libxmu-dev_2%3a1.1.2-2_armhf.deb ...
+Unpacking libxmu-dev:armhf (2:1.1.2-2) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../153-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libxau6:amd64 (1:1.0.8-1+b2) ...
+Setting up libglvnd-core-dev:armhf (1.1.0-1) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up x11-common (1:7.7+19) ...
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libsensors-config (1:3.5.0-3) ...
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up libpthread-stubs0-dev:amd64 (0.4-1) ...
+Setting up libpthread-stubs0-dev:armhf (0.4-1) ...
+Setting up xtrans-dev (1.3.5-1) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libx11-data (2:1.6.7-1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up xorg-sgml-doctools (1:1.11-1) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libdrm-common (2.4.97-1) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up x11proto-dev (2018.4-4) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+Setting up libxcb1:amd64 (1.13.1-2) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libxau-dev:amd64 (1:1.0.8-1+b2) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up libxdmcp-dev:amd64 (1:1.1.2-3) ...
+Setting up x11proto-damage-dev (1:2018.4-4) ...
+Setting up x11proto-core-dev (2018.4-4) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up x11proto-input-dev (2018.4-4) ...
+Setting up autoconf (2.69-11) ...
+Setting up x11proto-xf86vidmode-dev (2018.4-4) ...
+Setting up x11proto-xext-dev (2018.4-4) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up libx11-6:amd64 (2:1.6.7-1) ...
+Setting up x11proto-fixes-dev (1:2018.4-4) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up libxcb1-dev:amd64 (1.13.1-2) ...
+Setting up po-debconf (1.0.21) ...
+Setting up libx11-dev:amd64 (2:1.6.7-1) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libxmu-headers (2:1.1.2-2) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up libdrm2:armhf (2.4.97-1) ...
+Setting up libxshmfence1:armhf (1.3-1) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libdrm-omap1:armhf (2.4.97-1) ...
+Setting up libbsd0:armhf (0.9.1-2) ...
+Setting up libdrm-exynos1:armhf (2.4.97-1) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libdrm-amdgpu1:armhf (2.4.97-1) ...
+Setting up libx11-xcb1:armhf (2:1.6.7-1) ...
+Setting up libice6:armhf (2:1.0.9-2) ...
+Setting up libxau6:armhf (1:1.0.8-1+b2) ...
+Setting up libxdmcp6:armhf (1:1.1.2-3) ...
+Setting up libdrm-nouveau2:armhf (2.4.97-1) ...
+Setting up libxcb1:armhf (1.13.1-2) ...
+Setting up libdrm-etnaviv1:armhf (2.4.97-1) ...
+Setting up libxcb-xfixes0:armhf (1.13.1-2) ...
+Setting up libxau-dev:armhf (1:1.0.8-1+b2) ...
+Setting up libice-dev:armhf (2:1.0.9-2) ...
+Setting up libxcb-render0:armhf (1.13.1-2) ...
+Setting up libxshmfence-dev:armhf (1.3-1) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libdrm-radeon1:armhf (2.4.97-1) ...
+Setting up libglvnd0:armhf (1.1.0-1) ...
+Setting up libxcb-glx0:armhf (1.13.1-2) ...
+Setting up libedit2:armhf (3.1-20181209-1) ...
+Setting up libxcb-shape0:armhf (1.13.1-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libffi6:armhf (3.2.1-9) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libopengl0:armhf (1.1.0-1) ...
+Setting up libxcb-present0:armhf (1.13.1-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libxdmcp-dev:armhf (1:1.1.2-3) ...
+Setting up libgles2:armhf (1.1.0-1) ...
+Setting up libxcb-sync1:armhf (1.13.1-2) ...
+Setting up libgles1:armhf (1.1.0-1) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libuuid1:armhf (2.33.1-0.1) ...
+Setting up libdrm-freedreno1:armhf (2.4.97-1) ...
+Setting up libsensors5:armhf (1:3.5.0-3) ...
+Setting up libdrm-tegra0:armhf (2.4.97-1) ...
+Setting up libglapi-mesa:armhf (18.3.4-1) ...
+Setting up libxcb-dri2-0:armhf (1.13.1-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libxcb-randr0:armhf (1.13.1-2) ...
+Setting up libx11-6:armhf (2:1.6.7-1) ...
+Setting up libelf1:armhf (0.176-1) ...
+Setting up libsm6:armhf (2:1.2.3-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libwayland-client0:armhf (1.16.0-1) ...
+Setting up libexpat1:armhf (2.2.6-1) ...
+Setting up libxcb-dri3-0:armhf (1.13.1-2) ...
+Setting up libwayland-server0:armhf (1.16.0-1) ...
+Setting up libdrm-dev:armhf (2.4.97-1) ...
+Setting up libxcb1-dev:armhf (1.13.1-2) ...
+Setting up libgbm1:armhf (18.3.4-1) ...
+Setting up libsm-dev:armhf (2:1.2.3-1) ...
+Setting up libx11-dev:armhf (2:1.6.7-1) ...
+Setting up libxext6:armhf (2:1.3.3-1+b2) ...
+Setting up libxcb-dri3-dev:armhf (1.13.1-2) ...
+Setting up libxxf86vm1:armhf (1:1.1.4-1+b2) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libegl-mesa0:armhf (18.3.4-1) ...
+Setting up libxcb-dri2-0-dev:armhf (1.13.1-2) ...
+Setting up libxfixes3:armhf (1:5.0.3-1) ...
+Setting up libxcb-render0-dev:armhf (1.13.1-2) ...
+Setting up libxcb-glx0-dev:armhf (1.13.1-2) ...
+Setting up libxt6:armhf (1:1.1.5-1) ...
+Setting up libxcb-shape0-dev:armhf (1.13.1-2) ...
+Setting up libxext-dev:armhf (2:1.3.3-1+b2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libegl1:armhf (1.1.0-1) ...
+Setting up libllvm7:armhf (1:7.0.1-6) ...
+Setting up libxcb-sync-dev:armhf (1.13.1-2) ...
+Setting up mesa-common-dev:armhf (18.3.4-1) ...
+Setting up libxcb-xfixes0-dev:armhf (1.13.1-2) ...
+Setting up libx11-xcb-dev:armhf (2:1.6.7-1) ...
+Setting up libxmu6:armhf (2:1.1.2-2) ...
+Setting up libxdamage1:armhf (1:1.1.4-3) ...
+Setting up libxi6:armhf (2:1.7.9-1) ...
+Setting up libxxf86vm-dev:armhf (1:1.1.4-1+b2) ...
+Setting up libgl1-mesa-dri:armhf (18.3.4-1) ...
+Setting up libxfixes-dev:armhf (1:5.0.3-1) ...
+Setting up libxcb-randr0-dev:armhf (1.13.1-2) ...
+Setting up libxt-dev:armhf (1:1.1.5-1) ...
+Setting up libxcb-present-dev:armhf (1.13.1-2) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libxi-dev:armhf (2:1.7.9-1) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libxdamage-dev:armhf (1:1.1.4-3) ...
+Setting up libglx-mesa0:armhf (18.3.4-1) ...
+Setting up libglx0:armhf (1.1.0-1) ...
+Setting up libxmu-dev:armhf (2:1.1.2-2) ...
+Setting up libgl1:armhf (1.1.0-1) ...
+Setting up libglu1-mesa:armhf (9.0.0-2.1) ...
+Setting up freeglut3:armhf (2.8.1-3) ...
+Setting up libglvnd-dev:armhf (1.1.0-1) ...
+Setting up libgl1-mesa-dev:armhf (18.3.4-1) ...
+Setting up libglu1-mesa-dev:armhf (9.0.0-2.1) ...
+Setting up freeglut3-dev:armhf (2.8.1-3) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 freeglut3_2.8.1-3 freeglut3-dev_2.8.1-3 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libdrm-amdgpu1_2.4.97-1 libdrm-common_2.4.97-1 libdrm-dev_2.4.97-1 libdrm-etnaviv1_2.4.97-1 libdrm-exynos1_2.4.97-1 libdrm-freedreno1_2.4.97-1 libdrm-nouveau2_2.4.97-1 libdrm-omap1_2.4.97-1 libdrm-radeon1_2.4.97-1 libdrm-tegra0_2.4.97-1 libdrm2_2.4.97-1 libeatmydata1_105-7 libedit2_3.1-20181209-1 libegl-mesa0_18.3.4-1 libegl1_1.1.0-1 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgbm1_18.3.4-1 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libgl1_1.1.0-1 libgl1-mesa-dev_18.3.4-1 libgl1-mesa-dri_18.3.4-1 libglapi-mesa_18.3.4-1 libgles1_1.1.0-1 libgles2_1.1.0-1 libglib2.0-0_2.58.3-1 libglu1-mesa_9.0.0-2.1 libglu1-mesa-dev_9.0.0-2.1 libglvnd-core-dev_1.1.0-1 libglvnd-dev_1.1.0-1 libglvnd0_1.1.0-1 libglx-mesa0_18.3.4-1 libglx0_1.1.0-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libice-dev_2:1.0.9-2 libice6_2:1.0.9-2 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 libllvm7_1:7.0.1-6 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libopengl0_1.1.0-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpthread-stubs0-dev_0.4-1 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsensors-config_1:3.5.0-3 libsensors5_1:3.5.0-3 libsepol1_2.8-1 libsigsegv2_2.12-2 libsm-dev_2:1.2.3-1 libsm6_2:1.2.3-1 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwayland-client0_1.16.0-1 libwayland-server0_1.16.0-1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libx11-6_2:1.6.7-1 libx11-data_2:1.6.7-1 libx11-dev_2:1.6.7-1 libx11-xcb-dev_2:1.6.7-1 libx11-xcb1_2:1.6.7-1 libxau-dev_1:1.0.8-1+b2 libxau6_1:1.0.8-1+b2 libxcb-dri2-0_1.13.1-2 libxcb-dri2-0-dev_1.13.1-2 libxcb-dri3-0_1.13.1-2 libxcb-dri3-dev_1.13.1-2 libxcb-glx0_1.13.1-2 libxcb-glx0-dev_1.13.1-2 libxcb-present-dev_1.13.1-2 libxcb-present0_1.13.1-2 libxcb-randr0_1.13.1-2 libxcb-randr0-dev_1.13.1-2 libxcb-render0_1.13.1-2 libxcb-render0-dev_1.13.1-2 libxcb-shape0_1.13.1-2 libxcb-shape0-dev_1.13.1-2 libxcb-sync-dev_1.13.1-2 libxcb-sync1_1.13.1-2 libxcb-xfixes0_1.13.1-2 libxcb-xfixes0-dev_1.13.1-2 libxcb1_1.13.1-2 libxcb1-dev_1.13.1-2 libxdamage-dev_1:1.1.4-3 libxdamage1_1:1.1.4-3 libxdmcp-dev_1:1.1.2-3 libxdmcp6_1:1.1.2-3 libxext-dev_2:1.3.3-1+b2 libxext6_2:1.3.3-1+b2 libxfixes-dev_1:5.0.3-1 libxfixes3_1:5.0.3-1 libxi-dev_2:1.7.9-1 libxi6_2:1.7.9-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libxmu-dev_2:1.1.2-2 libxmu-headers_2:1.1.2-2 libxmu6_2:1.1.2-2 libxshmfence-dev_1.3-1 libxshmfence1_1.3-1 libxt-dev_1:1.1.5-1 libxt6_1:1.1.5-1 libxxf86vm-dev_1:1.1.4-1+b2 libxxf86vm1_1:1.1.4-1+b2 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mesa-common-dev_18.3.4-1 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 x11-common_1:7.7+19 x11proto-core-dev_2018.4-4 x11proto-damage-dev_1:2018.4-4 x11proto-dev_2018.4-4 x11proto-fixes-dev_1:2018.4-4 x11proto-input-dev_2018.4-4 x11proto-xext-dev_2018.4-4 x11proto-xf86vidmode-dev_2018.4-4 xorg-sgml-doctools_1:1.11-1 xtrans-dev_1.3.5-1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.0
+Source: gle
+Binary: libgle3, libgle3-dev, gle-doc
+Architecture: any all
+Version: 3.1.0-7.2
+Maintainer: Jamie Wilkinson <jaq@debian.org>
+Standards-Version: 3.9.8
+Build-Depends: debhelper (>= 10), libxmu-dev, libgl1-mesa-dev | libgl-dev, libglu1-mesa-dev, freeglut3-dev | libglut3-dev, libxi-dev
+Package-List:
+ gle-doc deb doc optional arch=all
+ libgle3 deb libs optional arch=any
+ libgle3-dev deb libdevel optional arch=any
+Checksums-Sha1:
+ ed6d7332df85357430b249854d4f2753f1228074 806861 gle_3.1.0.orig.tar.gz
+ 7b76e8ae8d73f4a48591086aa350c9025ee8e5e0 307076 gle_3.1.0-7.2.diff.gz
+Checksums-Sha256:
+ dc8a74b5632b2c3fc84d33c2bf6ee43210b71b8ddf0a3166a25aeb46620bfa27 806861 gle_3.1.0.orig.tar.gz
+ a651a624e7cc89463e9f6c7aa629c484d693834ffc1380d88ebbc48453e817a1 307076 gle_3.1.0-7.2.diff.gz
+Files:
+ da5b45c6906343d4a3672c3de35513ad 806861 gle_3.1.0.orig.tar.gz
+ 889fbcf1e11397afdc6f09c48e0274e0 307076 gle_3.1.0-7.2.diff.gz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIvBAEBCgAZBQJYA8LSEhxtYXR0aWFAZGViaWFuLm9yZwAKCRAIFrnhjHYrrcik
+D/45DGNwZ7Jv7FxSPLr7kpKMSoCmxW2liA1lO1WWzCs4iswjOMS1Xu6/UF/h73Xi
+iEKOQTeU090ft5ViLn9WrQ2lEIIzYoASEN2XQ9KECBuENYZMljItn3b7PSOBrzro
+2fkHeD4PFpYu5n3JudY/6xW5/n1/QH68OwpG/qapHbQHMU3ravYKgFAGC2V69lDd
++Ls/falNQHeEubBo7lz2/JmXpL6Rq4c6lZ3RdvW/Dh4MxpWpe373ahgz7SP8h2RL
+nF3FjMOBjtkDtdva0sEZFrukoqqxZsVdmL6oCHDFWWSD+QFxbCuydpJfrRFFsog8
+VievA0ayiqjncV12emp2ElonF0FQG4wrCVyzUFWdGkyMgNCH8uXyIqTiLttICJI3
+chc/qplvlM+T4CnCaIQyuEq4AVlZLU+04bcRbWplRiXb7qvboblrGnmf9WiAXemR
+2koMMkG/RZ0eieuOeVBroUUfjaktSUtlfITGI8mY8Kbhv+xG7+3FONVK/QMJt57z
+Lhg1ZXYRwDeL5YsCbhQlvBl4E19EbHfXXvmoxedO1B2el3ERhnKGUja5PdBmeLhE
+oCCixOCv671PkWC3lHVSuMwMFMC2uWScE+xvFveofHAJyDny0i7aJ1i3OpL+WYi8
+bnz2rHhTwQrkQyAiUAh3ioiBDItauagYGjgSdYIp0axw6w==
+=P0MB
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sun Oct 16 18:11:30 2016 UTC
+gpgv:                using RSA key 0816B9E18C762BAD
+gpgv:                issuer "mattia@debian.org"
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./gle_3.1.0-7.2.dsc
+dpkg-source: info: extracting gle in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking gle_3.1.0.orig.tar.gz
+dpkg-source: info: applying gle_3.1.0-7.2.diff.gz
+dpkg-source: info: upstream files that have been modified: 
+ /<<PKGBUILDDIR>>/Makefile.in
+ /<<PKGBUILDDIR>>/aclocal.m4
+ /<<PKGBUILDDIR>>/config.h.in
+ /<<PKGBUILDDIR>>/configure
+ /<<PKGBUILDDIR>>/configure.in
+ /<<PKGBUILDDIR>>/depcomp
+ /<<PKGBUILDDIR>>/doc/Makefile.am
+ /<<PKGBUILDDIR>>/doc/Makefile.in
+ /<<PKGBUILDDIR>>/doc/html/Makefile.am
+ /<<PKGBUILDDIR>>/doc/html/Makefile.in
+ /<<PKGBUILDDIR>>/examples/Makefile.am
+ /<<PKGBUILDDIR>>/examples/Makefile.in
+ /<<PKGBUILDDIR>>/ltmain.sh
+ /<<PKGBUILDDIR>>/man/Makefile.am
+ /<<PKGBUILDDIR>>/man/Makefile.in
+ /<<PKGBUILDDIR>>/man/gle.3gle
+ /<<PKGBUILDDIR>>/man/gleExtrusion.3gle
+ /<<PKGBUILDDIR>>/man/gleHelicoid.3gle
+ /<<PKGBUILDDIR>>/man/gleLathe.3gle
+ /<<PKGBUILDDIR>>/man/glePolyCone.3gle
+ /<<PKGBUILDDIR>>/man/glePolyCylinder.3gle
+ /<<PKGBUILDDIR>>/man/gleScrew.3gle
+ /<<PKGBUILDDIR>>/man/gleSetJoinStyle.3gle
+ /<<PKGBUILDDIR>>/man/gleSetNumSides.3gle
+ /<<PKGBUILDDIR>>/man/gleSpiral.3gle
+ /<<PKGBUILDDIR>>/man/gleSuperExtrusion.3gle
+ /<<PKGBUILDDIR>>/man/gleTextureMode.3gle
+ /<<PKGBUILDDIR>>/man/gleToroid.3gle
+ /<<PKGBUILDDIR>>/man/gleTwistExtrusion.3gle
+ /<<PKGBUILDDIR>>/missing
+ /<<PKGBUILDDIR>>/mkinstalldirs
+ /<<PKGBUILDDIR>>/ms-visual-c/Makefile.in
+ /<<PKGBUILDDIR>>/ms-visual-c/gle/Makefile.in
+ /<<PKGBUILDDIR>>/src/Makefile.am
+ /<<PKGBUILDDIR>>/src/Makefile.in
+ /<<PKGBUILDDIR>>/swig/Makefile.in
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-9ae9dd93-58d5-4af7-a5b7-270bffcf41b9
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package gle
+dpkg-buildpackage: info: source version 3.1.0-7.2
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Mattia Rizzolo <mattia@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+aclocal: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.in,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+aclocal: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+autoheader: WARNING: Using auxiliary files such as `acconfig.h', `config.h.bot'
+autoheader: WARNING: and `config.h.top', to define templates for `config.h.in'
+autoheader: WARNING: is deprecated and discouraged.
+autoheader: 
+autoheader: WARNING: Using the third argument of `AC_DEFINE' and
+autoheader: WARNING: `AC_DEFINE_UNQUOTED' allows one to define a template without
+autoheader: WARNING: `acconfig.h':
+autoheader: 
+autoheader: WARNING:   AC_DEFINE([NEED_FUNC_MAIN], 1,
+autoheader: 		[Define if a function `main' is needed.])
+autoheader: 
+autoheader: WARNING: More sophisticated templates can also be produced, see the
+autoheader: WARNING: documentation.
+automake: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+configure.in:27: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.  For more info, see:
+configure.in:27: https://www.gnu.org/software/automake/manual/automake.html#Modernize-AM_005fINIT_005fAUTOMAKE-invocation
+configure.in:30: installing './compile'
+configure.in:27: installing './missing'
+examples/Makefile.am:54: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+examples/Makefile.am: installing './depcomp'
+automake: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+src/Makefile.am:50: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+   dh_auto_configure -a
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/arm-linux-gnueabihf-nm -B
+checking the name lister (/usr/bin/arm-linux-gnueabihf-nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for arm-linux-gnueabihf-objdump... arm-linux-gnueabihf-objdump
+checking how to recognize dependent libraries... pass_all
+checking for arm-linux-gnueabihf-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for archiver @FILE support... @
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for arm-linux-gnueabihf-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC -DPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for library containing strerror... none required
+checking whether make sets $(MAKE)... (cached) yes
+checking for ANSI C header files... (cached) yes
+checking for memcpy... yes
+checking for X... libraries , headers 
+checking for gethostbyname... yes
+checking for connect... yes
+checking for remove... yes
+checking for shmat... yes
+checking for IceConnectionNumber in -lICE... yes
+checking for glGetError in -lGL... yes
+checking for gluNewQuadric in -lGLU... yes
+checking for XmuLookupStandardColormap in -lXmu... yes
+checking for XListInputDevices in -lXi... yes
+checking for glutSwapBuffers in -lglut... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/html/Makefile
+config.status: creating examples/Makefile
+config.status: creating man/Makefile
+config.status: creating ms-visual-c/Makefile
+config.status: creating ms-visual-c/gle/Makefile
+config.status: creating swig/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing default commands
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+   dh_auto_build -a
+	make -j16
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+make  all-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in src
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o ex_alpha.lo ex_alpha.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o ex_angle.lo ex_angle.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o ex_cut_round.lo ex_cut_round.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o ex_raw.lo ex_raw.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o extrude.lo extrude.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o intersect.lo intersect.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o qmesh.lo qmesh.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o rot_prince.lo rot_prince.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o rotate.lo rotate.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o round_cap.lo round_cap.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o segment.lo segment.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o texgen.lo texgen.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o urotate.lo urotate.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o view.lo view.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c intersect.c  -fPIC -DPIC -o .libs/intersect.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c ex_angle.c  -fPIC -DPIC -o .libs/ex_angle.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c ex_cut_round.c  -fPIC -DPIC -o .libs/ex_cut_round.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c rotate.c  -fPIC -DPIC -o .libs/rotate.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c ex_raw.c  -fPIC -DPIC -o .libs/ex_raw.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c ex_alpha.c  -fPIC -DPIC -o .libs/ex_alpha.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c view.c  -fPIC -DPIC -o .libs/view.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c rot_prince.c  -fPIC -DPIC -o .libs/rot_prince.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c round_cap.c  -fPIC -DPIC -o .libs/round_cap.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c qmesh.c  -fPIC -DPIC -o .libs/qmesh.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c segment.c  -fPIC -DPIC -o .libs/segment.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c urotate.c  -fPIC -DPIC -o .libs/urotate.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c texgen.c  -fPIC -DPIC -o .libs/texgen.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c extrude.c  -fPIC -DPIC -o .libs/extrude.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c intersect.c -o intersect.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c rotate.c -o rotate.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c qmesh.c -o qmesh.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c view.c -o view.o >/dev/null 2>&1
+rot_prince.c:119:6: warning: ‘rot_cs’ defined but not used [-Wunused-function]
+ void rot_cs (gleDouble cosine,  /* input */
+      ^~~~~~
+rot_prince.c:77:6: warning: ‘rotz_cs’ defined but not used [-Wunused-function]
+ void rotz_cs (gleDouble cosine,  /* input */
+      ^~~~~~~
+rot_prince.c:53:6: warning: ‘roty_cs’ defined but not used [-Wunused-function]
+ void roty_cs (gleDouble cosine,  /* input */
+      ^~~~~~~
+rot_prince.c:28:6: warning: ‘rotx_cs’ defined but not used [-Wunused-function]
+ void rotx_cs (gleDouble cosine,  /* input */
+      ^~~~~~~
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c rot_prince.c -o rot_prince.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c urotate.c -o urotate.o >/dev/null 2>&1
+texgen.c: In function ‘setup_circle’:
+texgen.c:99:62: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+                                           sizeof(gleTwoVec)*2*nslices);
+                                                              ^
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c texgen.c -o texgen.o >/dev/null 2>&1
+round_cap.c: In function ‘draw_round_style_cap_callback’:
+round_cap.c:111:40: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    malloced_area = malloc ((4*3+1) *ncp*sizeof (double));
+                                        ^
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c round_cap.c -o round_cap.o >/dev/null 2>&1
+ex_angle.c: In function ‘draw_angle_style_front_cap’:
+ex_angle.c:114:38: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_BEGIN, glBegin);
+                                      ^~~~~~~
+In file included from port.h:200,
+                 from ex_angle.c:28:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(GLenum)’ {aka ‘void (*)(unsigned int)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+ex_angle.c:115:39: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_VERTEX, glVertex3dv);
+                                       ^~~~~~~~~~~
+In file included from port.h:200,
+                 from ex_angle.c:28:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(const GLdouble *)’ {aka ‘void (*)(const double *)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+ex_angle.c: In function ‘draw_angle_style_back_cap’:
+ex_angle.c:193:38: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_BEGIN, glBegin);
+                                      ^~~~~~~
+In file included from port.h:200,
+                 from ex_angle.c:28:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(GLenum)’ {aka ‘void (*)(unsigned int)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+ex_angle.c:194:39: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_VERTEX, glVertex3dv);
+                                       ^~~~~~~~~~~
+In file included from port.h:200,
+                 from ex_angle.c:28:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(const GLdouble *)’ {aka ‘void (*)(const double *)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+ex_angle.c: In function ‘extrusion_angle_join’:
+ex_angle.c:298:38: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    mem_anchor =  malloc (2 * 3 * ncp * sizeof(double)
+                                      ^
+ex_angle.c:299:38: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+                       +  2 * 3 * ncp * sizeof(gleDouble));
+                                      ^
+In file included from ex_angle.c:31:
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_angle.c:432:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT ((&front_loop[3*j]), /* intersection point (returned) */
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_angle.c:451:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT ((&back_loop[3*j]), /* intersection point (returned) */
+          ^~~~~~~~~
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c ex_angle.c -o ex_angle.o >/dev/null 2>&1
+extrude.c: In function ‘glePolyCone’:
+extrude.c:206:43: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    xforms = (gleAffine *) malloc (npoints * sizeof(gleAffine));
+                                           ^
+extrude.c: In function ‘gleTwistExtrusion’:
+extrude.c:240:43: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    xforms = (gleAffine *) malloc (npoints * sizeof(gleAffine));
+                                           ^
+extrude.c: In function ‘gleSpiral’:
+extrude.c:322:38: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+       mem_anchor = malloc (3*npoints * sizeof (gleDouble));
+                                      ^
+extrude.c:326:45: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+       mem_anchor = malloc ((1+2)* 3*npoints * sizeof (gleDouble));
+                                             ^
+extrude.c: In function ‘gleScrew’:
+extrude.c:742:41: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    path = (gleVector *) malloc (numsegs * sizeof (gleVector));
+                                         ^
+extrude.c:743:42: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    twarr = (gleDouble *) malloc (numsegs * sizeof (gleDouble));
+                                          ^
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c extrude.c -o extrude.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c segment.c -o segment.o >/dev/null 2>&1
+ex_raw.c: In function ‘draw_raw_style_end_cap’:
+ex_raw.c:150:34: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    pts = (double *) malloc (3*ncp*sizeof(double));
+                                  ^
+ex_raw.c:152:38: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_BEGIN, glBegin);
+                                      ^~~~~~~
+In file included from port.h:200,
+                 from ex_raw.c:28:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(GLenum)’ {aka ‘void (*)(unsigned int)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+ex_raw.c:153:39: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_VERTEX, glVertex3dv);
+                                       ^~~~~~~~~~~
+In file included from port.h:200,
+                 from ex_raw.c:28:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(const GLdouble *)’ {aka ‘void (*)(const double *)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+ex_raw.c: In function ‘draw_front_contour_cap’:
+ex_raw.c:212:38: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_BEGIN, glBegin);
+                                      ^~~~~~~
+In file included from port.h:200,
+                 from ex_raw.c:28:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(GLenum)’ {aka ‘void (*)(unsigned int)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+ex_raw.c:213:39: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_VERTEX, glVertex3dv);
+                                       ^~~~~~~~~~~
+In file included from port.h:200,
+                 from ex_raw.c:28:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(const GLdouble *)’ {aka ‘void (*)(const double *)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+ex_raw.c: In function ‘draw_back_contour_cap’:
+ex_raw.c:258:38: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_BEGIN, glBegin);
+                                      ^~~~~~~
+In file included from port.h:200,
+                 from ex_raw.c:28:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(GLenum)’ {aka ‘void (*)(unsigned int)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+ex_raw.c:259:39: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_VERTEX, glVertex3dv);
+                                       ^~~~~~~~~~~
+In file included from port.h:200,
+                 from ex_raw.c:28:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(const GLdouble *)’ {aka ‘void (*)(const double *)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+ex_raw.c: In function ‘extrusion_raw_join’:
+ex_raw.c:789:40: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+       mem_anchor = malloc (4 * ncp * 3 * sizeof(gleDouble));
+                                        ^
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c ex_raw.c -o ex_raw.o >/dev/null 2>&1
+ex_cut_round.c: In function ‘draw_cut_style_cap_callback’:
+ex_cut_round.c:135:38: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_BEGIN, glBegin);
+                                      ^~~~~~~
+In file included from port.h:200,
+                 from ex_cut_round.c:30:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(GLenum)’ {aka ‘void (*)(unsigned int)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+ex_cut_round.c:136:39: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_VERTEX, glVertex3dv);
+                                       ^~~~~~~~~~~
+In file included from port.h:200,
+                 from ex_cut_round.c:30:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(const GLdouble *)’ {aka ‘void (*)(const double *)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+ex_cut_round.c: In function ‘draw_fillets_and_join_plain’:
+ex_cut_round.c:403:43: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    cap_loop = (double *) malloc ((ncp+3)*3*sizeof (double));
+                                           ^
+In file included from ex_cut_round.c:33:
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:423:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (sect,
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:487:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (sect,
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:522:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (sect,
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:563:7: note: in expansion of macro ‘INNERSECT’
+       INNERSECT (sect,
+       ^~~~~~~~~
+ex_cut_round.c: In function ‘draw_fillets_and_join_n_norms’:
+ex_cut_round.c:620:45: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    cap_loop = (double *) malloc ((ncp+3)*3*2*sizeof (double));
+                                             ^
+In file included from ex_cut_round.c:33:
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:640:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (sect,
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:707:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (sect,
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:746:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (sect,
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:801:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (sect,
+          ^~~~~~~~~
+ex_cut_round.c: In function ‘extrusion_round_or_cut_join’:
+ex_cut_round.c:911:34: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    mem_anchor = malloc (4 * 3*ncp*sizeof(gleDouble)
+                                  ^
+ex_cut_round.c:912:34: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+                       + 2 * 3*ncp*sizeof(double)
+                                  ^
+ex_cut_round.c:913:34: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+                       + 2 * 1*ncp*sizeof(int));
+                                  ^
+In file included from ex_cut_round.c:33:
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:1052:14: note: in expansion of macro ‘INNERSECT’
+              INNERSECT (isect_point,  /* isect point (returned) */
+              ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:1075:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (isect_point,  /* intersection point (returned) */
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:1114:13: note: in expansion of macro ‘INNERSECT’
+             INNERSECT (isect_point,  /* isect point (returned) */
+             ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:1133:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (isect_point,  /* intersection point (returned) */
+          ^~~~~~~~~
+In file included from ex_cut_round.c:31:
+vvector.h:66:11: warning: ‘isect_point[2]’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    (b)[2] = (a)[2];    \
+           ^
+ex_cut_round.c:859:14: note: ‘isect_point[2]’ was declared here
+    gleDouble isect_point[3];
+              ^~~~~~~~~~~
+In file included from ex_cut_round.c:31:
+vvector.h:65:11: warning: ‘isect_point[1]’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    (b)[1] = (a)[1];    \
+           ^
+ex_cut_round.c:859:14: note: ‘isect_point[1]’ was declared here
+    gleDouble isect_point[3];
+              ^~~~~~~~~~~
+In file included from ex_cut_round.c:31:
+vvector.h:64:11: warning: ‘isect_point[0]’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    (b)[0] = (a)[0];    \
+           ^
+ex_cut_round.c:859:14: note: ‘isect_point[0]’ was declared here
+    gleDouble isect_point[3];
+              ^~~~~~~~~~~
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c ex_cut_round.c -o ex_cut_round.o >/dev/null 2>&1
+In file included from ex_alpha.c:52:
+ex_angle.c: In function ‘extrusion_angle_join_c4f’:
+ex_angle.c:298:38: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    mem_anchor =  malloc (2 * 3 * ncp * sizeof(double)
+                                      ^
+ex_angle.c:299:38: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+                       +  2 * 3 * ncp * sizeof(gleDouble));
+                                      ^
+In file included from ex_angle.c:31,
+                 from ex_alpha.c:52:
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_angle.c:432:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT ((&front_loop[3*j]), /* intersection point (returned) */
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_angle.c:451:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT ((&back_loop[3*j]), /* intersection point (returned) */
+          ^~~~~~~~~
+In file included from ex_alpha.c:53:
+ex_cut_round.c: In function ‘draw_cut_style_cap_callback’:
+ex_cut_round.c:135:38: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_BEGIN, glBegin);
+                                      ^~~~~~~
+In file included from port.h:200,
+                 from ex_alpha.c:16:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(GLenum)’ {aka ‘void (*)(unsigned int)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+In file included from ex_alpha.c:53:
+ex_cut_round.c:136:39: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_VERTEX, glVertex3dv);
+                                       ^~~~~~~~~~~
+In file included from port.h:200,
+                 from ex_alpha.c:16:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(const GLdouble *)’ {aka ‘void (*)(const double *)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+In file included from ex_alpha.c:53:
+ex_cut_round.c: In function ‘draw_fillets_and_join_plain’:
+ex_cut_round.c:403:43: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    cap_loop = (double *) malloc ((ncp+3)*3*sizeof (double));
+                                           ^
+In file included from ex_angle.c:31,
+                 from ex_alpha.c:52:
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:423:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (sect,
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:487:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (sect,
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:522:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (sect,
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:563:7: note: in expansion of macro ‘INNERSECT’
+       INNERSECT (sect,
+       ^~~~~~~~~
+In file included from ex_alpha.c:53:
+ex_cut_round.c: In function ‘draw_fillets_and_join_n_norms’:
+ex_cut_round.c:620:45: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    cap_loop = (double *) malloc ((ncp+3)*3*2*sizeof (double));
+                                             ^
+In file included from ex_angle.c:31,
+                 from ex_alpha.c:52:
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:640:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (sect,
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:707:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (sect,
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:746:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (sect,
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:801:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (sect,
+          ^~~~~~~~~
+In file included from ex_alpha.c:53:
+ex_cut_round.c: In function ‘extrusion_round_or_cut_join_c4f’:
+ex_cut_round.c:911:34: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    mem_anchor = malloc (4 * 3*ncp*sizeof(gleDouble)
+                                  ^
+ex_cut_round.c:912:34: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+                       + 2 * 3*ncp*sizeof(double)
+                                  ^
+ex_cut_round.c:913:34: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+                       + 2 * 1*ncp*sizeof(int));
+                                  ^
+In file included from ex_angle.c:31,
+                 from ex_alpha.c:52:
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:1052:14: note: in expansion of macro ‘INNERSECT’
+              INNERSECT (isect_point,  /* isect point (returned) */
+              ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:1075:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (isect_point,  /* intersection point (returned) */
+          ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:1114:13: note: in expansion of macro ‘INNERSECT’
+             INNERSECT (isect_point,  /* isect point (returned) */
+             ^~~~~~~~~
+extrude.h:25:41: warning: variable ‘retval’ set but not used [-Wunused-but-set-variable]
+ #define INNERSECT(sect,p,n,v1,v2) { int retval; INTERSECT(retval,sect,p,n,v1,v2); }
+                                         ^~~~~~
+ex_cut_round.c:1133:10: note: in expansion of macro ‘INNERSECT’
+          INNERSECT (isect_point,  /* intersection point (returned) */
+          ^~~~~~~~~
+In file included from ex_alpha.c:54:
+ex_raw.c: In function ‘draw_front_contour_cap’:
+ex_raw.c:212:38: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_BEGIN, glBegin);
+                                      ^~~~~~~
+In file included from port.h:200,
+                 from ex_alpha.c:16:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(GLenum)’ {aka ‘void (*)(unsigned int)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+In file included from ex_alpha.c:54:
+ex_raw.c:213:39: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_VERTEX, glVertex3dv);
+                                       ^~~~~~~~~~~
+In file included from port.h:200,
+                 from ex_alpha.c:16:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(const GLdouble *)’ {aka ‘void (*)(const double *)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+In file included from ex_alpha.c:54:
+ex_raw.c: In function ‘draw_back_contour_cap’:
+ex_raw.c:258:38: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_BEGIN, glBegin);
+                                      ^~~~~~~
+In file included from port.h:200,
+                 from ex_alpha.c:16:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(GLenum)’ {aka ‘void (*)(unsigned int)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+In file included from ex_alpha.c:54:
+ex_raw.c:259:39: warning: passing argument 3 of ‘gluTessCallback’ from incompatible pointer type [-Wincompatible-pointer-types]
+    gluTessCallback (tobj, GLU_VERTEX, glVertex3dv);
+                                       ^~~~~~~~~~~
+In file included from port.h:200,
+                 from ex_alpha.c:16:
+/usr/include/GL/glu.h:340:87: note: expected ‘_GLUfuncptr’ {aka ‘void (*)(void)’} but argument is of type ‘void (*)(const GLdouble *)’ {aka ‘void (*)(const double *)’}
+ GLAPI void GLAPIENTRY gluTessCallback (GLUtesselator* tess, GLenum which, _GLUfuncptr CallBackFunc);
+                                                                           ~~~~~~~~~~~~^~~~~~~~~~~~
+In file included from ex_alpha.c:54:
+ex_raw.c: In function ‘extrusion_raw_join_c4f’:
+ex_raw.c:789:40: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+       mem_anchor = malloc (4 * ncp * 3 * sizeof(gleDouble));
+                                        ^
+In file included from ex_alpha.c:55:
+extrude.c: In function ‘glePolyCone_c4f’:
+extrude.c:206:43: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    xforms = (gleAffine *) malloc (npoints * sizeof(gleAffine));
+                                           ^
+extrude.c: In function ‘gleTwistExtrusion_c4f’:
+extrude.c:240:43: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    xforms = (gleAffine *) malloc (npoints * sizeof(gleAffine));
+                                           ^
+In file included from ex_alpha.c:56:
+round_cap.c: In function ‘draw_round_style_cap_callback_c4f’:
+round_cap.c:111:40: warning: conversion to ‘unsigned int’ from ‘int’ may change the sign of the result [-Wsign-conversion]
+    malloced_area = malloc ((4*3+1) *ncp*sizeof (double));
+                                        ^
+In file included from ex_angle.c:29,
+                 from ex_alpha.c:52:
+ex_cut_round.c: In function ‘extrusion_round_or_cut_join_c4f’:
+vvector.h:66:11: warning: ‘isect_point[2]’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    (b)[2] = (a)[2];    \
+           ^
+In file included from ex_alpha.c:53:
+ex_cut_round.c:859:14: note: ‘isect_point[2]’ was declared here
+    gleDouble isect_point[3];
+              ^~~~~~~~~~~
+In file included from ex_angle.c:29,
+                 from ex_alpha.c:52:
+vvector.h:65:11: warning: ‘isect_point[1]’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    (b)[1] = (a)[1];    \
+           ^
+In file included from ex_alpha.c:53:
+ex_cut_round.c:859:14: note: ‘isect_point[1]’ was declared here
+    gleDouble isect_point[3];
+              ^~~~~~~~~~~
+In file included from ex_angle.c:29,
+                 from ex_alpha.c:52:
+vvector.h:64:11: warning: ‘isect_point[0]’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+    (b)[0] = (a)[0];    \
+           ^
+In file included from ex_alpha.c:53:
+ex_cut_round.c:859:14: note: ‘isect_point[0]’ was declared here
+    gleDouble isect_point[3];
+              ^~~~~~~~~~~
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c ex_alpha.c -o ex_alpha.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wall -pedantic -Wstrict-prototypes  -Wconversion -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -version-info 4:0:1 -Wl,-z,relro -o libgle.la -rpath /usr/lib/arm-linux-gnueabihf ex_alpha.lo ex_angle.lo ex_cut_round.lo ex_raw.lo extrude.lo intersect.lo qmesh.lo rot_prince.lo rotate.lo round_cap.lo segment.lo texgen.lo urotate.lo view.lo -lGL -lGLU -lm
+libtool: link: arm-linux-gnueabihf-gcc -shared  -fPIC -DPIC  .libs/ex_alpha.o .libs/ex_angle.o .libs/ex_cut_round.o .libs/ex_raw.o .libs/extrude.o .libs/intersect.o .libs/qmesh.o .libs/rot_prince.o .libs/rotate.o .libs/round_cap.o .libs/segment.o .libs/texgen.o .libs/urotate.o .libs/view.o   -lGL -lGLU -lm  -g -O2 -fstack-protector-strong -g -O2 -fstack-protector-strong -Wl,-z -Wl,relro   -Wl,-soname -Wl,libgle.so.3 -o .libs/libgle.so.3.1.0
+libtool: link: (cd ".libs" && rm -f "libgle.so.3" && ln -s "libgle.so.3.1.0" "libgle.so.3")
+libtool: link: (cd ".libs" && rm -f "libgle.so" && ln -s "libgle.so.3.1.0" "libgle.so")
+libtool: link: arm-linux-gnueabihf-ar cru .libs/libgle.a  ex_alpha.o ex_angle.o ex_cut_round.o ex_raw.o extrude.o intersect.o qmesh.o rot_prince.o rotate.o round_cap.o segment.o texgen.o urotate.o view.o
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: arm-linux-gnueabihf-ranlib .libs/libgle.a
+libtool: link: ( cd ".libs" && rm -f "libgle.la" && ln -s "../libgle.la" "libgle.la" )
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+Making all in doc
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+Making all in html
+make[4]: Entering directory '/<<PKGBUILDDIR>>/doc/html'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/doc/html'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+Making all in examples
+make[3]: Entering directory '/<<PKGBUILDDIR>>/examples'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o alpha.o alpha.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o mainjoin.o mainjoin.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o beam.o beam.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o mainsimple.o mainsimple.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o candlestick.o candlestick.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o cone.o cone.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o cylinder.o cylinder.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o helix.o helix.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o helix2.o helix2.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o helix3.o helix3.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o helix4.o helix4.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o helixtex.o helixtex.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o texture.o texture.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o maintex.o maintex.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o horn.o horn.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o joinoffset.o joinoffset.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o screw.o screw.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o taper.o taper.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o texas.o texas.c
+texture.c: In function ‘iterate_reaction_texture’:
+texture.c:308:11: warning: pointer targets in assignment from ‘unsigned char *’ to ‘char *’ differ in signedness [-Wpointer-sign]
+    pixmap = reaction_texture -> pixmap;
+           ^
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o transport.o transport.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o twoid.o twoid.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../src   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -c -o twistoid.o twistoid.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o alpha alpha.o mainjoin.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o joinstyle cylinder.o mainjoin.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/alpha alpha.o mainjoin.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/joinstyle cylinder.o mainjoin.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o helixtex helixtex.o texture.o maintex.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o candlestick candlestick.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o joinoffset joinoffset.o mainjoin.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/helixtex helixtex.o texture.o maintex.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/candlestick candlestick.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o helix helix.o mainsimple.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o cylinder cylinder.o mainsimple.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o helix3 helix3.o mainsimple.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o helix4 helix4.o mainsimple.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+twistoid.c: In function ‘init_tripples’:
+twistoid.c:83:21: warning: iteration 4 invokes undefined behavior [-Waggressive-loop-optimizations]
+    twistation[i][0] = SCALE * (x);    \
+    ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+twistoid.c:120:7: note: in expansion of macro ‘TWIST’
+       TWIST ((-9.5 +(double) i), 1.0);
+       ^~~~~
+twistoid.c:118:10: note: within this loop
+    while (i< NUM_TWIS_PTS) {
+          ^
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o horn horn.o mainsimple.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o texas texas.o mainjoin.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+twoid.c: In function ‘init_tripples’:
+twoid.c:86:21: warning: iteration 4 invokes undefined behavior [-Waggressive-loop-optimizations]
+    twistation[i][0] = SCALE * (x);    \
+    ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+twoid.c:123:7: note: in expansion of macro ‘TWIST’
+       TWIST ((-9.5 +(double) i), 1.0);
+       ^~~~~
+twoid.c:121:10: note: within this loop
+    while (i< NUM_TWIS_PTS) {
+          ^
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o beam beam.o mainsimple.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o cone cone.o mainsimple.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o helix2 helix2.o mainsimple.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o joincone cone.o mainjoin.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/joinoffset joinoffset.o mainjoin.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o taper taper.o mainsimple.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o twistoid twoid.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o twistex twistoid.o texture.o maintex.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/helix4 helix4.o mainsimple.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/cylinder cylinder.o mainsimple.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/helix helix.o mainsimple.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/helix3 helix3.o mainsimple.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o twoid twoid.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/texas texas.o mainjoin.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/horn horn.o mainsimple.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/beam beam.o mainsimple.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/cone cone.o mainsimple.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/helix2 helix2.o mainsimple.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/twistoid twoid.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/taper taper.o mainsimple.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/twistex twistoid.o texture.o maintex.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/joincone cone.o mainjoin.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/twoid twoid.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o screw screw.o texture.o maintex.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -Wl,-z,relro -o transport transport.o -lgle -lglut -lXi -lXext -lXmu -lGLU -lGL  -lXt -lX11  -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/transport transport.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wl,-z -Wl,relro -o .libs/screw screw.o texture.o maintex.o  /<<PKGBUILDDIR>>/src/.libs/libgle.so -lglut -lXi -lXext -lXmu -lGLU -lGL -lXt -lX11 -L../src/ -lm
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/examples'
+Making all in man
+make[3]: Entering directory '/<<PKGBUILDDIR>>/man'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/man'
+Making all in ms-visual-c
+make[3]: Entering directory '/<<PKGBUILDDIR>>/ms-visual-c'
+Making all in gle
+make[4]: Entering directory '/<<PKGBUILDDIR>>/ms-visual-c/gle'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/ms-visual-c/gle'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/ms-visual-c'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/ms-visual-c'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/ms-visual-c'
+Making all in swig
+make[3]: Entering directory '/<<PKGBUILDDIR>>/swig'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/swig'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_test -a
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary-arch
+dh binary-arch
+   dh_testroot -a
+   dh_prep -a
+   dh_auto_install -a
+	make -j1 install DESTDIR=/<<PKGBUILDDIR>>/debian/tmp AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+Making install in src
+make[2]: Entering directory '/<<PKGBUILDDIR>>/src'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf'
+ /bin/bash ../libtool   --mode=install /usr/bin/install -c   libgle.la '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf'
+libtool: install: /usr/bin/install -c .libs/libgle.so.3.1.0 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libgle.so.3.1.0
+libtool: install: (cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf && { ln -s -f libgle.so.3.1.0 libgle.so.3 || { rm -f libgle.so.3 && ln -s libgle.so.3.1.0 libgle.so.3; }; })
+libtool: install: (cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf && { ln -s -f libgle.so.3.1.0 libgle.so || { rm -f libgle.so && ln -s libgle.so.3.1.0 libgle.so; }; })
+libtool: install: /usr/bin/install -c .libs/libgle.lai /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libgle.la
+libtool: install: /usr/bin/install -c .libs/libgle.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libgle.a
+libtool: install: chmod 644 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libgle.a
+libtool: install: arm-linux-gnueabihf-ranlib /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libgle.a
+libtool: warning: remember to run 'libtool --finish /usr/lib/arm-linux-gnueabihf'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp/usr/include/GL'
+ /usr/bin/install -c -m 644 gle.h '/<<PKGBUILDDIR>>/debian/tmp/usr/include/GL'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/gle/'
+ /usr/bin/install -c -m 644 COPYING.src '/<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/gle/'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/src'
+Making install in doc
+make[2]: Entering directory '/<<PKGBUILDDIR>>/doc'
+Making install in html
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc/html'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/doc/html'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/gle-doc/html'
+ /usr/bin/install -c -m 644 blurb.html build.html index.html join.html texture.html tube.html vrml.html angle.gif basic.gif candle.gif cone.gif cut.gif edge.gif edgenorm.gif edgesweep.gif endcap.gif facenorm.gif facesweep.gif facet.gif gle.jpg helix.gif helix1.gif helix2.gif helix3.gif helix4.gif helix5.gif helix6.gif helixtex.gif offround.gif ogla.gif ogla_sm.gif opencontour.gif raw.gif round.gif screw0.gif screw1.gif screw2.gif screwn.gif shear.gif texas.gif '/<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/gle-doc/html'
+ /usr/bin/install -c -m 644 texscr.gif texscr2.gif textwi.gif textwi2.gif twist1.gif twist2.gif twist3.gif angle.orig.gif basic.orig.gif candle.orig.gif cone.orig.gif cut.orig.gif edge.orig.gif edgenorm.orig.gif edgesweep.orig.gif endcap.orig.gif facenorm.orig.gif facesweep.orig.gif facet.orig.gif helix3.orig.gif helix5.orig.gif helix6.orig.gif offround.orig.gif opencontour.orig.gif raw.orig.gif round.orig.gif screw0.orig.gif screw1.orig.gif screw2.orig.gif screwn.orig.gif shear.orig.gif texas.orig.gif twist1.orig.gif twist2.orig.gif twist3.orig.gif README '/<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/gle-doc/html'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/doc/html'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc/html'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/gle/'
+ /usr/bin/install -c -m 644 COPYING.artistic gle-3.0.lsm '/<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/gle/'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+Making install in examples
+make[2]: Entering directory '/<<PKGBUILDDIR>>/examples'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/examples'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/gle-doc/examples'
+ /usr/bin/install -c -m 644 COPYING Makefile.examples README rundemo main.h texture.h alpha.c beam.c candlestick.c cone.c cylinder.c helix.c helix2.c helix3.c helix4.c helixtex.c horn.c joinoffset.c mainjoin.c mainsimple.c maintex.c screw.c taper.c texas.c texture.c transport.c twoid.c twistoid.c '/<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/gle-doc/examples'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/examples'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/examples'
+Making install in man
+make[2]: Entering directory '/<<PKGBUILDDIR>>/man'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/man'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man3'
+ /usr/bin/install -c -m 644 gle.3gle gleExtrusion.3gle gleHelicoid.3gle gleLathe.3gle glePolyCone.3gle glePolyCylinder.3gle gleScrew.3gle gleSetJoinStyle.3gle gleSetNumSides.3gle gleSpiral.3gle gleSuperExtrusion.3gle gleTextureMode.3gle gleToroid.3gle gleTwistExtrusion.3gle '/<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man3'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/man'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/man'
+Making install in ms-visual-c
+make[2]: Entering directory '/<<PKGBUILDDIR>>/ms-visual-c'
+Making install in gle
+make[3]: Entering directory '/<<PKGBUILDDIR>>/ms-visual-c/gle'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/ms-visual-c/gle'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/ms-visual-c/gle'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/ms-visual-c/gle'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/ms-visual-c'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/ms-visual-c'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/ms-visual-c'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/ms-visual-c'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/ms-visual-c'
+Making install in swig
+make[2]: Entering directory '/<<PKGBUILDDIR>>/swig'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/swig'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/swig'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/swig'
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/gle/'
+ /usr/bin/install -c -m 644 AUTHORS README COPYING '/<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/gle/'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_install
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_install --list-missing
+dh_install: Please use dh_missing --list-missing/--fail-missing instead
+dh_install: This feature will be removed in compat 12.
+dh_missing: usr/share/doc/gle/COPYING.artistic exists in debian/tmp but is not installed to anywhere
+dh_missing: usr/share/doc/gle/COPYING exists in debian/tmp but is not installed to anywhere
+dh_missing: usr/share/doc/gle/COPYING.src exists in debian/tmp but is not installed to anywhere
+dh_missing: usr/share/doc/gle/README exists in debian/tmp but is not installed to anywhere
+dh_missing: usr/share/doc/gle/gle-3.0.lsm exists in debian/tmp but is not installed to anywhere
+dh_missing: usr/share/doc/gle/AUTHORS exists in debian/tmp but is not installed to anywhere
+dh_missing: usr/lib/arm-linux-gnueabihf/libgle.la exists in debian/tmp but is not installed to anywhere
+	The following debhelper tools have reported what they installed (with files per package)
+	 * dh_install: gle-doc (104), libgle3 (2), libgle3-dev (4)
+	If the missing files are installed by another tool, please file a bug against it.
+	When filing the report, if the tool is not part of debhelper itself, please reference the
+	"Logging helpers and dh_missing" section from the "PROGRAMMING" guide for debhelper (10.6.3+).
+	  (in the debhelper package: /usr/share/doc/debhelper/PROGRAMMING.gz)
+	Be sure to test with dpkg-buildpackage -A/-B as the results may vary when only a subset is built
+	For a short-term work-around: Add the files to debian/not-installed
+rm -f /<<PKGBUILDDIR>>/debian/gle-doc/usr/share/doc/gle-doc/examples/COPYING
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installdocs -a
+   dh_installchangelogs -a
+   dh_installman -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   dh_missing -a
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+   dh_installdeb -a
+   dh_gencontrol -a
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'libgle3-dbgsym' in '../libgle3-dbgsym_3.1.0-7.2_armhf.deb'.
+dpkg-deb: building package 'libgle3' in '../libgle3_3.1.0-7.2_armhf.deb'.
+dpkg-deb: building package 'libgle3-dev' in '../libgle3-dev_3.1.0-7.2_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../gle_3.1.0-7.2_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-04T04:35:51Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+gle_3.1.0-7.2_armhf.changes:
+----------------------------
+
+Format: 1.8
+Date: Sun, 16 Oct 2016 18:11:03 +0000
+Source: gle
+Binary: libgle3 libgle3-dbgsym libgle3-dev
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 3.1.0-7.2
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Jamie Wilkinson <jaq@debian.org>
+Changed-By: Mattia Rizzolo <mattia@debian.org>
+Description:
+ libgle3    - OpenGL tubing and extrusion library
+ libgle3-dev - OpenGL tubing and extrusion library development files
+Closes: 821986
+Changes:
+ gle (3.1.0-7.2) unstable; urgency=medium
+ .
+   * Non-maintainer upload.
+   * Explicitly source format 1.0.
+   * Bump compat level to 10.
+   * Rewrite d/rules using the dh sequencer.  Closes: #821986
+     + use dh_auto_configure instead of manually calling ./configure: this also
+       multiarchify the library.  Adding Multi-Arch: same.
+   * Add dependency on ${misc:Depends}, so debhelper can do its magic.
+   * Remove all debian/*.dirs files: debhelper creates the needed
+     directories by itself.
+   * Use dh_install instead of dh_movefiles (rename d/*.files to d/*.install).
+   * Semplify the patterns in the debian/*.install files.
+   * Bump Standards-Version to 3.9.8, no further changes needed.
+Checksums-Sha1:
+ e93949f2105b70814b880ae2d09ea08da1c09dcb 7629 gle_3.1.0-7.2_armhf.buildinfo
+ 73924c3e2f296fce5d9a5924b425cd84d8658253 92100 libgle3-dbgsym_3.1.0-7.2_armhf.deb
+ e355779d8416fefc62f39e632b68bdc77dc08a66 48632 libgle3-dev_3.1.0-7.2_armhf.deb
+ f24128ba4ceb3228dec6235d30877a19cb8790a6 30788 libgle3_3.1.0-7.2_armhf.deb
+Checksums-Sha256:
+ ddbf11c3d97825c2f5355d2dc95440d4a0325d0f1e2fd6c9a41e52432a25002a 7629 gle_3.1.0-7.2_armhf.buildinfo
+ b059cc58956c2a057e06f96815f2f9fce95f32a1b9692020a427e909456640fd 92100 libgle3-dbgsym_3.1.0-7.2_armhf.deb
+ 9fc92271326ff6963a66a9f2fdb69177d7cc3c18787802bcbcdd5dbfe159ad62 48632 libgle3-dev_3.1.0-7.2_armhf.deb
+ bb8ffd083b1500fb40690a4fe2fe6ca71958fce3d7bbb39d0be8b9c0bde40b10 30788 libgle3_3.1.0-7.2_armhf.deb
+Files:
+ 9659bdad7d13648b9b874d19a61c0193 7629 graphics optional gle_3.1.0-7.2_armhf.buildinfo
+ de84a22a6cbbfb9631a0d1e290f0029d 92100 debug optional libgle3-dbgsym_3.1.0-7.2_armhf.deb
+ 4596776b73e3eede86bbae1b3ea6117d 48632 libdevel optional libgle3-dev_3.1.0-7.2_armhf.deb
+ 9d157f68f04cf449a90764808b34888b 30788 libs optional libgle3_3.1.0-7.2_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: gle
+Binary: libgle3 libgle3-dev gle-doc
+Architecture: armhf
+Version: 3.1.0-7.2
+Checksums-Md5:
+ de84a22a6cbbfb9631a0d1e290f0029d 92100 libgle3-dbgsym_3.1.0-7.2_armhf.deb
+ 4596776b73e3eede86bbae1b3ea6117d 48632 libgle3-dev_3.1.0-7.2_armhf.deb
+ 9d157f68f04cf449a90764808b34888b 30788 libgle3_3.1.0-7.2_armhf.deb
+Checksums-Sha1:
+ 73924c3e2f296fce5d9a5924b425cd84d8658253 92100 libgle3-dbgsym_3.1.0-7.2_armhf.deb
+ e355779d8416fefc62f39e632b68bdc77dc08a66 48632 libgle3-dev_3.1.0-7.2_armhf.deb
+ f24128ba4ceb3228dec6235d30877a19cb8790a6 30788 libgle3_3.1.0-7.2_armhf.deb
+Checksums-Sha256:
+ b059cc58956c2a057e06f96815f2f9fce95f32a1b9692020a427e909456640fd 92100 libgle3-dbgsym_3.1.0-7.2_armhf.deb
+ 9fc92271326ff6963a66a9f2fdb69177d7cc3c18787802bcbcdd5dbfe159ad62 48632 libgle3-dev_3.1.0-7.2_armhf.deb
+ bb8ffd083b1500fb40690a4fe2fe6ca71958fce3d7bbb39d0be8b9c0bde40b10 30788 libgle3_3.1.0-7.2_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Mon, 04 Mar 2019 04:35:51 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ freeglut3 (= 2.8.1-3),
+ freeglut3-dev (= 2.8.1-3),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.52-5),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libdrm-amdgpu1 (= 2.4.97-1),
+ libdrm-common (= 2.4.97-1),
+ libdrm-dev (= 2.4.97-1),
+ libdrm-etnaviv1 (= 2.4.97-1),
+ libdrm-exynos1 (= 2.4.97-1),
+ libdrm-freedreno1 (= 2.4.97-1),
+ libdrm-nouveau2 (= 2.4.97-1),
+ libdrm-omap1 (= 2.4.97-1),
+ libdrm-radeon1 (= 2.4.97-1),
+ libdrm-tegra0 (= 2.4.97-1),
+ libdrm2 (= 2.4.97-1),
+ libedit2 (= 3.1-20181209-1),
+ libegl-mesa0 (= 18.3.4-1),
+ libegl1 (= 1.1.0-1),
+ libelf1 (= 0.176-1),
+ libexpat1 (= 2.2.6-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgbm1 (= 18.3.4-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libgl1 (= 1.1.0-1),
+ libgl1-mesa-dev (= 18.3.4-1),
+ libgl1-mesa-dri (= 18.3.4-1),
+ libglapi-mesa (= 18.3.4-1),
+ libgles1 (= 1.1.0-1),
+ libgles2 (= 1.1.0-1),
+ libglib2.0-0 (= 2.58.3-1),
+ libglu1-mesa (= 9.0.0-2.1),
+ libglu1-mesa-dev (= 9.0.0-2.1),
+ libglvnd-core-dev (= 1.1.0-1),
+ libglvnd-dev (= 1.1.0-1),
+ libglvnd0 (= 1.1.0-1),
+ libglx-mesa0 (= 18.3.4-1),
+ libglx0 (= 1.1.0-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libice-dev (= 2:1.0.9-2),
+ libice6 (= 2:1.0.9-2),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ libllvm7 (= 1:7.0.1-6),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libopengl0 (= 1.1.0-1),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libpthread-stubs0-dev (= 0.4-1),
+ libquadmath0 (= 8.3.0-2),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsensors-config (= 1:3.5.0-3),
+ libsensors5 (= 1:3.5.0-3),
+ libsigsegv2 (= 2.12-2),
+ libsm-dev (= 2:1.2.3-1),
+ libsm6 (= 2:1.2.3-1),
+ libsmartcols1 (= 2.33.1-0.1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libwayland-client0 (= 1.16.0-1),
+ libwayland-server0 (= 1.16.0-1),
+ libx11-6 (= 2:1.6.7-1),
+ libx11-data (= 2:1.6.7-1),
+ libx11-dev (= 2:1.6.7-1),
+ libx11-xcb-dev (= 2:1.6.7-1),
+ libx11-xcb1 (= 2:1.6.7-1),
+ libxau-dev (= 1:1.0.8-1+b2),
+ libxau6 (= 1:1.0.8-1+b2),
+ libxcb-dri2-0 (= 1.13.1-2),
+ libxcb-dri2-0-dev (= 1.13.1-2),
+ libxcb-dri3-0 (= 1.13.1-2),
+ libxcb-dri3-dev (= 1.13.1-2),
+ libxcb-glx0 (= 1.13.1-2),
+ libxcb-glx0-dev (= 1.13.1-2),
+ libxcb-present-dev (= 1.13.1-2),
+ libxcb-present0 (= 1.13.1-2),
+ libxcb-randr0 (= 1.13.1-2),
+ libxcb-randr0-dev (= 1.13.1-2),
+ libxcb-render0 (= 1.13.1-2),
+ libxcb-render0-dev (= 1.13.1-2),
+ libxcb-shape0 (= 1.13.1-2),
+ libxcb-shape0-dev (= 1.13.1-2),
+ libxcb-sync-dev (= 1.13.1-2),
+ libxcb-sync1 (= 1.13.1-2),
+ libxcb-xfixes0 (= 1.13.1-2),
+ libxcb-xfixes0-dev (= 1.13.1-2),
+ libxcb1 (= 1.13.1-2),
+ libxcb1-dev (= 1.13.1-2),
+ libxdamage-dev (= 1:1.1.4-3),
+ libxdamage1 (= 1:1.1.4-3),
+ libxdmcp-dev (= 1:1.1.2-3),
+ libxdmcp6 (= 1:1.1.2-3),
+ libxext-dev (= 2:1.3.3-1+b2),
+ libxext6 (= 2:1.3.3-1+b2),
+ libxfixes-dev (= 1:5.0.3-1),
+ libxfixes3 (= 1:5.0.3-1),
+ libxi-dev (= 2:1.7.9-1),
+ libxi6 (= 2:1.7.9-1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ libxmu-dev (= 2:1.1.2-2),
+ libxmu-headers (= 2:1.1.2-2),
+ libxmu6 (= 2:1.1.2-2),
+ libxshmfence-dev (= 1.3-1),
+ libxshmfence1 (= 1.3-1),
+ libxt-dev (= 1:1.1.5-1),
+ libxt6 (= 1:1.1.5-1),
+ libxxf86vm-dev (= 1:1.1.4-1+b2),
+ libxxf86vm1 (= 1:1.1.4-1+b2),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ lsb-base (= 10.2018112800),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ mesa-common-dev (= 18.3.4-1),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ po-debconf (= 1.0.21),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ x11-common (= 1:7.7+19),
+ x11proto-core-dev (= 2018.4-4),
+ x11proto-damage-dev (= 1:2018.4-4),
+ x11proto-dev (= 2018.4-4),
+ x11proto-fixes-dev (= 1:2018.4-4),
+ x11proto-input-dev (= 2018.4-4),
+ x11proto-xext-dev (= 2018.4-4),
+ x11proto-xf86vidmode-dev (= 2018.4-4),
+ xorg-sgml-doctools (= 1:1.11-1),
+ xtrans-dev (= 1.3.5-1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1476641463"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+libgle3-dbgsym_3.1.0-7.2_armhf.deb
+----------------------------------
+
+ new Debian package, version 2.0.
+ size 92100 bytes: control archive=532 bytes.
+     347 bytes,    13 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: libgle3-dbgsym
+ Source: gle
+ Version: 3.1.0-7.2
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Jamie Wilkinson <jaq@debian.org>
+ Installed-Size: 109
+ Depends: libgle3 (= 3.1.0-7.2)
+ Section: debug
+ Priority: optional
+ Multi-Arch: same
+ Description: debug symbols for libgle3
+ Build-Ids: 14071b09096fe04337e9f06afc77672719345ed0
+
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/lib/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/lib/debug/.build-id/14/
+-rw-r--r-- root/root    100720 2016-10-16 18:11 ./usr/lib/debug/.build-id/14/071b09096fe04337e9f06afc77672719345ed0.debug
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/share/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2016-10-16 18:11 ./usr/share/doc/libgle3-dbgsym -> libgle3
+
+
+libgle3-dev_3.1.0-7.2_armhf.deb
+-------------------------------
+
+ new Debian package, version 2.0.
+ size 48632 bytes: control archive=1464 bytes.
+     939 bytes,    22 lines      control              
+    1583 bytes,    22 lines      md5sums              
+ Package: libgle3-dev
+ Source: gle
+ Version: 3.1.0-7.2
+ Architecture: armhf
+ Maintainer: Jamie Wilkinson <jaq@debian.org>
+ Installed-Size: 145
+ Depends: libgle3 (= 3.1.0-7.2), libc6-dev, libgl1-mesa-dev | libgl-dev
+ Suggests: gle-doc
+ Conflicts: glutg3-dev (<< 3.7-13), libgle-dev (<= 3.0.7-2)
+ Replaces: libgle-dev (<= 3.0.7-2)
+ Provides: libgle-dev
+ Section: libdevel
+ Priority: optional
+ Description: OpenGL tubing and extrusion library development files
+  The GLE Tubing and Extrusion library is an extension to OpenGL for drawing
+  tubing and extrusions, including surfaces of revolution, sweeps, tubes,
+  polycones, polycylinders, and helicoids.  Generally the extruded surface
+  is specified with a 2D polyline that is extruded along a 3D path.  A local
+  coordinate system allows for additional flexibility in the primitives
+  drawn.  Extrusions may be texture mapped in a variety of ways.
+  .
+  This package contains header files and static libraries.
+
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/include/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/include/GL/
+-rw-r--r-- root/root     13004 2016-10-16 18:11 ./usr/include/GL/gle.h
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/lib/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/lib/arm-linux-gnueabihf/
+-rw-r--r-- root/root     89330 2016-10-16 18:11 ./usr/lib/arm-linux-gnueabihf/libgle.a
+lrwxrwxrwx root/root         0 2016-10-16 18:11 ./usr/lib/arm-linux-gnueabihf/libgle.so -> libgle.so.3.1.0
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/share/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/share/doc/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/share/doc/libgle3-dev/
+-rw-r--r-- root/root       290 2003-03-18 05:04 ./usr/share/doc/libgle3-dev/AUTHORS
+-rw-r--r-- root/root       134 2000-06-25 01:47 ./usr/share/doc/libgle3-dev/NEWS.gz
+-rw-r--r-- root/root      3995 2002-11-06 04:07 ./usr/share/doc/libgle3-dev/README
+-rw-r--r-- root/root      2496 2016-10-16 18:11 ./usr/share/doc/libgle3-dev/changelog.Debian.gz
+-rw-r--r-- root/root       129 2001-10-18 16:15 ./usr/share/doc/libgle3-dev/changelog.gz
+-rw-r--r-- root/root      1442 2016-10-16 18:11 ./usr/share/doc/libgle3-dev/copyright
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/share/man/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/share/man/man3/
+-rw-r--r-- root/root      1413 2016-10-16 18:11 ./usr/share/man/man3/gle.3gle.gz
+-rw-r--r-- root/root       830 2016-10-16 18:11 ./usr/share/man/man3/gleExtrusion.3gle.gz
+-rw-r--r-- root/root       515 2016-10-16 18:11 ./usr/share/man/man3/gleHelicoid.3gle.gz
+-rw-r--r-- root/root       759 2016-10-16 18:11 ./usr/share/man/man3/gleLathe.3gle.gz
+-rw-r--r-- root/root       694 2016-10-16 18:11 ./usr/share/man/man3/glePolyCone.3gle.gz
+-rw-r--r-- root/root       689 2016-10-16 18:11 ./usr/share/man/man3/glePolyCylinder.3gle.gz
+-rw-r--r-- root/root       484 2016-10-16 18:11 ./usr/share/man/man3/gleScrew.3gle.gz
+-rw-r--r-- root/root      1564 2016-10-16 18:11 ./usr/share/man/man3/gleSetJoinStyle.3gle.gz
+-rw-r--r-- root/root       621 2016-10-16 18:11 ./usr/share/man/man3/gleSetNumSides.3gle.gz
+-rw-r--r-- root/root      1075 2016-10-16 18:11 ./usr/share/man/man3/gleSpiral.3gle.gz
+-rw-r--r-- root/root       899 2016-10-16 18:11 ./usr/share/man/man3/gleSuperExtrusion.3gle.gz
+-rw-r--r-- root/root      2903 2016-10-16 18:11 ./usr/share/man/man3/gleTextureMode.3gle.gz
+-rw-r--r-- root/root       521 2016-10-16 18:11 ./usr/share/man/man3/gleToroid.3gle.gz
+-rw-r--r-- root/root       960 2016-10-16 18:11 ./usr/share/man/man3/gleTwistExtrusion.3gle.gz
+
+
+libgle3_3.1.0-7.2_armhf.deb
+---------------------------
+
+ new Debian package, version 2.0.
+ size 30788 bytes: control archive=1068 bytes.
+     751 bytes,    18 lines      control              
+     480 bytes,     7 lines      md5sums              
+      17 bytes,     1 lines      shlibs               
+      67 bytes,     2 lines      triggers             
+ Package: libgle3
+ Source: gle
+ Version: 3.1.0-7.2
+ Architecture: armhf
+ Maintainer: Jamie Wilkinson <jaq@debian.org>
+ Installed-Size: 89
+ Depends: libc6 (>= 2.4), libgl1, libglu1-mesa | libglu1
+ Conflicts: glutg3 (<< 3.7-13)
+ Section: libs
+ Priority: optional
+ Multi-Arch: same
+ Description: OpenGL tubing and extrusion library
+  The GLE Tubing and Extrusion library is an extension to OpenGL for drawing
+  tubing and extrusions, including surfaces of revolution, sweeps, tubes,
+  polycones, polycylinders, and helicoids.  Generally the extruded surface
+  is specified with a 2D polyline that is extruded along a 3D path.  A local
+  coordinate system allows for additional flexibility in the primitives
+  drawn.  Extrusions may be texture mapped in a variety of ways.
+
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/lib/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/lib/arm-linux-gnueabihf/
+lrwxrwxrwx root/root         0 2016-10-16 18:11 ./usr/lib/arm-linux-gnueabihf/libgle.so.3 -> libgle.so.3.1.0
+-rw-r--r-- root/root     67172 2016-10-16 18:11 ./usr/lib/arm-linux-gnueabihf/libgle.so.3.1.0
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/share/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/share/doc/
+drwxr-xr-x root/root         0 2016-10-16 18:11 ./usr/share/doc/libgle3/
+-rw-r--r-- root/root       290 2003-03-18 05:04 ./usr/share/doc/libgle3/AUTHORS
+-rw-r--r-- root/root       134 2000-06-25 01:47 ./usr/share/doc/libgle3/NEWS.gz
+-rw-r--r-- root/root      3995 2002-11-06 04:07 ./usr/share/doc/libgle3/README
+-rw-r--r-- root/root      2496 2016-10-16 18:11 ./usr/share/doc/libgle3/changelog.Debian.gz
+-rw-r--r-- root/root       129 2001-10-18 16:15 ./usr/share/doc/libgle3/changelog.gz
+-rw-r--r-- root/root      1442 2016-10-16 18:11 ./usr/share/doc/libgle3/copyright
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [564 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [640 B]
+Fetched 2167 B in 0s (0 B/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 1s (5251 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 21307 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+W: gle source: ancient-libtool ltmain.sh 1.5.0
+W: libgle3: copyright-without-copyright-notice
+W: libgle3-dev: copyright-without-copyright-notice
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* dwz* freeglut3:armhf*
+  freeglut3-dev:armhf* gcc-8-base:armhf* gettext* gettext-base* groff-base*
+  intltool-debian* libapt-pkg-perl* libarchive-zip-perl* libasan5:armhf*
+  libatomic1:armhf* libbsd0* libbsd0:armhf* libc6:armhf* libc6-dev:armhf*
+  libcapture-tiny-perl* libcgi-pm-perl* libclass-accessor-perl* libclone-perl*
+  libcroco3* libdigest-hmac-perl* libdrm-amdgpu1:armhf* libdrm-common*
+  libdrm-dev:armhf* libdrm-etnaviv1:armhf* libdrm-exynos1:armhf*
+  libdrm-freedreno1:armhf* libdrm-nouveau2:armhf* libdrm-omap1:armhf*
+  libdrm-radeon1:armhf* libdrm-tegra0:armhf* libdrm2:armhf* libedit2:armhf*
+  libegl-mesa0:armhf* libegl1:armhf* libelf1* libelf1:armhf*
+  libemail-valid-perl* libexpat1:armhf* libexporter-tiny-perl* libffi6:armhf*
+  libfile-basedir-perl* libfile-stripnondeterminism-perl* libfuture-perl*
+  libgbm1:armhf* libgcc-8-dev:armhf* libgcc1:armhf* libgl1:armhf*
+  libgl1-mesa-dev:armhf* libgl1-mesa-dri:armhf* libglapi-mesa:armhf*
+  libgles1:armhf* libgles2:armhf* libglib2.0-0* libglu1-mesa:armhf*
+  libglu1-mesa-dev:armhf* libglvnd-core-dev:armhf* libglvnd-dev:armhf*
+  libglvnd0:armhf* libglx-mesa0:armhf* libglx0:armhf* libgomp1:armhf*
+  libice-dev:armhf* libice6:armhf* libio-async-perl* libio-pty-perl*
+  libipc-run-perl* libipc-system-simple-perl* liblist-moreutils-perl*
+  libllvm7:armhf* libncurses6* libnet-dns-perl* libnet-domain-tld-perl*
+  libnet-ip-perl* libopengl0:armhf* libparse-debianchangelog-perl*
+  libpath-tiny-perl* libpipeline1* libpthread-stubs0-dev*
+  libpthread-stubs0-dev:armhf* libsensors-config* libsensors5:armhf*
+  libsigsegv2* libsm-dev:armhf* libsm6:armhf* libstdc++-8-dev:armhf*
+  libstdc++6:armhf* libstruct-dumb-perl* libsub-name-perl*
+  libtext-levenshtein-perl* libtinfo6:armhf* libtool* libubsan1:armhf*
+  libuchardet0* libuuid1:armhf* libwayland-client0:armhf*
+  libwayland-server0:armhf* libx11-6* libx11-6:armhf* libx11-data* libx11-dev*
+  libx11-dev:armhf* libx11-xcb-dev:armhf* libx11-xcb1:armhf* libxau-dev*
+  libxau-dev:armhf* libxau6* libxau6:armhf* libxcb-dri2-0:armhf*
+  libxcb-dri2-0-dev:armhf* libxcb-dri3-0:armhf* libxcb-dri3-dev:armhf*
+  libxcb-glx0:armhf* libxcb-glx0-dev:armhf* libxcb-present-dev:armhf*
+  libxcb-present0:armhf* libxcb-randr0:armhf* libxcb-randr0-dev:armhf*
+  libxcb-render0:armhf* libxcb-render0-dev:armhf* libxcb-shape0:armhf*
+  libxcb-shape0-dev:armhf* libxcb-sync-dev:armhf* libxcb-sync1:armhf*
+  libxcb-xfixes0:armhf* libxcb-xfixes0-dev:armhf* libxcb1* libxcb1:armhf*
+  libxcb1-dev* libxcb1-dev:armhf* libxdamage-dev:armhf* libxdamage1:armhf*
+  libxdmcp-dev* libxdmcp-dev:armhf* libxdmcp6* libxdmcp6:armhf*
+  libxext-dev:armhf* libxext6:armhf* libxfixes-dev:armhf* libxfixes3:armhf*
+  libxi-dev:armhf* libxi6:armhf* libxmu-dev:armhf* libxmu-headers*
+  libxmu6:armhf* libxshmfence-dev:armhf* libxshmfence1:armhf* libxt-dev:armhf*
+  libxt6:armhf* libxxf86vm-dev:armhf* libxxf86vm1:armhf* lintian*
+  linux-libc-dev:armhf* m4* man-db* mesa-common-dev:armhf* patchutils*
+  po-debconf* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* x11-common*
+  x11proto-core-dev* x11proto-damage-dev* x11proto-dev* x11proto-fixes-dev*
+  x11proto-input-dev* x11proto-xext-dev* x11proto-xf86vidmode-dev*
+  xorg-sgml-doctools* xtrans-dev* zlib1g:armhf*
+0 upgraded, 0 newly installed, 182 to remove and 0 not upgraded.
+After this operation, 322 MB disk space will be freed.
+(Reading database ... 22585 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing freeglut3-dev:armhf (2.8.1-3) ...
+Removing freeglut3:armhf (2.8.1-3) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libglu1-mesa-dev:armhf (9.0.0-2.1) ...
+Removing libgl1-mesa-dev:armhf (18.3.4-1) ...
+Removing libglvnd-dev:armhf (1.1.0-1) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing mesa-common-dev:armhf (18.3.4-1) ...
+Removing libxxf86vm-dev:armhf (1:1.1.4-1+b2) ...
+Removing libx11-xcb-dev:armhf (2:1.6.7-1) ...
+Removing libegl1:armhf (1.1.0-1) ...
+Removing libegl-mesa0:armhf (18.3.4-1) ...
+Removing libxmu-dev:armhf (2:1.1.2-2) ...
+Removing libxt-dev:armhf (1:1.1.5-1) ...
+Removing libsm-dev:armhf (2:1.2.3-1) ...
+Removing libice-dev:armhf (2:1.0.9-2) ...
+Removing libxmu-headers (2:1.1.2-2) ...
+Removing libx11-dev:amd64 (2:1.6.7-1) ...
+Removing libxcb1-dev:amd64 (1.13.1-2) ...
+Removing libxdmcp-dev:amd64 (1:1.1.2-3) ...
+Removing libx11-6:amd64 (2:1.6.7-1) ...
+Removing libxcb1:amd64 (1.13.1-2) ...
+Removing libxdmcp6:amd64 (1:1.1.2-3) ...
+Removing libgbm1:armhf (18.3.4-1) ...
+Removing libwayland-server0:armhf (1.16.0-1) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing libdrm-dev:armhf (2.4.97-1) ...
+Removing libdrm-exynos1:armhf (2.4.97-1) ...
+Removing libdrm-freedreno1:armhf (2.4.97-1) ...
+Removing libdrm-omap1:armhf (2.4.97-1) ...
+Removing libdrm-tegra0:armhf (2.4.97-1) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libwayland-client0:armhf (1.16.0-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libglu1-mesa:armhf (9.0.0-2.1) ...
+Removing libgles1:armhf (1.1.0-1) ...
+Removing libgles2:armhf (1.1.0-1) ...
+Removing libglvnd-core-dev:armhf (1.1.0-1) ...
+Removing libopengl0:armhf (1.1.0-1) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libxmu6:armhf (2:1.1.2-2) ...
+Removing libxt6:armhf (1:1.1.5-1) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libpthread-stubs0-dev:amd64 (0.4-1) ...
+Removing libsm6:armhf (2:1.2.3-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libuuid1:armhf (2.33.1-0.1) ...
+Removing libxi-dev:armhf (2:1.7.9-1) ...
+Removing libxi6:armhf (2:1.7.9-1) ...
+Removing libxau-dev:amd64 (1:1.0.8-1+b2) ...
+Removing libxcb-present-dev:armhf (1.13.1-2) ...
+Removing libxcb-xfixes0-dev:armhf (1.13.1-2) ...
+Removing libxcb-xfixes0:armhf (1.13.1-2) ...
+Removing libxau6:amd64 (1:1.0.8-1+b2) ...
+Removing libxcb-dri2-0-dev:armhf (1.13.1-2) ...
+Removing libxcb-dri3-dev:armhf (1.13.1-2) ...
+Removing libxcb-glx0-dev:armhf (1.13.1-2) ...
+Removing libxcb-randr0-dev:armhf (1.13.1-2) ...
+Removing libxcb-randr0:armhf (1.13.1-2) ...
+Removing libxcb-render0-dev:armhf (1.13.1-2) ...
+Removing libxcb-render0:armhf (1.13.1-2) ...
+Removing libxcb-shape0-dev:armhf (1.13.1-2) ...
+Removing libxcb-shape0:armhf (1.13.1-2) ...
+Removing libxcb-sync-dev:armhf (1.13.1-2) ...
+Removing libxdamage-dev:armhf (1:1.1.4-3) ...
+Removing libxext-dev:armhf (2:1.3.3-1+b2) ...
+Removing libxfixes-dev:armhf (1:5.0.3-1) ...
+Removing libxshmfence-dev:armhf (1.3-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing x11proto-damage-dev (1:2018.4-4) ...
+Removing x11proto-xf86vidmode-dev (2018.4-4) ...
+Removing x11proto-xext-dev (2018.4-4) ...
+Removing x11proto-fixes-dev (1:2018.4-4) ...
+Removing x11proto-input-dev (2018.4-4) ...
+Removing libgl1:armhf (1.1.0-1) ...
+Removing libglx0:armhf (1.1.0-1) ...
+Removing libglx-mesa0:armhf (18.3.4-1) ...
+Removing libgl1-mesa-dri:armhf (18.3.4-1) ...
+Removing libx11-dev:armhf (2:1.6.7-1) ...
+Removing libxcb1-dev:armhf (1.13.1-2) ...
+Removing libxdmcp-dev:armhf (1:1.1.2-3) ...
+Removing libice6:armhf (2:1.0.9-2) ...
+Removing libllvm7:armhf (1:7.0.1-6) ...
+Removing libdrm-amdgpu1:armhf (2.4.97-1) ...
+Removing libdrm-etnaviv1:armhf (2.4.97-1) ...
+Removing libdrm-nouveau2:armhf (2.4.97-1) ...
+Removing libdrm-radeon1:armhf (2.4.97-1) ...
+Removing libedit2:armhf (3.1-20181209-1) ...
+Removing libelf1:armhf (0.176-1) ...
+Removing libexpat1:armhf (2.2.6-1) ...
+Removing libffi6:armhf (3.2.1-9) ...
+Removing libglapi-mesa:armhf (18.3.4-1) ...
+Removing libglvnd0:armhf (1.1.0-1) ...
+Removing libpthread-stubs0-dev:armhf (0.4-1) ...
+Removing libsensors5:armhf (1:3.5.0-3) ...
+Removing libsensors-config (1:3.5.0-3) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libxxf86vm1:armhf (1:1.1.4-1+b2) ...
+Removing libx11-xcb1:armhf (2:1.6.7-1) ...
+Removing libxau-dev:armhf (1:1.0.8-1+b2) ...
+Removing libxcb-dri2-0:armhf (1.13.1-2) ...
+Removing libxcb-dri3-0:armhf (1.13.1-2) ...
+Removing libxcb-glx0:armhf (1.13.1-2) ...
+Removing libxcb-present0:armhf (1.13.1-2) ...
+Removing libxcb-sync1:armhf (1.13.1-2) ...
+Removing libxdamage1:armhf (1:1.1.4-3) ...
+Removing libxext6:armhf (2:1.3.3-1+b2) ...
+Removing libxfixes3:armhf (1:5.0.3-1) ...
+Removing libxshmfence1:armhf (1.3-1) ...
+Removing x11-common (1:7.7+19) ...
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of stop.
+Removing x11proto-core-dev (2018.4-4) ...
+Removing x11proto-dev (2018.4-4) ...
+Removing xorg-sgml-doctools (1:1.11-1) ...
+Removing xtrans-dev (1.3.5-1) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing libdrm2:armhf (2.4.97-1) ...
+Removing libdrm-common (2.4.97-1) ...
+Removing libx11-6:armhf (2:1.6.7-1) ...
+Removing libx11-data (2:1.6.7-1) ...
+Removing libxcb1:armhf (1.13.1-2) ...
+Removing libxdmcp6:armhf (1:1.1.2-3) ...
+Removing libbsd0:armhf (0.9.1-2) ...
+Removing libxau6:armhf (1:1.0.8-1+b2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16477 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for x11-common (1:7.7+19) ...
+Purging configuration files for libsensors-config (1:3.5.0-3) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+Purging configuration files for libglu1-mesa:armhf (9.0.0-2.1) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 31
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 19
+Job: /home/build/sbuild-setup/repo/pool/main/g/gle/gle_3.1.0-7.2.dsc
+Lintian: warn
+Machine Architecture: amd64
+Package: gle
+Package-Time: 56
+Source-Version: 3.1.0-7.2
+Space: n/a
+Status: successful
+Version: 3.1.0-7.2
+--------------------------------------------------------------------------------
+Finished at 2019-03-04T04:35:51Z
+Build needed 00:00:56, no disk space

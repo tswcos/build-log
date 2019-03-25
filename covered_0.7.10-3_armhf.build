@@ -1,0 +1,2188 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| covered 0.7.10-3 (armhf)                     Fri, 01 Mar 2019 12:23:34 +0000 |
++==============================================================================+
+
+Package: covered
+Version: 0.7.10-3
+Source Version: 0.7.10-3
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-adbbbcbc-d2c1-4fa9-b3f8-4d638e9028b2' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/covered-BWX73k/resolver-uAUpFn' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/c/covered/covered_0.7.10-3.dsc exists in /home/build/sbuild-setup/repo/pool/main/c/covered; copying to chroot
+I: NOTICE: Log filtering will replace 'build/covered-BWX73k/covered-0.7.10' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/covered-BWX73k' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 9), autotools-dev, flex, bison, gperf, tcl-dev, tk-dev, libxft2-dev, iverilog | verilog, gplcver (>= 2.12a-1.1), build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 9), autotools-dev, flex, bison, gperf, tcl-dev, tk-dev, libxft2-dev, iverilog, gplcver (>= 2.12a-1.1), build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [450 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [536 B]
+Fetched 1943 B in 0s (130 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bison bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz flex fontconfig-config
+  fonts-dejavu-core gcc-8-base:armhf gettext gettext-base gperf gplcver:armhf
+  groff-base intltool-debian iverilog:armhf libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbison-dev libbsd0 libbsd0:armhf libbz2-1.0:armhf
+  libc6:armhf libc6-dev:armhf libcroco3 libelf1 libexpat1:armhf
+  libexpat1-dev:armhf libfile-stripnondeterminism-perl libfontconfig1
+  libfontconfig1:armhf libfontconfig1-dev:armhf libfreetype6
+  libfreetype6:armhf libfreetype6-dev:armhf libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libice-dev:armhf libice6:armhf libncurses6
+  libpipeline1 libpng-dev:armhf libpng16-16 libpng16-16:armhf
+  libpthread-stubs0-dev:armhf libreadline7:armhf libsigsegv2 libsm-dev:armhf
+  libsm6:armhf libstdc++-8-dev:armhf libstdc++6:armhf libtcl8.6
+  libtcl8.6:armhf libtinfo6:armhf libtk8.6 libtk8.6:armhf libtool
+  libubsan1:armhf libuchardet0 libuuid1:armhf libx11-6 libx11-6:armhf
+  libx11-data libx11-dev:armhf libxau-dev:armhf libxau6 libxau6:armhf libxcb1
+  libxcb1:armhf libxcb1-dev:armhf libxdmcp-dev:armhf libxdmcp6 libxdmcp6:armhf
+  libxext-dev:armhf libxext6 libxext6:armhf libxft-dev:armhf libxft2
+  libxft2:armhf libxrender-dev:armhf libxrender1 libxrender1:armhf
+  libxss-dev:armhf libxss1 libxss1:armhf libxt-dev:armhf libxt6:armhf
+  linux-libc-dev:armhf m4 man-db pkg-config po-debconf tcl tcl-dev:armhf
+  tcl8.6 tcl8.6-dev:armhf tk tk-dev:armhf tk8.6 tk8.6-dev:armhf uuid-dev:armhf
+  x11-common x11proto-core-dev x11proto-dev x11proto-scrnsaver-dev
+  x11proto-xext-dev xorg-sgml-doctools xtrans-dev zlib1g:armhf
+  zlib1g-dev:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc bison-doc wamerican | wordlist
+  whois vacation dh-make flex-doc gettext-doc libasprintf-dev libgettextpo-dev
+  groff gtkwave:armhf glibc-doc:armhf libc-l10n:armhf locales:armhf
+  manpages-dev:armhf libice-doc:armhf libsm-doc:armhf libstdc++-8-doc:armhf
+  libtool-doc gfortran | fortran95-compiler gcj-jdk libx11-doc:armhf
+  libxcb-doc:armhf libxext-doc:armhf libxt-doc:armhf m4-doc apparmor less
+  www-browser libmail-box-perl tcl-doc:armhf tcl-tclreadline tcl8.6-doc:armhf
+  tk-doc:armhf tk8.6-doc:armhf
+Recommended packages:
+  libfl-dev curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl
+  freetype2-doc:armhf libglib2.0-data shared-mime-info xdg-user-dirs libgpm2
+  libpng-tools:armhf libltdl-dev libmail-sendmail-perl xterm
+  | x-terminal-emulator
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bison bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz flex fontconfig-config
+  fonts-dejavu-core gcc-8-base:armhf gettext gettext-base gperf gplcver:armhf
+  groff-base intltool-debian iverilog:armhf libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbison-dev libbsd0 libbsd0:armhf libbz2-1.0:armhf
+  libc6:armhf libc6-dev:armhf libcroco3 libelf1 libexpat1:armhf
+  libexpat1-dev:armhf libfile-stripnondeterminism-perl libfontconfig1
+  libfontconfig1:armhf libfontconfig1-dev:armhf libfreetype6
+  libfreetype6:armhf libfreetype6-dev:armhf libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libice-dev:armhf libice6:armhf libncurses6
+  libpipeline1 libpng-dev:armhf libpng16-16 libpng16-16:armhf
+  libpthread-stubs0-dev:armhf libreadline7:armhf libsigsegv2 libsm-dev:armhf
+  libsm6:armhf libstdc++-8-dev:armhf libstdc++6:armhf libtcl8.6
+  libtcl8.6:armhf libtinfo6:armhf libtk8.6 libtk8.6:armhf libtool
+  libubsan1:armhf libuchardet0 libuuid1:armhf libx11-6 libx11-6:armhf
+  libx11-data libx11-dev:armhf libxau-dev:armhf libxau6 libxau6:armhf libxcb1
+  libxcb1:armhf libxcb1-dev:armhf libxdmcp-dev:armhf libxdmcp6 libxdmcp6:armhf
+  libxext-dev:armhf libxext6 libxext6:armhf libxft-dev:armhf libxft2
+  libxft2:armhf libxrender-dev:armhf libxrender1 libxrender1:armhf
+  libxss-dev:armhf libxss1 libxss1:armhf libxt-dev:armhf libxt6:armhf
+  linux-libc-dev:armhf m4 man-db pkg-config po-debconf
+  sbuild-build-depends-main-dummy:armhf tcl tcl-dev:armhf tcl8.6
+  tcl8.6-dev:armhf tk tk-dev:armhf tk8.6 tk8.6-dev:armhf uuid-dev:armhf
+  x11-common x11proto-core-dev x11proto-dev x11proto-scrnsaver-dev
+  x11proto-xext-dev xorg-sgml-doctools xtrans-dev zlib1g:armhf
+  zlib1g-dev:armhf
+0 upgraded, 119 newly installed, 0 to remove and 0 not upgraded.
+Need to get 7535 kB/39.4 MB of archives.
+After this operation, 135 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [960 B]
+Get:2 http://10.116.41.102/debian sid/main armhf gplcver armhf 2.12a-1.1+b2 [741 kB]
+Get:3 http://10.116.41.102/debian sid/main armhf iverilog armhf 10.2-1.1 [1595 kB]
+Get:4 http://10.116.41.102/debian sid/main armhf libtcl8.6 armhf 8.6.9+dfsg-2 [897 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libtcl8.6 amd64 8.6.9+dfsg-2 [1005 kB]
+Get:6 http://10.116.41.102/debian sid/main armhf libtk8.6 armhf 8.6.9-2 [678 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libxss1 amd64 1:1.2.3-1 [17.8 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libtk8.6 amd64 8.6.9-2 [768 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 tcl8.6 amd64 8.6.9+dfsg-2 [123 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 tcl amd64 8.6.9+1 [5636 B]
+Get:11 http://10.116.41.102/debian sid/main armhf tcl8.6-dev armhf 8.6.9+dfsg-2 [917 kB]
+Get:12 http://10.116.41.102/debian sid/main armhf tcl-dev armhf 8.6.9+1 [8192 B]
+Get:13 http://10.116.41.102/debian sid/main amd64 tk8.6 amd64 8.6.9-2 [72.1 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 tk amd64 8.6.9+1 [5676 B]
+Get:15 http://10.116.41.102/debian sid/main armhf tk8.6-dev armhf 8.6.9-2 [694 kB]
+Get:16 http://10.116.41.102/debian sid/main armhf tk-dev armhf 8.6.9+1 [5500 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 7535 kB in 1s (7908 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../000-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../001-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../002-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../003-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../004-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../005-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../006-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../007-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package flex.
+Preparing to unpack .../008-flex_2.6.4-6.2_amd64.deb ...
+Unpacking flex (2.6.4-6.2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../009-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../010-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../011-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../012-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../013-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libbison-dev:amd64.
+Preparing to unpack .../014-libbison-dev_2%3a3.3.2.dfsg-1_amd64.deb ...
+Unpacking libbison-dev:amd64 (2:3.3.2.dfsg-1) ...
+Selecting previously unselected package bison.
+Preparing to unpack .../015-bison_2%3a3.3.2.dfsg-1_amd64.deb ...
+Unpacking bison (2:3.3.2.dfsg-1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../016-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../017-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../018-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../019-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../020-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../021-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../022-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../023-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../024-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../025-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../026-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../027-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../028-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../029-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package fonts-dejavu-core.
+Preparing to unpack .../030-fonts-dejavu-core_2.37-1_all.deb ...
+Unpacking fonts-dejavu-core (2.37-1) ...
+Selecting previously unselected package fontconfig-config.
+Preparing to unpack .../031-fontconfig-config_2.13.1-2_all.deb ...
+Unpacking fontconfig-config (2.13.1-2) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../032-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package gperf.
+Preparing to unpack .../033-gperf_3.1-1_amd64.deb ...
+Unpacking gperf (3.1-1) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../034-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../035-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package gplcver:armhf.
+Preparing to unpack .../036-gplcver_2.12a-1.1+b2_armhf.deb ...
+Unpacking gplcver:armhf (2.12a-1.1+b2) ...
+Selecting previously unselected package libbz2-1.0:armhf.
+Preparing to unpack .../037-libbz2-1.0_1.0.6-9_armhf.deb ...
+Unpacking libbz2-1.0:armhf (1.0.6-9) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../038-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libreadline7:armhf.
+Preparing to unpack .../039-libreadline7_7.0-5_armhf.deb ...
+Unpacking libreadline7:armhf (7.0-5) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../040-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../041-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package iverilog:armhf.
+Preparing to unpack .../042-iverilog_10.2-1.1_armhf.deb ...
+Unpacking iverilog:armhf (10.2-1.1) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../043-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../044-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libbsd0:armhf.
+Preparing to unpack .../045-libbsd0_0.9.1-2_armhf.deb ...
+Unpacking libbsd0:armhf (0.9.1-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../046-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../047-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libexpat1:armhf.
+Preparing to unpack .../048-libexpat1_2.2.6-1_armhf.deb ...
+Unpacking libexpat1:armhf (2.2.6-1) ...
+Selecting previously unselected package libexpat1-dev:armhf.
+Preparing to unpack .../049-libexpat1-dev_2.2.6-1_armhf.deb ...
+Unpacking libexpat1-dev:armhf (2.2.6-1) ...
+Selecting previously unselected package libpng16-16:amd64.
+Preparing to unpack .../050-libpng16-16_1.6.36-5_amd64.deb ...
+Unpacking libpng16-16:amd64 (1.6.36-5) ...
+Selecting previously unselected package libfreetype6:amd64.
+Preparing to unpack .../051-libfreetype6_2.9.1-3_amd64.deb ...
+Unpacking libfreetype6:amd64 (2.9.1-3) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Preparing to unpack .../052-libfontconfig1_2.13.1-2_amd64.deb ...
+Unpacking libfontconfig1:amd64 (2.13.1-2) ...
+Selecting previously unselected package libpng16-16:armhf.
+Preparing to unpack .../053-libpng16-16_1.6.36-5_armhf.deb ...
+Unpacking libpng16-16:armhf (1.6.36-5) ...
+Selecting previously unselected package libfreetype6:armhf.
+Preparing to unpack .../054-libfreetype6_2.9.1-3_armhf.deb ...
+Unpacking libfreetype6:armhf (2.9.1-3) ...
+Selecting previously unselected package libuuid1:armhf.
+Preparing to unpack .../055-libuuid1_2.33.1-0.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libfontconfig1:armhf.
+Preparing to unpack .../056-libfontconfig1_2.13.1-2_armhf.deb ...
+Unpacking libfontconfig1:armhf (2.13.1-2) ...
+Selecting previously unselected package zlib1g-dev:armhf.
+Preparing to unpack .../057-zlib1g-dev_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libpng-dev:armhf.
+Preparing to unpack .../058-libpng-dev_1.6.36-5_armhf.deb ...
+Unpacking libpng-dev:armhf (1.6.36-5) ...
+Selecting previously unselected package libfreetype6-dev:armhf.
+Preparing to unpack .../059-libfreetype6-dev_2.9.1-3_armhf.deb ...
+Unpacking libfreetype6-dev:armhf (2.9.1-3) ...
+Selecting previously unselected package uuid-dev:armhf.
+Preparing to unpack .../060-uuid-dev_2.33.1-0.1_armhf.deb ...
+Unpacking uuid-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../061-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package libfontconfig1-dev:armhf.
+Preparing to unpack .../062-libfontconfig1-dev_2.13.1-2_armhf.deb ...
+Unpacking libfontconfig1-dev:armhf (2.13.1-2) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../063-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../064-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../065-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package x11-common.
+Preparing to unpack .../066-x11-common_1%3a7.7+19_all.deb ...
+Unpacking x11-common (1:7.7+19) ...
+Selecting previously unselected package libice6:armhf.
+Preparing to unpack .../067-libice6_2%3a1.0.9-2_armhf.deb ...
+Unpacking libice6:armhf (2:1.0.9-2) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Preparing to unpack .../068-xorg-sgml-doctools_1%3a1.11-1_all.deb ...
+Unpacking xorg-sgml-doctools (1:1.11-1) ...
+Selecting previously unselected package x11proto-dev.
+Preparing to unpack .../069-x11proto-dev_2018.4-4_all.deb ...
+Unpacking x11proto-dev (2018.4-4) ...
+Selecting previously unselected package x11proto-core-dev.
+Preparing to unpack .../070-x11proto-core-dev_2018.4-4_all.deb ...
+Unpacking x11proto-core-dev (2018.4-4) ...
+Selecting previously unselected package libice-dev:armhf.
+Preparing to unpack .../071-libice-dev_2%3a1.0.9-2_armhf.deb ...
+Unpacking libice-dev:armhf (2:1.0.9-2) ...
+Selecting previously unselected package libpthread-stubs0-dev:armhf.
+Preparing to unpack .../072-libpthread-stubs0-dev_0.4-1_armhf.deb ...
+Unpacking libpthread-stubs0-dev:armhf (0.4-1) ...
+Selecting previously unselected package libsm6:armhf.
+Preparing to unpack .../073-libsm6_2%3a1.2.3-1_armhf.deb ...
+Unpacking libsm6:armhf (2:1.2.3-1) ...
+Selecting previously unselected package libsm-dev:armhf.
+Preparing to unpack .../074-libsm-dev_2%3a1.2.3-1_armhf.deb ...
+Unpacking libsm-dev:armhf (2:1.2.3-1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../075-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libtcl8.6:amd64.
+Preparing to unpack .../076-libtcl8.6_8.6.9+dfsg-2_amd64.deb ...
+Unpacking libtcl8.6:amd64 (8.6.9+dfsg-2) ...
+Selecting previously unselected package libtcl8.6:armhf.
+Preparing to unpack .../077-libtcl8.6_8.6.9+dfsg-2_armhf.deb ...
+Unpacking libtcl8.6:armhf (8.6.9+dfsg-2) ...
+Selecting previously unselected package libxau6:armhf.
+Preparing to unpack .../078-libxau6_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau6:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:armhf.
+Preparing to unpack .../079-libxdmcp6_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp6:armhf (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:armhf.
+Preparing to unpack .../080-libxcb1_1.13.1-2_armhf.deb ...
+Unpacking libxcb1:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-data.
+Preparing to unpack .../081-libx11-data_2%3a1.6.7-1_all.deb ...
+Unpacking libx11-data (2:1.6.7-1) ...
+Selecting previously unselected package libx11-6:armhf.
+Preparing to unpack .../082-libx11-6_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-6:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxext6:armhf.
+Preparing to unpack .../083-libxext6_2%3a1.3.3-1+b2_armhf.deb ...
+Unpacking libxext6:armhf (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxrender1:armhf.
+Preparing to unpack .../084-libxrender1_1%3a0.9.10-1_armhf.deb ...
+Unpacking libxrender1:armhf (1:0.9.10-1) ...
+Selecting previously unselected package libxft2:armhf.
+Preparing to unpack .../085-libxft2_2.3.2-2_armhf.deb ...
+Unpacking libxft2:armhf (2.3.2-2) ...
+Selecting previously unselected package libxss1:armhf.
+Preparing to unpack .../086-libxss1_1%3a1.2.3-1_armhf.deb ...
+Unpacking libxss1:armhf (1:1.2.3-1) ...
+Selecting previously unselected package libtk8.6:armhf.
+Preparing to unpack .../087-libtk8.6_8.6.9-2_armhf.deb ...
+Unpacking libtk8.6:armhf (8.6.9-2) ...
+Selecting previously unselected package libxau6:amd64.
+Preparing to unpack .../088-libxau6_1%3a1.0.8-1+b2_amd64.deb ...
+Unpacking libxau6:amd64 (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Preparing to unpack .../089-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:amd64.
+Preparing to unpack .../090-libxcb1_1.13.1-2_amd64.deb ...
+Unpacking libxcb1:amd64 (1.13.1-2) ...
+Selecting previously unselected package libx11-6:amd64.
+Preparing to unpack .../091-libx11-6_2%3a1.6.7-1_amd64.deb ...
+Unpacking libx11-6:amd64 (2:1.6.7-1) ...
+Selecting previously unselected package libxext6:amd64.
+Preparing to unpack .../092-libxext6_2%3a1.3.3-1+b2_amd64.deb ...
+Unpacking libxext6:amd64 (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxrender1:amd64.
+Preparing to unpack .../093-libxrender1_1%3a0.9.10-1_amd64.deb ...
+Unpacking libxrender1:amd64 (1:0.9.10-1) ...
+Selecting previously unselected package libxft2:amd64.
+Preparing to unpack .../094-libxft2_2.3.2-2_amd64.deb ...
+Unpacking libxft2:amd64 (2.3.2-2) ...
+Selecting previously unselected package libxss1:amd64.
+Preparing to unpack .../095-libxss1_1%3a1.2.3-1_amd64.deb ...
+Unpacking libxss1:amd64 (1:1.2.3-1) ...
+Selecting previously unselected package libtk8.6:amd64.
+Preparing to unpack .../096-libtk8.6_8.6.9-2_amd64.deb ...
+Unpacking libtk8.6:amd64 (8.6.9-2) ...
+Selecting previously unselected package libxau-dev:armhf.
+Preparing to unpack .../097-libxau-dev_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau-dev:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp-dev:armhf.
+Preparing to unpack .../098-libxdmcp-dev_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp-dev:armhf (1:1.1.2-3) ...
+Selecting previously unselected package xtrans-dev.
+Preparing to unpack .../099-xtrans-dev_1.3.5-1_all.deb ...
+Unpacking xtrans-dev (1.3.5-1) ...
+Selecting previously unselected package libxcb1-dev:armhf.
+Preparing to unpack .../100-libxcb1-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb1-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-dev:armhf.
+Preparing to unpack .../101-libx11-dev_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-dev:armhf (2:1.6.7-1) ...
+Selecting previously unselected package x11proto-xext-dev.
+Preparing to unpack .../102-x11proto-xext-dev_2018.4-4_all.deb ...
+Unpacking x11proto-xext-dev (2018.4-4) ...
+Selecting previously unselected package libxext-dev:armhf.
+Preparing to unpack .../103-libxext-dev_2%3a1.3.3-1+b2_armhf.deb ...
+Unpacking libxext-dev:armhf (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxrender-dev:armhf.
+Preparing to unpack .../104-libxrender-dev_1%3a0.9.10-1_armhf.deb ...
+Unpacking libxrender-dev:armhf (1:0.9.10-1) ...
+Selecting previously unselected package libxft-dev:armhf.
+Preparing to unpack .../105-libxft-dev_2.3.2-2_armhf.deb ...
+Unpacking libxft-dev:armhf (2.3.2-2) ...
+Selecting previously unselected package x11proto-scrnsaver-dev.
+Preparing to unpack .../106-x11proto-scrnsaver-dev_2018.4-4_all.deb ...
+Unpacking x11proto-scrnsaver-dev (2018.4-4) ...
+Selecting previously unselected package libxss-dev:armhf.
+Preparing to unpack .../107-libxss-dev_1%3a1.2.3-1_armhf.deb ...
+Unpacking libxss-dev:armhf (1:1.2.3-1) ...
+Selecting previously unselected package libxt6:armhf.
+Preparing to unpack .../108-libxt6_1%3a1.1.5-1_armhf.deb ...
+Unpacking libxt6:armhf (1:1.1.5-1) ...
+Selecting previously unselected package libxt-dev:armhf.
+Preparing to unpack .../109-libxt-dev_1%3a1.1.5-1_armhf.deb ...
+Unpacking libxt-dev:armhf (1:1.1.5-1) ...
+Selecting previously unselected package tcl8.6.
+Preparing to unpack .../110-tcl8.6_8.6.9+dfsg-2_amd64.deb ...
+Unpacking tcl8.6 (8.6.9+dfsg-2) ...
+Selecting previously unselected package tcl.
+Preparing to unpack .../111-tcl_8.6.9+1_amd64.deb ...
+Unpacking tcl (8.6.9+1) ...
+Selecting previously unselected package tcl8.6-dev:armhf.
+Preparing to unpack .../112-tcl8.6-dev_8.6.9+dfsg-2_armhf.deb ...
+Unpacking tcl8.6-dev:armhf (8.6.9+dfsg-2) ...
+Selecting previously unselected package tcl-dev:armhf.
+Preparing to unpack .../113-tcl-dev_8.6.9+1_armhf.deb ...
+Unpacking tcl-dev:armhf (8.6.9+1) ...
+Selecting previously unselected package tk8.6.
+Preparing to unpack .../114-tk8.6_8.6.9-2_amd64.deb ...
+Unpacking tk8.6 (8.6.9-2) ...
+Selecting previously unselected package tk.
+Preparing to unpack .../115-tk_8.6.9+1_amd64.deb ...
+Unpacking tk (8.6.9+1) ...
+Selecting previously unselected package tk8.6-dev:armhf.
+Preparing to unpack .../116-tk8.6-dev_8.6.9-2_armhf.deb ...
+Unpacking tk8.6-dev:armhf (8.6.9-2) ...
+Selecting previously unselected package tk-dev:armhf.
+Preparing to unpack .../117-tk-dev_8.6.9+1_armhf.deb ...
+Unpacking tk-dev:armhf (8.6.9+1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../118-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libxau6:amd64 (1:1.0.8-1+b2) ...
+Setting up libbison-dev:amd64 (2:3.3.2.dfsg-1) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up x11-common (1:7.7+19) ...
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up gperf (3.1-1) ...
+Setting up libpthread-stubs0-dev:armhf (0.4-1) ...
+Setting up xtrans-dev (1.3.5-1) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libx11-data (2:1.6.7-1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up libpng16-16:amd64 (1.6.36-5) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up libtcl8.6:amd64 (8.6.9+dfsg-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up fonts-dejavu-core (2.37-1) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up xorg-sgml-doctools (1:1.11-1) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up x11proto-dev (2018.4-4) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+Setting up tcl8.6 (8.6.9+dfsg-2) ...
+Setting up libxcb1:amd64 (1.13.1-2) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up fontconfig-config (2.13.1-2) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up libfreetype6:amd64 (2.9.1-3) ...
+Setting up x11proto-core-dev (2018.4-4) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up x11proto-xext-dev (2018.4-4) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up tcl (8.6.9+1) ...
+Setting up bison (2:3.3.2.dfsg-1) ...
+update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) in auto mode
+Setting up libx11-6:amd64 (2:1.6.7-1) ...
+Setting up libfontconfig1:amd64 (2.13.1-2) ...
+Setting up x11proto-scrnsaver-dev (2018.4-4) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up flex (2.6.4-6.2) ...
+Setting up libxrender1:amd64 (1:0.9.10-1) ...
+Setting up po-debconf (1.0.21) ...
+Setting up libxext6:amd64 (2:1.3.3-1+b2) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libxss1:amd64 (1:1.2.3-1) ...
+Setting up libxft2:amd64 (2.3.2-2) ...
+Setting up libtk8.6:amd64 (8.6.9-2) ...
+Setting up tk8.6 (8.6.9-2) ...
+Setting up tk (8.6.9+1) ...
+Setting up dh-autoreconf (19) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libbz2-1.0:armhf (1.0.6-9) ...
+Setting up libbsd0:armhf (0.9.1-2) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libice6:armhf (2:1.0.9-2) ...
+Setting up libxau6:armhf (1:1.0.8-1+b2) ...
+Setting up libxdmcp6:armhf (1:1.1.2-3) ...
+Setting up gplcver:armhf (2.12a-1.1+b2) ...
+Setting up libxcb1:armhf (1.13.1-2) ...
+Setting up libxau-dev:armhf (1:1.0.8-1+b2) ...
+Setting up libice-dev:armhf (2:1.0.9-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libxdmcp-dev:armhf (1:1.1.2-3) ...
+Setting up libpng16-16:armhf (1.6.36-5) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libuuid1:armhf (2.33.1-0.1) ...
+Setting up libtcl8.6:armhf (8.6.9+dfsg-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Setting up libx11-6:armhf (2:1.6.7-1) ...
+Setting up libsm6:armhf (2:1.2.3-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libreadline7:armhf (7.0-5) ...
+Setting up libexpat1:armhf (2.2.6-1) ...
+Setting up libxcb1-dev:armhf (1.13.1-2) ...
+Setting up libxrender1:armhf (1:0.9.10-1) ...
+Setting up libsm-dev:armhf (2:1.2.3-1) ...
+Setting up tcl8.6-dev:armhf (8.6.9+dfsg-2) ...
+Setting up libpng-dev:armhf (1.6.36-5) ...
+Setting up libx11-dev:armhf (2:1.6.7-1) ...
+Setting up libxext6:armhf (2:1.3.3-1+b2) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up iverilog:armhf (10.2-1.1) ...
+Setting up libexpat1-dev:armhf (2.2.6-1) ...
+Setting up libfreetype6:armhf (2.9.1-3) ...
+Setting up uuid-dev:armhf (2.33.1-0.1) ...
+Setting up libxt6:armhf (1:1.1.5-1) ...
+Setting up tcl-dev:armhf (8.6.9+1) ...
+Setting up libxext-dev:armhf (2:1.3.3-1+b2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libxss1:armhf (1:1.2.3-1) ...
+Setting up libfontconfig1:armhf (2.13.1-2) ...
+Setting up libxrender-dev:armhf (1:0.9.10-1) ...
+Setting up libxft2:armhf (2.3.2-2) ...
+Setting up libtk8.6:armhf (8.6.9-2) ...
+Setting up libxss-dev:armhf (1:1.2.3-1) ...
+Setting up libfreetype6-dev:armhf (2.9.1-3) ...
+Setting up libxt-dev:armhf (1:1.1.5-1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libfontconfig1-dev:armhf (2.13.1-2) ...
+Setting up libxft-dev:armhf (2.3.2-2) ...
+Setting up tk8.6-dev:armhf (8.6.9-2) ...
+Setting up tk-dev:armhf (8.6.9+1) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bison_2:3.3.2.dfsg-1 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 flex_2.6.4-6.2 fontconfig-config_2.13.1-2 fonts-dejavu-core_2.37-1 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gperf_3.1-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 gplcver_2.12a-1.1+b2 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 iverilog_10.2-1.1 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libbison-dev_2:3.3.2.dfsg-1 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libexpat1-dev_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libfontconfig1_2.13.1-2 libfontconfig1-dev_2.13.1-2 libfreetype6_2.9.1-3 libfreetype6-dev_2.9.1-3 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libice-dev_2:1.0.9-2 libice6_2:1.0.9-2 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpng-dev_1.6.36-5 libpng16-16_1.6.36-5 libpthread-stubs0-dev_0.4-1 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsm-dev_2:1.2.3-1 libsm6_2:1.2.3-1 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtcl8.6_8.6.9+dfsg-2 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtk8.6_8.6.9-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libx11-6_2:1.6.7-1 libx11-data_2:1.6.7-1 libx11-dev_2:1.6.7-1 libxau-dev_1:1.0.8-1+b2 libxau6_1:1.0.8-1+b2 libxcb1_1.13.1-2 libxcb1-dev_1.13.1-2 libxdmcp-dev_1:1.1.2-3 libxdmcp6_1:1.1.2-3 libxext-dev_2:1.3.3-1+b2 libxext6_2:1.3.3-1+b2 libxft-dev_2.3.2-2 libxft2_2.3.2-2 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libxrender-dev_1:0.9.10-1 libxrender1_1:0.9.10-1 libxss-dev_1:1.2.3-1 libxss1_1:1.2.3-1 libxt-dev_1:1.1.5-1 libxt6_1:1.1.5-1 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tcl_8.6.9+1 tcl-dev_8.6.9+1 tcl8.6_8.6.9+dfsg-2 tcl8.6-dev_8.6.9+dfsg-2 tk_8.6.9+1 tk-dev_8.6.9+1 tk8.6_8.6.9-2 tk8.6-dev_8.6.9-2 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-dev_2.33.1-0.1 uuid-runtime_2.33.1-0.1 x11-common_1:7.7+19 x11proto-core-dev_2018.4-4 x11proto-dev_2018.4-4 x11proto-scrnsaver-dev_2018.4-4 x11proto-xext-dev_2018.4-4 xorg-sgml-doctools_1:1.11-1 xtrans-dev_1.3.5-1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1 zlib1g-dev_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: covered
+Binary: covered, covered-doc
+Architecture: any all
+Version: 0.7.10-3
+Maintainer: Debian Electronics Team <pkg-electronics-devel@lists.alioth.debian.org>
+Uploaders: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
+Homepage: http://covered.sourceforge.net/
+Standards-Version: 3.9.6
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-electronics/covered.git
+Vcs-Git: git://anonscm.debian.org/pkg-electronics/covered.git
+Build-Depends: debhelper (>= 9), autotools-dev, flex, bison, gperf, tcl-dev, tk-dev, libxft2-dev, iverilog | verilog, gplcver (>= 2.12a-1.1)
+Package-List:
+ covered deb electronics optional arch=any
+ covered-doc deb doc optional arch=all
+Checksums-Sha1:
+ 3f7f27ccb9d9263a27f5c8ae97e5569bf434c2f2 3108263 covered_0.7.10.orig.tar.gz
+ 484fa45a80bf2eab2af9af3e521ef3823fdb9869 4900 covered_0.7.10-3.debian.tar.xz
+Checksums-Sha256:
+ 08b859665ae1351d9641ebab08d049beb378ba3bceb4ed2c5fac01b2f1738f57 3108263 covered_0.7.10.orig.tar.gz
+ 40a117b927ea86a6032c8c415df8f2be8a27386476ab4d2575ea89c9cc08f8f3 4900 covered_0.7.10-3.debian.tar.xz
+Files:
+ 7f79e93471546810b166e9104236bda2 3108263 covered_0.7.10.orig.tar.gz
+ bcdaa3169fe8844d2dbd2725bc442c39 4900 covered_0.7.10-3.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEcBAEBCgAGBQJVgVG1AAoJELwZapTt3aG3sOsH/jzCc5JdzcgXzOFr62u5DtIr
+ush9gGKSwFsWNTaTPYMPFh82bNAbN3VOvFaGyVPrK7XLUGb4fGTPJ7yhQypiqa/Y
+GvNpHfBN8Xh2mpwgeT4CjSFBx9SV2mLs63yu9UK0jCfYLQjjDVWpul7ADJuxw6wA
+fHua7ho7Lld/saAIxznqa6Sgkj8vqyftdhT8EN+91iSoCAl/IvJM6fQve0KBYnoR
+Lo/SsHlgjZ4SXRsV/zT2hk5yWQPmADlXJTx7Sv/kMd3lZK7jdZbQuCuHAZDPyGwT
+xhG7E0u8NjP1iMG7AG4T6QWo8KtWJo1X4CKG4RRyWEzhtC8EcYuvBV3MU+fId1Y=
+=KF5k
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Wed Jun 17 10:53:41 2015 UTC
+gpgv:                using RSA key BC196A94EDDDA1B7
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./covered_0.7.10-3.dsc
+dpkg-source: info: extracting covered in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking covered_0.7.10.orig.tar.gz
+dpkg-source: info: unpacking covered_0.7.10-3.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying outdated_config.diff
+dpkg-source: info: applying manpage.diff
+dpkg-source: info: applying clang-ftbfs.diff
+dpkg-source: info: applying tcl8.6.diff
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-adbbbcbc-d2c1-4fa9-b3f8-4d638e9028b2
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package covered
+dpkg-buildpackage: info: source version 0.7.10-3
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_configure -- --libexecdir=/usr/lib/arm-linux-gnueabihf/covered --with-iv=/usr --with-cver=/usr/include/cver LDFLAGS="-Wl,-z,relro -Wl,--as-needed"
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --libexecdir=/usr/lib/arm-linux-gnueabihf/covered --with-iv=/usr --with-cver=/usr/include/cver "LDFLAGS=-Wl,-z,relro -Wl,--as-needed"
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking whether make sets $(MAKE)... (cached) yes
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking for style of include used by make... GNU
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking whether make sets $(MAKE)... (cached) yes
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for bison... bison -y
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... none needed
+checking whether yytext is a pointer... no
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking whether byte ordering is bigendian... (cached) no
+checking for gperf... gperf
+checking for gzdopen in -lz... yes
+checking for X... libraries , headers 
+checking for gethostbyname... yes
+checking for connect... yes
+checking for remove... yes
+checking for shmat... yes
+checking for IceConnectionNumber in -lICE... yes
+checking for tclConfig.sh... no
+checking for tclConfig.sh in library (sub)directories... /usr/lib/tclConfig.sh
+checking for tkConfig.sh... no
+checking for tkConfig.sh in library (sub)directories... /usr/lib/tkConfig.sh
+checking /usr/include/tcl8.6/generic/tcl.h usability... no
+checking /usr/include/tcl8.6/generic/tcl.h presence... no
+checking for /usr/include/tcl8.6/generic/tcl.h... no
+checking /usr/include/tcl8.6/tcl.h usability... yes
+checking /usr/include/tcl8.6/tcl.h presence... yes
+checking for /usr/include/tcl8.6/tcl.h... yes
+checking /usr/include/tk8.6/generic/tk.h usability... no
+checking /usr/include/tk8.6/generic/tk.h presence... no
+checking for /usr/include/tk8.6/generic/tk.h... no
+checking /usr/include/tk8.6/tk.h usability... no
+checking /usr/include/tk8.6/tk.h presence... no
+checking for /usr/include/tk8.6/tk.h... no
+checking /usr/include/tcl8.6/tk.h usability... yes
+checking /usr/include/tcl8.6/tk.h presence... yes
+checking for /usr/include/tcl8.6/tk.h... yes
+checking whether compiling/linking Tcl/Tk code works... yes
+checking for firefox... no
+checking for safari... no
+checking for netscape... no
+checking for mozilla... no
+checking for galeon... no
+checking for kfmclient... no
+checking for opera... no
+checking for gnome-moz-remote... no
+checking for open... no
+configure: WARNING: I could not determine a browser
+checking /usr/include/iverilog/vpi_user.h usability... yes
+checking /usr/include/iverilog/vpi_user.h presence... yes
+checking for /usr/include/iverilog/vpi_user.h... yes
+checking /usr/include/cver/vpi_user.h usability... yes
+checking /usr/include/cver/vpi_user.h presence... yes
+checking for /usr/include/cver/vpi_user.h... yes
+checking for string.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking math.h usability... yes
+checking math.h presence... yes
+checking for math.h... yes
+checking for ANSI C header files... (cached) yes
+checking for an ANSI C-conforming const... yes
+checking size of char... (cached) 1
+checking size of short... (cached) 2
+checking size of int... (cached) 4
+checking size of long... (cached) 4
+checking size of long long... (cached) 8
+checking size of float... (cached) 4
+checking size of double... (cached) 8
+checking return type of signal handlers... void
+checking for size_t... yes
+checking for round in -lm... yes
+checking for roundf in -lm... yes
+checking for flag to make position independent code... -fPIC
+checking for -rdynamic compiler flag... -rdynamic
+checking for shared library link flag... -shared
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating lib/Makefile
+config.status: creating scripts/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/docbook/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_build -a
+	make -j1
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+(CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/bash /<<PKGBUILDDIR>>/missing --run autoheader)
+aclocal.m4:16: warning: this file was generated for autoconf 2.65.
+You have another version of autoconf.  It may work, but is not guaranteed to.
+If you have problems, you may need to regenerate the build system entirely.
+To do so, use the procedure documented by the package, typically `autoreconf'.
+rm -f stamp-h1
+touch config.h.in
+cd . && /bin/bash ./config.status config.h
+config.status: creating config.h
+make  all-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in scripts
+make[3]: Entering directory '/<<PKGBUILDDIR>>/scripts'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/scripts'
+Making all in lib
+make[3]: Entering directory '/<<PKGBUILDDIR>>/lib'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o arc.o `test -f '../src/arc.c' || echo './'`../src/arc.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o assertion.o `test -f '../src/assertion.c' || echo './'`../src/assertion.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o binding.o `test -f '../src/binding.c' || echo './'`../src/binding.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o codegen.o `test -f '../src/codegen.c' || echo './'`../src/codegen.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o db.o `test -f '../src/db.c' || echo './'`../src/db.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o enumerate.o `test -f '../src/enumerate.c' || echo './'`../src/enumerate.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o expr.o `test -f '../src/expr.c' || echo './'`../src/expr.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsm.o `test -f '../src/fsm.c' || echo './'`../src/fsm.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o func_iter.o `test -f '../src/func_iter.c' || echo './'`../src/func_iter.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o func_unit.o `test -f '../src/func_unit.c' || echo './'`../src/func_unit.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o genprof.o `test -f '../src/genprof.c' || echo './'`../src/genprof.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o info.o `test -f '../src/info.c' || echo './'`../src/info.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o instance.o `test -f '../src/instance.c' || echo './'`../src/instance.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o link.o `test -f '../src/link.c' || echo './'`../src/link.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o obfuscate.o `test -f '../src/obfuscate.c' || echo './'`../src/obfuscate.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o ovl.o `test -f '../src/ovl.c' || echo './'`../src/ovl.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o param.o `test -f '../src/param.c' || echo './'`../src/param.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o parser_misc.o `test -f '../src/parser_misc.c' || echo './'`../src/parser_misc.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o profiler.o `test -f '../src/profiler.c' || echo './'`../src/profiler.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o race.o `test -f '../src/race.c' || echo './'`../src/race.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o reentrant.o `test -f '../src/reentrant.c' || echo './'`../src/reentrant.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o scope.o `test -f '../src/scope.c' || echo './'`../src/scope.c
+In file included from ../src/defines.h:43,
+                 from ../src/scope.c:25:
+../src/scope.c: In function ‘scope_get_parent_funit’:
+../src/scope.c:348:16: warning: comparison between pointer and zero character constant [-Wpointer-compare]
+   assert( rest != '\0' );
+                ^~
+../src/scope.c:348:11: note: did you mean to dereference the pointer?
+   assert( rest != '\0' );
+           ^~~~
+../src/scope.c:348:16: warning: comparison between pointer and zero character constant [-Wpointer-compare]
+   assert( rest != '\0' );
+                ^~
+../src/scope.c:348:11: note: did you mean to dereference the pointer?
+   assert( rest != '\0' );
+           ^~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o search.o `test -f '../src/search.c' || echo './'`../src/search.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o sim.o `test -f '../src/sim.c' || echo './'`../src/sim.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o stat.o `test -f '../src/stat.c' || echo './'`../src/stat.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o statement.o `test -f '../src/statement.c' || echo './'`../src/statement.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o static.o `test -f '../src/static.c' || echo './'`../src/static.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o stmt_blk.o `test -f '../src/stmt_blk.c' || echo './'`../src/stmt_blk.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o struct_union.o `test -f '../src/struct_union.c' || echo './'`../src/struct_union.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o symtable.o `test -f '../src/symtable.c' || echo './'`../src/symtable.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o sys_tasks.o `test -f '../src/sys_tasks.c' || echo './'`../src/sys_tasks.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o tree.o `test -f '../src/tree.c' || echo './'`../src/tree.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o util.o `test -f '../src/util.c' || echo './'`../src/util.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o vector.o `test -f '../src/vector.c' || echo './'`../src/vector.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DVPI_ONLY -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6    -fPIC -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o vsignal.o `test -f '../src/vsignal.c' || echo './'`../src/vsignal.c
+rm -f libcovered.a
+ar cru libcovered.a arc.o assertion.o binding.o codegen.o db.o enumerate.o expr.o fsm.o func_iter.o func_unit.o genprof.o info.o instance.o link.o obfuscate.o ovl.o param.o parser_misc.o profiler.o race.o reentrant.o scope.o search.o sim.o stat.o statement.o static.o stmt_blk.o struct_union.o symtable.o sys_tasks.o tree.o util.o vector.o vsignal.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib libcovered.a
+arm-linux-gnueabihf-gcc -fPIC -g   -I/usr/include/iverilog -I.. -c -o vpi.iv.o ../src/vpi.c
+../src/vpi.c: In function ‘covered_end_of_sim’:
+../src/vpi.c:346:3: warning: implicit declaration of function ‘sim_dealloc’; did you mean ‘bind_dealloc’? [-Wimplicit-function-declaration]
+   sim_dealloc();
+   ^~~~~~~~~~~
+   bind_dealloc
+../src/vpi.c: In function ‘covered_create_value_change_cb’:
+../src/vpi.c:437:8: warning: implicit declaration of function ‘scope_find_signal’; did you mean ‘db_find_signal’? [-Wimplicit-function-declaration]
+        scope_find_signal( vpi_get_str( vpiName, sig ), curr_instance->funit, &vsig, &found_funit, 0 )) &&
+        ^~~~~~~~~~~~~~~~~
+        db_find_signal
+../src/vpi.c: In function ‘covered_sim_calltf’:
+../src/vpi.c:826:3: warning: implicit declaration of function ‘sim_initialize’ [-Wimplicit-function-declaration]
+   sim_initialize();
+   ^~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -shared vpi.iv.o -L. -lcovered -L/usr/lib -lveriuser -lvpi -o covered.vpi
+arm-linux-gnueabihf-gcc -fPIC -g -DCVER -DNOIV   -I/usr/include/cver -I.. -c -o vpi.cver.o ../src/vpi.c
+../src/vpi.c: In function ‘covered_end_of_sim’:
+../src/vpi.c:346:3: warning: implicit declaration of function ‘sim_dealloc’; did you mean ‘bind_dealloc’? [-Wimplicit-function-declaration]
+   sim_dealloc();
+   ^~~~~~~~~~~
+   bind_dealloc
+../src/vpi.c: In function ‘covered_create_value_change_cb’:
+../src/vpi.c:437:8: warning: implicit declaration of function ‘scope_find_signal’; did you mean ‘db_find_signal’? [-Wimplicit-function-declaration]
+        scope_find_signal( vpi_get_str( vpiName, sig ), curr_instance->funit, &vsig, &found_funit, 0 )) &&
+        ^~~~~~~~~~~~~~~~~
+        db_find_signal
+../src/vpi.c: In function ‘covered_sim_calltf’:
+../src/vpi.c:826:3: warning: implicit declaration of function ‘sim_initialize’ [-Wimplicit-function-declaration]
+   sim_initialize();
+   ^~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -shared -rdynamic vpi.cver.o -L. -lcovered -o covered.cver.so
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+Making all in src
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c arc.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c assertion.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c attr.c
+bison --verbose -t -p VL -d -o parser.c ./parser.y
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c parser.c
+parser.c: In function ‘VLparse’:
+parser.c:14135:18: warning: passing argument 1 of ‘VLerror’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         yyerror (yymsgp);
+                  ^~~~~~
+In file included from ./parser.y:42:
+parser_misc.h:54:28: note: expected ‘char *’ but argument is of type ‘const char *’
+ extern void VLerror( char* msg );
+                      ~~~~~~^~~
+bison --verbose -t -p SE -d -o static_parser.c ./static_parser.y
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c static_parser.c
+static_parser.c: In function ‘SEparse’:
+static_parser.c:1822:18: warning: passing argument 1 of ‘SEerror’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+         yyerror (yymsgp);
+                  ^~~~~~
+./static_parser.y:45:20: note: expected ‘char *’ but argument is of type ‘const char *’
+ int SEerror( char* str );
+              ~~~~~~^~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c binding.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c cli.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c codegen.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c comb.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c db.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c enumerate.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c exclude.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c expr.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c fastlz.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c fsm.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c fsm_arg.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c fsm_var.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c fst.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c func_iter.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c func_unit.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c genprof.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c gen_item.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c info.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c instance.c
+gperf -o -i 7 -C -k 1-3,$ -L ANSI-C -H keyword_hash_1995 -N check_identifier_1995 -t ./keywords_1995.gperf > keywords_1995.c || (rm -f keywords_1995.c ; false)
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c keywords_1995.c
+gperf -o -i 7 -C -k 1-3,$ -L ANSI-C -H keyword_hash_2001 -N check_identifier_2001 -t ./keywords_2001.gperf > keywords_2001.c || (rm -f keywords_2001.c ; false)
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c keywords_2001.c
+gperf -o -i 7 -C -k 1-3,$ -L ANSI-C -D -H keyword_hash_sv -N check_identifier_sv -t ./keywords_sv.gperf > keywords_sv.c || (rm -f keywords_sv.c ; false)
+1 input keys have identical hash values, examine output carefully...
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c keywords_sv.c
+gperf -o -i 7 -C -k 1-3,$ -L ANSI-C -H keyword_hash_sys_1995 -N check_identifier_sys_1995 -t ./keywords_sys_1995.gperf > keywords_sys_1995.c || (rm -f keywords_sys_1995.c ; false)
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c keywords_sys_1995.c
+gperf -o -i 7 -C -k 1-3,$ -L ANSI-C -H keyword_hash_sys_2001 -N check_identifier_sys_2001 -t ./keywords_sys_2001.gperf > keywords_sys_2001.c || (rm -f keywords_sys_2001.c ; false)
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c keywords_sys_2001.c
+gperf -o -i 7 -C -k 1-3,$ -L ANSI-C -H keyword_hash_sys_sv -N check_identifier_sys_sv -t ./keywords_sys_sv.gperf > keywords_sys_sv.c || (rm -f keywords_sys_sv.c ; false)
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c keywords_sys_sv.c
+flex -PPPVL -opplexer.c ./pplexer.l
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c pplexer.c
+flex -PVL -olexer.c ./lexer.l
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lexer.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c line.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c link.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lxt.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c lxt2_read.c
+lxt2_read.c: In function ‘lxt2_rd_init’:
+lxt2_read.c:851:11: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+     (void)fread( &id, 2, 1, lt->handle );
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:852:11: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+     (void)fread( &version, 2, 1, lt->handle );
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:853:11: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+     (void)fread( &lt->granule_size, 1, 1, lt->handle );
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:887:13: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+       (void)fread( &lt->numfacs, 4, 1, lt->handle );
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:890:13: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+       (void)fread( &lt->numfacbytes, 4, 1, lt->handle );
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:893:13: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+       (void)fread( &lt->longestname, 4, 1, lt->handle );
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:896:13: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+       (void)fread( &lt->zfacnamesize, 4, 1, lt->handle );
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:899:13: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+       (void)fread( &lt->zfacname_predec_size, 4, 1, lt->handle );
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:902:13: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+       (void)fread( &lt->zfacgeometrysize, 4, 1, lt->handle );
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:905:13: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+       (void)fread( &lt->timescale, 1, 1, lt->handle );  /* No swap necessary */
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:1031:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+         (void)fread( &b->uncompressed_siz, 4, 1, lt->handle );
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:1034:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+         (void)fread( &b->compressed_siz, 4, 1, lt->handle );
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:1037:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+         (void)fread( &b->start, 8, 1, lt->handle );
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:1040:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+         (void)fread( &b->end, 8, 1, lt->handle );
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c: In function ‘lxt2_rd_iter_blocks’:
+lxt2_read.c:1651:15: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+         (void)fread( &gzid, 2, 1, lt->handle );
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:1674:19: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+             (void)fread( &clen, 4, 1, lt->handle );
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:1677:19: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+             (void)fread( &unclen, 4, 1, lt->handle );
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:1680:19: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+             (void)fread( &iter, 4, 1, lt->handle );
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+lxt2_read.c:1692:21: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+               (void)fread( zbuff, clen, 1, lt->handle );
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c main.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c memory.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c merge.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c obfuscate.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c ovl.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c param.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c parse.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c parser_misc.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c perf.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c profiler.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c race.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c rank.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c reentrant.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c report.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c scope.c
+In file included from defines.h:43,
+                 from scope.c:25:
+scope.c: In function ‘scope_get_parent_funit’:
+scope.c:348:16: warning: comparison between pointer and zero character constant [-Wpointer-compare]
+   assert( rest != '\0' );
+                ^~
+scope.c:348:11: note: did you mean to dereference the pointer?
+   assert( rest != '\0' );
+           ^~~~
+scope.c:348:16: warning: comparison between pointer and zero character constant [-Wpointer-compare]
+   assert( rest != '\0' );
+                ^~
+scope.c:348:11: note: did you mean to dereference the pointer?
+   assert( rest != '\0' );
+           ^~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c score.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c search.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c sim.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c stat.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c static.c
+flex -PSE -ostatic_lexer.c ./static_lexer.l
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c static_lexer.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c statement.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c stmt_blk.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c struct_union.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c symtable.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c sys_tasks.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c tcl_funcs.c
+tcl_funcs.c: In function ‘tcl_func_get_include_pathname’:
+tcl_funcs.c:2234:40: warning: ‘/’ directive output may be truncated writing 1 byte into a region of size between 0 and 4095 [-Wformat-truncation=]
+         snprintf( incpath, 4096, "%s/%s/%s", score_run_path, arg->str2, argv[1] );
+                                        ^
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from /usr/include/tcl8.6/tcl.h:120,
+                 from tcl_funcs.c:27:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 3 or more bytes (assuming 4098) into a destination of size 4096
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c toggle.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c tree.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c util.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c vcd.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c vector.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -DINSTALL_DIR=\"/usr/share/covered\" -I/usr/include/tcl8.6 -I/usr/include/tcl8.6     -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c vsignal.c
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -Wl,--as-needed -o covered arc.o assertion.o attr.o parser.o static_parser.o binding.o cli.o codegen.o comb.o db.o enumerate.o exclude.o expr.o fastlz.o fsm.o fsm_arg.o fsm_var.o fst.o func_iter.o func_unit.o genprof.o gen_item.o info.o instance.o keywords_1995.o keywords_2001.o keywords_sv.o keywords_sys_1995.o keywords_sys_2001.o keywords_sys_sv.o pplexer.o lexer.o line.o link.o lxt.o lxt2_read.o main.o memory.o merge.o obfuscate.o ovl.o param.o parse.o parser_misc.o perf.o profiler.o race.o rank.o reentrant.o report.o scope.o score.o search.o sim.o stat.o static.o static_lexer.o statement.o stmt_blk.o struct_union.o symtable.o sys_tasks.o tcl_funcs.o toggle.o tree.o util.o vcd.o vector.o vsignal.o -L/usr/lib/arm-linux-gnueabihf -ltcl8.6 -L/usr/lib/arm-linux-gnueabihf -ltk8.6 -lX11 -lXss -lXext -lXft -lfontconfig -lfreetype -lfontconfig  -lpthread -ldl -lz  -lpthread -lm -lm -lm -lz 
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+Making all in doc
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+Making all in docbook
+make[4]: Entering directory '/<<PKGBUILDDIR>>/doc/docbook'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/doc/docbook'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+ fakeroot debian/rules binary-arch
+dh binary-arch
+   dh_testroot -a
+   dh_prep -a
+   dh_auto_install -a
+	make -j1 install DESTDIR=/<<PKGBUILDDIR>>/debian/tmp AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+Making install in scripts
+make[2]: Entering directory '/<<PKGBUILDDIR>>/scripts'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/scripts'
+make[3]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/share/covered" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/share/covered"
+ /usr/bin/install -c -m 644 .coveredrc '/<<PKGBUILDDIR>>/debian/tmp/usr/share/covered'
+test -z "/usr/share/covered/scripts" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/share/covered/scripts"
+ /usr/bin/install -c -m 644 assert.tcl balloon.tcl banner.gif cdd_view.tcl checked.gif clear.gif comb.tcl cov_create.tcl cov_icon.gif exclude.tcl find.gif fsm.tcl gen_new.tcl gen_rank.tcl gen_report.tcl help.tcl left_arrow.gif main_view.tcl memory.tcl menu_create.tcl preferences.tcl process_file.tcl right_arrow.gif summary.tcl toggle.tcl unchecked.gif verilog.tcl viewer.tcl wizard.tcl '/<<PKGBUILDDIR>>/debian/tmp/usr/share/covered/scripts'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/scripts'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/scripts'
+Making install in lib
+make[2]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/lib'
+test -z "/usr/lib/arm-linux-gnueabihf/covered" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/covered"
+  /usr/bin/install -c covered.vpi covered.cver.so '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/covered'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+Making install in src
+make[2]: Entering directory '/<<PKGBUILDDIR>>/src'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+test -z "/usr/bin" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/bin"
+  /usr/bin/install -c covered '/<<PKGBUILDDIR>>/debian/tmp/usr/bin'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/src'
+Making install in doc
+make[2]: Entering directory '/<<PKGBUILDDIR>>/doc'
+Making install in docbook
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc/docbook'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/doc/docbook'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/doc/docbook'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc/docbook'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[4]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/share/covered/doc/html" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/share/covered/doc/html"
+ /usr/bin/install -c -m 644 html/chapter.attr.html html/chapter.boundaries.html html/chapter.debug.html html/chapter.epilogue.html html/chapter.exclude.html html/chapter.faq.html html/chapter.gui.assert.html html/chapter.gui.assert.source.html html/chapter.gui.exclude.html html/chapter.gui.fsm.html html/chapter.gui.genreport.html html/chapter.gui.intro.html html/chapter.gui.line.html html/chapter.gui.logic.html html/chapter.gui.main.html html/chapter.gui.memory.html html/chapter.gui.new.html html/chapter.gui.preferences.html html/chapter.gui.rank.html html/chapter.gui.toggle.html html/chapter.gui.wizard.html html/chapter.installation.html html/chapter.intro.html html/chapter.merge.html html/chapter.metrics.html html/chapter.race.html html/chapter.rank.html html/chapter.reading.html html/chapter.report.html html/chapter.score.html html/chapter.start.html html/chapter.using.html html/covered.css html/index.html html/part.command.line.usage.html html/part.epilogue.html html/part.faq.html html/part.gui.html html/part.installation.html html/part.overview.html '/<<PKGBUILDDIR>>/debian/tmp/usr/share/covered/doc/html'
+ /usr/bin/install -c -m 644 html/test/example.rptI.html html/test/example.rptM.html html/test/example.v.html '/<<PKGBUILDDIR>>/debian/tmp/usr/share/covered/doc/html'
+test -z "/usr/share/covered/doc/html/img" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/share/covered/doc/html/img"
+ /usr/bin/install -c -m 644 html/img/app_menu.gif html/img/assert_excl.gif html/img/assert_src.gif html/img/assert_window.gif html/img/banner.jpg html/img/close_warn.gif html/img/col_show_hide.gif html/img/comb_complex.gif html/img/comb_event.gif html/img/comb_simple.gif html/img/comb_simple_and.gif html/img/comb_simple_or.gif html/img/comb_unary.gif html/img/dn_button.gif html/img/er_full.gif html/img/er_part.gif html/img/exit_warn.gif html/img/file_menu.gif html/img/file_viewer.gif html/img/fsm_example.png html/img/fsm_excl.gif html/img/fsm_window.gif html/img/gen_menu.gif html/img/help_menu.gif html/img/home.gif html/img/line_excl.gif html/img/line_incl.gif html/img/main_cov.gif html/img/main_info.gif html/img/main_lb.gif html/img/main_menu.gif html/img/main_viewer.gif html/img/main_window.gif html/img/memory_full.gif html/img/new_cdd_define.gif html/img/new_cdd_fsm.gif html/img/new_cdd_gen.gif html/img/new_cdd_insert_menu.gif html/img/new_cdd_lib_ext.gif html/img/new_cdd_mod_excl.gif '/<<PKGBUILDDIR>>/debian/tmp/usr/share/covered/doc/html/img'
+ /usr/bin/install -c -m 644 html/img/new_cdd_mod_gen.gif html/img/new_cdd_name.gif html/img/new_cdd_options.gif html/img/new_cdd_options2.gif html/img/new_cdd_parm_oride.gif html/img/new_cdd_selection.gif html/img/new_cdd_type.gif html/img/next.gif html/img/note.gif html/img/populated_lb.gif html/img/pref_color.gif html/img/pref_exclude.gif html/img/pref_goals.gif html/img/pref_main.gif html/img/pref_merge.gif html/img/pref_syntax.gif html/img/prev.gif html/img/rank_files.gif html/img/rank_options.gif html/img/rank_output.gif html/img/rank_report.gif html/img/rank_selection.gif html/img/report_menu.gif html/img/rpt_gen_view.gif html/img/rpt_gen_selection.gif html/img/rpt_gen_options.gif html/img/toggle_full.gif html/img/up.gif html/img/up_button.gif html/img/vhier.png html/img/vhier2.png html/img/view_menu.gif html/img/wizard.gif '/<<PKGBUILDDIR>>/debian/tmp/usr/share/covered/doc/html/img'
+test -z "/usr/share/man/man1" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man1"
+ /usr/bin/install -c -m 644 covered.1 '/<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man1'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_install -a
+   dh_installdocs -a
+   dh_installchangelogs -a
+   dh_installman -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   dh_missing -a
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+   dh_installdeb -a
+   dh_gencontrol -a
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'covered' in '../covered_0.7.10-3_armhf.deb'.
+dpkg-deb: building package 'covered-dbgsym' in '../covered-dbgsym_0.7.10-3_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../covered_0.7.10-3_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T12:25:00Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+covered_0.7.10-3_armhf.changes:
+-------------------------------
+
+Format: 1.8
+Date: Wed, 17 Jun 2015 12:32:10 +0200
+Source: covered
+Binary: covered covered-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 0.7.10-3
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Debian Electronics Team <pkg-electronics-devel@lists.alioth.debian.org>
+Changed-By: أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@users.sourceforge.net>
+Description:
+ covered    - Verilog code coverage analysis tool
+Closes: 777821
+Changes:
+ covered (0.7.10-3) unstable; urgency=medium
+ .
+   * debian/patches/clang-ftbfs.diff: mark inline function with
+   '__attribute__ ((gnu_inline))' to fix FTBFS with GCC-5.
+     Also update forwarded patch URL. (Closes: #777821)
+   * debian/copyright: Update copyright years.
+   * Update my email address.
+   * debian/patches/manpage.diff: Update forwarded patch URL, and add upstream
+     bug URL.
+   * Update to Tcl/Tk 8.6
+     + Added debian/patches/tcl8.6.diff patch.
+   * debian/control: Bumped Standards-Version to 3.9.6
+Checksums-Sha1:
+ 5b86dfad3442972bec47542badc9aff0fb2e0dce 2112760 covered-dbgsym_0.7.10-3_armhf.deb
+ 2818f632eb4137240e56277f950a8d7e0c37a499 6236 covered_0.7.10-3_armhf.buildinfo
+ cba5946bb21aab1be49f888fdcaa45ddc0273f0d 463740 covered_0.7.10-3_armhf.deb
+Checksums-Sha256:
+ 92e8c4fdc993c86f2d551602380e00a7aef784e7b7c1043f0b0adf86354ccd75 2112760 covered-dbgsym_0.7.10-3_armhf.deb
+ 36043d639a2c713f5cd9068eb7bf755ef324e7a1117fa6c2d20252003e898d06 6236 covered_0.7.10-3_armhf.buildinfo
+ 74b44e8989956c754784c9ee307b910ad9bd2467ab3eff0576e5b58f63322479 463740 covered_0.7.10-3_armhf.deb
+Files:
+ 5b86b00d2216d8e369f7958841f6da06 2112760 debug optional covered-dbgsym_0.7.10-3_armhf.deb
+ ec5bf0ef80e8028298e7f0cebf90ec67 6236 electronics optional covered_0.7.10-3_armhf.buildinfo
+ 85cf084b6701ce807f085abc81822343 463740 electronics optional covered_0.7.10-3_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: covered
+Binary: covered covered-doc
+Architecture: armhf
+Version: 0.7.10-3
+Checksums-Md5:
+ 5b86b00d2216d8e369f7958841f6da06 2112760 covered-dbgsym_0.7.10-3_armhf.deb
+ 85cf084b6701ce807f085abc81822343 463740 covered_0.7.10-3_armhf.deb
+Checksums-Sha1:
+ 5b86dfad3442972bec47542badc9aff0fb2e0dce 2112760 covered-dbgsym_0.7.10-3_armhf.deb
+ cba5946bb21aab1be49f888fdcaa45ddc0273f0d 463740 covered_0.7.10-3_armhf.deb
+Checksums-Sha256:
+ 92e8c4fdc993c86f2d551602380e00a7aef784e7b7c1043f0b0adf86354ccd75 2112760 covered-dbgsym_0.7.10-3_armhf.deb
+ 74b44e8989956c754784c9ee307b910ad9bd2467ab3eff0576e5b58f63322479 463740 covered_0.7.10-3_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Fri, 01 Mar 2019 12:25:00 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bison (= 2:3.3.2.dfsg-1),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ flex (= 2.6.4-6.2),
+ fontconfig-config (= 2.13.1-2),
+ fonts-dejavu-core (= 2.37-1),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ gperf (= 3.1-1),
+ gplcver (= 2.12a-1.1+b2),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ iverilog (= 10.2-1.1),
+ libacl1 (= 2.2.52-5),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libbison-dev (= 2:3.3.2.dfsg-1),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libexpat1 (= 2.2.6-1),
+ libexpat1-dev (= 2.2.6-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libfontconfig1 (= 2.13.1-2),
+ libfontconfig1-dev (= 2.13.1-2),
+ libfreetype6 (= 2.9.1-3),
+ libfreetype6-dev (= 2.9.1-3),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libice-dev (= 2:1.0.9-2),
+ libice6 (= 2:1.0.9-2),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libpng-dev (= 1.6.36-5),
+ libpng16-16 (= 1.6.36-5),
+ libpthread-stubs0-dev (= 0.4-1),
+ libquadmath0 (= 8.3.0-2),
+ libreadline7 (= 7.0-5),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsm-dev (= 2:1.2.3-1),
+ libsm6 (= 2:1.2.3-1),
+ libsmartcols1 (= 2.33.1-0.1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtcl8.6 (= 8.6.9+dfsg-2),
+ libtinfo6 (= 6.1+20181013-2),
+ libtk8.6 (= 8.6.9-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libx11-6 (= 2:1.6.7-1),
+ libx11-data (= 2:1.6.7-1),
+ libx11-dev (= 2:1.6.7-1),
+ libxau-dev (= 1:1.0.8-1+b2),
+ libxau6 (= 1:1.0.8-1+b2),
+ libxcb1 (= 1.13.1-2),
+ libxcb1-dev (= 1.13.1-2),
+ libxdmcp-dev (= 1:1.1.2-3),
+ libxdmcp6 (= 1:1.1.2-3),
+ libxext-dev (= 2:1.3.3-1+b2),
+ libxext6 (= 2:1.3.3-1+b2),
+ libxft-dev (= 2.3.2-2),
+ libxft2 (= 2.3.2-2),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ libxrender-dev (= 1:0.9.10-1),
+ libxrender1 (= 1:0.9.10-1),
+ libxss-dev (= 1:1.2.3-1),
+ libxss1 (= 1:1.2.3-1),
+ libxt-dev (= 1:1.1.5-1),
+ libxt6 (= 1:1.1.5-1),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ lsb-base (= 10.2018112800),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ readline-common (= 7.0-5),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ tcl (= 8.6.9+1),
+ tcl-dev (= 8.6.9+1),
+ tcl8.6 (= 8.6.9+dfsg-2),
+ tcl8.6-dev (= 8.6.9+dfsg-2),
+ tk (= 8.6.9+1),
+ tk-dev (= 8.6.9+1),
+ tk8.6 (= 8.6.9-2),
+ tk8.6-dev (= 8.6.9-2),
+ tzdata (= 2018i-1),
+ ucf (= 3.0038+nmu1),
+ util-linux (= 2.33.1-0.1),
+ uuid-dev (= 2.33.1-0.1),
+ x11-common (= 1:7.7+19),
+ x11proto-core-dev (= 2018.4-4),
+ x11proto-dev (= 2018.4-4),
+ x11proto-scrnsaver-dev (= 2018.4-4),
+ x11proto-xext-dev (= 2018.4-4),
+ xorg-sgml-doctools (= 1:1.11-1),
+ xtrans-dev (= 1.3.5-1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1),
+ zlib1g-dev (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1434537130"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+covered-dbgsym_0.7.10-3_armhf.deb
+---------------------------------
+
+ new Debian package, version 2.0.
+ size 2112760 bytes: control archive=656 bytes.
+     454 bytes,    12 lines      control              
+     318 bytes,     3 lines      md5sums              
+ Package: covered-dbgsym
+ Source: covered
+ Version: 0.7.10-3
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian Electronics Team <pkg-electronics-devel@lists.alioth.debian.org>
+ Installed-Size: 2348
+ Depends: covered (= 0.7.10-3)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for covered
+ Build-Ids: 467c37af18189e71d75c6f6634c49309269ec54e 691c65d9d07a133b03762bee3fd67945861a6321 cef7182e74955eb54a74ee11009761f0df99c43b
+
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/lib/
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/lib/debug/.build-id/46/
+-rw-r--r-- root/root    533868 2015-06-17 10:32 ./usr/lib/debug/.build-id/46/7c37af18189e71d75c6f6634c49309269ec54e.debug
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/lib/debug/.build-id/69/
+-rw-r--r-- root/root   1323452 2015-06-17 10:32 ./usr/lib/debug/.build-id/69/1c65d9d07a133b03762bee3fd67945861a6321.debug
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/lib/debug/.build-id/ce/
+-rw-r--r-- root/root    533080 2015-06-17 10:32 ./usr/lib/debug/.build-id/ce/f7182e74955eb54a74ee11009761f0df99c43b.debug
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/share/
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2015-06-17 10:32 ./usr/share/doc/covered-dbgsym -> covered
+
+
+covered_0.7.10-3_armhf.deb
+--------------------------
+
+ new Debian package, version 2.0.
+ size 463740 bytes: control archive=1884 bytes.
+     948 bytes,    18 lines      control              
+    2846 bytes,    40 lines      md5sums              
+ Package: covered
+ Version: 0.7.10-3
+ Architecture: armhf
+ Maintainer: Debian Electronics Team <pkg-electronics-devel@lists.alioth.debian.org>
+ Installed-Size: 1784
+ Depends: libc6 (>= 2.11), libtcl8.6 (>= 8.6.0), libtk8.6 (>= 8.6.0), zlib1g (>= 1:1.1.4), tklib
+ Recommends: iverilog | verilog | gplcver (>= 2.12a-1.1)
+ Section: electronics
+ Priority: optional
+ Homepage: http://covered.sourceforge.net/
+ Description: Verilog code coverage analysis tool
+  Covered is a Verilog code coverage utility that reads in a Verilog design and
+  a generated VCD/LXT dumpfile from that design and generates a coverage file
+  that can be merged with other coverage files or used to create a coverage
+  report. Covered also contains the GUI coverage report utility that reads in a
+  coverage file to allow interactive coverage discovery. Areas of coverage
+  measured by Covered are: line, toggle, memory, combinational logic, FSM
+  state/state-transition and assertion coverage.
+
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/bin/
+-rwxr-xr-x root/root    732668 2015-06-17 10:32 ./usr/bin/covered
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/lib/
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/lib/arm-linux-gnueabihf/
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/lib/arm-linux-gnueabihf/covered/
+-rw-r--r-- root/root    307648 2015-06-17 10:32 ./usr/lib/arm-linux-gnueabihf/covered/covered.cver.so
+-rwxr-xr-x root/root    307644 2015-06-17 10:32 ./usr/lib/arm-linux-gnueabihf/covered/covered.vpi
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/share/
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/share/covered/
+-rw-r--r-- root/root      7628 2015-06-17 10:32 ./usr/share/covered/.coveredrc
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/share/covered/scripts/
+-rw-r--r-- root/root     15534 2015-06-17 10:32 ./usr/share/covered/scripts/assert.tcl
+-rw-r--r-- root/root      1887 2015-06-17 10:32 ./usr/share/covered/scripts/balloon.tcl
+-rw-r--r-- root/root     26799 2015-06-17 10:32 ./usr/share/covered/scripts/banner.gif
+-rw-r--r-- root/root      4008 2015-06-17 10:32 ./usr/share/covered/scripts/cdd_view.tcl
+-rw-r--r-- root/root        83 2015-06-17 10:32 ./usr/share/covered/scripts/checked.gif
+-rw-r--r-- root/root        85 2015-06-17 10:32 ./usr/share/covered/scripts/clear.gif
+-rw-r--r-- root/root     26894 2015-06-17 10:32 ./usr/share/covered/scripts/comb.tcl
+-rw-r--r-- root/root      3611 2015-06-17 10:32 ./usr/share/covered/scripts/cov_create.tcl
+-rw-r--r-- root/root       281 2015-06-17 10:32 ./usr/share/covered/scripts/cov_icon.gif
+-rw-r--r-- root/root      7080 2015-06-17 10:32 ./usr/share/covered/scripts/exclude.tcl
+-rw-r--r-- root/root       370 2015-06-17 10:32 ./usr/share/covered/scripts/find.gif
+-rw-r--r-- root/root     16085 2015-06-17 10:32 ./usr/share/covered/scripts/fsm.tcl
+-rw-r--r-- root/root     68677 2015-06-17 10:32 ./usr/share/covered/scripts/gen_new.tcl
+-rw-r--r-- root/root     32263 2015-06-17 10:32 ./usr/share/covered/scripts/gen_rank.tcl
+-rw-r--r-- root/root     16894 2015-06-17 10:32 ./usr/share/covered/scripts/gen_report.tcl
+-rw-r--r-- root/root      5056 2015-06-17 10:32 ./usr/share/covered/scripts/help.tcl
+-rw-r--r-- root/root       115 2015-06-17 10:32 ./usr/share/covered/scripts/left_arrow.gif
+-rw-r--r-- root/root     21842 2015-06-17 10:32 ./usr/share/covered/scripts/main_view.tcl
+-rw-r--r-- root/root     17512 2015-06-17 10:32 ./usr/share/covered/scripts/memory.tcl
+-rw-r--r-- root/root     13667 2015-06-17 10:32 ./usr/share/covered/scripts/menu_create.tcl
+-rw-r--r-- root/root     54262 2015-06-17 10:32 ./usr/share/covered/scripts/preferences.tcl
+-rw-r--r-- root/root     41494 2015-06-17 10:32 ./usr/share/covered/scripts/process_file.tcl
+-rw-r--r-- root/root       115 2015-06-17 10:32 ./usr/share/covered/scripts/right_arrow.gif
+-rw-r--r-- root/root     10455 2015-06-17 10:32 ./usr/share/covered/scripts/summary.tcl
+-rw-r--r-- root/root      9821 2015-06-17 10:32 ./usr/share/covered/scripts/toggle.tcl
+-rw-r--r-- root/root        70 2015-06-17 10:32 ./usr/share/covered/scripts/unchecked.gif
+-rw-r--r-- root/root     15235 2015-06-17 10:32 ./usr/share/covered/scripts/verilog.tcl
+-rw-r--r-- root/root      4366 2015-06-17 10:32 ./usr/share/covered/scripts/viewer.tcl
+-rw-r--r-- root/root      3252 2015-06-17 10:32 ./usr/share/covered/scripts/wizard.tcl
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/share/doc/
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/share/doc/covered/
+-rw-r--r-- root/root       163 2010-12-02 06:53 ./usr/share/doc/covered/NEWS.gz
+-rw-r--r-- root/root      1457 2009-05-06 19:13 ./usr/share/doc/covered/README
+-rw-r--r-- root/root      1692 2009-04-26 05:05 ./usr/share/doc/covered/TODO
+-rw-r--r-- root/root      1268 2015-06-17 10:32 ./usr/share/doc/covered/changelog.Debian.gz
+-rw-r--r-- root/root       135 2010-12-02 06:53 ./usr/share/doc/covered/changelog.gz
+-rw-r--r-- root/root      2867 2015-06-17 10:32 ./usr/share/doc/covered/copyright
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/share/man/
+drwxr-xr-x root/root         0 2015-06-17 10:32 ./usr/share/man/man1/
+-rw-r--r-- root/root      8006 2015-06-17 10:32 ./usr/share/man/man1/covered.1.gz
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [581 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [665 B]
+Fetched 2209 B in 0s (162 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 1s (5292 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 21950 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+W: covered source: vcs-obsolete-in-debian-infrastructure vcs-git git://anonscm.debian.org/pkg-electronics/covered.git
+W: covered source: vcs-obsolete-in-debian-infrastructure vcs-browser http://anonscm.debian.org/gitweb/?p=pkg-electronics/covered.git
+W: covered source: debian-rules-sets-dpkg-architecture-variable DEB_HOST_MULTIARCH (line 3)
+W: covered source: ancient-standards-version 3.9.6 (released 2014-09-17) (current is 4.3.0)
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bison* bsdmainutils*
+  debhelper* dh-autoreconf* dh-strip-nondeterminism* diffstat* dwz* flex*
+  fontconfig-config* fonts-dejavu-core* gcc-8-base:armhf* gettext*
+  gettext-base* gperf* gplcver:armhf* groff-base* intltool-debian*
+  iverilog:armhf* libapt-pkg-perl* libarchive-zip-perl* libasan5:armhf*
+  libatomic1:armhf* libbison-dev* libbsd0* libbsd0:armhf* libbz2-1.0:armhf*
+  libc6:armhf* libc6-dev:armhf* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclone-perl* libcroco3* libdigest-hmac-perl*
+  libelf1* libemail-valid-perl* libexpat1:armhf* libexpat1-dev:armhf*
+  libexporter-tiny-perl* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfontconfig1* libfontconfig1:armhf*
+  libfontconfig1-dev:armhf* libfreetype6* libfreetype6:armhf*
+  libfreetype6-dev:armhf* libfuture-perl* libgcc-8-dev:armhf* libgcc1:armhf*
+  libglib2.0-0* libgomp1:armhf* libice-dev:armhf* libice6:armhf*
+  libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* liblist-moreutils-perl* libncurses6*
+  libnet-dns-perl* libnet-domain-tld-perl* libnet-ip-perl*
+  libparse-debianchangelog-perl* libpath-tiny-perl* libpipeline1*
+  libpng-dev:armhf* libpng16-16* libpng16-16:armhf*
+  libpthread-stubs0-dev:armhf* libreadline7:armhf* libsigsegv2*
+  libsm-dev:armhf* libsm6:armhf* libstdc++-8-dev:armhf* libstdc++6:armhf*
+  libstruct-dumb-perl* libsub-name-perl* libtcl8.6* libtcl8.6:armhf*
+  libtext-levenshtein-perl* libtinfo6:armhf* libtk8.6* libtk8.6:armhf*
+  libtool* libubsan1:armhf* libuchardet0* libuuid1:armhf* libx11-6*
+  libx11-6:armhf* libx11-data* libx11-dev:armhf* libxau-dev:armhf* libxau6*
+  libxau6:armhf* libxcb1* libxcb1:armhf* libxcb1-dev:armhf*
+  libxdmcp-dev:armhf* libxdmcp6* libxdmcp6:armhf* libxext-dev:armhf* libxext6*
+  libxext6:armhf* libxft-dev:armhf* libxft2* libxft2:armhf*
+  libxrender-dev:armhf* libxrender1* libxrender1:armhf* libxss-dev:armhf*
+  libxss1* libxss1:armhf* libxt-dev:armhf* libxt6:armhf* lintian*
+  linux-libc-dev:armhf* m4* man-db* patchutils* pkg-config* po-debconf*
+  sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* tcl* tcl-dev:armhf* tcl8.6*
+  tcl8.6-dev:armhf* tk* tk-dev:armhf* tk8.6* tk8.6-dev:armhf* uuid-dev:armhf*
+  x11-common* x11proto-core-dev* x11proto-dev* x11proto-scrnsaver-dev*
+  x11proto-xext-dev* xorg-sgml-doctools* xtrans-dev* zlib1g:armhf*
+  zlib1g-dev:armhf*
+0 upgraded, 0 newly installed, 147 to remove and 0 not upgraded.
+After this operation, 144 MB disk space will be freed.
+(Reading database ... 23228 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing bison (2:3.3.2.dfsg-1) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing flex (2.6.4-6.2) ...
+Removing tk-dev:armhf (8.6.9+1) ...
+Removing tk (8.6.9+1) ...
+Removing tk8.6-dev:armhf (8.6.9-2) ...
+Removing tk8.6 (8.6.9-2) ...
+Removing libtk8.6:amd64 (8.6.9-2) ...
+Removing libxft2:amd64 (2.3.2-2) ...
+Removing libfontconfig1:amd64 (2.13.1-2) ...
+Removing libxft-dev:armhf (2.3.2-2) ...
+Removing libtk8.6:armhf (8.6.9-2) ...
+Removing libxft2:armhf (2.3.2-2) ...
+Removing libfontconfig1-dev:armhf (2.13.1-2) ...
+Removing libfontconfig1:armhf (2.13.1-2) ...
+Removing fontconfig-config (2.13.1-2) ...
+Removing fonts-dejavu-core (2.37-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing iverilog:armhf (10.2-1.1) ...
+Removing gperf (3.1-1) ...
+Removing gplcver:armhf (2.12a-1.1+b2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libbison-dev:amd64 (2:3.3.2.dfsg-1) ...
+Removing libxss1:amd64 (1:1.2.3-1) ...
+Removing libxrender-dev:armhf (1:0.9.10-1) ...
+Removing libxt-dev:armhf (1:1.1.5-1) ...
+Removing libxt6:armhf (1:1.1.5-1) ...
+Removing libsm-dev:armhf (2:1.2.3-1) ...
+Removing libice-dev:armhf (2:1.0.9-2) ...
+Removing libbz2-1.0:armhf (1.0.6-9) ...
+Removing tcl-dev:armhf (8.6.9+1) ...
+Removing tcl8.6-dev:armhf (8.6.9+dfsg-2) ...
+Removing libfreetype6-dev:armhf (2.9.1-3) ...
+Removing libpng-dev:armhf (1.6.36-5) ...
+Removing zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Removing libtcl8.6:armhf (8.6.9+dfsg-2) ...
+Removing uuid-dev:armhf (2.33.1-0.1) ...
+Removing libexpat1-dev:armhf (2.2.6-1) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing libexpat1:armhf (2.2.6-1) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libfreetype6:amd64 (2.9.1-3) ...
+Removing libfreetype6:armhf (2.9.1-3) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing pkg-config (0.29-6) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libpng16-16:amd64 (1.6.36-5) ...
+Removing libpng16-16:armhf (1.6.36-5) ...
+Removing libreadline7:armhf (7.0-5) ...
+Removing libsm6:armhf (2:1.2.3-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing tcl (8.6.9+1) ...
+Removing tcl8.6 (8.6.9+dfsg-2) ...
+Removing libtcl8.6:amd64 (8.6.9+dfsg-2) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libxss-dev:armhf (1:1.2.3-1) ...
+Removing libxss1:armhf (1:1.2.3-1) ...
+Removing libxext-dev:armhf (2:1.3.3-1+b2) ...
+Removing libxext6:amd64 (2:1.3.3-1+b2) ...
+Removing libxext6:armhf (2:1.3.3-1+b2) ...
+Removing libxrender1:amd64 (1:0.9.10-1) ...
+Removing libxrender1:armhf (1:0.9.10-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing x11proto-xext-dev (2018.4-4) ...
+Removing x11proto-scrnsaver-dev (2018.4-4) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libx11-6:amd64 (2:1.6.7-1) ...
+Removing libxcb1:amd64 (1.13.1-2) ...
+Removing libxdmcp6:amd64 (1:1.1.2-3) ...
+Removing libx11-dev:armhf (2:1.6.7-1) ...
+Removing libxcb1-dev:armhf (1.13.1-2) ...
+Removing libxdmcp-dev:armhf (1:1.1.2-3) ...
+Removing libx11-6:armhf (2:1.6.7-1) ...
+Removing libxcb1:armhf (1.13.1-2) ...
+Removing libxdmcp6:armhf (1:1.1.2-3) ...
+Removing libice6:armhf (2:1.0.9-2) ...
+Removing libbsd0:armhf (0.9.1-2) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing libuuid1:armhf (2.33.1-0.1) ...
+Removing libpthread-stubs0-dev:armhf (0.4-1) ...
+Removing libx11-data (2:1.6.7-1) ...
+Removing libxau-dev:armhf (1:1.0.8-1+b2) ...
+Removing libxau6:armhf (1:1.0.8-1+b2) ...
+Removing libxau6:amd64 (1:1.0.8-1+b2) ...
+Removing x11-common (1:7.7+19) ...
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of stop.
+Removing x11proto-core-dev (2018.4-4) ...
+Removing x11proto-dev (2018.4-4) ...
+Removing xorg-sgml-doctools (1:1.11-1) ...
+Removing xtrans-dev (1.3.5-1) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16495 files and directories currently installed.)
+Purging configuration files for tk8.6 (8.6.9-2) ...
+Purging configuration files for tcl8.6 (8.6.9+dfsg-2) ...
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for fontconfig-config (2.13.1-2) ...
+Purging configuration files for x11-common (1:7.7+19) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libfreetype6-dev:armhf (2.9.1-3) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for fonts-dejavu-core (2.37-1) ...
+dpkg: warning: while removing fonts-dejavu-core, directory '/usr/share/fonts/truetype/dejavu' not empty so not removed
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 69
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 12
+Job: /home/build/sbuild-setup/repo/pool/main/c/covered/covered_0.7.10-3.dsc
+Lintian: warn
+Machine Architecture: amd64
+Package: covered
+Package-Time: 86
+Source-Version: 0.7.10-3
+Space: n/a
+Status: successful
+Version: 0.7.10-3
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T12:25:00Z
+Build needed 00:01:26, no disk space

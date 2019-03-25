@@ -1,0 +1,1819 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| ocfs2-tools 1.8.5-7 (armhf)                  Wed, 06 Mar 2019 02:20:23 +0000 |
++==============================================================================+
+
+Package: ocfs2-tools
+Version: 1.8.5-7
+Source Version: 1.8.5-7
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-95d36693-e015-4b0a-beee-551c6f224031' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/ocfs2-tools-4riCIc/resolver-GCgQFz' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/o/ocfs2-tools/ocfs2-tools_1.8.5-7.dsc exists in /home/build/sbuild-setup/repo/pool/main/o/ocfs2-tools; copying to chroot
+I: NOTICE: Log filtering will replace 'build/ocfs2-tools-4riCIc/ocfs2-tools-1.8.5' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/ocfs2-tools-4riCIc' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 11), po-debconf, comerr-dev, uuid-dev, libncurses5-dev, libreadline-dev, libglib2.0-dev (>= 2.2.3), libblkid-dev (>= 1.36), libbz2-dev, libdevmapper-dev, libdlm-dev, libdlmcontrol-dev, libxml2-dev, libaio-dev, libcmap-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 11), po-debconf, comerr-dev, uuid-dev, libncurses5-dev, libreadline-dev, libglib2.0-dev (>= 2.2.3), libblkid-dev (>= 1.36), libbz2-dev, libdevmapper-dev, libdlm-dev, libdlmcontrol-dev, libxml2-dev, libaio-dev, libcmap-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [485 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [573 B]
+Fetched 2015 B in 0s (127 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils comerr-dev:armhf
+  debhelper dh-autoreconf dh-strip-nondeterminism dmsetup dwz gcc-8-base:armhf
+  gettext gettext-base groff-base icu-devtools intltool-debian
+  libaio-dev:armhf libaio1:armhf libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libblkid-dev:armhf libblkid1:armhf libbsd0 libbz2-1.0:armhf
+  libbz2-dev:armhf libc6:armhf libc6-dev:armhf libcmap-dev:armhf
+  libcmap4:armhf libcom-err2:armhf libcorosync-common-dev:armhf
+  libcorosync-common4:armhf libcroco3 libdevmapper-dev:armhf
+  libdevmapper-event1.02.1:armhf libdevmapper1.02.1 libdevmapper1.02.1:armhf
+  libdlm-dev:armhf libdlm3:armhf libdlmcontrol-dev:armhf libdlmcontrol3:armhf
+  libelf1 libffi-dev:armhf libffi6:armhf libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libglib2.0-0:armhf
+  libglib2.0-bin libglib2.0-data libglib2.0-dev:armhf libglib2.0-dev-bin
+  libgomp1:armhf libicu-dev:armhf libicu63:armhf liblzma5:armhf
+  libmount-dev:armhf libmount1:armhf libmpdec2 libncurses-dev:armhf
+  libncurses5-dev:armhf libncurses6 libncurses6:armhf libncursesw6:armhf
+  libpcre16-3:armhf libpcre3:armhf libpcre3-dev:armhf libpcre32-3:armhf
+  libpcrecpp0v5:armhf libpipeline1 libpython3-stdlib libpython3.7-minimal
+  libpython3.7-stdlib libqb-dev:armhf libqb0:armhf libreadline-dev:armhf
+  libreadline7:armhf libselinux1:armhf libselinux1-dev:armhf libsepol1:armhf
+  libsepol1-dev:armhf libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf
+  libtinfo6:armhf libtool libubsan1:armhf libuchardet0 libudev-dev:armhf
+  libudev1:armhf libuuid1:armhf libxml2:armhf libxml2-dev:armhf
+  linux-libc-dev:armhf m4 man-db mime-support pkg-config po-debconf python3
+  python3-distutils python3-lib2to3 python3-minimal python3.7
+  python3.7-minimal uuid-dev:armhf zlib1g:armhf zlib1g-dev:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation doc-base:armhf dh-make gettext-doc libasprintf-dev libgettextpo-dev
+  groff glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  libglib2.0-doc:armhf libgdk-pixbuf2.0-bin | libgdk-pixbuf2.0-dev
+  libxml2-utils icu-doc:armhf ncurses-doc:armhf libqb-doc:armhf
+  readline-doc:armhf libstdc++-8-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk m4-doc apparmor less www-browser
+  libmail-box-perl python3-doc python3-tk python3-venv python3.7-venv
+  python3.7-doc binfmt-support
+Recommended packages:
+  curl | wget | lynx bzip2-doc:armhf libidn2-0:armhf libarchive-cpio-perl
+  shared-mime-info xdg-user-dirs shared-mime-info:armhf xdg-user-dirs:armhf
+  libgpm2 libgpm2:armhf libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils comerr-dev:armhf
+  debhelper dh-autoreconf dh-strip-nondeterminism dmsetup dwz gcc-8-base:armhf
+  gettext gettext-base groff-base icu-devtools intltool-debian
+  libaio-dev:armhf libaio1:armhf libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libblkid-dev:armhf libblkid1:armhf libbsd0 libbz2-1.0:armhf
+  libbz2-dev:armhf libc6:armhf libc6-dev:armhf libcmap-dev:armhf
+  libcmap4:armhf libcom-err2:armhf libcorosync-common-dev:armhf
+  libcorosync-common4:armhf libcroco3 libdevmapper-dev:armhf
+  libdevmapper-event1.02.1:armhf libdevmapper1.02.1 libdevmapper1.02.1:armhf
+  libdlm-dev:armhf libdlm3:armhf libdlmcontrol-dev:armhf libdlmcontrol3:armhf
+  libelf1 libffi-dev:armhf libffi6:armhf libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libglib2.0-0:armhf
+  libglib2.0-bin libglib2.0-data libglib2.0-dev:armhf libglib2.0-dev-bin
+  libgomp1:armhf libicu-dev:armhf libicu63:armhf liblzma5:armhf
+  libmount-dev:armhf libmount1:armhf libmpdec2 libncurses-dev:armhf
+  libncurses5-dev:armhf libncurses6 libncurses6:armhf libncursesw6:armhf
+  libpcre16-3:armhf libpcre3:armhf libpcre3-dev:armhf libpcre32-3:armhf
+  libpcrecpp0v5:armhf libpipeline1 libpython3-stdlib libpython3.7-minimal
+  libpython3.7-stdlib libqb-dev:armhf libqb0:armhf libreadline-dev:armhf
+  libreadline7:armhf libselinux1:armhf libselinux1-dev:armhf libsepol1:armhf
+  libsepol1-dev:armhf libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf
+  libtinfo6:armhf libtool libubsan1:armhf libuchardet0 libudev-dev:armhf
+  libudev1:armhf libuuid1:armhf libxml2:armhf libxml2-dev:armhf
+  linux-libc-dev:armhf m4 man-db mime-support pkg-config po-debconf python3
+  python3-distutils python3-lib2to3 python3-minimal python3.7
+  python3.7-minimal sbuild-build-depends-main-dummy:armhf uuid-dev:armhf
+  zlib1g:armhf zlib1g-dev:armhf
+0 upgraded, 112 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1342 kB/53.0 MB of archives.
+After this operation, 213 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [996 B]
+Get:2 http://10.116.41.102/debian sid/main armhf libaio-dev armhf 0.3.112-3 [19.9 kB]
+Get:3 http://10.116.41.102/debian sid/main armhf libqb0 armhf 1.0.3-2 [128 kB]
+Get:4 http://10.116.41.102/debian sid/main armhf libqb-dev armhf 1.0.3-2 [144 kB]
+Get:5 http://10.116.41.102/debian sid/main armhf libcorosync-common4 armhf 3.0.1-2 [243 kB]
+Get:6 http://10.116.41.102/debian sid/main armhf libcorosync-common-dev armhf 3.0.1-2 [243 kB]
+Get:7 http://10.116.41.102/debian sid/main armhf libcmap4 armhf 3.0.1-2 [247 kB]
+Get:8 http://10.116.41.102/debian sid/main armhf libcmap-dev armhf 3.0.1-2 [275 kB]
+Get:9 http://10.116.41.102/debian sid/main armhf libdlm3 armhf 4.0.8-1 [12.4 kB]
+Get:10 http://10.116.41.102/debian sid/main armhf libdlm-dev armhf 4.0.8-1 [14.3 kB]
+Get:11 http://10.116.41.102/debian sid/main armhf libdlmcontrol3 armhf 4.0.8-1 [9620 B]
+Get:12 http://10.116.41.102/debian sid/main armhf libdlmcontrol-dev armhf 4.0.8-1 [5280 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 1342 kB in 0s (3360 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../0-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../1-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../2-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../3-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../4-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../5-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package libpython3.7-minimal:amd64.
+Preparing to unpack .../6-libpython3.7-minimal_3.7.2-2_amd64.deb ...
+Unpacking libpython3.7-minimal:amd64 (3.7.2-2) ...
+Selecting previously unselected package python3.7-minimal.
+Preparing to unpack .../7-python3.7-minimal_3.7.2-2_amd64.deb ...
+Unpacking python3.7-minimal (3.7.2-2) ...
+Setting up libpython3.7-minimal:amd64 (3.7.2-2) ...
+Setting up python3.7-minimal (3.7.2-2) ...
+Selecting previously unselected package python3-minimal.
+(Reading database ... 17315 files and directories currently installed.)
+Preparing to unpack .../0-python3-minimal_3.7.2-1_amd64.deb ...
+Unpacking python3-minimal (3.7.2-1) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../1-mime-support_3.62_all.deb ...
+Unpacking mime-support (3.62) ...
+Selecting previously unselected package libmpdec2:amd64.
+Preparing to unpack .../2-libmpdec2_2.4.2-2_amd64.deb ...
+Unpacking libmpdec2:amd64 (2.4.2-2) ...
+Selecting previously unselected package libpython3.7-stdlib:amd64.
+Preparing to unpack .../3-libpython3.7-stdlib_3.7.2-2_amd64.deb ...
+Unpacking libpython3.7-stdlib:amd64 (3.7.2-2) ...
+Selecting previously unselected package python3.7.
+Preparing to unpack .../4-python3.7_3.7.2-2_amd64.deb ...
+Unpacking python3.7 (3.7.2-2) ...
+Selecting previously unselected package libpython3-stdlib:amd64.
+Preparing to unpack .../5-libpython3-stdlib_3.7.2-1_amd64.deb ...
+Unpacking libpython3-stdlib:amd64 (3.7.2-1) ...
+Setting up python3-minimal (3.7.2-1) ...
+Selecting previously unselected package python3.
+(Reading database ... 17749 files and directories currently installed.)
+Preparing to unpack .../00-python3_3.7.2-1_amd64.deb ...
+Unpacking python3 (3.7.2-1) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../01-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../02-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../03-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../04-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../05-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../06-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../07-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../08-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../09-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../10-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../11-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../12-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libcom-err2:armhf.
+Preparing to unpack .../13-libcom-err2_1.44.5-1_armhf.deb ...
+Unpacking libcom-err2:armhf (1.44.5-1) ...
+Selecting previously unselected package comerr-dev:armhf.
+Preparing to unpack .../14-comerr-dev_2.1-1.44.5-1_armhf.deb ...
+Unpacking comerr-dev:armhf (2.1-1.44.5-1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../15-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../16-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../17-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../18-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../19-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../20-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../21-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../22-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../23-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../24-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../25-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../26-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../27-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../28-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package libdevmapper1.02.1:amd64.
+Preparing to unpack .../29-libdevmapper1.02.1_2%3a1.02.155-2_amd64.deb ...
+Unpacking libdevmapper1.02.1:amd64 (2:1.02.155-2) ...
+Selecting previously unselected package dmsetup.
+Preparing to unpack .../30-dmsetup_2%3a1.02.155-2_amd64.deb ...
+Unpacking dmsetup (2:1.02.155-2) ...
+Selecting previously unselected package icu-devtools.
+Preparing to unpack .../31-icu-devtools_63.1-6_amd64.deb ...
+Unpacking icu-devtools (63.1-6) ...
+Selecting previously unselected package libaio1:armhf.
+Preparing to unpack .../32-libaio1_0.3.112-3_armhf.deb ...
+Unpacking libaio1:armhf (0.3.112-3) ...
+Selecting previously unselected package libaio-dev:armhf.
+Preparing to unpack .../33-libaio-dev_0.3.112-3_armhf.deb ...
+Unpacking libaio-dev:armhf (0.3.112-3) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../34-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../35-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../36-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libuuid1:armhf.
+Preparing to unpack .../37-libuuid1_2.33.1-0.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libblkid1:armhf.
+Preparing to unpack .../38-libblkid1_2.33.1-0.1_armhf.deb ...
+Unpacking libblkid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package uuid-dev:armhf.
+Preparing to unpack .../39-uuid-dev_2.33.1-0.1_armhf.deb ...
+Unpacking uuid-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libblkid-dev:armhf.
+Preparing to unpack .../40-libblkid-dev_2.33.1-0.1_armhf.deb ...
+Unpacking libblkid-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libbz2-1.0:armhf.
+Preparing to unpack .../41-libbz2-1.0_1.0.6-9_armhf.deb ...
+Unpacking libbz2-1.0:armhf (1.0.6-9) ...
+Selecting previously unselected package libbz2-dev:armhf.
+Preparing to unpack .../42-libbz2-dev_1.0.6-9_armhf.deb ...
+Unpacking libbz2-dev:armhf (1.0.6-9) ...
+Selecting previously unselected package libqb0:armhf.
+Preparing to unpack .../43-libqb0_1.0.3-2_armhf.deb ...
+Unpacking libqb0:armhf (1.0.3-2) ...
+Selecting previously unselected package libqb-dev:armhf.
+Preparing to unpack .../44-libqb-dev_1.0.3-2_armhf.deb ...
+Unpacking libqb-dev:armhf (1.0.3-2) ...
+Selecting previously unselected package libcorosync-common4:armhf.
+Preparing to unpack .../45-libcorosync-common4_3.0.1-2_armhf.deb ...
+Unpacking libcorosync-common4:armhf (3.0.1-2) ...
+Selecting previously unselected package libcorosync-common-dev:armhf.
+Preparing to unpack .../46-libcorosync-common-dev_3.0.1-2_armhf.deb ...
+Unpacking libcorosync-common-dev:armhf (3.0.1-2) ...
+Selecting previously unselected package libcmap4:armhf.
+Preparing to unpack .../47-libcmap4_3.0.1-2_armhf.deb ...
+Unpacking libcmap4:armhf (3.0.1-2) ...
+Selecting previously unselected package libcmap-dev:armhf.
+Preparing to unpack .../48-libcmap-dev_3.0.1-2_armhf.deb ...
+Unpacking libcmap-dev:armhf (3.0.1-2) ...
+Selecting previously unselected package libpcre3:armhf.
+Preparing to unpack .../49-libpcre3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre3:armhf (2:8.39-11) ...
+Selecting previously unselected package libselinux1:armhf.
+Preparing to unpack .../50-libselinux1_2.8-1+b1_armhf.deb ...
+Unpacking libselinux1:armhf (2.8-1+b1) ...
+Selecting previously unselected package libudev1:armhf.
+Preparing to unpack .../51-libudev1_241-1_armhf.deb ...
+Unpacking libudev1:armhf (241-1) ...
+Selecting previously unselected package libdevmapper1.02.1:armhf.
+Preparing to unpack .../52-libdevmapper1.02.1_2%3a1.02.155-2_armhf.deb ...
+Unpacking libdevmapper1.02.1:armhf (2:1.02.155-2) ...
+Selecting previously unselected package libdevmapper-event1.02.1:armhf.
+Preparing to unpack .../53-libdevmapper-event1.02.1_2%3a1.02.155-2_armhf.deb ...
+Unpacking libdevmapper-event1.02.1:armhf (2:1.02.155-2) ...
+Selecting previously unselected package libudev-dev:armhf.
+Preparing to unpack .../54-libudev-dev_241-1_armhf.deb ...
+Unpacking libudev-dev:armhf (241-1) ...
+Selecting previously unselected package libsepol1:armhf.
+Preparing to unpack .../55-libsepol1_2.8-1_armhf.deb ...
+Unpacking libsepol1:armhf (2.8-1) ...
+Selecting previously unselected package libsepol1-dev:armhf.
+Preparing to unpack .../56-libsepol1-dev_2.8-1_armhf.deb ...
+Unpacking libsepol1-dev:armhf (2.8-1) ...
+Selecting previously unselected package libpcre16-3:armhf.
+Preparing to unpack .../57-libpcre16-3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre16-3:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcre32-3:armhf.
+Preparing to unpack .../58-libpcre32-3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre32-3:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcrecpp0v5:armhf.
+Preparing to unpack .../59-libpcrecpp0v5_2%3a8.39-11_armhf.deb ...
+Unpacking libpcrecpp0v5:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcre3-dev:armhf.
+Preparing to unpack .../60-libpcre3-dev_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre3-dev:armhf (2:8.39-11) ...
+Selecting previously unselected package libselinux1-dev:armhf.
+Preparing to unpack .../61-libselinux1-dev_2.8-1+b1_armhf.deb ...
+Unpacking libselinux1-dev:armhf (2.8-1+b1) ...
+Selecting previously unselected package libdevmapper-dev:armhf.
+Preparing to unpack .../62-libdevmapper-dev_2%3a1.02.155-2_armhf.deb ...
+Unpacking libdevmapper-dev:armhf (2:1.02.155-2) ...
+Selecting previously unselected package libdlm3:armhf.
+Preparing to unpack .../63-libdlm3_4.0.8-1_armhf.deb ...
+Unpacking libdlm3:armhf (4.0.8-1) ...
+Selecting previously unselected package libdlm-dev:armhf.
+Preparing to unpack .../64-libdlm-dev_4.0.8-1_armhf.deb ...
+Unpacking libdlm-dev:armhf (4.0.8-1) ...
+Selecting previously unselected package libdlmcontrol3:armhf.
+Preparing to unpack .../65-libdlmcontrol3_4.0.8-1_armhf.deb ...
+Unpacking libdlmcontrol3:armhf (4.0.8-1) ...
+Selecting previously unselected package libdlmcontrol-dev:armhf.
+Preparing to unpack .../66-libdlmcontrol-dev_4.0.8-1_armhf.deb ...
+Unpacking libdlmcontrol-dev:armhf (4.0.8-1) ...
+Selecting previously unselected package libffi6:armhf.
+Preparing to unpack .../67-libffi6_3.2.1-9_armhf.deb ...
+Unpacking libffi6:armhf (3.2.1-9) ...
+Selecting previously unselected package libffi-dev:armhf.
+Preparing to unpack .../68-libffi-dev_3.2.1-9_armhf.deb ...
+Unpacking libffi-dev:armhf (3.2.1-9) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../69-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../70-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../71-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libmount1:armhf.
+Preparing to unpack .../72-libmount1_2.33.1-0.1_armhf.deb ...
+Unpacking libmount1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../73-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libglib2.0-0:armhf.
+Preparing to unpack .../74-libglib2.0-0_2.58.3-1_armhf.deb ...
+Unpacking libglib2.0-0:armhf (2.58.3-1) ...
+Selecting previously unselected package libglib2.0-data.
+Preparing to unpack .../75-libglib2.0-data_2.58.3-1_all.deb ...
+Unpacking libglib2.0-data (2.58.3-1) ...
+Selecting previously unselected package libglib2.0-bin.
+Preparing to unpack .../76-libglib2.0-bin_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-bin (2.58.3-1) ...
+Selecting previously unselected package python3-lib2to3.
+Preparing to unpack .../77-python3-lib2to3_3.7.2-3_all.deb ...
+Unpacking python3-lib2to3 (3.7.2-3) ...
+Selecting previously unselected package python3-distutils.
+Preparing to unpack .../78-python3-distutils_3.7.2-3_all.deb ...
+Unpacking python3-distutils (3.7.2-3) ...
+Selecting previously unselected package libglib2.0-dev-bin.
+Preparing to unpack .../79-libglib2.0-dev-bin_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-dev-bin (2.58.3-1) ...
+Selecting previously unselected package libmount-dev:armhf.
+Preparing to unpack .../80-libmount-dev_2.33.1-0.1_armhf.deb ...
+Unpacking libmount-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../81-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package zlib1g-dev:armhf.
+Preparing to unpack .../82-zlib1g-dev_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libglib2.0-dev:armhf.
+Preparing to unpack .../83-libglib2.0-dev_2.58.3-1_armhf.deb ...
+Unpacking libglib2.0-dev:armhf (2.58.3-1) ...
+Selecting previously unselected package libicu63:armhf.
+Preparing to unpack .../84-libicu63_63.1-6_armhf.deb ...
+Unpacking libicu63:armhf (63.1-6) ...
+Selecting previously unselected package libicu-dev:armhf.
+Preparing to unpack .../85-libicu-dev_63.1-6_armhf.deb ...
+Unpacking libicu-dev:armhf (63.1-6) ...
+Selecting previously unselected package liblzma5:armhf.
+Preparing to unpack .../86-liblzma5_5.2.4-1_armhf.deb ...
+Unpacking liblzma5:armhf (5.2.4-1) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../87-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../88-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../89-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../90-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses5-dev:armhf.
+Preparing to unpack .../91-libncurses5-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses5-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libreadline7:armhf.
+Preparing to unpack .../92-libreadline7_7.0-5_armhf.deb ...
+Unpacking libreadline7:armhf (7.0-5) ...
+Selecting previously unselected package libreadline-dev:armhf.
+Preparing to unpack .../93-libreadline-dev_7.0-5_armhf.deb ...
+Unpacking libreadline-dev:armhf (7.0-5) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../94-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libxml2:armhf.
+Preparing to unpack .../95-libxml2_2.9.4+dfsg1-7+b3_armhf.deb ...
+Unpacking libxml2:armhf (2.9.4+dfsg1-7+b3) ...
+Selecting previously unselected package libxml2-dev:armhf.
+Preparing to unpack .../96-libxml2-dev_2.9.4+dfsg1-7+b3_armhf.deb ...
+Unpacking libxml2-dev:armhf (2.9.4+dfsg1-7+b3) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../97-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up mime-support (3.62) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up libcorosync-common4:armhf (3.0.1-2) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libglib2.0-data (2.58.3-1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up icu-devtools (63.1-6) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libmpdec2:amd64 (2.4.2-2) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up libpython3.7-stdlib:amd64 (3.7.2-2) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up libglib2.0-bin (2.58.3-1) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up libpython3-stdlib:amd64 (3.7.2-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up python3.7 (3.7.2-2) ...
+Setting up po-debconf (1.0.21) ...
+Setting up python3 (3.7.2-1) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up python3-lib2to3 (3.7.2-3) ...
+Setting up python3-distutils (3.7.2-3) ...
+Setting up libglib2.0-dev-bin (2.58.3-1) ...
+Setting up dh-autoreconf (19) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up libudev1:armhf (241-1) ...
+Setting up libsepol1:armhf (2.8-1) ...
+Setting up libdevmapper1.02.1:amd64 (2:1.02.155-2) ...
+Setting up dmsetup (2:1.02.155-2) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libaio1:armhf (0.3.112-3) ...
+Setting up libbz2-1.0:armhf (1.0.6-9) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libbz2-dev:armhf (1.0.6-9) ...
+Setting up libpcre16-3:armhf (2:8.39-11) ...
+Setting up liblzma5:armhf (5.2.4-1) ...
+Setting up libqb0:armhf (1.0.3-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libsepol1-dev:armhf (2.8-1) ...
+Setting up debhelper (12.1.1) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libffi6:armhf (3.2.1-9) ...
+Setting up libcom-err2:armhf (1.44.5-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libaio-dev:armhf (0.3.112-3) ...
+Setting up libffi-dev:armhf (3.2.1-9) ...
+Setting up libpcre3:armhf (2:8.39-11) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up comerr-dev:armhf (2.1-1.44.5-1) ...
+Setting up libpcre32-3:armhf (2:8.39-11) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libuuid1:armhf (2.33.1-0.1) ...
+Setting up libudev-dev:armhf (241-1) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Setting up libdlm3:armhf (4.0.8-1) ...
+Setting up libdlmcontrol3:armhf (4.0.8-1) ...
+Setting up libblkid1:armhf (2.33.1-0.1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libreadline7:armhf (7.0-5) ...
+Setting up libpcrecpp0v5:armhf (2:8.39-11) ...
+Setting up libqb-dev:armhf (1.0.3-2) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up libcmap4:armhf (3.0.1-2) ...
+Setting up libpcre3-dev:armhf (2:8.39-11) ...
+Setting up libdlmcontrol-dev:armhf (4.0.8-1) ...
+Setting up libdlm-dev:armhf (4.0.8-1) ...
+Setting up libreadline-dev:armhf (7.0-5) ...
+Setting up libicu63:armhf (63.1-6) ...
+Setting up libselinux1:armhf (2.8-1+b1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up uuid-dev:armhf (2.33.1-0.1) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libdevmapper1.02.1:armhf (2:1.02.155-2) ...
+Setting up libmount1:armhf (2.33.1-0.1) ...
+Setting up libcorosync-common-dev:armhf (3.0.1-2) ...
+Setting up libncurses5-dev:armhf (6.1+20181013-2) ...
+Setting up libicu-dev:armhf (63.1-6) ...
+Setting up libxml2:armhf (2.9.4+dfsg1-7+b3) ...
+Setting up libblkid-dev:armhf (2.33.1-0.1) ...
+Setting up libdevmapper-event1.02.1:armhf (2:1.02.155-2) ...
+Setting up libselinux1-dev:armhf (2.8-1+b1) ...
+Setting up libglib2.0-0:armhf (2.58.3-1) ...
+/var/lib/dpkg/info/libglib2.0-0:armhf.postinst: 47: /var/lib/dpkg/info/libglib2.0-0:armhf.postinst: /usr/lib/arm-linux-gnueabihf/glib-2.0/glib-compile-schemas: Exec format error
+/var/lib/dpkg/info/libglib2.0-0:armhf.postinst: 50: /var/lib/dpkg/info/libglib2.0-0:armhf.postinst: /usr/lib/arm-linux-gnueabihf/glib-2.0/gio-querymodules: Exec format error
+Setting up libcmap-dev:armhf (3.0.1-2) ...
+Setting up libxml2-dev:armhf (2.9.4+dfsg1-7+b3) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libdevmapper-dev:armhf (2:1.02.155-2) ...
+Setting up libmount-dev:armhf (2.33.1-0.1) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libglib2.0-dev:armhf (2.58.3-1) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in linux-any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 comerr-dev_2.1-1.44.5-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dmsetup_2:1.02.155-2 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 icu-devtools_63.1-6 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libaio-dev_0.3.112-3 libaio1_0.3.112-3 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid-dev_2.33.1-0.1 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libbz2-dev_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcmap-dev_3.0.1-2 libcmap4_3.0.1-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcorosync-common-dev_3.0.1-2 libcorosync-common4_3.0.1-2 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdevmapper-dev_2:1.02.155-2 libdevmapper-event1.02.1_2:1.02.155-2 libdevmapper1.02.1_2:1.02.155-2 libdlm-dev_4.0.8-1 libdlm3_4.0.8-1 libdlmcontrol-dev_4.0.8-1 libdlmcontrol3_4.0.8-1 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi-dev_3.2.1-9 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libglib2.0-bin_2.58.3-1 libglib2.0-data_2.58.3-1 libglib2.0-dev_2.58.3-1 libglib2.0-dev-bin_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu-dev_63.1-6 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount-dev_2.33.1-0.1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpdec2_2.4.2-2 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses5-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre16-3_2:8.39-11 libpcre3_2:8.39-11 libpcre3-dev_2:8.39-11 libpcre32-3_2:8.39-11 libpcrecpp0v5_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpython3-stdlib_3.7.2-1 libpython3.7-minimal_3.7.2-2 libpython3.7-stdlib_3.7.2-2 libqb-dev_1.0.3-2 libqb0_1.0.3-2 libquadmath0_8.3.0-2 libreadline-dev_7.0-5 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libselinux1-dev_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsepol1-dev_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev-dev_241-1 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libxml2-dev_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mime-support_3.62 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 python3_3.7.2-1 python3-distutils_3.7.2-3 python3-lib2to3_3.7.2-3 python3-minimal_3.7.2-1 python3.7_3.7.2-2 python3.7-minimal_3.7.2-2 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-dev_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1 zlib1g-dev_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: ocfs2-tools
+Binary: ocfs2-tools, ocfs2-tools-dev
+Architecture: linux-any
+Version: 1.8.5-7
+Maintainer: Debian HA Maintainers <debian-ha-maintainers@lists.alioth.debian.org>
+Uploaders: Valentin Vidic <vvidic@debian.org>
+Homepage: https://ocfs2.wiki.kernel.org/
+Standards-Version: 4.2.1
+Vcs-Browser: https://salsa.debian.org/ha-team/ocfs2-tools
+Vcs-Git: https://salsa.debian.org/ha-team/ocfs2-tools.git
+Testsuite: autopkgtest
+Testsuite-Triggers: corosync, dlm-controld
+Build-Depends: debhelper (>= 11), po-debconf, comerr-dev, uuid-dev, libncurses5-dev, libreadline-dev, libglib2.0-dev (>= 2.2.3), libblkid-dev (>= 1.36), libbz2-dev, libdevmapper-dev, libdlm-dev, libdlmcontrol-dev, libxml2-dev, libaio-dev, libcmap-dev
+Package-List:
+ ocfs2-tools deb admin optional arch=linux-any
+ ocfs2-tools-dev deb devel optional arch=linux-any
+Checksums-Sha1:
+ e8970278815f969fa0fa49b05f038efcfbf6f8cc 1484824 ocfs2-tools_1.8.5.orig.tar.gz
+ ea8b09995c8e7bc1f09ae34b7ba33d8db0d29a42 33140 ocfs2-tools_1.8.5-7.debian.tar.xz
+Checksums-Sha256:
+ ccf8bf8a2cccad841a96b41e0a858194ec61e8a765065630595d4218e9008569 1484824 ocfs2-tools_1.8.5.orig.tar.gz
+ 564eaf7836d9103bc46c5bd605809364e1a9e805a840588abdba02c3b317f12c 33140 ocfs2-tools_1.8.5-7.debian.tar.xz
+Files:
+ d6d76da6006e28272a223065a7802798 1484824 ocfs2-tools_1.8.5.orig.tar.gz
+ 0605e328b270473d23142b757ba6fe47 33140 ocfs2-tools_1.8.5-7.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJGBAEBCgAwFiEExaW53cM9k/u2PWfIMofYmpfNqHsFAlwNZ/ASHHZ2aWRpY0Bk
+ZWJpYW4ub3JnAAoJEDKH2JqXzah7EP0P/1jlrhMfsChNeU3uRC8lY6W49YfJGAZJ
+sCIh/crZTCKcCCUl2ucZ1cYB+HrEDDHriFHJwWTvFesiK5xzvvkwmagbeE9LFRsH
+kn+c0sNxqGT7aMqx3CPy1InF88z+0ZeY6i/LLdDdzXDEvaCpGgUHQo2IQ40ypx9M
+hguTUONTs3uxzuMn/EXKs7gAXN/Tr92ihRPOzR8dPo7jniBtBoRejk86F9Cm7zIk
+jwL7EPsKSCOZmnGpplmOaaLVYdR0FKJLlybF7XzG1HwmCljXYjg917gHO7+EY5zN
+1J5aKP79YTh6dMlW6zuc3dNdRMc5gjJnLFzoQvW+B6sOcZs+Ougv9BihEXEgPtz9
+M2AHR4TEHEwGdmYIPJ+HwZh8YAIx4ZQCDWeOJEFGMct47JduMMZmA4eB0tnxG5Vr
+KOhjNJ839b9oYxiwjeY4HRZclA+FDIIQkVRkdMP5lC5hHVQnmHHfsVoV0U9S/2wz
+LIZZtJY7CohgjN3lKwL0Cv1Z71kqfmdydMRFBbwfEcJLnY2zvPsxRi3PvC4x2mcO
+oglI3SDKQ+54CfYn2oYzoElVgx8+yWt1k9YTBkHGIx8tagSzd/F1yexkWFTL8oHK
+b0EMiFC4dnw2E5ewjTPbZjkfxBuVmFZAHOrj3GYsEFLrfm29TRNrt0H/+lGC36a0
+ARyE+AkdNgBi
+=eMTa
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sun Dec  9 19:07:28 2018 UTC
+gpgv:                using RSA key C5A5B9DDC33D93FBB63D67C83287D89A97CDA87B
+gpgv:                issuer "vvidic@debian.org"
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./ocfs2-tools_1.8.5-7.dsc
+dpkg-source: info: extracting ocfs2-tools in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking ocfs2-tools_1.8.5.orig.tar.gz
+dpkg-source: info: unpacking ocfs2-tools_1.8.5-7.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying libo2dlm-dlopen-libdlm_lt.patch
+dpkg-source: info: applying dead_threshold.patch
+dpkg-source: info: applying systemd-service.patch
+dpkg-source: info: applying parallel-build.patch
+dpkg-source: info: applying gcc-warnings.patch
+dpkg-source: info: applying register_printf_specifier.patch
+dpkg-source: info: applying fortify-source.patch
+dpkg-source: info: applying glibc-2.26.patch
+dpkg-source: info: applying makedev.patch
+dpkg-source: info: applying spelling.patch
+dpkg-source: info: applying o2cb-stop-error.patch
+dpkg-source: info: applying glibc-2.28.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-95d36693-e015-4b0a-beee-551c6f224031
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package ocfs2-tools
+dpkg-buildpackage: info: source version 1.8.5-7
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Valentin Vidic <vvidic@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean
+   dh_auto_clean
+	make -j16 distclean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+make -C include clean
+make -C libtools-internal clean
+make -C libo2dlm clean
+make -C libo2cb clean
+make -C libocfs2 clean
+make -C fsck.ocfs2 clean
+make -C mkfs.ocfs2 clean
+make -C mounted.ocfs2 clean
+make -C tunefs.ocfs2 clean
+make -C debugfs.ocfs2 clean
+make -C o2cb_ctl clean
+make -C ocfs2_hb_ctl clean
+make -C mount.ocfs2 clean
+make -C ocfs2_controld clean
+make -C o2image clean
+make -C o2info clean
+make[2]: Entering directory '/<<PKGBUILDDIR>>/include'
+make -C tools-internal clean
+make[2]: Entering directory '/<<PKGBUILDDIR>>/libtools-internal'
+rm -f *.o *.p .*.d core     libtools-internal.a   stamp-md5
+make[2]: Entering directory '/<<PKGBUILDDIR>>/libo2cb'
+rm -f o2cb_err.c o2cb_err.h
+make[2]: Entering directory '/<<PKGBUILDDIR>>/libo2dlm'
+rm -f libdlm.h
+make[2]: Entering directory '/<<PKGBUILDDIR>>/mounted.ocfs2'
+rm -f *.o *.p .*.d core  mounted.ocfs2      stamp-md5
+make[2]: Entering directory '/<<PKGBUILDDIR>>/ocfs2_hb_ctl'
+rm -f *.o *.p .*.d core  ocfs2_hb_ctl      stamp-md5
+rm -f *.o *.p .*.d core   libo2cb.a     stamp-md5
+rm -f o2dlm_err.c o2dlm_err.h
+rm -f o2dlm_test
+make[2]: Entering directory '/<<PKGBUILDDIR>>/mount.ocfs2'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/libocfs2'
+rm -f ocfs2_err.c ocfs2_err.h
+rm -f *.o *.p .*.d core  mount.ocfs2      stamp-md5
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/libtools-internal'
+make -C o2monitor clean
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/ocfs2_hb_ctl'
+make -C extras clean
+rm -f *.o *.p .*.d core   libo2dlm.a     stamp-md5
+make[2]: Entering directory '/<<PKGBUILDDIR>>/fsck.ocfs2'
+rm -f prompt-codes.h
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/mounted.ocfs2'
+make -C ocfs2-kernel clean
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debugfs.ocfs2'
+rm -f *.o *.p .*.d core  debugfs.ocfs2      stamp-md5
+rm -f *.o *.p .*.d core   libocfs2.a     stamp-md5
+make[2]: Entering directory '/<<PKGBUILDDIR>>/mkfs.ocfs2'
+rm -f *.o *.p .*.d core  mkfs.ocfs2      stamp-md5
+rm -f *.o *.p .*.d core  fsck.ocfs2      stamp-md5
+make[3]: Entering directory '/<<PKGBUILDDIR>>/include/tools-internal'
+rm -f *.o *.p .*.d core        stamp-md5
+make[2]: Entering directory '/<<PKGBUILDDIR>>/ocfs2_controld'
+rm -f *.o *.p .*.d core        stamp-md5
+make[2]: Entering directory '/<<PKGBUILDDIR>>/o2info'
+rm -f *.o *.p .*.d core o2info       stamp-md5
+make[2]: Entering directory '/<<PKGBUILDDIR>>/o2image'
+rm -f *.o *.p .*.d core  o2image      stamp-md5
+make[2]: Entering directory '/<<PKGBUILDDIR>>/tunefs.ocfs2'
+rm -f o2ne_err.c o2ne_err.h
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/libo2cb'
+make -C o2dlm clean
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/mount.ocfs2'
+make -C o2cb clean
+rm -f ocfs2ne
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/libo2dlm'
+make -C fswreck clean
+make[2]: Entering directory '/<<PKGBUILDDIR>>/o2cb_ctl'
+rm -f *.o *.p .*.d core  o2cb_ctl o2cb      stamp-md5
+make[2]: Entering directory '/<<PKGBUILDDIR>>/o2monitor'
+rm -f *.o *.p .*.d core      o2hbmonitor  stamp-md5
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/libocfs2'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/include/ocfs2-kernel'
+rm -f *.o *.p .*.d core        stamp-md5
+make[2]: Entering directory '/<<PKGBUILDDIR>>/extras'
+rm -f *.o *.p .*.d core    find_hardlinks find_dup_extents find_inode_paths set_random_bits decode_lockres encode_lockres mark_journal_dirty find_allocation_fragments compute_groups check_metaecc resize_slotmap    stamp-md5
+make -C ocfs2 clean
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/fsck.ocfs2'
+make -C patches clean
+make[3]: Entering directory '/<<PKGBUILDDIR>>/include/o2dlm'
+rm -f o2dlm_err.h
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debugfs.ocfs2'
+make -C vendor clean
+rm -f *.o *.p .*.d core  tunefs.ocfs2 o2cluster   libocfs2ne.a   stamp-md5
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/o2image'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/include/o2cb'
+rm -f o2cb_err.h
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/ocfs2_controld'
+rm -f *.o *.p .*.d core        stamp-md5
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/include/ocfs2-kernel'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/mkfs.ocfs2'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/o2info'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/include/tools-internal'
+rm -f *.o *.p .*.d core        stamp-md5
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/o2monitor'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/tunefs.ocfs2'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/fswreck'
+rm -f *.o *.p .*.d core    fswreck    stamp-md5
+make[2]: Entering directory '/<<PKGBUILDDIR>>/vendor'
+make -C common clean
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/o2cb_ctl'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/include/ocfs2'
+rm -f ocfs2_err.h
+make -C rhel7 clean
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/extras'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/patches'
+rm -f *.o *.p .*.d core        stamp-md5
+make -C rhel6 clean
+make -C rhel5 clean
+make -C sles10 clean
+make -C rhel4 clean
+make -C sles9 clean
+make -C fc7 clean
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/include/o2cb'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/include/o2dlm'
+rm -f *.o *.p .*.d core        stamp-md5
+make -C fc8 clean
+make -C fc9 clean
+make[3]: Entering directory '/<<PKGBUILDDIR>>/vendor/sles10'
+rm -f *.o *.p .*.d core        stamp-md5
+make[3]: Entering directory '/<<PKGBUILDDIR>>/vendor/common'
+rm -f *.o *.p .*.d core        stamp-md5
+make[3]: Entering directory '/<<PKGBUILDDIR>>/vendor/rhel6'
+rm -f *.o *.p .*.d core        stamp-md5
+make[3]: Entering directory '/<<PKGBUILDDIR>>/vendor/rhel5'
+rm -f *.o *.p .*.d core        stamp-md5
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/fswreck'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/vendor/rhel7'
+rm -f *.o *.p .*.d core        stamp-md5
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/patches'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/include/ocfs2'
+rm -f *.o *.p .*.d core        stamp-md5
+make[3]: Entering directory '/<<PKGBUILDDIR>>/vendor/rhel4'
+rm -f *.o *.p .*.d core        stamp-md5
+make[3]: Entering directory '/<<PKGBUILDDIR>>/vendor/fc7'
+rm -f *.o *.p .*.d core        stamp-md5
+make[3]: Entering directory '/<<PKGBUILDDIR>>/vendor/sles9'
+rm -f *.o *.p .*.d core        stamp-md5
+make[3]: Entering directory '/<<PKGBUILDDIR>>/vendor/fc8'
+rm -f *.o *.p .*.d core        stamp-md5
+make[3]: Entering directory '/<<PKGBUILDDIR>>/vendor/fc9'
+rm -f *.o *.p .*.d core        stamp-md5
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/vendor/common'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/vendor/rhel5'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/vendor/rhel7'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/vendor/rhel6'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/include'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/vendor/sles10'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/vendor/sles9'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/vendor/rhel4'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/vendor/fc8'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/vendor/fc9'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/vendor/fc7'
+rm -f *.o *.p .*.d core        stamp-md5
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/vendor'
+rm -f *.o *.p .*.d core        stamp-md5
+rm -f Config.make config.status config.cache config.log o2cb.pc o2dlm.pc ocfs2.pc
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+   dh_auto_configure -a
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode, --disable-dependency-tracking
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for debugging... skipped, CFLAGS is set
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for ar... /usr/bin/ar
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for an ANSI C-conforming const... yes
+checking for vendor... not found
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking for com_err... checking for com_err in -lcom_err... yes
+checking et/com_err.h usability... yes
+checking et/com_err.h presence... yes
+checking for et/com_err.h... yes
+checking for uuid_unparse in -luuid... yes
+checking uuid/uuid.h usability... yes
+checking uuid/uuid.h presence... yes
+checking for uuid/uuid.h... yes
+checking for io_setup in -laio... yes
+checking libaio.h usability... yes
+checking libaio.h presence... yes
+checking for libaio.h... yes
+checking for tgetstr in -lncurses... yes
+checking for readline in -lreadline... yes
+checking readline/readline.h usability... yes
+checking readline/readline.h presence... yes
+checking for readline/readline.h... yes
+checking for debug executables... no
+checking for pkg-config... (cached) /usr/bin/pkg-config
+checking for GLIB - version >= 2.2.3... Package glib-2.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `glib-2.0.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'glib-2.0' found
+no
+*** Could not run GLIB test program, checking why...
+*** The test program failed to compile or link. See the file config.log for the
+*** exact error that occured. This usually means GLIB is incorrectly installed.
+configure: error: GLib 2.2.3 or better is required
+	tail -v -n \+0 config.log
+==> config.log <==
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+It was created by configure, which was
+generated by GNU Autoconf 2.69.  Invocation command line was
+
+  $ ./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=${prefix}/include --mandir=${prefix}/share/man --infodir=${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=${prefix}/lib/arm-linux-gnueabihf --libexecdir=${prefix}/lib/arm-linux-gnueabihf --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf
+
+## --------- ##
+## Platform. ##
+## --------- ##
+
+hostname = 36857dea695f
+uname -m = x86_64
+uname -r = 3.16.0-4-amd64
+uname -s = Linux
+uname -v = #1 SMP Debian 3.16.51-3 (2017-12-13)
+
+/usr/bin/uname -p = unknown
+/bin/uname -X     = unknown
+
+/bin/arch              = unknown
+/usr/bin/arch -k       = unknown
+/usr/convex/getsysinfo = unknown
+/usr/bin/hostinfo      = unknown
+/bin/machine           = unknown
+/usr/bin/oslevel       = unknown
+/bin/universe          = unknown
+
+PATH: /usr/lib/ccache
+PATH: /usr/local/sbin
+PATH: /usr/local/bin
+PATH: /usr/sbin
+PATH: /usr/bin
+PATH: /sbin
+PATH: /bin
+PATH: /usr/games
+
+
+## ----------- ##
+## Core tests. ##
+## ----------- ##
+
+configure:2202: loading site script /etc/dpkg-cross/cross-config.armhf
+| # read in package-specific and global values.
+| . `dirname $ac_site_file`/cross-config.cache
+| # now ensure the real architecture-dependent values take priority
+| ac_cv_c_bigendian=no
+| ac_cv_c_char_unsigned=yes
+| ac_cv_sizeof_long_long=8
+| ac_cv_sizeof_unsigned_long_long=8
+| ac_cv_sizeof_long=4
+| ac_cv_sizeof_unsigned_long=4
+| ac_cv_sizeof_int=4
+| ac_cv_sizeof_unsigned_int=4
+| ac_cv_sizeof_short=2
+| ac_cv_sizeof_unsigned_short=2
+| ac_cv_sizeof_char=1
+| ac_cv_sizeof_unsigned_char=1
+| ac_cv_sizeof_signed_char=1
+| ac_cv_sizeof_float=4
+| ac_cv_sizeof_double=8
+| ac_cv_sizeof_long_double=8
+| ac_cv_sizeof_void_p=4
+| ac_cv_sizeof_char_p=4
+| 
+| path=`dirname $ac_site_file`
+| # now allow package-specific architecture-independent values to be set
+| if [ -d $path/cross-config.d/armhf/ ]; then
+| for file in `ls $path/cross-config.d/armhf/`; do
+| 	if [ "$file" = "$PACKAGE" -o "$file" = "$PACKAGE_NAME" ]; then
+| 		[ -d $path/cross-config.d/armhf/$file ] || . $path/cross-config.d/armhf/$file
+| 		HAVE_PKG_CACHE=1
+| 	fi
+| done
+| fi
+| 
+| if [ -z "$HAVE_PKG_CACHE" ]; then
+| 	# orbit2 - only needed until liborbit-dev provides these directly
+| 	# using the mechanism above.
+| 	if [ "$PACKAGE" = "orbit2" -o "$PACKAGE_NAME" = "ORBit2" ]; then
+| 		ac_cv_alignof_CORBA_octet=1
+| 		ac_cv_alignof_CORBA_boolean=1
+| 		ac_cv_alignof_CORBA_char=1
+| 		ac_cv_alignof_CORBA_wchar=2
+| 		ac_cv_alignof_CORBA_short=2
+| 		ac_cv_alignof_CORBA_long=4
+| 		ac_cv_alignof_CORBA_long_long=8
+| 		ac_cv_alignof_CORBA_float=4
+| 		ac_cv_alignof_CORBA_double=4
+| 		ac_cv_alignof_CORBA_long_double=8
+| 		ac_cv_alignof_CORBA_struct=1
+| 		ac_cv_alignof_CORBA_pointer=4
+| 	fi
+| fi
+configure:2357: checking build system type
+configure:2371: result: x86_64-pc-linux-gnu
+configure:2391: checking host system type
+configure:2404: result: arm-unknown-linux-gnueabihf
+configure:2438: checking for debugging
+configure:2457: result: skipped, CFLAGS is set
+configure:2470: checking for arm-linux-gnueabihf-gcc
+configure:2486: found /usr/lib/ccache/arm-linux-gnueabihf-gcc
+configure:2497: result: arm-linux-gnueabihf-gcc
+configure:2766: checking for C compiler version
+configure:2775: arm-linux-gnueabihf-gcc --version >&5
+arm-linux-gnueabihf-gcc (Debian 8.2.0-20) 8.2.0
+Copyright (C) 2018 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:2786: $? = 0
+configure:2775: arm-linux-gnueabihf-gcc -v >&5
+Using built-in specs.
+COLLECT_GCC=/usr/bin/arm-linux-gnueabihf-gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/arm-linux-gnueabihf/8/lto-wrapper
+Target: arm-linux-gnueabihf
+Configured with: ../src/configure -v --with-pkgversion='Debian 8.2.0-20' --with-bugurl=file:///usr/share/doc/gcc-8/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-multiarch --disable-sjlj-exceptions --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=arm-linux-gnueabihf --program-prefix=arm-linux-gnueabihf- --includedir=/usr/arm-linux-gnueabihf/include
+Thread model: posix
+gcc version 8.2.0 (Debian 8.2.0-20) 
+configure:2786: $? = 0
+configure:2775: arm-linux-gnueabihf-gcc -V >&5
+arm-linux-gnueabihf-gcc: error: unrecognized command line option '-V'
+arm-linux-gnueabihf-gcc: fatal error: no input files
+compilation terminated.
+configure:2786: $? = 1
+configure:2775: arm-linux-gnueabihf-gcc -qversion >&5
+arm-linux-gnueabihf-gcc: error: unrecognized command line option '-qversion'; did you mean '--version'?
+arm-linux-gnueabihf-gcc: fatal error: no input files
+compilation terminated.
+configure:2786: $? = 1
+configure:2806: checking whether the C compiler works
+configure:2828: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c  >&5
+configure:2832: $? = 0
+configure:2880: result: yes
+configure:2883: checking for C compiler default output file name
+configure:2885: result: a.out
+configure:2891: checking for suffix of executables
+configure:2898: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c  >&5
+configure:2902: $? = 0
+configure:2924: result: 
+configure:2946: checking whether we are cross compiling
+configure:2984: result: yes
+configure:2989: checking for suffix of object files
+configure:3011: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3015: $? = 0
+configure:3036: result: o
+configure:3040: checking whether we are using the GNU C compiler
+configure:3059: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3059: $? = 0
+configure:3068: result: yes
+configure:3077: checking whether arm-linux-gnueabihf-gcc accepts -g
+configure:3097: arm-linux-gnueabihf-gcc -c -g -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3097: $? = 0
+configure:3138: result: yes
+configure:3155: checking for arm-linux-gnueabihf-gcc option to accept ISO C89
+configure:3218: arm-linux-gnueabihf-gcc  -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3218: $? = 0
+configure:3231: result: none needed
+configure:3256: checking how to run the C preprocessor
+configure:3287: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:3287: $? = 0
+configure:3301: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+conftest.c:9:10: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:3301: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:3326: result: arm-linux-gnueabihf-gcc -E
+configure:3346: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:3346: $? = 0
+configure:3360: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+conftest.c:9:10: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:3360: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:3411: checking for a BSD-compatible install
+configure:3479: result: /usr/bin/install -c
+configure:3490: checking whether ln -s works
+configure:3494: result: yes
+configure:3504: checking for arm-linux-gnueabihf-ranlib
+configure:3520: found /usr/bin/arm-linux-gnueabihf-ranlib
+configure:3531: result: arm-linux-gnueabihf-ranlib
+configure:3596: checking for ar
+configure:3614: found /usr/bin/ar
+configure:3626: result: /usr/bin/ar
+configure:3637: checking for grep that handles long lines and -e
+configure:3695: result: /bin/grep
+configure:3700: checking for egrep
+configure:3762: result: /bin/grep -E
+configure:3767: checking for ANSI C header files
+configure:3787: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3787: $? = 0
+configure:3871: result: yes
+configure:3879: checking for an ANSI C-conforming const
+configure:3945: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3945: $? = 0
+configure:3952: result: yes
+configure:3961: checking for vendor
+configure:3987: result: not found
+configure:4030: checking for sys/types.h
+configure:4030: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4030: $? = 0
+configure:4030: result: yes
+configure:4030: checking for sys/stat.h
+configure:4030: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4030: $? = 0
+configure:4030: result: yes
+configure:4030: checking for stdlib.h
+configure:4030: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4030: $? = 0
+configure:4030: result: yes
+configure:4030: checking for string.h
+configure:4030: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4030: $? = 0
+configure:4030: result: yes
+configure:4030: checking for memory.h
+configure:4030: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4030: $? = 0
+configure:4030: result: yes
+configure:4030: checking for strings.h
+configure:4030: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4030: $? = 0
+configure:4030: result: yes
+configure:4030: checking for inttypes.h
+configure:4030: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4030: $? = 0
+configure:4030: result: yes
+configure:4030: checking for stdint.h
+configure:4030: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4030: $? = 0
+configure:4030: result: yes
+configure:4030: checking for unistd.h
+configure:4030: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4030: $? = 0
+configure:4030: result: yes
+configure:4048: checking for pkg-config
+configure:4066: found /usr/bin/pkg-config
+configure:4079: result: /usr/bin/pkg-config
+configure:4097: checking for com_err
+configure:4137: checking for com_err in -lcom_err
+configure:4162: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c -lcom_err   >&5
+configure:4162: $? = 0
+configure:4171: result: yes
+configure:4180: checking et/com_err.h usability
+configure:4180: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4180: $? = 0
+configure:4180: result: yes
+configure:4180: checking et/com_err.h presence
+configure:4180: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4180: $? = 0
+configure:4180: result: yes
+configure:4180: checking for et/com_err.h
+configure:4180: result: yes
+configure:4194: checking for uuid_unparse in -luuid
+configure:4219: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c -luuid   >&5
+configure:4219: $? = 0
+configure:4228: result: yes
+configure:4237: checking uuid/uuid.h usability
+configure:4237: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4237: $? = 0
+configure:4237: result: yes
+configure:4237: checking uuid/uuid.h presence
+configure:4237: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4237: $? = 0
+configure:4237: result: yes
+configure:4237: checking for uuid/uuid.h
+configure:4237: result: yes
+configure:4248: checking for io_setup in -laio
+configure:4273: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c -laio   >&5
+configure:4273: $? = 0
+configure:4282: result: yes
+configure:4291: checking libaio.h usability
+configure:4291: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4291: $? = 0
+configure:4291: result: yes
+configure:4291: checking libaio.h presence
+configure:4291: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4291: $? = 0
+configure:4291: result: yes
+configure:4291: checking for libaio.h
+configure:4291: result: yes
+configure:4302: checking for tgetstr in -lncurses
+configure:4327: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c -lncurses   >&5
+configure:4327: $? = 0
+configure:4336: result: yes
+configure:4350: checking for readline in -lreadline
+configure:4375: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -lncurses conftest.c -lreadline   >&5
+configure:4375: $? = 0
+configure:4384: result: yes
+configure:4393: checking readline/readline.h usability
+configure:4393: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4393: $? = 0
+configure:4393: result: yes
+configure:4393: checking readline/readline.h presence
+configure:4393: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4393: $? = 0
+configure:4393: result: yes
+configure:4393: checking for readline/readline.h
+configure:4393: result: yes
+configure:4404: checking for debug executables
+configure:4418: result: no
+configure:4452: checking for pkg-config
+configure:4483: result: /usr/bin/pkg-config
+configure:4507: checking for GLIB - version >= 2.2.3
+configure:4639: result: no
+configure:4667: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong  -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c   >&5
+conftest.c:20:10: fatal error: glib.h: No such file or directory
+ #include <glib.h>
+          ^~~~~~~~
+compilation terminated.
+configure:4667: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME ""
+| #define PACKAGE_TARNAME ""
+| #define PACKAGE_VERSION ""
+| #define PACKAGE_STRING ""
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| /* end confdefs.h.  */
+| 
+| #include <glib.h>
+| #include <stdio.h>
+| 
+| int
+| main ()
+| {
+|  return ((glib_major_version) || (glib_minor_version) || (glib_micro_version));
+|   ;
+|   return 0;
+| }
+configure:4692: error: GLib 2.2.3 or better is required
+
+## ---------------- ##
+## Cache variables. ##
+## ---------------- ##
+
+ac_cv_build=x86_64-pc-linux-gnu
+ac_cv_c_bigendian=no
+ac_cv_c_char_unsigned=yes
+ac_cv_c_compiler_gnu=yes
+ac_cv_c_const=yes
+ac_cv_env_CC_set=
+ac_cv_env_CC_value=
+ac_cv_env_CFLAGS_set=set
+ac_cv_env_CFLAGS_value='-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong'
+ac_cv_env_CPPFLAGS_set=set
+ac_cv_env_CPPFLAGS_value='-Wdate-time -D_FORTIFY_SOURCE=2'
+ac_cv_env_CPP_set=
+ac_cv_env_CPP_value=
+ac_cv_env_LDFLAGS_set=set
+ac_cv_env_LDFLAGS_value='-Wl,-z,relro -Wl,-z,now'
+ac_cv_env_LIBS_set=
+ac_cv_env_LIBS_value=
+ac_cv_env_build_alias_set=set
+ac_cv_env_build_alias_value=x86_64-linux-gnu
+ac_cv_env_host_alias_set=set
+ac_cv_env_host_alias_value=arm-linux-gnueabihf
+ac_cv_env_target_alias_set=
+ac_cv_env_target_alias_value=
+ac_cv_func_malloc_0_nonnull=yes
+ac_cv_func_realloc_0_nonnull=yes
+ac_cv_func_setpgrp_void=yes
+ac_cv_header_et_com_err_h=yes
+ac_cv_header_inttypes_h=yes
+ac_cv_header_libaio_h=yes
+ac_cv_header_memory_h=yes
+ac_cv_header_readline_readline_h=yes
+ac_cv_header_stdc=yes
+ac_cv_header_stdint_h=yes
+ac_cv_header_stdlib_h=yes
+ac_cv_header_string_h=yes
+ac_cv_header_strings_h=yes
+ac_cv_header_sys_stat_h=yes
+ac_cv_header_sys_types_h=yes
+ac_cv_header_unistd_h=yes
+ac_cv_header_uuid_uuid_h=yes
+ac_cv_host=arm-unknown-linux-gnueabihf
+ac_cv_lib_aio_io_setup=yes
+ac_cv_lib_com_err_com_err=yes
+ac_cv_lib_ncurses_tgetstr=yes
+ac_cv_lib_readline_readline=yes
+ac_cv_lib_uuid_uuid_unparse=yes
+ac_cv_objext=o
+ac_cv_path_AR=/usr/bin/ar
+ac_cv_path_EGREP='/bin/grep -E'
+ac_cv_path_GREP=/bin/grep
+ac_cv_path_PKG_CONFIG=/usr/bin/pkg-config
+ac_cv_path_install='/usr/bin/install -c'
+ac_cv_prog_CC=arm-linux-gnueabihf-gcc
+ac_cv_prog_CPP='arm-linux-gnueabihf-gcc -E'
+ac_cv_prog_RANLIB=arm-linux-gnueabihf-ranlib
+ac_cv_prog_cc_c89=
+ac_cv_prog_cc_g=yes
+ac_cv_sizeof_char=1
+ac_cv_sizeof_char_p=4
+ac_cv_sizeof_double=8
+ac_cv_sizeof_float=4
+ac_cv_sizeof_int=4
+ac_cv_sizeof_long=4
+ac_cv_sizeof_long_double=8
+ac_cv_sizeof_long_long=8
+ac_cv_sizeof_short=2
+ac_cv_sizeof_signed_char=1
+ac_cv_sizeof_unsigned_char=1
+ac_cv_sizeof_unsigned_int=4
+ac_cv_sizeof_unsigned_long=4
+ac_cv_sizeof_unsigned_long_long=8
+ac_cv_sizeof_unsigned_short=2
+ac_cv_sizeof_void_p=4
+lt_cv_sys_lib_dlsearch_path_spec=' /lib/arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf /lib /usr/lib /usr/local/lib'
+
+## ----------------- ##
+## Output variables. ##
+## ----------------- ##
+
+AIO_LIBS='-laio'
+AIS_LDFLAGS=''
+AR='/usr/bin/ar'
+BLKID_CFLAGS=''
+BLKID_LIBS=''
+BUILD_CMAN_SUPPORT=''
+BUILD_CMAP_SUPPORT=''
+BUILD_DEBUGOCFS2=''
+BUILD_FSDLM_SUPPORT=''
+BUILD_OCFS2CONSOLE=''
+BUILD_OCFS2_CONTROLD=''
+BUILD_PCMK_SUPPORT=''
+CC='arm-linux-gnueabihf-gcc'
+CFLAGS='-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong'
+COM_ERR_CFLAGS=''
+COM_ERR_LIBS='-lcom_err'
+CPG_LDFLAGS=''
+CPP='arm-linux-gnueabihf-gcc -E'
+CPPFLAGS='-Wdate-time -D_FORTIFY_SOURCE=2'
+DEFS=''
+DIST_VERSION='1.8.5'
+DL_LIBS=''
+ECHO_C=''
+ECHO_N='-n'
+ECHO_T=''
+EGREP='/bin/grep -E'
+EXEEXT=''
+EXTRA_VERSION=''
+GLIB_CFLAGS=''
+GLIB_GENMARSHAL=''
+GLIB_LIBS=''
+GLIB_MKENUMS=''
+GOBJECT_QUERY=''
+GREP='/bin/grep'
+HAVE_BLKID=''
+HAVE_COROSYNC=''
+INSTALL_DATA='${INSTALL} -m 644'
+INSTALL_PROGRAM='${INSTALL}'
+INSTALL_SCRIPT='${INSTALL}'
+LDFLAGS='-Wl,-z,relro -Wl,-z,now'
+LIBCMAP_FOUND=''
+LIBDLM_FOUND=''
+LIBOBJS=''
+LIBS=''
+LN_S='ln -s'
+LTLIBOBJS=''
+MAJOR_VERSION='1'
+MICRO_VERSION='5'
+MINOR_VERSION='8'
+NCURSES_LIBS='-lncurses'
+OBJEXT='o'
+OCFS2_DEBUG=''
+OCFS2_DEBUG_EXE=''
+OCFS2_DYNAMIC_CTL=''
+OCFS2_DYNAMIC_FSCK=''
+PACKAGE='ocfs2-tools'
+PACKAGE_BUGREPORT=''
+PACKAGE_NAME=''
+PACKAGE_STRING=''
+PACKAGE_TARNAME=''
+PACKAGE_URL=''
+PACKAGE_VERSION=''
+PATH_SEPARATOR=':'
+PKG_CONFIG='/usr/bin/pkg-config'
+PYTHON=''
+PYTHON_EXEC_PREFIX=''
+PYTHON_INCLUDES=''
+PYTHON_PLATFORM=''
+PYTHON_PREFIX=''
+PYTHON_VERSION=''
+RANLIB='arm-linux-gnueabihf-ranlib'
+READLINE_LIBS='-lreadline'
+SHELL='/bin/bash'
+UUID_LIBS='-luuid'
+VENDOR=''
+VERSION='1.8.5'
+ac_ct_CC=''
+bindir='${exec_prefix}/bin'
+build='x86_64-pc-linux-gnu'
+build_alias='x86_64-linux-gnu'
+build_cpu='x86_64'
+build_os='linux-gnu'
+build_vendor='pc'
+datadir='${datarootdir}'
+datarootdir='${prefix}/share'
+docdir='${datarootdir}/doc/${PACKAGE}'
+dvidir='${docdir}'
+exec_prefix='NONE'
+host='arm-unknown-linux-gnueabihf'
+host_alias='arm-linux-gnueabihf'
+host_cpu='arm'
+host_os='linux-gnueabihf'
+host_vendor='unknown'
+htmldir='${docdir}'
+includedir='${prefix}/include'
+infodir='${prefix}/share/info'
+libdir='${prefix}/lib/arm-linux-gnueabihf'
+libexecdir='${prefix}/lib/arm-linux-gnueabihf'
+localedir='${datarootdir}/locale'
+localstatedir='/var'
+mandir='${prefix}/share/man'
+oldincludedir='/usr/include'
+pdfdir='${docdir}'
+pkgpyexecdir=''
+pkgpythondir=''
+prefix='/usr'
+program_transform_name='s,x,x,'
+psdir='${docdir}'
+pyexecdir=''
+pythondir=''
+root_bindir='${root_prefix}/bin'
+root_prefix=''
+root_sbindir='${root_prefix}/sbin'
+root_sysconfdir='${root_prefix}/etc'
+runstatedir='/run'
+sbindir='${exec_prefix}/sbin'
+sharedstatedir='${prefix}/com'
+sysconfdir='/etc'
+target_alias=''
+
+## ----------- ##
+## confdefs.h. ##
+## ----------- ##
+
+/* confdefs.h */
+#define PACKAGE_NAME ""
+#define PACKAGE_TARNAME ""
+#define PACKAGE_VERSION ""
+#define PACKAGE_STRING ""
+#define PACKAGE_BUGREPORT ""
+#define PACKAGE_URL ""
+#define STDC_HEADERS 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_SYS_STAT_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRING_H 1
+#define HAVE_MEMORY_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_STDINT_H 1
+#define HAVE_UNISTD_H 1
+
+configure: exit 1
+dh_auto_configure: ./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf returned exit code 1
+make: *** [debian/rules:7: build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-03-06T02:20:52Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils*
+  comerr-dev:armhf* debhelper* dh-autoreconf* dh-strip-nondeterminism*
+  dmsetup* dwz* gcc-8-base:armhf* gettext* gettext-base* groff-base*
+  icu-devtools* intltool-debian* libaio-dev:armhf* libaio1:armhf*
+  libarchive-zip-perl* libasan5:armhf* libatomic1:armhf* libblkid-dev:armhf*
+  libblkid1:armhf* libbsd0* libbz2-1.0:armhf* libbz2-dev:armhf* libc6:armhf*
+  libc6-dev:armhf* libcmap-dev:armhf* libcmap4:armhf* libcom-err2:armhf*
+  libcorosync-common-dev:armhf* libcorosync-common4:armhf* libcroco3*
+  libdevmapper-dev:armhf* libdevmapper-event1.02.1:armhf* libdevmapper1.02.1*
+  libdevmapper1.02.1:armhf* libdlm-dev:armhf* libdlm3:armhf*
+  libdlmcontrol-dev:armhf* libdlmcontrol3:armhf* libelf1* libffi-dev:armhf*
+  libffi6:armhf* libfile-stripnondeterminism-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libglib2.0-0* libglib2.0-0:armhf* libglib2.0-bin*
+  libglib2.0-data* libglib2.0-dev:armhf* libglib2.0-dev-bin* libgomp1:armhf*
+  libicu-dev:armhf* libicu63:armhf* liblzma5:armhf* libmount-dev:armhf*
+  libmount1:armhf* libmpdec2* libncurses-dev:armhf* libncurses5-dev:armhf*
+  libncurses6* libncurses6:armhf* libncursesw6:armhf* libpcre16-3:armhf*
+  libpcre3:armhf* libpcre3-dev:armhf* libpcre32-3:armhf* libpcrecpp0v5:armhf*
+  libpipeline1* libpython3-stdlib* libpython3.7-minimal* libpython3.7-stdlib*
+  libqb-dev:armhf* libqb0:armhf* libreadline-dev:armhf* libreadline7:armhf*
+  libselinux1:armhf* libselinux1-dev:armhf* libsepol1:armhf*
+  libsepol1-dev:armhf* libsigsegv2* libstdc++-8-dev:armhf* libstdc++6:armhf*
+  libtinfo6:armhf* libtool* libubsan1:armhf* libuchardet0* libudev-dev:armhf*
+  libudev1:armhf* libuuid1:armhf* libxml2:armhf* libxml2-dev:armhf*
+  linux-libc-dev:armhf* m4* man-db* mime-support* pkg-config* po-debconf*
+  python3* python3-distutils* python3-lib2to3* python3-minimal* python3.7*
+  python3.7-minimal* sbuild-build-depends-main-dummy:armhf* uuid-dev:armhf*
+  zlib1g:armhf* zlib1g-dev:armhf*
+0 upgraded, 0 newly installed, 112 to remove and 0 not upgraded.
+After this operation, 213 MB disk space will be freed.
+(Reading database ... 21845 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing comerr-dev:armhf (2.1-1.44.5-1) ...
+Removing libdevmapper-dev:armhf (2:1.02.155-2) ...
+Removing libdevmapper-event1.02.1:armhf (2:1.02.155-2) ...
+Removing libdevmapper1.02.1:armhf (2:1.02.155-2) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libglib2.0-dev:armhf (2.58.3-1) ...
+Removing libselinux1-dev:armhf (2.8-1+b1) ...
+Removing libpcre3-dev:armhf (2:8.39-11) ...
+Removing libpcrecpp0v5:armhf (2:8.39-11) ...
+Removing libxml2-dev:armhf (2.9.4+dfsg1-7+b3) ...
+Removing libicu-dev:armhf (63.1-6) ...
+Removing icu-devtools (63.1-6) ...
+Removing libaio-dev:armhf (0.3.112-3) ...
+Removing libaio1:armhf (0.3.112-3) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libmount-dev:armhf (2.33.1-0.1) ...
+Removing libblkid-dev:armhf (2.33.1-0.1) ...
+Removing libglib2.0-0:armhf (2.58.3-1) ...
+Removing libmount1:armhf (2.33.1-0.1) ...
+Removing libblkid1:armhf (2.33.1-0.1) ...
+Removing libbz2-dev:armhf (1.0.6-9) ...
+Removing libbz2-1.0:armhf (1.0.6-9) ...
+Removing zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Removing libxml2:armhf (2.9.4+dfsg1-7+b3) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing liblzma5:armhf (5.2.4-1) ...
+Removing uuid-dev:armhf (2.33.1-0.1) ...
+Removing libreadline-dev:armhf (7.0-5) ...
+Removing libncurses5-dev:armhf (6.1+20181013-2) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcmap-dev:armhf (3.0.1-2) ...
+Removing libcmap4:armhf (3.0.1-2) ...
+Removing libcom-err2:armhf (1.44.5-1) ...
+Removing libcorosync-common-dev:armhf (3.0.1-2) ...
+Removing libcorosync-common4:armhf (3.0.1-2) ...
+Removing libdlm-dev:armhf (4.0.8-1) ...
+Removing libdlm3:armhf (4.0.8-1) ...
+Removing libdlmcontrol-dev:armhf (4.0.8-1) ...
+Removing libdlmcontrol3:armhf (4.0.8-1) ...
+Removing libglib2.0-bin (2.58.3-1) ...
+Removing libffi-dev:armhf (3.2.1-9) ...
+Removing libffi6:armhf (3.2.1-9) ...
+Removing libicu63:armhf (63.1-6) ...
+Removing pkg-config (0.29-6) ...
+Removing libglib2.0-dev-bin (2.58.3-1) ...
+Removing libglib2.0-data (2.58.3-1) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing python3-distutils (3.7.2-3) ...
+Removing python3-lib2to3 (3.7.2-3) ...
+Removing python3 (3.7.2-1) ...
+Removing python3.7 (3.7.2-2) ...
+Removing libpython3-stdlib:amd64 (3.7.2-1) ...
+Removing libpython3.7-stdlib:amd64 (3.7.2-2) ...
+find: ‘/usr/lib/python3’: No such file or directory
+Removing libmpdec2:amd64 (2.4.2-2) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing libpcre16-3:armhf (2:8.39-11) ...
+Removing libselinux1:armhf (2.8-1+b1) ...
+Removing libpcre3:armhf (2:8.39-11) ...
+Removing libpcre32-3:armhf (2:8.39-11) ...
+Removing python3-minimal (3.7.2-1) ...
+Removing python3.7-minimal (3.7.2-2) ...
+Removing libpython3.7-minimal:amd64 (3.7.2-2) ...
+find: ‘/usr/lib/python3’: No such file or directory
+Removing libqb-dev:armhf (1.0.3-2) ...
+Removing libqb0:armhf (1.0.3-2) ...
+Removing libreadline7:armhf (7.0-5) ...
+Removing libsepol1-dev:armhf (2.8-1) ...
+Removing libsepol1:armhf (2.8-1) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libudev-dev:armhf (241-1) ...
+Removing libudev1:armhf (241-1) ...
+Removing libuuid1:armhf (2.33.1-0.1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing mime-support (3.62) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dmsetup (2:1.02.155-2) ...
+Removing libdevmapper1.02.1:amd64 (2:1.02.155-2) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16463 files and directories currently installed.)
+Purging configuration files for libblkid-dev:armhf (2.33.1-0.1) ...
+Purging configuration files for libqb-dev:armhf (1.0.3-2) ...
+Purging configuration files for mime-support (3.62) ...
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for libglib2.0-0:armhf (2.58.3-1) ...
+Purging configuration files for python3 (3.7.2-1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libpython3.7-minimal:amd64 (3.7.2-2) ...
+dpkg: warning: while removing libpython3.7-minimal:amd64, directory '/usr/lib/python3.7' not empty so not removed
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for comerr-dev:armhf (2.1-1.44.5-1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for libudev-dev:armhf (241-1) ...
+Purging configuration files for python3.7-minimal (3.7.2-2) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 6
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 18
+Job: /home/build/sbuild-setup/repo/pool/main/o/ocfs2-tools/ocfs2-tools_1.8.5-7.dsc
+Machine Architecture: amd64
+Package: ocfs2-tools
+Package-Time: 29
+Source-Version: 1.8.5-7
+Space: n/a
+Status: attempted
+Version: 1.8.5-7
+--------------------------------------------------------------------------------
+Finished at 2019-03-06T02:20:52Z
+Build needed 00:00:29, no disk space

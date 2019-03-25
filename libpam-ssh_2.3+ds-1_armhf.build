@@ -1,0 +1,1426 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| libpam-ssh 2.3+ds-1 (armhf)                  Tue, 05 Mar 2019 03:48:10 +0000 |
++==============================================================================+
+
+Package: libpam-ssh
+Version: 2.3+ds-1
+Source Version: 2.3+ds-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-0ab62bf5-5bd3-43e9-8797-fa75dd41ab4f' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/libpam-ssh-pz59ey/resolver-r8phrt' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/libp/libpam-ssh/libpam-ssh_2.3+ds-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/libp/libpam-ssh; copying to chroot
+I: NOTICE: Log filtering will replace 'build/libpam-ssh-pz59ey/libpam-ssh-2.3+ds' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/libpam-ssh-pz59ey' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 11), libtool, libssl-dev (>= 1.1.1), libpam0g-dev, openssh-client | ssh-client, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 11), libtool, libssl-dev (>= 1.1.1), libpam0g-dev, openssh-client, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [430 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [513 B]
+Fetched 1900 B in 0s (129 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libaudit1:armhf libbsd0 libc6:armhf libc6-dev:armhf
+  libcap-ng0:armhf libcroco3 libedit2 libelf1 libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgomp1:armhf
+  libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0
+  libncurses6 libpam0g:armhf libpam0g-dev:armhf libpipeline1 libsigsegv2
+  libssl-dev:armhf libssl1.1:armhf libstdc++-8-dev:armhf libstdc++6:armhf
+  libtool libubsan1:armhf libuchardet0 linux-libc-dev:armhf m4 man-db
+  openssh-client po-debconf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf krb5-doc
+  krb5-user libpam-doc:armhf libssl-doc:armhf libstdc++-8-doc:armhf
+  libtool-doc gfortran | fortran95-compiler gcj-jdk m4-doc apparmor less
+  www-browser keychain libpam-ssh monkeysphere ssh-askpass libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs krb5-locales libgpm2 libltdl-dev xauth
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libaudit1:armhf libbsd0 libc6:armhf libc6-dev:armhf
+  libcap-ng0:armhf libcroco3 libedit2 libelf1 libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgomp1:armhf
+  libgssapi-krb5-2 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0
+  libncurses6 libpam0g:armhf libpam0g-dev:armhf libpipeline1 libsigsegv2
+  libssl-dev:armhf libssl1.1:armhf libstdc++-8-dev:armhf libstdc++6:armhf
+  libtool libubsan1:armhf libuchardet0 linux-libc-dev:armhf m4 man-db
+  openssh-client po-debconf sbuild-build-depends-main-dummy:armhf
+0 upgraded, 53 newly installed, 0 to remove and 0 not upgraded.
+Need to get 932 B/23.4 MB of archives.
+After this operation, 93.9 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [932 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 932 B in 0s (0 B/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libedit2:amd64.
+Preparing to unpack .../07-libedit2_3.1-20181209-1_amd64.deb ...
+Unpacking libedit2:amd64 (3.1-20181209-1) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Preparing to unpack .../08-libkeyutils1_1.6-4_amd64.deb ...
+Unpacking libkeyutils1:amd64 (1.6-4) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Preparing to unpack .../09-libkrb5support0_1.17-2_amd64.deb ...
+Unpacking libkrb5support0:amd64 (1.17-2) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Preparing to unpack .../10-libk5crypto3_1.17-2_amd64.deb ...
+Unpacking libk5crypto3:amd64 (1.17-2) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Preparing to unpack .../11-libkrb5-3_1.17-2_amd64.deb ...
+Unpacking libkrb5-3:amd64 (1.17-2) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Preparing to unpack .../12-libgssapi-krb5-2_1.17-2_amd64.deb ...
+Unpacking libgssapi-krb5-2:amd64 (1.17-2) ...
+Selecting previously unselected package openssh-client.
+Preparing to unpack .../13-openssh-client_1%3a7.9p1-7_amd64.deb ...
+Unpacking openssh-client (1:7.9p1-7) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../14-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../15-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../16-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../17-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../18-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../19-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../20-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../21-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../22-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../23-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../24-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../25-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../26-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../27-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../28-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../29-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../30-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../31-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../32-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../33-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../34-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../35-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../36-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../37-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../38-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../39-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libcap-ng0:armhf.
+Preparing to unpack .../40-libcap-ng0_0.7.9-2_armhf.deb ...
+Unpacking libcap-ng0:armhf (0.7.9-2) ...
+Selecting previously unselected package libaudit1:armhf.
+Preparing to unpack .../41-libaudit1_1%3a2.8.4-2_armhf.deb ...
+Unpacking libaudit1:armhf (1:2.8.4-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../42-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../43-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../44-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../45-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../46-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libpam0g:armhf.
+Preparing to unpack .../47-libpam0g_1.3.1-5_armhf.deb ...
+Unpacking libpam0g:armhf (1.3.1-5) ...
+Selecting previously unselected package libpam0g-dev:armhf.
+Preparing to unpack .../48-libpam0g-dev_1.3.1-5_armhf.deb ...
+Unpacking libpam0g-dev:armhf (1.3.1-5) ...
+Selecting previously unselected package libssl1.1:armhf.
+Preparing to unpack .../49-libssl1.1_1.1.1b-1_armhf.deb ...
+Unpacking libssl1.1:armhf (1.1.1b-1) ...
+Selecting previously unselected package libssl-dev:armhf.
+Preparing to unpack .../50-libssl-dev_1.1.1b-1_armhf.deb ...
+Unpacking libssl-dev:armhf (1.1.1b-1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../51-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../52-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libkeyutils1:amd64 (1.6-4) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up libkrb5support0:amd64 (1.17-2) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libk5crypto3:amd64 (1.17-2) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libkrb5-3:amd64 (1.17-2) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up libedit2:amd64 (3.1-20181209-1) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up libgssapi-krb5-2:amd64 (1.17-2) ...
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up openssh-client (1:7.9p1-7) ...
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-7) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libssl1.1:armhf (1.1.1b-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libcap-ng0:armhf (0.7.9-2) ...
+Setting up libaudit1:armhf (1:2.8.4-2) ...
+Setting up libssl-dev:armhf (1.1.1b-1) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libpam0g:armhf (1.3.1-5) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libpam0g-dev:armhf (1.3.1-5) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libedit2_3.1-20181209-1 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libgssapi-krb5-2_1.17-2 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libk5crypto3_1.17-2 libkeyutils1_1.6-4 libkrb5-3_1.17-2 libkrb5support0_1.17-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpam0g-dev_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl-dev_1.1.1b-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssh-client_1:7.9p1-7 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: libpam-ssh
+Binary: libpam-ssh
+Architecture: any
+Version: 2.3+ds-1
+Maintainer: Jerome Benoit <calculus@rezozer.net>
+Homepage: http://pam-ssh.sourceforge.net
+Standards-Version: 4.3.0
+Vcs-Browser: https://salsa.debian.org/debian/libpam-ssh
+Vcs-Git: https://salsa.debian.org/debian/libpam-ssh.git
+Build-Depends: debhelper (>= 11), libtool, libssl-dev (>= 1.1.1), libpam0g-dev, openssh-client | ssh-client
+Package-List:
+ libpam-ssh deb admin optional arch=any
+Checksums-Sha1:
+ e8896aa52a67d39c697038ca7f74781fe6fee59f 151920 libpam-ssh_2.3+ds.orig.tar.xz
+ 99f6218c8b20d757a10e4eaff34d67239cf7a7c4 14392 libpam-ssh_2.3+ds-1.debian.tar.xz
+Checksums-Sha256:
+ 158609e1225ef6ad609ca037b8ac327fd35f696f029a13d06364f939deeaf1e0 151920 libpam-ssh_2.3+ds.orig.tar.xz
+ 127bcc3c1e1182a4c3b516985a984d2859342355ab5c5362b1322f82ad09f821 14392 libpam-ssh_2.3+ds-1.debian.tar.xz
+Files:
+ 44cd49970aa7562b969b588ff19b5e10 151920 libpam-ssh_2.3+ds.orig.tar.xz
+ 94605cff073171b5187b4cbadbe70181 14392 libpam-ssh_2.3+ds-1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQRJBAEBCgAzFiEEriiuFXEN/x2H5adiP5IZpn82xosFAlxKnL4VHGNhbGN1bHVz
+QHJlem96ZXIubmV0AAoJED+SGaZ/NsaLeTEf/A5D+jzTNuLg0M0XBba38ZOKrz5F
+mpRyuDtnbPPoLfpoUSGhS6sRpm80barhNil/m6cWnggISfuc2OSTEUnXTAHeXcda
+cgHWi/1f76v3+A4NQjLJWg4ndYlWtRtYzJr5fjCvzpAfc9zZELVmDxUZy8vk9SZG
+y/oMayweCTP45z2QaTCKXlfvkNGnSsru/3YpG515st/kTdCJzUXhyhzNunh27tLM
+z6ZIRQSP/QmaoYqadpijqqjHalWpyaPwRxLu1UPdB77TqpuLKcqhYECwhx85+jNI
+5XKdQSIGBjRLJ60bt5Z26inZLTbD1mmVwMapTbFls1ksBQdWH1wCN1ZgF3X4kB/w
+bfeb6oUAJnOFQgmsn1Sd3/QpE1PmskGFD3tJIjUl65UafBA4cB/qt6XmBl1316MD
+I19vA6GfD1SMj1Y9aPfR46oyqJO2RR8vbBjpNbhS4VemdjbPcDZhl5zrIUTFwoRd
+0UH8/0XZHEDFTQkxSQOvospDhlgjkyR1a1rM60pALZM7SbepO9CiRiQCYE+TUwkO
+j7NoWReTIRK8PGhcziPiNlZ8TxfwL+OQvdeF/A2mv79zoT+U/aK0YIa+0cIBIQgK
+gWTXLNcaDE+eCvHDrQvpEsshF7GX0b9Fm/cT5C0BJurg1ZM4WpbO8V2R4T79S+px
+Ex5A8deZpHABcCA5xwUujykusT9bwI4U8y2QtN4QfNZmiSwxYMVFhTq1s9nnJZRG
+x2jR1ZViwfobv7B34N9N1wluJBhQSCMQUZcKmqMjabrjhSmAynUN2FJyn8CnF1ja
+E7tw6r23tnABcwE2IpmQBYigU9pawLNCiaqT89Zi9eF3YJsNjy1BI7x6UrpEidvM
+M4wljhu8ERcHcJ/Hd2Y2QVbgoYL9bFkGlyGpJUUCGyhmwjUbPvx9ihaet4SfZbyB
+DMwqGIWxoMQv5AuTfhZ4jJjAQGscm5LsaW8vcgGE087CeHT2r6HEZ32y/VcLYQ4p
+yIXk7ub/SWGw1AUY7iUDHg6BJ2pcyqlTM5U6fKQ+sJ98CNW07EBar43Heo9tXvvW
+0fXrKQih2NQEOoU31jsphFrKrhnpHPOy+qB/jIA1LiZmFAtPnHuOy4fTYyICdQiR
+7w1Y7ExNrFUOFJ4HN3+ojPBapE0nRPGnJlYV3Bi59JSdOcKHMGzjXJsz1FrkqSMX
+euSqGwq1J337L0HmN75oSA4Oos2igIgPDGdbd5bluUEuS7VxovhobtULXZeETx18
+lzQTX+Dlw7m9mNjo1qwcDRufU7o2LLvh/6+WjuEgWsQ9uallS2eMOYjBrhtlCF6x
+mazTOyj9yE0h/dhGjEZPMgw2PHE3QH3aiAIQkRSJGd3wEoxMPKHEfRoaay8=
+=/up0
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Fri Jan 25 05:21:02 2019 UTC
+gpgv:                using RSA key AE28AE15710DFF1D87E5A7623F9219A67F36C68B
+gpgv:                issuer "calculus@rezozer.net"
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./libpam-ssh_2.3+ds-1.dsc
+dpkg-source: info: extracting libpam-ssh in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking libpam-ssh_2.3+ds.orig.tar.xz
+dpkg-source: info: unpacking libpam-ssh_2.3+ds-1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying upstream-manpage-spelling-error-correction.patch
+dpkg-source: info: applying debianization.patch
+dpkg-source: info: applying debianization-manpages.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-0ab62bf5-5bd3-43e9-8797-fa75dd41ab4f
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package libpam-ssh
+dpkg-buildpackage: info: source version 2.3+ds-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Jerome Benoit <calculus@rezozer.net>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+configure.ac:34: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.  For more info, see:
+configure.ac:34: https://www.gnu.org/software/automake/manual/automake.html#Modernize-AM_005fINIT_005fAUTOMAKE-invocation
+configure.ac:36: installing './compile'
+configure.ac:32: installing './config.guess'
+configure.ac:32: installing './config.sub'
+configure.ac:34: installing './install-sh'
+configure.ac:34: installing './missing'
+Makefile.am: installing './INSTALL'
+Makefile.am: installing './depcomp'
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_configure -- --with-ssh-agent-group=ssh --with-pam-dir=/lib/arm-linux-gnueabihf/security
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --with-ssh-agent-group=ssh --with-pam-dir=/lib/arm-linux-gnueabihf/security
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking target system type... arm-unknown-linux-gnueabihf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking how to print strings... printf
+checking whether make supports the include directive... yes (GNU style)
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/arm-linux-gnueabihf-nm -B
+checking the name lister (/usr/bin/arm-linux-gnueabihf-nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for arm-linux-gnueabihf-objdump... arm-linux-gnueabihf-objdump
+checking how to recognize dependent libraries... pass_all
+checking for arm-linux-gnueabihf-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for archiver @FILE support... @
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for arm-linux-gnueabihf-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC -DPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for ssh-agent... /usr/bin/ssh-agent
+checking for OpenSSL directory... configure: error: in `/<<PKGBUILDDIR>>':
+configure: error: cannot run test program while cross compiling
+See `config.log' for more details
+	tail -v -n \+0 config.log
+==> config.log <==
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+It was created by pam_ssh configure 2.3, which was
+generated by GNU Autoconf 2.69.  Invocation command line was
+
+  $ ./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=${prefix}/include --mandir=${prefix}/share/man --infodir=${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=${prefix}/lib/arm-linux-gnueabihf --libexecdir=${prefix}/lib/arm-linux-gnueabihf --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --with-ssh-agent-group=ssh --with-pam-dir=/lib/arm-linux-gnueabihf/security
+
+## --------- ##
+## Platform. ##
+## --------- ##
+
+hostname = 36857dea695f
+uname -m = x86_64
+uname -r = 3.16.0-4-amd64
+uname -s = Linux
+uname -v = #1 SMP Debian 3.16.51-3 (2017-12-13)
+
+/usr/bin/uname -p = unknown
+/bin/uname -X     = unknown
+
+/bin/arch              = unknown
+/usr/bin/arch -k       = unknown
+/usr/convex/getsysinfo = unknown
+/usr/bin/hostinfo      = unknown
+/bin/machine           = unknown
+/usr/bin/oslevel       = unknown
+/bin/universe          = unknown
+
+PATH: /usr/lib/ccache
+PATH: /usr/local/sbin
+PATH: /usr/local/bin
+PATH: /usr/sbin
+PATH: /usr/bin
+PATH: /sbin
+PATH: /bin
+PATH: /usr/games
+
+
+## ----------- ##
+## Core tests. ##
+## ----------- ##
+
+configure:2247: loading site script /etc/dpkg-cross/cross-config.armhf
+| # read in package-specific and global values.
+| . `dirname $ac_site_file`/cross-config.cache
+| # now ensure the real architecture-dependent values take priority
+| ac_cv_c_bigendian=no
+| ac_cv_c_char_unsigned=yes
+| ac_cv_sizeof_long_long=8
+| ac_cv_sizeof_unsigned_long_long=8
+| ac_cv_sizeof_long=4
+| ac_cv_sizeof_unsigned_long=4
+| ac_cv_sizeof_int=4
+| ac_cv_sizeof_unsigned_int=4
+| ac_cv_sizeof_short=2
+| ac_cv_sizeof_unsigned_short=2
+| ac_cv_sizeof_char=1
+| ac_cv_sizeof_unsigned_char=1
+| ac_cv_sizeof_signed_char=1
+| ac_cv_sizeof_float=4
+| ac_cv_sizeof_double=8
+| ac_cv_sizeof_long_double=8
+| ac_cv_sizeof_void_p=4
+| ac_cv_sizeof_char_p=4
+| 
+| path=`dirname $ac_site_file`
+| # now allow package-specific architecture-independent values to be set
+| if [ -d $path/cross-config.d/armhf/ ]; then
+| for file in `ls $path/cross-config.d/armhf/`; do
+| 	if [ "$file" = "$PACKAGE" -o "$file" = "$PACKAGE_NAME" ]; then
+| 		[ -d $path/cross-config.d/armhf/$file ] || . $path/cross-config.d/armhf/$file
+| 		HAVE_PKG_CACHE=1
+| 	fi
+| done
+| fi
+| 
+| if [ -z "$HAVE_PKG_CACHE" ]; then
+| 	# orbit2 - only needed until liborbit-dev provides these directly
+| 	# using the mechanism above.
+| 	if [ "$PACKAGE" = "orbit2" -o "$PACKAGE_NAME" = "ORBit2" ]; then
+| 		ac_cv_alignof_CORBA_octet=1
+| 		ac_cv_alignof_CORBA_boolean=1
+| 		ac_cv_alignof_CORBA_char=1
+| 		ac_cv_alignof_CORBA_wchar=2
+| 		ac_cv_alignof_CORBA_short=2
+| 		ac_cv_alignof_CORBA_long=4
+| 		ac_cv_alignof_CORBA_long_long=8
+| 		ac_cv_alignof_CORBA_float=4
+| 		ac_cv_alignof_CORBA_double=4
+| 		ac_cv_alignof_CORBA_long_double=8
+| 		ac_cv_alignof_CORBA_struct=1
+| 		ac_cv_alignof_CORBA_pointer=4
+| 	fi
+| fi
+configure:2379: checking build system type
+configure:2393: result: x86_64-pc-linux-gnu
+configure:2413: checking host system type
+configure:2426: result: arm-unknown-linux-gnueabihf
+configure:2446: checking target system type
+configure:2459: result: arm-unknown-linux-gnueabihf
+configure:2532: checking for a BSD-compatible install
+configure:2600: result: /usr/bin/install -c
+configure:2611: checking whether build environment is sane
+configure:2666: result: yes
+configure:2723: checking for arm-linux-gnueabihf-strip
+configure:2739: found /usr/bin/arm-linux-gnueabihf-strip
+configure:2750: result: arm-linux-gnueabihf-strip
+configure:2815: checking for a thread-safe mkdir -p
+configure:2854: result: /bin/mkdir -p
+configure:2861: checking for gawk
+configure:2891: result: no
+configure:2861: checking for mawk
+configure:2877: found /usr/bin/mawk
+configure:2888: result: mawk
+configure:2899: checking whether make sets $(MAKE)
+configure:2921: result: yes
+configure:2950: checking whether make supports nested variables
+configure:2967: result: yes
+configure:3095: checking whether to enable maintainer-specific portions of Makefiles
+configure:3104: result: no
+configure:3163: checking how to print strings
+configure:3190: result: printf
+configure:3215: checking whether make supports the include directive
+configure:3230: make -f confmf.GNU && cat confinc.out
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+this is the am__doit target
+configure:3233: $? = 0
+configure:3252: result: yes (GNU style)
+configure:3282: checking for arm-linux-gnueabihf-gcc
+configure:3298: found /usr/lib/ccache/arm-linux-gnueabihf-gcc
+configure:3309: result: arm-linux-gnueabihf-gcc
+configure:3578: checking for C compiler version
+configure:3587: arm-linux-gnueabihf-gcc --version >&5
+arm-linux-gnueabihf-gcc (Debian 8.2.0-20) 8.2.0
+Copyright (C) 2018 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:3598: $? = 0
+configure:3587: arm-linux-gnueabihf-gcc -v >&5
+Using built-in specs.
+COLLECT_GCC=/usr/bin/arm-linux-gnueabihf-gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/arm-linux-gnueabihf/8/lto-wrapper
+Target: arm-linux-gnueabihf
+Configured with: ../src/configure -v --with-pkgversion='Debian 8.2.0-20' --with-bugurl=file:///usr/share/doc/gcc-8/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-multiarch --disable-sjlj-exceptions --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=arm-linux-gnueabihf --program-prefix=arm-linux-gnueabihf- --includedir=/usr/arm-linux-gnueabihf/include
+Thread model: posix
+gcc version 8.2.0 (Debian 8.2.0-20) 
+configure:3598: $? = 0
+configure:3587: arm-linux-gnueabihf-gcc -V >&5
+arm-linux-gnueabihf-gcc: error: unrecognized command line option '-V'
+arm-linux-gnueabihf-gcc: fatal error: no input files
+compilation terminated.
+configure:3598: $? = 1
+configure:3587: arm-linux-gnueabihf-gcc -qversion >&5
+arm-linux-gnueabihf-gcc: error: unrecognized command line option '-qversion'; did you mean '--version'?
+arm-linux-gnueabihf-gcc: fatal error: no input files
+compilation terminated.
+configure:3598: $? = 1
+configure:3618: checking whether the C compiler works
+configure:3640: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c  >&5
+configure:3644: $? = 0
+configure:3692: result: yes
+configure:3695: checking for C compiler default output file name
+configure:3697: result: a.out
+configure:3703: checking for suffix of executables
+configure:3710: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c  >&5
+configure:3714: $? = 0
+configure:3736: result: 
+configure:3758: checking whether we are cross compiling
+configure:3796: result: yes
+configure:3801: checking for suffix of object files
+configure:3823: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3827: $? = 0
+configure:3848: result: o
+configure:3852: checking whether we are using the GNU C compiler
+configure:3871: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3871: $? = 0
+configure:3880: result: yes
+configure:3889: checking whether arm-linux-gnueabihf-gcc accepts -g
+configure:3909: arm-linux-gnueabihf-gcc -c -g -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3909: $? = 0
+configure:3950: result: yes
+configure:3967: checking for arm-linux-gnueabihf-gcc option to accept ISO C89
+configure:4030: arm-linux-gnueabihf-gcc  -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4030: $? = 0
+configure:4043: result: none needed
+configure:4068: checking whether arm-linux-gnueabihf-gcc understands -c and -o together
+configure:4090: arm-linux-gnueabihf-gcc -c conftest.c -o conftest2.o
+configure:4093: $? = 0
+configure:4090: arm-linux-gnueabihf-gcc -c conftest.c -o conftest2.o
+configure:4093: $? = 0
+configure:4105: result: yes
+configure:4124: checking dependency style of arm-linux-gnueabihf-gcc
+configure:4235: result: none
+configure:4250: checking for a sed that does not truncate output
+configure:4314: result: /bin/sed
+configure:4332: checking for grep that handles long lines and -e
+configure:4390: result: /bin/grep
+configure:4395: checking for egrep
+configure:4457: result: /bin/grep -E
+configure:4462: checking for fgrep
+configure:4524: result: /bin/grep -F
+configure:4559: checking for ld used by arm-linux-gnueabihf-gcc
+configure:4626: result: /usr/arm-linux-gnueabihf/bin/ld
+configure:4633: checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld
+configure:4648: result: yes
+configure:4660: checking for BSD- or MS-compatible name lister (nm)
+configure:4714: result: /usr/bin/arm-linux-gnueabihf-nm -B
+configure:4844: checking the name lister (/usr/bin/arm-linux-gnueabihf-nm -B) interface
+configure:4851: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4854: /usr/bin/arm-linux-gnueabihf-nm -B "conftest.o"
+configure:4857: output
+00000000 B some_variable
+configure:4858: result: BSD nm
+configure:4861: checking whether ln -s works
+configure:4865: result: yes
+configure:4873: checking the maximum length of command line arguments
+configure:5004: result: 1572864
+configure:5052: checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format
+configure:5092: result: func_convert_file_noop
+configure:5099: checking how to convert x86_64-pc-linux-gnu file names to toolchain format
+configure:5119: result: func_convert_file_noop
+configure:5126: checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files
+configure:5133: result: -r
+configure:5167: checking for arm-linux-gnueabihf-objdump
+configure:5183: found /usr/bin/arm-linux-gnueabihf-objdump
+configure:5194: result: arm-linux-gnueabihf-objdump
+configure:5266: checking how to recognize dependent libraries
+configure:5466: result: pass_all
+configure:5511: checking for arm-linux-gnueabihf-dlltool
+configure:5541: result: no
+configure:5551: checking for dlltool
+configure:5581: result: no
+configure:5611: checking how to associate runtime and link libraries
+configure:5638: result: printf %s\n
+configure:5655: checking for arm-linux-gnueabihf-ar
+configure:5671: found /usr/bin/arm-linux-gnueabihf-ar
+configure:5682: result: arm-linux-gnueabihf-ar
+configure:5763: checking for archiver @FILE support
+configure:5780: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:5780: $? = 0
+configure:5783: arm-linux-gnueabihf-ar cru libconftest.a @conftest.lst >&5
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+configure:5786: $? = 0
+configure:5791: arm-linux-gnueabihf-ar cru libconftest.a @conftest.lst >&5
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ar: conftest.o: No such file or directory
+configure:5794: $? = 1
+configure:5793: result: @
+configure:5811: checking for arm-linux-gnueabihf-strip
+configure:5838: result: arm-linux-gnueabihf-strip
+configure:5910: checking for arm-linux-gnueabihf-ranlib
+configure:5926: found /usr/bin/arm-linux-gnueabihf-ranlib
+configure:5937: result: arm-linux-gnueabihf-ranlib
+configure:6079: checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object
+configure:6232: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:6235: $? = 0
+configure:6239: /usr/bin/arm-linux-gnueabihf-nm -B conftest.o | sed -n -e 's/^.*[	 ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[	 ][	 ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p' | sed '/ __gnu_lto/d' > conftest.nm
+configure:6305: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c conftstm.o >&5
+configure:6308: $? = 0
+configure:6346: result: ok
+configure:6393: checking for sysroot
+configure:6423: result: no
+configure:6430: checking for a working dd
+configure:6468: result: /bin/dd
+configure:6472: checking how to truncate binary pipes
+configure:6487: result: /bin/dd bs=4096 count=1
+configure:6776: checking for arm-linux-gnueabihf-mt
+configure:6806: result: no
+configure:6816: checking for mt
+configure:6846: result: no
+configure:6866: checking if : is a manifest tool
+configure:6872: : '-?'
+configure:6880: result: no
+configure:7557: checking how to run the C preprocessor
+configure:7588: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:7588: $? = 0
+configure:7602: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+conftest.c:11:10: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:7602: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "pam_ssh"
+| #define PACKAGE_TARNAME "pam_ssh"
+| #define PACKAGE_VERSION "2.3"
+| #define PACKAGE_STRING "pam_ssh 2.3"
+| #define PACKAGE_BUGREPORT "ajk@ajk.name"
+| #define PACKAGE_URL ""
+| #define PACKAGE "pam_ssh"
+| #define VERSION "2.3"
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:7627: result: arm-linux-gnueabihf-gcc -E
+configure:7647: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:7647: $? = 0
+configure:7661: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+conftest.c:11:10: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:7661: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "pam_ssh"
+| #define PACKAGE_TARNAME "pam_ssh"
+| #define PACKAGE_VERSION "2.3"
+| #define PACKAGE_STRING "pam_ssh 2.3"
+| #define PACKAGE_BUGREPORT "ajk@ajk.name"
+| #define PACKAGE_URL ""
+| #define PACKAGE "pam_ssh"
+| #define VERSION "2.3"
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:7690: checking for ANSI C header files
+configure:7710: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7710: $? = 0
+configure:7794: result: yes
+configure:7807: checking for sys/types.h
+configure:7807: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7807: $? = 0
+configure:7807: result: yes
+configure:7807: checking for sys/stat.h
+configure:7807: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7807: $? = 0
+configure:7807: result: yes
+configure:7807: checking for stdlib.h
+configure:7807: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7807: $? = 0
+configure:7807: result: yes
+configure:7807: checking for string.h
+configure:7807: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7807: $? = 0
+configure:7807: result: yes
+configure:7807: checking for memory.h
+configure:7807: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7807: $? = 0
+configure:7807: result: yes
+configure:7807: checking for strings.h
+configure:7807: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7807: $? = 0
+configure:7807: result: yes
+configure:7807: checking for inttypes.h
+configure:7807: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7807: $? = 0
+configure:7807: result: yes
+configure:7807: checking for stdint.h
+configure:7807: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7807: $? = 0
+configure:7807: result: yes
+configure:7807: checking for unistd.h
+configure:7807: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7807: $? = 0
+configure:7807: result: yes
+configure:7821: checking for dlfcn.h
+configure:7821: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7821: $? = 0
+configure:7821: result: yes
+configure:8047: checking for objdir
+configure:8062: result: .libs
+configure:8322: checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions
+configure:8340: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-rtti -fno-exceptions conftest.c >&5
+cc1: warning: command line option '-fno-rtti' is valid for C++/ObjC++ but not for C
+configure:8344: $? = 0
+configure:8357: result: no
+configure:8721: checking for arm-linux-gnueabihf-gcc option to produce PIC
+configure:8728: result: -fPIC -DPIC
+configure:8736: checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works
+configure:8754: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -DPIC -DPIC conftest.c >&5
+configure:8758: $? = 0
+configure:8771: result: yes
+configure:8800: checking if arm-linux-gnueabihf-gcc static flag -static works
+configure:8828: result: yes
+configure:8843: checking if arm-linux-gnueabihf-gcc supports -c -o file.o
+configure:8864: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -o out/conftest2.o conftest.c >&5
+configure:8868: $? = 0
+configure:8890: result: yes
+configure:8898: checking if arm-linux-gnueabihf-gcc supports -c -o file.o
+configure:8945: result: yes
+configure:8978: checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries
+configure:10241: result: yes
+configure:10278: checking whether -lc should be explicitly linked in
+configure:10286: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:10289: $? = 0
+configure:10304: arm-linux-gnueabihf-gcc -shared  -fPIC -DPIC conftest.o  -v -Wl,-soname -Wl,conftest -o conftest 2\>\&1 \| /bin/grep  -lc  \>/dev/null 2\>\&1
+configure:10307: $? = 0
+configure:10321: result: no
+configure:10481: checking dynamic linker characteristics
+configure:11062: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,-rpath -Wl,/foo conftest.c  >&5
+configure:11062: $? = 0
+configure:11311: result: GNU/Linux ld.so
+configure:11433: checking how to hardcode library paths into programs
+configure:11458: result: immediate
+configure:12006: checking whether stripping libraries is possible
+configure:12011: result: yes
+configure:12046: checking if libtool supports shared libraries
+configure:12048: result: yes
+configure:12051: checking whether to build shared libraries
+configure:12076: result: yes
+configure:12079: checking whether to build static libraries
+configure:12083: result: no
+configure:8901: checking for ssh-agent
+configure:8919: found /usr/bin/ssh-agent
+configure:8932: result: /usr/bin/ssh-agent
+configure:8985: checking for OpenSSL directory
+configure:9026: error: in `/<<PKGBUILDDIR>>':
+configure:9028: error: cannot run test program while cross compiling
+See `config.log' for more details
+
+## ---------------- ##
+## Cache variables. ##
+## ---------------- ##
+
+ac_cv_build=x86_64-pc-linux-gnu
+ac_cv_c_bigendian=no
+ac_cv_c_char_unsigned=yes
+ac_cv_c_compiler_gnu=yes
+ac_cv_env_CC_set=
+ac_cv_env_CC_value=
+ac_cv_env_CFLAGS_set=set
+ac_cv_env_CFLAGS_value='-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'
+ac_cv_env_CPPFLAGS_set=set
+ac_cv_env_CPPFLAGS_value='-Wdate-time -D_FORTIFY_SOURCE=2'
+ac_cv_env_CPP_set=
+ac_cv_env_CPP_value=
+ac_cv_env_LDFLAGS_set=set
+ac_cv_env_LDFLAGS_value='-Wl,-z,relro -Wl,-z,now'
+ac_cv_env_LIBS_set=
+ac_cv_env_LIBS_value=
+ac_cv_env_LT_SYS_LIBRARY_PATH_set=
+ac_cv_env_LT_SYS_LIBRARY_PATH_value=
+ac_cv_env_build_alias_set=set
+ac_cv_env_build_alias_value=x86_64-linux-gnu
+ac_cv_env_host_alias_set=set
+ac_cv_env_host_alias_value=arm-linux-gnueabihf
+ac_cv_env_target_alias_set=
+ac_cv_env_target_alias_value=
+ac_cv_func_malloc_0_nonnull=yes
+ac_cv_func_realloc_0_nonnull=yes
+ac_cv_func_setpgrp_void=yes
+ac_cv_header_dlfcn_h=yes
+ac_cv_header_inttypes_h=yes
+ac_cv_header_memory_h=yes
+ac_cv_header_stdc=yes
+ac_cv_header_stdint_h=yes
+ac_cv_header_stdlib_h=yes
+ac_cv_header_string_h=yes
+ac_cv_header_strings_h=yes
+ac_cv_header_sys_stat_h=yes
+ac_cv_header_sys_types_h=yes
+ac_cv_header_unistd_h=yes
+ac_cv_host=arm-unknown-linux-gnueabihf
+ac_cv_objext=o
+ac_cv_path_EGREP='/bin/grep -E'
+ac_cv_path_FGREP='/bin/grep -F'
+ac_cv_path_GREP=/bin/grep
+ac_cv_path_PATH_SSH_AGENT=/usr/bin/ssh-agent
+ac_cv_path_SED=/bin/sed
+ac_cv_path_install='/usr/bin/install -c'
+ac_cv_path_lt_DD=/bin/dd
+ac_cv_path_mkdir=/bin/mkdir
+ac_cv_prog_AR=arm-linux-gnueabihf-ar
+ac_cv_prog_AWK=mawk
+ac_cv_prog_CC=arm-linux-gnueabihf-gcc
+ac_cv_prog_CPP='arm-linux-gnueabihf-gcc -E'
+ac_cv_prog_OBJDUMP=arm-linux-gnueabihf-objdump
+ac_cv_prog_RANLIB=arm-linux-gnueabihf-ranlib
+ac_cv_prog_STRIP=arm-linux-gnueabihf-strip
+ac_cv_prog_cc_c89=
+ac_cv_prog_cc_g=yes
+ac_cv_prog_make_make_set=yes
+ac_cv_sizeof_char=1
+ac_cv_sizeof_char_p=4
+ac_cv_sizeof_double=8
+ac_cv_sizeof_float=4
+ac_cv_sizeof_int=4
+ac_cv_sizeof_long=4
+ac_cv_sizeof_long_double=8
+ac_cv_sizeof_long_long=8
+ac_cv_sizeof_short=2
+ac_cv_sizeof_signed_char=1
+ac_cv_sizeof_unsigned_char=1
+ac_cv_sizeof_unsigned_int=4
+ac_cv_sizeof_unsigned_long=4
+ac_cv_sizeof_unsigned_long_long=8
+ac_cv_sizeof_unsigned_short=2
+ac_cv_sizeof_void_p=4
+ac_cv_target=arm-unknown-linux-gnueabihf
+am_cv_CC_dependencies_compiler_type=none
+am_cv_make_support_nested_variables=yes
+am_cv_prog_cc_c_o=yes
+lt_cv_ar_at_file=@
+lt_cv_archive_cmds_need_lc=no
+lt_cv_deplibs_check_method=pass_all
+lt_cv_file_magic_cmd='$MAGIC_CMD'
+lt_cv_file_magic_test_file=
+lt_cv_ld_reload_flag=-r
+lt_cv_nm_interface='BSD nm'
+lt_cv_objdir=.libs
+lt_cv_path_LD=/usr/arm-linux-gnueabihf/bin/ld
+lt_cv_path_NM='/usr/bin/arm-linux-gnueabihf-nm -B'
+lt_cv_path_mainfest_tool=no
+lt_cv_prog_compiler_c_o=yes
+lt_cv_prog_compiler_pic='-fPIC -DPIC'
+lt_cv_prog_compiler_pic_works=yes
+lt_cv_prog_compiler_rtti_exceptions=no
+lt_cv_prog_compiler_static_works=yes
+lt_cv_prog_gnu_ld=yes
+lt_cv_sharedlib_from_linklib_cmd='printf %s\n'
+lt_cv_shlibpath_overrides_runpath=yes
+lt_cv_sys_global_symbol_pipe='sed -n -e '\''s/^.*[	 ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[	 ][	 ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p'\'' | sed '\''/ __gnu_lto/d'\'''
+lt_cv_sys_global_symbol_to_c_name_address='sed -n -e '\''s/^: \(.*\) .*$/  {"\1", (void *) 0},/p'\'' -e '\''s/^[ABCDGIRSTW][ABCDGIRSTW]* .* \(.*\)$/  {"\1", (void *) \&\1},/p'\'''
+lt_cv_sys_global_symbol_to_c_name_address_lib_prefix='sed -n -e '\''s/^: \(.*\) .*$/  {"\1", (void *) 0},/p'\'' -e '\''s/^[ABCDGIRSTW][ABCDGIRSTW]* .* \(lib.*\)$/  {"\1", (void *) \&\1},/p'\'' -e '\''s/^[ABCDGIRSTW][ABCDGIRSTW]* .* \(.*\)$/  {"lib\1", (void *) \&\1},/p'\'''
+lt_cv_sys_global_symbol_to_cdecl='sed -n -e '\''s/^T .* \(.*\)$/extern int \1();/p'\'' -e '\''s/^[ABCDGIRSTW][ABCDGIRSTW]* .* \(.*\)$/extern char \1;/p'\'''
+lt_cv_sys_global_symbol_to_import=
+lt_cv_sys_lib_dlsearch_path_spec=' /lib/arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf /lib /usr/lib /usr/local/lib'
+lt_cv_sys_max_cmd_len=1572864
+lt_cv_to_host_file_cmd=func_convert_file_noop
+lt_cv_to_tool_file_cmd=func_convert_file_noop
+lt_cv_truncate_bin='/bin/dd bs=4096 count=1'
+
+## ----------------- ##
+## Output variables. ##
+## ----------------- ##
+
+ACLOCAL='${SHELL} /<<PKGBUILDDIR>>/missing aclocal-1.16'
+AMDEPBACKSLASH=''
+AMDEP_FALSE=''
+AMDEP_TRUE='#'
+AMTAR='$${TAR-tar}'
+AM_BACKSLASH='\'
+AM_DEFAULT_V='$(AM_DEFAULT_VERBOSITY)'
+AM_DEFAULT_VERBOSITY='1'
+AM_V='$(V)'
+AR='arm-linux-gnueabihf-ar'
+AUTOCONF='${SHELL} /<<PKGBUILDDIR>>/missing autoconf'
+AUTOHEADER='${SHELL} /<<PKGBUILDDIR>>/missing autoheader'
+AUTOMAKE='${SHELL} /<<PKGBUILDDIR>>/missing automake-1.16'
+AWK='mawk'
+CC='arm-linux-gnueabihf-gcc'
+CCDEPMODE='depmode=none'
+CFLAGS='-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'
+COMMENT_OUT_ECC=''
+CPP='arm-linux-gnueabihf-gcc -E'
+CPPFLAGS='-Wdate-time -D_FORTIFY_SOURCE=2'
+CYGPATH_W='echo'
+DEFS=''
+DEPDIR='.deps'
+DLLTOOL='false'
+DSYMUTIL=''
+DUMPBIN=''
+ECHO_C=''
+ECHO_N='-n'
+ECHO_T=''
+EGREP='/bin/grep -E'
+EXEEXT=''
+FGREP='/bin/grep -F'
+GREP='/bin/grep'
+INSTALL_DATA='${INSTALL} -m 644'
+INSTALL_PROGRAM='${INSTALL}'
+INSTALL_SCRIPT='${INSTALL}'
+INSTALL_STRIP_PROGRAM='$(install_sh) -c -s'
+LD='/usr/arm-linux-gnueabihf/bin/ld'
+LDFLAGS='-Wl,-z,relro -Wl,-z,now'
+LIBOBJS=''
+LIBS=' -lcrypto'
+LIBTOOL='$(SHELL) $(top_builddir)/libtool'
+LIBTOOL_DEPS='./ltmain.sh'
+LIPO=''
+LN_S='ln -s'
+LTLIBOBJS=''
+LT_SYS_LIBRARY_PATH=''
+MAINT='#'
+MAINTAINER_MODE_FALSE=''
+MAINTAINER_MODE_TRUE='#'
+MAKEINFO='${SHELL} /<<PKGBUILDDIR>>/missing makeinfo'
+MANIFEST_TOOL=':'
+MKDIR_P='/bin/mkdir -p'
+NM='/usr/bin/arm-linux-gnueabihf-nm -B'
+NMEDIT=''
+OBJDUMP='arm-linux-gnueabihf-objdump'
+OBJEXT='o'
+OTOOL64=''
+OTOOL=''
+PACKAGE='pam_ssh'
+PACKAGE_BUGREPORT='ajk@ajk.name'
+PACKAGE_NAME='pam_ssh'
+PACKAGE_STRING='pam_ssh 2.3'
+PACKAGE_TARNAME='pam_ssh'
+PACKAGE_URL=''
+PACKAGE_VERSION='2.3'
+PAMDIR=''
+PATH_SEPARATOR=':'
+PATH_SSH_AGENT='/usr/bin/ssh-agent'
+RANLIB='arm-linux-gnueabihf-ranlib'
+SED='/bin/sed'
+SET_MAKE=''
+SHELL='/bin/bash'
+STRIP='arm-linux-gnueabihf-strip'
+TEST_SSH_ECC=''
+VERSION='2.3'
+ac_ct_AR=''
+ac_ct_CC=''
+ac_ct_DUMPBIN=''
+am__EXEEXT_FALSE=''
+am__EXEEXT_TRUE=''
+am__fastdepCC_FALSE=''
+am__fastdepCC_TRUE='#'
+am__include='include'
+am__isrc=''
+am__leading_dot='.'
+am__nodep=''
+am__quote=''
+am__tar='$${TAR-tar} chof - "$$tardir"'
+am__untar='$${TAR-tar} xf -'
+bindir='${exec_prefix}/bin'
+build='x86_64-pc-linux-gnu'
+build_alias='x86_64-linux-gnu'
+build_cpu='x86_64'
+build_os='linux-gnu'
+build_vendor='pc'
+datadir='${datarootdir}'
+datarootdir='${prefix}/share'
+docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
+dvidir='${docdir}'
+exec_prefix='NONE'
+host='arm-unknown-linux-gnueabihf'
+host_alias='arm-linux-gnueabihf'
+host_cpu='arm'
+host_os='linux-gnueabihf'
+host_vendor='unknown'
+htmldir='${docdir}'
+includedir='${prefix}/include'
+infodir='${prefix}/share/info'
+install_sh='${SHELL} /<<PKGBUILDDIR>>/install-sh'
+libdir='${prefix}/lib/arm-linux-gnueabihf'
+libexecdir='${prefix}/lib/arm-linux-gnueabihf'
+localedir='${datarootdir}/locale'
+localstatedir='/var'
+mandir='${prefix}/share/man'
+mkdir_p='$(MKDIR_P)'
+oldincludedir='/usr/include'
+pdfdir='${docdir}'
+prefix='/usr'
+program_transform_name='s,x,x,'
+psdir='${docdir}'
+runstatedir='/run'
+sbindir='${exec_prefix}/sbin'
+sharedstatedir='${prefix}/com'
+sysconfdir='/etc'
+target='arm-unknown-linux-gnueabihf'
+target_alias=''
+target_cpu='arm'
+target_os='linux-gnueabihf'
+target_vendor='unknown'
+
+## ----------- ##
+## confdefs.h. ##
+## ----------- ##
+
+/* confdefs.h */
+#define PACKAGE_NAME "pam_ssh"
+#define PACKAGE_TARNAME "pam_ssh"
+#define PACKAGE_VERSION "2.3"
+#define PACKAGE_STRING "pam_ssh 2.3"
+#define PACKAGE_BUGREPORT "ajk@ajk.name"
+#define PACKAGE_URL ""
+#define PACKAGE "pam_ssh"
+#define VERSION "2.3"
+#define STDC_HEADERS 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_SYS_STAT_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRING_H 1
+#define HAVE_MEMORY_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_STDINT_H 1
+#define HAVE_UNISTD_H 1
+#define HAVE_DLFCN_H 1
+#define LT_OBJDIR ".libs/"
+#define PATH_SSH_AGENT "/usr/bin/ssh-agent"
+#define SSH_AGENT_GROUP_NAME  "ssh"
+
+configure: exit 1
+dh_auto_configure: ./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --with-ssh-agent-group=ssh --with-pam-dir=/lib/arm-linux-gnueabihf/security returned exit code 1
+make[1]: *** [debian/rules:14: override_dh_auto_configure] Error 2
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make: *** [debian/rules:11: build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-03-05T03:48:31Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* dwz* gcc-8-base:armhf* gettext*
+  gettext-base* groff-base* intltool-debian* libarchive-zip-perl*
+  libasan5:armhf* libatomic1:armhf* libaudit1:armhf* libbsd0* libc6:armhf*
+  libc6-dev:armhf* libcap-ng0:armhf* libcroco3* libedit2* libelf1*
+  libfile-stripnondeterminism-perl* libgcc-8-dev:armhf* libgcc1:armhf*
+  libglib2.0-0* libgomp1:armhf* libgssapi-krb5-2* libk5crypto3* libkeyutils1*
+  libkrb5-3* libkrb5support0* libncurses6* libpam0g:armhf* libpam0g-dev:armhf*
+  libpipeline1* libsigsegv2* libssl-dev:armhf* libssl1.1:armhf*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libtool* libubsan1:armhf*
+  libuchardet0* linux-libc-dev:armhf* m4* man-db* openssh-client* po-debconf*
+  sbuild-build-depends-main-dummy:armhf*
+0 upgraded, 0 newly installed, 53 to remove and 0 not upgraded.
+After this operation, 93.9 MB disk space will be freed.
+(Reading database ... 19462 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libpam0g-dev:armhf (1.3.1-5) ...
+Removing libpam0g:armhf (1.3.1-5) ...
+Removing libaudit1:armhf (1:2.8.4-2) ...
+Removing openssh-client (1:7.9p1-7) ...
+Removing libedit2:amd64 (3.1-20181209-1) ...
+Removing libssl-dev:armhf (1.1.1b-1) ...
+Removing libssl1.1:armhf (1.1.1b-1) ...
+Removing libcap-ng0:armhf (0.7.9-2) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libgssapi-krb5-2:amd64 (1.17-2) ...
+Removing libkrb5-3:amd64 (1.17-2) ...
+Removing libk5crypto3:amd64 (1.17-2) ...
+Removing libkrb5support0:amd64 (1.17-2) ...
+Removing libkeyutils1:amd64 (1.6-4) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16459 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for openssh-client (1:7.9p1-7) ...
+Purging configuration files for libssl1.1:armhf (1.1.1b-1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libpam0g:armhf (1.3.1-5) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for libgssapi-krb5-2:amd64 (1.17-2) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 9
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 8
+Job: /home/build/sbuild-setup/repo/pool/main/libp/libpam-ssh/libpam-ssh_2.3+ds-1.dsc
+Machine Architecture: amd64
+Package: libpam-ssh
+Package-Time: 21
+Source-Version: 2.3+ds-1
+Space: n/a
+Status: attempted
+Version: 2.3+ds-1
+--------------------------------------------------------------------------------
+Finished at 2019-03-05T03:48:31Z
+Build needed 00:00:21, no disk space

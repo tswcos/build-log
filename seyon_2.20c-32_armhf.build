@@ -1,0 +1,1742 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| seyon 2.20c-32 (armhf)                       Wed, 06 Mar 2019 23:24:23 +0000 |
++==============================================================================+
+
+Package: seyon
+Version: 2.20c-32
+Source Version: 2.20c-32
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-d14c84fb-1a31-49a1-9efa-c1c942d4acb7' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/seyon-Do1YlD/resolver-kYPu2w' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/s/seyon/seyon_2.20c-32.dsc exists in /home/build/sbuild-setup/repo/pool/main/s/seyon; copying to chroot
+I: NOTICE: Log filtering will replace 'build/seyon-Do1YlD/seyon-2.20c' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/seyon-Do1YlD' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 9), libxmu-dev, libxt-dev, xutils-dev, libxaw7-dev, bison, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 9), libxmu-dev, libxt-dev, xutils-dev, libxaw7-dev, bison, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [419 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [507 B]
+Fetched 1883 B in 0s (133 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bison bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbison-dev libbsd0 libbsd0:armhf libc6:armhf
+  libc6-dev:armhf libcroco3 libelf1 libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgomp1:armhf
+  libice-dev:armhf libice6:armhf libncurses6 libpipeline1
+  libpthread-stubs0-dev libpthread-stubs0-dev:armhf libsigsegv2
+  libsm-dev:armhf libsm6:armhf libstdc++-8-dev:armhf libstdc++6:armhf libtool
+  libubsan1:armhf libuchardet0 libuuid1:armhf libx11-6 libx11-6:armhf
+  libx11-data libx11-dev libx11-dev:armhf libxau-dev libxau-dev:armhf libxau6
+  libxau6:armhf libxaw7:armhf libxaw7-dev:armhf libxcb1 libxcb1:armhf
+  libxcb1-dev libxcb1-dev:armhf libxdmcp-dev libxdmcp-dev:armhf libxdmcp6
+  libxdmcp6:armhf libxext-dev:armhf libxext6:armhf libxmu-dev:armhf
+  libxmu-headers libxmu6:armhf libxpm-dev:armhf libxpm4:armhf libxt-dev:armhf
+  libxt6:armhf linux-libc-dev:armhf m4 man-db po-debconf x11-common
+  x11proto-core-dev x11proto-dev x11proto-xext-dev xorg-sgml-doctools
+  xtrans-dev xutils-dev
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc bison-doc wamerican | wordlist
+  whois vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  libice-doc:armhf libsm-doc:armhf libstdc++-8-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk libx11-doc libx11-doc:armhf libxaw-doc:armhf
+  libxcb-doc libxcb-doc:armhf libxext-doc:armhf libxt-doc:armhf m4-doc
+  apparmor less www-browser libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpm2 libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bison bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbison-dev libbsd0 libbsd0:armhf libc6:armhf
+  libc6-dev:armhf libcroco3 libelf1 libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgomp1:armhf
+  libice-dev:armhf libice6:armhf libncurses6 libpipeline1
+  libpthread-stubs0-dev libpthread-stubs0-dev:armhf libsigsegv2
+  libsm-dev:armhf libsm6:armhf libstdc++-8-dev:armhf libstdc++6:armhf libtool
+  libubsan1:armhf libuchardet0 libuuid1:armhf libx11-6 libx11-6:armhf
+  libx11-data libx11-dev libx11-dev:armhf libxau-dev libxau-dev:armhf libxau6
+  libxau6:armhf libxaw7:armhf libxaw7-dev:armhf libxcb1 libxcb1:armhf
+  libxcb1-dev libxcb1-dev:armhf libxdmcp-dev libxdmcp-dev:armhf libxdmcp6
+  libxdmcp6:armhf libxext-dev:armhf libxext6:armhf libxmu-dev:armhf
+  libxmu-headers libxmu6:armhf libxpm-dev:armhf libxpm4:armhf libxt-dev:armhf
+  libxt6:armhf linux-libc-dev:armhf m4 man-db po-debconf
+  sbuild-build-depends-main-dummy:armhf x11-common x11proto-core-dev
+  x11proto-dev x11proto-xext-dev xorg-sgml-doctools xtrans-dev xutils-dev
+0 upgraded, 85 newly installed, 0 to remove and 0 not upgraded.
+Need to get 928 B/26.7 MB of archives.
+After this operation, 102 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [928 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 928 B in 0s (0 B/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16441 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../07-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../08-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../09-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../10-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../11-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../12-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libbison-dev:amd64.
+Preparing to unpack .../13-libbison-dev_2%3a3.3.2.dfsg-1_amd64.deb ...
+Unpacking libbison-dev:amd64 (2:3.3.2.dfsg-1) ...
+Selecting previously unselected package bison.
+Preparing to unpack .../14-bison_2%3a3.3.2.dfsg-1_amd64.deb ...
+Unpacking bison (2:3.3.2.dfsg-1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../15-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../16-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../17-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../18-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../19-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../20-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../21-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../22-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../23-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../24-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../25-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../26-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../27-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../28-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../29-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../30-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../31-libc6_2.28-8_armhf.deb ...
+Unpacking libc6:armhf (2.28-8) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../32-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../33-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../34-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libbsd0:armhf.
+Preparing to unpack .../35-libbsd0_0.9.1-2_armhf.deb ...
+Unpacking libbsd0:armhf (0.9.1-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../36-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../37-libc6-dev_2.28-8_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-8) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../38-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../39-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../40-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package x11-common.
+Preparing to unpack .../41-x11-common_1%3a7.7+19_all.deb ...
+Unpacking x11-common (1:7.7+19) ...
+Selecting previously unselected package libice6:armhf.
+Preparing to unpack .../42-libice6_2%3a1.0.9-2_armhf.deb ...
+Unpacking libice6:armhf (2:1.0.9-2) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Preparing to unpack .../43-xorg-sgml-doctools_1%3a1.11-1_all.deb ...
+Unpacking xorg-sgml-doctools (1:1.11-1) ...
+Selecting previously unselected package x11proto-dev.
+Preparing to unpack .../44-x11proto-dev_2018.4-4_all.deb ...
+Unpacking x11proto-dev (2018.4-4) ...
+Selecting previously unselected package x11proto-core-dev.
+Preparing to unpack .../45-x11proto-core-dev_2018.4-4_all.deb ...
+Unpacking x11proto-core-dev (2018.4-4) ...
+Selecting previously unselected package libice-dev:armhf.
+Preparing to unpack .../46-libice-dev_2%3a1.0.9-2_armhf.deb ...
+Unpacking libice-dev:armhf (2:1.0.9-2) ...
+Selecting previously unselected package libpthread-stubs0-dev:amd64.
+Preparing to unpack .../47-libpthread-stubs0-dev_0.4-1_amd64.deb ...
+Unpacking libpthread-stubs0-dev:amd64 (0.4-1) ...
+Selecting previously unselected package libpthread-stubs0-dev:armhf.
+Preparing to unpack .../48-libpthread-stubs0-dev_0.4-1_armhf.deb ...
+Unpacking libpthread-stubs0-dev:armhf (0.4-1) ...
+Selecting previously unselected package libuuid1:armhf.
+Preparing to unpack .../49-libuuid1_2.33.1-0.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libsm6:armhf.
+Preparing to unpack .../50-libsm6_2%3a1.2.3-1_armhf.deb ...
+Unpacking libsm6:armhf (2:1.2.3-1) ...
+Selecting previously unselected package libsm-dev:armhf.
+Preparing to unpack .../51-libsm-dev_2%3a1.2.3-1_armhf.deb ...
+Unpacking libsm-dev:armhf (2:1.2.3-1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../52-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libxau6:amd64.
+Preparing to unpack .../53-libxau6_1%3a1.0.8-1+b2_amd64.deb ...
+Unpacking libxau6:amd64 (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Preparing to unpack .../54-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:amd64.
+Preparing to unpack .../55-libxcb1_1.13.1-2_amd64.deb ...
+Unpacking libxcb1:amd64 (1.13.1-2) ...
+Selecting previously unselected package libx11-data.
+Preparing to unpack .../56-libx11-data_2%3a1.6.7-1_all.deb ...
+Unpacking libx11-data (2:1.6.7-1) ...
+Selecting previously unselected package libx11-6:amd64.
+Preparing to unpack .../57-libx11-6_2%3a1.6.7-1_amd64.deb ...
+Unpacking libx11-6:amd64 (2:1.6.7-1) ...
+Selecting previously unselected package libxau6:armhf.
+Preparing to unpack .../58-libxau6_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau6:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:armhf.
+Preparing to unpack .../59-libxdmcp6_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp6:armhf (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:armhf.
+Preparing to unpack .../60-libxcb1_1.13.1-2_armhf.deb ...
+Unpacking libxcb1:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-6:armhf.
+Preparing to unpack .../61-libx11-6_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-6:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxau-dev:amd64.
+Preparing to unpack .../62-libxau-dev_1%3a1.0.8-1+b2_amd64.deb ...
+Unpacking libxau-dev:amd64 (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp-dev:amd64.
+Preparing to unpack .../63-libxdmcp-dev_1%3a1.1.2-3_amd64.deb ...
+Unpacking libxdmcp-dev:amd64 (1:1.1.2-3) ...
+Selecting previously unselected package xtrans-dev.
+Preparing to unpack .../64-xtrans-dev_1.3.5-1_all.deb ...
+Unpacking xtrans-dev (1.3.5-1) ...
+Selecting previously unselected package libxcb1-dev:amd64.
+Preparing to unpack .../65-libxcb1-dev_1.13.1-2_amd64.deb ...
+Unpacking libxcb1-dev:amd64 (1.13.1-2) ...
+Selecting previously unselected package libx11-dev:amd64.
+Preparing to unpack .../66-libx11-dev_2%3a1.6.7-1_amd64.deb ...
+Unpacking libx11-dev:amd64 (2:1.6.7-1) ...
+Selecting previously unselected package libxau-dev:armhf.
+Preparing to unpack .../67-libxau-dev_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau-dev:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp-dev:armhf.
+Preparing to unpack .../68-libxdmcp-dev_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp-dev:armhf (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1-dev:armhf.
+Preparing to unpack .../69-libxcb1-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb1-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-dev:armhf.
+Preparing to unpack .../70-libx11-dev_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-dev:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxext6:armhf.
+Preparing to unpack .../71-libxext6_2%3a1.3.3-1+b2_armhf.deb ...
+Unpacking libxext6:armhf (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxt6:armhf.
+Preparing to unpack .../72-libxt6_1%3a1.1.5-1_armhf.deb ...
+Unpacking libxt6:armhf (1:1.1.5-1) ...
+Selecting previously unselected package libxmu6:armhf.
+Preparing to unpack .../73-libxmu6_2%3a1.1.2-2_armhf.deb ...
+Unpacking libxmu6:armhf (2:1.1.2-2) ...
+Selecting previously unselected package libxpm4:armhf.
+Preparing to unpack .../74-libxpm4_1%3a3.5.12-1_armhf.deb ...
+Unpacking libxpm4:armhf (1:3.5.12-1) ...
+Selecting previously unselected package libxaw7:armhf.
+Preparing to unpack .../75-libxaw7_2%3a1.0.13-1+b2_armhf.deb ...
+Unpacking libxaw7:armhf (2:1.0.13-1+b2) ...
+Selecting previously unselected package x11proto-xext-dev.
+Preparing to unpack .../76-x11proto-xext-dev_2018.4-4_all.deb ...
+Unpacking x11proto-xext-dev (2018.4-4) ...
+Selecting previously unselected package libxext-dev:armhf.
+Preparing to unpack .../77-libxext-dev_2%3a1.3.3-1+b2_armhf.deb ...
+Unpacking libxext-dev:armhf (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxt-dev:armhf.
+Preparing to unpack .../78-libxt-dev_1%3a1.1.5-1_armhf.deb ...
+Unpacking libxt-dev:armhf (1:1.1.5-1) ...
+Selecting previously unselected package libxmu-headers.
+Preparing to unpack .../79-libxmu-headers_2%3a1.1.2-2_all.deb ...
+Unpacking libxmu-headers (2:1.1.2-2) ...
+Selecting previously unselected package libxmu-dev:armhf.
+Preparing to unpack .../80-libxmu-dev_2%3a1.1.2-2_armhf.deb ...
+Unpacking libxmu-dev:armhf (2:1.1.2-2) ...
+Selecting previously unselected package libxpm-dev:armhf.
+Preparing to unpack .../81-libxpm-dev_1%3a3.5.12-1_armhf.deb ...
+Unpacking libxpm-dev:armhf (1:3.5.12-1) ...
+Selecting previously unselected package libxaw7-dev:armhf.
+Preparing to unpack .../82-libxaw7-dev_2%3a1.0.13-1+b2_armhf.deb ...
+Unpacking libxaw7-dev:armhf (2:1.0.13-1+b2) ...
+Selecting previously unselected package xutils-dev.
+Preparing to unpack .../83-xutils-dev_1%3a7.7+5+b1_amd64.deb ...
+Unpacking xutils-dev (1:7.7+5+b1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../84-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libxau6:amd64 (1:1.0.8-1+b2) ...
+Setting up libbison-dev:amd64 (2:3.3.2.dfsg-1) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up x11-common (1:7.7+19) ...
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up libpthread-stubs0-dev:amd64 (0.4-1) ...
+Setting up libpthread-stubs0-dev:armhf (0.4-1) ...
+Setting up xtrans-dev (1.3.5-1) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libx11-data (2:1.6.7-1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up xutils-dev (1:7.7+5+b1) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up xorg-sgml-doctools (1:1.11-1) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up x11proto-dev (2018.4-4) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+Setting up libxcb1:amd64 (1.13.1-2) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libxau-dev:amd64 (1:1.0.8-1+b2) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up libxdmcp-dev:amd64 (1:1.1.2-3) ...
+Setting up x11proto-core-dev (2018.4-4) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up x11proto-xext-dev (2018.4-4) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-3) ...
+Setting up bison (2:3.3.2.dfsg-1) ...
+update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) in auto mode
+Setting up libx11-6:amd64 (2:1.6.7-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up libxcb1-dev:amd64 (1.13.1-2) ...
+Setting up po-debconf (1.0.21) ...
+Setting up libx11-dev:amd64 (2:1.6.7-1) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libxmu-headers (2:1.1.2-2) ...
+Setting up libc6:armhf (2.28-8) ...
+Setting up libc6-dev:armhf (2.28-8) ...
+Setting up libbsd0:armhf (0.9.1-2) ...
+Setting up libice6:armhf (2:1.0.9-2) ...
+Setting up libxau6:armhf (1:1.0.8-1+b2) ...
+Setting up libxdmcp6:armhf (1:1.1.2-3) ...
+Setting up libxcb1:armhf (1.13.1-2) ...
+Setting up libxau-dev:armhf (1:1.0.8-1+b2) ...
+Setting up libice-dev:armhf (2:1.0.9-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libxdmcp-dev:armhf (1:1.1.2-3) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libuuid1:armhf (2.33.1-0.1) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libx11-6:armhf (2:1.6.7-1) ...
+Setting up libsm6:armhf (2:1.2.3-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libxcb1-dev:armhf (1.13.1-2) ...
+Setting up libxpm4:armhf (1:3.5.12-1) ...
+Setting up libsm-dev:armhf (2:1.2.3-1) ...
+Setting up libx11-dev:armhf (2:1.6.7-1) ...
+Setting up libxext6:armhf (2:1.3.3-1+b2) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libxpm-dev:armhf (1:3.5.12-1) ...
+Setting up libxt6:armhf (1:1.1.5-1) ...
+Setting up libxext-dev:armhf (2:1.3.3-1+b2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libxmu6:armhf (2:1.1.2-2) ...
+Setting up libxaw7:armhf (2:1.0.13-1+b2) ...
+Setting up libxt-dev:armhf (1:1.1.5-1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libxmu-dev:armhf (2:1.1.2-2) ...
+Setting up libxaw7-dev:armhf (2:1.0.13-1+b2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-8) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-15 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-8 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-15 binutils-arm-linux-gnueabihf_2.31.1-15 binutils-common_2.31.1-15 binutils-x86-64-linux-gnu_2.31.1-15 bison_2:3.3.2.dfsg-1 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.6 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-3 cpp_4:8.3.0-1 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.3.0-2cross1 cpp-arm-linux-gnueabihf_4:8.3.0-1 cross-config_2.6.15-2 crossbuild-essential-armhf_12.6 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.13-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.6-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-4 findutils_4.6.0+git+20190209-2 g++_4:8.3.0-1 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.3.0-2cross1 g++-arm-linux-gnueabihf_4:8.3.0-1 gcc_4:8.3.0-1 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.3.0-2cross1 gcc-8-arm-linux-gnueabihf-base_8.3.0-2cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.3.0-2cross1 gcc-arm-linux-gnueabihf_4:8.3.0-1 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.13-1 gnupg-l10n_2.2.13-1 gnupg-utils_2.2.13-1 gpg_2.2.13-1 gpg-agent_2.2.13-1 gpg-wks-client_2.2.13-1 gpg-wks-server_2.2.13-1 gpgconf_2.2.13-1 gpgsm_2.2.13-1 gpgv_2.2.13-1 grep_3.3-1 groff-base_1.22.4-3 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.53-4 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.3.0-2cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.3.0-2cross1 libattr1_1:2.4.48-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-15 libbison-dev_2:3.3.2.dfsg-1 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-8 libc-dev-bin_2.28-8 libc6_2.28-8 libc6-armhf-cross_2.28-7cross1 libc6-dev_2.28-8 libc6-dev-armhf-cross_2.28-7cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.6-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.248 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.6-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.3.0-2cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.3.0-2cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.3.0-2cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-3 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libice-dev_2:1.0.9-2 libice6_2:1.0.9-2 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-4 libmagic1_1:5.35-4 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpthread-stubs0-dev_0.4-1 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsm-dev_2:1.2.3-1 libsm6_2:1.2.3-1 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.6-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.3.0-2cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libx11-6_2:1.6.7-1 libx11-data_2:1.6.7-1 libx11-dev_2:1.6.7-1 libxau-dev_1:1.0.8-1+b2 libxau6_1:1.0.8-1+b2 libxaw7_2:1.0.13-1+b2 libxaw7-dev_2:1.0.13-1+b2 libxcb1_1.13.1-2 libxcb1-dev_1.13.1-2 libxdmcp-dev_1:1.1.2-3 libxdmcp6_1:1.1.2-3 libxext-dev_2:1.3.3-1+b2 libxext6_2:1.3.3-1+b2 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-4 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libxmu-dev_2:1.1.2-2 libxmu-headers_2:1.1.2-2 libxmu6_2:1.1.2-2 libxpm-dev_1:3.5.12-1 libxpm4_1:3.5.12-1 libxt-dev_1:1.1.5-1 libxt6_1:1.1.5-1 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.20-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-2 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 x11-common_1:7.7+19 x11proto-core-dev_2018.4-4 x11proto-dev_2018.4-4 x11proto-xext-dev_2018.4-4 xorg-sgml-doctools_1:1.11-1 xtrans-dev_1.3.5-1 xutils-dev_1:7.7+5+b1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: seyon
+Binary: seyon
+Architecture: any
+Version: 2.20c-32
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Standards-Version: 3.9.6
+Build-Depends: debhelper (>= 9), libxmu-dev, libxt-dev, xutils-dev, libxaw7-dev, bison
+Package-List:
+ seyon deb comm extra arch=any
+Checksums-Sha1:
+ cfc18a2f4084605e4c3bda8253dee63f7d6620fa 167487 seyon_2.20c.orig.tar.gz
+ 72976917ad3747d58a827b3029ae028a32791ad4 36872 seyon_2.20c-32.debian.tar.xz
+Checksums-Sha256:
+ f221699ac420e55f0d769d4c50699a7e1552132cafe2a65192c3f3f090ca9048 167487 seyon_2.20c.orig.tar.gz
+ 02e30cfbf7d8771064837bbf07f86844c42118b7b48242e57a07c9c8a585d369 36872 seyon_2.20c-32.debian.tar.xz
+Files:
+ 82ab5470a93ef591fe4c3b2b40f91469 167487 seyon_2.20c.orig.tar.gz
+ 84dc285a2da5e1046da49c36d76632f4 36872 seyon_2.20c-32.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQEcBAEBCAAGBQJWBo9gAAoJEEHOfwufG4syDJQH/Ap/sxt5i2o/gM4BbzkTl0o4
++u9d5pcwrHOs47uh2O97xF1fnAgSd16cLAN+uheTA0fNsRidWhDPp93/iGBYw/aB
+pWgLibf5EQizdNC9PIgzYXLvZRQ1UN+gDns+tyXxSzeru80O3ZWUbeqjneCR0nxf
+g9hYAPP30jFdWJX/mFWy/oPK5iW+CcpH4cSwlXuhL8ieu2xT4cOP4CJV68xTXsa6
+8ZMOXjmcUHpiyaTP3mDwEVaxjCKgUL2ezicQVPI7iYA94FlpDiywzcMd8bo3iwVl
+vIgG7LIgWdDdnRATCvqZP7DvnNckU80xsBW1Af2yc0DsLQ9oU9SZgKIDn0UiP6I=
+=n5Xn
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sat Sep 26 12:28:16 2015 UTC
+gpgv:                using RSA key 41CE7F0B9F1B8B32
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./seyon_2.20c-32.dsc
+dpkg-source: info: extracting seyon in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking seyon_2.20c.orig.tar.gz
+dpkg-source: info: unpacking seyon_2.20c-32.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 01-debian-diff-to-be-split-some-day.patch
+dpkg-source: info: applying 02-rename-getline-to-seyon-getline.patch
+dpkg-source: info: applying 03-reproducible-build.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-d14c84fb-1a31-49a1-9efa-c1c942d4acb7
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package seyon
+dpkg-buildpackage: info: source version 2.20c-32
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Santiago Vila <sanvila@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+xmkmf
+imake -DUseInstalled -I/usr/lib/X11/config
+dh_auto_build -- LOCAL_LDFLAGS="-Wl,-z,relro" CDEBUGFLAGS="" \
+	CCOPTIONS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall"
+	make -j1 PKG_CONFIG=arm-linux-gnueabihf-pkg-config CXX=arm-linux-gnueabihf-g\+\+ CC=arm-linux-gnueabihf-gcc LOCAL_LDFLAGS=-Wl,-z,relro CDEBUGFLAGS= "CCOPTIONS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall"
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+rm -f version.h
+./ad2c Seyon.ad > Seyon.ad.h
+sh ./makever.sh
+Machine type is x86_64, OS name is Linux
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o Seyon.o Seyon.c
+In file included from /usr/arm-linux-gnueabihf/include/sys/types.h:25,
+                 from /usr/include/X11/Xlib.h:38,
+                 from /usr/include/X11/Intrinsic.h:53,
+                 from Seyon.c:20:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+Seyon.c: In function ‘main’:
+Seyon.c:298:5: warning: ignoring return value of ‘pipe’, declared with attribute warn_unused_result [-Wunused-result]
+     pipe(child_pipe);
+     ^~~~~~~~~~~~~~~~
+Seyon.c:299:5: warning: ignoring return value of ‘pipe’, declared with attribute warn_unused_result [-Wunused-result]
+     pipe(scriptToMainPipe);
+     ^~~~~~~~~~~~~~~~~~~~~~
+Seyon.c:300:5: warning: ignoring return value of ‘pipe’, declared with attribute warn_unused_result [-Wunused-result]
+     pipe(mainToTermPipe);
+     ^~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeActions.o SeActions.c
+In file included from /usr/arm-linux-gnueabihf/include/sys/types.h:25,
+                 from /usr/include/X11/Xlib.h:38,
+                 from /usr/include/X11/Intrinsic.h:53,
+                 from SeActions.c:20:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+bison -y -d SeParse.y
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeScan.o SeScan.c
+In file included from /usr/arm-linux-gnueabihf/include/bits/libc-header-start.h:33,
+                 from /usr/arm-linux-gnueabihf/include/stdio.h:27,
+                 from SeScan.c:4:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeDial.o SeDial.c
+In file included from /usr/arm-linux-gnueabihf/include/signal.h:25,
+                 from SeDial.c:10:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+SeDial.c: In function ‘DialNumber’:
+SeDial.c:568:3: warning: this ‘else’ clause does not guard... [-Wmisleading-indentation]
+   else
+   ^~~~
+SeDial.c:570:5: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘else’
+     length_remaining -= strlen("Redialing ");
+     ^~~~~~~~~~~~~~~~
+SeDial.c: In function ‘ReadParsePhoneFile’:
+SeDial.c:683:21: warning: operation on ‘sHold’ may be undefined [-Wsequence-point]
+      strncmp((sHold = ddItems[n]->suffix), "CUR", 3) ?
+              ~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+SeDial.c:683:21: warning: operation on ‘sHold’ may be undefined [-Wsequence-point]
+SeDial.c:680:13: warning: operation on ‘iHold’ may be undefined [-Wsequence-point]
+      (iHold = ddItems[n]->stopBits) == 100 ? '?' : itoa(iHold),
+      ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+SeDial.c:680:13: warning: operation on ‘iHold’ may be undefined [-Wsequence-point]
+SeDial.c:699:23: warning: operation on ‘sHold’ may be undefined [-Wsequence-point]
+        strncmp((sHold = ddItems[n]->suffix), "CUR", 3) ?
+                ~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+SeDial.c:699:23: warning: operation on ‘sHold’ may be undefined [-Wsequence-point]
+SeDial.c:696:15: warning: operation on ‘iHold’ may be undefined [-Wsequence-point]
+        (iHold = ddItems[n]->stopBits) == 100 ? '?' : itoa(iHold),
+        ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+SeDial.c:696:15: warning: operation on ‘iHold’ may be undefined [-Wsequence-point]
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeErr.o SeErr.c
+In file included from /usr/arm-linux-gnueabihf/include/sys/types.h:25,
+                 from /usr/include/X11/Xlib.h:38,
+                 from /usr/include/X11/Intrinsic.h:53,
+                 from SeErr.c:10:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeGeneric.o SeGeneric.c
+In file included from /usr/arm-linux-gnueabihf/include/bits/libc-header-start.h:33,
+                 from /usr/arm-linux-gnueabihf/include/stdio.h:27,
+                 from SeGeneric.c:12:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+SeGeneric.c: In function ‘TtyTimedWaitFor’:
+SeGeneric.c:222:16: warning: implicit declaration of function ‘time’; did you mean ‘utimes’? [-Wimplicit-function-declaration]
+   expireTime = time((time_t*)0) + waitTime;
+                ^~~~
+                utimes
+rm -f SeInit.o
+arm-linux-gnueabihf-gcc -c  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -DHELPFILE=\"/usr/share/seyon/seyon.help\" SeInit.c
+In file included from /usr/arm-linux-gnueabihf/include/sys/types.h:25,
+                 from /usr/include/X11/Xlib.h:38,
+                 from /usr/include/X11/Intrinsic.h:53,
+                 from SeInit.c:20:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+SeInit.c: In function ‘CreateCommandCenter’:
+SeInit.c:117:21: warning: variable ‘quickKeyW’ set but not used [-Wunused-but-set-variable]
+     Widget          quickKeyW;
+                     ^~~~~~~~~
+SeInit.c: In function ‘InitVariables’:
+SeInit.c:76:36: warning: ‘__builtin___sprintf_chk’ may write a terminating nul past the end of the destination [-Wformat-overflow=]
+         sprintf(captureFile, "%s/%s", buffer, qres.captureFile);
+                                    ^
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from seyon.h:16,
+                 from SeInit.c:28:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:36:10: note: ‘__builtin___sprintf_chk’ output 2 or more bytes (assuming 257) into a destination of size 256
+   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       __bos (__s), __fmt, __va_arg_pack ());
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeIo.o SeIo.c
+In file included from /usr/arm-linux-gnueabihf/include/bits/libc-header-start.h:33,
+                 from /usr/arm-linux-gnueabihf/include/stdio.h:27,
+                 from SeIo.c:11:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeMisc.o SeMisc.c
+In file included from /usr/arm-linux-gnueabihf/include/sys/types.h:25,
+                 from /usr/include/X11/Xlib.h:38,
+                 from /usr/include/X11/Intrinsic.h:53,
+                 from SeMisc.c:10:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+mv -f y.tab.c SeParse.c
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeParse.o SeParse.c
+In file included from /usr/arm-linux-gnueabihf/include/bits/libc-header-start.h:33,
+                 from /usr/arm-linux-gnueabihf/include/stdio.h:27,
+                 from SeParse.y:2:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+SeParse.y:108:8: warning: extra tokens at end of #endif directive [-Wendif-labels]
+ #endif TEST
+        ^~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SePort.o SePort.c
+In file included from /usr/arm-linux-gnueabihf/include/signal.h:25,
+                 from SePort.c:22:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+SePort.c: In function ‘lock_tty’:
+SePort.c:1101:5: warning: ignoring return value of ‘write’, declared with attribute warn_unused_result [-Wunused-result]
+     write(lfd, pidstr, 11);
+     ^~~~~~~~~~~~~~~~~~~~~~
+SePort.c:1061:24: warning: ‘%s’ directive writing up to 255 bytes into a region of size 65 [-Wformat-overflow=]
+    sprintf(lckf, "%s/%s%s", LF_PATH, LF_PREFIX, (modem_port));
+                        ^~                       ~~~~~~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from seyon.h:16,
+                 from SePort.c:59:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:36:10: note: ‘__builtin___sprintf_chk’ output between 16 and 271 bytes into a destination of size 80
+   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       __bos (__s), __fmt, __va_arg_pack ());
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeScript.o SeScript.c
+In file included from /usr/arm-linux-gnueabihf/include/time.h:25,
+                 from SeScript.c:10:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeSet.o SeSet.c
+In file included from /usr/arm-linux-gnueabihf/include/bits/libc-header-start.h:33,
+                 from /usr/arm-linux-gnueabihf/include/math.h:27,
+                 from SeSet.c:11:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeSig.o SeSig.c
+In file included from /usr/arm-linux-gnueabihf/include/sys/types.h:25,
+                 from /usr/include/X11/Xlib.h:38,
+                 from /usr/include/X11/Intrinsic.h:53,
+                 from SeSig.c:31:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+SeSig.c: In function ‘XoAppAddSignal’:
+SeSig.c:92:5: warning: ignoring return value of ‘pipe’, declared with attribute warn_unused_result [-Wunused-result]
+     pipe(pipefd);
+     ^~~~~~~~~~~~
+SeSig.c: In function ‘_xsig_handler’:
+SeSig.c:147:3: warning: ignoring return value of ‘write’, declared with attribute warn_unused_result [-Wunused-result]
+   write(pipefd[1], &sig_value, 1);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SeSig.c: In function ‘_xsig_pipe_handler’:
+SeSig.c:164:3: warning: ignoring return value of ‘read’, declared with attribute warn_unused_result [-Wunused-result]
+   read(pipefd[0], &sig_value, 1);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeString.o SeString.c
+In file included from /usr/arm-linux-gnueabihf/include/ctype.h:25,
+                 from SeString.c:10:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeSubs.o SeSubs.c
+In file included from /usr/arm-linux-gnueabihf/include/unistd.h:25,
+                 from SeSubs.c:22:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+SeSubs.c: In function ‘IdleGuard’:
+SeSubs.c:481:25: warning: implicit declaration of function ‘time’; did you mean ‘utimes’? [-Wimplicit-function-declaration]
+         if ((idleTime = time((time_t *) 0) - statBuf.st_mtime) >=
+                         ^~~~
+                         utimes
+SeSubs.c: In function ‘read_pipe_data’:
+SeSubs.c:460:5: warning: ignoring return value of ‘read’, declared with attribute warn_unused_result [-Wunused-result]
+     read(pd[0], data, size);
+     ^~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeSubsX.o SeSubsX.c
+In file included from /usr/arm-linux-gnueabihf/include/sys/types.h:25,
+                 from /usr/include/X11/Xlib.h:38,
+                 from /usr/include/X11/Intrinsic.h:53,
+                 from SeSubsX.c:20:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+SeSubsX.c: In function ‘UpdateStatusBox’:
+SeSubsX.c:74:22: warning: ‘%02ld’ directive writing between 2 and 3 bytes into a region of size between 0 and 7 [-Wformat-overflow=]
+  sprintf(buf, "%02ld:%02ld", onlineTime / 60, onlineTime % 60);
+                      ^~~~~
+SeSubsX.c:74:15: note: directive argument in the range [-59, 59]
+  sprintf(buf, "%02ld:%02ld", onlineTime / 60, onlineTime % 60);
+               ^~~~~~~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from seyon.h:16,
+                 from SeSubsX.c:24:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:36:10: note: ‘__builtin___sprintf_chk’ output between 6 and 14 bytes into a destination of size 10
+   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       __bos (__s), __fmt, __va_arg_pack ());
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeSupp.o SeSupp.c
+In file included from /usr/arm-linux-gnueabihf/include/signal.h:25,
+                 from SeSupp.c:16:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeTerm.o SeTerm.c
+In file included from /usr/arm-linux-gnueabihf/include/bits/libc-header-start.h:33,
+                 from /usr/arm-linux-gnueabihf/include/stdio.h:27,
+                 from SeTerm.c:17:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeTrans.o SeTrans.c
+In file included from /usr/arm-linux-gnueabihf/include/sys/types.h:25,
+                 from /usr/include/X11/Xlib.h:38,
+                 from /usr/include/X11/Intrinsic.h:53,
+                 from SeTrans.c:10:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o SeWin.o SeWin.c
+In file included from /usr/arm-linux-gnueabihf/include/sys/types.h:25,
+                 from /usr/include/X11/Xlib.h:38,
+                 from /usr/include/X11/Intrinsic.h:53,
+                 from SeWin.c:20:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall        -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO     -Wdate-time -D_FORTIFY_SOURCE=2  -c -o MultiList.o MultiList.c
+In file included from /usr/arm-linux-gnueabihf/include/bits/libc-header-start.h:33,
+                 from /usr/arm-linux-gnueabihf/include/stdio.h:27,
+                 from MultiList.c:54:
+/usr/arm-linux-gnueabihf/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+rm -f seyon
+arm-linux-gnueabihf-gcc -o seyon  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-strict-aliasing -Wall    -Wl,-z,relro  Seyon.o SeActions.o SeScan.o SeDial.o SeErr.o SeGeneric.o 		SeInit.o SeIo.o SeMisc.o SeParse.o SePort.o SeScript.o 		SeSet.o SeSig.o SeString.o SeSubs.o SeSubsX.o SeSupp.o 		SeTerm.o SeTrans.o SeWin.o MultiList.o -lXaw -lXmu -lXt -lSM -lICE -lXpm  -lXext -lX11      
+rm -f seyon._man
+if test -z "true" ; then \
+   cd `dirname seyon` && \
+   ln -s `basename seyon.man` `basename seyon._man`; \
+else \
+      	     cpp -undef -traditional  -D__apploaddir__=/etc/X11/app-defaults -D__filemansuffix__=5x -D__osfilemansuffix__=5 -D__libmansuffix__=3x -D__oslibmansuffix__=3 -D__mansuffix__=1x -D__osmansuffix__=1 -D__syscallmansuffix__=2x -D__ossysmansuffix__=2 -D__gamemansuffix__=6x -D__osgamemansuffix__=6 -D__miscmansuffix__=7x -D__osmiscmansuffix__=7 -D__admmansuffix__=8x -D__osadmmansuffix__=8 -D__miscmansuffix__=7x -D__osmiscmansuffix__=7 -D__drivermansuffix__=4x -D__osdrivermansuffix__=4 -D__adminmansuffix__=8 -D__projectroot__=/usr -D__xconfigfile__=xorg.conf -D__xconfigdir__=/usr/lib/X11 -D__xlogfile__=Xorg -D__xservername__=Xorg -D__appmansuffix__=1x -D__xorgversion__="\"`echo 7 7 0 | sed -e 's/ /./g' -e 's/^/Version\\\ /'`\" \"X Version 11\"" -D__vendorversion__="`echo 7 7 0 | sed -e 's/ /./g' -e 's/^/Version\\\ /'` X.Org"  \
+     < seyon.man | sed -e '/^#  *[0-9][0-9]*  *.*$/d' 			-e '/^#line  *[0-9][0-9]*  *.*$/d' 			-e '/^[ 	]*XCOMM$/s/XCOMM/#/' 			-e '/^[ 	]*XCOMM[^a-zA-Z0-9_]/s/XCOMM/#/' 			-e '/^[ 	]*XHASH/s/XHASH/#/' 			-e '/\@\@$/s/\@\@$/\\/' >seyon._man; \
+fi
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_test -a
+ fakeroot debian/rules binary-arch
+dh binary-arch
+   dh_auto_test -a
+   dh_testroot -a
+   dh_prep -a
+   dh_installdirs -a
+   dh_auto_install -a
+	make -j1 install DESTDIR=/<<PKGBUILDDIR>>/debian/seyon AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+install -c   seyon /<<PKGBUILDDIR>>/debian/seyon/usr/bin/seyon
+install -c -m 0444 Seyon.ad /<<PKGBUILDDIR>>/debian/seyon/etc/X11/app-defaults/Seyon
+install -c -m 0444 Seyon-co.ad /<<PKGBUILDDIR>>/debian/seyon/etc/X11/app-defaults/Seyon-color
+install -c -m 0444 Seyon.ad /<<PKGBUILDDIR>>/debian/seyon/etc/X11/app-defaults/Seyon
+install -c -m 0444 seyon.help /<<PKGBUILDDIR>>/debian/seyon/usr/share/seyon/seyon.help
+install in . done
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installdocs -a
+   debian/rules override_dh_installchangelogs
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_installchangelogs 1-CHANGES
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installexamples -a
+   dh_installman -a
+   dh_installdebconf -a
+   dh_installmenu -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   dh_missing -a
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/seyon/usr/bin/seyon was not linked against libSM.so.6 (it uses none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/seyon/usr/bin/seyon was not linked against libXext.so.6 (it uses none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/seyon/usr/bin/seyon was not linked against libXpm.so.4 (it uses none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/seyon/usr/bin/seyon was not linked against libICE.so.6 (it uses none of the library's symbols)
+   dh_installdeb -a
+   dh_gencontrol -a
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'seyon' in '../seyon_2.20c-32_armhf.deb'.
+dpkg-deb: building package 'seyon-dbgsym' in '../seyon-dbgsym_2.20c-32_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../seyon_2.20c-32_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-06T23:24:45Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+seyon_2.20c-32_armhf.changes:
+-----------------------------
+
+Format: 1.8
+Date: Sat, 26 Sep 2015 14:27:42 +0200
+Source: seyon
+Binary: seyon seyon-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 2.20c-32
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Changed-By: Santiago Vila <sanvila@debian.org>
+Description:
+ seyon      - Full-featured native X11 communications program
+Closes: 663497 790281
+Changes:
+ seyon (2.20c-32) unstable; urgency=medium
+ .
+   * QA upload.
+   * Switch to minimal dh debian/rules.
+   * Switch to "3.0 (quilt)" source format.
+   * Drop obsolete prerm (/usr/doc to /usr/share/doc transition).
+   * debian/postinst: Do not worry about menus, debhelper already does.
+   * debian/postrm: Do not worry about menus, debhelper already does.
+   * Thanks to dh, debconf works again (it didn't for a long time).
+   * debian/postrm: Do not worry about debconf, debhelper already does.
+   * Add debian/po/pt_BR.po from J.S.Júnior. Closes: #663497.
+   * debian/po: Convert remaining files to UTF-8.
+   * Rename getline() to seyon_getline() to avoid conflict with system
+     provided getline(). This fixes a FTBFS bug when building with
+     glibc 2.21 and gcc 5. Reported by Daniel Schepler. Closes: #790281.
+   * Do not define or use COMPILE_BY, COMPILE_HOST, COMPILE_DATE
+     or COMPILE_TIME. This should make the build reproducible.
+Checksums-Sha1:
+ ca494284cfd1e7e784f291e721864ec413fd0001 167184 seyon-dbgsym_2.20c-32_armhf.deb
+ bf51424e7017e5c0ef48040bf2755249d453b5d5 5436 seyon_2.20c-32_armhf.buildinfo
+ bbf4e1a5bde5cecc0dda20f9a7f755b40f046d2c 127168 seyon_2.20c-32_armhf.deb
+Checksums-Sha256:
+ 7ceed10f3754a8f5fb1a573f85e90892e97366ac083353ac0cdf35d86084ed9f 167184 seyon-dbgsym_2.20c-32_armhf.deb
+ f3f7f38f25620d89f808f5627600c043740154fc25e7b0b281d1b66a98765f4a 5436 seyon_2.20c-32_armhf.buildinfo
+ cc1a4c95349ffca591e4613b7d598d4dab3bc3c24e847a5e82b16cd3d1c9f253 127168 seyon_2.20c-32_armhf.deb
+Files:
+ 9f62cf0967fb0d9d31f7ee065e47e9ab 167184 debug optional seyon-dbgsym_2.20c-32_armhf.deb
+ e115368170319f5be326dd097a2ca80b 5436 comm extra seyon_2.20c-32_armhf.buildinfo
+ ccece3b027bf313f3cc2effd09ef55b5 127168 comm extra seyon_2.20c-32_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: seyon
+Binary: seyon
+Architecture: armhf
+Version: 2.20c-32
+Checksums-Md5:
+ 9f62cf0967fb0d9d31f7ee065e47e9ab 167184 seyon-dbgsym_2.20c-32_armhf.deb
+ ccece3b027bf313f3cc2effd09ef55b5 127168 seyon_2.20c-32_armhf.deb
+Checksums-Sha1:
+ ca494284cfd1e7e784f291e721864ec413fd0001 167184 seyon-dbgsym_2.20c-32_armhf.deb
+ bbf4e1a5bde5cecc0dda20f9a7f755b40f046d2c 127168 seyon_2.20c-32_armhf.deb
+Checksums-Sha256:
+ 7ceed10f3754a8f5fb1a573f85e90892e97366ac083353ac0cdf35d86084ed9f 167184 seyon-dbgsym_2.20c-32_armhf.deb
+ cc1a4c95349ffca591e4613b7d598d4dab3bc3c24e847a5e82b16cd3d1c9f253 127168 seyon_2.20c-32_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Wed, 06 Mar 2019 23:24:45 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-15),
+ binutils-common (= 2.31.1-15),
+ binutils-x86-64-linux-gnu (= 2.31.1-15),
+ bison (= 2:3.3.2.dfsg-1),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.6),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-3),
+ cpp (= 4:8.3.0-1),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-4),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.3.0-1),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.3.0-1),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-3),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.53-4),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.48-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-15),
+ libbison-dev (= 2:3.3.2.dfsg-1),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-8),
+ libc-dev-bin (= 2.28-8),
+ libc6 (= 2.28-8),
+ libc6-dev (= 2.28-8),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.248),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libice-dev (= 2:1.0.9-2),
+ libice6 (= 2:1.0.9-2),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-4),
+ libmagic1 (= 1:5.35-4),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libpthread-stubs0-dev (= 0.4-1),
+ libquadmath0 (= 8.3.0-2),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsm-dev (= 2:1.2.3-1),
+ libsm6 (= 2:1.2.3-1),
+ libsmartcols1 (= 2.33.1-0.1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libx11-6 (= 2:1.6.7-1),
+ libx11-data (= 2:1.6.7-1),
+ libx11-dev (= 2:1.6.7-1),
+ libxau-dev (= 1:1.0.8-1+b2),
+ libxau6 (= 1:1.0.8-1+b2),
+ libxaw7 (= 2:1.0.13-1+b2),
+ libxaw7-dev (= 2:1.0.13-1+b2),
+ libxcb1 (= 1.13.1-2),
+ libxcb1-dev (= 1.13.1-2),
+ libxdmcp-dev (= 1:1.1.2-3),
+ libxdmcp6 (= 1:1.1.2-3),
+ libxext-dev (= 2:1.3.3-1+b2),
+ libxext6 (= 2:1.3.3-1+b2),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ libxmu-dev (= 2:1.1.2-2),
+ libxmu-headers (= 2:1.1.2-2),
+ libxmu6 (= 2:1.1.2-2),
+ libxpm-dev (= 1:3.5.12-1),
+ libxpm4 (= 1:3.5.12-1),
+ libxt-dev (= 1:1.1.5-1),
+ libxt6 (= 1:1.1.5-1),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ lsb-base (= 10.2018112800),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ po-debconf (= 1.0.21),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ x11-common (= 1:7.7+19),
+ x11proto-core-dev (= 2018.4-4),
+ x11proto-dev (= 2018.4-4),
+ x11proto-xext-dev (= 2018.4-4),
+ xorg-sgml-doctools (= 1:1.11-1),
+ xtrans-dev (= 1.3.5-1),
+ xutils-dev (= 1:7.7+5+b1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1443270462"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+seyon-dbgsym_2.20c-32_armhf.deb
+-------------------------------
+
+ new Debian package, version 2.0.
+ size 167184 bytes: control archive=516 bytes.
+     332 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: seyon-dbgsym
+ Source: seyon
+ Version: 2.20c-32
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian QA Group <packages@qa.debian.org>
+ Installed-Size: 204
+ Depends: seyon (= 2.20c-32)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for seyon
+ Build-Ids: 101cdd4d3fc8f119de0144aead5cf03f75e70cdb
+
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/lib/
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/lib/debug/.build-id/10/
+-rw-r--r-- root/root    197736 2015-09-26 12:27 ./usr/lib/debug/.build-id/10/1cdd4d3fc8f119de0144aead5cf03f75e70cdb.debug
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/share/
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2015-09-26 12:27 ./usr/share/doc/seyon-dbgsym -> seyon
+
+
+seyon_2.20c-32_armhf.deb
+------------------------
+
+ new Debian package, version 2.0.
+ size 127168 bytes: control archive=5912 bytes.
+      62 bytes,     2 lines      conffiles            
+    2124 bytes,    93 lines   *  config               #!/bin/sh
+     643 bytes,    16 lines      control              
+    1101 bytes,    17 lines      md5sums              
+     694 bytes,    27 lines   *  postinst             #!/bin/sh
+     600 bytes,    22 lines   *  postrm               #!/bin/sh
+    8716 bytes,    90 lines      templates            
+ Package: seyon
+ Version: 2.20c-32
+ Architecture: armhf
+ Maintainer: Debian QA Group <packages@qa.debian.org>
+ Installed-Size: 271
+ Depends: libc6 (>= 2.28), libice6 (>= 1:1.0.0), libsm6, libx11-6, libxaw7, libxext6, libxmu6, libxpm4, libxt6, debconf (>= 1.2.9) | debconf-2.0, xterm | x-terminal-emulator
+ Suggests: lrzsz, ckermit
+ Section: comm
+ Priority: extra
+ Description: Full-featured native X11 communications program
+  Seyon is a complete full-featured modem communications package
+  for the X Window System. Some of its features are:
+   - dialing directory
+   - terminal emulation (DEC VT02, Tektronix 4014 and ANSI)
+   - script language
+   - Zmodem
+
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./etc/
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./etc/X11/
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./etc/X11/app-defaults/
+-rw-r--r-- root/root      9294 2015-09-26 12:27 ./etc/X11/app-defaults/Seyon
+-rw-r--r-- root/root       932 2015-09-26 12:27 ./etc/X11/app-defaults/Seyon-color
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./etc/X11/seyon/
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/bin/
+-rwxr-xr-x root/root     95500 2015-09-26 12:27 ./usr/bin/seyon
+lrwxrwxrwx root/root         0 2015-09-26 12:27 ./usr/bin/seyon-emu -> /etc/X11/seyon/seyon-emu
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/share/
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/share/doc/
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/share/doc/seyon/
+-rw-r--r-- root/root      1014 1993-07-02 00:01 ./usr/share/doc/seyon/1-BUGREPORT
+-rw-r--r-- root/root      7602 1993-07-02 00:01 ./usr/share/doc/seyon/1-FAQ.gz
+-rw-r--r-- root/root      2808 1993-07-02 00:01 ./usr/share/doc/seyon/1-HISTORY
+-rw-r--r-- root/root      2912 1993-07-02 00:01 ./usr/share/doc/seyon/1-README.gz
+-rw-r--r-- root/root       822 1993-07-02 00:01 ./usr/share/doc/seyon/1-SURVEY
+-rw-r--r-- root/root      1686 1993-07-02 00:01 ./usr/share/doc/seyon/1-TODO
+-rw-r--r-- root/root      5226 2015-09-26 12:27 ./usr/share/doc/seyon/changelog.Debian.gz
+-rw-r--r-- root/root     17943 2015-09-26 12:27 ./usr/share/doc/seyon/changelog.gz
+-rw-r--r-- root/root      1921 2015-09-26 12:00 ./usr/share/doc/seyon/copyright
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/share/doc/seyon/examples/
+-rw-r--r-- root/root      2407 1993-07-02 00:01 ./usr/share/doc/seyon/examples/phonelist
+-rw-r--r-- root/root      1941 2015-09-26 12:27 ./usr/share/doc/seyon/examples/protocols
+-rw-r--r-- root/root       705 2015-09-26 12:27 ./usr/share/doc/seyon/examples/startup
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/share/man/
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/share/man/man1/
+-rw-r--r-- root/root       384 2015-09-26 12:27 ./usr/share/man/man1/seyon-emu.1.gz
+-rw-r--r-- root/root     14050 2015-09-26 12:27 ./usr/share/man/man1/seyon.1.gz
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/share/menu/
+-rw-r--r-- root/root       182 2015-09-26 12:00 ./usr/share/menu/seyon
+drwxr-xr-x root/root         0 2015-09-26 12:27 ./usr/share/seyon/
+-rw-r--r-- root/root     69474 2015-09-26 12:27 ./usr/share/seyon/seyon.help
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [548 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [635 B]
+Fetched 2146 B in 0s (167 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://cdn-fastly.deb.debian.org/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://cdn-fastly.deb.debian.org/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://cdn-fastly.deb.debian.org/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 5s (612 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 20657 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+W: seyon source: ancient-standards-version 3.9.6 (released 2014-09-17) (current is 4.3.0)
+W: seyon: copyright-refers-to-versionless-license-file usr/share/common-licenses/GPL
+W: seyon: malformed-prompt-in-templates seyon/device
+W: seyon: priority-extra-is-replaced-by-priority-optional
+W: seyon: manpage-has-errors-from-man usr/share/man/man1/seyon.1.gz 132: warning: macro 'off',' not defined
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bison* bsdmainutils*
+  debhelper* dh-autoreconf* dh-strip-nondeterminism* diffstat* dwz*
+  gcc-8-base:armhf* gettext* gettext-base* groff-base* intltool-debian*
+  libapt-pkg-perl* libarchive-zip-perl* libasan5:armhf* libatomic1:armhf*
+  libbison-dev* libbsd0* libbsd0:armhf* libc6:armhf* libc6-dev:armhf*
+  libcapture-tiny-perl* libcgi-pm-perl* libclass-accessor-perl* libclone-perl*
+  libcroco3* libdigest-hmac-perl* libelf1* libemail-valid-perl*
+  libexporter-tiny-perl* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfuture-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libglib2.0-0* libgomp1:armhf* libice-dev:armhf*
+  libice6:armhf* libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* liblist-moreutils-perl* libncurses6*
+  libnet-dns-perl* libnet-domain-tld-perl* libnet-ip-perl*
+  libparse-debianchangelog-perl* libpath-tiny-perl* libpipeline1*
+  libpthread-stubs0-dev* libpthread-stubs0-dev:armhf* libsigsegv2*
+  libsm-dev:armhf* libsm6:armhf* libstdc++-8-dev:armhf* libstdc++6:armhf*
+  libstruct-dumb-perl* libsub-name-perl* libtext-levenshtein-perl* libtool*
+  libubsan1:armhf* libuchardet0* libuuid1:armhf* libx11-6* libx11-6:armhf*
+  libx11-data* libx11-dev* libx11-dev:armhf* libxau-dev* libxau-dev:armhf*
+  libxau6* libxau6:armhf* libxaw7:armhf* libxaw7-dev:armhf* libxcb1*
+  libxcb1:armhf* libxcb1-dev* libxcb1-dev:armhf* libxdmcp-dev*
+  libxdmcp-dev:armhf* libxdmcp6* libxdmcp6:armhf* libxext-dev:armhf*
+  libxext6:armhf* libxmu-dev:armhf* libxmu-headers* libxmu6:armhf*
+  libxpm-dev:armhf* libxpm4:armhf* libxt-dev:armhf* libxt6:armhf* lintian*
+  linux-libc-dev:armhf* m4* man-db* patchutils* po-debconf*
+  sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* x11-common*
+  x11proto-core-dev* x11proto-dev* x11proto-xext-dev* xorg-sgml-doctools*
+  xtrans-dev* xutils-dev*
+0 upgraded, 0 newly installed, 113 to remove and 0 not upgraded.
+After this operation, 111 MB disk space will be freed.
+(Reading database ... 21935 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing bison (2:3.3.2.dfsg-1) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libbison-dev:amd64 (2:3.3.2.dfsg-1) ...
+Removing libxaw7-dev:armhf (2:1.0.13-1+b2) ...
+Removing libxmu-dev:armhf (2:1.1.2-2) ...
+Removing libxmu-headers (2:1.1.2-2) ...
+Removing libx11-dev:amd64 (2:1.6.7-1) ...
+Removing libxcb1-dev:amd64 (1.13.1-2) ...
+Removing libxdmcp-dev:amd64 (1:1.1.2-3) ...
+Removing libx11-6:amd64 (2:1.6.7-1) ...
+Removing libxcb1:amd64 (1.13.1-2) ...
+Removing libxdmcp6:amd64 (1:1.1.2-3) ...
+Removing libxt-dev:armhf (1:1.1.5-1) ...
+Removing libxpm-dev:armhf (1:3.5.12-1) ...
+Removing libxaw7:armhf (2:1.0.13-1+b2) ...
+Removing libxmu6:armhf (2:1.1.2-2) ...
+Removing libxt6:armhf (1:1.1.5-1) ...
+Removing libsm-dev:armhf (2:1.2.3-1) ...
+Removing libice-dev:armhf (2:1.0.9-2) ...
+Removing libsm6:armhf (2:1.2.3-1) ...
+Removing libuuid1:armhf (2.33.1-0.1) ...
+Removing libxpm4:armhf (1:3.5.12-1) ...
+Removing libc6-dev:armhf (2.28-8) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libpthread-stubs0-dev:amd64 (0.4-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libxau-dev:amd64 (1:1.0.8-1+b2) ...
+Removing libxau6:amd64 (1:1.0.8-1+b2) ...
+Removing libxext-dev:armhf (2:1.3.3-1+b2) ...
+Removing libxext6:armhf (2:1.3.3-1+b2) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing x11proto-xext-dev (2018.4-4) ...
+Removing xutils-dev (1:7.7+5+b1) ...
+Removing libx11-dev:armhf (2:1.6.7-1) ...
+Removing libxcb1-dev:armhf (1.13.1-2) ...
+Removing libxdmcp-dev:armhf (1:1.1.2-3) ...
+Removing libx11-6:armhf (2:1.6.7-1) ...
+Removing libxcb1:armhf (1.13.1-2) ...
+Removing libxdmcp6:armhf (1:1.1.2-3) ...
+Removing libice6:armhf (2:1.0.9-2) ...
+Removing libbsd0:armhf (0.9.1-2) ...
+Removing libpthread-stubs0-dev:armhf (0.4-1) ...
+Removing libx11-data (2:1.6.7-1) ...
+Removing libxau-dev:armhf (1:1.0.8-1+b2) ...
+Removing libxau6:armhf (1:1.0.8-1+b2) ...
+Removing x11-common (1:7.7+19) ...
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of stop.
+Removing x11proto-core-dev (2018.4-4) ...
+Removing x11proto-dev (2018.4-4) ...
+Removing xorg-sgml-doctools (1:1.11-1) ...
+Removing xtrans-dev (1.3.5-1) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-3) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-8) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-8) ...
+(Reading database ... 16475 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for x11-common (1:7.7+19) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-8) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 9
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 9
+Job: /home/build/sbuild-setup/repo/pool/main/s/seyon/seyon_2.20c-32.dsc
+Lintian: warn
+Machine Architecture: amd64
+Package: seyon
+Package-Time: 22
+Source-Version: 2.20c-32
+Space: n/a
+Status: successful
+Version: 2.20c-32
+--------------------------------------------------------------------------------
+Finished at 2019-03-06T23:24:45Z
+Build needed 00:00:22, no disk space

@@ -1,0 +1,1067 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| lprng 3.8.B-2.1 (armhf)                      Tue, 05 Mar 2019 12:51:34 +0000 |
++==============================================================================+
+
+Package: lprng
+Version: 3.8.B-2.1
+Source Version: 3.8.B-2.1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-1d499ab9-d779-4d7f-9477-627f48d1066e' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/lprng-MhyGRj/resolver-qZESu0' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/l/lprng/lprng_3.8.B-2.1.dsc exists in /home/build/sbuild-setup/repo/pool/main/l/lprng; copying to chroot
+I: NOTICE: Log filtering will replace 'build/lprng-MhyGRj/lprng-3.8.B' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/lprng-MhyGRj' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 9.0), mawk | gawk, procps, libwrap0-dev, libkrb5-dev, debconf | debconf-2.0, libssl-dev, po-debconf, openssl, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 9.0), mawk, procps, libwrap0-dev, libkrb5-dev, debconf, libssl-dev, po-debconf, openssl, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [453 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [526 B]
+Fetched 1936 B in 0s (0 B/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils comerr-dev:armhf
+  debhelper dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian krb5-multidev:armhf
+  libarchive-zip-perl libasan5:armhf libatomic1:armhf libbsd0 libc6:armhf
+  libc6-dev:armhf libcom-err2:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libgssapi-krb5-2:armhf libgssrpc4:armhf
+  libk5crypto3:armhf libkadm5clnt-mit11:armhf libkadm5srv-mit11:armhf
+  libkdb5-9:armhf libkeyutils1:armhf libkrb5-3:armhf libkrb5-dev:armhf
+  libkrb5support0:armhf libncurses6 libpipeline1 libprocps7 libsigsegv2
+  libssl-dev:armhf libssl1.1:armhf libstdc++-8-dev:armhf libstdc++6:armhf
+  libtool libubsan1:armhf libuchardet0 libwrap0:armhf libwrap0-dev:armhf
+  linux-libc-dev:armhf m4 man-db po-debconf procps
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation doc-base:armhf dh-make gettext-doc libasprintf-dev libgettextpo-dev
+  groff krb5-doc:armhf glibc-doc:armhf libc-l10n:armhf locales:armhf
+  manpages-dev:armhf krb5-user:armhf libssl-doc:armhf libstdc++-8-doc:armhf
+  libtool-doc gfortran | fortran95-compiler gcj-jdk m4-doc apparmor less
+  www-browser libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs krb5-locales:armhf libgpm2 libltdl-dev
+  libmail-sendmail-perl psmisc
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils comerr-dev:armhf
+  debhelper dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian krb5-multidev:armhf
+  libarchive-zip-perl libasan5:armhf libatomic1:armhf libbsd0 libc6:armhf
+  libc6-dev:armhf libcom-err2:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libgssapi-krb5-2:armhf libgssrpc4:armhf
+  libk5crypto3:armhf libkadm5clnt-mit11:armhf libkadm5srv-mit11:armhf
+  libkdb5-9:armhf libkeyutils1:armhf libkrb5-3:armhf libkrb5-dev:armhf
+  libkrb5support0:armhf libncurses6 libpipeline1 libprocps7 libsigsegv2
+  libssl-dev:armhf libssl1.1:armhf libstdc++-8-dev:armhf libstdc++6:armhf
+  libtool libubsan1:armhf libuchardet0 libwrap0:armhf libwrap0-dev:armhf
+  linux-libc-dev:armhf m4 man-db po-debconf procps
+  sbuild-build-depends-main-dummy:armhf
+0 upgraded, 59 newly installed, 0 to remove and 0 not upgraded.
+Need to get 20.6 kB/23.1 MB of archives.
+After this operation, 91.7 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [948 B]
+Get:2 http://10.116.41.102/debian sid/main armhf libwrap0-dev armhf 7.6.q-28 [19.7 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 20.6 kB in 0s (372 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../06-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package libprocps7:amd64.
+Preparing to unpack .../07-libprocps7_2%3a3.3.15-2_amd64.deb ...
+Unpacking libprocps7:amd64 (2:3.3.15-2) ...
+Selecting previously unselected package procps.
+Preparing to unpack .../08-procps_2%3a3.3.15-2_amd64.deb ...
+Unpacking procps (2:3.3.15-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../09-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../10-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../11-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../12-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../13-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../14-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../15-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../16-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../17-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../18-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../19-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../20-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libcom-err2:armhf.
+Preparing to unpack .../21-libcom-err2_1.44.5-1_armhf.deb ...
+Unpacking libcom-err2:armhf (1.44.5-1) ...
+Selecting previously unselected package comerr-dev:armhf.
+Preparing to unpack .../22-comerr-dev_2.1-1.44.5-1_armhf.deb ...
+Unpacking comerr-dev:armhf (2.1-1.44.5-1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../23-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../24-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../25-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../26-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../27-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../28-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../29-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../30-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../31-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../32-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../33-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../34-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../35-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package libkeyutils1:armhf.
+Preparing to unpack .../36-libkeyutils1_1.6-4_armhf.deb ...
+Unpacking libkeyutils1:armhf (1.6-4) ...
+Selecting previously unselected package libkrb5support0:armhf.
+Preparing to unpack .../37-libkrb5support0_1.17-2_armhf.deb ...
+Unpacking libkrb5support0:armhf (1.17-2) ...
+Selecting previously unselected package libk5crypto3:armhf.
+Preparing to unpack .../38-libk5crypto3_1.17-2_armhf.deb ...
+Unpacking libk5crypto3:armhf (1.17-2) ...
+Selecting previously unselected package libssl1.1:armhf.
+Preparing to unpack .../39-libssl1.1_1.1.1b-1_armhf.deb ...
+Unpacking libssl1.1:armhf (1.1.1b-1) ...
+Selecting previously unselected package libkrb5-3:armhf.
+Preparing to unpack .../40-libkrb5-3_1.17-2_armhf.deb ...
+Unpacking libkrb5-3:armhf (1.17-2) ...
+Selecting previously unselected package libgssapi-krb5-2:armhf.
+Preparing to unpack .../41-libgssapi-krb5-2_1.17-2_armhf.deb ...
+Unpacking libgssapi-krb5-2:armhf (1.17-2) ...
+Selecting previously unselected package libgssrpc4:armhf.
+Preparing to unpack .../42-libgssrpc4_1.17-2_armhf.deb ...
+Unpacking libgssrpc4:armhf (1.17-2) ...
+Selecting previously unselected package libkdb5-9:armhf.
+Preparing to unpack .../43-libkdb5-9_1.17-2_armhf.deb ...
+Unpacking libkdb5-9:armhf (1.17-2) ...
+Selecting previously unselected package libkadm5srv-mit11:armhf.
+Preparing to unpack .../44-libkadm5srv-mit11_1.17-2_armhf.deb ...
+Unpacking libkadm5srv-mit11:armhf (1.17-2) ...
+Selecting previously unselected package libkadm5clnt-mit11:armhf.
+Preparing to unpack .../45-libkadm5clnt-mit11_1.17-2_armhf.deb ...
+Unpacking libkadm5clnt-mit11:armhf (1.17-2) ...
+Selecting previously unselected package krb5-multidev:armhf.
+Preparing to unpack .../46-krb5-multidev_1.17-2_armhf.deb ...
+Unpacking krb5-multidev:armhf (1.17-2) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../47-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../48-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../49-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../50-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../51-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../52-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libkrb5-dev:armhf.
+Preparing to unpack .../53-libkrb5-dev_1.17-2_armhf.deb ...
+Unpacking libkrb5-dev:armhf (1.17-2) ...
+Selecting previously unselected package libssl-dev:armhf.
+Preparing to unpack .../54-libssl-dev_1.1.1b-1_armhf.deb ...
+Unpacking libssl-dev:armhf (1.1.1b-1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../55-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libwrap0:armhf.
+Preparing to unpack .../56-libwrap0_7.6.q-28_armhf.deb ...
+Unpacking libwrap0:armhf (7.6.q-28) ...
+Selecting previously unselected package libwrap0-dev:armhf.
+Preparing to unpack .../57-libwrap0-dev_7.6.q-28_armhf.deb ...
+Unpacking libwrap0-dev:armhf (7.6.q-28) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../58-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up libprocps7:amd64 (2:3.3.15-2) ...
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up procps (2:3.3.15-2) ...
+update-alternatives: using /usr/bin/w.procps to provide /usr/bin/w (w) in auto mode
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-7) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libkeyutils1:armhf (1.6-4) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libssl1.1:armhf (1.1.1b-1) ...
+Setting up libcom-err2:armhf (1.44.5-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libkrb5support0:armhf (1.17-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libwrap0:armhf (7.6.q-28) ...
+Setting up comerr-dev:armhf (2.1-1.44.5-1) ...
+Setting up libssl-dev:armhf (1.1.1b-1) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libk5crypto3:armhf (1.17-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libwrap0-dev:armhf (7.6.q-28) ...
+Setting up libkrb5-3:armhf (1.17-2) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libgssapi-krb5-2:armhf (1.17-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libgssrpc4:armhf (1.17-2) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libkdb5-9:armhf (1.17-2) ...
+Setting up libkadm5srv-mit11:armhf (1.17-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libkadm5clnt-mit11:armhf (1.17-2) ...
+Setting up krb5-multidev:armhf (1.17-2) ...
+Setting up libkrb5-dev:armhf (1.17-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 comerr-dev_2.1-1.44.5-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 krb5-multidev_1.17-2 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libgssapi-krb5-2_1.17-2 libgssrpc4_1.17-2 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libk5crypto3_1.17-2 libkadm5clnt-mit11_1.17-2 libkadm5srv-mit11_1.17-2 libkdb5-9_1.17-2 libkeyutils1_1.6-4 libkrb5-3_1.17-2 libkrb5-dev_1.17-2 libkrb5support0_1.17-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libprocps7_2:3.3.15-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl-dev_1.1.1b-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwrap0_7.6.q-28 libwrap0-dev_7.6.q-28 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 procps_2:3.3.15-2 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: lprng
+Binary: lprng
+Architecture: any
+Version: 3.8.B-2.1
+Maintainer: Craig Small <csmall@debian.org>
+Homepage: http://lprng.sourceforge.net/
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>= 9.0), mawk | gawk, procps, libwrap0-dev, libkrb5-dev, debconf | debconf-2.0, libssl-dev, po-debconf, openssl
+Package-List:
+ lprng deb net extra arch=any
+Checksums-Sha1:
+ fef9d61a38ab297afb8b8586b359952dcff3abd6 860737 lprng_3.8.B.orig.tar.gz
+ befb1c27d6afb2488ee5952c08655eb001b6c3ec 31804 lprng_3.8.B-2.1.debian.tar.xz
+Checksums-Sha256:
+ 541346a4bccd45acdeff1a8d09e80cc6a8bd22f9088739628ba787924a1806d1 860737 lprng_3.8.B.orig.tar.gz
+ ed541ef35e2352884c8eb47904d021aa9598151c51b6a0a6ed15d38cd8dbc0bf 31804 lprng_3.8.B-2.1.debian.tar.xz
+Files:
+ 74c384b262c490dee31d7e2fa28ecf1d 860737 lprng_3.8.B.orig.tar.gz
+ 45958c62824a065b2f99c3bb7bd7b45f 31804 lprng_3.8.B-2.1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEZCVGlf/wqkRmzBnme5boFiqM9dEFAlibfnEACgkQe5boFiqM
+9dEV1Q/9EfcWy8lWwWXopqPLehJfNl111GzPyqF3XbmI5lyWr+W7cMCYsYg/KNlP
+36soKfPQIV0d8qotN7/Trzv76P2v8gE1VXh3Am1hqsB+ZLXDfdHPxHXZqK041Oyb
+EJTWrcn9y3eZe2NBrnYPpwdzxcPoYhxOfF7tySNtHBJ0Ool3TPRbVh1CMyzSvXKe
+hUu4D5iESEoUvBtsRXN7rw54RIgbwBP7o5TfqPeyFSF5Ydtvkb68mpfle+oWn9ju
+xaK9eITPQicj7MFwvLYeuQKL857PmUSU6x36RG5j7RihIXyEAgyyubbwiuq57kgK
+Y7y9CnbX+2MJiktwwHqgu0bDr5EXmdJN2IGGTYjnOwJgtGgNXG7+EDopjxVkRtDu
+kYwTBj5VAsgFvFZqwJt6O2GS813WjO0AbDSF2VKPTqOuHDlCiJZ5/YUkb3V4YOgJ
+Mh7bHrhPPlgqZAkDLQ1IOuQwkCu7in6zmMI5yDzMw5zN1C6fNXfCJfPzWXMcr91r
+K0TR0Dqs4igelGhS+RNcTKXsMeatKyg+ERTZqaJETDChu6VMBPvB6UQGGYPElyMi
+22g60b7C57gEV8H+kH0mXTQsq1PpoJ/C1tqjMaeXyMtlOs42gTYcpxr64pyOPpn5
+aNsW4EoxCYjYeLNS7WUiP+rg/YpU0aiDRHrHoW++Fb6nSIuTC/Y=
+=RTFi
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Wed Feb  8 20:24:17 2017 UTC
+gpgv:                using RSA key 64254695FFF0AA4466CC19E67B96E8162A8CF5D1
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./lprng_3.8.B-2.1.dsc
+dpkg-source: info: extracting lprng in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking lprng_3.8.B.orig.tar.gz
+dpkg-source: info: unpacking lprng_3.8.B-2.1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying lpd_conf_manwarnings
+dpkg-source: info: applying portable_maxpathlen
+dpkg-source: info: applying string_literals
+dpkg-source: info: applying openssl_1.1.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-1d499ab9-d779-4d7f-9477-627f48d1066e
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package lprng
+dpkg-buildpackage: info: source version 3.8.B-2.1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Sebastian Andrzej Siewior <sebastian@breakpoint.cc>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+rm -f debian/lprng.init debian/lprng.if-up
+dh_auto_clean
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+# Required to stop timestamp skew
+touch configure.in && touch aclocal.m4 && touch configure
+./configure  \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--with-config_subdir=lprng \
+	--with-filterdir=\${prefix}/lib/arm-linux-gnueabihf/lprng/filters \
+	--with-lockfile=/var/run/lprng/lpd \
+	--with-unix_socket_path=/var/run/lprng/socket  \
+	--with-openssl-lib="/usr/lib /usr/lib/arm-linux-gnueabihf" \
+	--enable-kerberos_checks --enable-kerberos \
+	--with-groupid=lp \
+	--disable-remote \
+	--enable-lpd.conf.local
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for gawk... (cached) mawk
+checking for sed... /bin/sed
+checking for perl... /usr/bin/perl
+checking for chown... /bin/chown
+checking for chgrp... /bin/chgrp
+checking for pr... /usr/bin/pr
+checking for openssl... /usr/bin/openssl
+configure: require connections from priviledged ports: no
+configure: listen for remote connections by default  : no
+configure: include lpd.conf.local in lpd.conf        : yes
+configure: force_localhost is default                : yes
+configure: client programs require lpd.conf, printcap: yes
+configure: enable kerberos support                   : yes
+configure: locate Kerberos libraries and check       : yes
+configure: directory to place lpd executable into    : ${sbindir}
+configure: configuration directory          configdir= ${sysconfdir}/lprng
+configure: lpd.conf location                         : ${configdir}/lpd.conf
+configure: lpd.perms location                        : ${configdir}/lpd.perms
+configure: printcap location                         : ${sysconfdir}/printcap
+configure: lpd_printcap location                     : ${configdir}/lpd_printcap
+configure: locale information directory is           : ${datadir}/locale
+configure: unix socket path is                       : /var/run/lprng/socket
+configure: lockfile directory                        : /var/run/lprng/lpd
+configure: default spool directory (:sd=SPOOLDIR/%P) : /var/spool/lpd
+configure: plugin directory                plugindir = ${libdir}/lprng/plugins
+configure: filter directory                filterdir = ${prefix}/lib/arm-linux-gnueabihf/lprng/filters
+configure: filter LD_LIBRARY_PATH:    FILTER_LD_PATH = 
+configure: filter PATH:                  FILTER_PATH = /bin:/usr/bin:/usr/local/bin
+configure: userID to run lpd as                      : daemon
+configure: groupID to run lpd as                     : lp
+configure: number of job status to retain            : 1
+configure: max age to retain job status (0=no expiry): 0
+checking terminal screen clear program... checking for clear... /usr/bin/clear
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for working volatile... yes
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking return type of signal handlers... void
+checking for uid_t in sys/types.h... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for size_t... yes
+checking for mode_t... yes
+checking for off_t... yes
+checking for pid_t... yes
+checking for fd_set... yes
+checking for socklen_t... yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking arpa/nameser.h usability... yes
+checking arpa/nameser.h presence... yes
+checking for arpa/nameser.h... yes
+checking assert.h usability... yes
+checking assert.h presence... yes
+checking for assert.h... yes
+checking com_err.h usability... yes
+checking com_err.h presence... yes
+checking for com_err.h... yes
+checking compat.h usability... no
+checking compat.h presence... no
+checking for compat.h... no
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking ctypes.h usability... no
+checking ctypes.h presence... no
+checking for ctypes.h... no
+checking dirent.h usability... yes
+checking dirent.h presence... yes
+checking for dirent.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking filehdr.h usability... no
+checking filehdr.h presence... no
+checking for filehdr.h... no
+checking grp.h usability... yes
+checking grp.h presence... yes
+checking for grp.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking machine/vmparam.h usability... no
+checking machine/vmparam.h presence... no
+checking for machine/vmparam.h... no
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking for memory.h... (cached) yes
+checking ndir.h usability... no
+checking ndir.h presence... no
+checking for ndir.h... no
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking pwd.h usability... yes
+checking pwd.h presence... yes
+checking for pwd.h... yes
+checking resolv.h usability... yes
+checking resolv.h presence... yes
+checking for resolv.h... yes
+checking select.h usability... no
+checking select.h presence... no
+checking for select.h... no
+checking setjmp.h usability... yes
+checking setjmp.h presence... yes
+checking for setjmp.h... yes
+checking sgtty.h usability... yes
+checking sgtty.h presence... yes
+checking for sgtty.h... yes
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking stab.h usability... yes
+checking stab.h presence... yes
+checking for stab.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for strings.h... (cached) yes
+checking sys/dir.h usability... yes
+checking sys/dir.h presence... yes
+checking for sys/dir.h... yes
+checking sys/exec.h usability... no
+checking sys/exec.h presence... no
+checking for sys/exec.h... no
+checking sys/fcntl.h usability... yes
+checking sys/fcntl.h presence... yes
+checking for sys/fcntl.h... yes
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/mount.h usability... yes
+checking sys/mount.h presence... yes
+checking for sys/mount.h... yes
+checking sys/ndir.h usability... no
+checking sys/ndir.h presence... no
+checking for sys/ndir.h... no
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/pstat.h usability... no
+checking sys/pstat.h presence... no
+checking for sys/pstat.h... no
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/signal.h usability... yes
+checking sys/signal.h presence... yes
+checking for sys/signal.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking for sys/stat.h... (cached) yes
+checking sys/statfs.h usability... yes
+checking sys/statfs.h presence... yes
+checking for sys/statfs.h... yes
+checking sys/statvfs.h usability... yes
+checking sys/statvfs.h presence... yes
+checking for sys/statvfs.h... yes
+checking sys/syslog.h usability... yes
+checking sys/syslog.h presence... yes
+checking for sys/syslog.h... yes
+checking sys/systeminfo.h usability... no
+checking sys/systeminfo.h presence... no
+checking for sys/systeminfo.h... no
+checking sys/termio.h usability... no
+checking sys/termio.h presence... no
+checking for sys/termio.h... no
+checking sys/termiox.h usability... no
+checking sys/termiox.h presence... no
+checking for sys/termiox.h... no
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/ttold.h usability... no
+checking sys/ttold.h presence... no
+checking for sys/ttold.h... no
+checking sys/ttycom.h usability... no
+checking sys/ttycom.h presence... no
+checking for sys/ttycom.h... no
+checking for sys/types.h... (cached) yes
+checking sys/utsname.h usability... yes
+checking sys/utsname.h presence... yes
+checking for sys/utsname.h... yes
+checking sys/vfs.h usability... yes
+checking sys/vfs.h presence... yes
+checking for sys/vfs.h... yes
+checking for sys/wait.h... (cached) yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking term.h usability... no
+checking term.h presence... no
+checking for term.h... no
+checking termcap.h usability... no
+checking termcap.h presence... no
+checking for termcap.h... no
+checking termio.h usability... yes
+checking termio.h presence... yes
+checking for termio.h... yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking for unistd.h... (cached) yes
+checking utsname.h usability... no
+checking utsname.h presence... no
+checking for utsname.h... no
+checking varargs.h usability... no
+checking varargs.h presence... no
+checking for varargs.h... no
+checking vmparam.h usability... no
+checking vmparam.h presence... no
+checking for vmparam.h... no
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking for endian.h... yes
+checking for stdint.h... (cached) yes
+checking for library containing getpwent... none required
+checking for library containing gethostbyaddr... none required
+checking for library containing socket... none required
+checking for inet_ntop... yes
+checking for setproctitle in -lutil... no
+checking for _res... no
+checking for cfsetispeed... yes
+checking for fcntl... yes
+checking for flock... yes
+checking for gethostbyname2... yes
+checking for getdtablesize... yes
+checking for gethostname... yes
+checking for getrlimit... yes
+checking for inet_aton... yes
+checking for inet_ntop... (cached) yes
+checking for inet_pton... yes
+checking for innetgr... yes
+checking for initgroups... yes
+checking for killpg... yes
+checking for lockf... yes
+checking for mkstemp... yes
+checking for mktemp... yes
+checking for openlog... yes
+checking for putenv... yes
+checking for random... yes
+checking for rand... yes
+checking for setenv... yes
+checking for seteuid... yes
+checking for setgroups... yes
+checking for setlocale... yes
+checking for setpgid... yes
+checking for setproctitle... no
+checking for setresuid... yes
+checking for setreuid... yes
+checking for setruid... no
+checking for setsid... yes
+checking for sigaction... yes
+checking for sigprocmask... yes
+checking for siglongjmp... yes
+checking for socketpair... yes
+checking for strcasecmp... yes
+checking for strchr... yes
+checking for strdup... yes
+checking for strerror... yes
+checking for strncasecmp... yes
+checking for sysconf... yes
+checking for sysinfo... yes
+checking for tcdrain... yes
+checking for tcflush... yes
+checking for tcsetattr... yes
+checking for uname... yes
+checking for unsetenv... yes
+checking for wait3... yes
+checking for waitpid... yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... yes
+checking for working vfork... (cached) yes
+checking for vprintf... yes
+checking for _doprnt... no
+checking how to manipulate tty attributes... termios
+checking checking for lseek prototype... yes
+checking how to get filesystem free space... statvfs
+checking for setproctitle declaration... no
+checking for sys_siglist array... yes
+checking for sys_siglist declaration... yes
+checking for obsolete union wait compatibility... no
+checking for gethostname declaration... yes
+checking for innetgr declaration... yes
+checking for openlog declaration... yes
+checking for syslog declaration... yes
+checking for struct in6_addr declaration... yes
+checking for struct in_addr6 declaration (LINUX)... no
+checking for struct stat has st_mtimespec.tv_nsec... no
+checking for struct stat has st_mtimensec... no
+checking for strcasecmp definition... yes
+checking for flock definition... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for auxman... /usr/bin/install -c -m 644
+checking whether make sets $(MAKE)... (cached) yes
+checking for shell... using /bin/sh (FORCED)
+checking whether NLS is requested... no
+checking whether to use NLS... no
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking use tcp wrappers... no
+checking if ssl authentication is disabled... enabled
+checking for OpenSSL include files... found in /usr/include
+checking for OpenSSL libraries... not found.
+checking ssl Certificate Authority CERT file... ${configdir}/ssl.ca/ca.crt
+checking ssl Certificate Authority private key file... ${configdir}/ssl.ca/ca.key
+checking ssl Certificate Authority certs working directory... ${configdir}/ssl.certs
+checking ssl Certificate Revocation List (CRL) file... ${configdir}/ssl.crl/ssl.crl
+checking ssl server certificate file... ${configdir}/ssl.server/server.crt
+checking ssl server password file for private key file... ${configdir}/ssl.server/server.pwd
+Kerberos checks with CFLAGS '-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security', CPPFLAGS '-Wdate-time -D_FORTIFY_SOURCE=2',  LDFLAGS '-Wl,-z,relro
+checking krb5.h usability... yes
+checking krb5.h presence... yes
+checking for krb5.h... yes
+configure: checking for krb5_init_context in  -lkrb5 -lk5crypto -lcom_err  ...
+configure: checking for krb5_encrypt_size in  -lkrb5 -lk5crypto -lcom_err  ...
+configure: checking for krb5_init_context in  -lkrb5 -lcrypto -lcom_err  ...
+configure: checking for krb5_encrypt_size in  -lkrb5 -lcrypto -lcom_err  ...
+checking for krb5-config... /usr/bin/krb5-config
+configure: checking for krb5_init_context in  -L/usr/lib/x86_64-linux-gnu/mit-krb5 -Wl,-z,relro -lkrb5 -lk5crypto -lcom_err  ...
+configure: checking for krb5_encrypt_size in  -L/usr/lib/x86_64-linux-gnu/mit-krb5 -Wl,-z,relro -lkrb5 -lk5crypto -lcom_err  ...
+configure: WARNING: Kerberos 5 library does not have krb5_init_context and krb5_encrypt_size or 
+configure: WARNING: use configure --disable-kerberos or check your Kerberos 5 installation
+make[1]: *** [debian/rules:13: override_dh_auto_configure] Error 1
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make: *** [debian/rules:6: build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-03-05T12:52:23Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils*
+  comerr-dev:armhf* debhelper* dh-autoreconf* dh-strip-nondeterminism* dwz*
+  gcc-8-base:armhf* gettext* gettext-base* groff-base* intltool-debian*
+  krb5-multidev:armhf* libarchive-zip-perl* libasan5:armhf* libatomic1:armhf*
+  libbsd0* libc6:armhf* libc6-dev:armhf* libcom-err2:armhf* libcroco3*
+  libelf1* libfile-stripnondeterminism-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libglib2.0-0* libgomp1:armhf* libgssapi-krb5-2:armhf*
+  libgssrpc4:armhf* libk5crypto3:armhf* libkadm5clnt-mit11:armhf*
+  libkadm5srv-mit11:armhf* libkdb5-9:armhf* libkeyutils1:armhf*
+  libkrb5-3:armhf* libkrb5-dev:armhf* libkrb5support0:armhf* libncurses6*
+  libpipeline1* libprocps7* libsigsegv2* libssl-dev:armhf* libssl1.1:armhf*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libtool* libubsan1:armhf*
+  libuchardet0* libwrap0:armhf* libwrap0-dev:armhf* linux-libc-dev:armhf* m4*
+  man-db* po-debconf* procps* sbuild-build-depends-main-dummy:armhf*
+0 upgraded, 0 newly installed, 59 to remove and 0 not upgraded.
+After this operation, 91.7 MB disk space will be freed.
+(Reading database ... 19592 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing libkrb5-dev:armhf (1.17-2) ...
+Removing krb5-multidev:armhf (1.17-2) ...
+Removing comerr-dev:armhf (2.1-1.44.5-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libwrap0-dev:armhf (7.6.q-28) ...
+Removing libwrap0:armhf (7.6.q-28) ...
+Removing libssl-dev:armhf (1.1.1b-1) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libkadm5srv-mit11:armhf (1.17-2) ...
+Removing libkdb5-9:armhf (1.17-2) ...
+Removing libkadm5clnt-mit11:armhf (1.17-2) ...
+Removing libgssrpc4:armhf (1.17-2) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libgssapi-krb5-2:armhf (1.17-2) ...
+Removing procps (2:3.3.15-2) ...
+Removing libprocps7:amd64 (2:3.3.15-2) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing libkrb5-3:armhf (1.17-2) ...
+Removing libcom-err2:armhf (1.44.5-1) ...
+Removing libk5crypto3:armhf (1.17-2) ...
+Removing libkrb5support0:armhf (1.17-2) ...
+Removing libkeyutils1:armhf (1.6-4) ...
+Removing libssl1.1:armhf (1.1.1b-1) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16462 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for libssl1.1:armhf (1.1.1b-1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libwrap0:armhf (7.6.q-28) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for comerr-dev:armhf (2.1-1.44.5-1) ...
+Purging configuration files for libgssapi-krb5-2:armhf (1.17-2) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+Purging configuration files for procps (2:3.3.15-2) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 35
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 8
+Job: /home/build/sbuild-setup/repo/pool/main/l/lprng/lprng_3.8.B-2.1.dsc
+Machine Architecture: amd64
+Package: lprng
+Package-Time: 49
+Source-Version: 3.8.B-2.1
+Space: n/a
+Status: attempted
+Version: 3.8.B-2.1
+--------------------------------------------------------------------------------
+Finished at 2019-03-05T12:52:23Z
+Build needed 00:00:49, no disk space

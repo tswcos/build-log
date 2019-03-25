@@ -1,0 +1,2484 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| fluidsynth 1.1.11-1 (armhf)                  Fri, 01 Mar 2019 18:49:17 +0000 |
++==============================================================================+
+
+Package: fluidsynth
+Version: 1.1.11-1
+Source Version: 1.1.11-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-f0874fab-f4a3-40de-856d-46c89e770c29' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/fluidsynth-BWThw7/resolver-WRQp2G' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/f/fluidsynth/fluidsynth_1.1.11-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/f/fluidsynth; copying to chroot
+I: NOTICE: Log filtering will replace 'build/fluidsynth-BWThw7/fluidsynth-1.1.11' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/fluidsynth-BWThw7' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: cmake, debhelper (>= 11~), ladspa-sdk, libasound2-dev, libglib2.0-dev (>= 2.6.5), libjack-dev, libpulse-dev, libreadline-dev (>= 5), libsndfile-dev, libtool, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: cmake, debhelper (>= 11~), ladspa-sdk, libasound2-dev, libglib2.0-dev (>= 2.6.5), libjack-dev, libpulse-dev, libreadline-dev (>= 5), libsndfile-dev, libtool, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [460 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [547 B]
+Fetched 1964 B in 0s (153 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils cmake cmake-data
+  debhelper dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian ladspa-sdk:armhf libarchive-zip-perl
+  libarchive13 libasan5:armhf libasound2:armhf libasound2-data
+  libasound2-dev:armhf libasyncns0:armhf libatomic1:armhf libblkid-dev:armhf
+  libblkid1:armhf libbsd0 libbsd0:armhf libc6:armhf libc6-dev:armhf
+  libcap2:armhf libcroco3 libcurl4 libdb5.3:armhf libdbus-1-3:armhf libelf1
+  libffi-dev:armhf libffi6:armhf libfile-stripnondeterminism-perl
+  libflac-dev:armhf libflac8:armhf libgcc-8-dev:armhf libgcc1:armhf
+  libgcrypt20:armhf libglib2.0-0 libglib2.0-0:armhf libglib2.0-bin
+  libglib2.0-data libglib2.0-dev:armhf libglib2.0-dev-bin libgomp1:armhf
+  libgpg-error0:armhf libgssapi-krb5-2 libice6:armhf libjack-dev:armhf
+  libjack0:armhf libjsoncpp1 libk5crypto3 libkeyutils1 libkrb5-3
+  libkrb5support0 liblz4-1:armhf liblzma5:armhf libmount-dev:armhf
+  libmount1:armhf libmpdec2 libncurses-dev:armhf libncurses6 libncurses6:armhf
+  libncursesw6:armhf libnghttp2-14 libogg-dev:armhf libogg0:armhf
+  libpcre16-3:armhf libpcre3:armhf libpcre3-dev:armhf libpcre32-3:armhf
+  libpcrecpp0v5:armhf libpipeline1 libprocps7 libpsl5 libpulse-dev:armhf
+  libpulse-mainloop-glib0:armhf libpulse0:armhf libpython3-stdlib
+  libpython3.7-minimal libpython3.7-stdlib libreadline-dev:armhf
+  libreadline7:armhf librhash0 librtmp1 libselinux1:armhf
+  libselinux1-dev:armhf libsepol1:armhf libsepol1-dev:armhf libsigsegv2
+  libsm6:armhf libsndfile1:armhf libsndfile1-dev:armhf libssh2-1
+  libstdc++-8-dev:armhf libstdc++6:armhf libsystemd0:armhf libtinfo6:armhf
+  libtool libubsan1:armhf libuchardet0 libuuid1:armhf libuv1
+  libvorbis-dev:armhf libvorbis0a:armhf libvorbisenc2:armhf
+  libvorbisfile3:armhf libwrap0:armhf libx11-6:armhf libx11-data
+  libx11-xcb1:armhf libxau6:armhf libxcb1:armhf libxdmcp6:armhf libxext6:armhf
+  libxi6:armhf libxtst6:armhf linux-libc-dev:armhf m4 man-db mime-support
+  pkg-config po-debconf procps python3 python3-distutils python3-lib2to3
+  python3-minimal python3.7 python3.7-minimal uuid-dev:armhf x11-common
+  zlib1g:armhf zlib1g-dev:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation cmake-doc ninja-build dh-make gettext-doc libasprintf-dev
+  libgettextpo-dev groff lrzip libasound2-plugins:armhf alsa-utils
+  libasound2-doc:armhf glibc-doc:armhf libc-l10n:armhf locales:armhf
+  manpages-dev:armhf rng-tools:armhf libglib2.0-doc:armhf libgdk-pixbuf2.0-bin
+  | libgdk-pixbuf2.0-dev libxml2-utils krb5-doc krb5-user jackd1:armhf
+  ncurses-doc:armhf pulseaudio:armhf readline-doc:armhf libstdc++-8-doc:armhf
+  libtool-doc gfortran | fortran95-compiler gcj-jdk m4-doc apparmor less
+  www-browser libmail-box-perl python3-doc python3-tk python3-venv
+  python3.7-venv python3.7-doc binfmt-support
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf dbus:armhf libarchive-cpio-perl
+  shared-mime-info xdg-user-dirs shared-mime-info:armhf xdg-user-dirs:armhf
+  libgpg-error-l10n:armhf krb5-locales libgpm2 libgpm2:armhf publicsuffix
+  libltdl-dev libmail-sendmail-perl psmisc
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils cmake cmake-data
+  debhelper dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian ladspa-sdk:armhf libarchive-zip-perl
+  libarchive13 libasan5:armhf libasound2:armhf libasound2-data
+  libasound2-dev:armhf libasyncns0:armhf libatomic1:armhf libblkid-dev:armhf
+  libblkid1:armhf libbsd0 libbsd0:armhf libc6:armhf libc6-dev:armhf
+  libcap2:armhf libcroco3 libcurl4 libdb5.3:armhf libdbus-1-3:armhf libelf1
+  libffi-dev:armhf libffi6:armhf libfile-stripnondeterminism-perl
+  libflac-dev:armhf libflac8:armhf libgcc-8-dev:armhf libgcc1:armhf
+  libgcrypt20:armhf libglib2.0-0 libglib2.0-0:armhf libglib2.0-bin
+  libglib2.0-data libglib2.0-dev:armhf libglib2.0-dev-bin libgomp1:armhf
+  libgpg-error0:armhf libgssapi-krb5-2 libice6:armhf libjack-dev:armhf
+  libjack0:armhf libjsoncpp1 libk5crypto3 libkeyutils1 libkrb5-3
+  libkrb5support0 liblz4-1:armhf liblzma5:armhf libmount-dev:armhf
+  libmount1:armhf libmpdec2 libncurses-dev:armhf libncurses6 libncurses6:armhf
+  libncursesw6:armhf libnghttp2-14 libogg-dev:armhf libogg0:armhf
+  libpcre16-3:armhf libpcre3:armhf libpcre3-dev:armhf libpcre32-3:armhf
+  libpcrecpp0v5:armhf libpipeline1 libprocps7 libpsl5 libpulse-dev:armhf
+  libpulse-mainloop-glib0:armhf libpulse0:armhf libpython3-stdlib
+  libpython3.7-minimal libpython3.7-stdlib libreadline-dev:armhf
+  libreadline7:armhf librhash0 librtmp1 libselinux1:armhf
+  libselinux1-dev:armhf libsepol1:armhf libsepol1-dev:armhf libsigsegv2
+  libsm6:armhf libsndfile1:armhf libsndfile1-dev:armhf libssh2-1
+  libstdc++-8-dev:armhf libstdc++6:armhf libsystemd0:armhf libtinfo6:armhf
+  libtool libubsan1:armhf libuchardet0 libuuid1:armhf libuv1
+  libvorbis-dev:armhf libvorbis0a:armhf libvorbisenc2:armhf
+  libvorbisfile3:armhf libwrap0:armhf libx11-6:armhf libx11-data
+  libx11-xcb1:armhf libxau6:armhf libxcb1:armhf libxdmcp6:armhf libxext6:armhf
+  libxi6:armhf libxtst6:armhf linux-libc-dev:armhf m4 man-db mime-support
+  pkg-config po-debconf procps python3 python3-distutils python3-lib2to3
+  python3-minimal python3.7 python3.7-minimal
+  sbuild-build-depends-main-dummy:armhf uuid-dev:armhf x11-common zlib1g:armhf
+  zlib1g-dev:armhf
+0 upgraded, 142 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1421 kB/46.2 MB of archives.
+After this operation, 185 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [972 B]
+Get:2 http://10.116.41.102/debian sid/main armhf ladspa-sdk armhf 1.13-3 [34.8 kB]
+Get:3 http://10.116.41.102/debian sid/main armhf libogg-dev armhf 1.3.2-1+b1 [196 kB]
+Get:4 http://10.116.41.102/debian sid/main armhf libflac-dev armhf 1.3.2-3 [202 kB]
+Get:5 http://10.116.41.102/debian sid/main armhf libjack0 armhf 1:0.125.0-3 [95.1 kB]
+Get:6 http://10.116.41.102/debian sid/main armhf libjack-dev armhf 1:0.125.0-3 [218 kB]
+Get:7 http://10.116.41.102/debian sid/main armhf libvorbis-dev armhf 1.3.6-2 [318 kB]
+Get:8 http://10.116.41.102/debian sid/main armhf libsndfile1-dev armhf 1.0.28-5 [357 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 1421 kB in 0s (10.7 MB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../06-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../07-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../08-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libgpg-error0:armhf.
+Preparing to unpack .../09-libgpg-error0_1.35-1_armhf.deb ...
+Unpacking libgpg-error0:armhf (1.35-1) ...
+Selecting previously unselected package libgcrypt20:armhf.
+Preparing to unpack .../10-libgcrypt20_1.8.4-5_armhf.deb ...
+Unpacking libgcrypt20:armhf (1.8.4-5) ...
+Selecting previously unselected package liblz4-1:armhf.
+Preparing to unpack .../11-liblz4-1_1.8.3-1_armhf.deb ...
+Unpacking liblz4-1:armhf (1.8.3-1) ...
+Selecting previously unselected package liblzma5:armhf.
+Preparing to unpack .../12-liblzma5_5.2.4-1_armhf.deb ...
+Unpacking liblzma5:armhf (5.2.4-1) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up libgpg-error0:armhf (1.35-1) ...
+Setting up libgcrypt20:armhf (1.8.4-5) ...
+Setting up liblz4-1:armhf (1.8.3-1) ...
+Setting up liblzma5:armhf (5.2.4-1) ...
+Selecting previously unselected package libsystemd0:armhf.
+(Reading database ... 17389 files and directories currently installed.)
+Preparing to unpack .../libsystemd0_241-1_armhf.deb ...
+Unpacking libsystemd0:armhf (241-1) ...
+Selecting previously unselected package libpython3.7-minimal:amd64.
+Preparing to unpack .../libpython3.7-minimal_3.7.2-2_amd64.deb ...
+Unpacking libpython3.7-minimal:amd64 (3.7.2-2) ...
+Selecting previously unselected package python3.7-minimal.
+Preparing to unpack .../python3.7-minimal_3.7.2-2_amd64.deb ...
+Unpacking python3.7-minimal (3.7.2-2) ...
+Setting up libpython3.7-minimal:amd64 (3.7.2-2) ...
+Setting up python3.7-minimal (3.7.2-2) ...
+Selecting previously unselected package python3-minimal.
+(Reading database ... 17632 files and directories currently installed.)
+Preparing to unpack .../0-python3-minimal_3.7.2-1_amd64.deb ...
+Unpacking python3-minimal (3.7.2-1) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../1-mime-support_3.62_all.deb ...
+Unpacking mime-support (3.62) ...
+Selecting previously unselected package libmpdec2:amd64.
+Preparing to unpack .../2-libmpdec2_2.4.2-2_amd64.deb ...
+Unpacking libmpdec2:amd64 (2.4.2-2) ...
+Selecting previously unselected package libpython3.7-stdlib:amd64.
+Preparing to unpack .../3-libpython3.7-stdlib_3.7.2-2_amd64.deb ...
+Unpacking libpython3.7-stdlib:amd64 (3.7.2-2) ...
+Selecting previously unselected package python3.7.
+Preparing to unpack .../4-python3.7_3.7.2-2_amd64.deb ...
+Unpacking python3.7 (3.7.2-2) ...
+Selecting previously unselected package libpython3-stdlib:amd64.
+Preparing to unpack .../5-libpython3-stdlib_3.7.2-1_amd64.deb ...
+Unpacking libpython3-stdlib:amd64 (3.7.2-1) ...
+Setting up python3-minimal (3.7.2-1) ...
+Selecting previously unselected package python3.
+(Reading database ... 18066 files and directories currently installed.)
+Preparing to unpack .../000-python3_3.7.2-1_amd64.deb ...
+Unpacking python3 (3.7.2-1) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../001-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package libprocps7:amd64.
+Preparing to unpack .../002-libprocps7_2%3a3.3.15-2_amd64.deb ...
+Unpacking libprocps7:amd64 (2:3.3.15-2) ...
+Selecting previously unselected package procps.
+Preparing to unpack .../003-procps_2%3a3.3.15-2_amd64.deb ...
+Unpacking procps (2:3.3.15-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../004-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../005-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../006-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../007-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../008-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../009-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../010-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package cmake-data.
+Preparing to unpack .../011-cmake-data_3.13.4-1_all.deb ...
+Unpacking cmake-data (3.13.4-1) ...
+Selecting previously unselected package libarchive13:amd64.
+Preparing to unpack .../012-libarchive13_3.3.3-4_amd64.deb ...
+Unpacking libarchive13:amd64 (3.3.3-4) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Preparing to unpack .../013-libkeyutils1_1.6-4_amd64.deb ...
+Unpacking libkeyutils1:amd64 (1.6-4) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Preparing to unpack .../014-libkrb5support0_1.17-2_amd64.deb ...
+Unpacking libkrb5support0:amd64 (1.17-2) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Preparing to unpack .../015-libk5crypto3_1.17-2_amd64.deb ...
+Unpacking libk5crypto3:amd64 (1.17-2) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Preparing to unpack .../016-libkrb5-3_1.17-2_amd64.deb ...
+Unpacking libkrb5-3:amd64 (1.17-2) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Preparing to unpack .../017-libgssapi-krb5-2_1.17-2_amd64.deb ...
+Unpacking libgssapi-krb5-2:amd64 (1.17-2) ...
+Selecting previously unselected package libnghttp2-14:amd64.
+Preparing to unpack .../018-libnghttp2-14_1.36.0-2_amd64.deb ...
+Unpacking libnghttp2-14:amd64 (1.36.0-2) ...
+Selecting previously unselected package libpsl5:amd64.
+Preparing to unpack .../019-libpsl5_0.20.2-2_amd64.deb ...
+Unpacking libpsl5:amd64 (0.20.2-2) ...
+Selecting previously unselected package librtmp1:amd64.
+Preparing to unpack .../020-librtmp1_2.4+20151223.gitfa8646d.1-2_amd64.deb ...
+Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2) ...
+Selecting previously unselected package libssh2-1:amd64.
+Preparing to unpack .../021-libssh2-1_1.8.0-2_amd64.deb ...
+Unpacking libssh2-1:amd64 (1.8.0-2) ...
+Selecting previously unselected package libcurl4:amd64.
+Preparing to unpack .../022-libcurl4_7.64.0-1_amd64.deb ...
+Unpacking libcurl4:amd64 (7.64.0-1) ...
+Selecting previously unselected package libjsoncpp1:amd64.
+Preparing to unpack .../023-libjsoncpp1_1.7.4-3_amd64.deb ...
+Unpacking libjsoncpp1:amd64 (1.7.4-3) ...
+Selecting previously unselected package librhash0:amd64.
+Preparing to unpack .../024-librhash0_1.3.8-1_amd64.deb ...
+Unpacking librhash0:amd64 (1.3.8-1) ...
+Selecting previously unselected package libuv1:amd64.
+Preparing to unpack .../025-libuv1_1.24.1-1_amd64.deb ...
+Unpacking libuv1:amd64 (1.24.1-1) ...
+Selecting previously unselected package cmake.
+Preparing to unpack .../026-cmake_3.13.4-1_amd64.deb ...
+Unpacking cmake (3.13.4-1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../027-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../028-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../029-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../030-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../031-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../032-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../033-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../034-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../035-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../036-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../037-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../038-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../039-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../040-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package ladspa-sdk:armhf.
+Preparing to unpack .../041-ladspa-sdk_1.13-3_armhf.deb ...
+Unpacking ladspa-sdk:armhf (1.13-3) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../042-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libasound2-data.
+Preparing to unpack .../043-libasound2-data_1.1.8-1_all.deb ...
+Unpacking libasound2-data (1.1.8-1) ...
+Selecting previously unselected package libasound2:armhf.
+Preparing to unpack .../044-libasound2_1.1.8-1_armhf.deb ...
+Unpacking libasound2:armhf (1.1.8-1) ...
+Selecting previously unselected package libasound2-dev:armhf.
+Preparing to unpack .../045-libasound2-dev_1.1.8-1_armhf.deb ...
+Unpacking libasound2-dev:armhf (1.1.8-1) ...
+Selecting previously unselected package libasyncns0:armhf.
+Preparing to unpack .../046-libasyncns0_0.8-6_armhf.deb ...
+Unpacking libasyncns0:armhf (0.8-6) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../047-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libuuid1:armhf.
+Preparing to unpack .../048-libuuid1_2.33.1-0.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libblkid1:armhf.
+Preparing to unpack .../049-libblkid1_2.33.1-0.1_armhf.deb ...
+Unpacking libblkid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../050-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../051-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package uuid-dev:armhf.
+Preparing to unpack .../052-uuid-dev_2.33.1-0.1_armhf.deb ...
+Unpacking uuid-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libblkid-dev:armhf.
+Preparing to unpack .../053-libblkid-dev_2.33.1-0.1_armhf.deb ...
+Unpacking libblkid-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libbsd0:armhf.
+Preparing to unpack .../054-libbsd0_0.9.1-2_armhf.deb ...
+Unpacking libbsd0:armhf (0.9.1-2) ...
+Selecting previously unselected package libcap2:armhf.
+Preparing to unpack .../055-libcap2_1%3a2.25-2_armhf.deb ...
+Unpacking libcap2:armhf (1:2.25-2) ...
+Selecting previously unselected package libdb5.3:armhf.
+Preparing to unpack .../056-libdb5.3_5.3.28+dfsg1-0.5_armhf.deb ...
+Unpacking libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Selecting previously unselected package libdbus-1-3:armhf.
+Preparing to unpack .../057-libdbus-1-3_1.12.12-1_armhf.deb ...
+Unpacking libdbus-1-3:armhf (1.12.12-1) ...
+Selecting previously unselected package libffi6:armhf.
+Preparing to unpack .../058-libffi6_3.2.1-9_armhf.deb ...
+Unpacking libffi6:armhf (3.2.1-9) ...
+Selecting previously unselected package libffi-dev:armhf.
+Preparing to unpack .../059-libffi-dev_3.2.1-9_armhf.deb ...
+Unpacking libffi-dev:armhf (3.2.1-9) ...
+Selecting previously unselected package libogg0:armhf.
+Preparing to unpack .../060-libogg0_1.3.2-1+b1_armhf.deb ...
+Unpacking libogg0:armhf (1.3.2-1+b1) ...
+Selecting previously unselected package libflac8:armhf.
+Preparing to unpack .../061-libflac8_1.3.2-3_armhf.deb ...
+Unpacking libflac8:armhf (1.3.2-3) ...
+Selecting previously unselected package libogg-dev:armhf.
+Preparing to unpack .../062-libogg-dev_1.3.2-1+b1_armhf.deb ...
+Unpacking libogg-dev:armhf (1.3.2-1+b1) ...
+Selecting previously unselected package libflac-dev:armhf.
+Preparing to unpack .../063-libflac-dev_1.3.2-3_armhf.deb ...
+Unpacking libflac-dev:armhf (1.3.2-3) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../064-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../065-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../066-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libpcre3:armhf.
+Preparing to unpack .../067-libpcre3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre3:armhf (2:8.39-11) ...
+Selecting previously unselected package libselinux1:armhf.
+Preparing to unpack .../068-libselinux1_2.8-1+b1_armhf.deb ...
+Unpacking libselinux1:armhf (2.8-1+b1) ...
+Selecting previously unselected package libmount1:armhf.
+Preparing to unpack .../069-libmount1_2.33.1-0.1_armhf.deb ...
+Unpacking libmount1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../070-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libglib2.0-0:armhf.
+Preparing to unpack .../071-libglib2.0-0_2.58.3-1_armhf.deb ...
+Unpacking libglib2.0-0:armhf (2.58.3-1) ...
+Selecting previously unselected package libglib2.0-data.
+Preparing to unpack .../072-libglib2.0-data_2.58.3-1_all.deb ...
+Unpacking libglib2.0-data (2.58.3-1) ...
+Selecting previously unselected package libglib2.0-bin.
+Preparing to unpack .../073-libglib2.0-bin_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-bin (2.58.3-1) ...
+Selecting previously unselected package python3-lib2to3.
+Preparing to unpack .../074-python3-lib2to3_3.7.2-3_all.deb ...
+Unpacking python3-lib2to3 (3.7.2-3) ...
+Selecting previously unselected package python3-distutils.
+Preparing to unpack .../075-python3-distutils_3.7.2-3_all.deb ...
+Unpacking python3-distutils (3.7.2-3) ...
+Selecting previously unselected package libglib2.0-dev-bin.
+Preparing to unpack .../076-libglib2.0-dev-bin_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-dev-bin (2.58.3-1) ...
+Selecting previously unselected package libmount-dev:armhf.
+Preparing to unpack .../077-libmount-dev_2.33.1-0.1_armhf.deb ...
+Unpacking libmount-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libpcre16-3:armhf.
+Preparing to unpack .../078-libpcre16-3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre16-3:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcre32-3:armhf.
+Preparing to unpack .../079-libpcre32-3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre32-3:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcrecpp0v5:armhf.
+Preparing to unpack .../080-libpcrecpp0v5_2%3a8.39-11_armhf.deb ...
+Unpacking libpcrecpp0v5:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcre3-dev:armhf.
+Preparing to unpack .../081-libpcre3-dev_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre3-dev:armhf (2:8.39-11) ...
+Selecting previously unselected package libsepol1:armhf.
+Preparing to unpack .../082-libsepol1_2.8-1_armhf.deb ...
+Unpacking libsepol1:armhf (2.8-1) ...
+Selecting previously unselected package libsepol1-dev:armhf.
+Preparing to unpack .../083-libsepol1-dev_2.8-1_armhf.deb ...
+Unpacking libsepol1-dev:armhf (2.8-1) ...
+Selecting previously unselected package libselinux1-dev:armhf.
+Preparing to unpack .../084-libselinux1-dev_2.8-1+b1_armhf.deb ...
+Unpacking libselinux1-dev:armhf (2.8-1+b1) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../085-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package zlib1g-dev:armhf.
+Preparing to unpack .../086-zlib1g-dev_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libglib2.0-dev:armhf.
+Preparing to unpack .../087-libglib2.0-dev_2.58.3-1_armhf.deb ...
+Unpacking libglib2.0-dev:armhf (2.58.3-1) ...
+Selecting previously unselected package x11-common.
+Preparing to unpack .../088-x11-common_1%3a7.7+19_all.deb ...
+Unpacking x11-common (1:7.7+19) ...
+Selecting previously unselected package libice6:armhf.
+Preparing to unpack .../089-libice6_2%3a1.0.9-2_armhf.deb ...
+Unpacking libice6:armhf (2:1.0.9-2) ...
+Selecting previously unselected package libjack0:armhf.
+Preparing to unpack .../090-libjack0_1%3a0.125.0-3_armhf.deb ...
+Unpacking libjack0:armhf (1:0.125.0-3) ...
+Selecting previously unselected package libjack-dev:armhf.
+Preparing to unpack .../091-libjack-dev_1%3a0.125.0-3_armhf.deb ...
+Unpacking libjack-dev:armhf (1:0.125.0-3) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../092-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../093-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../094-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../095-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libsm6:armhf.
+Preparing to unpack .../096-libsm6_2%3a1.2.3-1_armhf.deb ...
+Unpacking libsm6:armhf (2:1.2.3-1) ...
+Selecting previously unselected package libvorbis0a:armhf.
+Preparing to unpack .../097-libvorbis0a_1.3.6-2_armhf.deb ...
+Unpacking libvorbis0a:armhf (1.3.6-2) ...
+Selecting previously unselected package libvorbisenc2:armhf.
+Preparing to unpack .../098-libvorbisenc2_1.3.6-2_armhf.deb ...
+Unpacking libvorbisenc2:armhf (1.3.6-2) ...
+Selecting previously unselected package libsndfile1:armhf.
+Preparing to unpack .../099-libsndfile1_1.0.28-5_armhf.deb ...
+Unpacking libsndfile1:armhf (1.0.28-5) ...
+Selecting previously unselected package libwrap0:armhf.
+Preparing to unpack .../100-libwrap0_7.6.q-28_armhf.deb ...
+Unpacking libwrap0:armhf (7.6.q-28) ...
+Selecting previously unselected package libxau6:armhf.
+Preparing to unpack .../101-libxau6_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau6:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:armhf.
+Preparing to unpack .../102-libxdmcp6_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp6:armhf (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:armhf.
+Preparing to unpack .../103-libxcb1_1.13.1-2_armhf.deb ...
+Unpacking libxcb1:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-data.
+Preparing to unpack .../104-libx11-data_2%3a1.6.7-1_all.deb ...
+Unpacking libx11-data (2:1.6.7-1) ...
+Selecting previously unselected package libx11-6:armhf.
+Preparing to unpack .../105-libx11-6_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-6:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libx11-xcb1:armhf.
+Preparing to unpack .../106-libx11-xcb1_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-xcb1:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxext6:armhf.
+Preparing to unpack .../107-libxext6_2%3a1.3.3-1+b2_armhf.deb ...
+Unpacking libxext6:armhf (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxi6:armhf.
+Preparing to unpack .../108-libxi6_2%3a1.7.9-1_armhf.deb ...
+Unpacking libxi6:armhf (2:1.7.9-1) ...
+Selecting previously unselected package libxtst6:armhf.
+Preparing to unpack .../109-libxtst6_2%3a1.2.3-1_armhf.deb ...
+Unpacking libxtst6:armhf (2:1.2.3-1) ...
+Selecting previously unselected package libpulse0:armhf.
+Preparing to unpack .../110-libpulse0_12.2-4_armhf.deb ...
+Unpacking libpulse0:armhf (12.2-4) ...
+Selecting previously unselected package libpulse-mainloop-glib0:armhf.
+Preparing to unpack .../111-libpulse-mainloop-glib0_12.2-4_armhf.deb ...
+Unpacking libpulse-mainloop-glib0:armhf (12.2-4) ...
+Selecting previously unselected package libpulse-dev:armhf.
+Preparing to unpack .../112-libpulse-dev_12.2-4_armhf.deb ...
+Unpacking libpulse-dev:armhf (12.2-4) ...
+Selecting previously unselected package libreadline7:armhf.
+Preparing to unpack .../113-libreadline7_7.0-5_armhf.deb ...
+Unpacking libreadline7:armhf (7.0-5) ...
+Selecting previously unselected package libreadline-dev:armhf.
+Preparing to unpack .../114-libreadline-dev_7.0-5_armhf.deb ...
+Unpacking libreadline-dev:armhf (7.0-5) ...
+Selecting previously unselected package libvorbisfile3:armhf.
+Preparing to unpack .../115-libvorbisfile3_1.3.6-2_armhf.deb ...
+Unpacking libvorbisfile3:armhf (1.3.6-2) ...
+Selecting previously unselected package libvorbis-dev:armhf.
+Preparing to unpack .../116-libvorbis-dev_1.3.6-2_armhf.deb ...
+Unpacking libvorbis-dev:armhf (1.3.6-2) ...
+Selecting previously unselected package libsndfile1-dev:armhf.
+Preparing to unpack .../117-libsndfile1-dev_1.0.28-5_armhf.deb ...
+Unpacking libsndfile1-dev:armhf (1.0.28-5) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../118-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../119-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libx11-xcb1:armhf (2:1.6.7-1) ...
+Setting up libxau6:armhf (1:1.0.8-1+b2) ...
+Setting up libkeyutils1:amd64 (1.6-4) ...
+Setting up libpsl5:amd64 (0.20.2-2) ...
+Setting up libogg0:armhf (1.3.2-1+b1) ...
+Setting up mime-support (3.62) ...
+Setting up libpcre16-3:armhf (2:8.39-11) ...
+Setting up libarchive13:amd64 (3.3.3-4) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up libprocps7:amd64 (2:3.3.15-2) ...
+Setting up x11-common (1:7.7+19) ...
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libnghttp2-14:amd64 (1.36.0-2) ...
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libffi6:armhf (3.2.1-9) ...
+Setting up libogg-dev:armhf (1.3.2-1+b1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libffi-dev:armhf (3.2.1-9) ...
+Setting up libsystemd0:armhf (241-1) ...
+Setting up libcap2:armhf (1:2.25-2) ...
+Setting up libflac8:armhf (1.3.2-3) ...
+Setting up libkrb5support0:amd64 (1.17-2) ...
+Setting up libasound2-data (1.1.8-1) ...
+Setting up libpcre3:armhf (2:8.39-11) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libglib2.0-data (2.58.3-1) ...
+Setting up libuv1:amd64 (1.24.1-1) ...
+Setting up libwrap0:armhf (7.6.q-28) ...
+Setting up libx11-data (2:1.6.7-1) ...
+Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libdbus-1-3:armhf (1.12.12-1) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up libpcre32-3:armhf (2:8.39-11) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libvorbis0a:armhf (1.3.6-2) ...
+Setting up libuuid1:armhf (2.33.1-0.1) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libk5crypto3:amd64 (1.17-2) ...
+Setting up libsepol1:armhf (2.8-1) ...
+Setting up libasyncns0:armhf (0.8-6) ...
+Setting up librhash0:amd64 (1.3.8-1) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up procps (2:3.3.15-2) ...
+update-alternatives: using /usr/bin/w.procps to provide /usr/bin/w (w) in auto mode
+Setting up libasound2:armhf (1.1.8-1) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libssh2-1:amd64 (1.8.0-2) ...
+Setting up cmake-data (3.13.4-1) ...
+Setting up libkrb5-3:amd64 (1.17-2) ...
+Setting up libmpdec2:amd64 (2.4.2-2) ...
+Setting up libasound2-dev:armhf (1.1.8-1) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libbsd0:armhf (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Setting up libblkid1:armhf (2.33.1-0.1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libvorbisenc2:armhf (1.3.6-2) ...
+Setting up libjsoncpp1:amd64 (1.7.4-3) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libpcrecpp0v5:armhf (2:8.39-11) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up ladspa-sdk:armhf (1.13-3) ...
+Setting up libice6:armhf (2:1.0.9-2) ...
+Setting up libxdmcp6:armhf (1:1.1.2-3) ...
+Setting up libpython3.7-stdlib:amd64 (3.7.2-2) ...
+Setting up libflac-dev:armhf (1.3.2-3) ...
+Setting up libxcb1:armhf (1.13.1-2) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up libpcre3-dev:armhf (2:8.39-11) ...
+Setting up libsepol1-dev:armhf (2.8-1) ...
+Setting up libglib2.0-bin (2.58.3-1) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up libselinux1:armhf (2.8-1+b1) ...
+Setting up libvorbisfile3:armhf (1.3.6-2) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libjack0:armhf (1:0.125.0-3) ...
+Setting up uuid-dev:armhf (2.33.1-0.1) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up libgssapi-krb5-2:amd64 (1.17-2) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up autoconf (2.69-11) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up libmount1:armhf (2.33.1-0.1) ...
+Setting up libcurl4:amd64 (7.64.0-1) ...
+Setting up libx11-6:armhf (2:1.6.7-1) ...
+Setting up libjack-dev:armhf (1:0.125.0-3) ...
+Setting up libsndfile1:armhf (1.0.28-5) ...
+Setting up libsm6:armhf (2:1.2.3-1) ...
+Setting up libreadline7:armhf (7.0-5) ...
+Setting up libpython3-stdlib:amd64 (3.7.2-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up libvorbis-dev:armhf (1.3.6-2) ...
+Setting up libblkid-dev:armhf (2.33.1-0.1) ...
+Setting up python3.7 (3.7.2-2) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up libselinux1-dev:armhf (2.8-1+b1) ...
+Setting up libglib2.0-0:armhf (2.58.3-1) ...
+/var/lib/dpkg/info/libglib2.0-0:armhf.postinst: 47: /var/lib/dpkg/info/libglib2.0-0:armhf.postinst: /usr/lib/arm-linux-gnueabihf/glib-2.0/glib-compile-schemas: Exec format error
+/var/lib/dpkg/info/libglib2.0-0:armhf.postinst: 50: /var/lib/dpkg/info/libglib2.0-0:armhf.postinst: /usr/lib/arm-linux-gnueabihf/glib-2.0/gio-querymodules: Exec format error
+Setting up po-debconf (1.0.21) ...
+Setting up libxext6:armhf (2:1.3.3-1+b2) ...
+Setting up python3 (3.7.2-1) ...
+Setting up libreadline-dev:armhf (7.0-5) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libsndfile1-dev:armhf (1.0.28-5) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up cmake (3.13.4-1) ...
+Setting up python3-lib2to3 (3.7.2-3) ...
+Setting up libmount-dev:armhf (2.33.1-0.1) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up python3-distutils (3.7.2-3) ...
+Setting up libglib2.0-dev-bin (2.58.3-1) ...
+Setting up libxi6:armhf (2:1.7.9-1) ...
+Setting up libxtst6:armhf (2:1.2.3-1) ...
+Setting up libglib2.0-dev:armhf (2.58.3-1) ...
+Setting up libpulse0:armhf (12.2-4) ...
+Setting up libpulse-mainloop-glib0:armhf (12.2-4) ...
+Setting up libpulse-dev:armhf (12.2-4) ...
+Setting up dh-autoreconf (19) ...
+Setting up debhelper (12.1.1) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 cmake_3.13.4-1 cmake-data_3.13.4-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 ladspa-sdk_1.13-3 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libarchive13_3.3.3-4 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libasound2_1.1.8-1 libasound2-data_1.1.8-1 libasound2-dev_1.1.8-1 libassuan0_2.5.2-1 libasyncns0_0.8-6 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid-dev_2.33.1-0.1 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcap2_1:2.25-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libcurl4_7.64.0-1 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdbus-1-3_1.12.12-1 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi-dev_3.2.1-9 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libflac-dev_1.3.2-3 libflac8_1.3.2-3 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libglib2.0-bin_2.58.3-1 libglib2.0-data_2.58.3-1 libglib2.0-dev_2.58.3-1 libglib2.0-dev-bin_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libgssapi-krb5-2_1.17-2 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libice6_2:1.0.9-2 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libjack-dev_1:0.125.0-3 libjack0_1:0.125.0-3 libjsoncpp1_1.7.4-3 libk5crypto3_1.17-2 libkeyutils1_1.6-4 libkrb5-3_1.17-2 libkrb5support0_1.17-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount-dev_2.33.1-0.1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpdec2_2.4.2-2 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnghttp2-14_1.36.0-2 libnpth0_1.6-1 libogg-dev_1.3.2-1+b1 libogg0_1.3.2-1+b1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre16-3_2:8.39-11 libpcre3_2:8.39-11 libpcre3-dev_2:8.39-11 libpcre32-3_2:8.39-11 libpcrecpp0v5_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libprocps7_2:3.3.15-2 libpsl5_0.20.2-2 libpulse-dev_12.2-4 libpulse-mainloop-glib0_12.2-4 libpulse0_12.2-4 libpython3-stdlib_3.7.2-1 libpython3.7-minimal_3.7.2-2 libpython3.7-stdlib_3.7.2-2 libquadmath0_8.3.0-2 libreadline-dev_7.0-5 libreadline7_7.0-5 librhash0_1.3.8-1 librtmp1_2.4+20151223.gitfa8646d.1-2 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libselinux1-dev_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsepol1-dev_2.8-1 libsigsegv2_2.12-2 libsm6_2:1.2.3-1 libsmartcols1_2.33.1-0.1 libsndfile1_1.0.28-5 libsndfile1-dev_1.0.28-5 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssh2-1_1.8.0-2 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libuv1_1.24.1-1 libvorbis-dev_1.3.6-2 libvorbis0a_1.3.6-2 libvorbisenc2_1.3.6-2 libvorbisfile3_1.3.6-2 libwrap0_7.6.q-28 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libx11-6_2:1.6.7-1 libx11-data_2:1.6.7-1 libx11-xcb1_2:1.6.7-1 libxau6_1:1.0.8-1+b2 libxcb1_1.13.1-2 libxdmcp6_1:1.1.2-3 libxext6_2:1.3.3-1+b2 libxi6_2:1.7.9-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libxtst6_2:1.2.3-1 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mime-support_3.62 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 procps_2:3.3.15-2 python3_3.7.2-1 python3-distutils_3.7.2-3 python3-lib2to3_3.7.2-3 python3-minimal_3.7.2-1 python3.7_3.7.2-2 python3.7-minimal_3.7.2-2 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-dev_2.33.1-0.1 uuid-runtime_2.33.1-0.1 x11-common_1:7.7+19 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1 zlib1g-dev_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: fluidsynth
+Binary: fluidsynth, libfluidsynth1, libfluidsynth-dev
+Architecture: any
+Version: 1.1.11-1
+Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Uploaders:  Alessio Treglia <alessio@debian.org>, David Henningsson <diwic@ubuntu.com>, Jaromír Mikeš <mira.mikes@seznam.cz>,
+Homepage: http://www.fluidsynth.org/
+Standards-Version: 4.1.3
+Vcs-Browser: https://salsa.debian.org/multimedia-team/fluidsynth
+Vcs-Git: https://salsa.debian.org/multimedia-team/fluidsynth.git
+Testsuite: autopkgtest
+Testsuite-Triggers: build-essential
+Build-Depends: cmake, debhelper (>= 11~), ladspa-sdk, libasound2-dev, libglib2.0-dev (>= 2.6.5), libjack-dev, libpulse-dev, libreadline-dev (>= 5), libsndfile-dev, libtool
+Package-List:
+ fluidsynth deb sound optional arch=any
+ libfluidsynth-dev deb libdevel optional arch=any
+ libfluidsynth1 deb libs optional arch=any
+Checksums-Sha1:
+ e86a98b7a09d60e29edcb10f87da6433b2d0c485 634566 fluidsynth_1.1.11.orig.tar.gz
+ c43e26a4dc2c68a03eb93531e606058b26b558f4 13864 fluidsynth_1.1.11-1.debian.tar.xz
+Checksums-Sha256:
+ da8878ff374d12392eecf87e96bad8711b8e76a154c25a571dd8614d1af80de8 634566 fluidsynth_1.1.11.orig.tar.gz
+ 2630fd31b5958ca0e530e62a12f13f50fc2edb7705531f79bb82ec7c82676d00 13864 fluidsynth_1.1.11-1.debian.tar.xz
+Files:
+ 1d84d844b2f76df2292f31e7263d00db 634566 fluidsynth_1.1.11.orig.tar.gz
+ c52b8d79d2d8fb86de5e225d1df339dc 13864 fluidsynth_1.1.11-1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJGBAEBCAAwFiEEIsF2SKlSa4TfGRyWy+qOlwzNWd8FAlsSXxgSHGZhYmlhbkBk
+ZWJpYW4ub3JnAAoJEMvqjpcMzVnfINMQAIo1y7cwNnKzfryOYgE/RUe9YN6Q4URY
+iDleKWTI+WJWx6GFu3lO9K7U4UXIDdJ9cNUo4JnU2HyesWFRGsaGxVJVeiPC+lVq
+iN0NnI0Zu/IgT8mwqA0TFTr2ih65ND2/DFmwtvF+xaJxNciCfWQhtpp4QQ/ZHfFB
++OdcGfoz4lDrg8wq/cuuge+EniLSh6MNtCCbKzRoULspeu9Wm4TlhRdSIY4WPyf3
+n0HJJdohl66DPNd/iY0EzWlbZe6lhRePcgmezMyiYiMSr/brYDJTWK11+w1OL4cl
+yt+POcXTiWpfNshU1mHHrTcel+sV6gOkX6RqRhc1iJFAtX+XZ5wtKF9HGj1bJIWf
+KMxu5EMmHmXsppTCqVmhZ3g/cc6iIVCxU6ETSMTg+n5ZDDUQpmnIB1KbZwOMy+Wl
+jF5h596Cu7OEojHlKUCnf+hwHhbc2835ROeodEIELEGusABd9vvctxvaf+5HV6go
+w3pHhMNBiIpIuWKv3UcGmaJSkl4LPJblVGRj3KI+BjCnbz9eZ1PmxfKcS9qzxOfg
+nycBXY2xkjq3fmCDMtbaTq8r3fKv3YHmLs5br44JWicSAoOx1Uz9l4hORfbnVhZs
+1aDkxUC1ek6N7lCRPOQOdkRle6iSjBwco4PbvAG3EVUYhM02Dtbb2nhIccoyVPG3
+S0we3n+UVu3M
+=ID0G
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sat Jun  2 09:10:48 2018 UTC
+gpgv:                using RSA key 22C17648A9526B84DF191C96CBEA8E970CCD59DF
+gpgv:                issuer "fabian@debian.org"
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./fluidsynth_1.1.11-1.dsc
+dpkg-source: info: extracting fluidsynth in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking fluidsynth_1.1.11.orig.tar.gz
+dpkg-source: info: unpacking fluidsynth_1.1.11-1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 1001-revert_abi_break_114.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-f0874fab-f4a3-40de-856d-46c89e770c29
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package fluidsynth
+dpkg-buildpackage: info: source version 1.1.11-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Fabian Greffrath <fabian@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean -Scmake --without autoreconf
+   dh_testdir -O-Scmake
+   dh_auto_clean -O-Scmake
+   dh_clean -O-Scmake
+ debian/rules build-arch
+dh build-arch -Scmake --without autoreconf
+   dh_testdir -a -O-Scmake
+   dh_update_autotools_config -a -O-Scmake
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_configure -- \
+	-DLIB_SUFFIX="/arm-linux-gnueabihf" \
+	-DFLUID_DAEMON_ENV_FILE=/etc/default/fluidsynth \
+	-Denable-ladspa=on \
+	
+	cd obj-arm-linux-gnueabihf && cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=None -DCMAKE_INSTALL_SYSCONFDIR=/etc -DCMAKE_INSTALL_LOCALSTATEDIR=/var -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON -DCMAKE_INSTALL_RUNSTATEDIR=/run "-GUnix Makefiles" -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_SYSTEM_NAME=Linux -DCMAKE_SYSTEM_PROCESSOR=arm -DCMAKE_C_COMPILER=arm-linux-gnueabihf-gcc -DCMAKE_CXX_COMPILER=arm-linux-gnueabihf-g\+\+ -DPKG_CONFIG_EXECUTABLE=/usr/bin/arm-linux-gnueabihf-pkg-config -DPKGCONFIG_EXECUTABLE=/usr/bin/arm-linux-gnueabihf-pkg-config -DQMAKE_EXECUTABLE=/usr/bin/arm-linux-gnueabihf-qmake -DCMAKE_INSTALL_LIBDIR=lib/arm-linux-gnueabihf -DLIB_SUFFIX=/arm-linux-gnueabihf -DFLUID_DAEMON_ENV_FILE=/etc/default/fluidsynth -Denable-ladspa=on ..
+-- The C compiler identification is GNU 8.2.0
+-- Check for working C compiler: /usr/lib/ccache/arm-linux-gnueabihf-gcc
+-- Check for working C compiler: /usr/lib/ccache/arm-linux-gnueabihf-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Checking whether system has ANSI C header files
+-- Looking for 8 include files dlfcn.h, ..., float.h
+-- Looking for 8 include files dlfcn.h, ..., float.h - found
+-- Performing Test memchrExists
+-- Performing Test memchrExists - Success
+-- Performing Test freeExists
+-- Performing Test freeExists - Success
+-- ANSI C header files - found
+-- Looking for include file unistd.h
+-- Looking for include file unistd.h - found
+-- Looking for DIR in sys/stat.h;sys/types.h;dirent.h
+-- Looking for DIR in sys/stat.h;sys/types.h;dirent.h - found
+-- Looking for stdio.h
+-- Looking for stdio.h - found
+-- Looking for math.h
+-- Looking for math.h - found
+-- Looking for errno.h
+-- Looking for errno.h - found
+-- Looking for stdarg.h
+-- Looking for stdarg.h - found
+-- Looking for memory.h
+-- Looking for memory.h - found
+-- Looking for sys/mman.h
+-- Looking for sys/mman.h - found
+-- Looking for sys/time.h
+-- Looking for sys/time.h - found
+-- Looking for sys/ioctl.h
+-- Looking for sys/ioctl.h - found
+-- Looking for fcntl.h
+-- Looking for fcntl.h - found
+-- Looking for sys/socket.h
+-- Looking for sys/socket.h - found
+-- Looking for netinet/in.h
+-- Looking for netinet/in.h - found
+-- Looking for netinet/tcp.h
+-- Looking for netinet/tcp.h - found
+-- Looking for arpa/inet.h
+-- Looking for arpa/inet.h - found
+-- Looking for limits.h
+-- Looking for limits.h - found
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for signal.h
+-- Looking for signal.h - found
+-- Looking for getopt.h
+-- Looking for getopt.h - found
+-- Performing Test _have_inline
+-- Performing Test _have_inline - Success
+-- Performing Test _have_vla
+-- Performing Test _have_vla - Success
+-- Check if the system is big endian
+-- Searching 16 bit integer
+-- Check size of unsigned short
+-- Check size of unsigned short - done
+-- Using unsigned short
+-- Check if the system is big endian - little endian
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Looking for inet_ntop
+-- Looking for inet_ntop - found
+-- Looking for ladspa.h
+-- Looking for ladspa.h - found
+-- Found PkgConfig: /usr/bin/arm-linux-gnueabihf-pkg-config (found version "0.29") 
+-- Checking for modules 'glib-2.0>=2.6.5;gthread-2.0>=2.6.5'
+--   Found glib-2.0, version 2.58.3
+--   Found gthread-2.0, version 2.58.3
+-- Checking for module 'sndfile>=1.0.0'
+--   Found sndfile, version 1.0.28
+-- Checking for module 'sndfile>=1.0.18'
+--   Found sndfile, version 1.0.28
+-- Checking for module 'libpulse-simple>=0.9.8'
+--   Found libpulse-simple, version 12.2
+-- Checking for module 'alsa>=0.9.1'
+--   Found alsa, version 1.1.8
+-- Checking for module 'jack'
+--   Found jack, version 0.125.0rc1
+-- Checking for module 'lash-1.0>=0.3'
+--   No package 'lash-1.0' found
+-- Checking for module 'dbus-1>=1.0.0'
+--   No package 'dbus-1' found
+-- Found READLINE: /usr/include  
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+
+**************************************************************
+Summary:
+Build type:            None
+libsndfile:            yes (with ogg vorbis support)
+D-Bus:                 no
+PulseAudio:            yes
+JACK:                  yes
+ALSA:                  yes
+PortAudio:             no
+OSS:                   yes
+MidiShare:             no
+CoreAudio:             no
+CoreMIDI:              no
+Windows:               no
+LADSPA support:        yes
+LASH support:          no
+LADCCA support:        no
+OS/2 DART support:     no
+Audio to file driver:  yes
+IPV6 Support :         yes
+Readline:              yes (NOTE: GPL library)
+Samples type=float:    no (using double)
+Profiling:             no
+Debug:                 no
+Trap on FPE (debug):   no
+Check FPE (debug):     no
+**************************************************************
+
+
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_CXX_COMPILER
+    CMAKE_EXPORT_NO_PACKAGE_REGISTRY
+    CMAKE_INSTALL_LIBDIR
+    CMAKE_INSTALL_LOCALSTATEDIR
+    CMAKE_INSTALL_RUNSTATEDIR
+    CMAKE_INSTALL_SYSCONFDIR
+    PKGCONFIG_EXECUTABLE
+    QMAKE_EXECUTABLE
+
+
+-- Build files have been written to: /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_build -a -O-Scmake
+	cd obj-arm-linux-gnueabihf && make -j16 "INSTALL=install --strip-program=true" PKG_CONFIG=arm-linux-gnueabihf-pkg-config CXX=arm-linux-gnueabihf-g\+\+ CC=arm-linux-gnueabihf-gcc
+make[1]: Entering directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+/usr/bin/cmake -S/<<PKGBUILDDIR>> -B/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/CMakeFiles /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/CMakeFiles/progress.marks
+make -f CMakeFiles/Makefile2 all
+make[2]: Entering directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+make -f src/CMakeFiles/libfluidsynth.dir/build.make src/CMakeFiles/libfluidsynth.dir/depend
+make[3]: Entering directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /<<PKGBUILDDIR>> /<<PKGBUILDDIR>>/src /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src/CMakeFiles/libfluidsynth.dir/DependInfo.cmake --color=
+Scanning dependencies of target libfluidsynth
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+make -f src/CMakeFiles/libfluidsynth.dir/build.make src/CMakeFiles/libfluidsynth.dir/build
+make[3]: Entering directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+[  2%] Building C object src/CMakeFiles/libfluidsynth.dir/utils/fluid_conv.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/utils/fluid_conv.c.o   -c /<<PKGBUILDDIR>>/src/utils/fluid_conv.c
+[  4%] Building C object src/CMakeFiles/libfluidsynth.dir/drivers/fluid_jack.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/drivers/fluid_jack.c.o   -c /<<PKGBUILDDIR>>/src/drivers/fluid_jack.c
+[  7%] Building C object src/CMakeFiles/libfluidsynth.dir/utils/fluid_sys.c.o
+[  9%] Building C object src/CMakeFiles/libfluidsynth.dir/utils/fluid_hash.c.o
+[ 12%] Building C object src/CMakeFiles/libfluidsynth.dir/utils/fluid_settings.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/utils/fluid_hash.c.o   -c /<<PKGBUILDDIR>>/src/utils/fluid_hash.c
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/utils/fluid_sys.c.o   -c /<<PKGBUILDDIR>>/src/utils/fluid_sys.c
+[ 14%] Building C object src/CMakeFiles/libfluidsynth.dir/bindings/fluid_ladspa.c.o
+[ 17%] Building C object src/CMakeFiles/libfluidsynth.dir/rvoice/fluid_iir_filter.c.o
+[ 19%] Building C object src/CMakeFiles/libfluidsynth.dir/sfloader/fluid_ramsfont.c.o
+[ 21%] Building C object src/CMakeFiles/libfluidsynth.dir/utils/fluid_list.c.o
+[ 24%] Building C object src/CMakeFiles/libfluidsynth.dir/drivers/fluid_alsa.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/bindings/fluid_ladspa.c.o   -c /<<PKGBUILDDIR>>/src/bindings/fluid_ladspa.c
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/utils/fluid_settings.c.o   -c /<<PKGBUILDDIR>>/src/utils/fluid_settings.c
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/sfloader/fluid_ramsfont.c.o   -c /<<PKGBUILDDIR>>/src/sfloader/fluid_ramsfont.c
+[ 26%] Building C object src/CMakeFiles/libfluidsynth.dir/drivers/fluid_oss.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/utils/fluid_list.c.o   -c /<<PKGBUILDDIR>>/src/utils/fluid_list.c
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/drivers/fluid_alsa.c.o   -c /<<PKGBUILDDIR>>/src/drivers/fluid_alsa.c
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/drivers/fluid_oss.c.o   -c /<<PKGBUILDDIR>>/src/drivers/fluid_oss.c
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/rvoice/fluid_iir_filter.c.o   -c /<<PKGBUILDDIR>>/src/rvoice/fluid_iir_filter.c
+[ 34%] Building C object src/CMakeFiles/libfluidsynth.dir/sfloader/fluid_defsfont.c.o
+[ 34%] Building C object src/CMakeFiles/libfluidsynth.dir/drivers/fluid_pulse.c.o
+[ 34%] Building C object src/CMakeFiles/libfluidsynth.dir/utils/fluid_ringbuffer.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/sfloader/fluid_defsfont.c.o   -c /<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/drivers/fluid_pulse.c.o   -c /<<PKGBUILDDIR>>/src/drivers/fluid_pulse.c
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/utils/fluid_ringbuffer.c.o   -c /<<PKGBUILDDIR>>/src/utils/fluid_ringbuffer.c
+[ 36%] Building C object src/CMakeFiles/libfluidsynth.dir/rvoice/fluid_chorus.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/rvoice/fluid_chorus.c.o   -c /<<PKGBUILDDIR>>/src/rvoice/fluid_chorus.c
+[ 39%] Building C object src/CMakeFiles/libfluidsynth.dir/rvoice/fluid_adsr_env.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/rvoice/fluid_adsr_env.c.o   -c /<<PKGBUILDDIR>>/src/rvoice/fluid_adsr_env.c
+[ 41%] Building C object src/CMakeFiles/libfluidsynth.dir/rvoice/fluid_lfo.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/rvoice/fluid_lfo.c.o   -c /<<PKGBUILDDIR>>/src/rvoice/fluid_lfo.c
+[ 43%] Building C object src/CMakeFiles/libfluidsynth.dir/rvoice/fluid_rvoice.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/rvoice/fluid_rvoice.c.o   -c /<<PKGBUILDDIR>>/src/rvoice/fluid_rvoice.c
+[ 46%] Building C object src/CMakeFiles/libfluidsynth.dir/rvoice/fluid_rvoice_dsp.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/rvoice/fluid_rvoice_dsp.c.o   -c /<<PKGBUILDDIR>>/src/rvoice/fluid_rvoice_dsp.c
+[ 48%] Building C object src/CMakeFiles/libfluidsynth.dir/rvoice/fluid_rvoice_event.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/rvoice/fluid_rvoice_event.c.o   -c /<<PKGBUILDDIR>>/src/rvoice/fluid_rvoice_event.c
+[ 51%] Building C object src/CMakeFiles/libfluidsynth.dir/rvoice/fluid_rvoice_mixer.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/rvoice/fluid_rvoice_mixer.c.o   -c /<<PKGBUILDDIR>>/src/rvoice/fluid_rvoice_mixer.c
+[ 53%] Building C object src/CMakeFiles/libfluidsynth.dir/rvoice/fluid_rev.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/rvoice/fluid_rev.c.o   -c /<<PKGBUILDDIR>>/src/rvoice/fluid_rev.c
+[ 56%] Building C object src/CMakeFiles/libfluidsynth.dir/synth/fluid_chan.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/synth/fluid_chan.c.o   -c /<<PKGBUILDDIR>>/src/synth/fluid_chan.c
+[ 58%] Building C object src/CMakeFiles/libfluidsynth.dir/synth/fluid_event.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/synth/fluid_event.c.o   -c /<<PKGBUILDDIR>>/src/synth/fluid_event.c
+[ 63%] Building C object src/CMakeFiles/libfluidsynth.dir/synth/fluid_gen.c.o
+[ 63%] Building C object src/CMakeFiles/libfluidsynth.dir/synth/fluid_mod.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/synth/fluid_mod.c.o   -c /<<PKGBUILDDIR>>/src/synth/fluid_mod.c
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/synth/fluid_gen.c.o   -c /<<PKGBUILDDIR>>/src/synth/fluid_gen.c
+[ 65%] Building C object src/CMakeFiles/libfluidsynth.dir/synth/fluid_synth.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/synth/fluid_synth.c.o   -c /<<PKGBUILDDIR>>/src/synth/fluid_synth.c
+[ 68%] Building C object src/CMakeFiles/libfluidsynth.dir/synth/fluid_tuning.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/synth/fluid_tuning.c.o   -c /<<PKGBUILDDIR>>/src/synth/fluid_tuning.c
+[ 70%] Building C object src/CMakeFiles/libfluidsynth.dir/synth/fluid_voice.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/synth/fluid_voice.c.o   -c /<<PKGBUILDDIR>>/src/synth/fluid_voice.c
+[ 73%] Building C object src/CMakeFiles/libfluidsynth.dir/midi/fluid_midi.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/midi/fluid_midi.c.o   -c /<<PKGBUILDDIR>>/src/midi/fluid_midi.c
+[ 75%] Building C object src/CMakeFiles/libfluidsynth.dir/midi/fluid_midi_router.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/midi/fluid_midi_router.c.o   -c /<<PKGBUILDDIR>>/src/midi/fluid_midi_router.c
+[ 78%] Building C object src/CMakeFiles/libfluidsynth.dir/midi/fluid_seqbind.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/midi/fluid_seqbind.c.o   -c /<<PKGBUILDDIR>>/src/midi/fluid_seqbind.c
+[ 82%] Building C object src/CMakeFiles/libfluidsynth.dir/midi/fluid_seq.c.o
+[ 82%] Building C object src/CMakeFiles/libfluidsynth.dir/drivers/fluid_adriver.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/midi/fluid_seq.c.o   -c /<<PKGBUILDDIR>>/src/midi/fluid_seq.c
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/drivers/fluid_adriver.c.o   -c /<<PKGBUILDDIR>>/src/drivers/fluid_adriver.c
+[ 85%] Building C object src/CMakeFiles/libfluidsynth.dir/drivers/fluid_mdriver.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/drivers/fluid_mdriver.c.o   -c /<<PKGBUILDDIR>>/src/drivers/fluid_mdriver.c
+[ 87%] Building C object src/CMakeFiles/libfluidsynth.dir/drivers/fluid_aufile.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/drivers/fluid_aufile.c.o   -c /<<PKGBUILDDIR>>/src/drivers/fluid_aufile.c
+[ 90%] Building C object src/CMakeFiles/libfluidsynth.dir/bindings/fluid_cmd.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/bindings/fluid_cmd.c.o   -c /<<PKGBUILDDIR>>/src/bindings/fluid_cmd.c
+[ 92%] Building C object src/CMakeFiles/libfluidsynth.dir/bindings/fluid_filerenderer.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -Dlibfluidsynth_EXPORTS -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC   -o CMakeFiles/libfluidsynth.dir/bindings/fluid_filerenderer.c.o   -c /<<PKGBUILDDIR>>/src/bindings/fluid_filerenderer.c
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c: In function ‘new_fluid_preset_zone’:
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c:1151:3: warning: ‘fluid_gen_set_default_values’ is deprecated [-Wdeprecated-declarations]
+   fluid_gen_set_default_values(&zone->gen[0]);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include/fluidsynth.h:109,
+                 from /<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.h:28,
+                 from /<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c:25:
+/<<PKGBUILDDIR>>/include/fluidsynth/gen.h:127:37: note: declared here
+ FLUIDSYNTH_API FLUID_DEPRECATED int fluid_gen_set_default_values(fluid_gen_t* gen);
+                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c: In function ‘new_fluid_inst_zone’:
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c:1551:3: warning: ‘fluid_gen_set_default_values’ is deprecated [-Wdeprecated-declarations]
+   fluid_gen_set_default_values(&zone->gen[0]);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include/fluidsynth.h:109,
+                 from /<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.h:28,
+                 from /<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c:25:
+/<<PKGBUILDDIR>>/include/fluidsynth/gen.h:127:37: note: declared here
+ FLUIDSYNTH_API FLUID_DEPRECATED int fluid_gen_set_default_values(fluid_gen_t* gen);
+                                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c: In function ‘sfvio_seek’:
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c:1851:26: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+       sample->userdata = (void *)offset;
+                          ^
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c:1854:35: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+       sample->userdata = (void *)((sf_count_t)sample->userdata + offset);
+                                   ^
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c:1854:26: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+       sample->userdata = (void *)((sf_count_t)sample->userdata + offset);
+                          ^
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c:1857:26: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+       sample->userdata = (void *)(sfvio_get_filelen(user_data) + offset);
+                          ^
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c:1861:10: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   return (sf_count_t)sample->userdata;
+          ^
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c: In function ‘sfvio_read’:
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c:1868:54: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   sf_count_t remain = sfvio_get_filelen(user_data) - (sf_count_t)sample->userdata;
+                                                      ^
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c:1873:54: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   memcpy(ptr, (char *)sample->data + sample->start + (sf_count_t)sample->userdata, count);
+                                                      ^
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c:1874:31: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   sample->userdata = (void *)((sf_count_t)sample->userdata + count);
+                               ^
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c:1874:22: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+   sample->userdata = (void *)((sf_count_t)sample->userdata + count);
+                      ^
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c: In function ‘sfvio_tell’:
+/<<PKGBUILDDIR>>/src/sfloader/fluid_defsfont.c:1884:10: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   return (sf_count_t)sample->userdata;
+          ^
+/<<PKGBUILDDIR>>/src/synth/fluid_gen.c: In function ‘fluid_gen_init’:
+/<<PKGBUILDDIR>>/src/synth/fluid_gen.c:123:2: warning: ‘fluid_gen_set_default_values’ is deprecated [-Wdeprecated-declarations]
+  fluid_gen_set_default_values(gen);
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/<<PKGBUILDDIR>>/src/synth/fluid_gen.c:99:1: note: declared here
+ fluid_gen_set_default_values(fluid_gen_t* gen)
+ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/<<PKGBUILDDIR>>/src/bindings/fluid_cmd.c: In function ‘fluid_handle_channels’:
+/<<PKGBUILDDIR>>/src/bindings/fluid_cmd.c:592:5: warning: ‘fluid_synth_get_channel_info’ is deprecated [-Wdeprecated-declarations]
+     fluid_synth_get_channel_info (synth, i, &info);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include/fluidsynth.h:97,
+                 from /<<PKGBUILDDIR>>/src/utils/fluidsynth_priv.h:144,
+                 from /<<PKGBUILDDIR>>/src/bindings/fluid_cmd.c:23:
+/<<PKGBUILDDIR>>/include/fluidsynth/synth.h:99:5: note: declared here
+ int fluid_synth_get_channel_info (fluid_synth_t *synth, int chan, fluid_synth_channel_info_t *info);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/<<PKGBUILDDIR>>/src/bindings/fluid_cmd.c: In function ‘fluid_handle_tuning’:
+/<<PKGBUILDDIR>>/src/bindings/fluid_cmd.c:1097:3: warning: ‘fluid_synth_create_key_tuning’ is deprecated [-Wdeprecated-declarations]
+   fluid_synth_create_key_tuning(synth, bank, prog, name, NULL);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include/fluidsynth.h:97,
+                 from /<<PKGBUILDDIR>>/src/utils/fluidsynth_priv.h:144,
+                 from /<<PKGBUILDDIR>>/src/bindings/fluid_cmd.c:23:
+/<<PKGBUILDDIR>>/include/fluidsynth/synth.h:236:5: note: declared here
+ int fluid_synth_create_key_tuning(fluid_synth_t* synth, int bank, int prog,
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/<<PKGBUILDDIR>>/src/bindings/fluid_cmd.c: In function ‘fluid_handle_settuning’:
+/<<PKGBUILDDIR>>/src/bindings/fluid_cmd.c:1194:3: warning: ‘fluid_synth_select_tuning’ is deprecated [-Wdeprecated-declarations]
+   fluid_synth_select_tuning(synth, chan, bank, prog);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include/fluidsynth.h:97,
+                 from /<<PKGBUILDDIR>>/src/utils/fluidsynth_priv.h:144,
+                 from /<<PKGBUILDDIR>>/src/bindings/fluid_cmd.c:23:
+/<<PKGBUILDDIR>>/include/fluidsynth/synth.h:253:5: note: declared here
+ int fluid_synth_select_tuning(fluid_synth_t* synth, int chan, int bank, int prog);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+/<<PKGBUILDDIR>>/src/bindings/fluid_cmd.c: In function ‘fluid_handle_resettuning’:
+/<<PKGBUILDDIR>>/src/bindings/fluid_cmd.c:1219:3: warning: ‘fluid_synth_reset_tuning’ is deprecated [-Wdeprecated-declarations]
+   fluid_synth_reset_tuning(synth, chan);
+   ^~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include/fluidsynth.h:97,
+                 from /<<PKGBUILDDIR>>/src/utils/fluidsynth_priv.h:144,
+                 from /<<PKGBUILDDIR>>/src/bindings/fluid_cmd.c:23:
+/<<PKGBUILDDIR>>/include/fluidsynth/synth.h:259:5: note: declared here
+ int fluid_synth_reset_tuning(fluid_synth_t* synth, int chan);
+     ^~~~~~~~~~~~~~~~~~~~~~~~
+[ 95%] Linking C shared library libfluidsynth.so
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/bin/cmake -E cmake_link_script CMakeFiles/libfluidsynth.dir/link.txt --verbose=1
+/usr/lib/ccache/arm-linux-gnueabihf-gcc -fPIC -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -Wl,--no-undefined -shared -Wl,-soname,libfluidsynth.so.1 -o libfluidsynth.so.1.7.2 CMakeFiles/libfluidsynth.dir/drivers/fluid_alsa.c.o CMakeFiles/libfluidsynth.dir/drivers/fluid_jack.c.o CMakeFiles/libfluidsynth.dir/bindings/fluid_ladspa.c.o CMakeFiles/libfluidsynth.dir/drivers/fluid_oss.c.o CMakeFiles/libfluidsynth.dir/drivers/fluid_pulse.c.o CMakeFiles/libfluidsynth.dir/utils/fluid_conv.c.o CMakeFiles/libfluidsynth.dir/utils/fluid_hash.c.o CMakeFiles/libfluidsynth.dir/utils/fluid_list.c.o CMakeFiles/libfluidsynth.dir/utils/fluid_ringbuffer.c.o CMakeFiles/libfluidsynth.dir/utils/fluid_settings.c.o CMakeFiles/libfluidsynth.dir/utils/fluid_sys.c.o CMakeFiles/libfluidsynth.dir/sfloader/fluid_defsfont.c.o CMakeFiles/libfluidsynth.dir/sfloader/fluid_ramsfont.c.o CMakeFiles/libfluidsynth.dir/rvoice/fluid_adsr_env.c.o CMakeFiles/libfluidsynth.dir/rvoice/fluid_chorus.c.o CMakeFiles/libfluidsynth.dir/rvoice/fluid_iir_filter.c.o CMakeFiles/libfluidsynth.dir/rvoice/fluid_lfo.c.o CMakeFiles/libfluidsynth.dir/rvoice/fluid_rvoice.c.o CMakeFiles/libfluidsynth.dir/rvoice/fluid_rvoice_dsp.c.o CMakeFiles/libfluidsynth.dir/rvoice/fluid_rvoice_event.c.o CMakeFiles/libfluidsynth.dir/rvoice/fluid_rvoice_mixer.c.o CMakeFiles/libfluidsynth.dir/rvoice/fluid_rev.c.o CMakeFiles/libfluidsynth.dir/synth/fluid_chan.c.o CMakeFiles/libfluidsynth.dir/synth/fluid_event.c.o CMakeFiles/libfluidsynth.dir/synth/fluid_gen.c.o CMakeFiles/libfluidsynth.dir/synth/fluid_mod.c.o CMakeFiles/libfluidsynth.dir/synth/fluid_synth.c.o CMakeFiles/libfluidsynth.dir/synth/fluid_tuning.c.o CMakeFiles/libfluidsynth.dir/synth/fluid_voice.c.o CMakeFiles/libfluidsynth.dir/midi/fluid_midi.c.o CMakeFiles/libfluidsynth.dir/midi/fluid_midi_router.c.o CMakeFiles/libfluidsynth.dir/midi/fluid_seqbind.c.o CMakeFiles/libfluidsynth.dir/midi/fluid_seq.c.o CMakeFiles/libfluidsynth.dir/drivers/fluid_adriver.c.o CMakeFiles/libfluidsynth.dir/drivers/fluid_mdriver.c.o CMakeFiles/libfluidsynth.dir/drivers/fluid_aufile.c.o CMakeFiles/libfluidsynth.dir/bindings/fluid_cmd.c.o CMakeFiles/libfluidsynth.dir/bindings/fluid_filerenderer.c.o -lgthread-2.0 -lglib-2.0 -ljack -lpthread -lasound -lpulse-simple -lpulse -lsndfile -lreadline -lm -lpthread -ldl 
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/bin/cmake -E cmake_symlink_library libfluidsynth.so.1.7.2 libfluidsynth.so.1 libfluidsynth.so
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+[ 95%] Built target libfluidsynth
+make -f src/CMakeFiles/fluidsynth.dir/build.make src/CMakeFiles/fluidsynth.dir/depend
+make[3]: Entering directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /<<PKGBUILDDIR>> /<<PKGBUILDDIR>>/src /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src/CMakeFiles/fluidsynth.dir/DependInfo.cmake --color=
+Scanning dependencies of target fluidsynth
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+make -f src/CMakeFiles/fluidsynth.dir/build.make src/CMakeFiles/fluidsynth.dir/build
+make[3]: Entering directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+[ 97%] Building C object src/CMakeFiles/fluidsynth.dir/fluidsynth.c.o
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/lib/ccache/arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/src/drivers -I/<<PKGBUILDDIR>>/src/synth -I/<<PKGBUILDDIR>>/src/rvoice -I/<<PKGBUILDDIR>>/src/midi -I/<<PKGBUILDDIR>>/src/utils -I/<<PKGBUILDDIR>>/src/sfloader -I/<<PKGBUILDDIR>>/src/bindings -I/<<PKGBUILDDIR>>/include -I/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include -I/usr/include/alsa -isystem /usr/include/glib-2.0 -isystem /usr/lib/arm-linux-gnueabihf/glib-2.0/include  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -o CMakeFiles/fluidsynth.dir/fluidsynth.c.o   -c /<<PKGBUILDDIR>>/src/fluidsynth.c
+/<<PKGBUILDDIR>>/src/fluidsynth.c: In function ‘main’:
+/<<PKGBUILDDIR>>/src/fluidsynth.c:666:7: warning: ‘fluid_synth_set_midi_router’ is deprecated [-Wdeprecated-declarations]
+       fluid_synth_set_midi_router(synth, router); /* Fixme, needed for command handler */
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include/fluidsynth.h:97,
+                 from /<<PKGBUILDDIR>>/src/utils/fluidsynth_priv.h:144,
+                 from /<<PKGBUILDDIR>>/src/fluidsynth.c:29:
+/<<PKGBUILDDIR>>/include/fluidsynth/synth.h:321:6: note: declared here
+ void fluid_synth_set_midi_router(fluid_synth_t* synth, fluid_midi_router_t* router);
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/<<PKGBUILDDIR>>/src/fluidsynth.c:714:7: warning: ‘fluid_settings_getstr’ is deprecated [-Wdeprecated-declarations]
+       if (fluid_settings_getstr(settings, "synth.default-soundfont", &s) <= 0)
+       ^~
+In file included from /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/include/fluidsynth.h:96,
+                 from /<<PKGBUILDDIR>>/src/utils/fluidsynth_priv.h:144,
+                 from /<<PKGBUILDDIR>>/src/fluidsynth.c:29:
+/<<PKGBUILDDIR>>/include/fluidsynth/settings.h:152:5: note: declared here
+ int fluid_settings_getstr(fluid_settings_t* settings, const char *name, char** str);
+     ^~~~~~~~~~~~~~~~~~~~~
+[100%] Linking C executable fluidsynth
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src && /usr/bin/cmake -E cmake_link_script CMakeFiles/fluidsynth.dir/link.txt --verbose=1
+/usr/lib/ccache/arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -Wl,-z,relro -Wl,-z,now -Wl,--as-needed -Wl,--as-needed -rdynamic CMakeFiles/fluidsynth.dir/fluidsynth.c.o  -o fluidsynth -Wl,-rpath,/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src: libfluidsynth.so.1.7.2 -lgthread-2.0 -lglib-2.0 -ljack -lpthread -lasound -lpulse-simple -lpulse -lsndfile -lreadline -lm -lpthread -ldl 
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+[100%] Built target fluidsynth
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+/usr/bin/cmake -E cmake_progress_start /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/CMakeFiles 0
+make[1]: Leaving directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+   dh_auto_test -a -O-Scmake
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary-arch
+dh binary-arch -Scmake --without autoreconf
+   dh_testroot -a -O-Scmake
+   dh_prep -a -O-Scmake
+   dh_installdirs -a -O-Scmake
+   dh_auto_install -a -O-Scmake
+	cd obj-arm-linux-gnueabihf && make -j16 install DESTDIR=/<<PKGBUILDDIR>>/debian/tmp AM_UPDATE_INFO_DIR=no "INSTALL=install --strip-program=true"
+make[1]: Entering directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+/usr/bin/cmake -S/<<PKGBUILDDIR>> -B/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/CMakeFiles /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/CMakeFiles/progress.marks
+make -f CMakeFiles/Makefile2 all
+make[2]: Entering directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+make -f src/CMakeFiles/libfluidsynth.dir/build.make src/CMakeFiles/libfluidsynth.dir/depend
+make[3]: Entering directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /<<PKGBUILDDIR>> /<<PKGBUILDDIR>>/src /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src/CMakeFiles/libfluidsynth.dir/DependInfo.cmake --color=
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+make -f src/CMakeFiles/libfluidsynth.dir/build.make src/CMakeFiles/libfluidsynth.dir/build
+make[3]: Entering directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+make[3]: Nothing to be done for 'src/CMakeFiles/libfluidsynth.dir/build'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+[ 95%] Built target libfluidsynth
+make -f src/CMakeFiles/fluidsynth.dir/build.make src/CMakeFiles/fluidsynth.dir/depend
+make[3]: Entering directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+cd /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /<<PKGBUILDDIR>> /<<PKGBUILDDIR>>/src /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/src/CMakeFiles/fluidsynth.dir/DependInfo.cmake --color=
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+make -f src/CMakeFiles/fluidsynth.dir/build.make src/CMakeFiles/fluidsynth.dir/build
+make[3]: Entering directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+make[3]: Nothing to be done for 'src/CMakeFiles/fluidsynth.dir/build'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+[100%] Built target fluidsynth
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+/usr/bin/cmake -E cmake_progress_start /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/CMakeFiles 0
+make -f CMakeFiles/Makefile2 preinstall
+make[2]: Entering directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+make[2]: Nothing to be done for 'preinstall'.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+Install the project...
+/usr/bin/cmake -P cmake_install.cmake
+-- Install configuration: "None"
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/pkgconfig/fluidsynth.pc
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/bin/fluidsynth
+-- Set runtime path of "/<<PKGBUILDDIR>>/debian/tmp/usr/bin/fluidsynth" to ""
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libfluidsynth.so.1.7.2
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libfluidsynth.so.1
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libfluidsynth.so
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/audio.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/event.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/gen.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/log.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/midi.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/misc.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/mod.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/ramsfont.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/seq.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/seqbind.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/settings.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/sfont.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/shell.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/synth.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/types.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/voice.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/include/fluidsynth/version.h
+-- Installing: /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man1/fluidsynth.1
+make[1]: Leaving directory '/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf'
+   debian/rules override_dh_install
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_install
+mv debian/fluidsynth/etc/default/fluidsynth.conf \
+   debian/fluidsynth/etc/default/fluidsynth
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installdocs -a -O-Scmake
+   dh_installchangelogs -a -O-Scmake
+   dh_installexamples -a -O-Scmake
+   dh_installman -a -O-Scmake
+   dh_installcatalogs -a -O-Scmake
+   dh_installcron -a -O-Scmake
+   dh_installdebconf -a -O-Scmake
+   dh_installemacsen -a -O-Scmake
+   dh_installifupdown -a -O-Scmake
+   dh_installinfo -a -O-Scmake
+   dh_installinit -a -O-Scmake
+   dh_installsystemd -a -O-Scmake
+   dh_installmenu -a -O-Scmake
+   dh_installmime -a -O-Scmake
+   dh_installmodules -a -O-Scmake
+   dh_installlogcheck -a -O-Scmake
+   dh_installlogrotate -a -O-Scmake
+   dh_installpam -a -O-Scmake
+   dh_installppp -a -O-Scmake
+   dh_installudev -a -O-Scmake
+   dh_installgsettings -a -O-Scmake
+   dh_bugfiles -a -O-Scmake
+   dh_ucf -a -O-Scmake
+   dh_lintian -a -O-Scmake
+   dh_gconf -a -O-Scmake
+dh_gconf: Please migrate to dh_installgsettings; gconf + dh_gconf is scheduled for removal.
+   dh_icons -a -O-Scmake
+   dh_perl -a -O-Scmake
+   dh_usrlocal -a -O-Scmake
+   dh_link -a -O-Scmake
+   dh_installwm -a -O-Scmake
+   dh_installxfonts -a -O-Scmake
+   dh_strip_nondeterminism -a -O-Scmake
+   dh_compress -a -O-Scmake
+   dh_fixperms -a -O-Scmake
+   dh_missing -a -O-Scmake
+   dh_strip -a -O-Scmake
+   dh_makeshlibs -a -O-Scmake
+   dh_shlibdeps -a -O-Scmake
+   dh_installdeb -a -O-Scmake
+   dh_gencontrol -a -O-Scmake
+   dh_md5sums -a -O-Scmake
+   dh_builddeb -a -O-Scmake
+dpkg-deb: building package 'fluidsynth' in '../fluidsynth_1.1.11-1_armhf.deb'.
+dpkg-deb: building package 'fluidsynth-dbgsym' in '../fluidsynth-dbgsym_1.1.11-1_armhf.deb'.
+dpkg-deb: building package 'libfluidsynth1-dbgsym' in '../libfluidsynth1-dbgsym_1.1.11-1_armhf.deb'.
+dpkg-deb: building package 'libfluidsynth1' in '../libfluidsynth1_1.1.11-1_armhf.deb'.
+dpkg-deb: building package 'libfluidsynth-dev' in '../libfluidsynth-dev_1.1.11-1_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../fluidsynth_1.1.11-1_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T18:50:00Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+fluidsynth_1.1.11-1_armhf.changes:
+----------------------------------
+
+Format: 1.8
+Date: Sat, 02 Jun 2018 10:45:52 +0200
+Source: fluidsynth
+Binary: fluidsynth fluidsynth-dbgsym libfluidsynth-dev libfluidsynth1 libfluidsynth1-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 1.1.11-1
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+Changed-By: Fabian Greffrath <fabian@debian.org>
+Description:
+ fluidsynth - Real-time MIDI software synthesizer
+ libfluidsynth-dev - Real-time MIDI software synthesizer (development files)
+ libfluidsynth1 - Real-time MIDI software synthesizer (runtime library)
+Closes: 760209 760210
+Changes:
+ fluidsynth (1.1.11-1) unstable; urgency=medium
+ .
+   * Team upload.
+ .
+   [ Felipe Sateler ]
+   * Change maintainer address to debian-multimedia@lists.debian.org
+ .
+   [ Fabian Greffrath ]
+   * New upstream version 1.1.11.
+   * Install fluidsynth config file (Closes: #760209) and
+     systemd user service unit file (Closes: #760210).
+Checksums-Sha1:
+ 8ea104d78b53cbf254d472547560e788593e0eb4 21224 fluidsynth-dbgsym_1.1.11-1_armhf.deb
+ b064aaed1fbb34efc56fd723695f1935b4c480e7 8138 fluidsynth_1.1.11-1_armhf.buildinfo
+ 58358b29537b1813d9b9b24800bb48ddb72e676d 49540 fluidsynth_1.1.11-1_armhf.deb
+ 955fe15d13bea410971f3d985b59a2b86b4895c0 48772 libfluidsynth-dev_1.1.11-1_armhf.deb
+ 8f5590665895713d56de0216a1748cb8347f37f7 504812 libfluidsynth1-dbgsym_1.1.11-1_armhf.deb
+ 80ef74675b1c96ac217316cbb814251f6caeffb2 145852 libfluidsynth1_1.1.11-1_armhf.deb
+Checksums-Sha256:
+ b32a0e74ce4c805dd1d5ec4a13b80d7e27f2368960f58375486908b01d668e5c 21224 fluidsynth-dbgsym_1.1.11-1_armhf.deb
+ 5f5b912bf6cdaba66d9047f48c8ce7266596c69eff4f4c2a5d2facf0696721a8 8138 fluidsynth_1.1.11-1_armhf.buildinfo
+ 661ef6eccc1d8b9469e68087ac103b6e657a3687a3ca392ad955849dd97dc7fa 49540 fluidsynth_1.1.11-1_armhf.deb
+ 16a272c57fb27a6fe773b7ca456a906d3337daae696a44d261b22156a166af45 48772 libfluidsynth-dev_1.1.11-1_armhf.deb
+ b7429cf688409eb9ac4e25cf30dba5140d70e91f9bd38e7a5422a749fc7b97e5 504812 libfluidsynth1-dbgsym_1.1.11-1_armhf.deb
+ 66ecd78cbc9066c1ea63f9049c38743e7fadd753950fc13a725c7d613088c629 145852 libfluidsynth1_1.1.11-1_armhf.deb
+Files:
+ bc0839ecb52b858d2bc6537137574719 21224 debug optional fluidsynth-dbgsym_1.1.11-1_armhf.deb
+ 1797faf00755e14b6ac97a3d53e2a185 8138 sound optional fluidsynth_1.1.11-1_armhf.buildinfo
+ bbed07186438e6a4b0de2f2ae5c19274 49540 sound optional fluidsynth_1.1.11-1_armhf.deb
+ 88b58ffb256b90fef9ce28298cfaf550 48772 libdevel optional libfluidsynth-dev_1.1.11-1_armhf.deb
+ 7241e7b3bb90768d40d072c478b06199 504812 debug optional libfluidsynth1-dbgsym_1.1.11-1_armhf.deb
+ d25a258b958877f97a95e3ace5139b5f 145852 libs optional libfluidsynth1_1.1.11-1_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: fluidsynth
+Binary: fluidsynth libfluidsynth1 libfluidsynth-dev
+Architecture: armhf
+Version: 1.1.11-1
+Checksums-Md5:
+ bc0839ecb52b858d2bc6537137574719 21224 fluidsynth-dbgsym_1.1.11-1_armhf.deb
+ bbed07186438e6a4b0de2f2ae5c19274 49540 fluidsynth_1.1.11-1_armhf.deb
+ 88b58ffb256b90fef9ce28298cfaf550 48772 libfluidsynth-dev_1.1.11-1_armhf.deb
+ 7241e7b3bb90768d40d072c478b06199 504812 libfluidsynth1-dbgsym_1.1.11-1_armhf.deb
+ d25a258b958877f97a95e3ace5139b5f 145852 libfluidsynth1_1.1.11-1_armhf.deb
+Checksums-Sha1:
+ 8ea104d78b53cbf254d472547560e788593e0eb4 21224 fluidsynth-dbgsym_1.1.11-1_armhf.deb
+ 58358b29537b1813d9b9b24800bb48ddb72e676d 49540 fluidsynth_1.1.11-1_armhf.deb
+ 955fe15d13bea410971f3d985b59a2b86b4895c0 48772 libfluidsynth-dev_1.1.11-1_armhf.deb
+ 8f5590665895713d56de0216a1748cb8347f37f7 504812 libfluidsynth1-dbgsym_1.1.11-1_armhf.deb
+ 80ef74675b1c96ac217316cbb814251f6caeffb2 145852 libfluidsynth1_1.1.11-1_armhf.deb
+Checksums-Sha256:
+ b32a0e74ce4c805dd1d5ec4a13b80d7e27f2368960f58375486908b01d668e5c 21224 fluidsynth-dbgsym_1.1.11-1_armhf.deb
+ 661ef6eccc1d8b9469e68087ac103b6e657a3687a3ca392ad955849dd97dc7fa 49540 fluidsynth_1.1.11-1_armhf.deb
+ 16a272c57fb27a6fe773b7ca456a906d3337daae696a44d261b22156a166af45 48772 libfluidsynth-dev_1.1.11-1_armhf.deb
+ b7429cf688409eb9ac4e25cf30dba5140d70e91f9bd38e7a5422a749fc7b97e5 504812 libfluidsynth1-dbgsym_1.1.11-1_armhf.deb
+ 66ecd78cbc9066c1ea63f9049c38743e7fadd753950fc13a725c7d613088c629 145852 libfluidsynth1_1.1.11-1_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Fri, 01 Mar 2019 18:50:00 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ cmake (= 3.13.4-1),
+ cmake-data (= 3.13.4-1),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ ladspa-sdk (= 1.13-3),
+ libacl1 (= 2.2.52-5),
+ libarchive-zip-perl (= 1.64-1),
+ libarchive13 (= 3.3.3-4),
+ libasan5 (= 8.3.0-2),
+ libasound2 (= 1.1.8-1),
+ libasound2-data (= 1.1.8-1),
+ libasound2-dev (= 1.1.8-1),
+ libasyncns0 (= 0.8-6),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libblkid-dev (= 2.33.1-0.1),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcap2 (= 1:2.25-2),
+ libcc1-0 (= 8.3.0-2),
+ libcom-err2 (= 1.44.5-1),
+ libcroco3 (= 0.6.12-3),
+ libcurl4 (= 7.64.0-1),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdbus-1-3 (= 1.12.12-1),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libexpat1 (= 2.2.6-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi-dev (= 3.2.1-9),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libflac-dev (= 1.3.2-3),
+ libflac8 (= 1.3.2-3),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libglib2.0-bin (= 2.58.3-1),
+ libglib2.0-data (= 2.58.3-1),
+ libglib2.0-dev (= 2.58.3-1),
+ libglib2.0-dev-bin (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgnutls30 (= 3.6.6-2),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libgssapi-krb5-2 (= 1.17-2),
+ libhogweed4 (= 3.4.1-1),
+ libice6 (= 2:1.0.9-2),
+ libicu63 (= 63.1-6),
+ libidn2-0 (= 2.0.5-1),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ libjack-dev (= 1:0.125.0-3),
+ libjack0 (= 1:0.125.0-3),
+ libjsoncpp1 (= 1.7.4-3),
+ libk5crypto3 (= 1.17-2),
+ libkeyutils1 (= 1.6-4),
+ libkrb5-3 (= 1.17-2),
+ libkrb5support0 (= 1.17-2),
+ libldap-2.4-2 (= 2.4.47+dfsg-3),
+ libldap-common (= 2.4.47+dfsg-3),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmount-dev (= 2.33.1-0.1),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpdec2 (= 2.4.2-2),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses-dev (= 6.1+20181013-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libnettle6 (= 3.4.1-1),
+ libnghttp2-14 (= 1.36.0-2),
+ libogg-dev (= 1.3.2-1+b1),
+ libogg0 (= 1.3.2-1+b1),
+ libp11-kit0 (= 0.23.15-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre16-3 (= 2:8.39-11),
+ libpcre3 (= 2:8.39-11),
+ libpcre3-dev (= 2:8.39-11),
+ libpcre32-3 (= 2:8.39-11),
+ libpcrecpp0v5 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libprocps7 (= 2:3.3.15-2),
+ libpsl5 (= 0.20.2-2),
+ libpulse-dev (= 12.2-4),
+ libpulse-mainloop-glib0 (= 12.2-4),
+ libpulse0 (= 12.2-4),
+ libpython3-stdlib (= 3.7.2-1),
+ libpython3.7-minimal (= 3.7.2-2),
+ libpython3.7-stdlib (= 3.7.2-2),
+ libquadmath0 (= 8.3.0-2),
+ libreadline-dev (= 7.0-5),
+ libreadline7 (= 7.0-5),
+ librhash0 (= 1.3.8-1),
+ librtmp1 (= 2.4+20151223.gitfa8646d.1-2),
+ libsasl2-2 (= 2.1.27+dfsg-1),
+ libsasl2-modules-db (= 2.1.27+dfsg-1),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libselinux1-dev (= 2.8-1+b1),
+ libsepol1 (= 2.8-1),
+ libsepol1-dev (= 2.8-1),
+ libsigsegv2 (= 2.12-2),
+ libsm6 (= 2:1.2.3-1),
+ libsmartcols1 (= 2.33.1-0.1),
+ libsndfile1 (= 1.0.28-5),
+ libsndfile1-dev (= 1.0.28-5),
+ libsqlite3-0 (= 3.27.2-1),
+ libssh2-1 (= 1.8.0-2),
+ libssl1.1 (= 1.1.1b-1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtasn1-6 (= 4.13-3),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libuv1 (= 1.24.1-1),
+ libvorbis-dev (= 1.3.6-2),
+ libvorbis0a (= 1.3.6-2),
+ libvorbisenc2 (= 1.3.6-2),
+ libvorbisfile3 (= 1.3.6-2),
+ libwrap0 (= 7.6.q-28),
+ libx11-6 (= 2:1.6.7-1),
+ libx11-data (= 2:1.6.7-1),
+ libx11-xcb1 (= 2:1.6.7-1),
+ libxau6 (= 1:1.0.8-1+b2),
+ libxcb1 (= 1.13.1-2),
+ libxdmcp6 (= 1:1.1.2-3),
+ libxext6 (= 2:1.3.3-1+b2),
+ libxi6 (= 2:1.7.9-1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ libxtst6 (= 2:1.2.3-1),
+ libzstd1 (= 1.3.8+dfsg-3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ lsb-base (= 10.2018112800),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ mime-support (= 3.62),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ procps (= 2:3.3.15-2),
+ python3 (= 3.7.2-1),
+ python3-distutils (= 3.7.2-3),
+ python3-lib2to3 (= 3.7.2-3),
+ python3-minimal (= 3.7.2-1),
+ python3.7 (= 3.7.2-2),
+ python3.7-minimal (= 3.7.2-2),
+ readline-common (= 7.0-5),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ uuid-dev (= 2.33.1-0.1),
+ x11-common (= 1:7.7+19),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1),
+ zlib1g-dev (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1527929152"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+fluidsynth-dbgsym_1.1.11-1_armhf.deb
+------------------------------------
+
+ new Debian package, version 2.0.
+ size 21224 bytes: control archive=524 bytes.
+     377 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: fluidsynth-dbgsym
+ Source: fluidsynth
+ Version: 1.1.11-1
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+ Installed-Size: 36
+ Depends: fluidsynth (= 1.1.11-1)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for fluidsynth
+ Build-Ids: 78d000538923881d5ec71c650ca11b922b5efbe9
+
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/debug/.build-id/78/
+-rw-r--r-- root/root     26400 2018-06-02 08:45 ./usr/lib/debug/.build-id/78/d000538923881d5ec71c650ca11b922b5efbe9.debug
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2018-06-02 08:45 ./usr/share/doc/fluidsynth-dbgsym -> fluidsynth
+
+
+fluidsynth_1.1.11-1_armhf.deb
+-----------------------------
+
+ new Debian package, version 2.0.
+ size 49540 bytes: control archive=964 bytes.
+      24 bytes,     1 lines      conffiles            
+     665 bytes,    18 lines      control              
+     619 bytes,     9 lines      md5sums              
+ Package: fluidsynth
+ Version: 1.1.11-1
+ Architecture: armhf
+ Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+ Installed-Size: 87
+ Depends: libfluidsynth1 (>= 1.1.11-1), libc6 (>= 2.4)
+ Recommends: qsynth
+ Conflicts: iiwusynth
+ Replaces: iiwusynth
+ Provides: iiwusynth
+ Section: sound
+ Priority: optional
+ Homepage: http://www.fluidsynth.org/
+ Description: Real-time MIDI software synthesizer
+  Fluidsynth is a real-time midi synthesizer based on the soundfont2
+  specifications. It can be used to render MIDI input or MIDI files to audio.
+  The MIDI events are read from a MIDI device. The sound is rendered in
+  real-time to the sound output device.
+
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./etc/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./etc/default/
+-rw-r--r-- root/root       222 2018-06-02 08:45 ./etc/default/fluidsynth
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/bin/
+-rwxr-xr-x root/root     22372 2018-06-02 08:45 ./usr/bin/fluidsynth
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/systemd/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/systemd/user/
+-rw-r--r-- root/root       275 2018-06-02 08:45 ./usr/lib/systemd/user/fluidsynth.service
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/doc/fluidsynth/
+-rw-r--r-- root/root        86 2018-05-06 07:05 ./usr/share/doc/fluidsynth/NEWS.gz
+-rw-r--r-- root/root      2066 2018-05-06 07:05 ./usr/share/doc/fluidsynth/README.md.gz
+-rw-r--r-- root/root      3013 2018-05-06 07:05 ./usr/share/doc/fluidsynth/TODO
+-rw-r--r-- root/root      5846 2018-06-02 08:45 ./usr/share/doc/fluidsynth/changelog.Debian.gz
+-rw-r--r-- root/root     22693 2018-05-06 07:05 ./usr/share/doc/fluidsynth/changelog.gz
+-rw-r--r-- root/root      5170 2018-03-15 16:24 ./usr/share/doc/fluidsynth/copyright
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/man/man1/
+-rw-r--r-- root/root      5621 2018-06-02 08:45 ./usr/share/man/man1/fluidsynth.1.gz
+
+
+libfluidsynth-dev_1.1.11-1_armhf.deb
+------------------------------------
+
+ new Debian package, version 2.0.
+ size 48772 bytes: control archive=1304 bytes.
+     684 bytes,    18 lines      control              
+    1576 bytes,    23 lines      md5sums              
+ Package: libfluidsynth-dev
+ Source: fluidsynth
+ Version: 1.1.11-1
+ Architecture: armhf
+ Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+ Installed-Size: 145
+ Depends: libfluidsynth1 (= 1.1.11-1)
+ Section: libdevel
+ Priority: optional
+ Multi-Arch: same
+ Homepage: http://www.fluidsynth.org/
+ Description: Real-time MIDI software synthesizer (development files)
+  Fluidsynth is a real-time midi synthesizer based on the soundfont2
+  specifications. It can be used to render MIDI input or MIDI files to audio.
+  The MIDI events are read from a MIDI device. The sound is rendered in
+  real-time to the sound output device.
+  .
+  This package contains the development files.
+
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/include/
+-rw-r--r-- root/root      3499 2018-06-02 08:45 ./usr/include/fluidsynth.h
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/include/fluidsynth/
+-rw-r--r-- root/root      2973 2018-05-06 07:05 ./usr/include/fluidsynth/audio.h
+-rw-r--r-- root/root      6543 2018-05-06 07:05 ./usr/include/fluidsynth/event.h
+-rw-r--r-- root/root      5539 2018-05-06 07:05 ./usr/include/fluidsynth/gen.h
+-rw-r--r-- root/root      2884 2018-05-06 07:05 ./usr/include/fluidsynth/log.h
+-rw-r--r-- root/root      6995 2018-05-06 07:05 ./usr/include/fluidsynth/midi.h
+-rw-r--r-- root/root      2007 2018-05-06 07:05 ./usr/include/fluidsynth/misc.h
+-rw-r--r-- root/root      4515 2018-05-06 07:05 ./usr/include/fluidsynth/mod.h
+-rw-r--r-- root/root      2718 2018-05-06 07:05 ./usr/include/fluidsynth/ramsfont.h
+-rw-r--r-- root/root      3269 2018-05-06 07:05 ./usr/include/fluidsynth/seq.h
+-rw-r--r-- root/root      1342 2018-05-06 07:05 ./usr/include/fluidsynth/seqbind.h
+-rw-r--r-- root/root      7566 2018-05-06 07:05 ./usr/include/fluidsynth/settings.h
+-rw-r--r-- root/root     11634 2018-05-06 07:05 ./usr/include/fluidsynth/sfont.h
+-rw-r--r-- root/root      4054 2018-05-06 07:05 ./usr/include/fluidsynth/shell.h
+-rw-r--r-- root/root     15045 2018-05-06 07:05 ./usr/include/fluidsynth/synth.h
+-rw-r--r-- root/root      3510 2018-05-06 07:05 ./usr/include/fluidsynth/types.h
+-rw-r--r-- root/root      1588 2018-06-02 08:45 ./usr/include/fluidsynth/version.h
+-rw-r--r-- root/root      2913 2018-05-06 07:05 ./usr/include/fluidsynth/voice.h
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/arm-linux-gnueabihf/
+lrwxrwxrwx root/root         0 2018-06-02 08:45 ./usr/lib/arm-linux-gnueabihf/libfluidsynth.so -> libfluidsynth.so.1
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/arm-linux-gnueabihf/pkgconfig/
+-rw-r--r-- root/root       236 2018-06-02 08:45 ./usr/lib/arm-linux-gnueabihf/pkgconfig/fluidsynth.pc
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/doc/libfluidsynth-dev/
+-rw-r--r-- root/root      5846 2018-06-02 08:45 ./usr/share/doc/libfluidsynth-dev/changelog.Debian.gz
+-rw-r--r-- root/root     22693 2018-05-06 07:05 ./usr/share/doc/libfluidsynth-dev/changelog.gz
+-rw-r--r-- root/root      5170 2018-03-15 16:24 ./usr/share/doc/libfluidsynth-dev/copyright
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/doc/libfluidsynth-dev/examples/
+-rw-r--r-- root/root      1541 2018-05-06 07:05 ./usr/share/doc/libfluidsynth-dev/examples/example.c
+
+
+libfluidsynth1-dbgsym_1.1.11-1_armhf.deb
+----------------------------------------
+
+ new Debian package, version 2.0.
+ size 504812 bytes: control archive=544 bytes.
+     407 bytes,    13 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: libfluidsynth1-dbgsym
+ Source: fluidsynth
+ Version: 1.1.11-1
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+ Installed-Size: 567
+ Depends: libfluidsynth1 (= 1.1.11-1)
+ Section: debug
+ Priority: optional
+ Multi-Arch: same
+ Description: debug symbols for libfluidsynth1
+ Build-Ids: 101302c5d18258c43b65e89a5a72ca83e920e10f
+
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/debug/.build-id/10/
+-rw-r--r-- root/root    569420 2018-06-02 08:45 ./usr/lib/debug/.build-id/10/1302c5d18258c43b65e89a5a72ca83e920e10f.debug
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2018-06-02 08:45 ./usr/share/doc/libfluidsynth1-dbgsym -> libfluidsynth1
+
+
+libfluidsynth1_1.1.11-1_armhf.deb
+---------------------------------
+
+ new Debian package, version 2.0.
+ size 145852 bytes: control archive=5068 bytes.
+     914 bytes,    19 lines      control              
+     317 bytes,     4 lines      md5sums              
+      31 bytes,     1 lines      shlibs               
+   31708 bytes,   812 lines      symbols              
+      67 bytes,     2 lines      triggers             
+ Package: libfluidsynth1
+ Source: fluidsynth
+ Version: 1.1.11-1
+ Architecture: armhf
+ Maintainer: Debian Multimedia Maintainers <debian-multimedia@lists.debian.org>
+ Installed-Size: 317
+ Depends: libasound2 (>= 1.0.16), libc6 (>= 2.28), libglib2.0-0 (>= 2.31.8), libjack-jackd2-0 (>= 1.9.10+20150825) | libjack-0.125, libpulse0 (>= 0.99.1), libreadline7 (>= 6.0), libsndfile1 (>= 1.0.20)
+ Suggests: fluidr3mono-gm-soundfont | timgm6mb-soundfont | fluid-soundfont-gm
+ Section: libs
+ Priority: optional
+ Multi-Arch: same
+ Homepage: http://www.fluidsynth.org/
+ Description: Real-time MIDI software synthesizer (runtime library)
+  Fluidsynth is a real-time midi synthesizer based on the soundfont2
+  specifications. It can be used to render MIDI input or MIDI files to audio.
+  The MIDI events are read from a MIDI device. The sound is rendered in
+  real-time to the sound output device.
+  .
+  This package contains the runtime library.
+
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/lib/arm-linux-gnueabihf/
+lrwxrwxrwx root/root         0 2018-06-02 08:45 ./usr/lib/arm-linux-gnueabihf/libfluidsynth.so.1 -> libfluidsynth.so.1.7.2
+-rw-r--r-- root/root    245444 2018-06-02 08:45 ./usr/lib/arm-linux-gnueabihf/libfluidsynth.so.1.7.2
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-06-02 08:45 ./usr/share/doc/libfluidsynth1/
+-rw-r--r-- root/root      5846 2018-06-02 08:45 ./usr/share/doc/libfluidsynth1/changelog.Debian.gz
+-rw-r--r-- root/root     22693 2018-05-06 07:05 ./usr/share/doc/libfluidsynth1/changelog.gz
+-rw-r--r-- root/root      5170 2018-03-15 16:24 ./usr/share/doc/libfluidsynth1/copyright
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [595 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [676 B]
+Fetched 2234 B in 0s (176 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 0s (8626 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 25318 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* cmake*
+  cmake-data* debhelper* dh-autoreconf* dh-strip-nondeterminism* diffstat*
+  dwz* gcc-8-base:armhf* gettext* gettext-base* groff-base* intltool-debian*
+  ladspa-sdk:armhf* libapt-pkg-perl* libarchive-zip-perl* libarchive13*
+  libasan5:armhf* libasound2:armhf* libasound2-data* libasound2-dev:armhf*
+  libasyncns0:armhf* libatomic1:armhf* libblkid-dev:armhf* libblkid1:armhf*
+  libbsd0* libbsd0:armhf* libc6:armhf* libc6-dev:armhf* libcap2:armhf*
+  libcapture-tiny-perl* libcgi-pm-perl* libclass-accessor-perl* libclone-perl*
+  libcroco3* libcurl4* libdb5.3:armhf* libdbus-1-3:armhf* libdigest-hmac-perl*
+  libelf1* libemail-valid-perl* libexporter-tiny-perl* libffi-dev:armhf*
+  libffi6:armhf* libfile-basedir-perl* libfile-stripnondeterminism-perl*
+  libflac-dev:armhf* libflac8:armhf* libfuture-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libgcrypt20:armhf* libglib2.0-0* libglib2.0-0:armhf*
+  libglib2.0-bin* libglib2.0-data* libglib2.0-dev:armhf* libglib2.0-dev-bin*
+  libgomp1:armhf* libgpg-error0:armhf* libgssapi-krb5-2* libice6:armhf*
+  libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* libjack-dev:armhf* libjack0:armhf* libjsoncpp1*
+  libk5crypto3* libkeyutils1* libkrb5-3* libkrb5support0*
+  liblist-moreutils-perl* liblz4-1:armhf* liblzma5:armhf* libmount-dev:armhf*
+  libmount1:armhf* libmpdec2* libncurses-dev:armhf* libncurses6*
+  libncurses6:armhf* libncursesw6:armhf* libnet-dns-perl*
+  libnet-domain-tld-perl* libnet-ip-perl* libnghttp2-14* libogg-dev:armhf*
+  libogg0:armhf* libparse-debianchangelog-perl* libpath-tiny-perl*
+  libpcre16-3:armhf* libpcre3:armhf* libpcre3-dev:armhf* libpcre32-3:armhf*
+  libpcrecpp0v5:armhf* libpipeline1* libprocps7* libpsl5* libpulse-dev:armhf*
+  libpulse-mainloop-glib0:armhf* libpulse0:armhf* libpython3-stdlib*
+  libpython3.7-minimal* libpython3.7-stdlib* libreadline-dev:armhf*
+  libreadline7:armhf* librhash0* librtmp1* libselinux1:armhf*
+  libselinux1-dev:armhf* libsepol1:armhf* libsepol1-dev:armhf* libsigsegv2*
+  libsm6:armhf* libsndfile1:armhf* libsndfile1-dev:armhf* libssh2-1*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libstruct-dumb-perl*
+  libsub-name-perl* libsystemd0:armhf* libtext-levenshtein-perl*
+  libtinfo6:armhf* libtool* libubsan1:armhf* libuchardet0* libuuid1:armhf*
+  libuv1* libvorbis-dev:armhf* libvorbis0a:armhf* libvorbisenc2:armhf*
+  libvorbisfile3:armhf* libwrap0:armhf* libx11-6:armhf* libx11-data*
+  libx11-xcb1:armhf* libxau6:armhf* libxcb1:armhf* libxdmcp6:armhf*
+  libxext6:armhf* libxi6:armhf* libxtst6:armhf* lintian* linux-libc-dev:armhf*
+  m4* man-db* mime-support* patchutils* pkg-config* po-debconf* procps*
+  python3* python3-distutils* python3-lib2to3* python3-minimal* python3.7*
+  python3.7-minimal* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* uuid-dev:armhf* x11-common*
+  zlib1g:armhf* zlib1g-dev:armhf*
+0 upgraded, 0 newly installed, 170 to remove and 0 not upgraded.
+After this operation, 194 MB disk space will be freed.
+(Reading database ... 26596 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing cmake (3.13.4-1) ...
+Removing cmake-data (3.13.4-1) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libpulse-dev:armhf (12.2-4) ...
+Removing libglib2.0-dev:armhf (2.58.3-1) ...
+Removing libselinux1-dev:armhf (2.8-1+b1) ...
+Removing libpcre3-dev:armhf (2:8.39-11) ...
+Removing libpcrecpp0v5:armhf (2:8.39-11) ...
+Removing ladspa-sdk:armhf (1.13-3) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libarchive13:amd64 (3.3.3-4) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libasound2-dev:armhf (1.1.8-1) ...
+Removing libasound2:armhf (1.1.8-1) ...
+Removing libasound2-data (1.1.8-1) ...
+Removing libpulse-mainloop-glib0:armhf (12.2-4) ...
+Removing libpulse0:armhf (12.2-4) ...
+Removing libasyncns0:armhf (0.8-6) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libmount-dev:armhf (2.33.1-0.1) ...
+Removing libblkid-dev:armhf (2.33.1-0.1) ...
+Removing libglib2.0-0:armhf (2.58.3-1) ...
+Removing libmount1:armhf (2.33.1-0.1) ...
+Removing libblkid1:armhf (2.33.1-0.1) ...
+Removing libxtst6:armhf (2:1.2.3-1) ...
+Removing libxi6:armhf (2:1.7.9-1) ...
+Removing libsm6:armhf (2:1.2.3-1) ...
+Removing libice6:armhf (2:1.0.9-2) ...
+Removing zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing libdbus-1-3:armhf (1.12.12-1) ...
+Removing libsystemd0:armhf (241-1) ...
+Removing liblzma5:armhf (5.2.4-1) ...
+Removing libjack-dev:armhf (1:0.125.0-3) ...
+Removing uuid-dev:armhf (2.33.1-0.1) ...
+Removing libreadline-dev:armhf (7.0-5) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcap2:armhf (1:2.25-2) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libcurl4:amd64 (7.64.0-1) ...
+Removing libjack0:armhf (1:0.125.0-3) ...
+Removing libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing libglib2.0-bin (2.58.3-1) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libffi-dev:armhf (3.2.1-9) ...
+Removing libffi6:armhf (3.2.1-9) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libsndfile1-dev:armhf (1.0.28-5) ...
+Removing libflac-dev:armhf (1.3.2-3) ...
+Removing libsndfile1:armhf (1.0.28-5) ...
+Removing libflac8:armhf (1.3.2-3) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libgcrypt20:armhf (1.8.4-5) ...
+Removing pkg-config (0.29-6) ...
+Removing libglib2.0-dev-bin (2.58.3-1) ...
+Removing libglib2.0-data (2.58.3-1) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libgpg-error0:armhf (1.35-1) ...
+Removing libgssapi-krb5-2:amd64 (1.17-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libjsoncpp1:amd64 (1.7.4-3) ...
+Removing libkrb5-3:amd64 (1.17-2) ...
+Removing libk5crypto3:amd64 (1.17-2) ...
+Removing libkrb5support0:amd64 (1.17-2) ...
+Removing libkeyutils1:amd64 (1.6-4) ...
+Removing liblz4-1:armhf (1.8.3-1) ...
+Removing python3-distutils (3.7.2-3) ...
+Removing python3-lib2to3 (3.7.2-3) ...
+Removing python3 (3.7.2-1) ...
+Removing python3.7 (3.7.2-2) ...
+Removing libpython3-stdlib:amd64 (3.7.2-1) ...
+Removing libpython3.7-stdlib:amd64 (3.7.2-2) ...
+find: ‘/usr/lib/python3’: No such file or directory
+Removing libmpdec2:amd64 (2.4.2-2) ...
+Removing procps (2:3.3.15-2) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libnghttp2-14:amd64 (1.36.0-2) ...
+Removing libvorbis-dev:armhf (1.3.6-2) ...
+Removing libogg-dev:armhf (1.3.2-1+b1) ...
+Removing libvorbisfile3:armhf (1.3.6-2) ...
+Removing libvorbisenc2:armhf (1.3.6-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libpcre16-3:armhf (2:8.39-11) ...
+Removing libselinux1:armhf (2.8-1+b1) ...
+Removing libpcre3:armhf (2:8.39-11) ...
+Removing libpcre32-3:armhf (2:8.39-11) ...
+Removing libprocps7:amd64 (2:3.3.15-2) ...
+Removing libpsl5:amd64 (0.20.2-2) ...
+Removing python3-minimal (3.7.2-1) ...
+Removing python3.7-minimal (3.7.2-2) ...
+Removing libpython3.7-minimal:amd64 (3.7.2-2) ...
+find: ‘/usr/lib/python3’: No such file or directory
+Removing libreadline7:armhf (7.0-5) ...
+Removing librhash0:amd64 (1.3.8-1) ...
+Removing librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2) ...
+Removing libsepol1-dev:armhf (2.8-1) ...
+Removing libsepol1:armhf (2.8-1) ...
+Removing libssh2-1:amd64 (1.8.0-2) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libuuid1:armhf (2.33.1-0.1) ...
+Removing libuv1:amd64 (1.24.1-1) ...
+Removing libvorbis0a:armhf (1.3.6-2) ...
+Removing libwrap0:armhf (7.6.q-28) ...
+Removing libx11-xcb1:armhf (2:1.6.7-1) ...
+Removing libxext6:armhf (2:1.3.3-1+b2) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing mime-support (3.62) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing x11-common (1:7.7+19) ...
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of stop.
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libx11-6:armhf (2:1.6.7-1) ...
+Removing libxcb1:armhf (1.13.1-2) ...
+Removing libxdmcp6:armhf (1:1.1.2-3) ...
+Removing libbsd0:armhf (0.9.1-2) ...
+Removing libogg0:armhf (1.3.2-1+b1) ...
+Removing libx11-data (2:1.6.7-1) ...
+Removing libxau6:armhf (1:1.0.8-1+b2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16489 files and directories currently installed.)
+Purging configuration files for libblkid-dev:armhf (2.33.1-0.1) ...
+Purging configuration files for mime-support (3.62) ...
+Purging configuration files for libpulse0:armhf (12.2-4) ...
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for libglib2.0-0:armhf (2.58.3-1) ...
+Purging configuration files for x11-common (1:7.7+19) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for python3 (3.7.2-1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libpython3.7-minimal:amd64 (3.7.2-2) ...
+Purging configuration files for libwrap0:armhf (7.6.q-28) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for libgssapi-krb5-2:amd64 (1.17-2) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for python3.7-minimal (3.7.2-2) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+Purging configuration files for procps (2:3.3.15-2) ...
+Purging configuration files for cmake-data (3.13.4-1) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 23
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 15
+Job: /home/build/sbuild-setup/repo/pool/main/f/fluidsynth/fluidsynth_1.1.11-1.dsc
+Lintian: pass
+Machine Architecture: amd64
+Package: fluidsynth
+Package-Time: 43
+Source-Version: 1.1.11-1
+Space: n/a
+Status: successful
+Version: 1.1.11-1
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T18:50:00Z
+Build needed 00:00:43, no disk space

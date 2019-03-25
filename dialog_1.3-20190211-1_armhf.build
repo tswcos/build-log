@@ -1,0 +1,1738 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| dialog 1.3-20190211-1 (armhf)                Mon, 11 Mar 2019 02:57:23 +0000 |
++==============================================================================+
+
+Package: dialog
+Version: 1.3-20190211-1
+Source Version: 1.3-20190211-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-499666bb-9136-43e4-84a3-98fc7ac6e550' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/dialog-pAvgV8/resolver-dAKRSI' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/d/dialog/dialog_1.3-20190211-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/d/dialog; copying to chroot
+I: NOTICE: Log filtering will replace 'build/dialog-pAvgV8/dialog-1.3-20190211' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/dialog-pAvgV8' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: libncursesw5-dev (>= 5.3), gettext, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: libncursesw5-dev (>= 5.3), gettext, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [406 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [495 B]
+Fetched 1858 B in 0s (175 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  gcc-8-base:armhf gettext gettext-base libasan5:armhf libatomic1:armhf
+  libc6:armhf libc6-dev:armhf libcroco3 libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libncurses-dev:armhf libncurses6
+  libncurses6:armhf libncursesw5-dev:armhf libncursesw6:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libtinfo6:armhf libubsan1:armhf
+  linux-libc-dev:armhf
+Suggested packages:
+  gettext-doc autopoint libasprintf-dev libgettextpo-dev glibc-doc:armhf
+  libc-l10n:armhf locales:armhf manpages-dev:armhf ncurses-doc:armhf
+  libstdc++-8-doc:armhf
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libglib2.0-data shared-mime-info
+  xdg-user-dirs libgpm2 libgpm2:armhf
+The following NEW packages will be installed:
+  gcc-8-base:armhf gettext gettext-base libasan5:armhf libatomic1:armhf
+  libc6:armhf libc6-dev:armhf libcroco3 libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libncurses-dev:armhf libncurses6
+  libncurses6:armhf libncursesw5-dev:armhf libncursesw6:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libtinfo6:armhf libubsan1:armhf
+  linux-libc-dev:armhf sbuild-build-depends-main-dummy:armhf
+0 upgraded, 23 newly installed, 0 to remove and 0 not upgraded.
+Need to get 916 B/12.7 MB of archives.
+After this operation, 64.3 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [916 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 916 B in 0s (0 B/s)
+Selecting previously unselected package gettext-base.
+(Reading database ... 16453 files and directories currently installed.)
+Preparing to unpack .../00-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../01-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../02-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../03-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../04-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../05-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../06-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../07-libc6_2.28-8_armhf.deb ...
+Unpacking libc6:armhf (2.28-8) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../08-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../09-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../10-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../11-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../12-libc6-dev_2.28-8_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-8) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../13-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../14-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../15-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../16-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../17-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../18-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../19-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw5-dev:armhf.
+Preparing to unpack .../20-libncursesw5-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw5-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../21-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../22-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libc6:armhf (2.28-8) ...
+Setting up libc6-dev:armhf (2.28-8) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up libncursesw5-dev:armhf (6.1+20181013-2) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-8) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-15 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-8 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-15 binutils-arm-linux-gnueabihf_2.31.1-15 binutils-common_2.31.1-15 binutils-x86-64-linux-gnu_2.31.1-15 bsdutils_1:2.33.1-0.1 build-essential_12.6 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-3 cpp_4:8.3.0-1 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.3.0-2cross1 cpp-arm-linux-gnueabihf_4:8.3.0-1 cross-config_2.6.15-2 crossbuild-essential-armhf_12.6 dash_0.5.10.2-5 debconf_1.5.71 debian-archive-keyring_2018.1 debianutils_4.8.6.1 diffutils_1:3.7-2 dirmngr_2.2.13-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 e2fsprogs_1.45.0-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-4 findutils_4.6.0+git+20190209-2 g++_4:8.3.0-1 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.3.0-2cross1 g++-arm-linux-gnueabihf_4:8.3.0-1 gcc_4:8.3.0-1 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.3.0-2cross1 gcc-8-arm-linux-gnueabihf-base_8.3.0-2cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.3.0-2cross1 gcc-arm-linux-gnueabihf_4:8.3.0-1 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.13-1 gnupg-l10n_2.2.13-1 gnupg-utils_2.2.13-1 gpg_2.2.13-1 gpg-agent_2.2.13-1 gpg-wks-client_2.2.13-1 gpg-wks-server_2.2.13-1 gpgconf_2.2.13-1 gpgsm_2.2.13-1 gpgv_2.2.13-1 grep_3.3-1 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 libacl1_2.2.53-4 libapt-pkg5.0_1.8.0 libasan5_8.3.0-2 libasan5-armhf-cross_8.3.0-2cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.3.0-2cross1 libattr1_1:2.4.48-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-15 libblkid1_2.33.1-0.1 libbz2-1.0_1.0.6-9 libc-bin_2.28-8 libc-dev-bin_2.28-8 libc6_2.28-8 libc6-armhf-cross_2.28-7cross1 libc6-dev_2.28-8 libc6-dev-armhf-cross_2.28-7cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.45.0-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.248 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.45.0-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.3.0-2cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.3.0-2cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-3 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.3.0-2cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-3 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-4 libmagic1_1:5.35-4 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw5-dev_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-12 libperl5.28_5.28.1-4 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.45.0-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.3.0-2cross1 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-4 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.20-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 make_4.2.1-1.2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-2 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: dialog
+Binary: dialog
+Architecture: any
+Version: 1.3-20190211-1
+Maintainer: Santiago Vila <sanvila@debian.org>
+Homepage: http://invisible-island.net/dialog/dialog.html
+Standards-Version: 3.9.6
+Build-Depends: libncursesw5-dev (>= 5.3), gettext
+Package-List:
+ dialog deb misc optional arch=any
+Checksums-Sha1:
+ f355cc10949a19e5f5838bf226d581ee9a552344 534749 dialog_1.3-20190211.orig.tar.gz
+ e33544dc90863593e23639ec7858ef916a6f0f49 11756 dialog_1.3-20190211-1.debian.tar.xz
+Checksums-Sha256:
+ 49c0e289d77dcd7806f67056c54f36a96826a9b73a53fb0ffda1ffa6f25ea0d3 534749 dialog_1.3-20190211.orig.tar.gz
+ d643a633e573eb13dd09bd247ca690518155a64baa3fdaecb1223d3da67c0892 11756 dialog_1.3-20190211-1.debian.tar.xz
+Files:
+ 27d05caef648e8e02d0908a59951d44c 534749 dialog_1.3-20190211.orig.tar.gz
+ cdf58a93020937cf7af19352f3028934 11756 dialog_1.3-20190211-1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEE1Uw7+v+wQt44LaXXQc5/C58bizIFAlxp5vMACgkQQc5/C58b
+izIF6wgAnMOGjTa8+7OhgFcru+lcl7oDmjB+1TPYMCtHe2zlqoP38ooLJSBOYR4W
+JEk3gZnSFK5RmYgGxZZapRCbdwaT3CV7s+ouVSLQgSeAKmkQNqN6dDoteS5GFrlW
+yMGeMly6ai4KCwBxiBB7RmD3hZ7e14XjVhLwPI4LWAEEqxaP9UTiRZkcHnht2RoN
+ZwgygGrjfmSBG0IB2LfYZbE1YLji/cDj83NenNmiwK+FfRrESH0BmdJDLVstANsM
+Wy36hqvMjCJwgta2jMN5Q7AFivxlLpMau+LhkyRYSdhvSxsL9LU1Dx8BtGZ/uqrC
+G/2WddxrblHVL5FQJIkxr/wIo18ecw==
+=g0sg
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sun Feb 17 22:57:55 2019 UTC
+gpgv:                using RSA key D54C3BFAFFB042DE382DA5D741CE7F0B9F1B8B32
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./dialog_1.3-20190211-1.dsc
+dpkg-source: info: extracting dialog in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking dialog_1.3-20190211.orig.tar.gz
+dpkg-source: info: unpacking dialog_1.3-20190211-1.debian.tar.xz
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-499666bb-9136-43e4-84a3-98fc7ac6e550
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package dialog
+dpkg-buildpackage: info: source version 1.3-20190211-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Santiago Vila <sanvila@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+rm -f build
+[ ! -f makefile ] || /usr/bin/make distclean
+rm -f `find . -name "*~"`
+rm -rf debian/tmp debian/files* core debian/substvars
+ debian/rules build-arch
+CFLAGS="`dpkg-buildflags --get CFLAGS` -fPIC -Wall" CPPFLAGS="`dpkg-buildflags --get CPPFLAGS`" LDFLAGS="`dpkg-buildflags --get LDFLAGS`" \
+	./configure --prefix=/usr \
+	--enable-nls --with-ncursesw --disable-rpath-hack --build x86_64-linux-gnu --host arm-linux-gnueabihf
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking for C compiler default output... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for executable suffix... 
+checking for object suffix... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking version of arm-linux-gnueabihf-gcc... 8.3.0
+checking for arm-linux-gnueabihf-gcc option to accept ANSI C... none needed
+checking $CFLAGS variable... ok
+checking $CC variable... ok
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking whether make sets ${MAKE}... yes
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for a BSD compatible install... /usr/bin/install -c
+checking whether ln -s works... yes
+checking if ln -s -f options work... yes
+checking for lint... no
+checking for cppcheck... no
+checking for splint... no
+checking for groff... no
+checking for nroff... no
+checking for mandoc... no
+checking for tbl... cat
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for options to update archives... -curvU
+checking for makeflags variable... -${MAKEFLAGS}
+checking if filesystem supports mixed-case filenames... yes
+checking for exctags... no
+checking for ctags... no
+checking for exetags... no
+checking for etags... no
+checking for ctags... no
+checking for etags... no
+checking if you want to see long compiling messages... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+Configuring for linux-gnueabihf
+checking for PATH separator... :
+checking if the POSIX test-macros are already defined... no
+checking if this is the GNU C library... yes
+checking if _DEFAULT_SOURCE can be used as a basis... yes
+checking if _XOPEN_SOURCE=500 works with _DEFAULT_SOURCE... yes
+checking if _XOPEN_SOURCE really is set... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking for _LARGE_FILES value needed for large files... no
+checking for _LARGEFILE_SOURCE value needed for large files... no
+checking for fseeko... yes
+checking whether to use struct dirent64... no
+checking for install-prefix... no
+checking if you want to check for gcc warnings... no
+checking if you want to use pkg-config... yes
+checking for arm-linux-gnueabihf-pkg-config... no
+checking for pkg-config... none
+configure: WARNING: pkg-config is not installed
+checking for this package's name... dialog
+checking for package version... 1.3
+checking for package patch date... 20190211
+checking if we should install dlg_XXX headers to subdirectory... no
+checking for man2html... no
+checking for program to convert manpage to html... no
+checking for ANSI C header files... yes
+checking for inline... inline
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for off_t... yes
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for stdlib.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for getpagesize... yes
+checking for working mmap... no
+checking whether we are using the GNU C Library 2.1 or newer... yes
+checking for argz.h... yes
+checking for limits.h... yes
+checking for locale.h... yes
+checking for nl_types.h... yes
+checking for malloc.h... yes
+checking for stddef.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/param.h... yes
+checking for feof_unlocked... yes
+checking for fgets_unlocked... yes
+checking for getcwd... yes
+checking for getegid... yes
+checking for geteuid... yes
+checking for getgid... yes
+checking for getuid... yes
+checking for mempcpy... yes
+checking for munmap... yes
+checking for putenv... yes
+checking for setenv... yes
+checking for setlocale... yes
+checking for stpcpy... yes
+checking for strchr... yes
+checking for strcasecmp... yes
+checking for strdup... yes
+checking for strtoul... yes
+checking for tsearch... yes
+checking for __argz_count... yes
+checking for __argz_stringify... yes
+checking for __argz_next... yes
+checking for iconv... yes
+checking if the declaration of iconv() needs const.... no
+checking for nl_langinfo and CODESET... yes
+checking for LC_MESSAGES... yes
+checking whether NLS is requested... yes
+checking whether included gettext is requested... no
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for libintl.h and gettext()... yes
+checking for dcgettext... yes
+checking for catalogs to be installed...  an ar ast be@latin bg ca cs cy da de el eo es et eu fa fi fr fur ga gd gl hi hr hu ia id is it ja ku lt lv mg mk ms nb nl pl pt pt_BR rm ro ru rw sk sl sq sr sv sw th tr uk vi wa zh_CN zh_TW
+checking if we should use included message-library... yes
+checking for libintl.h... yes
+checking if -lm needed for math functions... yes
+checking if you want to use dmalloc for testing... no
+checking if you want to use dbmalloc for testing... no
+checking if you want to use purify for testing... no
+checking if you want to use valgrind for testing... no
+checking if you want to perform memory-leak testing... 
+checking if you want --trace option... yes
+checking for an rpath option... -Wl,-rpath,
+checking if libtool -version-number should be used... yes
+checking if you want to build libraries with libtool... no
+checking if you want to build shared libraries... no
+checking for specific curses-directory... no
+checking if rpath option should be used... no
+checking for specific curses-directory... no
+checking for specified curses library type... ncursesw
+checking for multibyte character support... yes
+Looking for ncursesw-config
+checking for arm-linux-gnueabihf-ncursesw-config... no
+checking for arm-linux-gnueabihf-ncursesw6-config... no
+checking for arm-linux-gnueabihf-ncursesw6-config... no
+checking for arm-linux-gnueabihf-ncursesw5-config... no
+checking for ncursesw-config... no
+checking for ncursesw6-config... ncursesw6-config
+checking if we have identified curses headers... ncurses.h
+checking for ncurses.h... yes
+checking for _nc_init_pthreads in -lncursesw... no
+checking if curses supports wide characters... yes
+checking if we must include wchar.h to declare mbstate_t... no
+checking if you want extra dialogs... yes
+checking if you want config-file support... yes
+checking if you want Xdialog-style dialogs... yes
+checking if you want extra Xdialog-style dialogs (1.2)... yes
+checking if you want compatibility with whiptail options... yes
+checking if you want the form dialog... yes
+checking if you want the gauge dialog... yes
+checking if you want the tailbox dialog... yes
+checking if you want the mixedform dialog... yes
+checking if you want the mixedgauge dialog... yes
+checking if you want the wide-curses features... yes
+checking for ANSI C header files... (cached) yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for dirent.h that defines DIR... yes
+checking for opendir in -ldir... no
+checking for search.h... yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for term.h... term.h
+checking return type of signal handlers... void
+checking for _nc_free_and_exit... yes
+checking for btowc... yes
+checking for mblen... yes
+checking for mbrlen... yes
+checking for mbrtowc... yes
+checking for mbtowc... yes
+checking for strcasecmp... (cached) yes
+checking for strftime... yes
+checking for tsearch... (cached) yes
+checking for waitpid... yes
+checking for wcsrtombs... yes
+checking for wcstombs... yes
+checking for wctob... yes
+checking for wctomb... yes
+checking for mktime... yes
+checking definition to turn on extended curses functions... none
+checking for unctrl.h... unctrl.h
+checking for flushinp... yes
+checking for getattrs... yes
+checking for getbegx... yes
+checking for getbegy... yes
+checking for getbegyx... yes
+checking for getcurx... yes
+checking for getcury... yes
+checking for getmaxx... yes
+checking for getmaxy... yes
+checking for getmaxyx... yes
+checking for getparx... yes
+checking for getpary... yes
+checking for getparyx... yes
+checking for use_default_colors... yes
+checking for wchgat... yes
+checking for wcursyncup... yes
+checking for wget_wch... yes
+checking for wsyncup... yes
+checking for start_color... yes
+checking for chtype typedef... yes
+checking if chtype is scalar or struct... scalar
+checking for wide alternate character set array... _nc_wacs
+checking for wide alternate character constants... yes
+checking for wgetparent... yes
+checking for sys/wait.h... yes
+checking for union wait... no
+checking if we must include wchar.h to declare mbstate_t... yes
+checking for termio.h... yes
+checking for termios.h... yes
+checking for unistd.h... (cached) yes
+checking for sys/ioctl.h... yes
+checking for sys/termio.h... no
+checking whether termios.h needs _POSIX_SOURCE... no
+checking declaration of size-change... yes
+checking if runtime has nl_langinfo support for first weekday... yes
+checking if rpath-hack should be disabled... yes
+configure: creating ./config.status
+config.status: creating dialog-config
+config.status: creating makefile
+config.status: creating headers-sh
+config.status: creating po/makefile.in
+config.status: creating dlg_config.h
+config.status: creating po/POTFILES
+config.status: creating po/makefile
+/usr/bin/make
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c trace.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c rc.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c calendar.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c fselect.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c timebox.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c buildlist.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c rangebox.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c treeview.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c formbox.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c guage.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c pause.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c prgbox.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c progressbox.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c tailbox.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c mixedform.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c mixedgauge.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c argv.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c arrows.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c buttons.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c checklist.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c columns.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c dlg_keys.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c editbox.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c help.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c inputbox.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c inputstr.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c menubox.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c mouse.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c mousewget.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c msgbox.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c textbox.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c ttysize.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c ui_getc.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c util.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c version.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c yesno.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall  -I. -I. -Wdate-time -D_FORTIFY_SOURCE=2   -D_FILE_OFFSET_BITS=64 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DHAVE_CONFIG_H -DLOCALEDIR=\"/usr/share/locale\" -c dialog.c
+linking libdialog.a
+arm-linux-gnueabihf-ar -cr libdialog.a trace.o rc.o calendar.o fselect.o timebox.o buildlist.o rangebox.o treeview.o formbox.o guage.o pause.o prgbox.o progressbox.o tailbox.o mixedform.o mixedgauge.o argv.o arrows.o buttons.o checklist.o columns.o dlg_keys.o editbox.o help.o inputbox.o inputstr.o menubox.o mouse.o mousewget.o msgbox.o textbox.o ttysize.o ui_getc.o util.o version.o yesno.o 
+arm-linux-gnueabihf-gcc -o dialog dialog.o -L. -ldialog -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wall -Wl,-z,relro -lncursesw -ltinfo -ldl -lm 
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+touch build
+ fakeroot debian/rules binary-arch
+rm -rf debian/tmp
+install -d debian/tmp/DEBIAN debian/tmp/usr/share/doc/dialog/examples
+cd debian/tmp && install -d usr/bin usr/share/man/man1 usr/share/perl5
+/usr/bin/make install install-lib DESTDIR=`pwd`/debian/tmp prefix=/usr libdir=/usr/lib/arm-linux-gnueabihf
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+making install
+** installing config script in /<<PKGBUILDDIR>>/debian/tmp/usr/bin
+make[2]: Entering directory '/<<PKGBUILDDIR>>/po'
+make[2]: warning: -j16 forced in submake: resetting jobserver mode.
+mkdir -p /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf
+mkdir -p /<<PKGBUILDDIR>>/debian/tmp/usr/include
+file=./`echo an | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file an.po
+file=./`echo ar | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file ar.po
+file=./`echo ast | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file ast.po
+file=./`echo be@latin | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file be@latin.po
+file=./`echo bg | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file bg.po
+file=./`echo ca | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file ca.po
+/bin/sh headers-sh /<<PKGBUILDDIR>>/debian/tmp/usr/include .
+file=./`echo cs | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file cs.po
+file=./`echo cy | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file cy.po
+file=./`echo da | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file da.po
+file=./`echo de | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file de.po
+file=./`echo el | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file el.po
+file=./`echo eo | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file eo.po
+file=./`echo es | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file es.po
+file=./`echo et | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file et.po
+file=./`echo eu | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file eu.po
+file=./`echo fa | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file fa.po
+file=./`echo fi | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file fi.po
+file=./`echo fr | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file fr.po
+file=./`echo fur | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file fur.po
+file=./`echo ga | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file ga.po
+file=./`echo gd | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file gd.po
+file=./`echo gl | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file gl.po
+file=./`echo hi | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file hi.po
+file=./`echo hr | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file hr.po
+file=./`echo hu | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file hu.po
+file=./`echo ia | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file ia.po
+file=./`echo id | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file id.po
+file=./`echo is | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file is.po
+file=./`echo it | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file it.po
+file=./`echo ja | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file ja.po
+file=./`echo ku | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file ku.po
+file=./`echo lt | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file lt.po
+file=./`echo lv | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file lv.po
+file=./`echo mg | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file mg.po
+file=./`echo mk | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file mk.po
+file=./`echo ms | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file ms.po
+file=./`echo nb | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file nb.po
+file=./`echo nl | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file nl.po
+file=./`echo pl | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file pl.po
+file=./`echo pt | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file pt.po
+file=./`echo pt_BR | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file pt_BR.po
+file=./`echo rm | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file rm.po
+file=./`echo ro | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file ro.po
+file=./`echo ru | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file ru.po
+file=./`echo rw | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file rw.po
+file=./`echo sk | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file sk.po
+file=./`echo sl | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file sl.po
+file=./`echo sq | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file sq.po
+file=./`echo sr | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file sr.po
+file=./`echo sv | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file sv.po
+file=./`echo sw | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file sw.po
+file=./`echo th | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file th.po
+file=./`echo tr | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file tr.po
+file=./`echo uk | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file uk.po
+file=./`echo vi | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file vi.po
+file=./`echo wa | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file wa.po
+file=./`echo zh_CN | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file zh_CN.po
+file=./`echo zh_TW | sed 's,.*/,,'`.gmo \
+  && rm -f $file && PATH=../src:$PATH /usr/bin/msgfmt -o $file zh_TW.po
+installing an.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/an/LC_MESSAGES/dialog.mo
+** installing library in /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf
+** installing headers in /<<PKGBUILDDIR>>/debian/tmp/usr/include
+installing ar.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/ar/LC_MESSAGES/dialog.mo
+	... dialog.h
+installing ast.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/ast/LC_MESSAGES/dialog.mo
+installing be@latin.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/be@latin/LC_MESSAGES/dialog.mo
+installing bg.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/bg/LC_MESSAGES/dialog.mo
+installing ca.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/ca/LC_MESSAGES/dialog.mo
+installing cs.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/cs/LC_MESSAGES/dialog.mo
+installing cy.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/cy/LC_MESSAGES/dialog.mo
+installing da.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/da/LC_MESSAGES/dialog.mo
+installing de.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/de/LC_MESSAGES/dialog.mo
+	... dlg_colors.h
+installing el.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/el/LC_MESSAGES/dialog.mo
+installing eo.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/eo/LC_MESSAGES/dialog.mo
+installing es.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/es/LC_MESSAGES/dialog.mo
+installing et.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/et/LC_MESSAGES/dialog.mo
+installing eu.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/eu/LC_MESSAGES/dialog.mo
+installing fa.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/fa/LC_MESSAGES/dialog.mo
+	... dlg_keys.h
+installing fi.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/fi/LC_MESSAGES/dialog.mo
+installing fr.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/fr/LC_MESSAGES/dialog.mo
+installing fur.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/fur/LC_MESSAGES/dialog.mo
+installing ga.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/ga/LC_MESSAGES/dialog.mo
+installing gd.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/gd/LC_MESSAGES/dialog.mo
+installing gl.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/gl/LC_MESSAGES/dialog.mo
+installing hi.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/hi/LC_MESSAGES/dialog.mo
+	... dlg_config.h
+installing hr.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/hr/LC_MESSAGES/dialog.mo
+installing hu.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/hu/LC_MESSAGES/dialog.mo
+installing ia.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/ia/LC_MESSAGES/dialog.mo
+installing id.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/id/LC_MESSAGES/dialog.mo
+mkdir -p /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man3
+installing is.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/is/LC_MESSAGES/dialog.mo
+** installing dialog.3
+installing it.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/it/LC_MESSAGES/dialog.mo
+installing ja.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/ja/LC_MESSAGES/dialog.mo
+installing ku.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/ku/LC_MESSAGES/dialog.mo
+installing lt.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/lt/LC_MESSAGES/dialog.mo
+installing lv.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/lv/LC_MESSAGES/dialog.mo
+installing mg.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/mg/LC_MESSAGES/dialog.mo
+installing mk.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/mk/LC_MESSAGES/dialog.mo
+installing ms.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/ms/LC_MESSAGES/dialog.mo
+installing nb.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/nb/LC_MESSAGES/dialog.mo
+installing nl.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/nl/LC_MESSAGES/dialog.mo
+installing pl.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/pl/LC_MESSAGES/dialog.mo
+installing pt.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/pt/LC_MESSAGES/dialog.mo
+installing pt_BR.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/pt_BR/LC_MESSAGES/dialog.mo
+installing rm.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/rm/LC_MESSAGES/dialog.mo
+installing ro.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/ro/LC_MESSAGES/dialog.mo
+installing ru.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/ru/LC_MESSAGES/dialog.mo
+installing rw.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/rw/LC_MESSAGES/dialog.mo
+installing sk.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/sk/LC_MESSAGES/dialog.mo
+installing sl.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/sl/LC_MESSAGES/dialog.mo
+installing sq.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/sq/LC_MESSAGES/dialog.mo
+installing sr.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/sr/LC_MESSAGES/dialog.mo
+installing sv.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/sv/LC_MESSAGES/dialog.mo
+installing sw.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/sw/LC_MESSAGES/dialog.mo
+installing th.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/th/LC_MESSAGES/dialog.mo
+installing tr.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/tr/LC_MESSAGES/dialog.mo
+installing uk.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/uk/LC_MESSAGES/dialog.mo
+installing vi.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/vi/LC_MESSAGES/dialog.mo
+installing wa.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/wa/LC_MESSAGES/dialog.mo
+installing zh_CN.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/zh_CN/LC_MESSAGES/dialog.mo
+installing zh_TW.gmo as /<<PKGBUILDDIR>>/debian/tmp/usr/share/locale/zh_TW/LC_MESSAGES/dialog.mo
+if test "dialog" = "gettext"; then \
+  mkdir -p /<<PKGBUILDDIR>>/debian/tmp/usr/share/gettext/po; \
+  /usr/bin/install -c -m 644 ./makefile.inn \
+		  /<<PKGBUILDDIR>>/debian/tmp/usr/share/gettext/po/makefile.inn; \
+else \
+  : ; \
+fi
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/po'
+/usr/bin/install -c dialog /<<PKGBUILDDIR>>/debian/tmp/usr/bin/`echo dialog |sed s,x,x,`
+** installing dialog.1
+made install
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+rm -f debian/tmp/usr/bin/dialog-config
+cp -p dialog.pl debian/tmp/usr/share/perl5
+cp -p debian/changelog debian/tmp/usr/share/doc/dialog/changelog.Debian
+cp -p README CHANGES debian/copyright debian/tmp/usr/share/doc/dialog
+cd samples && cp -p yesno msgbox inputbox checklist menubox menubox1 menubox2 infobox textbox radiolist gauge gauge2 msgbox1 msgbox2 inputbox1 inputbox2 inputbox3 calendar timebox calendar2 fselect2 infobox2 infobox3 infobox4 menubox3 menubox4 menubox5 password textbox2 timebox2 yesno2 yesno3 fselect fselect1 inputbox4 inputbox5 inputmenu1 inputmenu2 inputmenu3 inputmenu4 checklist-utf8 msgbox4-utf8 inputbox6-utf8 menubox-utf8 msgbox4-eucjp form1 form2 inputbox7 calendar-stdout calendar2-stdout gauge0-input-fd fselect-stdout fselect1-stdout fselect2-stdout password1 password2 inputmenu-stdout timebox-stdout timebox2-stdout menubox10 menubox11 checklist10 radiolist10 pause editbox editbox2 editbox-utf8 mixedform mixedform2 mixedgauge report-button report-edit report-string report-tempfile report-yesno setup-edit setup-tempfile setup-utf8 setup-vars ../debian/tmp/usr/share/doc/dialog/examples
+chmod 644 debian/tmp/usr/share/doc/dialog/examples/report-*
+chmod 644 debian/tmp/usr/share/doc/dialog/examples/setup-*
+chmod -R u+w debian/tmp/usr/share/doc/dialog debian/tmp/usr/lib
+cd debian/tmp/usr/share/doc/dialog && gzip -9n CHANGES changelog.Debian
+ln -s CHANGES.gz debian/tmp/usr/share/doc/dialog/changelog.gz
+gzip -r9n debian/tmp/usr/share/man
+arm-linux-gnueabihf-strip --strip-debug debian/tmp/usr/lib/arm-linux-gnueabihf/libdialog.a
+arm-linux-gnueabihf-strip --remove-section=.comment --remove-section=.note debian/tmp/usr/bin/dialog
+dpkg-shlibdeps debian/tmp/usr/bin/dialog
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/tmp/usr/bin/dialog was not linked against libdl.so.2 (it uses none of the library's symbols)
+dpkg-gencontrol
+cd debian/tmp && \
+	find * -type f ! -regex "DEBIAN/.*" -print0 |\
+	LC_ALL=C sort -z | xargs -0r md5sum > DEBIAN/md5sums
+chown -R 0:0 debian/tmp
+chmod -R go=rX debian/tmp
+find debian/tmp -newermt 'Sun, 17 Feb 2019 23:44:16 +0100' -print0 |\
+	xargs -0r touch -h --date='Sun, 17 Feb 2019 23:44:16 +0100'
+dpkg --build debian/tmp ..
+dpkg-deb: building package 'dialog' in '../dialog_1.3-20190211-1_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../dialog_1.3-20190211-1_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-11T02:57:50Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+dialog_1.3-20190211-1_armhf.changes:
+------------------------------------
+
+Format: 1.8
+Date: Sun, 17 Feb 2019 23:44:16 +0100
+Source: dialog
+Binary: dialog
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 1.3-20190211-1
+Distribution: unstable-amd64-sbuild
+Urgency: low
+Maintainer: Santiago Vila <sanvila@debian.org>
+Changed-By: Santiago Vila <sanvila@debian.org>
+Description:
+ dialog     - Displays user-friendly dialog boxes from shell scripts
+Changes:
+ dialog (1.3-20190211-1) unstable; urgency=low
+ .
+   * New upstream release (misc fixes).
+Checksums-Sha1:
+ 437f13eef4a5e0576c769bb07da12d68a1aea285 3594 dialog_1.3-20190211-1_armhf.buildinfo
+ 24679a7eaddb05efaa53d92cb628728033ae541c 251984 dialog_1.3-20190211-1_armhf.deb
+Checksums-Sha256:
+ cbae6a265e4ac2296fa62737d485d168f1df039060bb26e6dc4875c01abfe50e 3594 dialog_1.3-20190211-1_armhf.buildinfo
+ 2e7ddddef6c61ec21a27ff2b756bee3d301533e9acec4ffbc7df45856daa7fe2 251984 dialog_1.3-20190211-1_armhf.deb
+Files:
+ 8581b3ae1dc3f4a4e19377c78946ecd9 3594 misc optional dialog_1.3-20190211-1_armhf.buildinfo
+ 1d60b1f938150160d2aada0cf604154b 251984 misc optional dialog_1.3-20190211-1_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: dialog
+Binary: dialog
+Architecture: armhf
+Version: 1.3-20190211-1
+Checksums-Md5:
+ 1d60b1f938150160d2aada0cf604154b 251984 dialog_1.3-20190211-1_armhf.deb
+Checksums-Sha1:
+ 24679a7eaddb05efaa53d92cb628728033ae541c 251984 dialog_1.3-20190211-1_armhf.deb
+Checksums-Sha256:
+ 2e7ddddef6c61ec21a27ff2b756bee3d301533e9acec4ffbc7df45856daa7fe2 251984 dialog_1.3-20190211-1_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Mon, 11 Mar 2019 02:57:50 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-15),
+ binutils-common (= 2.31.1-15),
+ binutils-x86-64-linux-gnu (= 2.31.1-15),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.6),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-3),
+ cpp (= 4:8.3.0-1),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debianutils (= 4.8.6.1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ fdisk (= 2.33.1-0.1),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.3.0-1),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.3.0-1),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ libacl1 (= 2.2.53-4),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.48-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-15),
+ libblkid1 (= 2.33.1-0.1),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-8),
+ libc-dev-bin (= 2.28-8),
+ libc6 (= 2.28-8),
+ libc6-dev (= 2.28-8),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.248),
+ libdpkg-perl (= 1.19.5),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses-dev (= 6.1+20181013-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw5-dev (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-12),
+ libperl5.28 (= 5.28.1-4),
+ libquadmath0 (= 8.3.0-2),
+ libselinux1 (= 2.8-1+b1),
+ libsmartcols1 (= 2.33.1-0.1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtinfo6 (= 6.1+20181013-2),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ make (= 4.2.1-1.2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ sed (= 4.7-1),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1550443456"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+dialog_1.3-20190211-1_armhf.deb
+-------------------------------
+
+ new Debian package, version 2.0.
+ size 251984 bytes: control archive=4468 bytes.
+    1489 bytes,    28 lines      control              
+   11132 bytes,   150 lines      md5sums              
+ Package: dialog
+ Version: 1.3-20190211-1
+ Architecture: armhf
+ Maintainer: Santiago Vila <sanvila@debian.org>
+ Installed-Size: 901
+ Depends: libc6 (>= 2.28), libncursesw6 (>= 6), libtinfo6 (>= 6), debianutils (>= 1.6)
+ Provides: libdialog-dev
+ Section: misc
+ Priority: optional
+ Homepage: http://invisible-island.net/dialog/dialog.html
+ Description: Displays user-friendly dialog boxes from shell scripts
+  This application provides a method of displaying several different types
+  of dialog boxes from shell scripts.  This allows a developer of a script
+  to interact with the user in a much friendlier manner.
+  .
+  The following types of boxes are at your disposal:
+   yes/no           Typical query style box with "Yes" and "No" answer buttons
+   menu             A scrolling list of menu choices with single entry selection
+   input            Query style box with text entry field
+   message          Similar to the yes/no box, but with only an "Ok" button
+   text             A scrollable text box that works like a simple file viewer
+   info             A message display that allows asynchronous script execution
+   checklist        Similar to the menu box, but allowing multiple selections
+   radiolist        Checklist style box allowing single selections
+   gauge            Typical "progress report" style box
+   tail             Allows viewing the end of files (tail) that auto updates
+   background tail  Similar to tail but runs in the background.
+   editbox          Allows editing an existing file
+
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/bin/
+-rwxr-xr-x root/root    144656 2019-02-17 22:44 ./usr/bin/dialog
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/include/
+-rw-r--r-- root/root     39276 2019-02-17 22:44 ./usr/include/dialog.h
+-rw-r--r-- root/root      7030 2019-02-17 22:44 ./usr/include/dlg_colors.h
+-rw-r--r-- root/root      3659 2019-02-17 22:44 ./usr/include/dlg_config.h
+-rw-r--r-- root/root      5361 2019-02-17 22:44 ./usr/include/dlg_keys.h
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/lib/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/lib/arm-linux-gnueabihf/
+-rw-r--r-- root/root    259278 2019-02-17 22:44 ./usr/lib/arm-linux-gnueabihf/libdialog.a
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/doc/dialog/
+-rw-r--r-- root/root     38849 2019-02-11 22:32 ./usr/share/doc/dialog/CHANGES.gz
+-rw-r--r-- root/root      2846 2003-01-26 18:18 ./usr/share/doc/dialog/README
+-rw-r--r-- root/root      9045 2019-02-17 22:44 ./usr/share/doc/dialog/changelog.Debian.gz
+lrwxrwxrwx root/root         0 2019-02-17 22:44 ./usr/share/doc/dialog/changelog.gz -> CHANGES.gz
+-rw-r--r-- root/root      1082 2019-02-17 21:00 ./usr/share/doc/dialog/copyright
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/doc/dialog/examples/
+-rwxr-xr-x root/root       229 2010-01-13 10:20 ./usr/share/doc/dialog/examples/calendar
+-rwxr-xr-x root/root       215 2010-01-13 10:20 ./usr/share/doc/dialog/examples/calendar-stdout
+-rwxr-xr-x root/root       221 2010-01-13 10:20 ./usr/share/doc/dialog/examples/calendar2
+-rwxr-xr-x root/root       207 2010-01-13 10:20 ./usr/share/doc/dialog/examples/calendar2-stdout
+-rwxr-xr-x root/root      1004 2010-01-13 10:20 ./usr/share/doc/dialog/examples/checklist
+-rwxr-xr-x root/root      1107 2010-01-13 10:20 ./usr/share/doc/dialog/examples/checklist-utf8
+-rwxr-xr-x root/root       815 2010-01-13 10:20 ./usr/share/doc/dialog/examples/checklist10
+-rwxr-xr-x root/root      1039 2010-01-13 10:20 ./usr/share/doc/dialog/examples/editbox
+-rwxr-xr-x root/root       852 2010-01-13 10:20 ./usr/share/doc/dialog/examples/editbox-utf8
+-rwxr-xr-x root/root      1075 2010-01-13 10:20 ./usr/share/doc/dialog/examples/editbox2
+-rwxr-xr-x root/root      1428 2011-10-04 23:36 ./usr/share/doc/dialog/examples/form1
+-rwxr-xr-x root/root      2192 2010-01-13 10:53 ./usr/share/doc/dialog/examples/form2
+-rwxr-xr-x root/root       214 2010-01-13 10:20 ./usr/share/doc/dialog/examples/fselect
+-rwxr-xr-x root/root       199 2010-01-13 10:20 ./usr/share/doc/dialog/examples/fselect-stdout
+-rwxr-xr-x root/root       322 2010-01-13 10:20 ./usr/share/doc/dialog/examples/fselect1
+-rwxr-xr-x root/root       308 2010-01-13 10:20 ./usr/share/doc/dialog/examples/fselect1-stdout
+-rwxr-xr-x root/root       212 2010-01-13 10:20 ./usr/share/doc/dialog/examples/fselect2
+-rwxr-xr-x root/root       198 2010-01-13 10:20 ./usr/share/doc/dialog/examples/fselect2-stdout
+-rwxr-xr-x root/root       285 2010-01-13 10:20 ./usr/share/doc/dialog/examples/gauge
+-rwxr-xr-x root/root       390 2010-01-13 10:20 ./usr/share/doc/dialog/examples/gauge0-input-fd
+-rwxr-xr-x root/root       468 2010-01-13 10:26 ./usr/share/doc/dialog/examples/gauge2
+-rwxr-xr-x root/root       501 2010-01-13 10:20 ./usr/share/doc/dialog/examples/infobox
+-rwxr-xr-x root/root       500 2010-01-13 10:20 ./usr/share/doc/dialog/examples/infobox2
+-rwxr-xr-x root/root       515 2010-01-13 10:20 ./usr/share/doc/dialog/examples/infobox3
+-rwxr-xr-x root/root       515 2010-01-13 10:20 ./usr/share/doc/dialog/examples/infobox4
+-rwxr-xr-x root/root       565 2010-01-13 10:06 ./usr/share/doc/dialog/examples/inputbox
+-rwxr-xr-x root/root       562 2010-01-13 10:20 ./usr/share/doc/dialog/examples/inputbox1
+-rwxr-xr-x root/root       565 2010-01-13 10:20 ./usr/share/doc/dialog/examples/inputbox2
+-rwxr-xr-x root/root       586 2010-01-13 10:20 ./usr/share/doc/dialog/examples/inputbox3
+-rwxr-xr-x root/root       645 2010-01-13 10:28 ./usr/share/doc/dialog/examples/inputbox4
+-rwxr-xr-x root/root       640 2010-01-13 10:20 ./usr/share/doc/dialog/examples/inputbox5
+-rwxr-xr-x root/root       268 2013-09-24 00:06 ./usr/share/doc/dialog/examples/inputbox6-utf8
+-rwxr-xr-x root/root       768 2010-01-13 10:20 ./usr/share/doc/dialog/examples/inputbox7
+-rwxr-xr-x root/root      1476 2012-07-06 18:11 ./usr/share/doc/dialog/examples/inputmenu-stdout
+-rwxr-xr-x root/root      1540 2012-07-01 00:59 ./usr/share/doc/dialog/examples/inputmenu1
+-rwxr-xr-x root/root      1768 2012-07-01 01:00 ./usr/share/doc/dialog/examples/inputmenu2
+-rwxr-xr-x root/root      1976 2012-07-01 01:00 ./usr/share/doc/dialog/examples/inputmenu3
+-rwxr-xr-x root/root      1538 2012-07-01 01:00 ./usr/share/doc/dialog/examples/inputmenu4
+-rwxr-xr-x root/root       835 2010-01-13 10:20 ./usr/share/doc/dialog/examples/menubox
+-rwxr-xr-x root/root       860 2010-01-13 10:20 ./usr/share/doc/dialog/examples/menubox-utf8
+-rwxr-xr-x root/root       857 2010-01-13 10:20 ./usr/share/doc/dialog/examples/menubox1
+-rwxr-xr-x root/root       417 2010-01-13 10:34 ./usr/share/doc/dialog/examples/menubox10
+-rwxr-xr-x root/root       953 2018-06-13 21:59 ./usr/share/doc/dialog/examples/menubox11
+-rwxr-xr-x root/root       858 2010-01-13 10:20 ./usr/share/doc/dialog/examples/menubox2
+-rwxr-xr-x root/root      1101 2010-01-13 10:20 ./usr/share/doc/dialog/examples/menubox3
+-rwxr-xr-x root/root      1287 2010-01-13 10:20 ./usr/share/doc/dialog/examples/menubox4
+-rwxr-xr-x root/root      1583 2010-01-13 10:20 ./usr/share/doc/dialog/examples/menubox5
+-rwxr-xr-x root/root      1257 2010-01-13 10:47 ./usr/share/doc/dialog/examples/mixedform
+-rwxr-xr-x root/root      1268 2010-01-13 10:47 ./usr/share/doc/dialog/examples/mixedform2
+-rwxr-xr-x root/root       580 2010-01-13 10:20 ./usr/share/doc/dialog/examples/mixedgauge
+-rwxr-xr-x root/root       352 2010-01-13 10:35 ./usr/share/doc/dialog/examples/msgbox
+-rwxr-xr-x root/root      1580 2010-01-13 10:26 ./usr/share/doc/dialog/examples/msgbox1
+-rwxr-xr-x root/root      1576 2010-01-13 10:26 ./usr/share/doc/dialog/examples/msgbox2
+-rwxr-xr-x root/root       805 2010-01-13 10:20 ./usr/share/doc/dialog/examples/msgbox4-eucjp
+-rwxr-xr-x root/root      1019 2010-01-13 10:20 ./usr/share/doc/dialog/examples/msgbox4-utf8
+-rwxr-xr-x root/root       570 2010-01-13 10:20 ./usr/share/doc/dialog/examples/password
+-rwxr-xr-x root/root       585 2010-01-13 10:20 ./usr/share/doc/dialog/examples/password1
+-rwxr-xr-x root/root       592 2010-01-13 10:20 ./usr/share/doc/dialog/examples/password2
+-rwxr-xr-x root/root       181 2010-01-14 00:27 ./usr/share/doc/dialog/examples/pause
+-rwxr-xr-x root/root      1015 2010-01-13 10:20 ./usr/share/doc/dialog/examples/radiolist
+-rwxr-xr-x root/root       815 2010-01-13 10:20 ./usr/share/doc/dialog/examples/radiolist10
+-rw-r--r-- root/root       446 2012-06-29 09:29 ./usr/share/doc/dialog/examples/report-button
+-rw-r--r-- root/root       464 2012-06-29 09:29 ./usr/share/doc/dialog/examples/report-edit
+-rw-r--r-- root/root       520 2012-06-29 09:32 ./usr/share/doc/dialog/examples/report-string
+-rw-r--r-- root/root       544 2013-09-02 18:03 ./usr/share/doc/dialog/examples/report-tempfile
+-rw-r--r-- root/root       433 2012-06-29 09:32 ./usr/share/doc/dialog/examples/report-yesno
+-rw-r--r-- root/root       258 2016-01-26 22:42 ./usr/share/doc/dialog/examples/setup-edit
+-rw-r--r-- root/root       214 2016-01-26 22:42 ./usr/share/doc/dialog/examples/setup-tempfile
+-rw-r--r-- root/root       198 2012-06-29 09:50 ./usr/share/doc/dialog/examples/setup-utf8
+-rw-r--r-- root/root       545 2012-06-29 09:52 ./usr/share/doc/dialog/examples/setup-vars
+-rwxr-xr-x root/root      1113 2010-01-13 10:36 ./usr/share/doc/dialog/examples/textbox
+-rwxr-xr-x root/root      1111 2010-01-13 10:36 ./usr/share/doc/dialog/examples/textbox2
+-rwxr-xr-x root/root       263 2010-01-13 10:23 ./usr/share/doc/dialog/examples/timebox
+-rwxr-xr-x root/root       212 2010-01-13 10:37 ./usr/share/doc/dialog/examples/timebox-stdout
+-rwxr-xr-x root/root       217 2010-01-13 10:37 ./usr/share/doc/dialog/examples/timebox2
+-rwxr-xr-x root/root       204 2010-01-13 10:37 ./usr/share/doc/dialog/examples/timebox2-stdout
+-rwxr-xr-x root/root       758 2010-01-14 01:11 ./usr/share/doc/dialog/examples/yesno
+-rwxr-xr-x root/root       592 2010-01-13 10:40 ./usr/share/doc/dialog/examples/yesno2
+-rwxr-xr-x root/root       605 2010-01-13 10:40 ./usr/share/doc/dialog/examples/yesno3
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/an/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/an/LC_MESSAGES/
+-rw-r--r-- root/root      1278 2019-02-17 22:44 ./usr/share/locale/an/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ar/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ar/LC_MESSAGES/
+-rw-r--r-- root/root       521 2019-02-17 22:44 ./usr/share/locale/ar/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ast/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ast/LC_MESSAGES/
+-rw-r--r-- root/root      1357 2019-02-17 22:44 ./usr/share/locale/ast/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/be@latin/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/be@latin/LC_MESSAGES/
+-rw-r--r-- root/root      1272 2019-02-17 22:44 ./usr/share/locale/be@latin/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/bg/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/bg/LC_MESSAGES/
+-rw-r--r-- root/root       457 2019-02-17 22:44 ./usr/share/locale/bg/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ca/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ca/LC_MESSAGES/
+-rw-r--r-- root/root      1209 2019-02-17 22:44 ./usr/share/locale/ca/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/cs/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/cs/LC_MESSAGES/
+-rw-r--r-- root/root      1331 2019-02-17 22:44 ./usr/share/locale/cs/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/cy/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/cy/LC_MESSAGES/
+-rw-r--r-- root/root       758 2019-02-17 22:44 ./usr/share/locale/cy/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/da/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/da/LC_MESSAGES/
+-rw-r--r-- root/root      1210 2019-02-17 22:44 ./usr/share/locale/da/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/de/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/de/LC_MESSAGES/
+-rw-r--r-- root/root      1332 2019-02-17 22:44 ./usr/share/locale/de/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/el/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/el/LC_MESSAGES/
+-rw-r--r-- root/root      1392 2019-02-17 22:44 ./usr/share/locale/el/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/eo/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/eo/LC_MESSAGES/
+-rw-r--r-- root/root      1233 2019-02-17 22:44 ./usr/share/locale/eo/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/es/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/es/LC_MESSAGES/
+-rw-r--r-- root/root      1219 2019-02-17 22:44 ./usr/share/locale/es/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/et/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/et/LC_MESSAGES/
+-rw-r--r-- root/root       610 2019-02-17 22:44 ./usr/share/locale/et/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/eu/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/eu/LC_MESSAGES/
+-rw-r--r-- root/root      1282 2019-02-17 22:44 ./usr/share/locale/eu/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/fa/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/fa/LC_MESSAGES/
+-rw-r--r-- root/root      1367 2019-02-17 22:44 ./usr/share/locale/fa/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/fi/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/fi/LC_MESSAGES/
+-rw-r--r-- root/root      1293 2019-02-17 22:44 ./usr/share/locale/fi/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/fr/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/fr/LC_MESSAGES/
+-rw-r--r-- root/root      1224 2019-02-17 22:44 ./usr/share/locale/fr/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/fur/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/fur/LC_MESSAGES/
+-rw-r--r-- root/root      1331 2019-02-17 22:44 ./usr/share/locale/fur/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ga/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ga/LC_MESSAGES/
+-rw-r--r-- root/root      1259 2019-02-17 22:44 ./usr/share/locale/ga/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/gd/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/gd/LC_MESSAGES/
+-rw-r--r-- root/root      1448 2019-02-17 22:44 ./usr/share/locale/gd/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/gl/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/gl/LC_MESSAGES/
+-rw-r--r-- root/root      1308 2019-02-17 22:44 ./usr/share/locale/gl/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/hi/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/hi/LC_MESSAGES/
+-rw-r--r-- root/root      1569 2019-02-17 22:44 ./usr/share/locale/hi/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/hr/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/hr/LC_MESSAGES/
+-rw-r--r-- root/root      1431 2019-02-17 22:44 ./usr/share/locale/hr/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/hu/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/hu/LC_MESSAGES/
+-rw-r--r-- root/root      1316 2019-02-17 22:44 ./usr/share/locale/hu/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ia/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ia/LC_MESSAGES/
+-rw-r--r-- root/root      1230 2019-02-17 22:44 ./usr/share/locale/ia/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/id/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/id/LC_MESSAGES/
+-rw-r--r-- root/root      1248 2019-02-17 22:44 ./usr/share/locale/id/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/is/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/is/LC_MESSAGES/
+-rw-r--r-- root/root      1246 2019-02-17 22:44 ./usr/share/locale/is/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/it/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/it/LC_MESSAGES/
+-rw-r--r-- root/root      1202 2019-02-17 22:44 ./usr/share/locale/it/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ja/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ja/LC_MESSAGES/
+-rw-r--r-- root/root      1280 2019-02-17 22:44 ./usr/share/locale/ja/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ku/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ku/LC_MESSAGES/
+-rw-r--r-- root/root      1305 2019-02-17 22:44 ./usr/share/locale/ku/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/lt/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/lt/LC_MESSAGES/
+-rw-r--r-- root/root      1359 2019-02-17 22:44 ./usr/share/locale/lt/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/lv/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/lv/LC_MESSAGES/
+-rw-r--r-- root/root      1375 2019-02-17 22:44 ./usr/share/locale/lv/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/mg/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/mg/LC_MESSAGES/
+-rw-r--r-- root/root       481 2019-02-17 22:44 ./usr/share/locale/mg/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/mk/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/mk/LC_MESSAGES/
+-rw-r--r-- root/root       512 2019-02-17 22:44 ./usr/share/locale/mk/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ms/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ms/LC_MESSAGES/
+-rw-r--r-- root/root      1253 2019-02-17 22:44 ./usr/share/locale/ms/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/nb/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/nb/LC_MESSAGES/
+-rw-r--r-- root/root      1200 2019-02-17 22:44 ./usr/share/locale/nb/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/nl/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/nl/LC_MESSAGES/
+-rw-r--r-- root/root      1245 2019-02-17 22:44 ./usr/share/locale/nl/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/pl/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/pl/LC_MESSAGES/
+-rw-r--r-- root/root      1299 2019-02-17 22:44 ./usr/share/locale/pl/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/pt/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/pt/LC_MESSAGES/
+-rw-r--r-- root/root       696 2019-02-17 22:44 ./usr/share/locale/pt/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/pt_BR/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/pt_BR/LC_MESSAGES/
+-rw-r--r-- root/root      1241 2019-02-17 22:44 ./usr/share/locale/pt_BR/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/rm/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/rm/LC_MESSAGES/
+-rw-r--r-- root/root       795 2019-02-17 22:44 ./usr/share/locale/rm/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ro/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ro/LC_MESSAGES/
+-rw-r--r-- root/root      1357 2019-02-17 22:44 ./usr/share/locale/ro/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ru/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/ru/LC_MESSAGES/
+-rw-r--r-- root/root      1511 2019-02-17 22:44 ./usr/share/locale/ru/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/rw/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/rw/LC_MESSAGES/
+-rw-r--r-- root/root       777 2019-02-17 22:44 ./usr/share/locale/rw/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/sk/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/sk/LC_MESSAGES/
+-rw-r--r-- root/root      1240 2019-02-17 22:44 ./usr/share/locale/sk/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/sl/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/sl/LC_MESSAGES/
+-rw-r--r-- root/root      1298 2019-02-17 22:44 ./usr/share/locale/sl/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/sq/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/sq/LC_MESSAGES/
+-rw-r--r-- root/root       544 2019-02-17 22:44 ./usr/share/locale/sq/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/sr/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/sr/LC_MESSAGES/
+-rw-r--r-- root/root      1522 2019-02-17 22:44 ./usr/share/locale/sr/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/sv/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/sv/LC_MESSAGES/
+-rw-r--r-- root/root      1228 2019-02-17 22:44 ./usr/share/locale/sv/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/sw/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/sw/LC_MESSAGES/
+-rw-r--r-- root/root      1271 2019-02-17 22:44 ./usr/share/locale/sw/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/th/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/th/LC_MESSAGES/
+-rw-r--r-- root/root      1622 2019-02-17 22:44 ./usr/share/locale/th/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/tr/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/tr/LC_MESSAGES/
+-rw-r--r-- root/root      1379 2019-02-17 22:44 ./usr/share/locale/tr/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/uk/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/uk/LC_MESSAGES/
+-rw-r--r-- root/root       828 2019-02-17 22:44 ./usr/share/locale/uk/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/vi/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/vi/LC_MESSAGES/
+-rw-r--r-- root/root      1323 2019-02-17 22:44 ./usr/share/locale/vi/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/wa/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/wa/LC_MESSAGES/
+-rw-r--r-- root/root      1227 2019-02-17 22:44 ./usr/share/locale/wa/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/zh_CN/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/zh_CN/LC_MESSAGES/
+-rw-r--r-- root/root      1213 2019-02-17 22:44 ./usr/share/locale/zh_CN/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/zh_TW/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/locale/zh_TW/LC_MESSAGES/
+-rw-r--r-- root/root      1268 2019-02-17 22:44 ./usr/share/locale/zh_TW/LC_MESSAGES/dialog.mo
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/man/
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/man/man1/
+-rw-r--r-- root/root     18617 2019-02-17 22:44 ./usr/share/man/man1/dialog.1.gz
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/man/man3/
+-rw-r--r-- root/root     25278 2019-02-17 22:44 ./usr/share/man/man3/dialog.3.gz
+drwxr-xr-x root/root         0 2019-02-17 22:44 ./usr/share/perl5/
+-rw-r--r-- root/root     15446 2018-06-12 21:01 ./usr/share/perl5/dialog.pl
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [536 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [620 B]
+Fetched 2119 B in 0s (156 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  bsdmainutils diffstat groff-base intltool-debian libapt-pkg-perl
+  libarchive-zip-perl libbsd0 libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libpipeline1
+  libstruct-dumb-perl libsub-name-perl libtext-levenshtein-perl libuchardet0
+  lintian man-db patchutils t1utils
+Suggested packages:
+  wamerican | wordlist whois vacation groff libhtml-template-perl
+  binutils-multiarch libtext-template-perl apparmor less www-browser
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  bsdmainutils diffstat groff-base intltool-debian libapt-pkg-perl
+  libarchive-zip-perl libbsd0 libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libpipeline1
+  libstruct-dumb-perl libsub-name-perl libtext-levenshtein-perl libuchardet0
+  lintian man-db patchutils sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 36 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2850 kB/5673 kB of archives.
+After this operation, 17.3 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [848 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://cdn-fastly.deb.debian.org/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://cdn-fastly.deb.debian.org/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://cdn-fastly.deb.debian.org/debian sid/main amd64 lintian all 2.10.0 [1195 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2850 kB in 6s (440 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 17672 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package diffstat.
+Preparing to unpack .../06-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../07-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../08-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../09-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../10-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../11-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../12-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../13-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../14-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../15-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../16-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../17-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../18-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../19-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../20-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../21-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../22-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../23-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../24-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../25-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../26-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../27-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../28-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../29-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../30-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../31-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../32-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../33-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../34-lintian_2.10.0_all.deb ...
+Unpacking lintian (2.10.0) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../35-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up groff-base (1.22.4-3) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up lintian (2.10.0) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-8) ...
+W: dialog source: orig-tarball-missing-upstream-signature dialog_1.3-20190211.orig.tar.gz
+W: dialog source: ancient-standards-version 3.9.6 (released 2014-09-17) (current is 4.3.0)
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  bsdmainutils* diffstat* gcc-8-base:armhf* gettext* gettext-base* groff-base*
+  intltool-debian* libapt-pkg-perl* libarchive-zip-perl* libasan5:armhf*
+  libatomic1:armhf* libbsd0* libc6:armhf* libc6-dev:armhf*
+  libcapture-tiny-perl* libcgi-pm-perl* libclass-accessor-perl* libclone-perl*
+  libcroco3* libdigest-hmac-perl* libemail-valid-perl* libexporter-tiny-perl*
+  libfile-basedir-perl* libfuture-perl* libgcc-8-dev:armhf* libgcc1:armhf*
+  libglib2.0-0* libgomp1:armhf* libio-async-perl* libio-pty-perl*
+  libipc-run-perl* libipc-system-simple-perl* liblist-moreutils-perl*
+  libncurses-dev:armhf* libncurses6* libncurses6:armhf*
+  libncursesw5-dev:armhf* libncursesw6:armhf* libnet-dns-perl*
+  libnet-domain-tld-perl* libnet-ip-perl* libparse-debianchangelog-perl*
+  libpath-tiny-perl* libpipeline1* libstdc++-8-dev:armhf* libstdc++6:armhf*
+  libstruct-dumb-perl* libsub-name-perl* libtext-levenshtein-perl*
+  libtinfo6:armhf* libubsan1:armhf* libuchardet0* lintian*
+  linux-libc-dev:armhf* man-db* patchutils*
+  sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils*
+0 upgraded, 0 newly installed, 59 to remove and 0 not upgraded.
+After this operation, 81.6 MB disk space will be freed.
+(Reading database ... 19648 files and directories currently installed.)
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.10.0) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing diffstat (1.62-1) ...
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-3) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libncursesw5-dev:armhf (6.1+20181013-2) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-8) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing libc6:armhf (2.28-8) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-8) ...
+(Reading database ... 16468 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for lintian (2.10.0) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for libc6:armhf (2.28-8) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 18
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 6
+Job: /home/build/sbuild-setup/repo/pool/main/d/dialog/dialog_1.3-20190211-1.dsc
+Lintian: warn
+Machine Architecture: amd64
+Package: dialog
+Package-Time: 27
+Source-Version: 1.3-20190211-1
+Space: n/a
+Status: successful
+Version: 1.3-20190211-1
+--------------------------------------------------------------------------------
+Finished at 2019-03-11T02:57:50Z
+Build needed 00:00:27, no disk space

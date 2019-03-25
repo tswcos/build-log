@@ -1,0 +1,2163 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| nas 1.9.4-6 (armhf)                          Tue, 05 Mar 2019 18:30:18 +0000 |
++==============================================================================+
+
+Package: nas
+Version: 1.9.4-6
+Source Version: 1.9.4-6
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-5fc6f38b-3421-4589-a977-a34a75f12d4c' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/nas-MP2px2/resolver-plOZtz' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/n/nas/nas_1.9.4-6.dsc exists in /home/build/sbuild-setup/repo/pool/main/n/nas; copying to chroot
+I: NOTICE: Log filtering will replace 'build/nas-MP2px2/nas-1.9.4' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/nas-MP2px2' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: dh-autoreconf, libxau-dev, libsm-dev, libice-dev, libx11-dev, libxt-dev, libxaw7-dev, xutils-dev, bison, flex, file, po-debconf, dpkg-dev (>= 1.16.0), debhelper (>= 9), build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: dh-autoreconf, libxau-dev, libsm-dev, libice-dev, libx11-dev, libxt-dev, libxaw7-dev, xutils-dev, bison, flex, file, po-debconf, dpkg-dev (>= 1.16.0), debhelper (>= 9), build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [465 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [552 B]
+Fetched 1974 B in 0s (136 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bison bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz flex gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbison-dev libbsd0 libbsd0:armhf libc6:armhf
+  libc6-dev:armhf libcroco3 libelf1 libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgomp1:armhf
+  libice-dev:armhf libice6:armhf libncurses6 libpipeline1
+  libpthread-stubs0-dev libpthread-stubs0-dev:armhf libsigsegv2
+  libsm-dev:armhf libsm6:armhf libstdc++-8-dev:armhf libstdc++6:armhf libtool
+  libubsan1:armhf libuchardet0 libuuid1:armhf libx11-6 libx11-6:armhf
+  libx11-data libx11-dev libx11-dev:armhf libxau-dev libxau-dev:armhf libxau6
+  libxau6:armhf libxaw7:armhf libxaw7-dev:armhf libxcb1 libxcb1:armhf
+  libxcb1-dev libxcb1-dev:armhf libxdmcp-dev libxdmcp-dev:armhf libxdmcp6
+  libxdmcp6:armhf libxext-dev:armhf libxext6:armhf libxmu-dev:armhf
+  libxmu-headers libxmu6:armhf libxpm-dev:armhf libxpm4:armhf libxt-dev:armhf
+  libxt6:armhf linux-libc-dev:armhf m4 man-db po-debconf x11-common
+  x11proto-core-dev x11proto-dev x11proto-xext-dev xorg-sgml-doctools
+  xtrans-dev xutils-dev
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc bison-doc wamerican | wordlist
+  whois vacation dh-make flex-doc gettext-doc libasprintf-dev libgettextpo-dev
+  groff glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  libice-doc:armhf libsm-doc:armhf libstdc++-8-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk libx11-doc libx11-doc:armhf libxaw-doc:armhf
+  libxcb-doc libxcb-doc:armhf libxext-doc:armhf libxt-doc:armhf m4-doc
+  apparmor less www-browser libmail-box-perl
+Recommended packages:
+  libfl-dev curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl
+  libglib2.0-data shared-mime-info xdg-user-dirs libgpm2 libltdl-dev
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bison bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz flex gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbison-dev libbsd0 libbsd0:armhf libc6:armhf
+  libc6-dev:armhf libcroco3 libelf1 libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgomp1:armhf
+  libice-dev:armhf libice6:armhf libncurses6 libpipeline1
+  libpthread-stubs0-dev libpthread-stubs0-dev:armhf libsigsegv2
+  libsm-dev:armhf libsm6:armhf libstdc++-8-dev:armhf libstdc++6:armhf libtool
+  libubsan1:armhf libuchardet0 libuuid1:armhf libx11-6 libx11-6:armhf
+  libx11-data libx11-dev libx11-dev:armhf libxau-dev libxau-dev:armhf libxau6
+  libxau6:armhf libxaw7:armhf libxaw7-dev:armhf libxcb1 libxcb1:armhf
+  libxcb1-dev libxcb1-dev:armhf libxdmcp-dev libxdmcp-dev:armhf libxdmcp6
+  libxdmcp6:armhf libxext-dev:armhf libxext6:armhf libxmu-dev:armhf
+  libxmu-headers libxmu6:armhf libxpm-dev:armhf libxpm4:armhf libxt-dev:armhf
+  libxt6:armhf linux-libc-dev:armhf m4 man-db po-debconf
+  sbuild-build-depends-main-dummy:armhf x11-common x11proto-core-dev
+  x11proto-dev x11proto-xext-dev xorg-sgml-doctools xtrans-dev xutils-dev
+0 upgraded, 86 newly installed, 0 to remove and 0 not upgraded.
+Need to get 976 B/27.2 MB of archives.
+After this operation, 103 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [976 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 976 B in 0s (0 B/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../06-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../07-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package flex.
+Preparing to unpack .../08-flex_2.6.4-6.2_amd64.deb ...
+Unpacking flex (2.6.4-6.2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../09-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../10-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../11-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../12-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../13-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libbison-dev:amd64.
+Preparing to unpack .../14-libbison-dev_2%3a3.3.2.dfsg-1_amd64.deb ...
+Unpacking libbison-dev:amd64 (2:3.3.2.dfsg-1) ...
+Selecting previously unselected package bison.
+Preparing to unpack .../15-bison_2%3a3.3.2.dfsg-1_amd64.deb ...
+Unpacking bison (2:3.3.2.dfsg-1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../16-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../17-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../18-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../19-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../20-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../21-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../22-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../23-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../24-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../25-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../26-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../27-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../28-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../29-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../30-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../31-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../32-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../33-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../34-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../35-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libbsd0:armhf.
+Preparing to unpack .../36-libbsd0_0.9.1-2_armhf.deb ...
+Unpacking libbsd0:armhf (0.9.1-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../37-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../38-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../39-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../40-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../41-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package x11-common.
+Preparing to unpack .../42-x11-common_1%3a7.7+19_all.deb ...
+Unpacking x11-common (1:7.7+19) ...
+Selecting previously unselected package libice6:armhf.
+Preparing to unpack .../43-libice6_2%3a1.0.9-2_armhf.deb ...
+Unpacking libice6:armhf (2:1.0.9-2) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Preparing to unpack .../44-xorg-sgml-doctools_1%3a1.11-1_all.deb ...
+Unpacking xorg-sgml-doctools (1:1.11-1) ...
+Selecting previously unselected package x11proto-dev.
+Preparing to unpack .../45-x11proto-dev_2018.4-4_all.deb ...
+Unpacking x11proto-dev (2018.4-4) ...
+Selecting previously unselected package x11proto-core-dev.
+Preparing to unpack .../46-x11proto-core-dev_2018.4-4_all.deb ...
+Unpacking x11proto-core-dev (2018.4-4) ...
+Selecting previously unselected package libice-dev:armhf.
+Preparing to unpack .../47-libice-dev_2%3a1.0.9-2_armhf.deb ...
+Unpacking libice-dev:armhf (2:1.0.9-2) ...
+Selecting previously unselected package libpthread-stubs0-dev:amd64.
+Preparing to unpack .../48-libpthread-stubs0-dev_0.4-1_amd64.deb ...
+Unpacking libpthread-stubs0-dev:amd64 (0.4-1) ...
+Selecting previously unselected package libpthread-stubs0-dev:armhf.
+Preparing to unpack .../49-libpthread-stubs0-dev_0.4-1_armhf.deb ...
+Unpacking libpthread-stubs0-dev:armhf (0.4-1) ...
+Selecting previously unselected package libuuid1:armhf.
+Preparing to unpack .../50-libuuid1_2.33.1-0.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libsm6:armhf.
+Preparing to unpack .../51-libsm6_2%3a1.2.3-1_armhf.deb ...
+Unpacking libsm6:armhf (2:1.2.3-1) ...
+Selecting previously unselected package libsm-dev:armhf.
+Preparing to unpack .../52-libsm-dev_2%3a1.2.3-1_armhf.deb ...
+Unpacking libsm-dev:armhf (2:1.2.3-1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../53-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libxau6:amd64.
+Preparing to unpack .../54-libxau6_1%3a1.0.8-1+b2_amd64.deb ...
+Unpacking libxau6:amd64 (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Preparing to unpack .../55-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:amd64.
+Preparing to unpack .../56-libxcb1_1.13.1-2_amd64.deb ...
+Unpacking libxcb1:amd64 (1.13.1-2) ...
+Selecting previously unselected package libx11-data.
+Preparing to unpack .../57-libx11-data_2%3a1.6.7-1_all.deb ...
+Unpacking libx11-data (2:1.6.7-1) ...
+Selecting previously unselected package libx11-6:amd64.
+Preparing to unpack .../58-libx11-6_2%3a1.6.7-1_amd64.deb ...
+Unpacking libx11-6:amd64 (2:1.6.7-1) ...
+Selecting previously unselected package libxau6:armhf.
+Preparing to unpack .../59-libxau6_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau6:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:armhf.
+Preparing to unpack .../60-libxdmcp6_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp6:armhf (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:armhf.
+Preparing to unpack .../61-libxcb1_1.13.1-2_armhf.deb ...
+Unpacking libxcb1:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-6:armhf.
+Preparing to unpack .../62-libx11-6_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-6:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxau-dev:armhf.
+Preparing to unpack .../63-libxau-dev_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau-dev:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp-dev:armhf.
+Preparing to unpack .../64-libxdmcp-dev_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp-dev:armhf (1:1.1.2-3) ...
+Selecting previously unselected package xtrans-dev.
+Preparing to unpack .../65-xtrans-dev_1.3.5-1_all.deb ...
+Unpacking xtrans-dev (1.3.5-1) ...
+Selecting previously unselected package libxcb1-dev:armhf.
+Preparing to unpack .../66-libxcb1-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb1-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-dev:armhf.
+Preparing to unpack .../67-libx11-dev_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-dev:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxau-dev:amd64.
+Preparing to unpack .../68-libxau-dev_1%3a1.0.8-1+b2_amd64.deb ...
+Unpacking libxau-dev:amd64 (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp-dev:amd64.
+Preparing to unpack .../69-libxdmcp-dev_1%3a1.1.2-3_amd64.deb ...
+Unpacking libxdmcp-dev:amd64 (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1-dev:amd64.
+Preparing to unpack .../70-libxcb1-dev_1.13.1-2_amd64.deb ...
+Unpacking libxcb1-dev:amd64 (1.13.1-2) ...
+Selecting previously unselected package libx11-dev:amd64.
+Preparing to unpack .../71-libx11-dev_2%3a1.6.7-1_amd64.deb ...
+Unpacking libx11-dev:amd64 (2:1.6.7-1) ...
+Selecting previously unselected package libxext6:armhf.
+Preparing to unpack .../72-libxext6_2%3a1.3.3-1+b2_armhf.deb ...
+Unpacking libxext6:armhf (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxt6:armhf.
+Preparing to unpack .../73-libxt6_1%3a1.1.5-1_armhf.deb ...
+Unpacking libxt6:armhf (1:1.1.5-1) ...
+Selecting previously unselected package libxmu6:armhf.
+Preparing to unpack .../74-libxmu6_2%3a1.1.2-2_armhf.deb ...
+Unpacking libxmu6:armhf (2:1.1.2-2) ...
+Selecting previously unselected package libxpm4:armhf.
+Preparing to unpack .../75-libxpm4_1%3a3.5.12-1_armhf.deb ...
+Unpacking libxpm4:armhf (1:3.5.12-1) ...
+Selecting previously unselected package libxaw7:armhf.
+Preparing to unpack .../76-libxaw7_2%3a1.0.13-1+b2_armhf.deb ...
+Unpacking libxaw7:armhf (2:1.0.13-1+b2) ...
+Selecting previously unselected package x11proto-xext-dev.
+Preparing to unpack .../77-x11proto-xext-dev_2018.4-4_all.deb ...
+Unpacking x11proto-xext-dev (2018.4-4) ...
+Selecting previously unselected package libxext-dev:armhf.
+Preparing to unpack .../78-libxext-dev_2%3a1.3.3-1+b2_armhf.deb ...
+Unpacking libxext-dev:armhf (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxt-dev:armhf.
+Preparing to unpack .../79-libxt-dev_1%3a1.1.5-1_armhf.deb ...
+Unpacking libxt-dev:armhf (1:1.1.5-1) ...
+Selecting previously unselected package libxmu-headers.
+Preparing to unpack .../80-libxmu-headers_2%3a1.1.2-2_all.deb ...
+Unpacking libxmu-headers (2:1.1.2-2) ...
+Selecting previously unselected package libxmu-dev:armhf.
+Preparing to unpack .../81-libxmu-dev_2%3a1.1.2-2_armhf.deb ...
+Unpacking libxmu-dev:armhf (2:1.1.2-2) ...
+Selecting previously unselected package libxpm-dev:armhf.
+Preparing to unpack .../82-libxpm-dev_1%3a3.5.12-1_armhf.deb ...
+Unpacking libxpm-dev:armhf (1:3.5.12-1) ...
+Selecting previously unselected package libxaw7-dev:armhf.
+Preparing to unpack .../83-libxaw7-dev_2%3a1.0.13-1+b2_armhf.deb ...
+Unpacking libxaw7-dev:armhf (2:1.0.13-1+b2) ...
+Selecting previously unselected package xutils-dev.
+Preparing to unpack .../84-xutils-dev_1%3a7.7+5+b1_amd64.deb ...
+Unpacking xutils-dev (1:7.7+5+b1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../85-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libxau6:amd64 (1:1.0.8-1+b2) ...
+Setting up libbison-dev:amd64 (2:3.3.2.dfsg-1) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up x11-common (1:7.7+19) ...
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up libpthread-stubs0-dev:amd64 (0.4-1) ...
+Setting up libpthread-stubs0-dev:armhf (0.4-1) ...
+Setting up xtrans-dev (1.3.5-1) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libx11-data (2:1.6.7-1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up xutils-dev (1:7.7+5+b1) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up xorg-sgml-doctools (1:1.11-1) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up x11proto-dev (2018.4-4) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+Setting up libxcb1:amd64 (1.13.1-2) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libxau-dev:amd64 (1:1.0.8-1+b2) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up libxdmcp-dev:amd64 (1:1.1.2-3) ...
+Setting up x11proto-core-dev (2018.4-4) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up x11proto-xext-dev (2018.4-4) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up bison (2:3.3.2.dfsg-1) ...
+update-alternatives: using /usr/bin/bison.yacc to provide /usr/bin/yacc (yacc) in auto mode
+Setting up libx11-6:amd64 (2:1.6.7-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up flex (2.6.4-6.2) ...
+Setting up libxcb1-dev:amd64 (1.13.1-2) ...
+Setting up po-debconf (1.0.21) ...
+Setting up libx11-dev:amd64 (2:1.6.7-1) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libxmu-headers (2:1.1.2-2) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libbsd0:armhf (0.9.1-2) ...
+Setting up libice6:armhf (2:1.0.9-2) ...
+Setting up libxau6:armhf (1:1.0.8-1+b2) ...
+Setting up libxdmcp6:armhf (1:1.1.2-3) ...
+Setting up libxcb1:armhf (1.13.1-2) ...
+Setting up libxau-dev:armhf (1:1.0.8-1+b2) ...
+Setting up libice-dev:armhf (2:1.0.9-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libxdmcp-dev:armhf (1:1.1.2-3) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libuuid1:armhf (2.33.1-0.1) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libx11-6:armhf (2:1.6.7-1) ...
+Setting up libsm6:armhf (2:1.2.3-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libxcb1-dev:armhf (1.13.1-2) ...
+Setting up libxpm4:armhf (1:3.5.12-1) ...
+Setting up libsm-dev:armhf (2:1.2.3-1) ...
+Setting up libx11-dev:armhf (2:1.6.7-1) ...
+Setting up libxext6:armhf (2:1.3.3-1+b2) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libxpm-dev:armhf (1:3.5.12-1) ...
+Setting up libxt6:armhf (1:1.1.5-1) ...
+Setting up libxext-dev:armhf (2:1.3.3-1+b2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libxmu6:armhf (2:1.1.2-2) ...
+Setting up libxaw7:armhf (2:1.0.13-1+b2) ...
+Setting up libxt-dev:armhf (1:1.1.5-1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libxmu-dev:armhf (2:1.1.2-2) ...
+Setting up libxaw7-dev:armhf (2:1.0.13-1+b2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bison_2:3.3.2.dfsg-1 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 flex_2.6.4-6.2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libbison-dev_2:3.3.2.dfsg-1 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libice-dev_2:1.0.9-2 libice6_2:1.0.9-2 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpthread-stubs0-dev_0.4-1 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsm-dev_2:1.2.3-1 libsm6_2:1.2.3-1 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libx11-6_2:1.6.7-1 libx11-data_2:1.6.7-1 libx11-dev_2:1.6.7-1 libxau-dev_1:1.0.8-1+b2 libxau6_1:1.0.8-1+b2 libxaw7_2:1.0.13-1+b2 libxaw7-dev_2:1.0.13-1+b2 libxcb1_1.13.1-2 libxcb1-dev_1.13.1-2 libxdmcp-dev_1:1.1.2-3 libxdmcp6_1:1.1.2-3 libxext-dev_2:1.3.3-1+b2 libxext6_2:1.3.3-1+b2 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libxmu-dev_2:1.1.2-2 libxmu-headers_2:1.1.2-2 libxmu6_2:1.1.2-2 libxpm-dev_1:3.5.12-1 libxpm4_1:3.5.12-1 libxt-dev_1:1.1.5-1 libxt6_1:1.1.5-1 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 x11-common_1:7.7+19 x11proto-core-dev_2018.4-4 x11proto-dev_2018.4-4 x11proto-xext-dev_2018.4-4 xorg-sgml-doctools_1:1.11-1 xtrans-dev_1.3.5-1 xutils-dev_1:7.7+5+b1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: nas
+Binary: libaudio2, nas, libaudio-dev, nas-bin, nas-doc
+Architecture: any all
+Version: 1.9.4-6
+Maintainer: Steve McIntyre <93sam@debian.org>
+Standards-Version: 3.9.2.0
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=collab-maint/nas.git
+Vcs-Git: git://git.debian.org/git/collab-maint/nas.git
+Build-Depends: dh-autoreconf, libxau-dev, libsm-dev, libice-dev, libx11-dev, libxt-dev, libxaw7-dev, xutils-dev, bison, flex, file, po-debconf, dpkg-dev (>= 1.16.0), debhelper (>= 9)
+Package-List:
+ libaudio-dev deb libdevel optional arch=any
+ libaudio2 deb libs optional arch=any
+ nas deb sound optional arch=any
+ nas-bin deb sound extra arch=any
+ nas-doc deb doc extra arch=all
+Checksums-Sha1:
+ a251c5b771f9d7fa98f65e5830a039b28f8a6995 1464598 nas_1.9.4.orig.tar.gz
+ 0d443f372a42fdda03008d78a4f4c41c485bc4b8 26332 nas_1.9.4-6.debian.tar.xz
+Checksums-Sha256:
+ cf36ea63751ce86cfd3b76c1659ce0d6a361a2e7cb34069854e156532703b39d 1464598 nas_1.9.4.orig.tar.gz
+ e2f1ae763590a4cf7d6eeac5dc3bf29312b0b8bc89fcc3f92d6fb38471e92ba4 26332 nas_1.9.4-6.debian.tar.xz
+Files:
+ dac0e6cd3e5d6a37ae1dff364236a752 1464598 nas_1.9.4.orig.tar.gz
+ b8f9daf303c13863dc50e2e4ddda6452 26332 nas_1.9.4-6.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEzrtSMB1hfpEDkP4WWHl5VzRCaE4FAlmCRf8ACgkQWHl5VzRC
+aE50zBAAqPYjOwLBrwtAECx2rOQMpZauJ+ABjLX4NzphVcS9ETj0rkrP8mP7rdBG
+iSaLuOKDJSXr4P8TrDerzZBDgi6KMkRSpX7+cZbUaSmD2jvhBEnVp7QwwovtObgK
+q/h+Gq/+iJkPfdL6rAKv5xouoenJQdDIzuhGVL0QJ+OVPNmKcIwttZ/boEDaW/z3
+7NjkgwbOYK5rxuvQo/w0i/EHX93X6pcv5tLaYAGgKp1GlZCPXhSehI/up2U4tSFi
+iFP4DvaSZJJ7gCz69VS+Gx+Vm/MjfxX9WMKa0oVbwXFEbX00s/zjNK5sXCU28bXE
+uuureOTAUbaq9I79GpLA/jNExMoBuMvzziHrFYeIRtbpfxfjbUGxR9XNtoWkqTq+
+bkO+SMJsxrkobrL1DNndlc3PcGDOX21WvRdYVtrhjmv0NgBmTjWJGZEdC+GMWuX0
+8OAPiBPHYJsoD4swdCI1p00l4Iu1CwNaZs5NwGoGuAc2j8/pVazPBSE9Jx+8BEcd
+i5wMIrUh1qsEuu1+5YYDKgoEUgWbgYr++BIaLTZudbR3B15V2w4WiLXwO19Gfpqa
+CqMPIm6tsnk3YJE0/XbXHrqJinLpNZaVRKAQLjTi1+4ECqfSJnfDWgkXUaemdQ2S
+ys1ou+sf+f1qItboOLtzOfpGlA+ht2bWdwzZIbROHtbj1Qg1q0U=
+=oP7p
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Wed Aug  2 21:37:03 2017 UTC
+gpgv:                using RSA key CEBB52301D617E910390FE16587979573442684E
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./nas_1.9.4-6.dsc
+dpkg-source: info: extracting nas in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking nas_1.9.4.orig.tar.gz
+dpkg-source: info: unpacking nas_1.9.4-6.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying multiarch-AuErrorDB.patch
+dpkg-source: info: applying snprintf.m4
+dpkg-source: info: applying Build-the-voxware-server-on-Hurd.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-5fc6f38b-3421-4589-a977-a34a75f12d4c
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package nas
+dpkg-buildpackage: info: source version 1.9.4-6
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Steve McIntyre <93sam@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean --with=autoreconf --with=autotools_dev
+dh: The autotools-dev sequence is deprecated and replaced by dh in debhelper (>= 9.20160115)
+dh: This feature will be removed in compat 12.
+   dh_auto_clean
+   dh_autotools-dev_restoreconfig
+dh_autotools-dev_restoreconfig: dh_autotools-dev_restoreconfig is deprecated; please see dh_autotools-dev_restoreconfig(1) for a replacement
+dh_autotools-dev_restoreconfig: This feature will be removed in compat 12.
+   dh_clean
+ debian/rules build-arch
+dh build-arch --with=autoreconf --with=autotools_dev
+dh: The autotools-dev sequence is deprecated and replaced by dh in debhelper (>= 9.20160115)
+dh: This feature will be removed in compat 12.
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+   dh_autotools-dev_updateconfig -a
+dh_autotools-dev_updateconfig: dh_autotools-dev_updateconfig is deprecated; please see dh_autotools-dev_updateconfig(1) for a replacement
+dh_autotools-dev_updateconfig: This feature will be removed in compat 12.
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+xmkmf -a
+mv -f Makefile Makefile.bak
+imake -DUseInstalled -I/usr/lib/X11/config
+make Makefiles
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[2]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+making Makefiles in include...
+	mv -f Makefile Makefile.bak
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/include'
+making Makefiles in include/audio...
+	mv -f Makefile Makefile.bak
+make[4]: Entering directory '/<<PKGBUILDDIR>>/include'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/include'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/include/audio'
+make[4]: Nothing to be done for 'Makefiles'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/include/audio'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/include'
+making Makefiles in server...
+	mv -f Makefile Makefile.bak
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/server'
+making Makefiles in server/dia...
+	mv -f Makefile Makefile.bak
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server/dia'
+make[4]: Nothing to be done for 'Makefiles'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server/dia'
+making Makefiles in server/os...
+	mv -f Makefile Makefile.bak
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server'
+In file included from /usr/lib/X11/config/Imake.tmpl:2293,
+                 from Imakefile.c:34:
+./Imakefile:71: warning: "PartialNetDefault" is not defined, evaluates to 0 [-Wundef]
+ #if PartialNetDefault
+ 
+./Imakefile:99: warning: "XdecServer" is not defined, evaluates to 0 [-Wundef]
+ #if defined(PegasusArchitecture) || XdecServer
+ 
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server/os'
+make[4]: Nothing to be done for 'Makefiles'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server/os'
+making Makefiles in server/dda/voxware...
+	mv -f Makefile Makefile.bak
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server/dda/voxware'
+make[4]: Nothing to be done for 'Makefiles'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server/dda/voxware'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/server'
+making Makefiles in lib...
+	mv -f Makefile Makefile.bak
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/lib'
+making Makefiles in lib/audio...
+	mv -f Makefile Makefile.bak
+make[4]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/lib/audio'
+make[4]: Nothing to be done for 'Makefiles'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/lib/audio'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+making Makefiles in clients...
+	mv -f Makefile Makefile.bak
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/clients'
+making Makefiles in clients/audio...
+	mv -f Makefile Makefile.bak
+make[4]: Entering directory '/<<PKGBUILDDIR>>/clients'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/clients'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+making Makefiles in clients/audio/widgets...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/widgets'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/widgets'
+making Makefiles in clients/audio/auconvert...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auconvert'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auconvert'
+making Makefiles in clients/audio/auctl...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auctl'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auctl'
+making Makefiles in clients/audio/audemo...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/audemo'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/audemo'
+making Makefiles in clients/audio/audial...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/audial'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/audial'
+making Makefiles in clients/audio/auedit...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auedit'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auedit'
+making Makefiles in clients/audio/auinfo...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auinfo'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auinfo'
+making Makefiles in clients/audio/aupanel...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/aupanel'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/aupanel'
+making Makefiles in clients/audio/auplay...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auplay'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auplay'
+making Makefiles in clients/audio/aurecord...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/aurecord'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/aurecord'
+making Makefiles in clients/audio/autool...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/autool'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/autool'
+making Makefiles in clients/audio/auwave...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auwave'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auwave'
+making Makefiles in clients/audio/auphone...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auphone'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auphone'
+making Makefiles in clients/audio/auscope...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auscope'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auscope'
+making Makefiles in clients/audio/util...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/util'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/util'
+making Makefiles in clients/audio/examples...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/examples'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/examples'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/clients'
+making Makefiles in doc...
+	mv -f Makefile Makefile.bak
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+making Makefiles in doc/man...
+	mv -f Makefile Makefile.bak
+make[4]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/doc/man'
+making Makefiles in doc/man/lib...
+	mv -f Makefile Makefile.bak
+make[5]: Entering directory '/<<PKGBUILDDIR>>/doc/man'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/doc/man'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/doc/man/lib'
+make[5]: Nothing to be done for 'Makefiles'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/doc/man/lib'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/doc/man'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+making Makefiles in config...
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/config'
+make[3]: Nothing to be done for 'Makefiles'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/config'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make includes
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[2]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+including in ./include...
+make[3]: Entering directory '/<<PKGBUILDDIR>>/include'
+including in include/audio...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/include/audio'
+make[4]: Nothing to be done for 'includes'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/include/audio'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/include'
+including in ./server...
+make[3]: Entering directory '/<<PKGBUILDDIR>>/server'
+including in server/dia...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server/dia'
++ cd ../../include/
++ rm -f globals.h
++ ln -s ..//server/dia/globals.h .
++ rm -f nasconf.h
++ ln -s ..//server/dia/nasconf.h .
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server/dia'
+including in server/os...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server/os'
++ cd ../../include/
++ rm -f aulog.h
++ ln -s ..//server/os/aulog.h .
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server/os'
+including in server/dda/voxware...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server/dda/voxware'
+make[4]: Nothing to be done for 'includes'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server/dda/voxware'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/server'
+including in ./lib...
+make[3]: Entering directory '/<<PKGBUILDDIR>>/lib'
+including in lib/audio...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/lib/audio'
++ cd ../../include/audio
++ rm -f Alibint.h
++ ln -s ../../lib/audio/Alibint.h .
++ rm -f Alibnet.h
++ ln -s ../../lib/audio/Alibnet.h .
++ rm -f Xtutil.h
++ ln -s ../../lib/audio/Xtutil.h .
++ rm -f audiolib.h
++ ln -s ../../lib/audio/audiolib.h .
++ rm -f audioutil.h
++ ln -s ../../lib/audio/audioutil.h .
++ rm -f snd.h
++ ln -s ../../lib/audio/snd.h .
++ rm -f wave.h
++ ln -s ../../lib/audio/wave.h .
++ rm -f voc.h
++ ln -s ../../lib/audio/voc.h .
++ rm -f aiff.h
++ ln -s ../../lib/audio/aiff.h .
++ rm -f sound.h
++ ln -s ../../lib/audio/sound.h .
++ rm -f soundlib.h
++ ln -s ../../lib/audio/soundlib.h .
++ rm -f fileutil.h
++ ln -s ../../lib/audio/fileutil.h .
++ rm -f 8svx.h
++ ln -s ../../lib/audio/8svx.h .
++ rm -f Astreams.h
++ ln -s ../../lib/audio/Astreams.h .
++ rm -f audio.h
++ ln -s ../../lib/audio/audio.h .
++ rm -f Afuncproto.h
++ ln -s ../../lib/audio/Afuncproto.h .
++ rm -f Afuncs.h
++ ln -s ../../lib/audio/Afuncs.h .
++ rm -f Amd.h
++ ln -s ../../lib/audio/Amd.h .
++ rm -f Amd.h
++ ln -s ../../lib/audio/Amd.h .
++ rm -f Aos.h
++ ln -s ../../lib/audio/Aos.h .
++ rm -f Aosdefs.h
++ ln -s ../../lib/audio/Aosdefs.h .
++ rm -f Aproto.h
++ ln -s ../../lib/audio/Aproto.h .
++ rm -f mutex.h
++ ln -s ../../lib/audio/mutex.h .
++ rm -f release.h
++ ln -s ../../lib/audio/release.h .
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/lib/audio'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+including in ./clients...
+make[3]: Entering directory '/<<PKGBUILDDIR>>/clients'
+including in clients/audio...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+including in clients/audio/widgets...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/widgets'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/widgets'
+including in clients/audio/auconvert...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auconvert'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auconvert'
+including in clients/audio/auctl...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auctl'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auctl'
+including in clients/audio/audemo...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/audemo'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/audemo'
+including in clients/audio/audial...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/audial'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/audial'
+including in clients/audio/auedit...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auedit'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auedit'
+including in clients/audio/auinfo...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auinfo'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auinfo'
+including in clients/audio/aupanel...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/aupanel'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/aupanel'
+including in clients/audio/auplay...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auplay'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auplay'
+including in clients/audio/aurecord...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/aurecord'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/aurecord'
+including in clients/audio/autool...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/autool'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/autool'
+including in clients/audio/auwave...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auwave'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auwave'
+including in clients/audio/auphone...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auphone'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auphone'
+including in clients/audio/auscope...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auscope'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auscope'
+including in clients/audio/util...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/util'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/util'
+including in clients/audio/examples...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/examples'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/examples'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/clients'
+including in ./doc...
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+including in doc/man...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/doc/man'
+including in doc/man/lib...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/doc/man/lib'
+make[5]: Nothing to be done for 'includes'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/doc/man/lib'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/doc/man'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+including in ./config...
+make[3]: Entering directory '/<<PKGBUILDDIR>>/config'
+sh -c "unset CFLAGS; ./configure"
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by gcc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... ranlib
+checking for gawk... no
+checking for mawk... mawk
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for bison... bison -y
+checking for flex... flex
+checking lex output file root... lex.yy
+checking lex library... none needed
+checking whether yytext is a pointer... no
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking for main in -lm... yes
+checking for crypt in -lcrypt... yes
+checking for crypt in -lgen... no
+checking for gzread in -lz... no
+checking for ANSI C header files... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/times.h usability... yes
+checking sys/times.h presence... yes
+checking for sys/times.h... yes
+checking termio.h usability... yes
+checking termio.h presence... yes
+checking for termio.h... yes
+checking for unistd.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking stropts.h usability... yes
+checking stropts.h presence... yes
+checking for stropts.h... yes
+checking poll.h usability... yes
+checking poll.h presence... yes
+checking for poll.h... yes
+checking values.h usability... yes
+checking values.h presence... yes
+checking for values.h... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking for string.h... (cached) yes
+checking for strings.h... (cached) yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking zlib.h usability... no
+checking zlib.h presence... no
+checking for zlib.h... no
+checking for stdint.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for limits.h... (cached) yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking sys/soundcard.h usability... yes
+checking sys/soundcard.h presence... yes
+checking for sys/soundcard.h... yes
+checking machine/soundcard.h usability... no
+checking machine/soundcard.h presence... no
+checking for machine/soundcard.h... no
+checking for an ANSI C-conforming const... yes
+checking for size_t... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking return type of signal handlers... void
+checking for vprintf... yes
+checking for _doprnt... no
+checking for select... yes
+checking for strstr... yes
+checking for fileno... yes
+checking for setpgrp... yes
+checking for daemon... yes
+checking for getmsg... no
+checking for poll... yes
+checking for setitimer... yes
+checking for strerror... yes
+checking whether setpgrp takes no argument... (cached) yes
+checking for snprintf... yes
+checking for vsnprintf... yes
+checking for working snprintf... no
+checking for working vsnprintf... no
+configure: WARNING: Replacing missing/broken (v)snprintf() with version from http://www.ijs.si/software/snprintf/.
+checking for sys_errlist declaration... yes
+configure: creating ./config.status
+config.status: creating config.h
+config.status: executing libtool commands
++ cd ../include/
++ rm -f NasConfig.h
++ ln -s ..//config/NasConfig.h .
++ rm -f config.h
++ ln -s ..//config/config.h .
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/config'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make depend
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[2]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+depending in ./include...
+make[3]: Entering directory '/<<PKGBUILDDIR>>/include'
+depending in include/audio...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/include/audio'
+make[4]: Nothing to be done for 'depend'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/include/audio'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/include'
+depending in ./server...
+make[3]: Entering directory '/<<PKGBUILDDIR>>/server'
+depending in server/dia...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server/dia'
+bison -y -d gram.y
+mv -f y.tab.c gram.c
++ mv -f y.tab.h gram.h
+flex -l  -t lex.l > lex.c
+gccmakedep  -- -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   -- dispatch.c dixutils.c events.c globals.c main.c resource.c swapreq.c        tables.c swaprep.c        audispatch.c auswap.c autables.c auevents.c auutil.c auconfig.c        auprocess.c nasconf.c lex.c gram.c
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server/dia'
+depending in server/os...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server/os'
+gccmakedep  -- -I.  -I../include -I../../include -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DUNIXCONN -DTCPCONN        -- WaitFor.c access.c connection.c io.c                   osinit.c utils.c auth.c mitauth.c aulog.c 		  daemon.c  
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server/os'
+depending in server/dda/voxware...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server/dda/voxware'
+gccmakedep  -- -I. -I../../include -I../../../include -I../../dia -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      -- auvoxware.c config.c
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server/dda/voxware'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/server'
+depending in ./lib...
+make[3]: Entering directory '/<<PKGBUILDDIR>>/lib'
+depending in lib/audio...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/lib/audio'
+gccmakedep  --  -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO -DXTHREADS  -D_REENTRANT -DXUSE_MTSAFE_API    -DMALLOC_0_RETURNS_NULL    -- AlibAsync.c Alibint.c AuErrDes.c AuFreeEData.c CloseSvr.c ConnSvr.c           CrFlow.c DesFlow.c Flush.c HandleEv.c IDOfEvent.c KillClient.c                NextEvent.c OpenSvr.c ReqEvent.c ScanEvents.c ScanTEvent.c	                SetElState.c GetElState.c SetElement.c GetElement.c SvrName.c Sync.c           ReadEl.c WriteEl.c Util.c SetElParms.c GetDevAttr.c	                SetDevAttr.c CrBucket.c DesBucket.c GetBucAttr.c ListBucket.c	                ListDevice.c GetSvrTime.c SetClsDwnMd.c GetClsDwnMd.c		      	  convutil.c fileutil.c monitor.c bcache.c			      	  globals.c Astreams.c ErrHndlr.c 		                snd.c wave.c voc.c aiff.c 8svx.c sound.c soundlib.c mutex.c
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/lib/audio'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+depending in ./clients...
+make[3]: Entering directory '/<<PKGBUILDDIR>>/clients'
+depending in clients/audio...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/clients/audio'
+depending in clients/audio/widgets...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/widgets'
+gccmakedep  --  -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      -- Slider.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/widgets'
+depending in clients/audio/auconvert...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auconvert'
+gccmakedep  --  -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO    -DHAS_MKSTEMP  -- auconvert.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auconvert'
+depending in clients/audio/auctl...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auctl'
+gccmakedep  --  -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      -- auctl.c execute.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auctl'
+depending in clients/audio/audemo...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/audemo'
+gccmakedep  -- -I../../../clients/audio/widgets -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      -- audemo.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/audemo'
+depending in clients/audio/audial...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/audial'
+gccmakedep  --  -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      -- audial.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/audial'
+depending in clients/audio/auedit...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auedit'
+gccmakedep  -- -I../../../clients/audio/widgets -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO    -DHAS_MKSTEMP  -- auedit.c Graph.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auedit'
+depending in clients/audio/auinfo...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auinfo'
+gccmakedep  --  -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      -- auinfo.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auinfo'
+depending in clients/audio/aupanel...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/aupanel'
+gccmakedep  -- -I../../../clients/audio/widgets -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      -- aupanel.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/aupanel'
+depending in clients/audio/auplay...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auplay'
+gccmakedep  --  -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      -- auplay.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auplay'
+depending in clients/audio/aurecord...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/aurecord'
+gccmakedep  --  -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      -- aurecord.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/aurecord'
+depending in clients/audio/autool...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/autool'
+gccmakedep  -- -I../../../clients/audio/widgets -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      -- audiotool.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/autool'
+depending in clients/audio/auwave...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auwave'
+gccmakedep  -- -I../../../clients/audio/widgets -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      -- auwave.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auwave'
+depending in clients/audio/auphone...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auphone'
+gccmakedep  -- -I../../../clients/audio/widgets -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      -- auphone.c rings.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auphone'
+depending in clients/audio/auscope...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/auscope'
+make[5]: Nothing to be done for 'depend'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/auscope'
+depending in clients/audio/util...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/util'
+gccmakedep  --  -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      -- soundtoh.c issndfile.c playbucket.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/util'
+depending in clients/audio/examples...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/clients/audio/examples'
+gccmakedep  --  -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      -- playFile.c playSimul.c playFromBckt.c loopBucket.c bundle.c        recordBucket.c plyBcktAsync.c playRaw.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio/examples'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/clients/audio'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/clients'
+depending in ./doc...
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+depending in doc/man...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/doc/man'
+depending in doc/man/lib...
+make[5]: Entering directory '/<<PKGBUILDDIR>>/doc/man/lib'
+make[5]: Nothing to be done for 'depend'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/doc/man/lib'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/doc/man'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+depending in ./config...
+make[3]: Entering directory '/<<PKGBUILDDIR>>/config'
+make[3]: Nothing to be done for 'depend'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/config'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make EXTRA_LDOPTIONS="$LDFLAGS" \
+	CCOPTIONS="$CFLAGS $CPPFLAGS" \
+	LDFLAGS_DEF="$LDFLAGS"
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+making all in ./include...
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: warning: -j16 forced in submake: resetting jobserver mode.
+making all in include/audio...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/include'
+make[4]: warning: -j16 forced in submake: resetting jobserver mode.
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/include/audio'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/include'
+making all in ./server...
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: warning: -j16 forced in submake: resetting jobserver mode.
+make[3]: *** No rule to make target 'dia/libdia.a', needed by 'nasd'.  Stop.
+make[3]: *** Waiting for unfinished jobs....
+making all in server/dia...
+making all in server/os...
+making all in server/dda/voxware...
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server'
+make[4]: warning: -j16 forced in submake: resetting jobserver mode.
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server'
+make[4]: warning: -j16 forced in submake: resetting jobserver mode.
+make[4]: Entering directory '/<<PKGBUILDDIR>>/server'
+make[4]: warning: -j16 forced in submake: resetting jobserver mode.
+rm -f dispatch.o
+rm -f dixutils.o
+rm -f events.o
+rm -f globals.o
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   dispatch.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   dixutils.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   events.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   globals.c
+rm -f main.o
+rm -f resource.o
+rm -f swapreq.o
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   main.c
+rm -f tables.o
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   resource.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   swapreq.c
+rm -f swaprep.o
+rm -f audispatch.o
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   tables.c
+rm -f auswap.o
+rm -f autables.o
+rm -f auevents.o
+rm -f auutil.o
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   swaprep.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   audispatch.c
+rm -f auconfig.o
+rm -f auprocess.o
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   auswap.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   autables.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   auevents.c
+rm -f WaitFor.o
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   auconfig.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   auprocess.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   auutil.c
+rm -f auvoxware.o
+rm -f config.o
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../../include -I../../../include -I../../dia -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      auvoxware.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../../include -I../../../include -I../../dia -I../../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO      config.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I.  -I../include -I../../include -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DUNIXCONN -DTCPCONN        WaitFor.c
+rm -f access.o
+rm -f connection.o
+rm -f io.o
+rm -f osinit.o
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I.  -I../include -I../../include -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DUNIXCONN -DTCPCONN        access.c
+rm -f utils.o
+rm -f auth.o
+rm -f mitauth.o
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I.  -I../include -I../../include -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DUNIXCONN -DTCPCONN        io.c
+rm -f aulog.o
+rm -f daemon.o
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I.  -I../include -I../../include -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DUNIXCONN -DTCPCONN        osinit.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I.  -I../include -I../../include -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DUNIXCONN -DTCPCONN        auth.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I.  -I../include -I../../include -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DUNIXCONN -DTCPCONN        daemon.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I.  -I../include -I../../include -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DUNIXCONN -DTCPCONN        mitauth.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I.  -I../include -I../../include -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DUNIXCONN -DTCPCONN        utils.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I.  -I../include -I../../include -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DUNIXCONN -DTCPCONN        aulog.c
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I.  -I../include -I../../include -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DUNIXCONN -DTCPCONN        connection.c
+rm -f nasconf.o
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   nasconf.c
+rm -f lex.o
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   lex.c
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from ../include/os.h:124,
+                 from ../include/misc.h:57,
+                 from dixutils.c:52:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+rm -f gram.o
+gcc -c -g -O2 -fno-strict-aliasing -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2   -I. -I../include -I../../include -I../../lib/audio -I../../include    -Dlinux -D__amd64__ -D_POSIX_C_SOURCE=199309L 				-D_POSIX_SOURCE -D_XOPEN_SOURCE 				-D_BSD_SOURCE -D_SVID_SOURCE                                 -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 				  				  -DFUNCPROTO=15 -DNARROWPROTO   -DNASCONFSEARCHPATH=\"/etc/nas/\"   gram.c
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from ../include/os.h:124,
+                 from ../include/misc.h:57,
+                 from events.c:52:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from ../include/os.h:124,
+                 from ../include/misc.h:57,
+                 from swaprep.c:52:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from ../include/os.h:124,
+                 from ../include/misc.h:57,
+                 from globals.c:58:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from /usr/include/fcntl.h:25,
+                 from config.c:7:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+config.c: In function ‘ddaSetConfig’:
+config.c:30:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c:40:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c:45:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c:53:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c:64:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c:69:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c:87:14: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+         if (!strcmp(str, "/dev/pcaudio") || !strcmp(str, "/dev/pcdsp"))
+              ^~~~~~
+config.c:92:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c:103:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c:128:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c:141:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c:154:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c:164:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c:170:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c:176:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c:182:15: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+         num = (int) value;
+               ^
+config.c: In function ‘ddaUseMsg’:
+config.c:217:5: warning: implicit declaration of function ‘ErrorF’ [-Wimplicit-function-declaration]
+     ErrorF("\nNo Server specific options supported.\n");
+     ^~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from ../include/os.h:124,
+                 from ../include/misc.h:57,
+                 from swapreq.c:52:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from ../include/os.h:124,
+                 from ../include/misc.h:57,
+                 from dispatch.c:52:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from ../include/os.h:124,
+                 from ../include/misc.h:57,
+                 from nasconf.c:9:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from /usr/include/X11/Xfuncs.h:46,
+                 from ../include/misc.h:58,
+                 from ../include/os.h:29,
+                 from mitauth.c:46:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+mitauth.c:122:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ MitFromID(id, data_lenp, datap)
+ ^~~~~~~~~
+mitauth.c:139:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ MitRemoveCookie(data_length, data)
+ ^~~~~~~~~~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from ../include/os.h:124,
+                 from ../include/misc.h:57,
+                 from resource.c:75:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from aulog.c:10:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from /usr/include/X11/Xfuncs.h:46,
+                 from /usr/include/X11/Xauth.h:57,
+                 from auth.c:46:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+auth.c:86:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ InitAuthorization(file_name)
+ ^~~~~~~~~~~~~~~~~
+auth.c: In function ‘CheckAuthorization’:
+auth.c:139:13: warning: implicit declaration of function ‘EnableLocalHost’; did you mean ‘FamilyLocalHost’? [-Wimplicit-function-declaration]
+             EnableLocalHost();
+             ^~~~~~~~~~~~~~~
+             FamilyLocalHost
+auth.c: At top level:
+auth.c:151:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ ResetAuthorization()
+ ^~~~~~~~~~~~~~~~~~
+auth.c:178:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ AuthorizationFromID(id, name_lenp, namep, data_lenp, datap)
+ ^~~~~~~~~~~~~~~~~~~
+auth.c:197:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ RemoveAuthorization(name_length, name, data_length, data)
+ ^~~~~~~~~~~~~~~~~~~
+auth.c:214:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ AddAuthorization(name_length, name, data_length, data)
+ ^~~~~~~~~~~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from ../include/os.h:124,
+                 from ../include/misc.h:57,
+                 from auconfig.c:24:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from main.c:54:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+main.c: In function ‘main’:
+main.c:125:9: warning: implicit declaration of function ‘yyparse’ [-Wimplicit-function-declaration]
+         yyparse();
+         ^~~~~~~
+main.c:143:9: warning: implicit declaration of function ‘osLogMsg’ [-Wimplicit-function-declaration]
+         osLogMsg("%s\n", release);
+         ^~~~~~~~
+main.c:147:9: warning: implicit declaration of function ‘osBecomeOrphan’ [-Wimplicit-function-declaration]
+         osBecomeOrphan();
+         ^~~~~~~~~~~~~~
+main.c:148:9: warning: implicit declaration of function ‘osBecomeDaemon’ [-Wimplicit-function-declaration]
+         osBecomeDaemon();
+         ^~~~~~~~~~~~~~
+main.c:156:5: warning: implicit declaration of function ‘chdir’ [-Wimplicit-function-declaration]
+     chdir("/");
+     ^~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from daemon.c:37:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+daemon.c: In function ‘osBecomeOrphan’:
+daemon.c:70:5: warning: implicit declaration of function ‘chdir’ [-Wimplicit-function-declaration]
+     chdir("/");
+     ^~~~~
+daemon.c:80:16: warning: implicit declaration of function ‘fork’ [-Wimplicit-function-declaration]
+     child_id = fork();
+                ^~~~
+daemon.c:49:17: warning: implicit declaration of function ‘setpgid’; did you mean ‘setpgrp’? [-Wimplicit-function-declaration]
+ #define setpgrp setpgid
+                 ^~~~~~~
+daemon.c:101:16: note: in expansion of macro ‘setpgrp’
+         stat = setpgrp(child_id, child_id);
+                ^~~~~~~
+daemon.c: In function ‘osBecomeDaemon’:
+daemon.c:128:16: warning: implicit declaration of function ‘getpid’; did you mean ‘getenv’? [-Wimplicit-function-declaration]
+     setpgrp(0, getpid());
+                ^~~~~~
+                getenv
+daemon.c:131:5: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+     close(0);
+     ^~~~~
+     pclose
+daemon.c:158:12: warning: implicit declaration of function ‘dup2’ [-Wimplicit-function-declaration]
+     (void) dup2(0, 1);
+            ^~~~
+daemon.c: In function ‘osStorePid’:
+daemon.c:180:13: warning: implicit declaration of function ‘osLogMsg’ [-Wimplicit-function-declaration]
+             osLogMsg("process-id file %s cannot be opened\n", pidFile);
+             ^~~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdlib.h:25,
+                 from auevents.c:25:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from au.h:41,
+                 from auevents.c:40:
+auevents.c: In function ‘ProcessAudioEvents’:
+../dda/voxware/auvoxware.h:86:28: warning: implicit declaration of function ‘_AuUnBlockAudio’; did you mean ‘_AuUnblockAudio’? [-Wimplicit-function-declaration]
+ #define AuUnBlockAudio(_x) _AuUnBlockAudio(_x)
+                            ^~~~~~~~~~~~~~~
+auevents.c:131:5: note: in expansion of macro ‘AuUnBlockAudio’
+     AuUnBlockAudio(l);
+     ^~~~~~~~~~~~~~
+In file included from auevents.c:40:
+auevents.c: In function ‘AuRequestElementNotifyEvent’:
+au.h:412:38: warning: implicit declaration of function ‘getpid’; did you mean ‘getenv’? [-Wimplicit-function-declaration]
+ #define WAKEUP_SERVER()         kill(getpid(), SIGUSR1)
+                                      ^~~~~~
+auevents.c:175:5: note: in expansion of macro ‘WAKEUP_SERVER’
+     WAKEUP_SERVER();
+     ^~~~~~~~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from ../include/os.h:124,
+                 from ../include/misc.h:57,
+                 from auswap.c:27:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from /usr/include/X11/Xfuncs.h:46,
+                 from ../include/misc.h:58,
+                 from ../include/os.h:29,
+                 from osinit.c:53:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+osinit.c: In function ‘OsInit’:
+osinit.c:183:5: warning: implicit declaration of function ‘OsInitAllocator’ [-Wimplicit-function-declaration]
+     OsInitAllocator();
+     ^~~~~~~~~~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/sys/types.h:25,
+                 from ../../include/audio/Aos.h:72,
+                 from WaitFor.c:66:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+WaitFor.c: In function ‘WaitForSomething’:
+WaitFor.c:201:13: warning: implicit declaration of function ‘ProcessWorkQueue’; did you mean ‘ProcessCommandLine’? [-Wimplicit-function-declaration]
+             ProcessWorkQueue();
+             ^~~~~~~~~~~~~~~~
+             ProcessCommandLine
+WaitFor.c:295:17: warning: implicit declaration of function ‘QueueWorkProc’ [-Wimplicit-function-declaration]
+                 QueueWorkProc(EstablishNewConnections, NULL,
+                 ^~~~~~~~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from gram.y:6:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+y.tab.c: In function ‘yyparse’:
+y.tab.c:1243:16: warning: implicit declaration of function ‘yylex’ [-Wimplicit-function-declaration]
+gram.y:75:31: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+                         { ddaSetConfig(MIXERINIT, (void *)parsebool($2)); }
+                               ^
+gram.y:77:33: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+                         { ddaSetConfig(REINITMIXER, (void *)parsebool($2)); }
+                                 ^
+gram.y:111:50: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+                           ddaSetConfig(AUTOOPEN, (void *)parsebool($2));
+                                                  ^
+gram.y:115:51: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+                           ddaSetConfig(FORCERATE, (void *)parsebool($2));
+                                                   ^
+gram.y:119:51: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+                           ddaSetConfig(READWRITE, (void *)parsebool($2));
+                                                   ^
+gram.y:131:50: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+                           ddaSetConfig(WORDSIZE, (void *)$2);
+                                                  ^
+gram.y:135:50: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+                           ddaSetConfig(FRAGSIZE, (void *)$2);
+                                                  ^
+gram.y:139:50: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+                           ddaSetConfig(MINFRAGS, (void *)$2);
+                                                  ^
+gram.y:143:50: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+                           ddaSetConfig(MAXFRAGS, (void *)$2);
+                                                  ^
+gram.y:147:50: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+                           ddaSetConfig(NUMCHANS, (void *)$2);
+                                                  ^
+gram.y:150:29: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+                         { ddaSetConfig(MAXRATE, (void *)$2); }
+                             ^
+gram.y:152:29: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+                         { ddaSetConfig(MINRATE, (void *)$2); }
+                             ^
+gram.y:154:26: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+                         { ddaSetConfig(GAIN, (void *)$2); }
+                          ^
+gram.y:156:31: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+                         { ddaSetConfig(GAINSCALE, (void *)$2); }
+                               ^
+gram.y:161:43: warning: implicit declaration of function ‘RemoveDQuote’ [-Wimplicit-function-declaration]
+                                           RemoveDQuote(ptr);
+                                           ^~~~~~~~~~~~
+y.tab.c:1563:7: warning: implicit declaration of function ‘yyerror’; did you mean ‘yyerrok’? [-Wimplicit-function-declaration]
+gram.y: At top level:
+gram.y:170:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ RemoveDQuote(str)
+ ^~~~~~~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from ../include/os.h:124,
+                 from ../include/misc.h:57,
+                 from auutil.c:27:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from au.h:41,
+                 from auutil.c:31:
+auutil.c: In function ‘auProtectedAlloc’:
+../dda/voxware/auvoxware.h:86:28: warning: implicit declaration of function ‘_AuUnBlockAudio’; did you mean ‘_AuUnblockAudio’? [-Wimplicit-function-declaration]
+ #define AuUnBlockAudio(_x) _AuUnBlockAudio(_x)
+                            ^~~~~~~~~~~~~~~
+auutil.c:178:5: note: in expansion of macro ‘AuUnBlockAudio’
+     AuUnBlockAudio(l);
+     ^~~~~~~~~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/sys/types.h:25,
+                 from ../../include/audio/Aos.h:72,
+                 from utils.c:52:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from <stdout>:19:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+lex.l:57:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ yywrap()
+ ^~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from io.c:57:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+io.c:373:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ ResetCurrentRequest(client)
+ ^~~~~~~~~~~~~~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from auprocess.c:28:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from au.h:41,
+                 from auprocess.c:31:
+auprocess.c: In function ‘AuStartFlow’:
+../dda/voxware/auvoxware.h:86:28: warning: implicit declaration of function ‘_AuUnBlockAudio’; did you mean ‘_AuUnblockAudio’? [-Wimplicit-function-declaration]
+ #define AuUnBlockAudio(_x) _AuUnBlockAudio(_x)
+                            ^~~~~~~~~~~~~~~
+auprocess.c:339:5: note: in expansion of macro ‘AuUnBlockAudio’
+     AuUnBlockAudio(l);
+     ^~~~~~~~~~~~~~
+auprocess.c: In function ‘doSetup’:
+auprocess.c:1106:13: warning: implicit declaration of function ‘osLogMsg’ [-Wimplicit-function-declaration]
+             osLogMsg("doSetup: elementRate == 0! Forcing to %d\n",
+             ^~~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/sys/types.h:25,
+                 from ../../include/audio/Aos.h:72,
+                 from access.c:53:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+access.c: In function ‘EnableLocalHost’:
+access.c:220:9: warning: implicit declaration of function ‘AddLocalHosts’; did you mean ‘EnableLocalHost’? [-Wimplicit-function-declaration]
+         AddLocalHosts();
+         ^~~~~~~~~~~~~
+         EnableLocalHost
+access.c: At top level:
+access.c:248:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ FallbackDefineSelf(fd)
+ ^~~~~~~~~~~~~~~~~~
+access.c:318:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ DefineSelf(fd)
+ ^~~~~~~~~~
+access.c:438:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ AddLocalHosts()
+ ^~~~~~~~~~~~~
+access.c:447:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ ResetHosts(display)
+ ^~~~~~~~~~
+access.c:810:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ InvalidHost(saddr, len)
+ ^~~~~~~~~~~
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdlib.h:25,
+                 from connection.c:74:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+connection.c: In function ‘CreateWellKnownSockets’:
+connection.c:1164:9: warning: implicit declaration of function ‘DefineSelf’ [-Wimplicit-function-declaration]
+         DefineSelf(request);
+         ^~~~~~~~~~
+connection.c:1239:5: warning: implicit declaration of function ‘ResetHosts’; did you mean ‘fsetpos’? [-Wimplicit-function-declaration]
+     ResetHosts(display);
+     ^~~~~~~~~~
+     fsetpos
+connection.c: In function ‘ResetWellKnownSockets’:
+connection.c:1292:5: warning: implicit declaration of function ‘ResetAuthorization’; did you mean ‘CheckAuthorization’? [-Wimplicit-function-declaration]
+     ResetAuthorization();
+     ^~~~~~~~~~~~~~~~~~
+     CheckAuthorization
+connection.c: In function ‘AuthAudit’:
+connection.c:1344:9: warning: implicit declaration of function ‘AuditF’ [-Wimplicit-function-declaration]
+         AuditF("client %d connected from %s\n", client, addr);
+         ^~~~~~
+connection.c: In function ‘ClientAuthorized’:
+connection.c:1399:17: warning: implicit declaration of function ‘InvalidHost’ [-Wimplicit-function-declaration]
+             if (InvalidHost(&from.sa, fromlen))
+                 ^~~~~~~~~~~
+connection.c: In function ‘CloseDownConnection’:
+connection.c:1728:9: warning: implicit declaration of function ‘FlushClient’; did you mean ‘NullClient’? [-Wimplicit-function-declaration]
+         FlushClient(client, oc, (char *) NULL, 0);
+         ^~~~~~~~~~~
+         NullClient
+connection.c: At top level:
+connection.c:1737:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ AddEnabledDevice(fd)
+ ^~~~~~~~~~~~~~~~
+connection.c:1745:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ RemoveEnabledDevice(fd)
+ ^~~~~~~~~~~~~~~~~~~
+connection.c:1762:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ OnlyListenToOneClient(client)
+ ^~~~~~~~~~~~~~~~~~~~~
+connection.c:1792:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ ListenToAllClients()
+ ^~~~~~~~~~~~~~~~~~
+connection.c:1804:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ MakeClientGrabImpervious(client)
+ ^~~~~~~~~~~~~~~~~~~~~~~~
+connection.c:1815:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ MakeClientGrabPervious(client)
+ ^~~~~~~~~~~~~~~~~~~~~~
+connection.c: In function ‘ErrorConnMax’:
+connection.c:1600:12: warning: ignoring return value of ‘read’, declared with attribute warn_unused_result [-Wunused-result]
+     (void) read(fd, &byteOrder, 1);
+            ^~~~~~~~~~~~~~~~~~~~~~~
+connection.c:194:25: warning: ignoring return value of ‘writev’, declared with attribute warn_unused_result [-Wunused-result]
+ #define _OSWriteV       writev
+                         ^
+connection.c:1630:16: note: in expansion of macro ‘_OSWriteV’
+         (void) _OSWriteV(fd, iov, 3);
+                ^~~~~~~~~
+rm -f libos.a
+ar clq libos.a WaitFor.o access.o connection.o io.o                   osinit.o utils.o auth.o mitauth.o aulog.o 		  daemon.o  
+ranlib libos.a
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/string.h:26,
+                 from ../include/os.h:124,
+                 from ../include/misc.h:57,
+                 from audispatch.c:27:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+In file included from au.h:41,
+                 from audispatch.c:31:
+audispatch.c: In function ‘ProcAuWriteElement’:
+../dda/voxware/auvoxware.h:86:28: warning: implicit declaration of function ‘_AuUnBlockAudio’; did you mean ‘_AuUnblockAudio’? [-Wimplicit-function-declaration]
+ #define AuUnBlockAudio(_x) _AuUnBlockAudio(_x)
+                            ^~~~~~~~~~~~~~~
+audispatch.c:1271:5: note: in expansion of macro ‘AuUnBlockAudio’
+     AuUnBlockAudio(l);
+     ^~~~~~~~~~~~~~
+rm -f libdia.a
+ar clq libdia.a dispatch.o dixutils.o events.o globals.o main.o resource.o swapreq.o        tables.o swaprep.o        audispatch.o auswap.o autables.o auevents.o auutil.o auconfig.o        auprocess.o  nasconf.o lex.o gram.o
+ranlib libdia.a
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server/os'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server/dia'
+In file included from /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:33,
+                 from /usr/include/stdio.h:27,
+                 from auvoxware.c:134:
+/usr/include/features.h:184:3: warning: #warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE" [-Wcpp]
+ # warning "_BSD_SOURCE and _SVID_SOURCE are deprecated, use _DEFAULT_SOURCE"
+   ^~~~~~~
+auvoxware.c: In function ‘readMixerOutputGain’:
+auvoxware.c:413:13: warning: implicit declaration of function ‘ioctl’ [-Wimplicit-function-declaration]
+         if (ioctl(outmixerfd, MIXER_READ(SOUND_MIXER_PCM), &pcm_level) == -1) {
+             ^~~~~
+auvoxware.c: In function ‘openDevice’:
+auvoxware.c:881:17: warning: implicit declaration of function ‘sleep’; did you mean ‘strsep’? [-Wimplicit-function-declaration]
+                 sleep(1);
+                 ^~~~~
+                 strsep
+auvoxware.c: In function ‘closeDevice’:
+auvoxware.c:1029:16: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+         while (close(sndStatOut.fd)) {
+                ^~~~~
+                pclose
+auvoxware.c: In function ‘writePhysicalOutputsMono’:
+auvoxware.c:1442:5: warning: implicit declaration of function ‘write’; did you mean ‘fwrite’? [-Wimplicit-function-declaration]
+     write(sndStatOut.fd, buf, bufSize);
+     ^~~~~
+     fwrite
+auvoxware.c: In function ‘readPhysicalInputs’:
+auvoxware.c:1585:5: warning: implicit declaration of function ‘read’; did you mean ‘fread’? [-Wimplicit-function-declaration]
+     read(sndStatIn.fd, stereoInputDevice->minibuf,
+     ^~~~
+     fread
+rm -f libvoxware.a
+ar clq libvoxware.a auvoxware.o config.o
+ranlib libvoxware.a
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/server/dda/voxware'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/server'
+make[2]: *** [Makefile:1071: all] Error 2
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: *** [debian/rules:15: override_dh_auto_build] Error 2
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make: *** [debian/rules:9: build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-03-05T18:30:55Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bison* bsdmainutils*
+  debhelper* dh-autoreconf* dh-strip-nondeterminism* dwz* flex*
+  gcc-8-base:armhf* gettext* gettext-base* groff-base* intltool-debian*
+  libarchive-zip-perl* libasan5:armhf* libatomic1:armhf* libbison-dev*
+  libbsd0* libbsd0:armhf* libc6:armhf* libc6-dev:armhf* libcroco3* libelf1*
+  libfile-stripnondeterminism-perl* libgcc-8-dev:armhf* libgcc1:armhf*
+  libglib2.0-0* libgomp1:armhf* libice-dev:armhf* libice6:armhf* libncurses6*
+  libpipeline1* libpthread-stubs0-dev* libpthread-stubs0-dev:armhf*
+  libsigsegv2* libsm-dev:armhf* libsm6:armhf* libstdc++-8-dev:armhf*
+  libstdc++6:armhf* libtool* libubsan1:armhf* libuchardet0* libuuid1:armhf*
+  libx11-6* libx11-6:armhf* libx11-data* libx11-dev* libx11-dev:armhf*
+  libxau-dev* libxau-dev:armhf* libxau6* libxau6:armhf* libxaw7:armhf*
+  libxaw7-dev:armhf* libxcb1* libxcb1:armhf* libxcb1-dev* libxcb1-dev:armhf*
+  libxdmcp-dev* libxdmcp-dev:armhf* libxdmcp6* libxdmcp6:armhf*
+  libxext-dev:armhf* libxext6:armhf* libxmu-dev:armhf* libxmu-headers*
+  libxmu6:armhf* libxpm-dev:armhf* libxpm4:armhf* libxt-dev:armhf*
+  libxt6:armhf* linux-libc-dev:armhf* m4* man-db* po-debconf*
+  sbuild-build-depends-main-dummy:armhf* x11-common* x11proto-core-dev*
+  x11proto-dev* x11proto-xext-dev* xorg-sgml-doctools* xtrans-dev* xutils-dev*
+0 upgraded, 0 newly installed, 86 to remove and 0 not upgraded.
+After this operation, 103 MB disk space will be freed.
+(Reading database ... 20753 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing bison (2:3.3.2.dfsg-1) ...
+Removing flex (2.6.4-6.2) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libbison-dev:amd64 (2:3.3.2.dfsg-1) ...
+Removing libxaw7-dev:armhf (2:1.0.13-1+b2) ...
+Removing libxmu-dev:armhf (2:1.1.2-2) ...
+Removing libxmu-headers (2:1.1.2-2) ...
+Removing libx11-dev:amd64 (2:1.6.7-1) ...
+Removing libxcb1-dev:amd64 (1.13.1-2) ...
+Removing libxdmcp-dev:amd64 (1:1.1.2-3) ...
+Removing libx11-6:amd64 (2:1.6.7-1) ...
+Removing libxcb1:amd64 (1.13.1-2) ...
+Removing libxdmcp6:amd64 (1:1.1.2-3) ...
+Removing libxt-dev:armhf (1:1.1.5-1) ...
+Removing libxpm-dev:armhf (1:3.5.12-1) ...
+Removing libxaw7:armhf (2:1.0.13-1+b2) ...
+Removing libxmu6:armhf (2:1.1.2-2) ...
+Removing libxt6:armhf (1:1.1.5-1) ...
+Removing libsm-dev:armhf (2:1.2.3-1) ...
+Removing libice-dev:armhf (2:1.0.9-2) ...
+Removing libsm6:armhf (2:1.2.3-1) ...
+Removing libuuid1:armhf (2.33.1-0.1) ...
+Removing libxpm4:armhf (1:3.5.12-1) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libpthread-stubs0-dev:amd64 (0.4-1) ...
+Removing libxau-dev:amd64 (1:1.0.8-1+b2) ...
+Removing libxau6:amd64 (1:1.0.8-1+b2) ...
+Removing libxext-dev:armhf (2:1.3.3-1+b2) ...
+Removing libxext6:armhf (2:1.3.3-1+b2) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing x11proto-xext-dev (2018.4-4) ...
+Removing xutils-dev (1:7.7+5+b1) ...
+Removing libx11-dev:armhf (2:1.6.7-1) ...
+Removing libxcb1-dev:armhf (1.13.1-2) ...
+Removing libxdmcp-dev:armhf (1:1.1.2-3) ...
+Removing libx11-6:armhf (2:1.6.7-1) ...
+Removing libxcb1:armhf (1.13.1-2) ...
+Removing libxdmcp6:armhf (1:1.1.2-3) ...
+Removing libice6:armhf (2:1.0.9-2) ...
+Removing libbsd0:armhf (0.9.1-2) ...
+Removing libpthread-stubs0-dev:armhf (0.4-1) ...
+Removing libx11-data (2:1.6.7-1) ...
+Removing libxau-dev:armhf (1:1.0.8-1+b2) ...
+Removing libxau6:armhf (1:1.0.8-1+b2) ...
+Removing x11-common (1:7.7+19) ...
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of stop.
+Removing x11proto-core-dev (2018.4-4) ...
+Removing x11proto-dev (2018.4-4) ...
+Removing xorg-sgml-doctools (1:1.11-1) ...
+Removing xtrans-dev (1.3.5-1) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16473 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for x11-common (1:7.7+19) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 23
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 9
+Job: /home/build/sbuild-setup/repo/pool/main/n/nas/nas_1.9.4-6.dsc
+Machine Architecture: amd64
+Package: nas
+Package-Time: 37
+Source-Version: 1.9.4-6
+Space: n/a
+Status: attempted
+Version: 1.9.4-6
+--------------------------------------------------------------------------------
+Finished at 2019-03-05T18:30:55Z
+Build needed 00:00:37, no disk space

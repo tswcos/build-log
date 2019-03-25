@@ -1,0 +1,2265 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| libvncserver 0.9.11+dfsg-1.3 (armhf)         Tue, 05 Mar 2019 10:46:09 +0000 |
++==============================================================================+
+
+Package: libvncserver
+Version: 0.9.11+dfsg-1.3
+Source Version: 0.9.11+dfsg-1.3
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-2d81f82b-9975-4e17-8b83-226ec6f76ea9' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/libvncserver-8qHHV6/resolver-ehzcgj' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/libv/libvncserver/libvncserver_0.9.11+dfsg-1.3.dsc exists in /home/build/sbuild-setup/repo/pool/main/libv/libvncserver; copying to chroot
+I: NOTICE: Log filtering will replace 'build/libvncserver-8qHHV6/libvncserver-0.9.11+dfsg' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/libvncserver-8qHHV6' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 10), dh-autoreconf, libgnutls28-dev, libjpeg-dev, pkg-config, libgcrypt20-dev, zlib1g-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 10), dh-autoreconf, libgnutls28-dev, libjpeg-dev, pkg-config, libgcrypt20-dev, zlib1g-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [440 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [526 B]
+Fetched 1923 B in 0s (160 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libevent-2.1-6:armhf libffi6:armhf libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libgcrypt20:armhf libgcrypt20-dev:armhf
+  libglib2.0-0 libgmp-dev:armhf libgmp10:armhf libgmpxx4ldbl:armhf
+  libgnutls-dane0:armhf libgnutls-openssl27:armhf libgnutls28-dev:armhf
+  libgnutls30:armhf libgnutlsxx28:armhf libgomp1:armhf libgpg-error-dev:armhf
+  libgpg-error0:armhf libhogweed4:armhf libidn2-0:armhf libidn2-dev:armhf
+  libjpeg62-turbo:armhf libjpeg62-turbo-dev:armhf libncurses6 libnettle6:armhf
+  libp11-kit-dev:armhf libp11-kit0:armhf libpipeline1 libsigsegv2
+  libstdc++-8-dev:armhf libstdc++6:armhf libtasn1-6:armhf libtasn1-6-dev:armhf
+  libtool libubsan1:armhf libuchardet0 libunbound8:armhf libunistring2:armhf
+  linux-libc-dev:armhf m4 man-db nettle-dev:armhf pkg-config po-debconf
+  zlib1g:armhf zlib1g-dev:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  rng-tools:armhf libgcrypt20-doc:armhf gmp-doc:armhf libgmp10-doc:armhf
+  libmpfr-dev:armhf dns-root-data:armhf gnutls-bin:armhf gnutls-doc:armhf
+  libstdc++-8-doc:armhf libtool-doc gfortran | fortran95-compiler gcj-jdk
+  m4-doc apparmor less www-browser libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libarchive-cpio-perl libglib2.0-data shared-mime-info
+  xdg-user-dirs libgpg-error-l10n:armhf libgpm2 libtasn1-doc:armhf libltdl-dev
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libevent-2.1-6:armhf libffi6:armhf libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libgcrypt20:armhf libgcrypt20-dev:armhf
+  libglib2.0-0 libgmp-dev:armhf libgmp10:armhf libgmpxx4ldbl:armhf
+  libgnutls-dane0:armhf libgnutls-openssl27:armhf libgnutls28-dev:armhf
+  libgnutls30:armhf libgnutlsxx28:armhf libgomp1:armhf libgpg-error-dev:armhf
+  libgpg-error0:armhf libhogweed4:armhf libidn2-0:armhf libidn2-dev:armhf
+  libjpeg62-turbo:armhf libjpeg62-turbo-dev:armhf libncurses6 libnettle6:armhf
+  libp11-kit-dev:armhf libp11-kit0:armhf libpipeline1 libsigsegv2
+  libstdc++-8-dev:armhf libstdc++6:armhf libtasn1-6:armhf libtasn1-6-dev:armhf
+  libtool libubsan1:armhf libuchardet0 libunbound8:armhf libunistring2:armhf
+  linux-libc-dev:armhf m4 man-db nettle-dev:armhf pkg-config po-debconf
+  sbuild-build-depends-main-dummy:armhf zlib1g:armhf zlib1g-dev:armhf
+0 upgraded, 70 newly installed, 0 to remove and 0 not upgraded.
+Need to get 948 B/27.1 MB of archives.
+After this operation, 98.9 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [948 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 948 B in 0s (0 B/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../07-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../08-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../09-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../10-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../11-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../12-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../13-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../14-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../15-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../16-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../17-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../18-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../19-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../20-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../21-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../22-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../23-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../24-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../25-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../26-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../27-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../28-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../29-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../30-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../31-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../32-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../33-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../34-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libevent-2.1-6:armhf.
+Preparing to unpack .../35-libevent-2.1-6_2.1.8-stable-4_armhf.deb ...
+Unpacking libevent-2.1-6:armhf (2.1.8-stable-4) ...
+Selecting previously unselected package libffi6:armhf.
+Preparing to unpack .../36-libffi6_3.2.1-9_armhf.deb ...
+Unpacking libffi6:armhf (3.2.1-9) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../37-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../38-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../39-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libgpg-error0:armhf.
+Preparing to unpack .../40-libgpg-error0_1.35-1_armhf.deb ...
+Unpacking libgpg-error0:armhf (1.35-1) ...
+Selecting previously unselected package libgcrypt20:armhf.
+Preparing to unpack .../41-libgcrypt20_1.8.4-5_armhf.deb ...
+Unpacking libgcrypt20:armhf (1.8.4-5) ...
+Selecting previously unselected package libgpg-error-dev:armhf.
+Preparing to unpack .../42-libgpg-error-dev_1.35-1_armhf.deb ...
+Unpacking libgpg-error-dev:armhf (1.35-1) ...
+Selecting previously unselected package libgcrypt20-dev:armhf.
+Preparing to unpack .../43-libgcrypt20-dev_1.8.4-5_armhf.deb ...
+Unpacking libgcrypt20-dev:armhf (1.8.4-5) ...
+Selecting previously unselected package libgmp10:armhf.
+Preparing to unpack .../44-libgmp10_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libgmpxx4ldbl:armhf.
+Preparing to unpack .../45-libgmpxx4ldbl_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libgmp-dev:armhf.
+Preparing to unpack .../46-libgmp-dev_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libnettle6:armhf.
+Preparing to unpack .../47-libnettle6_3.4.1-1_armhf.deb ...
+Unpacking libnettle6:armhf (3.4.1-1) ...
+Selecting previously unselected package libhogweed4:armhf.
+Preparing to unpack .../48-libhogweed4_3.4.1-1_armhf.deb ...
+Unpacking libhogweed4:armhf (3.4.1-1) ...
+Selecting previously unselected package libunistring2:armhf.
+Preparing to unpack .../49-libunistring2_0.9.10-1_armhf.deb ...
+Unpacking libunistring2:armhf (0.9.10-1) ...
+Selecting previously unselected package libidn2-0:armhf.
+Preparing to unpack .../50-libidn2-0_2.0.5-1_armhf.deb ...
+Unpacking libidn2-0:armhf (2.0.5-1) ...
+Selecting previously unselected package libp11-kit0:armhf.
+Preparing to unpack .../51-libp11-kit0_0.23.15-2_armhf.deb ...
+Unpacking libp11-kit0:armhf (0.23.15-2) ...
+Selecting previously unselected package libtasn1-6:armhf.
+Preparing to unpack .../52-libtasn1-6_4.13-3_armhf.deb ...
+Unpacking libtasn1-6:armhf (4.13-3) ...
+Selecting previously unselected package libgnutls30:armhf.
+Preparing to unpack .../53-libgnutls30_3.6.6-2_armhf.deb ...
+Unpacking libgnutls30:armhf (3.6.6-2) ...
+Selecting previously unselected package libunbound8:armhf.
+Preparing to unpack .../54-libunbound8_1.9.0-2_armhf.deb ...
+Unpacking libunbound8:armhf (1.9.0-2) ...
+Selecting previously unselected package libgnutls-dane0:armhf.
+Preparing to unpack .../55-libgnutls-dane0_3.6.6-2_armhf.deb ...
+Unpacking libgnutls-dane0:armhf (3.6.6-2) ...
+Selecting previously unselected package libgnutls-openssl27:armhf.
+Preparing to unpack .../56-libgnutls-openssl27_3.6.6-2_armhf.deb ...
+Unpacking libgnutls-openssl27:armhf (3.6.6-2) ...
+Selecting previously unselected package libgnutlsxx28:armhf.
+Preparing to unpack .../57-libgnutlsxx28_3.6.6-2_armhf.deb ...
+Unpacking libgnutlsxx28:armhf (3.6.6-2) ...
+Selecting previously unselected package libidn2-dev:armhf.
+Preparing to unpack .../58-libidn2-dev_2.0.5-1_armhf.deb ...
+Unpacking libidn2-dev:armhf (2.0.5-1) ...
+Selecting previously unselected package libp11-kit-dev:armhf.
+Preparing to unpack .../59-libp11-kit-dev_0.23.15-2_armhf.deb ...
+Unpacking libp11-kit-dev:armhf (0.23.15-2) ...
+Selecting previously unselected package libtasn1-6-dev:armhf.
+Preparing to unpack .../60-libtasn1-6-dev_4.13-3_armhf.deb ...
+Unpacking libtasn1-6-dev:armhf (4.13-3) ...
+Selecting previously unselected package nettle-dev:armhf.
+Preparing to unpack .../61-nettle-dev_3.4.1-1_armhf.deb ...
+Unpacking nettle-dev:armhf (3.4.1-1) ...
+Selecting previously unselected package libgnutls28-dev:armhf.
+Preparing to unpack .../62-libgnutls28-dev_3.6.6-2_armhf.deb ...
+Unpacking libgnutls28-dev:armhf (3.6.6-2) ...
+Selecting previously unselected package libjpeg62-turbo:armhf.
+Preparing to unpack .../63-libjpeg62-turbo_1%3a1.5.2-2+b1_armhf.deb ...
+Unpacking libjpeg62-turbo:armhf (1:1.5.2-2+b1) ...
+Selecting previously unselected package libjpeg62-turbo-dev:armhf.
+Preparing to unpack .../64-libjpeg62-turbo-dev_1%3a1.5.2-2+b1_armhf.deb ...
+Unpacking libjpeg62-turbo-dev:armhf (1:1.5.2-2+b1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../65-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../66-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../67-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package zlib1g-dev:armhf.
+Preparing to unpack .../68-zlib1g-dev_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../69-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-7) ...
+Setting up libtasn1-6:armhf (4.13-3) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libtasn1-6-dev:armhf (4.13-3) ...
+Setting up libgpg-error0:armhf (1.35-1) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libunistring2:armhf (0.9.10-1) ...
+Setting up libgcrypt20:armhf (1.8.4-5) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libffi6:armhf (3.2.1-9) ...
+Setting up libidn2-0:armhf (2.0.5-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libjpeg62-turbo:armhf (1:1.5.2-2+b1) ...
+Setting up libgpg-error-dev:armhf (1.35-1) ...
+Setting up libjpeg62-turbo-dev:armhf (1:1.5.2-2+b1) ...
+Setting up libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Setting up libp11-kit0:armhf (0.23.15-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libnettle6:armhf (3.4.1-1) ...
+Setting up libidn2-dev:armhf (2.0.5-1) ...
+Setting up libevent-2.1-6:armhf (2.1.8-stable-4) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libp11-kit-dev:armhf (0.23.15-2) ...
+Setting up libhogweed4:armhf (3.4.1-1) ...
+Setting up debhelper (12.1.1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libunbound8:armhf (1.9.0-2) ...
+Setting up libgnutls30:armhf (3.6.6-2) ...
+Setting up libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Setting up libgcrypt20-dev:armhf (1.8.4-5) ...
+Setting up libgnutlsxx28:armhf (3.6.6-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libgnutls-dane0:armhf (3.6.6-2) ...
+Setting up libgnutls-openssl27:armhf (3.6.6-2) ...
+Setting up libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Setting up nettle-dev:armhf (3.4.1-1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libgnutls28-dev:armhf (3.6.6-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libevent-2.1-6_2.1.8-stable-4 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgcrypt20-dev_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp-dev_2:6.1.2+dfsg-4 libgmp10_2:6.1.2+dfsg-4 libgmpxx4ldbl_2:6.1.2+dfsg-4 libgnutls-dane0_3.6.6-2 libgnutls-openssl27_3.6.6-2 libgnutls28-dev_3.6.6-2 libgnutls30_3.6.6-2 libgnutlsxx28_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error-dev_1.35-1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libidn2-dev_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libjpeg62-turbo_1:1.5.2-2+b1 libjpeg62-turbo-dev_1:1.5.2-2+b1 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit-dev_0.23.15-2 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtasn1-6-dev_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunbound8_1.9.0-2 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 nettle-dev_3.4.1-1 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1 zlib1g-dev_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: libvncserver
+Binary: libvncclient1, libvncserver1, libvncserver-dev, libvncserver-config, libvncclient1-dbg, libvncserver1-dbg
+Architecture: any
+Version: 0.9.11+dfsg-1.3
+Maintainer: Peter Spiess-Knafl <dev@spiessknafl.at>
+Homepage: http://libvnc.github.io
+Standards-Version: 3.9.8
+Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/libvncserver.git
+Vcs-Git: https://anonscm.debian.org/git/collab-maint/libvncserver.git
+Testsuite: autopkgtest
+Testsuite-Triggers: build-essential
+Build-Depends: debhelper (>= 10), dh-autoreconf, libgnutls28-dev, libjpeg-dev, pkg-config, libgcrypt20-dev, zlib1g-dev
+Package-List:
+ libvncclient1 deb libs optional arch=any
+ libvncclient1-dbg deb debug extra arch=any
+ libvncserver-config deb libdevel optional arch=any
+ libvncserver-dev deb libdevel optional arch=any
+ libvncserver1 deb libs optional arch=any
+ libvncserver1-dbg deb debug extra arch=any
+Checksums-Sha1:
+ bd42abab1860bd92890b580453d9865fc9d8e229 525748 libvncserver_0.9.11+dfsg.orig.tar.gz
+ 00a01dbd9737965ad9d3e045a241c5712ab15ece 21212 libvncserver_0.9.11+dfsg-1.3.debian.tar.xz
+Checksums-Sha256:
+ ea27be2b923cc5e89fb2d93415fdc2373c90cdd2379cf9c671fa234482c69509 525748 libvncserver_0.9.11+dfsg.orig.tar.gz
+ fcbb00848a548f15e151b293639cd1576591d894b7101682c659f36cf78e8bf7 21212 libvncserver_0.9.11+dfsg-1.3.debian.tar.xz
+Files:
+ 192d76504c82a2b6a1a0eb979b2b0733 525748 libvncserver_0.9.11+dfsg.orig.tar.gz
+ b6cc75c50051e2efd0d4620cd9f2d5a9 21212 libvncserver_0.9.11+dfsg-1.3.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQKmBAEBCgCQFiEERkRAmAjBceBVMd3uBUy48xNDz0QFAlxSG8FfFIAAAAAALgAo
+aXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5maWZ0aGhvcnNlbWFuLm5ldDQ2
+NDQ0MDk4MDhDMTcxRTA1NTMxRERFRTA1NENCOEYzMTM0M0NGNDQSHGNhcm5pbEBk
+ZWJpYW4ub3JnAAoJEAVMuPMTQ89Eap4P/jxYQramxAUpJnZYOHiuNmzRprZ2w5fl
+HuIXiDx96LCekVHU1QR93t4j0UdGX0zqWAk1HRBg2E/ZnGw/vhpBpm/TmCie1QZY
+HWUiGfEfeSoyDMhoAUh60AvOI7M31HUxPJVzt714uTQc7kfuqsFdW3pBb8ewpop2
+pH1761/wsixp7ZuO4KblabDYvEZjsDUuDeF6F+m3+P7LaMVxArN2Tj8v1TUUX888
+1CT5xiQ9rzy0gAj3+2+u9vewdSKRQ8+O3QZJdzPw6Ru9vM3+Ra90yWqVjLK82AWW
+NjFTxNM9ZQFnGSgXMSP93drtKWDQpC5qBZ/2Qb9WdxpY1/nAz8yjpsS8rzrX+B/L
+7GtGgzIntrJLAlHq/yCTipnPSYQMOcgz42e5Z5h0rH7Zn02PcrXISBFm4HfnJXcR
+LJ9rhm4DPvbK+ttvlZJZbQVl7b/M5ZnO6ZL3vSJV3PaDB7GClRJqaeVxfUy58sOk
+PxxN4z8LFqQoNTpvgsYKGcXz5EzEVOTHUe0lek0K7L1MG2PYkCWL5yrwiXmk86AZ
+M7y9lL+CbsSZJuf1Tqv3wX4z5fkHJEilWyT4W/+24uisLt22h+exHTCo6qFGp/YC
+0F5l2MCRb9HkFtC++7pVXOZJgRPaLukGxdyLN2daqR1GuEoJKRasQIGUZJ3UqFvK
+0Wa5TAYyf/Km
+=ywqt
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Wed Jan 30 21:48:49 2019 UTC
+gpgv:                using RSA key 4644409808C171E05531DDEE054CB8F31343CF44
+gpgv:                issuer "carnil@debian.org"
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./libvncserver_0.9.11+dfsg-1.3.dsc
+dpkg-source: info: extracting libvncserver in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking libvncserver_0.9.11+dfsg.orig.tar.gz
+dpkg-source: info: unpacking libvncserver_0.9.11+dfsg-1.3.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying remove-libpng.patch
+dpkg-source: info: applying 0001-ignore_webclients.patch
+dpkg-source: info: applying CVE-2018-7225.patch
+dpkg-source: info: applying CVE-2018-15126/0001-tightvnc-filetransfer-tie-the-download-thread-to-the.patch
+dpkg-source: info: applying CVE-2018-15126/0002-tightvnc-filetransfer-refactor-CloseUndoneFileTransf.patch
+dpkg-source: info: applying CVE-2018-15126/0003-tightvnc-filetransfer-wait-for-download-thread-end-i.patch
+dpkg-source: info: applying CVE-2018-15126/0004-tightvnc-filetransfer-when-creating-a-new-download-t.patch
+dpkg-source: info: applying CVE-2018-15126/0005-tightvnc-filetransfer-do-not-close-stuff-from-within.patch
+dpkg-source: info: applying CVE-2018-15127/0001-LibVNCServer-fix-heap-out-of-bound-write-access.patch
+dpkg-source: info: applying CVE-2018-20019/0001-LibVNCClient-fix-three-possible-heap-buffer-overflow.patch
+dpkg-source: info: applying CVE-2018-20020/0001-LibVNCClient-make-sure-ReadFromRFBServer-does-not-wr.patch
+dpkg-source: info: applying CVE-2018-20020/0002-LibVNCClient-really-fix-250.patch
+dpkg-source: info: applying CVE-2018-20021/0001-LibVNCClient-fix-possible-infinite-loop.patch
+dpkg-source: info: applying CVE-2018-20022/0001-LibVNCClient-don-t-leak-uninitialised-memory-to-remo.patch
+dpkg-source: info: applying CVE-2018-20023/0001-When-connecting-to-a-repeater-only-send-initialised-.patch
+dpkg-source: info: applying CVE-2018-20024/0001-LibVNCClient-make-sure-Ultra-decoding-cannot-derefer.patch
+dpkg-source: info: applying CVE-2018-6307/0001-tightvnc-filetransfer-fix-heap-use-after-free.patch
+dpkg-source: info: applying CVE-2018-20748/0001-LibVNCClient-ignore-server-sent-cut-text-longer-than.patch
+dpkg-source: info: applying CVE-2018-20748/0002-LibVNCClient-ignore-server-sent-reason-strings-longe.patch
+dpkg-source: info: applying CVE-2018-20748/0003-LibVNCClient-fail-on-server-sent-desktop-name-length.patch
+dpkg-source: info: applying CVE-2018-20748/0004-LibVNCClient-remove-now-useless-cast.patch
+dpkg-source: info: applying CVE-2018-20749/0001-Error-out-in-rfbProcessFileTransferReadBuffer-if-len.patch
+dpkg-source: info: applying CVE-2018-20750/0001-Limit-lenght-to-INT_MAX-bytes-in-rfbProcessFileTrans.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-2d81f82b-9975-4e17-8b83-226ec6f76ea9
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package libvncserver
+dpkg-buildpackage: info: source version 0.9.11+dfsg-1.3
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Salvatore Bonaccorso <carnil@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean  --with autoreconf
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_clean
+rm -f rfb/rfbconfig.h
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_clean
+ debian/rules build-arch
+dh build-arch  --with autoreconf
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:16: installing './compile'
+configure.ac:25: installing './config.guess'
+configure.ac:25: installing './config.sub'
+configure.ac:3: installing './install-sh'
+configure.ac:3: installing './missing'
+Makefile.am: installing './INSTALL'
+client_examples/Makefile.am: installing './depcomp'
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_configure -- --disable-silent-rules --without-png
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --disable-silent-rules --without-png
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking whether make sets $(MAKE)... (cached) yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/arm-linux-gnueabihf-nm -B
+checking the name lister (/usr/bin/arm-linux-gnueabihf-nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for arm-linux-gnueabihf-objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for arm-linux-gnueabihf-dlltool... dlltool
+checking how to associate runtime and link libraries... printf %s\n
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for archiver @FILE support... @
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for arm-linux-gnueabihf-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC -DPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for arm-linux-gnueabihf-ar... (cached) arm-linux-gnueabihf-ar
+checking for __b64_ntop... no
+checking for __b64_ntop in -lresolv... yes
+checking for arm-linux-gnueabihf-pkg-config... /usr/bin/arm-linux-gnueabihf-pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for LIBSYSTEMD... no
+checking thenonexistentheader.h usability... no
+checking thenonexistentheader.h presence... no
+checking for thenonexistentheader.h... no
+checking for crypt... no
+checking for crypt in -lcrypt... yes
+checking for RAND_file_name in -lcrypto... no
+checking for SSL_library_init in -lssl... no
+checking jpeglib.h usability... yes
+checking jpeglib.h presence... yes
+checking for jpeglib.h... yes
+checking for jpeg_CreateCompress in libjpeg... yes
+checking whether JPEG library is libjpeg-turbo... yes
+checking zlib.h usability... yes
+checking zlib.h presence... yes
+checking for zlib.h... yes
+checking for deflate in -lz... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_mutex_lock in -lpthread... yes
+checking for pthread_mutex_lock in -lpthread... (cached) yes
+checking for __thread... yes
+checking for GTK... no
+checking for arm-linux-gnueabihf-libgcrypt-config... no
+checking for libgcrypt-config... /usr/bin/libgcrypt-config
+configure: WARNING: using cross tools not prefixed with host triplet
+checking for LIBGCRYPT - version >= 1.4.0... yes (1.8.4)
+checking for GNUTLS... yes
+checking for getaddrinfo... yes
+checking for ANSI C header files... (cached) yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking for endian.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking for stdlib.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/endian.h usability... no
+checking sys/endian.h presence... no
+checking for sys/endian.h... no
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/timeb.h usability... yes
+checking sys/timeb.h presence... yes
+checking for sys/timeb.h... yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking for unistd.h... (cached) yes
+checking ws2tcpip.h usability... no
+checking ws2tcpip.h presence... no
+checking for ws2tcpip.h... no
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for size_t... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking for socklen_t... yes
+checking for in_addr_t... 
+checking for working memcmp... no
+checking whether lstat correctly handles trailing slash... no
+checking whether stat accepts an empty string... yes
+checking for strftime... yes
+checking for vprintf... yes
+checking for _doprnt... no
+checking for pid_t... yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... cross
+configure: WARNING: result yes guessed because of cross compilation
+checking for working vfork... (cached) yes
+checking for gethostbyname in -lnsl... yes
+checking for socket in -lsocket... no
+checking for ftime... yes
+checking for gethostbyname... yes
+checking for gethostname... yes
+checking for gettimeofday... yes
+checking for inet_ntoa... yes
+checking for memmove... yes
+checking for memset... yes
+checking for mmap... yes
+checking for mkfifo... yes
+checking for select... yes
+checking for socket... yes
+checking for strchr... yes
+checking for strcspn... yes
+checking for strdup... yes
+checking for strerror... yes
+checking for strstr... yes
+checking for shmget in -lcygipc... no
+checking ApplicationServices/ApplicationServices.h usability... no
+checking ApplicationServices/ApplicationServices.h presence... no
+checking for ApplicationServices/ApplicationServices.h... no
+checking android/api-level.h usability... no
+checking android/api-level.h presence... no
+checking for android/api-level.h... no
+checking for rpm sources path... NOT-FOUND
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libvncserver.pc
+config.status: creating libvncclient.pc
+config.status: creating libvncserver/Makefile
+config.status: creating examples/Makefile
+config.status: creating examples/android/Makefile
+config.status: creating libvncclient/Makefile
+config.status: creating client_examples/Makefile
+config.status: creating test/Makefile
+config.status: creating libvncserver-config
+config.status: creating LibVNCServer.spec
+config.status: creating rfbconfig.h
+config.status: executing rfb/rfbconfig.h commands
+config.status: creating rfb/rfbconfig.h - prefix LIBVNCSERVER for rfbconfig.h defines
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing chmod-libvncserver-config commands
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_build -a
+	make -j1
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+make  all-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in libvncserver
+make[3]: Entering directory '/<<PKGBUILDDIR>>/libvncserver'
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-main.lo `test -f 'main.c' || echo './'`main.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c main.c  -fPIC -DPIC -o .libs/libvncserver_la-main.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c main.c -o libvncserver_la-main.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-rfbserver.lo `test -f 'rfbserver.c' || echo './'`rfbserver.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c rfbserver.c  -fPIC -DPIC -o .libs/libvncserver_la-rfbserver.o
+rfbserver.c: In function ‘rfbSendDirContent.part.2’:
+rfbserver.c:1380:50: warning: ‘%s’ directive output may be truncated writing up to 255 bytes into a region of size between 0 and 259 [-Wformat-truncation=]
+     snprintf(retfilename,sizeof(retfilename),"%s/%s", path, direntp->d_name);
+                                                  ^~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from rfbserver.c:35:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 2 and 516 bytes into a destination of size 260
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c rfbserver.c -o libvncserver_la-rfbserver.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-rfbregion.lo `test -f 'rfbregion.c' || echo './'`rfbregion.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c rfbregion.c  -fPIC -DPIC -o .libs/libvncserver_la-rfbregion.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c rfbregion.c -o libvncserver_la-rfbregion.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-auth.lo `test -f 'auth.c' || echo './'`auth.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c auth.c  -fPIC -DPIC -o .libs/libvncserver_la-auth.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c auth.c -o libvncserver_la-auth.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-sockets.lo `test -f 'sockets.c' || echo './'`sockets.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c sockets.c  -fPIC -DPIC -o .libs/libvncserver_la-sockets.o
+sockets.c: In function ‘rfbReadExactTimeout’:
+sockets.c:652:32: warning: passing argument 2 to restrict-qualified parameter aliases with argument 4 [-Wrestrict]
+             n = select(sock+1, &fds, NULL, &fds, &tv);
+                                ^~~~        ~~~~
+sockets.c: In function ‘rfbPeekExactTimeout’:
+sockets.c:738:32: warning: passing argument 2 to restrict-qualified parameter aliases with argument 4 [-Wrestrict]
+             n = select(sock+1, &fds, NULL, &fds, &tv);
+                                ^~~~        ~~~~
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c sockets.c -o libvncserver_la-sockets.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-websockets.lo `test -f 'websockets.c' || echo './'`websockets.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c websockets.c  -fPIC -DPIC -o .libs/libvncserver_la-websockets.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c websockets.c -o libvncserver_la-websockets.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-rfbssl_gnutls.lo `test -f 'rfbssl_gnutls.c' || echo './'`rfbssl_gnutls.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c rfbssl_gnutls.c  -fPIC -DPIC -o .libs/libvncserver_la-rfbssl_gnutls.o
+rfbssl_gnutls.c: In function ‘rfbssl_init_session’:
+rfbssl_gnutls.c:55:27: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
+     if (!GNUTLS_E_SUCCESS == (ret = gnutls_init(&session, GNUTLS_SERVER))) {
+                           ^~
+rfbssl_gnutls.c:57:34: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
+     } else if (!GNUTLS_E_SUCCESS == (ret = gnutls_priority_set_direct(session, "EXPORT", NULL))) {
+                                  ^~
+rfbssl_gnutls.c:59:34: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
+     } else if (!GNUTLS_E_SUCCESS == (ret = gnutls_credentials_set(session, GNUTLS_CRD_CERTIFICATE, ctx->x509_cred))) {
+                                  ^~
+rfbssl_gnutls.c: In function ‘rfbssl_init_global’:
+rfbssl_gnutls.c:94:34: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
+     } else if (!GNUTLS_E_SUCCESS == (ret = gnutls_global_init())) {
+                                  ^~
+rfbssl_gnutls.c:96:34: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
+     } else if (!GNUTLS_E_SUCCESS == (ret = gnutls_certificate_allocate_credentials(&ctx->x509_cred))) {
+                                  ^~
+rfbssl_gnutls.c:100:34: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
+     } else if (!GNUTLS_E_SUCCESS == (ret = gnutls_certificate_set_x509_key_file(ctx->x509_cred, cert, key, GNUTLS_X509_FMT_PEM))) {
+                                  ^~
+rfbssl_gnutls.c:102:34: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
+     } else if (!GNUTLS_E_SUCCESS == (ret = generate_dh_params(ctx))) {
+                                  ^~
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c rfbssl_gnutls.c -o libvncserver_la-rfbssl_gnutls.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-rfbcrypto_gnutls.lo `test -f 'rfbcrypto_gnutls.c' || echo './'`rfbcrypto_gnutls.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c rfbcrypto_gnutls.c  -fPIC -DPIC -o .libs/libvncserver_la-rfbcrypto_gnutls.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c rfbcrypto_gnutls.c -o libvncserver_la-rfbcrypto_gnutls.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-stats.lo `test -f 'stats.c' || echo './'`stats.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c stats.c  -fPIC -DPIC -o .libs/libvncserver_la-stats.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c stats.c -o libvncserver_la-stats.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-corre.lo `test -f 'corre.c' || echo './'`corre.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c corre.c  -fPIC -DPIC -o .libs/libvncserver_la-corre.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c corre.c -o libvncserver_la-corre.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-hextile.lo `test -f 'hextile.c' || echo './'`hextile.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c hextile.c  -fPIC -DPIC -o .libs/libvncserver_la-hextile.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c hextile.c -o libvncserver_la-hextile.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-rre.lo `test -f 'rre.c' || echo './'`rre.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c rre.c  -fPIC -DPIC -o .libs/libvncserver_la-rre.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c rre.c -o libvncserver_la-rre.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-translate.lo `test -f 'translate.c' || echo './'`translate.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c translate.c  -fPIC -DPIC -o .libs/libvncserver_la-translate.o
+In file included from translate.c:114:
+tableinit24.c: In function ‘rfbInitOneRGBTable24’:
+tableinit24.c:150:7: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+       if(!rfbEndianTest)
+       ^~
+tableinit24.c:152:9: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+         if (swap) {
+         ^~
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c translate.c -o libvncserver_la-translate.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-cutpaste.lo `test -f 'cutpaste.c' || echo './'`cutpaste.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c cutpaste.c  -fPIC -DPIC -o .libs/libvncserver_la-cutpaste.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c cutpaste.c -o libvncserver_la-cutpaste.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-httpd.lo `test -f 'httpd.c' || echo './'`httpd.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c httpd.c  -fPIC -DPIC -o .libs/libvncserver_la-httpd.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c httpd.c -o libvncserver_la-httpd.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-cursor.lo `test -f 'cursor.c' || echo './'`cursor.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c cursor.c  -fPIC -DPIC -o .libs/libvncserver_la-cursor.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c cursor.c -o libvncserver_la-cursor.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-font.lo `test -f 'font.c' || echo './'`font.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c font.c  -fPIC -DPIC -o .libs/libvncserver_la-font.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c font.c -o libvncserver_la-font.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-draw.lo `test -f 'draw.c' || echo './'`draw.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c draw.c  -fPIC -DPIC -o .libs/libvncserver_la-draw.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c draw.c -o libvncserver_la-draw.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-selbox.lo `test -f 'selbox.c' || echo './'`selbox.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c selbox.c  -fPIC -DPIC -o .libs/libvncserver_la-selbox.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c selbox.c -o libvncserver_la-selbox.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o ../common/libvncserver_la-d3des.lo `test -f '../common/d3des.c' || echo './'`../common/d3des.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c ../common/d3des.c  -fPIC -DPIC -o ../common/.libs/libvncserver_la-d3des.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c ../common/d3des.c -o ../common/libvncserver_la-d3des.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o ../common/libvncserver_la-vncauth.lo `test -f '../common/vncauth.c' || echo './'`../common/vncauth.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c ../common/vncauth.c  -fPIC -DPIC -o ../common/.libs/libvncserver_la-vncauth.o
+../common/vncauth.c: In function ‘rfbEncryptBytes2’:
+../common/vncauth.c:208:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for (j = 0; j < 8; j++)
+     ^~~
+../common/vncauth.c:210:7: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+       rfbDes(where + i, where + i);
+       ^~~~~~
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c ../common/vncauth.c -o ../common/libvncserver_la-vncauth.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-cargs.lo `test -f 'cargs.c' || echo './'`cargs.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c cargs.c  -fPIC -DPIC -o .libs/libvncserver_la-cargs.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c cargs.c -o libvncserver_la-cargs.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o ../common/libvncserver_la-minilzo.lo `test -f '../common/minilzo.c' || echo './'`../common/minilzo.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c ../common/minilzo.c  -fPIC -DPIC -o ../common/.libs/libvncserver_la-minilzo.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c ../common/minilzo.c -o ../common/libvncserver_la-minilzo.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-ultra.lo `test -f 'ultra.c' || echo './'`ultra.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c ultra.c  -fPIC -DPIC -o .libs/libvncserver_la-ultra.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c ultra.c -o libvncserver_la-ultra.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-scale.lo `test -f 'scale.c' || echo './'`scale.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c scale.c  -fPIC -DPIC -o .libs/libvncserver_la-scale.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c scale.c -o libvncserver_la-scale.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-zlib.lo `test -f 'zlib.c' || echo './'`zlib.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c zlib.c  -fPIC -DPIC -o .libs/libvncserver_la-zlib.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c zlib.c -o libvncserver_la-zlib.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-zrle.lo `test -f 'zrle.c' || echo './'`zrle.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c zrle.c  -fPIC -DPIC -o .libs/libvncserver_la-zrle.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c zrle.c -o libvncserver_la-zrle.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-zrleoutstream.lo `test -f 'zrleoutstream.c' || echo './'`zrleoutstream.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c zrleoutstream.c  -fPIC -DPIC -o .libs/libvncserver_la-zrleoutstream.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c zrleoutstream.c -o libvncserver_la-zrleoutstream.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-zrlepalettehelper.lo `test -f 'zrlepalettehelper.c' || echo './'`zrlepalettehelper.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c zrlepalettehelper.c  -fPIC -DPIC -o .libs/libvncserver_la-zrlepalettehelper.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c zrlepalettehelper.c -o libvncserver_la-zrlepalettehelper.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o ../common/libvncserver_la-zywrletemplate.lo `test -f '../common/zywrletemplate.c' || echo './'`../common/zywrletemplate.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c ../common/zywrletemplate.c  -fPIC -DPIC -o ../common/.libs/libvncserver_la-zywrletemplate.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c ../common/zywrletemplate.c -o ../common/libvncserver_la-zywrletemplate.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o libvncserver_la-tight.lo `test -f 'tight.c' || echo './'`tight.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c tight.c  -fPIC -DPIC -o .libs/libvncserver_la-tight.o
+tight.c:1672:1: warning: ‘PrepareRowForImg’ defined but not used [-Wunused-function]
+ PrepareRowForImg(rfbClientPtr cl,
+ ^~~~~~~~~~~~~~~~
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c tight.c -o libvncserver_la-tight.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o ../common/libvncserver_la-turbojpeg.lo `test -f '../common/turbojpeg.c' || echo './'`../common/turbojpeg.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c ../common/turbojpeg.c  -fPIC -DPIC -o ../common/.libs/libvncserver_la-turbojpeg.o
+../common/turbojpeg.c: In function ‘_tjInitCompress’:
+../common/turbojpeg.c:471:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   if(this) free(this);  return NULL;
+   ^~
+../common/turbojpeg.c:471:25: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   if(this) free(this);  return NULL;
+                         ^~~~~~
+../common/turbojpeg.c: In function ‘_tjInitDecompress’:
+../common/turbojpeg.c:655:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   if(this) free(this);  return NULL;
+   ^~
+../common/turbojpeg.c:655:25: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   if(this) free(this);  return NULL;
+                         ^~~~~~
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c ../common/turbojpeg.c -o ../common/libvncserver_la-turbojpeg.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o tightvnc-filetransfer/libvncserver_la-rfbtightserver.lo `test -f 'tightvnc-filetransfer/rfbtightserver.c' || echo './'`tightvnc-filetransfer/rfbtightserver.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c tightvnc-filetransfer/rfbtightserver.c  -fPIC -DPIC -o tightvnc-filetransfer/.libs/libvncserver_la-rfbtightserver.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c tightvnc-filetransfer/rfbtightserver.c -o tightvnc-filetransfer/libvncserver_la-rfbtightserver.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o tightvnc-filetransfer/libvncserver_la-handlefiletransferrequest.lo `test -f 'tightvnc-filetransfer/handlefiletransferrequest.c' || echo './'`tightvnc-filetransfer/handlefiletransferrequest.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c tightvnc-filetransfer/handlefiletransferrequest.c  -fPIC -DPIC -o tightvnc-filetransfer/.libs/libvncserver_la-handlefiletransferrequest.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c tightvnc-filetransfer/handlefiletransferrequest.c -o tightvnc-filetransfer/libvncserver_la-handlefiletransferrequest.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o tightvnc-filetransfer/libvncserver_la-filetransfermsg.lo `test -f 'tightvnc-filetransfer/filetransfermsg.c' || echo './'`tightvnc-filetransfer/filetransfermsg.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c tightvnc-filetransfer/filetransfermsg.c  -fPIC -DPIC -o tightvnc-filetransfer/.libs/libvncserver_la-filetransfermsg.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c tightvnc-filetransfer/filetransfermsg.c -o tightvnc-filetransfer/libvncserver_la-filetransfermsg.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o tightvnc-filetransfer/libvncserver_la-filelistinfo.lo `test -f 'tightvnc-filetransfer/filelistinfo.c' || echo './'`tightvnc-filetransfer/filelistinfo.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c tightvnc-filetransfer/filelistinfo.c  -fPIC -DPIC -o tightvnc-filetransfer/.libs/libvncserver_la-filelistinfo.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c tightvnc-filetransfer/filelistinfo.c -o tightvnc-filetransfer/libvncserver_la-filelistinfo.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -version-info 1:0:0 -Wl,-z,relro -o libvncserver.la -rpath /usr/lib/arm-linux-gnueabihf libvncserver_la-main.lo libvncserver_la-rfbserver.lo libvncserver_la-rfbregion.lo libvncserver_la-auth.lo libvncserver_la-sockets.lo libvncserver_la-websockets.lo libvncserver_la-rfbssl_gnutls.lo libvncserver_la-rfbcrypto_gnutls.lo libvncserver_la-stats.lo libvncserver_la-corre.lo libvncserver_la-hextile.lo libvncserver_la-rre.lo libvncserver_la-translate.lo libvncserver_la-cutpaste.lo libvncserver_la-httpd.lo libvncserver_la-cursor.lo libvncserver_la-font.lo libvncserver_la-draw.lo libvncserver_la-selbox.lo ../common/libvncserver_la-d3des.lo ../common/libvncserver_la-vncauth.lo libvncserver_la-cargs.lo ../common/libvncserver_la-minilzo.lo libvncserver_la-ultra.lo libvncserver_la-scale.lo libvncserver_la-zlib.lo libvncserver_la-zrle.lo libvncserver_la-zrleoutstream.lo libvncserver_la-zrlepalettehelper.lo ../common/libvncserver_la-zywrletemplate.lo libvncserver_la-tight.lo ../common/libvncserver_la-turbojpeg.lo tightvnc-filetransfer/libvncserver_la-rfbtightserver.lo tightvnc-filetransfer/libvncserver_la-handlefiletransferrequest.lo tightvnc-filetransfer/libvncserver_la-filetransfermsg.lo tightvnc-filetransfer/libvncserver_la-filelistinfo.lo -L/usr/lib/arm-linux-gnueabihf -lgnutls  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -shared  -fPIC -DPIC  .libs/libvncserver_la-main.o .libs/libvncserver_la-rfbserver.o .libs/libvncserver_la-rfbregion.o .libs/libvncserver_la-auth.o .libs/libvncserver_la-sockets.o .libs/libvncserver_la-websockets.o .libs/libvncserver_la-rfbssl_gnutls.o .libs/libvncserver_la-rfbcrypto_gnutls.o .libs/libvncserver_la-stats.o .libs/libvncserver_la-corre.o .libs/libvncserver_la-hextile.o .libs/libvncserver_la-rre.o .libs/libvncserver_la-translate.o .libs/libvncserver_la-cutpaste.o .libs/libvncserver_la-httpd.o .libs/libvncserver_la-cursor.o .libs/libvncserver_la-font.o .libs/libvncserver_la-draw.o .libs/libvncserver_la-selbox.o ../common/.libs/libvncserver_la-d3des.o ../common/.libs/libvncserver_la-vncauth.o .libs/libvncserver_la-cargs.o ../common/.libs/libvncserver_la-minilzo.o .libs/libvncserver_la-ultra.o .libs/libvncserver_la-scale.o .libs/libvncserver_la-zlib.o .libs/libvncserver_la-zrle.o .libs/libvncserver_la-zrleoutstream.o .libs/libvncserver_la-zrlepalettehelper.o ../common/.libs/libvncserver_la-zywrletemplate.o .libs/libvncserver_la-tight.o ../common/.libs/libvncserver_la-turbojpeg.o tightvnc-filetransfer/.libs/libvncserver_la-rfbtightserver.o tightvnc-filetransfer/.libs/libvncserver_la-handlefiletransferrequest.o tightvnc-filetransfer/.libs/libvncserver_la-filetransfermsg.o tightvnc-filetransfer/.libs/libvncserver_la-filelistinfo.o   -L/usr/lib/arm-linux-gnueabihf -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -lgnutls  -g -O2 -fstack-protector-strong -Wl,-z -Wl,relro   -Wl,-soname -Wl,libvncserver.so.1 -o .libs/libvncserver.so.1.0.0
+libtool: link: (cd ".libs" && rm -f "libvncserver.so.1" && ln -s "libvncserver.so.1.0.0" "libvncserver.so.1")
+libtool: link: (cd ".libs" && rm -f "libvncserver.so" && ln -s "libvncserver.so.1.0.0" "libvncserver.so")
+libtool: link: arm-linux-gnueabihf-ar cru .libs/libvncserver.a  libvncserver_la-main.o libvncserver_la-rfbserver.o libvncserver_la-rfbregion.o libvncserver_la-auth.o libvncserver_la-sockets.o libvncserver_la-websockets.o libvncserver_la-rfbssl_gnutls.o libvncserver_la-rfbcrypto_gnutls.o libvncserver_la-stats.o libvncserver_la-corre.o libvncserver_la-hextile.o libvncserver_la-rre.o libvncserver_la-translate.o libvncserver_la-cutpaste.o libvncserver_la-httpd.o libvncserver_la-cursor.o libvncserver_la-font.o libvncserver_la-draw.o libvncserver_la-selbox.o ../common/libvncserver_la-d3des.o ../common/libvncserver_la-vncauth.o libvncserver_la-cargs.o ../common/libvncserver_la-minilzo.o libvncserver_la-ultra.o libvncserver_la-scale.o libvncserver_la-zlib.o libvncserver_la-zrle.o libvncserver_la-zrleoutstream.o libvncserver_la-zrlepalettehelper.o ../common/libvncserver_la-zywrletemplate.o libvncserver_la-tight.o ../common/libvncserver_la-turbojpeg.o tightvnc-filetransfer/libvncserver_la-rfbtightserver.o tightvnc-filetransfer/libvncserver_la-handlefiletransferrequest.o tightvnc-filetransfer/libvncserver_la-filetransfermsg.o tightvnc-filetransfer/libvncserver_la-filelistinfo.o
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: arm-linux-gnueabihf-ranlib .libs/libvncserver.a
+libtool: link: ( cd ".libs" && rm -f "libvncserver.la" && ln -s "../libvncserver.la" "libvncserver.la" )
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/libvncserver'
+Making all in examples
+make[3]: Entering directory '/<<PKGBUILDDIR>>/examples'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/examples'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o example.o example.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o example example.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/example example.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o pnmshow.o pnmshow.c
+pnmshow.c: In function ‘main’:
+pnmshow.c:33:3: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+   fgets(buffer,1024,in);
+   ^~~~~~~~~~~~~~~~~~~~~
+pnmshow.c:50:5: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+     fgets(buffer,1024,in);
+     ^~~~~~~~~~~~~~~~~~~~~
+pnmshow.c:57:2: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+  fgets(buffer,1024,in);
+  ^~~~~~~~~~~~~~~~~~~~~
+pnmshow.c:82:3: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+   fread(rfbScreen->frameBuffer,width*bitsPerPixelInFile/8,height,in);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o pnmshow pnmshow.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/pnmshow pnmshow.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o regiontest.o regiontest.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o regiontest regiontest.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/regiontest regiontest.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o pnmshow24.o pnmshow24.c
+pnmshow24.c: In function ‘main’:
+pnmshow24.c:37:3: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+   fgets(buffer,1024,in);
+   ^~~~~~~~~~~~~~~~~~~~~
+pnmshow24.c:45:5: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+     fgets(buffer,1024,in);
+     ^~~~~~~~~~~~~~~~~~~~~
+pnmshow24.c:51:3: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+   fgets(buffer,1024,in);
+   ^~~~~~~~~~~~~~~~~~~~~
+pnmshow24.c:77:3: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+   fread(rfbScreen->frameBuffer,width*3,height,in);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o pnmshow24 pnmshow24.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/pnmshow24 pnmshow24.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o fontsel.o fontsel.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o fontsel fontsel.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/fontsel fontsel.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o vncev.o vncev.c
+vncev.c: In function ‘read_keys’:
+vncev.c:45:7: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+       fgets(buffer,1024,keysyms);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o vncev vncev.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/vncev vncev.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o storepasswd.o storepasswd.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o storepasswd storepasswd.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/storepasswd storepasswd.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o colourmaptest.o colourmaptest.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o colourmaptest colourmaptest.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/colourmaptest colourmaptest.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o simple.o simple.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o simple simple.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/simple simple.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o simple15.o simple15.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o simple15 simple15.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/simple15 simple15.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o filetransfer.o filetransfer.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o filetransfer filetransfer.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/filetransfer filetransfer.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o backchannel.o backchannel.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o backchannel backchannel.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/backchannel backchannel.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o blooptest.o blooptest.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o blooptest blooptest.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/blooptest blooptest.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o camera.o camera.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o camera camera.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/camera camera.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o rotate.o rotate.c
+In file included from rotate.c:84:
+pnmshow.c: In function ‘main’:
+pnmshow.c:33:3: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+   fgets(buffer,1024,in);
+   ^~~~~~~~~~~~~~~~~~~~~
+pnmshow.c:50:5: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+     fgets(buffer,1024,in);
+     ^~~~~~~~~~~~~~~~~~~~~
+pnmshow.c:57:2: warning: ignoring return value of ‘fgets’, declared with attribute warn_unused_result [-Wunused-result]
+  fgets(buffer,1024,in);
+  ^~~~~~~~~~~~~~~~~~~~~
+pnmshow.c:82:3: warning: ignoring return value of ‘fread’, declared with attribute warn_unused_result [-Wunused-result]
+   fread(rfbScreen->frameBuffer,width*bitsPerPixelInFile/8,height,in);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o rotate rotate.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/rotate rotate.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o zippy.o zippy.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o zippy zippy.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/zippy zippy.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o repeater.o repeater.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o repeater repeater.o ../libvncserver/libvncserver.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/repeater repeater.o  ../libvncserver/.libs/libvncserver.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/examples'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/examples'
+Making all in libvncclient
+make[3]: Entering directory '/<<PKGBUILDDIR>>/libvncclient'
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o cursor.lo cursor.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c cursor.c  -fPIC -DPIC -o .libs/cursor.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c cursor.c -o cursor.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o listen.lo listen.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c listen.c  -fPIC -DPIC -o .libs/listen.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c listen.c -o listen.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o rfbproto.lo rfbproto.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c rfbproto.c  -fPIC -DPIC -o .libs/rfbproto.o
+rfbproto.c: In function ‘ClearClient2Server’:
+rfbproto.c:339:76: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+   client->supportedMessages.client2server[((messageType & 0xFF)/8)] &= (!(1<<(messageType % 8)));
+                                                                          ~~^~~~~~~~~~~~~~~~~~~~
+rfbproto.c: In function ‘ClearServer2Client’:
+rfbproto.c:345:76: warning: ‘<<’ in boolean context, did you mean ‘<’ ? [-Wint-in-bool-context]
+   client->supportedMessages.server2client[((messageType & 0xFF)/8)] &= (!(1<<(messageType % 8)));
+                                                                          ~~^~~~~~~~~~~~~~~~~~~~
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c rfbproto.c -o rfbproto.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o sockets.lo sockets.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c sockets.c  -fPIC -DPIC -o .libs/sockets.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c sockets.c -o sockets.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o vncviewer.lo vncviewer.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c vncviewer.c  -fPIC -DPIC -o .libs/vncviewer.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c vncviewer.c -o vncviewer.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o ../common/minilzo.lo ../common/minilzo.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c ../common/minilzo.c  -fPIC -DPIC -o ../common/.libs/minilzo.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c ../common/minilzo.c -o ../common/minilzo.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o tls_gnutls.lo tls_gnutls.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c tls_gnutls.c  -fPIC -DPIC -o .libs/tls_gnutls.o
+tls_gnutls.c: In function ‘SetTLSAnonCredential’:
+tls_gnutls.c:173:3: warning: ‘gnutls_anon_client_credentials’ is deprecated [-Wdeprecated-declarations]
+   gnutls_anon_client_credentials anonCred;
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I.. -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -c tls_gnutls.c -o tls_gnutls.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -version-info 1:0:0 -Wl,-z,relro -o libvncclient.la -rpath /usr/lib/arm-linux-gnueabihf cursor.lo listen.lo rfbproto.lo sockets.lo vncviewer.lo ../common/minilzo.lo tls_gnutls.lo -L/usr/lib/arm-linux-gnueabihf -lgnutls -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -shared  -fPIC -DPIC  .libs/cursor.o .libs/listen.o .libs/rfbproto.o .libs/sockets.o .libs/vncviewer.o ../common/.libs/minilzo.o .libs/tls_gnutls.o   -L/usr/lib/arm-linux-gnueabihf -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -lgnutls  -g -O2 -fstack-protector-strong -Wl,-z -Wl,relro   -Wl,-soname -Wl,libvncclient.so.1 -o .libs/libvncclient.so.1.0.0
+libtool: link: (cd ".libs" && rm -f "libvncclient.so.1" && ln -s "libvncclient.so.1.0.0" "libvncclient.so.1")
+libtool: link: (cd ".libs" && rm -f "libvncclient.so" && ln -s "libvncclient.so.1.0.0" "libvncclient.so")
+libtool: link: arm-linux-gnueabihf-ar cru .libs/libvncclient.a  cursor.o listen.o rfbproto.o sockets.o vncviewer.o ../common/minilzo.o tls_gnutls.o
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: arm-linux-gnueabihf-ranlib .libs/libvncclient.a
+libtool: link: ( cd ".libs" && rm -f "libvncclient.la" && ln -s "../libvncclient.la" "libvncclient.la" )
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/libvncclient'
+Making all in client_examples
+make[3]: Entering directory '/<<PKGBUILDDIR>>/client_examples'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o ppmtest.o ppmtest.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o ppmtest ppmtest.o ../libvncclient/libvncclient.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/ppmtest ppmtest.o  ../libvncclient/.libs/libvncclient.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1 -c -o backchannel.o backchannel.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall  -I/usr/include/p11-kit-1  -Wl,-z,relro -o backchannel backchannel.o ../libvncclient/libvncclient.la  -lnsl -lpthread -lz -ljpeg -lresolv  -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -I/usr/include/p11-kit-1 -Wl,-z -Wl,relro -o .libs/backchannel backchannel.o  ../libvncclient/.libs/libvncclient.so -lnsl -lpthread -lz -ljpeg -lresolv -lgcrypt -L/usr/lib/arm-linux-gnueabihf -lgnutls
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/client_examples'
+Making all in test
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_test -a
+ fakeroot debian/rules binary-arch
+dh binary-arch  --with autoreconf
+   dh_auto_test -a
+   dh_testroot -a
+   dh_prep -a
+   dh_auto_install -a
+	make -j1 install DESTDIR=/<<BUILDDIR>>/libvncserver-0.9.11\+dfsg/debian/tmp AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+Making install in libvncserver
+make[2]: Entering directory '/<<PKGBUILDDIR>>/libvncserver'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/libvncserver'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf'
+ /bin/bash ../libtool   --mode=install /usr/bin/install -c   libvncserver.la '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf'
+libtool: install: /usr/bin/install -c .libs/libvncserver.so.1.0.0 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libvncserver.so.1.0.0
+libtool: install: (cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf && { ln -s -f libvncserver.so.1.0.0 libvncserver.so.1 || { rm -f libvncserver.so.1 && ln -s libvncserver.so.1.0.0 libvncserver.so.1; }; })
+libtool: install: (cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf && { ln -s -f libvncserver.so.1.0.0 libvncserver.so || { rm -f libvncserver.so && ln -s libvncserver.so.1.0.0 libvncserver.so; }; })
+libtool: install: /usr/bin/install -c .libs/libvncserver.lai /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libvncserver.la
+libtool: install: /usr/bin/install -c .libs/libvncserver.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libvncserver.a
+libtool: install: chmod 644 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libvncserver.a
+libtool: install: arm-linux-gnueabihf-ranlib /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libvncserver.a
+libtool: warning: remember to run 'libtool --finish /usr/lib/arm-linux-gnueabihf'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp/usr/include/rfb'
+ /usr/bin/install -c -m 644 ../rfb/rfb.h ../rfb/rfbconfig.h ../rfb/rfbproto.h ../rfb/keysym.h ../rfb/rfbregion.h ../rfb/rfbclient.h '/<<PKGBUILDDIR>>/debian/tmp/usr/include/rfb'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/libvncserver'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/libvncserver'
+Making install in examples
+make[2]: Entering directory '/<<PKGBUILDDIR>>/examples'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/examples'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/examples'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/examples'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/examples'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/examples'
+Making install in libvncclient
+make[2]: Entering directory '/<<PKGBUILDDIR>>/libvncclient'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/libvncclient'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf'
+ /bin/bash ../libtool   --mode=install /usr/bin/install -c   libvncclient.la '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf'
+libtool: install: /usr/bin/install -c .libs/libvncclient.so.1.0.0 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libvncclient.so.1.0.0
+libtool: install: (cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf && { ln -s -f libvncclient.so.1.0.0 libvncclient.so.1 || { rm -f libvncclient.so.1 && ln -s libvncclient.so.1.0.0 libvncclient.so.1; }; })
+libtool: install: (cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf && { ln -s -f libvncclient.so.1.0.0 libvncclient.so || { rm -f libvncclient.so && ln -s libvncclient.so.1.0.0 libvncclient.so; }; })
+libtool: install: /usr/bin/install -c .libs/libvncclient.lai /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libvncclient.la
+libtool: install: /usr/bin/install -c .libs/libvncclient.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libvncclient.a
+libtool: install: chmod 644 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libvncclient.a
+libtool: install: arm-linux-gnueabihf-ranlib /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libvncclient.a
+libtool: warning: remember to run 'libtool --finish /usr/lib/arm-linux-gnueabihf'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/libvncclient'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/libvncclient'
+Making install in client_examples
+make[2]: Entering directory '/<<PKGBUILDDIR>>/client_examples'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/client_examples'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/client_examples'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/client_examples'
+Making install in test
+make[2]: Entering directory '/<<PKGBUILDDIR>>/test'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/test'
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp/usr/bin'
+ /usr/bin/install -c libvncserver-config '/<<PKGBUILDDIR>>/debian/tmp/usr/bin'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp/usr/include/rfb'
+ /usr/bin/install -c -m 644 rfb/rfb.h rfb/rfbconfig.h rfb/rfbproto.h rfb/keysym.h rfb/rfbregion.h rfb/rfbclient.h '/<<PKGBUILDDIR>>/debian/tmp/usr/include/rfb'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/pkgconfig'
+ /usr/bin/install -c -m 644 libvncserver.pc libvncclient.pc '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/pkgconfig'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_install -a
+   dh_installdocs -a
+   dh_installchangelogs -a
+   dh_installman -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   dh_missing -a
+   debian/rules override_dh_strip
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_strip -plibvncclient1 --dbg-package=libvncclient1-dbg
+dh_strip -plibvncserver1 --dbg-package=libvncserver1-dbg
+dh_strip
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/libvncclient1/usr/lib/arm-linux-gnueabihf/libvncclient.so.1.0.0 was not linked against libnsl.so.1 (it uses none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/libvncclient1/usr/lib/arm-linux-gnueabihf/libvncclient.so.1.0.0 was not linked against libresolv.so.2 (it uses none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/libvncserver1/usr/lib/arm-linux-gnueabihf/libvncserver.so.1.0.0 was not linked against libnsl.so.1 (it uses none of the library's symbols)
+   dh_installdeb -a
+   dh_gencontrol -a
+dpkg-gencontrol: warning: Depends field of package libvncclient1-dbg: substitution variable ${shlibs:Depends} used, but is not defined
+dpkg-gencontrol: warning: Depends field of package libvncserver1-dbg: substitution variable ${shlibs:Depends} used, but is not defined
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'libvncserver1' in '../libvncserver1_0.9.11+dfsg-1.3_armhf.deb'.
+dpkg-deb: building package 'libvncclient1' in '../libvncclient1_0.9.11+dfsg-1.3_armhf.deb'.
+dpkg-deb: building package 'libvncserver-dev' in '../libvncserver-dev_0.9.11+dfsg-1.3_armhf.deb'.
+dpkg-deb: building package 'libvncserver1-dbg' in '../libvncserver1-dbg_0.9.11+dfsg-1.3_armhf.deb'.
+dpkg-deb: building package 'libvncclient1-dbg' in '../libvncclient1-dbg_0.9.11+dfsg-1.3_armhf.deb'.
+dpkg-deb: building package 'libvncserver-config' in '../libvncserver-config_0.9.11+dfsg-1.3_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../libvncserver_0.9.11+dfsg-1.3_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-05T10:47:41Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+libvncserver_0.9.11+dfsg-1.3_armhf.changes:
+-------------------------------------------
+
+Format: 1.8
+Date: Wed, 30 Jan 2019 22:39:15 +0100
+Source: libvncserver
+Binary: libvncclient1 libvncclient1-dbg libvncserver-config libvncserver-dev libvncserver1 libvncserver1-dbg
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 0.9.11+dfsg-1.3
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Peter Spiess-Knafl <dev@spiessknafl.at>
+Changed-By: Salvatore Bonaccorso <carnil@debian.org>
+Description:
+ libvncclient1 - API to write one's own VNC server - client library
+ libvncclient1-dbg - debugging symbols for libvncclient
+ libvncserver-config - API to write one's own VNC server - library utility
+ libvncserver-dev - API to write one's own VNC server - development files
+ libvncserver1 - API to write one's own VNC server
+ libvncserver1-dbg - debugging symbols for libvncserver
+Closes: 920941
+Changes:
+ libvncserver (0.9.11+dfsg-1.3) unstable; urgency=medium
+ .
+   * Non-maintainer upload.
+   * LibVNCClient: ignore server-sent cut text longer than 1MB (CVE-2018-20748)
+     (Closes: #920941)
+   * LibVNCClient: ignore server-sent reason strings longer than 1MB
+     (CVE-2018-20748) (Closes: #920941)
+   * LibVNCClient: fail on server-sent desktop name lengths longer than 1MB
+     (CVE-2018-20748) (Closes: #920941)
+   * LibVNCClient: remove now-useless cast (CVE-2018-20748) (Closes: #920941)
+   * Error out in rfbProcessFileTransferReadBuffer if length can not be
+     allocated (CVE-2018-20749) (Closes: #920941)
+   * Limit lenght to INT_MAX bytes in rfbProcessFileTransferReadBuffer()
+     (CVE-2018-20750) (Closes: #920941)
+Checksums-Sha1:
+ f35c20081f93fa891d06aa6411fe2ba4b6abcb3d 239468 libvncclient1-dbg_0.9.11+dfsg-1.3_armhf.deb
+ 24c1c0cbc66ce5f34943127eb04d475378bdc7c6 135680 libvncclient1_0.9.11+dfsg-1.3_armhf.deb
+ d23a84685a17d1c8458af6edcd001b2b797be527 108972 libvncserver-config_0.9.11+dfsg-1.3_armhf.deb
+ 05d32d89ab2574d829592807ec58103f5e9a9fdc 282108 libvncserver-dev_0.9.11+dfsg-1.3_armhf.deb
+ a44a1af8f07e9a5440fcc930f31460083eb693c9 516640 libvncserver1-dbg_0.9.11+dfsg-1.3_armhf.deb
+ b2d15f617cd43516c3ceb20b09fc50f673f19fe0 191740 libvncserver1_0.9.11+dfsg-1.3_armhf.deb
+ 268dc8ca168279c342fe43daa1c1c79543f6e202 6546 libvncserver_0.9.11+dfsg-1.3_armhf.buildinfo
+Checksums-Sha256:
+ 18e7d3c766c8cfc99f16ce657c16253abd76efc94b1822c10cb98457a55a4d6e 239468 libvncclient1-dbg_0.9.11+dfsg-1.3_armhf.deb
+ 92b28b105afb6d630fbdfeefd02d8bc5515fd5bc266b71705f1ec851df8e7502 135680 libvncclient1_0.9.11+dfsg-1.3_armhf.deb
+ c028b1bb5cca5303c01e7ce53f3aaede17d071ebeb42f29630c022c107ff77c9 108972 libvncserver-config_0.9.11+dfsg-1.3_armhf.deb
+ 5ec4617753ef213819ab4bcdc1746a56daaf29d3180731da875543a8d2696aa5 282108 libvncserver-dev_0.9.11+dfsg-1.3_armhf.deb
+ ada8605a5a6761cbe7de2b68497d11784394b92af3c94b8eb3e6776aeae0114f 516640 libvncserver1-dbg_0.9.11+dfsg-1.3_armhf.deb
+ bedbf478a88f2f171d5804b1578b67e6059c7c8162e7eb9f48a40dc6ca9a5088 191740 libvncserver1_0.9.11+dfsg-1.3_armhf.deb
+ 1c1d8f7747d60917e554cbb801094b875ccdae5d078a0c25d95e2c3b00f862d8 6546 libvncserver_0.9.11+dfsg-1.3_armhf.buildinfo
+Files:
+ b513fb7b81c72c866f07eae0a9592b64 239468 debug extra libvncclient1-dbg_0.9.11+dfsg-1.3_armhf.deb
+ 0f527fe18ac286cf59836ee640cb7514 135680 libs optional libvncclient1_0.9.11+dfsg-1.3_armhf.deb
+ 877b1bacb39ef62d81397dc65dffcea3 108972 libdevel optional libvncserver-config_0.9.11+dfsg-1.3_armhf.deb
+ dc2c438122eb5b05f6bd369634492f18 282108 libdevel optional libvncserver-dev_0.9.11+dfsg-1.3_armhf.deb
+ b44af6ee7cab2e8abb5b9d9a9ad19a0e 516640 debug extra libvncserver1-dbg_0.9.11+dfsg-1.3_armhf.deb
+ 3c335dee3e7f21b94972123e9a9f52d2 191740 libs optional libvncserver1_0.9.11+dfsg-1.3_armhf.deb
+ 14f42f0d3f3c9a0587c1c1c0b7670912 6546 libs optional libvncserver_0.9.11+dfsg-1.3_armhf.buildinfo
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: libvncserver
+Binary: libvncclient1 libvncserver1 libvncserver-dev libvncserver-config libvncclient1-dbg libvncserver1-dbg
+Architecture: armhf
+Version: 0.9.11+dfsg-1.3
+Checksums-Md5:
+ b513fb7b81c72c866f07eae0a9592b64 239468 libvncclient1-dbg_0.9.11+dfsg-1.3_armhf.deb
+ 0f527fe18ac286cf59836ee640cb7514 135680 libvncclient1_0.9.11+dfsg-1.3_armhf.deb
+ 877b1bacb39ef62d81397dc65dffcea3 108972 libvncserver-config_0.9.11+dfsg-1.3_armhf.deb
+ dc2c438122eb5b05f6bd369634492f18 282108 libvncserver-dev_0.9.11+dfsg-1.3_armhf.deb
+ b44af6ee7cab2e8abb5b9d9a9ad19a0e 516640 libvncserver1-dbg_0.9.11+dfsg-1.3_armhf.deb
+ 3c335dee3e7f21b94972123e9a9f52d2 191740 libvncserver1_0.9.11+dfsg-1.3_armhf.deb
+Checksums-Sha1:
+ f35c20081f93fa891d06aa6411fe2ba4b6abcb3d 239468 libvncclient1-dbg_0.9.11+dfsg-1.3_armhf.deb
+ 24c1c0cbc66ce5f34943127eb04d475378bdc7c6 135680 libvncclient1_0.9.11+dfsg-1.3_armhf.deb
+ d23a84685a17d1c8458af6edcd001b2b797be527 108972 libvncserver-config_0.9.11+dfsg-1.3_armhf.deb
+ 05d32d89ab2574d829592807ec58103f5e9a9fdc 282108 libvncserver-dev_0.9.11+dfsg-1.3_armhf.deb
+ a44a1af8f07e9a5440fcc930f31460083eb693c9 516640 libvncserver1-dbg_0.9.11+dfsg-1.3_armhf.deb
+ b2d15f617cd43516c3ceb20b09fc50f673f19fe0 191740 libvncserver1_0.9.11+dfsg-1.3_armhf.deb
+Checksums-Sha256:
+ 18e7d3c766c8cfc99f16ce657c16253abd76efc94b1822c10cb98457a55a4d6e 239468 libvncclient1-dbg_0.9.11+dfsg-1.3_armhf.deb
+ 92b28b105afb6d630fbdfeefd02d8bc5515fd5bc266b71705f1ec851df8e7502 135680 libvncclient1_0.9.11+dfsg-1.3_armhf.deb
+ c028b1bb5cca5303c01e7ce53f3aaede17d071ebeb42f29630c022c107ff77c9 108972 libvncserver-config_0.9.11+dfsg-1.3_armhf.deb
+ 5ec4617753ef213819ab4bcdc1746a56daaf29d3180731da875543a8d2696aa5 282108 libvncserver-dev_0.9.11+dfsg-1.3_armhf.deb
+ ada8605a5a6761cbe7de2b68497d11784394b92af3c94b8eb3e6776aeae0114f 516640 libvncserver1-dbg_0.9.11+dfsg-1.3_armhf.deb
+ bedbf478a88f2f171d5804b1578b67e6059c7c8162e7eb9f48a40dc6ca9a5088 191740 libvncserver1_0.9.11+dfsg-1.3_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Tue, 05 Mar 2019 10:47:40 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.52-5),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libevent-2.1-6 (= 2.1.8-stable-4),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgcrypt20-dev (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp-dev (= 2:6.1.2+dfsg-4),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgmpxx4ldbl (= 2:6.1.2+dfsg-4),
+ libgnutls-dane0 (= 3.6.6-2),
+ libgnutls-openssl27 (= 3.6.6-2),
+ libgnutls28-dev (= 3.6.6-2),
+ libgnutls30 (= 3.6.6-2),
+ libgnutlsxx28 (= 3.6.6-2),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error-dev (= 1.35-1),
+ libgpg-error0 (= 1.35-1),
+ libhogweed4 (= 3.4.1-1),
+ libicu63 (= 63.1-6),
+ libidn2-0 (= 2.0.5-1),
+ libidn2-dev (= 2.0.5-1),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ libjpeg62-turbo (= 1:1.5.2-2+b1),
+ libjpeg62-turbo-dev (= 1:1.5.2-2+b1),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libnettle6 (= 3.4.1-1),
+ libp11-kit-dev (= 0.23.15-2),
+ libp11-kit0 (= 0.23.15-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libquadmath0 (= 8.3.0-2),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtasn1-6 (= 4.13-3),
+ libtasn1-6-dev (= 4.13-3),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunbound8 (= 1.9.0-2),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ nettle-dev (= 3.4.1-1),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1),
+ zlib1g-dev (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1548884355"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+libvncclient1-dbg_0.9.11+dfsg-1.3_armhf.deb
+-------------------------------------------
+
+ new Debian package, version 2.0.
+ size 239468 bytes: control archive=828 bytes.
+     680 bytes,    18 lines      control              
+     347 bytes,     4 lines      md5sums              
+ Package: libvncclient1-dbg
+ Source: libvncserver
+ Version: 0.9.11+dfsg-1.3
+ Architecture: armhf
+ Maintainer: Peter Spiess-Knafl <dev@spiessknafl.at>
+ Installed-Size: 266
+ Depends: libvncclient1 (= 0.9.11+dfsg-1.3)
+ Section: debug
+ Priority: extra
+ Multi-Arch: same
+ Homepage: http://libvnc.github.io
+ Description: debugging symbols for libvncclient
+  LibVNCServer makes writing a VNC server (or more correctly, a program
+  exporting a framebuffer via the Remote Frame Buffer protocol) easy. It hides
+  the programmer from the tedious task of managing clients and compression.
+  .
+  This package contains the debugging symbols for libvncclient.
+ Build-Ids: 82bd694af9d4bd6da15a13a1309333ba6f2f4fc2
+
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/debug/.build-id/82/
+-rw-r--r-- root/root    160504 2019-01-30 21:39 ./usr/lib/debug/.build-id/82/bd694af9d4bd6da15a13a1309333ba6f2f4fc2.debug
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/doc/libvncclient1-dbg/
+-rw-r--r-- root/root      4849 2019-01-30 21:39 ./usr/share/doc/libvncclient1-dbg/changelog.Debian.gz
+-rw-r--r-- root/root     82204 2016-12-30 13:01 ./usr/share/doc/libvncclient1-dbg/changelog.gz
+-rw-r--r-- root/root     12659 2019-01-30 21:39 ./usr/share/doc/libvncclient1-dbg/copyright
+
+
+libvncclient1_0.9.11+dfsg-1.3_armhf.deb
+---------------------------------------
+
+ new Debian package, version 2.0.
+ size 135680 bytes: control archive=1716 bytes.
+     783 bytes,    19 lines      control              
+     313 bytes,     4 lines      md5sums              
+      29 bytes,     1 lines      shlibs               
+    2837 bytes,    90 lines      symbols              
+      67 bytes,     2 lines      triggers             
+ Package: libvncclient1
+ Source: libvncserver
+ Version: 0.9.11+dfsg-1.3
+ Architecture: armhf
+ Maintainer: Peter Spiess-Knafl <dev@spiessknafl.at>
+ Installed-Size: 200
+ Depends: libc6 (>= 2.28), libgcrypt20 (>= 1.8.0), libgnutls30 (>= 3.6.6), libjpeg62-turbo (>= 1.3.1), zlib1g (>= 1:1.1.4)
+ Breaks: libvncserver0 (<< 0.9.9+dfsg-3)
+ Replaces: libvncserver0 (<< 0.9.9+dfsg-3)
+ Section: libs
+ Priority: optional
+ Multi-Arch: same
+ Homepage: http://libvnc.github.io
+ Description: API to write one's own VNC server - client library
+  LibVNCServer makes writing a VNC server (or more correctly, a program
+  exporting a framebuffer via the Remote Frame Buffer protocol) easy. It hides
+  the programmer from the tedious task of managing clients and compression.
+  .
+  This package provides the client library.
+
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/arm-linux-gnueabihf/
+lrwxrwxrwx root/root         0 2019-01-30 21:39 ./usr/lib/arm-linux-gnueabihf/libvncclient.so.1 -> libvncclient.so.1.0.0
+-rw-r--r-- root/root     88096 2019-01-30 21:39 ./usr/lib/arm-linux-gnueabihf/libvncclient.so.1.0.0
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/doc/libvncclient1/
+-rw-r--r-- root/root      4849 2019-01-30 21:39 ./usr/share/doc/libvncclient1/changelog.Debian.gz
+-rw-r--r-- root/root     82204 2016-12-30 13:01 ./usr/share/doc/libvncclient1/changelog.gz
+-rw-r--r-- root/root     12659 2019-01-30 21:39 ./usr/share/doc/libvncclient1/copyright
+
+
+libvncserver-config_0.9.11+dfsg-1.3_armhf.deb
+---------------------------------------------
+
+ new Debian package, version 2.0.
+ size 108972 bytes: control archive=948 bytes.
+     739 bytes,    18 lines      control              
+     614 bytes,     8 lines      md5sums              
+ Package: libvncserver-config
+ Source: libvncserver
+ Version: 0.9.11+dfsg-1.3
+ Architecture: armhf
+ Maintainer: Peter Spiess-Knafl <dev@spiessknafl.at>
+ Installed-Size: 126
+ Depends: libvncclient1 (= 0.9.11+dfsg-1.3), libvncserver1 (= 0.9.11+dfsg-1.3)
+ Section: libdevel
+ Priority: optional
+ Multi-Arch: foreign
+ Homepage: http://libvnc.github.io
+ Description: API to write one's own VNC server - library utility
+  LibVNCServer makes writing a VNC server (or more correctly, a program
+  exporting a framebuffer via the Remote Frame Buffer protocol) easy. It hides
+  the programmer from the tedious task of managing clients and compression.
+  .
+  This package provides libvncserver-config utility, needed to obtain some
+  option of the libvncserver library.
+
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/bin/
+-rwxr-xr-x root/root      1698 2019-01-30 21:39 ./usr/bin/libvncserver-config
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/doc/libvncserver-config/
+-rw-r--r-- root/root      5737 2016-12-30 13:01 ./usr/share/doc/libvncserver-config/NEWS.gz
+-rw-r--r-- root/root      8013 2016-12-30 13:01 ./usr/share/doc/libvncserver-config/README.gz
+-rw-r--r-- root/root       939 2016-12-30 13:01 ./usr/share/doc/libvncserver-config/TODO
+-rw-r--r-- root/root      4849 2019-01-30 21:39 ./usr/share/doc/libvncserver-config/changelog.Debian.gz
+-rw-r--r-- root/root     82204 2016-12-30 13:01 ./usr/share/doc/libvncserver-config/changelog.gz
+-rw-r--r-- root/root     12659 2019-01-30 21:39 ./usr/share/doc/libvncserver-config/copyright
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/man/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/man/man1/
+-rw-r--r-- root/root       595 2019-01-30 21:39 ./usr/share/man/man1/libvncserver-config.1.gz
+
+
+libvncserver-dev_0.9.11+dfsg-1.3_armhf.deb
+------------------------------------------
+
+ new Debian package, version 2.0.
+ size 282108 bytes: control archive=1124 bytes.
+     783 bytes,    18 lines      control              
+     930 bytes,    13 lines      md5sums              
+ Package: libvncserver-dev
+ Source: libvncserver
+ Version: 0.9.11+dfsg-1.3
+ Architecture: armhf
+ Maintainer: Peter Spiess-Knafl <dev@spiessknafl.at>
+ Installed-Size: 734
+ Depends: libvncclient1 (= 0.9.11+dfsg-1.3), libvncserver1 (= 0.9.11+dfsg-1.3), libgnutls28-dev, libjpeg-dev, zlib1g-dev, libvncserver-config
+ Section: libdevel
+ Priority: optional
+ Multi-Arch: same
+ Homepage: http://libvnc.github.io
+ Description: API to write one's own VNC server - development files
+  LibVNCServer makes writing a VNC server (or more correctly, a program
+  exporting a framebuffer via the Remote Frame Buffer protocol) easy. It hides
+  the programmer from the tedious task of managing clients and compression.
+  .
+  This is the development package which contains headers and static libraries
+  for libvncserver.
+
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/include/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/include/rfb/
+-rw-r--r-- root/root     69193 2019-01-30 21:39 ./usr/include/rfb/keysym.h
+-rw-r--r-- root/root     49225 2019-01-30 21:39 ./usr/include/rfb/rfb.h
+-rw-r--r-- root/root     26548 2019-01-30 21:39 ./usr/include/rfb/rfbclient.h
+-rw-r--r-- root/root     11532 2019-01-30 21:39 ./usr/include/rfb/rfbconfig.h
+-rw-r--r-- root/root     51912 2019-01-30 21:39 ./usr/include/rfb/rfbproto.h
+-rw-r--r-- root/root      1875 2019-01-30 21:39 ./usr/include/rfb/rfbregion.h
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/arm-linux-gnueabihf/
+-rw-r--r-- root/root    110808 2019-01-30 21:39 ./usr/lib/arm-linux-gnueabihf/libvncclient.a
+lrwxrwxrwx root/root         0 2019-01-30 21:39 ./usr/lib/arm-linux-gnueabihf/libvncclient.so -> libvncclient.so.1.0.0
+-rw-r--r-- root/root    309890 2019-01-30 21:39 ./usr/lib/arm-linux-gnueabihf/libvncserver.a
+lrwxrwxrwx root/root         0 2019-01-30 21:39 ./usr/lib/arm-linux-gnueabihf/libvncserver.so -> libvncserver.so.1.0.0
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/arm-linux-gnueabihf/pkgconfig/
+-rw-r--r-- root/root       393 2019-01-30 21:39 ./usr/lib/arm-linux-gnueabihf/pkgconfig/libvncclient.pc
+-rw-r--r-- root/root       393 2019-01-30 21:39 ./usr/lib/arm-linux-gnueabihf/pkgconfig/libvncserver.pc
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/doc/libvncserver-dev/
+-rw-r--r-- root/root      4849 2019-01-30 21:39 ./usr/share/doc/libvncserver-dev/changelog.Debian.gz
+-rw-r--r-- root/root     82204 2016-12-30 13:01 ./usr/share/doc/libvncserver-dev/changelog.gz
+-rw-r--r-- root/root     12659 2019-01-30 21:39 ./usr/share/doc/libvncserver-dev/copyright
+
+
+libvncserver1-dbg_0.9.11+dfsg-1.3_armhf.deb
+-------------------------------------------
+
+ new Debian package, version 2.0.
+ size 516640 bytes: control archive=824 bytes.
+     680 bytes,    18 lines      control              
+     347 bytes,     4 lines      md5sums              
+ Package: libvncserver1-dbg
+ Source: libvncserver
+ Version: 0.9.11+dfsg-1.3
+ Architecture: armhf
+ Maintainer: Peter Spiess-Knafl <dev@spiessknafl.at>
+ Installed-Size: 568
+ Depends: libvncserver1 (= 0.9.11+dfsg-1.3)
+ Section: debug
+ Priority: extra
+ Multi-Arch: same
+ Homepage: http://libvnc.github.io
+ Description: debugging symbols for libvncserver
+  LibVNCServer makes writing a VNC server (or more correctly, a program
+  exporting a framebuffer via the Remote Frame Buffer protocol) easy. It hides
+  the programmer from the tedious task of managing clients and compression.
+  .
+  This package contains the debugging symbols for libvncserver.
+ Build-Ids: 7bac3e92588a9f5590bb6ca1038b98abdc52e330
+
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/debug/.build-id/7b/
+-rw-r--r-- root/root    469324 2019-01-30 21:39 ./usr/lib/debug/.build-id/7b/ac3e92588a9f5590bb6ca1038b98abdc52e330.debug
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/doc/libvncserver1-dbg/
+-rw-r--r-- root/root      4849 2019-01-30 21:39 ./usr/share/doc/libvncserver1-dbg/changelog.Debian.gz
+-rw-r--r-- root/root     82204 2016-12-30 13:01 ./usr/share/doc/libvncserver1-dbg/changelog.gz
+-rw-r--r-- root/root     12659 2019-01-30 21:39 ./usr/share/doc/libvncserver1-dbg/copyright
+
+
+libvncserver1_0.9.11+dfsg-1.3_armhf.deb
+---------------------------------------
+
+ new Debian package, version 2.0.
+ size 191740 bytes: control archive=3240 bytes.
+     684 bytes,    17 lines      control              
+     313 bytes,     4 lines      md5sums              
+      29 bytes,     1 lines      shlibs               
+   11736 bytes,   359 lines      symbols              
+      67 bytes,     2 lines      triggers             
+ Package: libvncserver1
+ Source: libvncserver
+ Version: 0.9.11+dfsg-1.3
+ Architecture: armhf
+ Maintainer: Peter Spiess-Knafl <dev@spiessknafl.at>
+ Installed-Size: 322
+ Depends: libc6 (>= 2.28), libgcrypt20 (>= 1.8.0), libgnutls30 (>= 3.6.6), libjpeg62-turbo (>= 1.3.1), zlib1g (>= 1:1.1.4)
+ Section: libs
+ Priority: optional
+ Multi-Arch: same
+ Homepage: http://libvnc.github.io
+ Description: API to write one's own VNC server
+  LibVNCServer makes writing a VNC server (or more correctly, a program
+  exporting a framebuffer via the Remote Frame Buffer protocol) easy. It hides
+  the programmer from the tedious task of managing clients and compression.
+  .
+  This package provides the server library.
+
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/lib/arm-linux-gnueabihf/
+lrwxrwxrwx root/root         0 2019-01-30 21:39 ./usr/lib/arm-linux-gnueabihf/libvncserver.so.1 -> libvncserver.so.1.0.0
+-rw-r--r-- root/root    204736 2019-01-30 21:39 ./usr/lib/arm-linux-gnueabihf/libvncserver.so.1.0.0
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-01-30 21:39 ./usr/share/doc/libvncserver1/
+-rw-r--r-- root/root      4849 2019-01-30 21:39 ./usr/share/doc/libvncserver1/changelog.Debian.gz
+-rw-r--r-- root/root     82204 2016-12-30 13:01 ./usr/share/doc/libvncserver1/changelog.gz
+-rw-r--r-- root/root     12659 2019-01-30 21:39 ./usr/share/doc/libvncserver1/copyright
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [572 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [657 B]
+Fetched 2192 B in 0s (149 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 0s (19.3 MB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 19609 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+W: libvncserver source: vcs-obsolete-in-debian-infrastructure vcs-browser https://anonscm.debian.org/cgit/collab-maint/libvncserver.git
+W: libvncserver source: vcs-obsolete-in-debian-infrastructure vcs-git https://anonscm.debian.org/git/collab-maint/libvncserver.git
+W: libvncserver source: spelling-error-in-patch-description debian/patches/CVE-2018-20022/0001-LibVNCClient-don-t-leak-uninitialised-memory-to-remo.patch arbitray arbitrary
+W: libvncserver source: spelling-error-in-patch-description debian/patches/CVE-2018-20750/0001-Limit-lenght-to-INT_MAX-bytes-in-rfbProcessFileTrans.patch lenght length
+W: libvncserver source: spelling-error-in-patch-description debian/patches/CVE-2018-20750/0001-Limit-lenght-to-INT_MAX-bytes-in-rfbProcessFileTrans.patch ammends amends
+W: libvncserver source: spelling-error-in-patch-description debian/patches/CVE-2018-20750/0001-Limit-lenght-to-INT_MAX-bytes-in-rfbProcessFileTrans.patch transfered transferred
+W: libvncserver-config: spelling-error-in-changelog lenght length
+E: libvncserver-config: old-style-config-script-multiarch-path usr/bin/libvncserver-config full text contains architecture specific dir arm-linux-gnueabihf
+W: libvncserver1-dbg: spelling-error-in-changelog lenght length
+W: libvncserver1-dbg: priority-extra-is-replaced-by-priority-optional
+W: libvncserver1: spelling-error-in-changelog lenght length
+W: libvncclient1: spelling-error-in-changelog lenght length
+W: libvncserver-dev: spelling-error-in-changelog lenght length
+W: libvncclient1-dbg: spelling-error-in-changelog lenght length
+W: libvncclient1-dbg: priority-extra-is-replaced-by-priority-optional
+
+E: Lintian run failed (policy violation)
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* dwz* gcc-8-base:armhf*
+  gettext* gettext-base* groff-base* intltool-debian* libapt-pkg-perl*
+  libarchive-zip-perl* libasan5:armhf* libatomic1:armhf* libbsd0* libc6:armhf*
+  libc6-dev:armhf* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclone-perl* libcroco3* libdigest-hmac-perl*
+  libelf1* libemail-valid-perl* libevent-2.1-6:armhf* libexporter-tiny-perl*
+  libffi6:armhf* libfile-basedir-perl* libfile-stripnondeterminism-perl*
+  libfuture-perl* libgcc-8-dev:armhf* libgcc1:armhf* libgcrypt20:armhf*
+  libgcrypt20-dev:armhf* libglib2.0-0* libgmp-dev:armhf* libgmp10:armhf*
+  libgmpxx4ldbl:armhf* libgnutls-dane0:armhf* libgnutls-openssl27:armhf*
+  libgnutls28-dev:armhf* libgnutls30:armhf* libgnutlsxx28:armhf*
+  libgomp1:armhf* libgpg-error-dev:armhf* libgpg-error0:armhf*
+  libhogweed4:armhf* libidn2-0:armhf* libidn2-dev:armhf* libio-async-perl*
+  libio-pty-perl* libipc-run-perl* libipc-system-simple-perl*
+  libjpeg62-turbo:armhf* libjpeg62-turbo-dev:armhf* liblist-moreutils-perl*
+  libncurses6* libnet-dns-perl* libnet-domain-tld-perl* libnet-ip-perl*
+  libnettle6:armhf* libp11-kit-dev:armhf* libp11-kit0:armhf*
+  libparse-debianchangelog-perl* libpath-tiny-perl* libpipeline1* libsigsegv2*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libstruct-dumb-perl*
+  libsub-name-perl* libtasn1-6:armhf* libtasn1-6-dev:armhf*
+  libtext-levenshtein-perl* libtool* libubsan1:armhf* libuchardet0*
+  libunbound8:armhf* libunistring2:armhf* lintian* linux-libc-dev:armhf* m4*
+  man-db* nettle-dev:armhf* patchutils* pkg-config* po-debconf*
+  sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* zlib1g:armhf*
+  zlib1g-dev:armhf*
+0 upgraded, 0 newly installed, 98 to remove and 0 not upgraded.
+After this operation, 108 MB disk space will be freed.
+(Reading database ... 20887 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libgnutls28-dev:armhf (3.6.6-2) ...
+Removing libgnutlsxx28:armhf (3.6.6-2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing libgnutls-dane0:armhf (3.6.6-2) ...
+Removing libunbound8:armhf (1.9.0-2) ...
+Removing libgcrypt20-dev:armhf (1.8.4-5) ...
+Removing libjpeg62-turbo-dev:armhf (1:1.5.2-2+b1) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing libevent-2.1-6:armhf (2.1.8-stable-4) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libp11-kit-dev:armhf (0.23.15-2) ...
+Removing libgnutls-openssl27:armhf (3.6.6-2) ...
+Removing libgnutls30:armhf (3.6.6-2) ...
+Removing libp11-kit0:armhf (0.23.15-2) ...
+Removing libffi6:armhf (3.2.1-9) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing nettle-dev:armhf (3.4.1-1) ...
+Removing libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Removing libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Removing libgcrypt20:armhf (1.8.4-5) ...
+Removing pkg-config (0.29-6) ...
+Removing libhogweed4:armhf (3.4.1-1) ...
+Removing libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libgpg-error-dev:armhf (1.35-1) ...
+Removing libgpg-error0:armhf (1.35-1) ...
+Removing libidn2-dev:armhf (2.0.5-1) ...
+Removing libidn2-0:armhf (2.0.5-1) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libjpeg62-turbo:armhf (1:1.5.2-2+b1) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libnettle6:armhf (3.4.1-1) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtasn1-6-dev:armhf (4.13-3) ...
+Removing libtasn1-6:armhf (4.13-3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libunistring2:armhf (0.9.10-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16459 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 77
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 10
+Job: /home/build/sbuild-setup/repo/pool/main/libv/libvncserver/libvncserver_0.9.11+dfsg-1.3.dsc
+Lintian: fail
+Machine Architecture: amd64
+Package: libvncserver
+Package-Time: 92
+Source-Version: 0.9.11+dfsg-1.3
+Space: n/a
+Status: successful
+Version: 0.9.11+dfsg-1.3
+--------------------------------------------------------------------------------
+Finished at 2019-03-05T10:47:41Z
+Build needed 00:01:32, no disk space

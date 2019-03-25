@@ -1,0 +1,3429 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| sarg 2.3.11-1 (armhf)                        Wed, 06 Mar 2019 22:24:57 +0000 |
++==============================================================================+
+
+Package: sarg
+Version: 2.3.11-1
+Source Version: 2.3.11-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-be0a8230-8dbd-4462-b04e-a1e425d28467' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/sarg-VhcT2h/resolver-g9iLjZ' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/s/sarg/sarg_2.3.11-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/s/sarg; copying to chroot
+I: NOTICE: Log filtering will replace 'build/sarg-VhcT2h/sarg-2.3.11' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/sarg-VhcT2h' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 9), dpkg-dev (>= 1.16.1~), autotools-dev, libgd-dev, libldap2-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 9), dpkg-dev (>= 1.16.1~), autotools-dev, libgd-dev, libldap2-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [424 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [517 B]
+Fetched 1898 B in 0s (162 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz fontconfig-config
+  fonts-dejavu-core gcc-8-base:armhf gettext gettext-base groff-base
+  intltool-debian libarchive-zip-perl libasan5:armhf libatomic1:armhf libbsd0
+  libbsd0:armhf libc6:armhf libc6-dev:armhf libcroco3 libdb5.3:armhf libelf1
+  libexpat1:armhf libexpat1-dev:armhf libffi6:armhf
+  libfile-stripnondeterminism-perl libfontconfig1:armhf
+  libfontconfig1-dev:armhf libfreetype6:armhf libfreetype6-dev:armhf
+  libgcc-8-dev:armhf libgcc1:armhf libgd-dev:armhf libgd3:armhf libglib2.0-0
+  libgmp10:armhf libgnutls30:armhf libgomp1:armhf libhogweed4:armhf
+  libice-dev:armhf libice6:armhf libidn2-0:armhf libjbig-dev:armhf
+  libjbig0:armhf libjpeg62-turbo:armhf libjpeg62-turbo-dev:armhf
+  libldap-2.4-2:armhf libldap2-dev:armhf liblzma-dev:armhf liblzma5:armhf
+  libncurses6 libnettle6:armhf libp11-kit0:armhf libpipeline1 libpng-dev:armhf
+  libpng16-16:armhf libpthread-stubs0-dev:armhf libsasl2-2:armhf
+  libsasl2-modules-db:armhf libsigsegv2 libsm-dev:armhf libsm6:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libtasn1-6:armhf libtiff-dev:armhf
+  libtiff5:armhf libtiffxx5:armhf libtool libubsan1:armhf libuchardet0
+  libunistring2:armhf libuuid1:armhf libvpx-dev:armhf libvpx5:armhf
+  libwebp6:armhf libx11-6:armhf libx11-data libx11-dev:armhf libxau-dev:armhf
+  libxau6:armhf libxcb1:armhf libxcb1-dev:armhf libxdmcp-dev:armhf
+  libxdmcp6:armhf libxpm-dev:armhf libxpm4:armhf libxt-dev:armhf libxt6:armhf
+  libzstd1:armhf linux-libc-dev:armhf m4 man-db pkg-config po-debconf
+  uuid-dev:armhf x11-common x11proto-core-dev x11proto-dev xorg-sgml-doctools
+  xtrans-dev zlib1g:armhf zlib1g-dev:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  libgd-tools:armhf gnutls-bin:armhf libice-doc:armhf liblzma-doc:armhf
+  libsm-doc:armhf libstdc++-8-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk libx11-doc:armhf libxcb-doc:armhf
+  libxt-doc:armhf m4-doc apparmor less www-browser libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libarchive-cpio-perl freetype2-doc:armhf libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpm2 libpng-tools:armhf
+  libsasl2-modules:armhf libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz fontconfig-config
+  fonts-dejavu-core gcc-8-base:armhf gettext gettext-base groff-base
+  intltool-debian libarchive-zip-perl libasan5:armhf libatomic1:armhf libbsd0
+  libbsd0:armhf libc6:armhf libc6-dev:armhf libcroco3 libdb5.3:armhf libelf1
+  libexpat1:armhf libexpat1-dev:armhf libffi6:armhf
+  libfile-stripnondeterminism-perl libfontconfig1:armhf
+  libfontconfig1-dev:armhf libfreetype6:armhf libfreetype6-dev:armhf
+  libgcc-8-dev:armhf libgcc1:armhf libgd-dev:armhf libgd3:armhf libglib2.0-0
+  libgmp10:armhf libgnutls30:armhf libgomp1:armhf libhogweed4:armhf
+  libice-dev:armhf libice6:armhf libidn2-0:armhf libjbig-dev:armhf
+  libjbig0:armhf libjpeg62-turbo:armhf libjpeg62-turbo-dev:armhf
+  libldap-2.4-2:armhf libldap2-dev:armhf liblzma-dev:armhf liblzma5:armhf
+  libncurses6 libnettle6:armhf libp11-kit0:armhf libpipeline1 libpng-dev:armhf
+  libpng16-16:armhf libpthread-stubs0-dev:armhf libsasl2-2:armhf
+  libsasl2-modules-db:armhf libsigsegv2 libsm-dev:armhf libsm6:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libtasn1-6:armhf libtiff-dev:armhf
+  libtiff5:armhf libtiffxx5:armhf libtool libubsan1:armhf libuchardet0
+  libunistring2:armhf libuuid1:armhf libvpx-dev:armhf libvpx5:armhf
+  libwebp6:armhf libx11-6:armhf libx11-data libx11-dev:armhf libxau-dev:armhf
+  libxau6:armhf libxcb1:armhf libxcb1-dev:armhf libxdmcp-dev:armhf
+  libxdmcp6:armhf libxpm-dev:armhf libxpm4:armhf libxt-dev:armhf libxt6:armhf
+  libzstd1:armhf linux-libc-dev:armhf m4 man-db pkg-config po-debconf
+  sbuild-build-depends-main-dummy:armhf uuid-dev:armhf x11-common
+  x11proto-core-dev x11proto-dev xorg-sgml-doctools xtrans-dev zlib1g:armhf
+  zlib1g-dev:armhf
+0 upgraded, 108 newly installed, 0 to remove and 0 not upgraded.
+Need to get 257 kB/34.0 MB of archives.
+After this operation, 117 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [928 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main armhf libgd-dev armhf 2.2.5-5.1 [256 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 257 kB in 2s (154 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16441 files and directories currently installed.)
+Preparing to unpack .../000-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../001-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../002-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../003-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../004-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../005-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../006-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../007-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../008-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../009-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../010-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../011-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../012-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../013-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../014-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../015-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../016-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../017-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../018-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../019-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../020-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../021-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../022-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../023-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../024-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../025-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../026-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package fonts-dejavu-core.
+Preparing to unpack .../027-fonts-dejavu-core_2.37-1_all.deb ...
+Unpacking fonts-dejavu-core (2.37-1) ...
+Selecting previously unselected package fontconfig-config.
+Preparing to unpack .../028-fontconfig-config_2.13.1-2_all.deb ...
+Unpacking fontconfig-config (2.13.1-2) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../029-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../030-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../031-libc6_2.28-8_armhf.deb ...
+Unpacking libc6:armhf (2.28-8) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../032-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../033-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../034-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libbsd0:armhf.
+Preparing to unpack .../035-libbsd0_0.9.1-2_armhf.deb ...
+Unpacking libbsd0:armhf (0.9.1-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../036-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../037-libc6-dev_2.28-8_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-8) ...
+Selecting previously unselected package libdb5.3:armhf.
+Preparing to unpack .../038-libdb5.3_5.3.28+dfsg1-0.5_armhf.deb ...
+Unpacking libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Selecting previously unselected package libexpat1:armhf.
+Preparing to unpack .../039-libexpat1_2.2.6-1_armhf.deb ...
+Unpacking libexpat1:armhf (2.2.6-1) ...
+Selecting previously unselected package libexpat1-dev:armhf.
+Preparing to unpack .../040-libexpat1-dev_2.2.6-1_armhf.deb ...
+Unpacking libexpat1-dev:armhf (2.2.6-1) ...
+Selecting previously unselected package libffi6:armhf.
+Preparing to unpack .../041-libffi6_3.2.1-9_armhf.deb ...
+Unpacking libffi6:armhf (3.2.1-9) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../042-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libpng16-16:armhf.
+Preparing to unpack .../043-libpng16-16_1.6.36-5_armhf.deb ...
+Unpacking libpng16-16:armhf (1.6.36-5) ...
+Selecting previously unselected package libfreetype6:armhf.
+Preparing to unpack .../044-libfreetype6_2.9.1-3_armhf.deb ...
+Unpacking libfreetype6:armhf (2.9.1-3) ...
+Selecting previously unselected package libuuid1:armhf.
+Preparing to unpack .../045-libuuid1_2.33.1-0.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libfontconfig1:armhf.
+Preparing to unpack .../046-libfontconfig1_2.13.1-2_armhf.deb ...
+Unpacking libfontconfig1:armhf (2.13.1-2) ...
+Selecting previously unselected package zlib1g-dev:armhf.
+Preparing to unpack .../047-zlib1g-dev_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libpng-dev:armhf.
+Preparing to unpack .../048-libpng-dev_1.6.36-5_armhf.deb ...
+Unpacking libpng-dev:armhf (1.6.36-5) ...
+Selecting previously unselected package libfreetype6-dev:armhf.
+Preparing to unpack .../049-libfreetype6-dev_2.9.1-3_armhf.deb ...
+Unpacking libfreetype6-dev:armhf (2.9.1-3) ...
+Selecting previously unselected package uuid-dev:armhf.
+Preparing to unpack .../050-uuid-dev_2.33.1-0.1_armhf.deb ...
+Unpacking uuid-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../051-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package libfontconfig1-dev:armhf.
+Preparing to unpack .../052-libfontconfig1-dev_2.13.1-2_armhf.deb ...
+Unpacking libfontconfig1-dev:armhf (2.13.1-2) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../053-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../054-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../055-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libjpeg62-turbo:armhf.
+Preparing to unpack .../056-libjpeg62-turbo_1%3a1.5.2-2+b1_armhf.deb ...
+Unpacking libjpeg62-turbo:armhf (1:1.5.2-2+b1) ...
+Selecting previously unselected package libjbig0:armhf.
+Preparing to unpack .../057-libjbig0_2.1-3.1+b2_armhf.deb ...
+Unpacking libjbig0:armhf (2.1-3.1+b2) ...
+Selecting previously unselected package liblzma5:armhf.
+Preparing to unpack .../058-liblzma5_5.2.4-1_armhf.deb ...
+Unpacking liblzma5:armhf (5.2.4-1) ...
+Selecting previously unselected package libwebp6:armhf.
+Preparing to unpack .../059-libwebp6_0.6.1-2_armhf.deb ...
+Unpacking libwebp6:armhf (0.6.1-2) ...
+Selecting previously unselected package libzstd1:armhf.
+Preparing to unpack .../060-libzstd1_1.3.8+dfsg-3_armhf.deb ...
+Unpacking libzstd1:armhf (1.3.8+dfsg-3) ...
+Selecting previously unselected package libtiff5:armhf.
+Preparing to unpack .../061-libtiff5_4.0.10-4_armhf.deb ...
+Unpacking libtiff5:armhf (4.0.10-4) ...
+Selecting previously unselected package libxau6:armhf.
+Preparing to unpack .../062-libxau6_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau6:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:armhf.
+Preparing to unpack .../063-libxdmcp6_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp6:armhf (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:armhf.
+Preparing to unpack .../064-libxcb1_1.13.1-2_armhf.deb ...
+Unpacking libxcb1:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-data.
+Preparing to unpack .../065-libx11-data_2%3a1.6.7-1_all.deb ...
+Unpacking libx11-data (2:1.6.7-1) ...
+Selecting previously unselected package libx11-6:armhf.
+Preparing to unpack .../066-libx11-6_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-6:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxpm4:armhf.
+Preparing to unpack .../067-libxpm4_1%3a3.5.12-1_armhf.deb ...
+Unpacking libxpm4:armhf (1:3.5.12-1) ...
+Selecting previously unselected package libgd3:armhf.
+Preparing to unpack .../068-libgd3_2.2.5-5.1_armhf.deb ...
+Unpacking libgd3:armhf (2.2.5-5.1) ...
+Selecting previously unselected package libjpeg62-turbo-dev:armhf.
+Preparing to unpack .../069-libjpeg62-turbo-dev_1%3a1.5.2-2+b1_armhf.deb ...
+Unpacking libjpeg62-turbo-dev:armhf (1:1.5.2-2+b1) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Preparing to unpack .../070-xorg-sgml-doctools_1%3a1.11-1_all.deb ...
+Unpacking xorg-sgml-doctools (1:1.11-1) ...
+Selecting previously unselected package x11proto-dev.
+Preparing to unpack .../071-x11proto-dev_2018.4-4_all.deb ...
+Unpacking x11proto-dev (2018.4-4) ...
+Selecting previously unselected package x11proto-core-dev.
+Preparing to unpack .../072-x11proto-core-dev_2018.4-4_all.deb ...
+Unpacking x11proto-core-dev (2018.4-4) ...
+Selecting previously unselected package libxau-dev:armhf.
+Preparing to unpack .../073-libxau-dev_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau-dev:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp-dev:armhf.
+Preparing to unpack .../074-libxdmcp-dev_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp-dev:armhf (1:1.1.2-3) ...
+Selecting previously unselected package xtrans-dev.
+Preparing to unpack .../075-xtrans-dev_1.3.5-1_all.deb ...
+Unpacking xtrans-dev (1.3.5-1) ...
+Selecting previously unselected package libpthread-stubs0-dev:armhf.
+Preparing to unpack .../076-libpthread-stubs0-dev_0.4-1_armhf.deb ...
+Unpacking libpthread-stubs0-dev:armhf (0.4-1) ...
+Selecting previously unselected package libxcb1-dev:armhf.
+Preparing to unpack .../077-libxcb1-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb1-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-dev:armhf.
+Preparing to unpack .../078-libx11-dev_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-dev:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxpm-dev:armhf.
+Preparing to unpack .../079-libxpm-dev_1%3a3.5.12-1_armhf.deb ...
+Unpacking libxpm-dev:armhf (1:3.5.12-1) ...
+Selecting previously unselected package x11-common.
+Preparing to unpack .../080-x11-common_1%3a7.7+19_all.deb ...
+Unpacking x11-common (1:7.7+19) ...
+Selecting previously unselected package libice6:armhf.
+Preparing to unpack .../081-libice6_2%3a1.0.9-2_armhf.deb ...
+Unpacking libice6:armhf (2:1.0.9-2) ...
+Selecting previously unselected package libsm6:armhf.
+Preparing to unpack .../082-libsm6_2%3a1.2.3-1_armhf.deb ...
+Unpacking libsm6:armhf (2:1.2.3-1) ...
+Selecting previously unselected package libxt6:armhf.
+Preparing to unpack .../083-libxt6_1%3a1.1.5-1_armhf.deb ...
+Unpacking libxt6:armhf (1:1.1.5-1) ...
+Selecting previously unselected package libice-dev:armhf.
+Preparing to unpack .../084-libice-dev_2%3a1.0.9-2_armhf.deb ...
+Unpacking libice-dev:armhf (2:1.0.9-2) ...
+Selecting previously unselected package libsm-dev:armhf.
+Preparing to unpack .../085-libsm-dev_2%3a1.2.3-1_armhf.deb ...
+Unpacking libsm-dev:armhf (2:1.2.3-1) ...
+Selecting previously unselected package libxt-dev:armhf.
+Preparing to unpack .../086-libxt-dev_1%3a1.1.5-1_armhf.deb ...
+Unpacking libxt-dev:armhf (1:1.1.5-1) ...
+Selecting previously unselected package libvpx5:armhf.
+Preparing to unpack .../087-libvpx5_1.7.0-3_armhf.deb ...
+Unpacking libvpx5:armhf (1.7.0-3) ...
+Selecting previously unselected package libvpx-dev:armhf.
+Preparing to unpack .../088-libvpx-dev_1.7.0-3_armhf.deb ...
+Unpacking libvpx-dev:armhf (1.7.0-3) ...
+Selecting previously unselected package libjbig-dev:armhf.
+Preparing to unpack .../089-libjbig-dev_2.1-3.1+b2_armhf.deb ...
+Unpacking libjbig-dev:armhf (2.1-3.1+b2) ...
+Selecting previously unselected package liblzma-dev:armhf.
+Preparing to unpack .../090-liblzma-dev_5.2.4-1_armhf.deb ...
+Unpacking liblzma-dev:armhf (5.2.4-1) ...
+Selecting previously unselected package libtiffxx5:armhf.
+Preparing to unpack .../091-libtiffxx5_4.0.10-4_armhf.deb ...
+Unpacking libtiffxx5:armhf (4.0.10-4) ...
+Selecting previously unselected package libtiff-dev:armhf.
+Preparing to unpack .../092-libtiff-dev_4.0.10-4_armhf.deb ...
+Unpacking libtiff-dev:armhf (4.0.10-4) ...
+Selecting previously unselected package libgd-dev:armhf.
+Preparing to unpack .../093-libgd-dev_2.2.5-5.1_armhf.deb ...
+Unpacking libgd-dev:armhf (2.2.5-5.1) ...
+Selecting previously unselected package libgmp10:armhf.
+Preparing to unpack .../094-libgmp10_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libnettle6:armhf.
+Preparing to unpack .../095-libnettle6_3.4.1-1_armhf.deb ...
+Unpacking libnettle6:armhf (3.4.1-1) ...
+Selecting previously unselected package libhogweed4:armhf.
+Preparing to unpack .../096-libhogweed4_3.4.1-1_armhf.deb ...
+Unpacking libhogweed4:armhf (3.4.1-1) ...
+Selecting previously unselected package libunistring2:armhf.
+Preparing to unpack .../097-libunistring2_0.9.10-1_armhf.deb ...
+Unpacking libunistring2:armhf (0.9.10-1) ...
+Selecting previously unselected package libidn2-0:armhf.
+Preparing to unpack .../098-libidn2-0_2.0.5-1_armhf.deb ...
+Unpacking libidn2-0:armhf (2.0.5-1) ...
+Selecting previously unselected package libp11-kit0:armhf.
+Preparing to unpack .../099-libp11-kit0_0.23.15-2_armhf.deb ...
+Unpacking libp11-kit0:armhf (0.23.15-2) ...
+Selecting previously unselected package libtasn1-6:armhf.
+Preparing to unpack .../100-libtasn1-6_4.13-3_armhf.deb ...
+Unpacking libtasn1-6:armhf (4.13-3) ...
+Selecting previously unselected package libgnutls30:armhf.
+Preparing to unpack .../101-libgnutls30_3.6.6-2_armhf.deb ...
+Unpacking libgnutls30:armhf (3.6.6-2) ...
+Selecting previously unselected package libsasl2-modules-db:armhf.
+Preparing to unpack .../102-libsasl2-modules-db_2.1.27+dfsg-1_armhf.deb ...
+Unpacking libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Selecting previously unselected package libsasl2-2:armhf.
+Preparing to unpack .../103-libsasl2-2_2.1.27+dfsg-1_armhf.deb ...
+Unpacking libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Selecting previously unselected package libldap-2.4-2:armhf.
+Preparing to unpack .../104-libldap-2.4-2_2.4.47+dfsg-3_armhf.deb ...
+Unpacking libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Selecting previously unselected package libldap2-dev:armhf.
+Preparing to unpack .../105-libldap2-dev_2.4.47+dfsg-3_armhf.deb ...
+Unpacking libldap2-dev:armhf (2.4.47+dfsg-3) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../106-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../107-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up x11-common (1:7.7+19) ...
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up libpthread-stubs0-dev:armhf (0.4-1) ...
+Setting up xtrans-dev (1.3.5-1) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libx11-data (2:1.6.7-1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up fonts-dejavu-core (2.37-1) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up xorg-sgml-doctools (1:1.11-1) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up x11proto-dev (2018.4-4) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up fontconfig-config (2.13.1-2) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up x11proto-core-dev (2018.4-4) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-3) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-8) ...
+Setting up libtasn1-6:armhf (4.13-3) ...
+Setting up libc6-dev:armhf (2.28-8) ...
+Setting up libbsd0:armhf (0.9.1-2) ...
+Setting up libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Setting up libzstd1:armhf (1.3.8+dfsg-3) ...
+Setting up libice6:armhf (2:1.0.9-2) ...
+Setting up libxau6:armhf (1:1.0.8-1+b2) ...
+Setting up libxdmcp6:armhf (1:1.1.2-3) ...
+Setting up libxcb1:armhf (1.13.1-2) ...
+Setting up libxau-dev:armhf (1:1.0.8-1+b2) ...
+Setting up liblzma5:armhf (5.2.4-1) ...
+Setting up libice-dev:armhf (2:1.0.9-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libunistring2:armhf (0.9.10-1) ...
+Setting up debhelper (12.1.1) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libffi6:armhf (3.2.1-9) ...
+Setting up libidn2-0:armhf (2.0.5-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libjbig0:armhf (2.1-3.1+b2) ...
+Setting up libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Setting up dh-autoreconf (19) ...
+Setting up libxdmcp-dev:armhf (1:1.1.2-3) ...
+Setting up libjpeg62-turbo:armhf (1:1.5.2-2+b1) ...
+Setting up libjpeg62-turbo-dev:armhf (1:1.5.2-2+b1) ...
+Setting up libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Setting up libp11-kit0:armhf (0.23.15-2) ...
+Setting up libpng16-16:armhf (1.6.36-5) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libuuid1:armhf (2.33.1-0.1) ...
+Setting up libwebp6:armhf (0.6.1-2) ...
+Setting up libnettle6:armhf (3.4.1-1) ...
+Setting up libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Setting up liblzma-dev:armhf (5.2.4-1) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Setting up libx11-6:armhf (2:1.6.7-1) ...
+Setting up libtiff5:armhf (4.0.10-4) ...
+Setting up libsm6:armhf (2:1.2.3-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libvpx5:armhf (1.7.0-3) ...
+Setting up libtiffxx5:armhf (4.0.10-4) ...
+Setting up libexpat1:armhf (2.2.6-1) ...
+Setting up libxcb1-dev:armhf (1.13.1-2) ...
+Setting up libxpm4:armhf (1:3.5.12-1) ...
+Setting up libsm-dev:armhf (2:1.2.3-1) ...
+Setting up libhogweed4:armhf (3.4.1-1) ...
+Setting up libpng-dev:armhf (1.6.36-5) ...
+Setting up libjbig-dev:armhf (2.1-3.1+b2) ...
+Setting up libx11-dev:armhf (2:1.6.7-1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libgnutls30:armhf (3.6.6-2) ...
+Setting up libexpat1-dev:armhf (2.2.6-1) ...
+Setting up libfreetype6:armhf (2.9.1-3) ...
+Setting up libtiff-dev:armhf (4.0.10-4) ...
+Setting up libvpx-dev:armhf (1.7.0-3) ...
+Setting up uuid-dev:armhf (2.33.1-0.1) ...
+Setting up libxpm-dev:armhf (1:3.5.12-1) ...
+Setting up libxt6:armhf (1:1.1.5-1) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libfontconfig1:armhf (2.13.1-2) ...
+Setting up libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Setting up libfreetype6-dev:armhf (2.9.1-3) ...
+Setting up libldap2-dev:armhf (2.4.47+dfsg-3) ...
+Setting up libxt-dev:armhf (1:1.1.5-1) ...
+Setting up libgd3:armhf (2.2.5-5.1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libfontconfig1-dev:armhf (2.13.1-2) ...
+Setting up libgd-dev:armhf (2.2.5-5.1) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-8) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-15 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-8 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-15 binutils-arm-linux-gnueabihf_2.31.1-15 binutils-common_2.31.1-15 binutils-x86-64-linux-gnu_2.31.1-15 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.6 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-3 cpp_4:8.3.0-1 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.3.0-2cross1 cpp-arm-linux-gnueabihf_4:8.3.0-1 cross-config_2.6.15-2 crossbuild-essential-armhf_12.6 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.13-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.6-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-4 findutils_4.6.0+git+20190209-2 fontconfig-config_2.13.1-2 fonts-dejavu-core_2.37-1 g++_4:8.3.0-1 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.3.0-2cross1 g++-arm-linux-gnueabihf_4:8.3.0-1 gcc_4:8.3.0-1 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.3.0-2cross1 gcc-8-arm-linux-gnueabihf-base_8.3.0-2cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.3.0-2cross1 gcc-arm-linux-gnueabihf_4:8.3.0-1 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.13-1 gnupg-l10n_2.2.13-1 gnupg-utils_2.2.13-1 gpg_2.2.13-1 gpg-agent_2.2.13-1 gpg-wks-client_2.2.13-1 gpg-wks-server_2.2.13-1 gpgconf_2.2.13-1 gpgsm_2.2.13-1 gpgv_2.2.13-1 grep_3.3-1 groff-base_1.22.4-3 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.53-4 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.3.0-2cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.3.0-2cross1 libattr1_1:2.4.48-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-15 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-8 libc-dev-bin_2.28-8 libc6_2.28-8 libc6-armhf-cross_2.28-7cross1 libc6-dev_2.28-8 libc6-dev-armhf-cross_2.28-7cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.6-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.248 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libexpat1-dev_2.2.6-1 libext2fs2_1.44.6-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libfontconfig1_2.13.1-2 libfontconfig1-dev_2.13.1-2 libfreetype6_2.9.1-3 libfreetype6-dev_2.9.1-3 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.3.0-2cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.3.0-2cross1 libgcrypt20_1.8.4-5 libgd-dev_2.2.5-5.1 libgd3_2.2.5-5.1 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.3.0-2cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-3 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libice-dev_2:1.0.9-2 libice6_2:1.0.9-2 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libjbig-dev_2.1-3.1+b2 libjbig0_2.1-3.1+b2 libjpeg62-turbo_1:1.5.2-2+b1 libjpeg62-turbo-dev_1:1.5.2-2+b1 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 libldap2-dev_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma-dev_5.2.4-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-4 libmagic1_1:5.35-4 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpng-dev_1.6.36-5 libpng16-16_1.6.36-5 libpthread-stubs0-dev_0.4-1 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsm-dev_2:1.2.3-1 libsm6_2:1.2.3-1 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.6-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtiff-dev_4.0.10-4 libtiff5_4.0.10-4 libtiffxx5_4.0.10-4 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.3.0-2cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libvpx-dev_1.7.0-3 libvpx5_1.7.0-3 libwebp6_0.6.1-2 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libx11-6_2:1.6.7-1 libx11-data_2:1.6.7-1 libx11-dev_2:1.6.7-1 libxau-dev_1:1.0.8-1+b2 libxau6_1:1.0.8-1+b2 libxcb1_1.13.1-2 libxcb1-dev_1.13.1-2 libxdmcp-dev_1:1.1.2-3 libxdmcp6_1:1.1.2-3 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-4 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libxpm-dev_1:3.5.12-1 libxpm4_1:3.5.12-1 libxt-dev_1:1.1.5-1 libxt6_1:1.1.5-1 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.20-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-2 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-dev_2.33.1-0.1 uuid-runtime_2.33.1-0.1 x11-common_1:7.7+19 x11proto-core-dev_2018.4-4 x11proto-dev_2018.4-4 xorg-sgml-doctools_1:1.11-1 xtrans-dev_1.3.5-1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1 zlib1g-dev_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: sarg
+Binary: sarg
+Architecture: any
+Version: 2.3.11-1
+Maintainer: Luigi Gangitano <luigi@debian.org>
+Standards-Version: 3.9.7
+Vcs-Git: git://anonscm.debian.org/collab-maint/sarg.git/
+Build-Depends: debhelper (>= 9), dpkg-dev (>= 1.16.1~), autotools-dev, libgd-dev, libldap2-dev
+Package-List:
+ sarg deb web optional arch=any
+Checksums-Sha1:
+ c535d1534dd0c7e3a3725d98eb0dd50246e489b0 1344002 sarg_2.3.11.orig.tar.gz
+ 96100cefaccd0a9f546056371ca88c5d32a06cd2 21800 sarg_2.3.11-1.debian.tar.xz
+Checksums-Sha256:
+ 499f698d4bba7d116dada83232a414adb2727fd8f6c048a022208848116fe4f3 1344002 sarg_2.3.11.orig.tar.gz
+ 6afbf233acfebe38a934df2a2f10783b42dab7ec87f59665595dd8b0da8a727a 21800 sarg_2.3.11-1.debian.tar.xz
+Files:
+ 5366f3a9fe4354043b43700362c5e84e 1344002 sarg_2.3.11.orig.tar.gz
+ d8ed7f0c614434a60e6e5106b4f78abd 21800 sarg_2.3.11-1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEEjUhaNf8ebreQ5Q9tAoTyDCupfO0FAlqDHjMACgkQAoTyDCup
+fO3Z5Q//YvQ1iGQtfVbgTZd/JmvfMDnXCCwQD8XOSYSOlV3Nn5cVn8DmqcaM36Hp
+o3adRws0GoxkxTSCibhxGyXWIOdf6fMEHr7Fgdxe4skXVwULFGC6Jl8RrsGUvDAY
+Kj4vrlEXD21aqL4J54+u8S3TsApwr8xdZ9QRFVybX+giNbvOqKRoNTQ2kO/OCBIN
+TCTrkOqmK6OaU4Y9ZVyOWWS/Tbv/R09Yn5V+K12qGfNwGmaab/fJ5m36UYMLbpOm
+bp2CVS4WW+3w1/vowwq4ungcIDr5WnOtRdiwnc4HNXx1G9ycqtbBL3pv8EoSWLa5
+TnbpVyfGTycSd+y3vuibJAdt0xZ60jmjR6FQqBa2XZRj9VeGxPefvkj8/OwTt2jF
+9251LmWyLemw7qM4YAnGLNGUhEB4/UucPwv4+UgaWfbgjW7xpjW53unOgR/QQUVy
+hUsfWBNBtIYwP7C85Ve0g4RGqMd2wue31dI8gMVKNsDNLGX1IGo0j4YaYgqJoLxb
+TDu3dnFt4URWkKp4dSxT3UOeRI7MnDeG+LgIIJHPbyvvn1eZ06Vrvn77dlENYbhu
+bC7fgxgc+srvNgQlJYhVpz9IbpGr0D1rak0bR3jxTiDQAMzE7vrgpKle5M6iFnJX
+1sxzXkMl9ACT6n4fuYL58mzIDrJnDfr7H76S6A4LiOPrvwaJrac=
+=wJGQ
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Tue Feb 13 17:19:47 2018 UTC
+gpgv:                using RSA key 8D485A35FF1E6EB790E50F6D0284F20C2BA97CED
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./sarg_2.3.11-1.dsc
+dpkg-source: info: extracting sarg in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking sarg_2.3.11.orig.tar.gz
+dpkg-source: info: unpacking sarg_2.3.11-1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 0002_config-file-references.patch
+dpkg-source: info: applying 0002-fix-build-errors.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-be0a8230-8dbd-4462-b04e-a1e425d28467
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package sarg
+dpkg-buildpackage: info: source version 2.3.11-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Luigi Gangitano <luigi@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh  clean
+   dh_clean
+ debian/rules build-arch
+dh  build-arch
+   dh_update_autotools_config -a
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+chmod 755 configure
+dh_auto_configure -Sautoconf -- --prefix=/usr \
+	--mandir=\${prefix}/share/man \
+	--infodir=\${prefix}/share/info \
+	--bindir=/usr/bin \
+	--sysconfdir=/etc/sarg \
+	--enable-fontdir=/usr/share/fonts/truetype/ttf-dejavu \
+	--enable-imagedir=/usr/share/sarg/images \
+	--enable-sargphp=/usr/share/sarg
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --prefix=/usr --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --bindir=/usr/bin --sysconfdir=/etc/sarg --enable-fontdir=/usr/share/fonts/truetype/ttf-dejavu --enable-imagedir=/usr/share/sarg/images --enable-sargphp=/usr/share/sarg
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode, --disable-dependency-tracking
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking for arm-linux-gnueabihf-gcc option to accept ISO C99... none needed
+checking for extra warnings flag in arm-linux-gnueabihf-gcc... yes
+checking for implicit-function-declaration error flag in arm-linux-gnueabihf-gcc... yes
+checking for format error flag in arm-linux-gnueabihf-gcc... yes
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for strings.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking for unistd.h... (cached) yes
+checking sys/dirent.h usability... no
+checking sys/dirent.h presence... no
+checking for sys/dirent.h... no
+checking dirent.h usability... yes
+checking dirent.h presence... yes
+checking for dirent.h... yes
+checking for sys/types.h... (cached) yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking for sys/stat.h... (cached) yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking sys/wait.h usability... yes
+checking sys/wait.h presence... yes
+checking for sys/wait.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for inttypes.h... (cached) yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking math.h usability... yes
+checking math.h presence... yes
+checking for math.h... yes
+checking libintl.h usability... yes
+checking libintl.h presence... yes
+checking for libintl.h... yes
+checking libgen.h usability... yes
+checking libgen.h presence... yes
+checking for libgen.h... yes
+checking stdbool.h usability... yes
+checking stdbool.h presence... yes
+checking for stdbool.h... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking gd.h usability... yes
+checking gd.h presence... yes
+checking for gd.h... yes
+checking gdfontl.h usability... yes
+checking gdfontl.h presence... yes
+checking for gdfontl.h... yes
+checking gdfontt.h usability... yes
+checking gdfontt.h presence... yes
+checking for gdfontt.h... yes
+checking gdfonts.h usability... yes
+checking gdfonts.h presence... yes
+checking for gdfonts.h... yes
+checking gdfontmb.h usability... yes
+checking gdfontmb.h presence... yes
+checking for gdfontmb.h... yes
+checking gdfontg.h usability... yes
+checking gdfontg.h presence... yes
+checking for gdfontg.h... yes
+checking for gdImagePng in -lgd... yes
+checking ldap.h usability... yes
+checking ldap.h presence... yes
+checking for ldap.h... yes
+checking for ldap_init in -lldap... yes
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for shared library run path origin... done
+checking for iconv... yes
+checking for working iconv... guessing yes
+checking for iconv declaration... 
+         extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+checking iconv.h usability... yes
+checking iconv.h presence... yes
+checking for iconv.h... yes
+checking pcre.h usability... no
+checking pcre.h presence... no
+checking for pcre.h... no
+checking for an ANSI C-conforming const... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking whether make sets $(MAKE)... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for a sed that does not truncate output... /bin/sed
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking for fopen64... need -D_LARGEFILE64_SOURCE
+checking for bzero... yes
+checking for backtrace... yes
+checking for symlink... yes
+checking for lstat... yes
+checking for getnameinfo... yes
+checking for getaddrinfo... yes
+checking for mkstemp... yes
+checking for struct sockaddr_storage.ss_len... no
+checking size of rlim_t... 8
+checking whether LLONG_MAX is declared... yes
+using /usr/share/sarg as the directory to install sarg-php
+using /usr/share/fonts/truetype/ttf-dejavu as the directory of the fonts
+using /usr/share/sarg/images as the directory of the images
+checking for /usr/share/sgml/docbook/stylesheet/xsl/nwalsh/manpages/docbook.xsl... configure: error: cannot check for file existence when cross compiling
+	tail -v -n \+0 config.log
+==> config.log <==
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+It was created by sarg configure 2.3.11, which was
+generated by GNU Autoconf 2.69.  Invocation command line was
+
+  $ ./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=${prefix}/include --mandir=${prefix}/share/man --infodir=${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=${prefix}/lib/arm-linux-gnueabihf --libexecdir=${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --prefix=/usr --mandir=${prefix}/share/man --infodir=${prefix}/share/info --bindir=/usr/bin --sysconfdir=/etc/sarg --enable-fontdir=/usr/share/fonts/truetype/ttf-dejavu --enable-imagedir=/usr/share/sarg/images --enable-sargphp=/usr/share/sarg
+
+## --------- ##
+## Platform. ##
+## --------- ##
+
+hostname = 36857dea695f
+uname -m = x86_64
+uname -r = 3.16.0-4-amd64
+uname -s = Linux
+uname -v = #1 SMP Debian 3.16.51-3 (2017-12-13)
+
+/usr/bin/uname -p = unknown
+/bin/uname -X     = unknown
+
+/bin/arch              = unknown
+/usr/bin/arch -k       = unknown
+/usr/convex/getsysinfo = unknown
+/usr/bin/hostinfo      = unknown
+/bin/machine           = unknown
+/usr/bin/oslevel       = unknown
+/bin/universe          = unknown
+
+PATH: /usr/lib/ccache
+PATH: /usr/local/sbin
+PATH: /usr/local/bin
+PATH: /usr/sbin
+PATH: /usr/bin
+PATH: /sbin
+PATH: /bin
+PATH: /usr/games
+
+
+## ----------- ##
+## Core tests. ##
+## ----------- ##
+
+configure:2380: loading site script /etc/dpkg-cross/cross-config.armhf
+| # read in package-specific and global values.
+| . `dirname $ac_site_file`/cross-config.cache
+| # now ensure the real architecture-dependent values take priority
+| ac_cv_c_bigendian=no
+| ac_cv_c_char_unsigned=yes
+| ac_cv_sizeof_long_long=8
+| ac_cv_sizeof_unsigned_long_long=8
+| ac_cv_sizeof_long=4
+| ac_cv_sizeof_unsigned_long=4
+| ac_cv_sizeof_int=4
+| ac_cv_sizeof_unsigned_int=4
+| ac_cv_sizeof_short=2
+| ac_cv_sizeof_unsigned_short=2
+| ac_cv_sizeof_char=1
+| ac_cv_sizeof_unsigned_char=1
+| ac_cv_sizeof_signed_char=1
+| ac_cv_sizeof_float=4
+| ac_cv_sizeof_double=8
+| ac_cv_sizeof_long_double=8
+| ac_cv_sizeof_void_p=4
+| ac_cv_sizeof_char_p=4
+| 
+| path=`dirname $ac_site_file`
+| # now allow package-specific architecture-independent values to be set
+| if [ -d $path/cross-config.d/armhf/ ]; then
+| for file in `ls $path/cross-config.d/armhf/`; do
+| 	if [ "$file" = "$PACKAGE" -o "$file" = "$PACKAGE_NAME" ]; then
+| 		[ -d $path/cross-config.d/armhf/$file ] || . $path/cross-config.d/armhf/$file
+| 		HAVE_PKG_CACHE=1
+| 	fi
+| done
+| fi
+| 
+| if [ -z "$HAVE_PKG_CACHE" ]; then
+| 	# orbit2 - only needed until liborbit-dev provides these directly
+| 	# using the mechanism above.
+| 	if [ "$PACKAGE" = "orbit2" -o "$PACKAGE_NAME" = "ORBit2" ]; then
+| 		ac_cv_alignof_CORBA_octet=1
+| 		ac_cv_alignof_CORBA_boolean=1
+| 		ac_cv_alignof_CORBA_char=1
+| 		ac_cv_alignof_CORBA_wchar=2
+| 		ac_cv_alignof_CORBA_short=2
+| 		ac_cv_alignof_CORBA_long=4
+| 		ac_cv_alignof_CORBA_long_long=8
+| 		ac_cv_alignof_CORBA_float=4
+| 		ac_cv_alignof_CORBA_double=4
+| 		ac_cv_alignof_CORBA_long_double=8
+| 		ac_cv_alignof_CORBA_struct=1
+| 		ac_cv_alignof_CORBA_pointer=4
+| 	fi
+| fi
+configure:2512: checking build system type
+configure:2526: result: x86_64-pc-linux-gnu
+configure:2546: checking host system type
+configure:2559: result: arm-unknown-linux-gnueabihf
+configure:2599: checking for arm-linux-gnueabihf-gcc
+configure:2615: found /usr/lib/ccache/arm-linux-gnueabihf-gcc
+configure:2626: result: arm-linux-gnueabihf-gcc
+configure:2895: checking for C compiler version
+configure:2904: arm-linux-gnueabihf-gcc --version >&5
+arm-linux-gnueabihf-gcc (Debian 8.3.0-2) 8.3.0
+Copyright (C) 2018 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:2915: $? = 0
+configure:2904: arm-linux-gnueabihf-gcc -v >&5
+Using built-in specs.
+COLLECT_GCC=/usr/bin/arm-linux-gnueabihf-gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/arm-linux-gnueabihf/8/lto-wrapper
+Target: arm-linux-gnueabihf
+Configured with: ../src/configure -v --with-pkgversion='Debian 8.3.0-2' --with-bugurl=file:///usr/share/doc/gcc-8/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-multiarch --disable-sjlj-exceptions --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=arm-linux-gnueabihf --program-prefix=arm-linux-gnueabihf- --includedir=/usr/arm-linux-gnueabihf/include
+Thread model: posix
+gcc version 8.3.0 (Debian 8.3.0-2) 
+configure:2915: $? = 0
+configure:2904: arm-linux-gnueabihf-gcc -V >&5
+arm-linux-gnueabihf-gcc: error: unrecognized command line option '-V'
+arm-linux-gnueabihf-gcc: fatal error: no input files
+compilation terminated.
+configure:2915: $? = 1
+configure:2904: arm-linux-gnueabihf-gcc -qversion >&5
+arm-linux-gnueabihf-gcc: error: unrecognized command line option '-qversion'; did you mean '--version'?
+arm-linux-gnueabihf-gcc: fatal error: no input files
+compilation terminated.
+configure:2915: $? = 1
+configure:2935: checking whether the C compiler works
+configure:2957: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c  >&5
+configure:2961: $? = 0
+configure:3009: result: yes
+configure:3012: checking for C compiler default output file name
+configure:3014: result: a.out
+configure:3020: checking for suffix of executables
+configure:3027: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c  >&5
+configure:3031: $? = 0
+configure:3053: result: 
+configure:3075: checking whether we are cross compiling
+configure:3113: result: yes
+configure:3118: checking for suffix of object files
+configure:3140: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3144: $? = 0
+configure:3165: result: o
+configure:3169: checking whether we are using the GNU C compiler
+configure:3188: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3188: $? = 0
+configure:3197: result: yes
+configure:3206: checking whether arm-linux-gnueabihf-gcc accepts -g
+configure:3226: arm-linux-gnueabihf-gcc -c -g -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3226: $? = 0
+configure:3267: result: yes
+configure:3284: checking for arm-linux-gnueabihf-gcc option to accept ISO C89
+configure:3347: arm-linux-gnueabihf-gcc  -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3347: $? = 0
+configure:3360: result: none needed
+configure:3383: checking for arm-linux-gnueabihf-gcc option to accept ISO C99
+configure:3532: arm-linux-gnueabihf-gcc  -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+conftest.c: In function 'test_varargs':
+conftest.c:80:9: warning: variable 'fnumber' set but not used [-Wunused-but-set-variable]
+   float fnumber;
+         ^~~~~~~
+conftest.c:79:7: warning: variable 'number' set but not used [-Wunused-but-set-variable]
+   int number;
+       ^~~~~~
+conftest.c:78:15: warning: variable 'str' set but not used [-Wunused-but-set-variable]
+   const char *str;
+               ^~~
+configure:3532: $? = 0
+configure:3545: result: none needed
+configure:3565: checking for extra warnings flag in arm-linux-gnueabihf-gcc
+configure:3574: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+conftest.c:9: warning: ISO C forbids an empty translation unit [-Wpedantic]
+ 
+ 
+configure:3574: $? = 0
+configure:3580: result: yes
+configure:3586: checking for implicit-function-declaration error flag in arm-linux-gnueabihf-gcc
+configure:3594: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+conftest.c:9: warning: ISO C forbids an empty translation unit [-Wpedantic]
+ 
+ 
+configure:3594: $? = 0
+configure:3600: result: yes
+configure:3606: checking for format error flag in arm-linux-gnueabihf-gcc
+configure:3614: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+conftest.c:9: warning: ISO C forbids an empty translation unit [-Wpedantic]
+ 
+ 
+configure:3614: $? = 0
+configure:3620: result: yes
+configure:3639: checking for dirent.h that defines DIR
+configure:3658: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3658: $? = 0
+configure:3666: result: yes
+configure:3679: checking for library containing opendir
+configure:3710: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c  >&5
+configure:3710: $? = 0
+configure:3727: result: none required
+configure:3799: checking how to run the C preprocessor
+configure:3830: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:3830: $? = 0
+configure:3844: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+conftest.c:10:10: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:3844: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:3869: result: arm-linux-gnueabihf-gcc -E
+configure:3889: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:3889: $? = 0
+configure:3903: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+conftest.c:10:10: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:3903: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:3932: checking for grep that handles long lines and -e
+configure:3990: result: /bin/grep
+configure:3995: checking for egrep
+configure:4057: result: /bin/grep -E
+configure:4062: checking for ANSI C header files
+configure:4082: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4082: $? = 0
+configure:4166: result: yes
+configure:4181: checking for sys/types.h
+configure:4181: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4181: $? = 0
+configure:4181: result: yes
+configure:4181: checking for sys/stat.h
+configure:4181: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4181: $? = 0
+configure:4181: result: yes
+configure:4181: checking for stdlib.h
+configure:4181: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4181: $? = 0
+configure:4181: result: yes
+configure:4181: checking for string.h
+configure:4181: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4181: $? = 0
+configure:4181: result: yes
+configure:4181: checking for memory.h
+configure:4181: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4181: $? = 0
+configure:4181: result: yes
+configure:4181: checking for strings.h
+configure:4181: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4181: $? = 0
+configure:4181: result: yes
+configure:4181: checking for inttypes.h
+configure:4181: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4181: $? = 0
+configure:4181: result: yes
+configure:4181: checking for stdint.h
+configure:4181: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4181: $? = 0
+configure:4181: result: yes
+configure:4181: checking for unistd.h
+configure:4181: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4181: $? = 0
+configure:4181: result: yes
+configure:4199: checking stdio.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking stdio.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for stdio.h
+configure:4199: result: yes
+configure:4199: checking for stdlib.h
+configure:4199: result: yes
+configure:4199: checking for string.h
+configure:4199: result: yes
+configure:4199: checking for strings.h
+configure:4199: result: yes
+configure:4199: checking sys/time.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking sys/time.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for sys/time.h
+configure:4199: result: yes
+configure:4199: checking time.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking time.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for time.h
+configure:4199: result: yes
+configure:4199: checking for unistd.h
+configure:4199: result: yes
+configure:4199: checking sys/dirent.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+conftest.c:60:10: fatal error: sys/dirent.h: No such file or directory
+ #include <sys/dirent.h>
+          ^~~~~~~~~~~~~~
+compilation terminated.
+configure:4199: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <sys/dirent.h>
+configure:4199: result: no
+configure:4199: checking sys/dirent.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+conftest.c:27:10: fatal error: sys/dirent.h: No such file or directory
+ #include <sys/dirent.h>
+          ^~~~~~~~~~~~~~
+compilation terminated.
+configure:4199: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| /* end confdefs.h.  */
+| #include <sys/dirent.h>
+configure:4199: result: no
+configure:4199: checking for sys/dirent.h
+configure:4199: result: no
+configure:4199: checking dirent.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking dirent.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for dirent.h
+configure:4199: result: yes
+configure:4199: checking for sys/types.h
+configure:4199: result: yes
+configure:4199: checking sys/socket.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking sys/socket.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for sys/socket.h
+configure:4199: result: yes
+configure:4199: checking netdb.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking netdb.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for netdb.h
+configure:4199: result: yes
+configure:4199: checking arpa/inet.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking arpa/inet.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for arpa/inet.h
+configure:4199: result: yes
+configure:4199: checking netinet/in.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking netinet/in.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for netinet/in.h
+configure:4199: result: yes
+configure:4199: checking for sys/stat.h
+configure:4199: result: yes
+configure:4199: checking ctype.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking ctype.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for ctype.h
+configure:4199: result: yes
+configure:4199: checking errno.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking errno.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for errno.h
+configure:4199: result: yes
+configure:4199: checking sys/resource.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking sys/resource.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for sys/resource.h
+configure:4199: result: yes
+configure:4199: checking sys/wait.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking sys/wait.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for sys/wait.h
+configure:4199: result: yes
+configure:4199: checking stdarg.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking stdarg.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for stdarg.h
+configure:4199: result: yes
+configure:4199: checking for inttypes.h
+configure:4199: result: yes
+configure:4199: checking limits.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking limits.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for limits.h
+configure:4199: result: yes
+configure:4199: checking locale.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking locale.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for locale.h
+configure:4199: result: yes
+configure:4199: checking execinfo.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking execinfo.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for execinfo.h
+configure:4199: result: yes
+configure:4199: checking math.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking math.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for math.h
+configure:4199: result: yes
+configure:4199: checking libintl.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking libintl.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for libintl.h
+configure:4199: result: yes
+configure:4199: checking libgen.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking libgen.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for libgen.h
+configure:4199: result: yes
+configure:4199: checking stdbool.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking stdbool.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for stdbool.h
+configure:4199: result: yes
+configure:4199: checking getopt.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking getopt.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for getopt.h
+configure:4199: result: yes
+configure:4199: checking fcntl.h usability
+configure:4199: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking fcntl.h presence
+configure:4199: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4199: $? = 0
+configure:4199: result: yes
+configure:4199: checking for fcntl.h
+configure:4199: result: yes
+configure:4227: checking gd.h usability
+configure:4227: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4227: $? = 0
+configure:4227: result: yes
+configure:4227: checking gd.h presence
+configure:4227: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4227: $? = 0
+configure:4227: result: yes
+configure:4227: checking for gd.h
+configure:4227: result: yes
+configure:4227: checking gdfontl.h usability
+configure:4227: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4227: $? = 0
+configure:4227: result: yes
+configure:4227: checking gdfontl.h presence
+configure:4227: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4227: $? = 0
+configure:4227: result: yes
+configure:4227: checking for gdfontl.h
+configure:4227: result: yes
+configure:4227: checking gdfontt.h usability
+configure:4227: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4227: $? = 0
+configure:4227: result: yes
+configure:4227: checking gdfontt.h presence
+configure:4227: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4227: $? = 0
+configure:4227: result: yes
+configure:4227: checking for gdfontt.h
+configure:4227: result: yes
+configure:4227: checking gdfonts.h usability
+configure:4227: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4227: $? = 0
+configure:4227: result: yes
+configure:4227: checking gdfonts.h presence
+configure:4227: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4227: $? = 0
+configure:4227: result: yes
+configure:4227: checking for gdfonts.h
+configure:4227: result: yes
+configure:4227: checking gdfontmb.h usability
+configure:4227: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4227: $? = 0
+configure:4227: result: yes
+configure:4227: checking gdfontmb.h presence
+configure:4227: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4227: $? = 0
+configure:4227: result: yes
+configure:4227: checking for gdfontmb.h
+configure:4227: result: yes
+configure:4227: checking gdfontg.h usability
+configure:4227: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4227: $? = 0
+configure:4227: result: yes
+configure:4227: checking gdfontg.h presence
+configure:4227: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4227: $? = 0
+configure:4227: result: yes
+configure:4227: checking for gdfontg.h
+configure:4227: result: yes
+configure:4238: checking for gdImagePng in -lgd
+configure:4263: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lgd   >&5
+configure:4263: $? = 0
+configure:4272: result: yes
+configure:4302: checking ldap.h usability
+configure:4302: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4302: $? = 0
+configure:4302: result: yes
+configure:4302: checking ldap.h presence
+configure:4302: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4302: $? = 0
+configure:4302: result: yes
+configure:4302: checking for ldap.h
+configure:4302: result: yes
+configure:4312: checking for ldap_init in -lldap
+configure:4337: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lldap  -lgd  >&5
+configure:4337: $? = 0
+configure:4346: result: yes
+configure:4410: checking for ld used by arm-linux-gnueabihf-gcc
+configure:4477: result: /usr/arm-linux-gnueabihf/bin/ld
+configure:4484: checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld
+configure:4499: result: yes
+configure:4506: checking for shared library run path origin
+configure:4519: result: done
+configure:5097: checking for iconv
+configure:5121: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lldap -lgd  >&5
+configure:5121: $? = 0
+configure:5155: result: yes
+configure:5158: checking for working iconv
+configure:5299: result: guessing yes
+configure:5327: checking for iconv declaration
+configure:5356: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:5356: $? = 0
+configure:5367: result:
+         extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+configure:5383: checking iconv.h usability
+configure:5383: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:5383: $? = 0
+configure:5383: result: yes
+configure:5383: checking iconv.h presence
+configure:5383: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:5383: $? = 0
+configure:5383: result: yes
+configure:5383: checking for iconv.h
+configure:5383: result: yes
+configure:5410: checking pcre.h usability
+configure:5410: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+conftest.c:92:10: fatal error: pcre.h: No such file or directory
+ #include <pcre.h>
+          ^~~~~~~~
+compilation terminated.
+configure:5410: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DIRENT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_CTYPE_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_RESOURCE_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_LOCALE_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_MATH_H 1
+| #define HAVE_LIBINTL_H 1
+| #define HAVE_LIBGEN_H 1
+| #define HAVE_STDBOOL_H 1
+| #define HAVE_GETOPT_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_GD_H 1
+| #define HAVE_GDFONTL_H 1
+| #define HAVE_GDFONTT_H 1
+| #define HAVE_GDFONTS_H 1
+| #define HAVE_GDFONTMB_H 1
+| #define HAVE_GDFONTG_H 1
+| #define HAVE_LDAP_H 1
+| #define HAVE_ICONV 1
+| #define ICONV_CONST 
+| #define HAVE_ICONV_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <pcre.h>
+configure:5410: result: no
+configure:5410: checking pcre.h presence
+configure:5410: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+conftest.c:59:10: fatal error: pcre.h: No such file or directory
+ #include <pcre.h>
+          ^~~~~~~~
+compilation terminated.
+configure:5410: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DIRENT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_CTYPE_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_RESOURCE_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_LOCALE_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_MATH_H 1
+| #define HAVE_LIBINTL_H 1
+| #define HAVE_LIBGEN_H 1
+| #define HAVE_STDBOOL_H 1
+| #define HAVE_GETOPT_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_GD_H 1
+| #define HAVE_GDFONTL_H 1
+| #define HAVE_GDFONTT_H 1
+| #define HAVE_GDFONTS_H 1
+| #define HAVE_GDFONTMB_H 1
+| #define HAVE_GDFONTG_H 1
+| #define HAVE_LDAP_H 1
+| #define HAVE_ICONV 1
+| #define ICONV_CONST 
+| #define HAVE_ICONV_H 1
+| /* end confdefs.h.  */
+| #include <pcre.h>
+configure:5410: result: no
+configure:5410: checking for pcre.h
+configure:5410: result: no
+configure:5430: checking for an ANSI C-conforming const
+configure:5496: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:5496: $? = 0
+configure:5503: result: yes
+configure:5511: checking whether struct tm is in sys/time.h or time.h
+configure:5531: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:5531: $? = 0
+configure:5538: result: time.h
+configure:5550: checking whether make sets $(MAKE)
+configure:5572: result: yes
+configure:5595: checking for a BSD-compatible install
+configure:5663: result: /usr/bin/install -c
+configure:5674: checking for a thread-safe mkdir -p
+configure:5713: result: /bin/mkdir -p
+configure:5716: checking for a sed that does not truncate output
+configure:5780: result: /bin/sed
+configure:5786: checking whether NLS is requested
+configure:5795: result: yes
+configure:5835: checking for msgfmt
+configure: trying /usr/bin/msgfmt...
+0 translated messages.
+configure:5867: result: /usr/bin/msgfmt
+configure:5876: checking for gmsgfmt
+configure:5907: result: /usr/bin/msgfmt
+configure:5957: checking for xgettext
+configure: trying /usr/bin/xgettext...
+/usr/bin/xgettext: warning: file '/dev/null' extension '' is unknown; will try C
+configure:5989: result: /usr/bin/xgettext
+configure:6034: checking for msgmerge
+configure: trying /usr/bin/msgmerge...
+configure:6065: result: /usr/bin/msgmerge
+configure:6106: checking for CFPreferencesCopyAppValue
+configure:6124: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lldap -lgd  -Wl,-framework -Wl,CoreFoundation >&5
+conftest.c:59:10: fatal error: CoreFoundation/CFPreferences.h: No such file or directory
+ #include <CoreFoundation/CFPreferences.h>
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:6124: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DIRENT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_CTYPE_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_RESOURCE_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_LOCALE_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_MATH_H 1
+| #define HAVE_LIBINTL_H 1
+| #define HAVE_LIBGEN_H 1
+| #define HAVE_STDBOOL_H 1
+| #define HAVE_GETOPT_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_GD_H 1
+| #define HAVE_GDFONTL_H 1
+| #define HAVE_GDFONTT_H 1
+| #define HAVE_GDFONTS_H 1
+| #define HAVE_GDFONTMB_H 1
+| #define HAVE_GDFONTG_H 1
+| #define HAVE_LDAP_H 1
+| #define HAVE_ICONV 1
+| #define ICONV_CONST 
+| #define HAVE_ICONV_H 1
+| /* end confdefs.h.  */
+| #include <CoreFoundation/CFPreferences.h>
+| int
+| main ()
+| {
+| CFPreferencesCopyAppValue(NULL, NULL)
+|   ;
+|   return 0;
+| }
+configure:6133: result: no
+configure:6140: checking for CFLocaleCopyCurrent
+configure:6158: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lldap -lgd  -Wl,-framework -Wl,CoreFoundation >&5
+conftest.c:59:10: fatal error: CoreFoundation/CFLocale.h: No such file or directory
+ #include <CoreFoundation/CFLocale.h>
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:6158: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DIRENT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_CTYPE_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_RESOURCE_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_LOCALE_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_MATH_H 1
+| #define HAVE_LIBINTL_H 1
+| #define HAVE_LIBGEN_H 1
+| #define HAVE_STDBOOL_H 1
+| #define HAVE_GETOPT_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_GD_H 1
+| #define HAVE_GDFONTL_H 1
+| #define HAVE_GDFONTT_H 1
+| #define HAVE_GDFONTS_H 1
+| #define HAVE_GDFONTMB_H 1
+| #define HAVE_GDFONTG_H 1
+| #define HAVE_LDAP_H 1
+| #define HAVE_ICONV 1
+| #define ICONV_CONST 
+| #define HAVE_ICONV_H 1
+| /* end confdefs.h.  */
+| #include <CoreFoundation/CFLocale.h>
+| int
+| main ()
+| {
+| CFLocaleCopyCurrent();
+|   ;
+|   return 0;
+| }
+configure:6167: result: no
+configure:6216: checking for GNU gettext in libc
+configure:6245: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lldap -lgd  >&5
+configure:6245: $? = 0
+configure:6254: result: yes
+configure:7101: checking whether to use NLS
+configure:7103: result: yes
+configure:7106: checking where the gettext function comes from
+configure:7117: result: libc
+configure:7182: checking for special C compiler options needed for large files
+configure:7227: result: no
+configure:7233: checking for _FILE_OFFSET_BITS value needed for large files
+configure:7258: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+conftest.c:67:41: warning: left shift of negative value [-Wshift-negative-value]
+ #define LARGE_OFF_T ((((off_t) 1 << 31) << 31) - 1 + (((off_t) 1 << 31) << 31))
+                                         ^~
+conftest.c:68:23: note: in expansion of macro 'LARGE_OFF_T'
+   int off_t_is_large[(LARGE_OFF_T % 2147483629 == 721
+                       ^~~~~~~~~~~
+conftest.c:67:41: warning: result of '-2147483648 << 31' requires 63 bits to represent, but 'long int' only has 32 bits [-Wshift-overflow=]
+ #define LARGE_OFF_T ((((off_t) 1 << 31) << 31) - 1 + (((off_t) 1 << 31) << 31))
+                                         ^~
+conftest.c:68:23: note: in expansion of macro 'LARGE_OFF_T'
+   int off_t_is_large[(LARGE_OFF_T % 2147483629 == 721
+                       ^~~~~~~~~~~
+conftest.c:67:73: warning: left shift of negative value [-Wshift-negative-value]
+ #define LARGE_OFF_T ((((off_t) 1 << 31) << 31) - 1 + (((off_t) 1 << 31) << 31))
+                                                                         ^~
+conftest.c:68:23: note: in expansion of macro 'LARGE_OFF_T'
+   int off_t_is_large[(LARGE_OFF_T % 2147483629 == 721
+                       ^~~~~~~~~~~
+conftest.c:67:73: warning: result of '-2147483648 << 31' requires 63 bits to represent, but 'long int' only has 32 bits [-Wshift-overflow=]
+ #define LARGE_OFF_T ((((off_t) 1 << 31) << 31) - 1 + (((off_t) 1 << 31) << 31))
+                                                                         ^~
+conftest.c:68:23: note: in expansion of macro 'LARGE_OFF_T'
+   int off_t_is_large[(LARGE_OFF_T % 2147483629 == 721
+                       ^~~~~~~~~~~
+conftest.c:67:41: warning: left shift of negative value [-Wshift-negative-value]
+ #define LARGE_OFF_T ((((off_t) 1 << 31) << 31) - 1 + (((off_t) 1 << 31) << 31))
+                                         ^~
+conftest.c:69:13: note: in expansion of macro 'LARGE_OFF_T'
+          && LARGE_OFF_T % 2147483647 == 1)
+             ^~~~~~~~~~~
+conftest.c:67:41: warning: result of '-2147483648 << 31' requires 63 bits to represent, but 'long int' only has 32 bits [-Wshift-overflow=]
+ #define LARGE_OFF_T ((((off_t) 1 << 31) << 31) - 1 + (((off_t) 1 << 31) << 31))
+                                         ^~
+conftest.c:69:13: note: in expansion of macro 'LARGE_OFF_T'
+          && LARGE_OFF_T % 2147483647 == 1)
+             ^~~~~~~~~~~
+conftest.c:67:73: warning: left shift of negative value [-Wshift-negative-value]
+ #define LARGE_OFF_T ((((off_t) 1 << 31) << 31) - 1 + (((off_t) 1 << 31) << 31))
+                                                                         ^~
+conftest.c:69:13: note: in expansion of macro 'LARGE_OFF_T'
+          && LARGE_OFF_T % 2147483647 == 1)
+             ^~~~~~~~~~~
+conftest.c:67:73: warning: result of '-2147483648 << 31' requires 63 bits to represent, but 'long int' only has 32 bits [-Wshift-overflow=]
+ #define LARGE_OFF_T ((((off_t) 1 << 31) << 31) - 1 + (((off_t) 1 << 31) << 31))
+                                                                         ^~
+conftest.c:69:13: note: in expansion of macro 'LARGE_OFF_T'
+          && LARGE_OFF_T % 2147483647 == 1)
+             ^~~~~~~~~~~
+conftest.c:68:7: error: variably modified 'off_t_is_large' at file scope
+   int off_t_is_large[(LARGE_OFF_T % 2147483629 == 721
+       ^~~~~~~~~~~~~~
+configure:7258: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DIRENT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_CTYPE_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_RESOURCE_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_LOCALE_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_MATH_H 1
+| #define HAVE_LIBINTL_H 1
+| #define HAVE_LIBGEN_H 1
+| #define HAVE_STDBOOL_H 1
+| #define HAVE_GETOPT_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_GD_H 1
+| #define HAVE_GDFONTL_H 1
+| #define HAVE_GDFONTT_H 1
+| #define HAVE_GDFONTS_H 1
+| #define HAVE_GDFONTMB_H 1
+| #define HAVE_GDFONTG_H 1
+| #define HAVE_LDAP_H 1
+| #define HAVE_ICONV 1
+| #define ICONV_CONST 
+| #define HAVE_ICONV_H 1
+| #define ENABLE_NLS 1
+| #define HAVE_GETTEXT 1
+| #define HAVE_DCGETTEXT 1
+| /* end confdefs.h.  */
+| #include <sys/types.h>
+|  /* Check that off_t can represent 2**63 - 1 correctly.
+|     We can't simply define LARGE_OFF_T to be 9223372036854775807,
+|     since some C++ compilers masquerading as C compilers
+|     incorrectly reject 9223372036854775807.  */
+| #define LARGE_OFF_T ((((off_t) 1 << 31) << 31) - 1 + (((off_t) 1 << 31) << 31))
+|   int off_t_is_large[(LARGE_OFF_T % 2147483629 == 721
+| 		       && LARGE_OFF_T % 2147483647 == 1)
+| 		      ? 1 : -1];
+| int
+| main ()
+| {
+| 
+|   ;
+|   return 0;
+| }
+configure:7282: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7282: $? = 0
+configure:7290: result: 64
+configure:7378: checking for fopen64
+configure:7396: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Werror -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lldap -lgd  >&5
+conftest.c: In function 'main':
+conftest.c:67:11: error: implicit declaration of function 'fopen64'; did you mean 'fopen'? [-Werror=implicit-function-declaration]
+ FILE *f = fopen64 ("/tmp/foo","r");fclose(f);
+           ^~~~~~~
+           fopen
+conftest.c:67:11: error: initialization of 'FILE *' {aka 'struct _IO_FILE *'} from 'int' makes pointer from integer without a cast [-Werror=int-conversion]
+cc1: all warnings being treated as errors
+configure:7396: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DIRENT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_CTYPE_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_RESOURCE_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_LOCALE_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_MATH_H 1
+| #define HAVE_LIBINTL_H 1
+| #define HAVE_LIBGEN_H 1
+| #define HAVE_STDBOOL_H 1
+| #define HAVE_GETOPT_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_GD_H 1
+| #define HAVE_GDFONTL_H 1
+| #define HAVE_GDFONTT_H 1
+| #define HAVE_GDFONTS_H 1
+| #define HAVE_GDFONTMB_H 1
+| #define HAVE_GDFONTG_H 1
+| #define HAVE_LDAP_H 1
+| #define HAVE_ICONV 1
+| #define ICONV_CONST 
+| #define HAVE_ICONV_H 1
+| #define ENABLE_NLS 1
+| #define HAVE_GETTEXT 1
+| #define HAVE_DCGETTEXT 1
+| #define _FILE_OFFSET_BITS 64
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| int
+| main ()
+| {
+| FILE *f = fopen64 ("/tmp/foo","r");fclose(f);
+|   ;
+|   return 0;
+| }
+configure:7411: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Werror -D_LARGEFILE64_SOURCE -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lldap -lgd  >&5
+configure:7411: $? = 0
+configure:7463: result: need -D_LARGEFILE64_SOURCE
+configure:7478: checking for bzero
+configure:7478: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lldap -lgd  >&5
+conftest.c:88:6: warning: conflicting types for built-in function 'bzero' [-Wbuiltin-declaration-mismatch]
+ char bzero ();
+      ^~~~~
+configure:7478: $? = 0
+configure:7478: result: yes
+configure:7489: checking for backtrace
+configure:7489: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lldap -lgd  >&5
+configure:7489: $? = 0
+configure:7489: result: yes
+configure:7500: checking for symlink
+configure:7500: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lldap -lgd  >&5
+configure:7500: $? = 0
+configure:7500: result: yes
+configure:7511: checking for lstat
+configure:7511: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lldap -lgd  >&5
+configure:7511: $? = 0
+configure:7511: result: yes
+configure:7522: checking for getnameinfo
+configure:7522: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lldap -lgd  >&5
+configure:7522: $? = 0
+configure:7522: result: yes
+configure:7533: checking for getaddrinfo
+configure:7533: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lldap -lgd  >&5
+configure:7533: $? = 0
+configure:7533: result: yes
+configure:7544: checking for mkstemp
+configure:7544: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,--as-needed conftest.c -lldap -lgd  >&5
+configure:7544: $? = 0
+configure:7544: result: yes
+configure:7554: checking for struct sockaddr_storage.ss_len
+configure:7554: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:108:32: error: storage size of 'ac_aggr' isn't known
+ static struct sockaddr_storage ac_aggr;
+                                ^~~~~~~
+conftest.c:108:32: warning: unused variable 'ac_aggr' [-Wunused-variable]
+configure:7554: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DIRENT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_CTYPE_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_RESOURCE_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_LOCALE_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_MATH_H 1
+| #define HAVE_LIBINTL_H 1
+| #define HAVE_LIBGEN_H 1
+| #define HAVE_STDBOOL_H 1
+| #define HAVE_GETOPT_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_GD_H 1
+| #define HAVE_GDFONTL_H 1
+| #define HAVE_GDFONTT_H 1
+| #define HAVE_GDFONTS_H 1
+| #define HAVE_GDFONTMB_H 1
+| #define HAVE_GDFONTG_H 1
+| #define HAVE_LDAP_H 1
+| #define HAVE_ICONV 1
+| #define ICONV_CONST 
+| #define HAVE_ICONV_H 1
+| #define ENABLE_NLS 1
+| #define HAVE_GETTEXT 1
+| #define HAVE_DCGETTEXT 1
+| #define _FILE_OFFSET_BITS 64
+| #define HAVE_FOPEN64 1
+| #define _LARGEFILE64_SOURCE 1
+| #define HAVE_BZERO 1
+| #define HAVE_BACKTRACE 1
+| #define HAVE_SYMLINK 1
+| #define HAVE_LSTAT 1
+| #define HAVE_GETNAMEINFO 1
+| #define HAVE_GETADDRINFO 1
+| #define HAVE_MKSTEMP 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| int
+| main ()
+| {
+| static struct sockaddr_storage ac_aggr;
+| if (ac_aggr.ss_len)
+| return 0;
+|   ;
+|   return 0;
+| }
+configure:7554: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:108:32: error: storage size of 'ac_aggr' isn't known
+ static struct sockaddr_storage ac_aggr;
+                                ^~~~~~~
+conftest.c:108:32: warning: unused variable 'ac_aggr' [-Wunused-variable]
+configure:7554: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DIRENT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_CTYPE_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_RESOURCE_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_LOCALE_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_MATH_H 1
+| #define HAVE_LIBINTL_H 1
+| #define HAVE_LIBGEN_H 1
+| #define HAVE_STDBOOL_H 1
+| #define HAVE_GETOPT_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_GD_H 1
+| #define HAVE_GDFONTL_H 1
+| #define HAVE_GDFONTT_H 1
+| #define HAVE_GDFONTS_H 1
+| #define HAVE_GDFONTMB_H 1
+| #define HAVE_GDFONTG_H 1
+| #define HAVE_LDAP_H 1
+| #define HAVE_ICONV 1
+| #define ICONV_CONST 
+| #define HAVE_ICONV_H 1
+| #define ENABLE_NLS 1
+| #define HAVE_GETTEXT 1
+| #define HAVE_DCGETTEXT 1
+| #define _FILE_OFFSET_BITS 64
+| #define HAVE_FOPEN64 1
+| #define _LARGEFILE64_SOURCE 1
+| #define HAVE_BZERO 1
+| #define HAVE_BACKTRACE 1
+| #define HAVE_SYMLINK 1
+| #define HAVE_LSTAT 1
+| #define HAVE_GETNAMEINFO 1
+| #define HAVE_GETADDRINFO 1
+| #define HAVE_MKSTEMP 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| int
+| main ()
+| {
+| static struct sockaddr_storage ac_aggr;
+| if (sizeof ac_aggr.ss_len)
+| return 0;
+|   ;
+|   return 0;
+| }
+configure:7554: result: no
+configure:7566: checking size of rlim_t
+configure:7571: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7571: $? = 0
+configure:7571: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:80:12: error: size of array 'test_array' is negative
+ static int test_array [1 - 2 * !(((long int) (sizeof (rlim_t))) <= 0)];
+            ^~~~~~~~~~
+configure:7571: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DIRENT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_CTYPE_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_RESOURCE_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_LOCALE_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_MATH_H 1
+| #define HAVE_LIBINTL_H 1
+| #define HAVE_LIBGEN_H 1
+| #define HAVE_STDBOOL_H 1
+| #define HAVE_GETOPT_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_GD_H 1
+| #define HAVE_GDFONTL_H 1
+| #define HAVE_GDFONTT_H 1
+| #define HAVE_GDFONTS_H 1
+| #define HAVE_GDFONTMB_H 1
+| #define HAVE_GDFONTG_H 1
+| #define HAVE_LDAP_H 1
+| #define HAVE_ICONV 1
+| #define ICONV_CONST 
+| #define HAVE_ICONV_H 1
+| #define ENABLE_NLS 1
+| #define HAVE_GETTEXT 1
+| #define HAVE_DCGETTEXT 1
+| #define _FILE_OFFSET_BITS 64
+| #define HAVE_FOPEN64 1
+| #define _LARGEFILE64_SOURCE 1
+| #define HAVE_BZERO 1
+| #define HAVE_BACKTRACE 1
+| #define HAVE_SYMLINK 1
+| #define HAVE_LSTAT 1
+| #define HAVE_GETNAMEINFO 1
+| #define HAVE_GETADDRINFO 1
+| #define HAVE_MKSTEMP 1
+| /* end confdefs.h.  */
+| #if HAVE_SYS_RESOURCE_H
+| #include <sys/resource.h>
+| #endif
+| 
+| 
+| int
+| main ()
+| {
+| static int test_array [1 - 2 * !(((long int) (sizeof (rlim_t))) <= 0)];
+| test_array [0] = 0;
+| return test_array [0];
+| 
+|   ;
+|   return 0;
+| }
+configure:7571: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:80:12: error: size of array 'test_array' is negative
+ static int test_array [1 - 2 * !(((long int) (sizeof (rlim_t))) <= 1)];
+            ^~~~~~~~~~
+configure:7571: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DIRENT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_CTYPE_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_RESOURCE_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_LOCALE_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_MATH_H 1
+| #define HAVE_LIBINTL_H 1
+| #define HAVE_LIBGEN_H 1
+| #define HAVE_STDBOOL_H 1
+| #define HAVE_GETOPT_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_GD_H 1
+| #define HAVE_GDFONTL_H 1
+| #define HAVE_GDFONTT_H 1
+| #define HAVE_GDFONTS_H 1
+| #define HAVE_GDFONTMB_H 1
+| #define HAVE_GDFONTG_H 1
+| #define HAVE_LDAP_H 1
+| #define HAVE_ICONV 1
+| #define ICONV_CONST 
+| #define HAVE_ICONV_H 1
+| #define ENABLE_NLS 1
+| #define HAVE_GETTEXT 1
+| #define HAVE_DCGETTEXT 1
+| #define _FILE_OFFSET_BITS 64
+| #define HAVE_FOPEN64 1
+| #define _LARGEFILE64_SOURCE 1
+| #define HAVE_BZERO 1
+| #define HAVE_BACKTRACE 1
+| #define HAVE_SYMLINK 1
+| #define HAVE_LSTAT 1
+| #define HAVE_GETNAMEINFO 1
+| #define HAVE_GETADDRINFO 1
+| #define HAVE_MKSTEMP 1
+| /* end confdefs.h.  */
+| #if HAVE_SYS_RESOURCE_H
+| #include <sys/resource.h>
+| #endif
+| 
+| 
+| int
+| main ()
+| {
+| static int test_array [1 - 2 * !(((long int) (sizeof (rlim_t))) <= 1)];
+| test_array [0] = 0;
+| return test_array [0];
+| 
+|   ;
+|   return 0;
+| }
+configure:7571: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:80:12: error: size of array 'test_array' is negative
+ static int test_array [1 - 2 * !(((long int) (sizeof (rlim_t))) <= 3)];
+            ^~~~~~~~~~
+configure:7571: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DIRENT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_CTYPE_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_RESOURCE_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_LOCALE_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_MATH_H 1
+| #define HAVE_LIBINTL_H 1
+| #define HAVE_LIBGEN_H 1
+| #define HAVE_STDBOOL_H 1
+| #define HAVE_GETOPT_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_GD_H 1
+| #define HAVE_GDFONTL_H 1
+| #define HAVE_GDFONTT_H 1
+| #define HAVE_GDFONTS_H 1
+| #define HAVE_GDFONTMB_H 1
+| #define HAVE_GDFONTG_H 1
+| #define HAVE_LDAP_H 1
+| #define HAVE_ICONV 1
+| #define ICONV_CONST 
+| #define HAVE_ICONV_H 1
+| #define ENABLE_NLS 1
+| #define HAVE_GETTEXT 1
+| #define HAVE_DCGETTEXT 1
+| #define _FILE_OFFSET_BITS 64
+| #define HAVE_FOPEN64 1
+| #define _LARGEFILE64_SOURCE 1
+| #define HAVE_BZERO 1
+| #define HAVE_BACKTRACE 1
+| #define HAVE_SYMLINK 1
+| #define HAVE_LSTAT 1
+| #define HAVE_GETNAMEINFO 1
+| #define HAVE_GETADDRINFO 1
+| #define HAVE_MKSTEMP 1
+| /* end confdefs.h.  */
+| #if HAVE_SYS_RESOURCE_H
+| #include <sys/resource.h>
+| #endif
+| 
+| 
+| int
+| main ()
+| {
+| static int test_array [1 - 2 * !(((long int) (sizeof (rlim_t))) <= 3)];
+| test_array [0] = 0;
+| return test_array [0];
+| 
+|   ;
+|   return 0;
+| }
+configure:7571: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:80:12: error: size of array 'test_array' is negative
+ static int test_array [1 - 2 * !(((long int) (sizeof (rlim_t))) <= 7)];
+            ^~~~~~~~~~
+configure:7571: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sarg"
+| #define PACKAGE_TARNAME "sarg"
+| #define PACKAGE_VERSION "2.3.11"
+| #define PACKAGE_STRING "sarg 2.3.11"
+| #define PACKAGE_BUGREPORT ""
+| #define PACKAGE_URL ""
+| #define HAVE_DIRENT_H 1
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_STDIO_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_DIRENT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_ARPA_INET_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_CTYPE_H 1
+| #define HAVE_ERRNO_H 1
+| #define HAVE_SYS_RESOURCE_H 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_STDARG_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_LOCALE_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_MATH_H 1
+| #define HAVE_LIBINTL_H 1
+| #define HAVE_LIBGEN_H 1
+| #define HAVE_STDBOOL_H 1
+| #define HAVE_GETOPT_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_GD_H 1
+| #define HAVE_GDFONTL_H 1
+| #define HAVE_GDFONTT_H 1
+| #define HAVE_GDFONTS_H 1
+| #define HAVE_GDFONTMB_H 1
+| #define HAVE_GDFONTG_H 1
+| #define HAVE_LDAP_H 1
+| #define HAVE_ICONV 1
+| #define ICONV_CONST 
+| #define HAVE_ICONV_H 1
+| #define ENABLE_NLS 1
+| #define HAVE_GETTEXT 1
+| #define HAVE_DCGETTEXT 1
+| #define _FILE_OFFSET_BITS 64
+| #define HAVE_FOPEN64 1
+| #define _LARGEFILE64_SOURCE 1
+| #define HAVE_BZERO 1
+| #define HAVE_BACKTRACE 1
+| #define HAVE_SYMLINK 1
+| #define HAVE_LSTAT 1
+| #define HAVE_GETNAMEINFO 1
+| #define HAVE_GETADDRINFO 1
+| #define HAVE_MKSTEMP 1
+| /* end confdefs.h.  */
+| #if HAVE_SYS_RESOURCE_H
+| #include <sys/resource.h>
+| #endif
+| 
+| 
+| int
+| main ()
+| {
+| static int test_array [1 - 2 * !(((long int) (sizeof (rlim_t))) <= 7)];
+| test_array [0] = 0;
+| return test_array [0];
+| 
+|   ;
+|   return 0;
+| }
+configure:7571: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7571: $? = 0
+configure:7571: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7571: $? = 0
+configure:7571: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7571: $? = 0
+configure:7571: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7571: $? = 0
+configure:7589: result: 8
+configure:7612: checking whether LLONG_MAX is declared
+configure:7612: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7612: $? = 0
+configure:7612: result: yes
+configure:7754: checking for /usr/share/sgml/docbook/stylesheet/xsl/nwalsh/manpages/docbook.xsl
+configure:7760: error: cannot check for file existence when cross compiling
+
+## ---------------- ##
+## Cache variables. ##
+## ---------------- ##
+
+ac_cv_build=x86_64-pc-linux-gnu
+ac_cv_c_bigendian=no
+ac_cv_c_char_unsigned=yes
+ac_cv_c_compiler_gnu=yes
+ac_cv_c_const=yes
+ac_cv_env_CC_set=
+ac_cv_env_CC_value=
+ac_cv_env_CFLAGS_set=set
+ac_cv_env_CFLAGS_value='-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic'
+ac_cv_env_CPPFLAGS_set=set
+ac_cv_env_CPPFLAGS_value='-Wdate-time -D_FORTIFY_SOURCE=2'
+ac_cv_env_CPP_set=
+ac_cv_env_CPP_value=
+ac_cv_env_LDFLAGS_set=set
+ac_cv_env_LDFLAGS_value='-Wl,-z,relro -Wl,-z,now -Wl,--as-needed'
+ac_cv_env_LIBS_set=
+ac_cv_env_LIBS_value=
+ac_cv_env_build_alias_set=set
+ac_cv_env_build_alias_value=x86_64-linux-gnu
+ac_cv_env_host_alias_set=set
+ac_cv_env_host_alias_value=arm-linux-gnueabihf
+ac_cv_env_target_alias_set=
+ac_cv_env_target_alias_value=
+ac_cv_func_backtrace=yes
+ac_cv_func_bzero=yes
+ac_cv_func_getaddrinfo=yes
+ac_cv_func_getnameinfo=yes
+ac_cv_func_lstat=yes
+ac_cv_func_malloc_0_nonnull=yes
+ac_cv_func_mkstemp=yes
+ac_cv_func_realloc_0_nonnull=yes
+ac_cv_func_setpgrp_void=yes
+ac_cv_func_symlink=yes
+ac_cv_have_decl_LLONG_MAX=yes
+ac_cv_header_arpa_inet_h=yes
+ac_cv_header_ctype_h=yes
+ac_cv_header_dirent_dirent_h=yes
+ac_cv_header_dirent_h=yes
+ac_cv_header_errno_h=yes
+ac_cv_header_execinfo_h=yes
+ac_cv_header_fcntl_h=yes
+ac_cv_header_gd_h=yes
+ac_cv_header_gdfontg_h=yes
+ac_cv_header_gdfontl_h=yes
+ac_cv_header_gdfontmb_h=yes
+ac_cv_header_gdfonts_h=yes
+ac_cv_header_gdfontt_h=yes
+ac_cv_header_getopt_h=yes
+ac_cv_header_iconv_h=yes
+ac_cv_header_inttypes_h=yes
+ac_cv_header_ldap_h=yes
+ac_cv_header_libgen_h=yes
+ac_cv_header_libintl_h=yes
+ac_cv_header_limits_h=yes
+ac_cv_header_locale_h=yes
+ac_cv_header_math_h=yes
+ac_cv_header_memory_h=yes
+ac_cv_header_netdb_h=yes
+ac_cv_header_netinet_in_h=yes
+ac_cv_header_pcre_h=no
+ac_cv_header_stdarg_h=yes
+ac_cv_header_stdbool_h=yes
+ac_cv_header_stdc=yes
+ac_cv_header_stdint_h=yes
+ac_cv_header_stdio_h=yes
+ac_cv_header_stdlib_h=yes
+ac_cv_header_string_h=yes
+ac_cv_header_strings_h=yes
+ac_cv_header_sys_dirent_h=no
+ac_cv_header_sys_resource_h=yes
+ac_cv_header_sys_socket_h=yes
+ac_cv_header_sys_stat_h=yes
+ac_cv_header_sys_time_h=yes
+ac_cv_header_sys_types_h=yes
+ac_cv_header_sys_wait_h=yes
+ac_cv_header_time_h=yes
+ac_cv_header_unistd_h=yes
+ac_cv_host=arm-unknown-linux-gnueabihf
+ac_cv_lib_gd_gdImagePng=yes
+ac_cv_lib_ldap_ldap_init=yes
+ac_cv_member_struct_sockaddr_storage_ss_len=no
+ac_cv_objext=o
+ac_cv_path_EGREP='/bin/grep -E'
+ac_cv_path_GMSGFMT=/usr/bin/msgfmt
+ac_cv_path_GREP=/bin/grep
+ac_cv_path_MSGFMT=/usr/bin/msgfmt
+ac_cv_path_MSGMERGE=/usr/bin/msgmerge
+ac_cv_path_SED=/bin/sed
+ac_cv_path_XGETTEXT=/usr/bin/xgettext
+ac_cv_path_install='/usr/bin/install -c'
+ac_cv_path_mkdir=/bin/mkdir
+ac_cv_prog_CC=arm-linux-gnueabihf-gcc
+ac_cv_prog_CPP='arm-linux-gnueabihf-gcc -E'
+ac_cv_prog_cc_c89=
+ac_cv_prog_cc_c99=
+ac_cv_prog_cc_g=yes
+ac_cv_prog_make_make_set=yes
+ac_cv_search_opendir='none required'
+ac_cv_sizeof_char=1
+ac_cv_sizeof_char_p=4
+ac_cv_sizeof_double=8
+ac_cv_sizeof_float=4
+ac_cv_sizeof_int=4
+ac_cv_sizeof_long=4
+ac_cv_sizeof_long_double=8
+ac_cv_sizeof_long_long=8
+ac_cv_sizeof_rlim_t=8
+ac_cv_sizeof_short=2
+ac_cv_sizeof_signed_char=1
+ac_cv_sizeof_unsigned_char=1
+ac_cv_sizeof_unsigned_int=4
+ac_cv_sizeof_unsigned_long=4
+ac_cv_sizeof_unsigned_long_long=8
+ac_cv_sizeof_unsigned_short=2
+ac_cv_sizeof_void_p=4
+ac_cv_struct_tm=time.h
+ac_cv_sys_file_offset_bits=64
+ac_cv_sys_largefile_CC=no
+acl_cv_hardcode_direct=no
+acl_cv_hardcode_libdir_flag_spec='${wl}-rpath ${wl}$libdir'
+acl_cv_hardcode_libdir_separator=
+acl_cv_hardcode_minus_L=no
+acl_cv_libext=a
+acl_cv_libname_spec='lib$name'
+acl_cv_library_names_spec='$libname$shrext'
+acl_cv_path_LD=/usr/arm-linux-gnueabihf/bin/ld
+acl_cv_prog_gnu_ld=yes
+acl_cv_rpath=done
+acl_cv_shlibext=so
+acl_cv_wl=-Wl,
+am_cv_func_iconv=yes
+am_cv_func_iconv_works='guessing yes'
+am_cv_lib_iconv=no
+am_cv_proto_iconv='extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);'
+am_cv_proto_iconv_arg1=
+bu_cv_have_fopen64='need -D_LARGEFILE64_SOURCE'
+gt_cv_func_CFLocaleCopyCurrent=no
+gt_cv_func_CFPreferencesCopyAppValue=no
+gt_cv_func_gnugettext1_libc=yes
+lt_cv_sys_lib_dlsearch_path_spec=' /lib/arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf /lib /usr/lib /usr/local/lib'
+
+## ----------------- ##
+## Output variables. ##
+## ----------------- ##
+
+CC='arm-linux-gnueabihf-gcc'
+CFLAGS='-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -pedantic -Wall -Wno-sign-compare -Wextra -Wno-unused-parameter -Werror=implicit-function-declaration -Werror=format'
+CPP='arm-linux-gnueabihf-gcc -E'
+CPPFLAGS='-Wdate-time -D_FORTIFY_SOURCE=2'
+DEFS=''
+ECHO_C=''
+ECHO_N='-n'
+ECHO_T=''
+EGREP='/bin/grep -E'
+EXEEXT=''
+FONTDIR='/usr/share/fonts/truetype/ttf-dejavu'
+GETTEXT_MACRO_VERSION='0.19'
+GMSGFMT='/usr/bin/msgfmt'
+GMSGFMT_015='/usr/bin/msgfmt'
+GREP='/bin/grep'
+IMAGEDIR='/usr/share/sarg/images'
+INSTALL_DATA='${INSTALL} -m 644'
+INSTALL_PROGRAM='${INSTALL}'
+INSTALL_SCRIPT='${INSTALL}'
+INTLLIBS=''
+INTL_MACOSX_LIBS=''
+LDFLAGS='-Wl,-z,relro -Wl,-z,now -Wl,--as-needed'
+LIBICONV=''
+LIBINTL=''
+LIBOBJS=''
+LIBS='-lldap -lgd '
+LTLIBICONV=''
+LTLIBINTL=''
+LTLIBOBJS=''
+MKDIR_P='/bin/mkdir -p'
+MSGFMT='/usr/bin/msgfmt'
+MSGFMT_015='/usr/bin/msgfmt'
+MSGMERGE='/usr/bin/msgmerge'
+OBJEXT='o'
+PACKAGE=''
+PACKAGE_BUGREPORT=''
+PACKAGE_NAME='sarg'
+PACKAGE_STRING='sarg 2.3.11'
+PACKAGE_TARNAME='sarg'
+PACKAGE_URL=''
+PACKAGE_VERSION='2.3.11'
+PATH_SEPARATOR=':'
+POSUB='po'
+SARGPHPDIR='/usr/share/sarg'
+SED='/bin/sed'
+SET_MAKE=''
+SHELL='/bin/bash'
+USE_NLS='yes'
+VERSION=''
+XGETTEXT='/usr/bin/xgettext'
+XGETTEXT_015='/usr/bin/xgettext'
+XGETTEXT_EXTRA_OPTIONS=''
+XSL_HTML_STYLESHEET=''
+XSL_MAN_STYLESHEET=''
+ac_ct_CC=''
+bindir='/usr/bin'
+build='x86_64-pc-linux-gnu'
+build_alias='x86_64-linux-gnu'
+build_cpu='x86_64'
+build_os='linux-gnu'
+build_vendor='pc'
+datadir='${datarootdir}'
+datarootdir='${prefix}/share'
+docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
+dvidir='${docdir}'
+exec_prefix='NONE'
+host='arm-unknown-linux-gnueabihf'
+host_alias='arm-linux-gnueabihf'
+host_cpu='arm'
+host_os='linux-gnueabihf'
+host_vendor='unknown'
+htmldir='${docdir}'
+includedir='${prefix}/include'
+infodir='${prefix}/share/info'
+libdir='${prefix}/lib/arm-linux-gnueabihf'
+libexecdir='${prefix}/lib/arm-linux-gnueabihf'
+localedir='${datarootdir}/locale'
+localstatedir='/var'
+mandir='${prefix}/share/man'
+oldincludedir='/usr/include'
+pdfdir='${docdir}'
+prefix='/usr'
+program_transform_name='s,x,x,'
+psdir='${docdir}'
+runstatedir='${localstatedir}/run'
+sbindir='${exec_prefix}/sbin'
+sharedstatedir='${prefix}/com'
+sysconfdir='/etc/sarg'
+target_alias=''
+
+## ----------- ##
+## confdefs.h. ##
+## ----------- ##
+
+/* confdefs.h */
+#define PACKAGE_NAME "sarg"
+#define PACKAGE_TARNAME "sarg"
+#define PACKAGE_VERSION "2.3.11"
+#define PACKAGE_STRING "sarg 2.3.11"
+#define PACKAGE_BUGREPORT ""
+#define PACKAGE_URL ""
+#define HAVE_DIRENT_H 1
+#define STDC_HEADERS 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_SYS_STAT_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRING_H 1
+#define HAVE_MEMORY_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_STDINT_H 1
+#define HAVE_UNISTD_H 1
+#define HAVE_STDIO_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRING_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_SYS_TIME_H 1
+#define HAVE_TIME_H 1
+#define HAVE_UNISTD_H 1
+#define HAVE_DIRENT_H 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_SYS_SOCKET_H 1
+#define HAVE_NETDB_H 1
+#define HAVE_ARPA_INET_H 1
+#define HAVE_NETINET_IN_H 1
+#define HAVE_SYS_STAT_H 1
+#define HAVE_CTYPE_H 1
+#define HAVE_ERRNO_H 1
+#define HAVE_SYS_RESOURCE_H 1
+#define HAVE_SYS_WAIT_H 1
+#define HAVE_STDARG_H 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_LIMITS_H 1
+#define HAVE_LOCALE_H 1
+#define HAVE_EXECINFO_H 1
+#define HAVE_MATH_H 1
+#define HAVE_LIBINTL_H 1
+#define HAVE_LIBGEN_H 1
+#define HAVE_STDBOOL_H 1
+#define HAVE_GETOPT_H 1
+#define HAVE_FCNTL_H 1
+#define HAVE_GD_H 1
+#define HAVE_GDFONTL_H 1
+#define HAVE_GDFONTT_H 1
+#define HAVE_GDFONTS_H 1
+#define HAVE_GDFONTMB_H 1
+#define HAVE_GDFONTG_H 1
+#define HAVE_LDAP_H 1
+#define HAVE_ICONV 1
+#define ICONV_CONST 
+#define HAVE_ICONV_H 1
+#define ENABLE_NLS 1
+#define HAVE_GETTEXT 1
+#define HAVE_DCGETTEXT 1
+#define _FILE_OFFSET_BITS 64
+#define HAVE_FOPEN64 1
+#define _LARGEFILE64_SOURCE 1
+#define HAVE_BZERO 1
+#define HAVE_BACKTRACE 1
+#define HAVE_SYMLINK 1
+#define HAVE_LSTAT 1
+#define HAVE_GETNAMEINFO 1
+#define HAVE_GETADDRINFO 1
+#define HAVE_MKSTEMP 1
+#define SIZEOF_RLIM_T 8
+#define RLIM_STRING "%lli"
+
+configure: exit 1
+dh_auto_configure: ./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --prefix=/usr --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --bindir=/usr/bin --sysconfdir=/etc/sarg --enable-fontdir=/usr/share/fonts/truetype/ttf-dejavu --enable-imagedir=/usr/share/sarg/images --enable-sargphp=/usr/share/sarg returned exit code 1
+make[1]: *** [debian/rules:21: override_dh_auto_configure] Error 255
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make: *** [debian/rules:17: build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-03-06T22:25:23Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* dwz* fontconfig-config*
+  fonts-dejavu-core* gcc-8-base:armhf* gettext* gettext-base* groff-base*
+  intltool-debian* libarchive-zip-perl* libasan5:armhf* libatomic1:armhf*
+  libbsd0* libbsd0:armhf* libc6:armhf* libc6-dev:armhf* libcroco3*
+  libdb5.3:armhf* libelf1* libexpat1:armhf* libexpat1-dev:armhf*
+  libffi6:armhf* libfile-stripnondeterminism-perl* libfontconfig1:armhf*
+  libfontconfig1-dev:armhf* libfreetype6:armhf* libfreetype6-dev:armhf*
+  libgcc-8-dev:armhf* libgcc1:armhf* libgd-dev:armhf* libgd3:armhf*
+  libglib2.0-0* libgmp10:armhf* libgnutls30:armhf* libgomp1:armhf*
+  libhogweed4:armhf* libice-dev:armhf* libice6:armhf* libidn2-0:armhf*
+  libjbig-dev:armhf* libjbig0:armhf* libjpeg62-turbo:armhf*
+  libjpeg62-turbo-dev:armhf* libldap-2.4-2:armhf* libldap2-dev:armhf*
+  liblzma-dev:armhf* liblzma5:armhf* libncurses6* libnettle6:armhf*
+  libp11-kit0:armhf* libpipeline1* libpng-dev:armhf* libpng16-16:armhf*
+  libpthread-stubs0-dev:armhf* libsasl2-2:armhf* libsasl2-modules-db:armhf*
+  libsigsegv2* libsm-dev:armhf* libsm6:armhf* libstdc++-8-dev:armhf*
+  libstdc++6:armhf* libtasn1-6:armhf* libtiff-dev:armhf* libtiff5:armhf*
+  libtiffxx5:armhf* libtool* libubsan1:armhf* libuchardet0*
+  libunistring2:armhf* libuuid1:armhf* libvpx-dev:armhf* libvpx5:armhf*
+  libwebp6:armhf* libx11-6:armhf* libx11-data* libx11-dev:armhf*
+  libxau-dev:armhf* libxau6:armhf* libxcb1:armhf* libxcb1-dev:armhf*
+  libxdmcp-dev:armhf* libxdmcp6:armhf* libxpm-dev:armhf* libxpm4:armhf*
+  libxt-dev:armhf* libxt6:armhf* libzstd1:armhf* linux-libc-dev:armhf* m4*
+  man-db* pkg-config* po-debconf* sbuild-build-depends-main-dummy:armhf*
+  uuid-dev:armhf* x11-common* x11proto-core-dev* x11proto-dev*
+  xorg-sgml-doctools* xtrans-dev* zlib1g:armhf* zlib1g-dev:armhf*
+0 upgraded, 0 newly installed, 108 to remove and 0 not upgraded.
+After this operation, 117 MB disk space will be freed.
+(Reading database ... 21376 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing libgd-dev:armhf (2.2.5-5.1) ...
+Removing libgd3:armhf (2.2.5-5.1) ...
+Removing libfontconfig1-dev:armhf (2.13.1-2) ...
+Removing libfontconfig1:armhf (2.13.1-2) ...
+Removing fontconfig-config (2.13.1-2) ...
+Removing fonts-dejavu-core (2.37-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libtiff-dev:armhf (4.0.10-4) ...
+Removing libtiffxx5:armhf (4.0.10-4) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libxt-dev:armhf (1:1.1.5-1) ...
+Removing libxpm-dev:armhf (1:3.5.12-1) ...
+Removing libx11-dev:armhf (2:1.6.7-1) ...
+Removing libxcb1-dev:armhf (1.13.1-2) ...
+Removing libxdmcp-dev:armhf (1:1.1.2-3) ...
+Removing libxt6:armhf (1:1.1.5-1) ...
+Removing libsm-dev:armhf (2:1.2.3-1) ...
+Removing libice-dev:armhf (2:1.0.9-2) ...
+Removing libfreetype6-dev:armhf (2.9.1-3) ...
+Removing libpng-dev:armhf (1.6.36-5) ...
+Removing zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Removing libtiff5:armhf (4.0.10-4) ...
+Removing liblzma-dev:armhf (5.2.4-1) ...
+Removing liblzma5:armhf (5.2.4-1) ...
+Removing uuid-dev:armhf (2.33.1-0.1) ...
+Removing libjpeg62-turbo-dev:armhf (1:1.5.2-2+b1) ...
+Removing libexpat1-dev:armhf (2.2.6-1) ...
+Removing libc6-dev:armhf (2.28-8) ...
+Removing libldap2-dev:armhf (2.4.47+dfsg-3) ...
+Removing libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Removing libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Removing libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Removing libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Removing libexpat1:armhf (2.2.6-1) ...
+Removing libgnutls30:armhf (3.6.6-2) ...
+Removing libp11-kit0:armhf (0.23.15-2) ...
+Removing libffi6:armhf (3.2.1-9) ...
+Removing libfreetype6:armhf (2.9.1-3) ...
+Removing libvpx-dev:armhf (1.7.0-3) ...
+Removing libvpx5:armhf (1.7.0-3) ...
+Removing pkg-config (0.29-6) ...
+Removing libhogweed4:armhf (3.4.1-1) ...
+Removing libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libidn2-0:armhf (2.0.5-1) ...
+Removing libjbig-dev:armhf (2.1-3.1+b2) ...
+Removing libjbig0:armhf (2.1-3.1+b2) ...
+Removing libjpeg62-turbo:armhf (1:1.5.2-2+b1) ...
+Removing libnettle6:armhf (3.4.1-1) ...
+Removing libpng16-16:armhf (1.6.36-5) ...
+Removing libpthread-stubs0-dev:armhf (0.4-1) ...
+Removing libsm6:armhf (2:1.2.3-1) ...
+Removing libtasn1-6:armhf (4.13-3) ...
+Removing libunistring2:armhf (0.9.10-1) ...
+Removing libuuid1:armhf (2.33.1-0.1) ...
+Removing libwebp6:armhf (0.6.1-2) ...
+Removing libxpm4:armhf (1:3.5.12-1) ...
+Removing libxau-dev:armhf (1:1.0.8-1+b2) ...
+Removing libzstd1:armhf (1.3.8+dfsg-3) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing x11proto-core-dev (2018.4-4) ...
+Removing x11proto-dev (2018.4-4) ...
+Removing xorg-sgml-doctools (1:1.11-1) ...
+Removing xtrans-dev (1.3.5-1) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libx11-6:armhf (2:1.6.7-1) ...
+Removing libxcb1:armhf (1.13.1-2) ...
+Removing libxdmcp6:armhf (1:1.1.2-3) ...
+Removing libice6:armhf (2:1.0.9-2) ...
+Removing libbsd0:armhf (0.9.1-2) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing libx11-data (2:1.6.7-1) ...
+Removing libxau6:armhf (1:1.0.8-1+b2) ...
+Removing x11-common (1:7.7+19) ...
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of stop.
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-3) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-8) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-8) ...
+(Reading database ... 16495 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for fontconfig-config (2.13.1-2) ...
+Purging configuration files for x11-common (1:7.7+19) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libfreetype6-dev:armhf (2.9.1-3) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for fonts-dejavu-core (2.37-1) ...
+dpkg: warning: while removing fonts-dejavu-core, directory '/usr/share/fonts/truetype/dejavu' not empty so not removed
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-8) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 9
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 13
+Job: /home/build/sbuild-setup/repo/pool/main/s/sarg/sarg_2.3.11-1.dsc
+Machine Architecture: amd64
+Package: sarg
+Package-Time: 26
+Source-Version: 2.3.11-1
+Space: n/a
+Status: attempted
+Version: 2.3.11-1
+--------------------------------------------------------------------------------
+Finished at 2019-03-06T22:25:23Z
+Build needed 00:00:26, no disk space

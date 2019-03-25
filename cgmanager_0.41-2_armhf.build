@@ -1,0 +1,1719 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| cgmanager 0.41-2 (armhf)                     Fri, 01 Mar 2019 09:51:57 +0000 |
++==============================================================================+
+
+Package: cgmanager
+Version: 0.41-2
+Source Version: 0.41-2
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-3e2273df-db13-441e-8b01-5226dfb9c1c7' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/cgmanager-zsXyvB/resolver-R7grmU' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/c/cgmanager/cgmanager_0.41-2.dsc exists in /home/build/sbuild-setup/repo/pool/main/c/cgmanager; copying to chroot
+I: NOTICE: Log filtering will replace 'build/cgmanager-zsXyvB/cgmanager-0.41' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/cgmanager-zsXyvB' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: autotools-dev, debhelper (>= 9), dh-autoreconf, dh-systemd, help2man, libdbus-1-dev, libnih-dbus-dev, libnih-dev, libtool, libpam0g-dev, nih-dbus-tool, pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: autotools-dev, debhelper (>= 9), dh-autoreconf, dh-systemd, help2man, libdbus-1-dev, libnih-dbus-dev, libnih-dev, libtool, libpam0g-dev, nih-dbus-tool, pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [459 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [547 B]
+Fetched 1963 B in 0s (193 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dh-systemd dwz gcc-8-base:armhf
+  gettext gettext-base groff-base help2man intltool-debian libarchive-zip-perl
+  libasan5:armhf libatomic1:armhf libaudit1:armhf libbsd0 libc6:armhf
+  libc6-dev:armhf libcap-ng0:armhf libcroco3 libdbus-1-3:armhf
+  libdbus-1-dev:armhf libelf1 libexpat1:armhf libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libgcrypt20:armhf libglib2.0-0
+  libgomp1:armhf libgpg-error0:armhf liblz4-1:armhf liblzma5:armhf libncurses6
+  libnih-dbus-dev:armhf libnih-dbus1:armhf libnih-dev:armhf libnih1:armhf
+  libpam0g:armhf libpam0g-dev:armhf libpipeline1 libsigsegv2
+  libstdc++-8-dev:armhf libstdc++6:armhf libsystemd0:armhf libtool
+  libubsan1:armhf libuchardet0 linux-libc-dev:armhf m4 man-db
+  nih-dbus-tool:armhf pkg-config po-debconf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  rng-tools:armhf libpam-doc:armhf libstdc++-8-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk m4-doc apparmor less www-browser
+  libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf dbus:armhf libarchive-cpio-perl
+  libglib2.0-data shared-mime-info xdg-user-dirs libgpg-error-l10n:armhf
+  libgpm2 libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dh-systemd dwz gcc-8-base:armhf
+  gettext gettext-base groff-base help2man intltool-debian libarchive-zip-perl
+  libasan5:armhf libatomic1:armhf libaudit1:armhf libbsd0 libc6:armhf
+  libc6-dev:armhf libcap-ng0:armhf libcroco3 libdbus-1-3:armhf
+  libdbus-1-dev:armhf libelf1 libexpat1:armhf libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libgcrypt20:armhf libglib2.0-0
+  libgomp1:armhf libgpg-error0:armhf liblz4-1:armhf liblzma5:armhf libncurses6
+  libnih-dbus-dev:armhf libnih-dbus1:armhf libnih-dev:armhf libnih1:armhf
+  libpam0g:armhf libpam0g-dev:armhf libpipeline1 libsigsegv2
+  libstdc++-8-dev:armhf libstdc++6:armhf libsystemd0:armhf libtool
+  libubsan1:armhf libuchardet0 linux-libc-dev:armhf m4 man-db
+  nih-dbus-tool:armhf pkg-config po-debconf
+  sbuild-build-depends-main-dummy:armhf
+0 upgraded, 60 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1096 kB/21.4 MB of archives.
+After this operation, 85.1 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [968 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 dh-systemd all 12.1.1 [122 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 help2man amd64 1.47.8 [177 kB]
+Get:4 http://10.116.41.102/debian sid/main armhf libnih1 armhf 1.0.3-10+b2 [124 kB]
+Get:5 http://10.116.41.102/debian sid/main armhf libnih-dbus1 armhf 1.0.3-10+b2 [96.9 kB]
+Get:6 http://10.116.41.102/debian sid/main armhf libnih-dev armhf 1.0.3-10+b2 [152 kB]
+Get:7 http://10.116.41.102/debian sid/main armhf libnih-dbus-dev armhf 1.0.3-10+b2 [107 kB]
+Get:8 http://10.116.41.102/debian sid/main armhf libpam0g-dev armhf 1.3.1-5 [182 kB]
+Get:9 http://10.116.41.102/debian sid/main armhf nih-dbus-tool armhf 1.0.3-10+b2 [134 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 1096 kB in 0s (3463 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../06-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../07-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../08-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libgpg-error0:armhf.
+Preparing to unpack .../09-libgpg-error0_1.35-1_armhf.deb ...
+Unpacking libgpg-error0:armhf (1.35-1) ...
+Selecting previously unselected package libgcrypt20:armhf.
+Preparing to unpack .../10-libgcrypt20_1.8.4-5_armhf.deb ...
+Unpacking libgcrypt20:armhf (1.8.4-5) ...
+Selecting previously unselected package liblz4-1:armhf.
+Preparing to unpack .../11-liblz4-1_1.8.3-1_armhf.deb ...
+Unpacking liblz4-1:armhf (1.8.3-1) ...
+Selecting previously unselected package liblzma5:armhf.
+Preparing to unpack .../12-liblzma5_5.2.4-1_armhf.deb ...
+Unpacking liblzma5:armhf (5.2.4-1) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up libgpg-error0:armhf (1.35-1) ...
+Setting up libgcrypt20:armhf (1.8.4-5) ...
+Setting up liblz4-1:armhf (1.8.3-1) ...
+Setting up liblzma5:armhf (5.2.4-1) ...
+Selecting previously unselected package libsystemd0:armhf.
+(Reading database ... 17389 files and directories currently installed.)
+Preparing to unpack .../00-libsystemd0_241-1_armhf.deb ...
+Unpacking libsystemd0:armhf (241-1) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../01-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../02-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../03-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../04-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../05-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../06-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../07-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../08-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../09-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../10-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../11-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../12-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../13-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../14-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../15-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../16-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../17-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../18-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../19-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../20-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../21-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package dh-systemd.
+Preparing to unpack .../22-dh-systemd_12.1.1_all.deb ...
+Unpacking dh-systemd (12.1.1) ...
+Selecting previously unselected package help2man.
+Preparing to unpack .../23-help2man_1.47.8_amd64.deb ...
+Unpacking help2man (1.47.8) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../24-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../25-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../26-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libcap-ng0:armhf.
+Preparing to unpack .../27-libcap-ng0_0.7.9-2_armhf.deb ...
+Unpacking libcap-ng0:armhf (0.7.9-2) ...
+Selecting previously unselected package libaudit1:armhf.
+Preparing to unpack .../28-libaudit1_1%3a2.8.4-2_armhf.deb ...
+Unpacking libaudit1:armhf (1:2.8.4-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../29-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../30-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libdbus-1-3:armhf.
+Preparing to unpack .../31-libdbus-1-3_1.12.12-1_armhf.deb ...
+Unpacking libdbus-1-3:armhf (1.12.12-1) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../32-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package libdbus-1-dev:armhf.
+Preparing to unpack .../33-libdbus-1-dev_1.12.12-1_armhf.deb ...
+Unpacking libdbus-1-dev:armhf (1.12.12-1) ...
+Selecting previously unselected package libexpat1:armhf.
+Preparing to unpack .../34-libexpat1_2.2.6-1_armhf.deb ...
+Unpacking libexpat1:armhf (2.2.6-1) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../35-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../36-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../37-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libnih1:armhf.
+Preparing to unpack .../38-libnih1_1.0.3-10+b2_armhf.deb ...
+Unpacking libnih1:armhf (1.0.3-10+b2) ...
+Selecting previously unselected package libnih-dbus1:armhf.
+Preparing to unpack .../39-libnih-dbus1_1.0.3-10+b2_armhf.deb ...
+Unpacking libnih-dbus1:armhf (1.0.3-10+b2) ...
+Selecting previously unselected package libnih-dev:armhf.
+Preparing to unpack .../40-libnih-dev_1.0.3-10+b2_armhf.deb ...
+Unpacking libnih-dev:armhf (1.0.3-10+b2) ...
+Selecting previously unselected package libnih-dbus-dev:armhf.
+Preparing to unpack .../41-libnih-dbus-dev_1.0.3-10+b2_armhf.deb ...
+Unpacking libnih-dbus-dev:armhf (1.0.3-10+b2) ...
+Selecting previously unselected package libpam0g:armhf.
+Preparing to unpack .../42-libpam0g_1.3.1-5_armhf.deb ...
+Unpacking libpam0g:armhf (1.3.1-5) ...
+Selecting previously unselected package libpam0g-dev:armhf.
+Preparing to unpack .../43-libpam0g-dev_1.3.1-5_armhf.deb ...
+Unpacking libpam0g-dev:armhf (1.3.1-5) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../44-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package nih-dbus-tool:armhf.
+Preparing to unpack .../45-nih-dbus-tool_1.0.3-10+b2_armhf.deb ...
+Unpacking nih-dbus-tool:armhf (1.0.3-10+b2) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../46-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libexpat1:armhf (2.2.6-1) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libnih1:armhf (1.0.3-10+b2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libsystemd0:armhf (241-1) ...
+Setting up help2man (1.47.8) ...
+Setting up libcap-ng0:armhf (0.7.9-2) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libdbus-1-3:armhf (1.12.12-1) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up nih-dbus-tool:armhf (1.0.3-10+b2) ...
+Setting up libaudit1:armhf (1:2.8.4-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libnih-dev:armhf (1.0.3-10+b2) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libnih-dbus1:armhf (1.0.3-10+b2) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up libnih-dbus-dev:armhf (1.0.3-10+b2) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libpam0g:armhf (1.3.1-5) ...
+Setting up libdbus-1-dev:armhf (1.12.12-1) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up libpam0g-dev:armhf (1.3.1-5) ...
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up dh-autoreconf (19) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up dh-systemd (12.1.1) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 dh-systemd_12.1.1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 help2man_1.47.8 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdbus-1-3_1.12.12-1 libdbus-1-dev_1.12.12-1 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnih-dbus-dev_1.0.3-10+b2 libnih-dbus1_1.0.3-10+b2 libnih-dev_1.0.3-10+b2 libnih1_1.0.3-10+b2 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpam0g-dev_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 nih-dbus-tool_1.0.3-10+b2 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: cgmanager
+Binary: cgmanager, cgmanager-tests, libcgmanager0, libcgmanager-dev, libpam-cgm
+Architecture: any all
+Version: 0.41-2
+Maintainer: Serge Hallyn <serge.hallyn@ubuntu.com>
+Homepage: http://cgmanager.linuxcontainers.org/
+Standards-Version: 3.9.6
+Vcs-Browser: https://github.com/lxc/cgmanager-pkg-ubuntu
+Vcs-Git: git://github.com/lxc/cgmanager-pkg-ubuntu
+Testsuite: autopkgtest
+Build-Depends: autotools-dev, debhelper (>= 9), dh-autoreconf, dh-systemd, help2man, libdbus-1-dev, libnih-dbus-dev, libnih-dev, libtool, libpam0g-dev, nih-dbus-tool, pkg-config
+Package-List:
+ cgmanager deb admin optional arch=any
+ cgmanager-tests deb admin optional arch=all
+ libcgmanager-dev deb libdevel optional arch=any
+ libcgmanager0 deb admin optional arch=any
+ libpam-cgm deb admin optional arch=linux-any
+Checksums-Sha1:
+ 49282af73c43ceb7c8203d9e66364c899b524151 461805 cgmanager_0.41.orig.tar.gz
+ 6eeed0e93ea952397929622cc447af05f39f6900 11920 cgmanager_0.41-2.debian.tar.xz
+Checksums-Sha256:
+ 29b155befb3ac233d5d29dbca7c791c8138bab01bfa78ea4757ebb88ce23b458 461805 cgmanager_0.41.orig.tar.gz
+ 09de69dbb15a1d1abeb5caa3f1c180ae9dea75318a984b03a80965155b6154dc 11920 cgmanager_0.41-2.debian.tar.xz
+Files:
+ 6ebed9ed3bf0751eb3cde47a94c45340 461805 cgmanager_0.41.orig.tar.gz
+ 838522713c3991f4890e5126b79934ba 11920 cgmanager_0.41-2.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAEBCAAGBQJXCqbCAAoJEPwNsbvNRgveH9cP/3izRBOv+PKOgtCd7LLQdfIQ
+G+I5CkBVUuvSrsSeO95Yjk6PIEjUg9DEJRtvXvEWCstms7Q0Zb6rlA2NKxoJ00fA
+kjAFUXG/exEuofOeCSI2x1yAwD9E1G+Oae9YZrj5YlUjU0YnVdLXjmziOSYpYDzV
+4u6TNTkbmj0TFsd9lMJMIMnGXOZgi2kHGLQMnmWqtpIPj4H7hhSC6hZS23J2sILl
+ZGRBvVAa/0N0XxZe47pRYPtzfBkMJ99kRYZYqj/w59ufFnITlFiZkRN+DY8c/pce
+8RmiPr2JHWrBNePhbleNvu9SL90rbl9zKLXn1IqriezmIFgF+9TK9eb3axLD33kg
+CCpppLiFGrlTwXMiqQv0iwTZJYIBNH//k/38GqteG436ql5RQtjTpJO4BXfVAAhS
+ee+QFZ6YRLSHtf64bjpJb8OTZLvAxd3fmwwBWkWaLohE82T7bMqQVqeQ1Y7m3dHC
+OPoP1pkQGhEQqwjbNizxGbSRzxONKQonKD/jqOUOC2qJfNeGxEJKvuo3Q2JYu7tK
+9QdeEl1/fmQJplOjZn/Ds/2vkSIc+ccHRYcco474EHxyvIlO+ttOAcILe/0xhbqo
+JX31uxo56z1JJQX6gSkYCo7mNPj2Wcy8/gffbKzbARNXuw9NmYDQdHHjbNVd8K9Y
+L7fFauy+0S54TNHIpc/d
+=3FMt
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sun Apr 10 19:17:22 2016 UTC
+gpgv:                using RSA key FC0DB1BBCD460BDE
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./cgmanager_0.41-2.dsc
+dpkg-source: info: extracting cgmanager in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking cgmanager_0.41.orig.tar.gz
+dpkg-source: info: unpacking cgmanager_0.41-2.debian.tar.xz
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-3e2273df-db13-441e-8b01-5226dfb9c1c7
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package cgmanager
+dpkg-buildpackage: info: source version 0.41-2
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Serge Hallyn <serge.hallyn@ubuntu.com>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean  --with autotools_dev --with autoreconf
+dh: The autotools-dev sequence is deprecated and replaced by dh in debhelper (>= 9.20160115)
+dh: This feature will be removed in compat 12.
+   dh_autotools-dev_restoreconfig
+dh_autotools-dev_restoreconfig: dh_autotools-dev_restoreconfig is deprecated; please see dh_autotools-dev_restoreconfig(1) for a replacement
+dh_autotools-dev_restoreconfig: This feature will be removed in compat 12.
+   dh_clean
+ debian/rules build-arch
+dh build-arch  --with autotools_dev --with autoreconf
+dh: The autotools-dev sequence is deprecated and replaced by dh in debhelper (>= 9.20160115)
+dh: This feature will be removed in compat 12.
+   dh_update_autotools_config -a
+   debian/rules override_dh_autoreconf
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+[ -e m4 ] || mkdir m4
+dh_autoreconf
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:8: installing './compile'
+configure.ac:6: installing './missing'
+Makefile.am: installing './depcomp'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_autotools-dev_updateconfig -a
+dh_autotools-dev_updateconfig: dh_autotools-dev_updateconfig is deprecated; please see dh_autotools-dev_updateconfig(1) for a replacement
+dh_autotools-dev_updateconfig: This feature will be removed in compat 12.
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_configure -- --exec-prefix= --libexecdir=/lib
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --exec-prefix= --libexecdir=/lib
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports the include directive... yes (GNU style)
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for fgrep... /bin/grep -F
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/arm-linux-gnueabihf-nm -B
+checking the name lister (/usr/bin/arm-linux-gnueabihf-nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for arm-linux-gnueabihf-objdump... arm-linux-gnueabihf-objdump
+checking how to recognize dependent libraries... pass_all
+checking for arm-linux-gnueabihf-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for archiver @FILE support... @
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for arm-linux-gnueabihf-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC -DPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for arm-linux-gnueabihf-gcc... (cached) arm-linux-gnueabihf-gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... (cached) yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... (cached) yes
+checking dependency style of arm-linux-gnueabihf-gcc... (cached) none
+checking for arm-linux-gnueabihf-gcc option to accept ISO C99... none needed
+checking for nih-dbus-tool... /usr/bin/nih-dbus-tool
+checking for setns... yes
+checking for pivot_root... yes
+checking for arm-linux-gnueabihf-pkg-config... /usr/bin/arm-linux-gnueabihf-pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for NIH... yes
+checking for NIH_DBUS... yes
+checking for DBUS... yes
+checking host distribution... checking for /etc/redhat-release... configure: error: cannot check for file existence when cross compiling
+	tail -v -n \+0 config.log
+==> config.log <==
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+It was created by cgmanager configure 0.41, which was
+generated by GNU Autoconf 2.69.  Invocation command line was
+
+  $ ./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=${prefix}/include --mandir=${prefix}/share/man --infodir=${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=${prefix}/lib/arm-linux-gnueabihf --libexecdir=${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --exec-prefix= --libexecdir=/lib
+
+## --------- ##
+## Platform. ##
+## --------- ##
+
+hostname = 36857dea695f
+uname -m = x86_64
+uname -r = 3.16.0-4-amd64
+uname -s = Linux
+uname -v = #1 SMP Debian 3.16.51-3 (2017-12-13)
+
+/usr/bin/uname -p = unknown
+/bin/uname -X     = unknown
+
+/bin/arch              = unknown
+/usr/bin/arch -k       = unknown
+/usr/convex/getsysinfo = unknown
+/usr/bin/hostinfo      = unknown
+/bin/machine           = unknown
+/usr/bin/oslevel       = unknown
+/bin/universe          = unknown
+
+PATH: /usr/lib/ccache
+PATH: /usr/local/sbin
+PATH: /usr/local/bin
+PATH: /usr/sbin
+PATH: /usr/bin
+PATH: /sbin
+PATH: /bin
+PATH: /usr/games
+
+
+## ----------- ##
+## Core tests. ##
+## ----------- ##
+
+configure:2196: loading site script /etc/dpkg-cross/cross-config.armhf
+| # read in package-specific and global values.
+| . `dirname $ac_site_file`/cross-config.cache
+| # now ensure the real architecture-dependent values take priority
+| ac_cv_c_bigendian=no
+| ac_cv_c_char_unsigned=yes
+| ac_cv_sizeof_long_long=8
+| ac_cv_sizeof_unsigned_long_long=8
+| ac_cv_sizeof_long=4
+| ac_cv_sizeof_unsigned_long=4
+| ac_cv_sizeof_int=4
+| ac_cv_sizeof_unsigned_int=4
+| ac_cv_sizeof_short=2
+| ac_cv_sizeof_unsigned_short=2
+| ac_cv_sizeof_char=1
+| ac_cv_sizeof_unsigned_char=1
+| ac_cv_sizeof_signed_char=1
+| ac_cv_sizeof_float=4
+| ac_cv_sizeof_double=8
+| ac_cv_sizeof_long_double=8
+| ac_cv_sizeof_void_p=4
+| ac_cv_sizeof_char_p=4
+| 
+| path=`dirname $ac_site_file`
+| # now allow package-specific architecture-independent values to be set
+| if [ -d $path/cross-config.d/armhf/ ]; then
+| for file in `ls $path/cross-config.d/armhf/`; do
+| 	if [ "$file" = "$PACKAGE" -o "$file" = "$PACKAGE_NAME" ]; then
+| 		[ -d $path/cross-config.d/armhf/$file ] || . $path/cross-config.d/armhf/$file
+| 		HAVE_PKG_CACHE=1
+| 	fi
+| done
+| fi
+| 
+| if [ -z "$HAVE_PKG_CACHE" ]; then
+| 	# orbit2 - only needed until liborbit-dev provides these directly
+| 	# using the mechanism above.
+| 	if [ "$PACKAGE" = "orbit2" -o "$PACKAGE_NAME" = "ORBit2" ]; then
+| 		ac_cv_alignof_CORBA_octet=1
+| 		ac_cv_alignof_CORBA_boolean=1
+| 		ac_cv_alignof_CORBA_char=1
+| 		ac_cv_alignof_CORBA_wchar=2
+| 		ac_cv_alignof_CORBA_short=2
+| 		ac_cv_alignof_CORBA_long=4
+| 		ac_cv_alignof_CORBA_long_long=8
+| 		ac_cv_alignof_CORBA_float=4
+| 		ac_cv_alignof_CORBA_double=4
+| 		ac_cv_alignof_CORBA_long_double=8
+| 		ac_cv_alignof_CORBA_struct=1
+| 		ac_cv_alignof_CORBA_pointer=4
+| 	fi
+| fi
+configure:2338: checking for a BSD-compatible install
+configure:2406: result: /usr/bin/install -c
+configure:2417: checking whether build environment is sane
+configure:2472: result: yes
+configure:2529: checking for arm-linux-gnueabihf-strip
+configure:2545: found /usr/bin/arm-linux-gnueabihf-strip
+configure:2556: result: arm-linux-gnueabihf-strip
+configure:2621: checking for a thread-safe mkdir -p
+configure:2660: result: /bin/mkdir -p
+configure:2667: checking for gawk
+configure:2697: result: no
+configure:2667: checking for mawk
+configure:2683: found /usr/bin/mawk
+configure:2694: result: mawk
+configure:2705: checking whether make sets $(MAKE)
+configure:2727: result: yes
+configure:2756: checking whether make supports nested variables
+configure:2773: result: yes
+configure:2904: checking whether make supports the include directive
+configure:2919: make -f confmf.GNU && cat confinc.out
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+this is the am__doit target
+configure:2922: $? = 0
+configure:2941: result: yes (GNU style)
+configure:2971: checking for arm-linux-gnueabihf-gcc
+configure:2987: found /usr/lib/ccache/arm-linux-gnueabihf-gcc
+configure:2998: result: arm-linux-gnueabihf-gcc
+configure:3267: checking for C compiler version
+configure:3276: arm-linux-gnueabihf-gcc --version >&5
+arm-linux-gnueabihf-gcc (Debian 8.2.0-20) 8.2.0
+Copyright (C) 2018 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:3287: $? = 0
+configure:3276: arm-linux-gnueabihf-gcc -v >&5
+Using built-in specs.
+COLLECT_GCC=/usr/bin/arm-linux-gnueabihf-gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/arm-linux-gnueabihf/8/lto-wrapper
+Target: arm-linux-gnueabihf
+Configured with: ../src/configure -v --with-pkgversion='Debian 8.2.0-20' --with-bugurl=file:///usr/share/doc/gcc-8/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-multiarch --disable-sjlj-exceptions --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=arm-linux-gnueabihf --program-prefix=arm-linux-gnueabihf- --includedir=/usr/arm-linux-gnueabihf/include
+Thread model: posix
+gcc version 8.2.0 (Debian 8.2.0-20) 
+configure:3287: $? = 0
+configure:3276: arm-linux-gnueabihf-gcc -V >&5
+arm-linux-gnueabihf-gcc: error: unrecognized command line option '-V'
+arm-linux-gnueabihf-gcc: fatal error: no input files
+compilation terminated.
+configure:3287: $? = 1
+configure:3276: arm-linux-gnueabihf-gcc -qversion >&5
+arm-linux-gnueabihf-gcc: error: unrecognized command line option '-qversion'; did you mean '--version'?
+arm-linux-gnueabihf-gcc: fatal error: no input files
+compilation terminated.
+configure:3287: $? = 1
+configure:3307: checking whether the C compiler works
+configure:3329: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c  >&5
+configure:3333: $? = 0
+configure:3381: result: yes
+configure:3384: checking for C compiler default output file name
+configure:3386: result: a.out
+configure:3392: checking for suffix of executables
+configure:3399: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c  >&5
+configure:3403: $? = 0
+configure:3425: result: 
+configure:3447: checking whether we are cross compiling
+configure:3485: result: yes
+configure:3490: checking for suffix of object files
+configure:3512: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3516: $? = 0
+configure:3537: result: o
+configure:3541: checking whether we are using the GNU C compiler
+configure:3560: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3560: $? = 0
+configure:3569: result: yes
+configure:3578: checking whether arm-linux-gnueabihf-gcc accepts -g
+configure:3598: arm-linux-gnueabihf-gcc -c -g -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3598: $? = 0
+configure:3639: result: yes
+configure:3656: checking for arm-linux-gnueabihf-gcc option to accept ISO C89
+configure:3719: arm-linux-gnueabihf-gcc  -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:3719: $? = 0
+configure:3732: result: none needed
+configure:3757: checking whether arm-linux-gnueabihf-gcc understands -c and -o together
+configure:3779: arm-linux-gnueabihf-gcc -c conftest.c -o conftest2.o
+configure:3782: $? = 0
+configure:3779: arm-linux-gnueabihf-gcc -c conftest.c -o conftest2.o
+configure:3782: $? = 0
+configure:3794: result: yes
+configure:3813: checking dependency style of arm-linux-gnueabihf-gcc
+configure:3924: result: none
+configure:3945: checking how to run the C preprocessor
+configure:3976: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:3976: $? = 0
+configure:3990: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+conftest.c:11:10: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:3990: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "cgmanager"
+| #define PACKAGE_TARNAME "cgmanager"
+| #define PACKAGE_VERSION "0.41"
+| #define PACKAGE_STRING "cgmanager 0.41"
+| #define PACKAGE_BUGREPORT "cgmanager-devel@lists.linuxcontainers.org"
+| #define PACKAGE_URL ""
+| #define PACKAGE "cgmanager"
+| #define VERSION "0.41"
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:4015: result: arm-linux-gnueabihf-gcc -E
+configure:4035: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+configure:4035: $? = 0
+configure:4049: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+conftest.c:11:10: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:4049: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "cgmanager"
+| #define PACKAGE_TARNAME "cgmanager"
+| #define PACKAGE_VERSION "0.41"
+| #define PACKAGE_STRING "cgmanager 0.41"
+| #define PACKAGE_BUGREPORT "cgmanager-devel@lists.linuxcontainers.org"
+| #define PACKAGE_URL ""
+| #define PACKAGE "cgmanager"
+| #define VERSION "0.41"
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:4078: checking for grep that handles long lines and -e
+configure:4136: result: /bin/grep
+configure:4141: checking for egrep
+configure:4203: result: /bin/grep -E
+configure:4208: checking for ANSI C header files
+configure:4228: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4228: $? = 0
+configure:4312: result: yes
+configure:4325: checking for sys/types.h
+configure:4325: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4325: $? = 0
+configure:4325: result: yes
+configure:4325: checking for sys/stat.h
+configure:4325: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4325: $? = 0
+configure:4325: result: yes
+configure:4325: checking for stdlib.h
+configure:4325: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4325: $? = 0
+configure:4325: result: yes
+configure:4325: checking for string.h
+configure:4325: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4325: $? = 0
+configure:4325: result: yes
+configure:4325: checking for memory.h
+configure:4325: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4325: $? = 0
+configure:4325: result: yes
+configure:4325: checking for strings.h
+configure:4325: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4325: $? = 0
+configure:4325: result: yes
+configure:4325: checking for inttypes.h
+configure:4325: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4325: $? = 0
+configure:4325: result: yes
+configure:4325: checking for stdint.h
+configure:4325: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4325: $? = 0
+configure:4325: result: yes
+configure:4325: checking for unistd.h
+configure:4325: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4325: $? = 0
+configure:4325: result: yes
+configure:4338: checking minix/config.h usability
+configure:4338: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+conftest.c:54:10: fatal error: minix/config.h: No such file or directory
+ #include <minix/config.h>
+          ^~~~~~~~~~~~~~~~
+compilation terminated.
+configure:4338: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "cgmanager"
+| #define PACKAGE_TARNAME "cgmanager"
+| #define PACKAGE_VERSION "0.41"
+| #define PACKAGE_STRING "cgmanager 0.41"
+| #define PACKAGE_BUGREPORT "cgmanager-devel@lists.linuxcontainers.org"
+| #define PACKAGE_URL ""
+| #define PACKAGE "cgmanager"
+| #define VERSION "0.41"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <minix/config.h>
+configure:4338: result: no
+configure:4338: checking minix/config.h presence
+configure:4338: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c
+conftest.c:21:10: fatal error: minix/config.h: No such file or directory
+ #include <minix/config.h>
+          ^~~~~~~~~~~~~~~~
+compilation terminated.
+configure:4338: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "cgmanager"
+| #define PACKAGE_TARNAME "cgmanager"
+| #define PACKAGE_VERSION "0.41"
+| #define PACKAGE_STRING "cgmanager 0.41"
+| #define PACKAGE_BUGREPORT "cgmanager-devel@lists.linuxcontainers.org"
+| #define PACKAGE_URL ""
+| #define PACKAGE "cgmanager"
+| #define VERSION "0.41"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| /* end confdefs.h.  */
+| #include <minix/config.h>
+configure:4338: result: no
+configure:4338: checking for minix/config.h
+configure:4338: result: no
+configure:4359: checking whether it is safe to define __EXTENSIONS__
+configure:4377: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:4377: $? = 0
+configure:4384: result: yes
+configure:4434: checking build system type
+configure:4448: result: x86_64-pc-linux-gnu
+configure:4468: checking host system type
+configure:4481: result: arm-unknown-linux-gnueabihf
+configure:4522: checking how to print strings
+configure:4549: result: printf
+configure:4570: checking for a sed that does not truncate output
+configure:4634: result: /bin/sed
+configure:4652: checking for fgrep
+configure:4714: result: /bin/grep -F
+configure:4749: checking for ld used by arm-linux-gnueabihf-gcc
+configure:4816: result: /usr/arm-linux-gnueabihf/bin/ld
+configure:4823: checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld
+configure:4838: result: yes
+configure:4850: checking for BSD- or MS-compatible name lister (nm)
+configure:4904: result: /usr/bin/arm-linux-gnueabihf-nm -B
+configure:5034: checking the name lister (/usr/bin/arm-linux-gnueabihf-nm -B) interface
+configure:5041: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:5044: /usr/bin/arm-linux-gnueabihf-nm -B "conftest.o"
+configure:5047: output
+00000000 B some_variable
+configure:5048: result: BSD nm
+configure:5051: checking whether ln -s works
+configure:5055: result: yes
+configure:5063: checking the maximum length of command line arguments
+configure:5194: result: 1572864
+configure:5242: checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format
+configure:5282: result: func_convert_file_noop
+configure:5289: checking how to convert x86_64-pc-linux-gnu file names to toolchain format
+configure:5309: result: func_convert_file_noop
+configure:5316: checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files
+configure:5323: result: -r
+configure:5357: checking for arm-linux-gnueabihf-objdump
+configure:5373: found /usr/bin/arm-linux-gnueabihf-objdump
+configure:5384: result: arm-linux-gnueabihf-objdump
+configure:5456: checking how to recognize dependent libraries
+configure:5656: result: pass_all
+configure:5701: checking for arm-linux-gnueabihf-dlltool
+configure:5731: result: no
+configure:5741: checking for dlltool
+configure:5771: result: no
+configure:5801: checking how to associate runtime and link libraries
+configure:5828: result: printf %s\n
+configure:5844: checking for arm-linux-gnueabihf-ar
+configure:5860: found /usr/bin/arm-linux-gnueabihf-ar
+configure:5871: result: arm-linux-gnueabihf-ar
+configure:5952: checking for archiver @FILE support
+configure:5969: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:5969: $? = 0
+configure:5972: arm-linux-gnueabihf-ar cru libconftest.a @conftest.lst >&5
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+configure:5975: $? = 0
+configure:5980: arm-linux-gnueabihf-ar cru libconftest.a @conftest.lst >&5
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ar: conftest.o: No such file or directory
+configure:5983: $? = 1
+configure:5982: result: @
+configure:6000: checking for arm-linux-gnueabihf-strip
+configure:6027: result: arm-linux-gnueabihf-strip
+configure:6099: checking for arm-linux-gnueabihf-ranlib
+configure:6115: found /usr/bin/arm-linux-gnueabihf-ranlib
+configure:6126: result: arm-linux-gnueabihf-ranlib
+configure:6268: checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object
+configure:6421: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:6424: $? = 0
+configure:6428: /usr/bin/arm-linux-gnueabihf-nm -B conftest.o | sed -n -e 's/^.*[	 ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[	 ][	 ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p' | sed '/ __gnu_lto/d' > conftest.nm
+configure:6494: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c conftstm.o >&5
+configure:6497: $? = 0
+configure:6535: result: ok
+configure:6582: checking for sysroot
+configure:6612: result: no
+configure:6619: checking for a working dd
+configure:6657: result: /bin/dd
+configure:6661: checking how to truncate binary pipes
+configure:6676: result: /bin/dd bs=4096 count=1
+configure:6965: checking for arm-linux-gnueabihf-mt
+configure:6995: result: no
+configure:7005: checking for mt
+configure:7035: result: no
+configure:7055: checking if : is a manifest tool
+configure:7061: : '-?'
+configure:7069: result: no
+configure:7743: checking for dlfcn.h
+configure:7743: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:7743: $? = 0
+configure:7743: result: yes
+configure:7999: checking for objdir
+configure:8014: result: .libs
+configure:8278: checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions
+configure:8296: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fno-rtti -fno-exceptions conftest.c >&5
+cc1: warning: command line option '-fno-rtti' is valid for C++/ObjC++ but not for C
+configure:8300: $? = 0
+configure:8313: result: no
+configure:8677: checking for arm-linux-gnueabihf-gcc option to produce PIC
+configure:8684: result: -fPIC -DPIC
+configure:8692: checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works
+configure:8710: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -fPIC -DPIC -DPIC conftest.c >&5
+configure:8714: $? = 0
+configure:8727: result: yes
+configure:8756: checking if arm-linux-gnueabihf-gcc static flag -static works
+configure:8784: result: yes
+configure:8799: checking if arm-linux-gnueabihf-gcc supports -c -o file.o
+configure:8820: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -o out/conftest2.o conftest.c >&5
+configure:8824: $? = 0
+configure:8846: result: yes
+configure:8854: checking if arm-linux-gnueabihf-gcc supports -c -o file.o
+configure:8901: result: yes
+configure:8934: checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries
+configure:10197: result: yes
+configure:10234: checking whether -lc should be explicitly linked in
+configure:10242: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:10245: $? = 0
+configure:10260: arm-linux-gnueabihf-gcc -shared  -fPIC -DPIC conftest.o  -v -Wl,-soname -Wl,conftest -o conftest 2\>\&1 \| /bin/grep  -lc  \>/dev/null 2\>\&1
+configure:10263: $? = 0
+configure:10277: result: no
+configure:10437: checking dynamic linker characteristics
+configure:11018: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now -Wl,-rpath -Wl,/foo conftest.c  >&5
+configure:11018: $? = 0
+configure:11267: result: GNU/Linux ld.so
+configure:11389: checking how to hardcode library paths into programs
+configure:11414: result: immediate
+configure:11962: checking whether stripping libraries is possible
+configure:11967: result: yes
+configure:12002: checking if libtool supports shared libraries
+configure:12004: result: yes
+configure:12007: checking whether to build shared libraries
+configure:12032: result: yes
+configure:12035: checking whether to build static libraries
+configure:12039: result: yes
+configure:8860: checking for arm-linux-gnueabihf-gcc
+configure:8887: result: arm-linux-gnueabihf-gcc
+configure:9156: checking for C compiler version
+configure:9165: arm-linux-gnueabihf-gcc --version >&5
+arm-linux-gnueabihf-gcc (Debian 8.2.0-20) 8.2.0
+Copyright (C) 2018 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:9176: $? = 0
+configure:9165: arm-linux-gnueabihf-gcc -v >&5
+Using built-in specs.
+COLLECT_GCC=/usr/bin/arm-linux-gnueabihf-gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/arm-linux-gnueabihf/8/lto-wrapper
+Target: arm-linux-gnueabihf
+Configured with: ../src/configure -v --with-pkgversion='Debian 8.2.0-20' --with-bugurl=file:///usr/share/doc/gcc-8/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-multiarch --disable-sjlj-exceptions --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=arm-linux-gnueabihf --program-prefix=arm-linux-gnueabihf- --includedir=/usr/arm-linux-gnueabihf/include
+Thread model: posix
+gcc version 8.2.0 (Debian 8.2.0-20) 
+configure:9176: $? = 0
+configure:9165: arm-linux-gnueabihf-gcc -V >&5
+arm-linux-gnueabihf-gcc: error: unrecognized command line option '-V'
+arm-linux-gnueabihf-gcc: fatal error: no input files
+compilation terminated.
+configure:9176: $? = 1
+configure:9165: arm-linux-gnueabihf-gcc -qversion >&5
+arm-linux-gnueabihf-gcc: error: unrecognized command line option '-qversion'; did you mean '--version'?
+arm-linux-gnueabihf-gcc: fatal error: no input files
+compilation terminated.
+configure:9176: $? = 1
+configure:9180: checking whether we are using the GNU C compiler
+configure:9208: result: yes
+configure:9217: checking whether arm-linux-gnueabihf-gcc accepts -g
+configure:9278: result: yes
+configure:9295: checking for arm-linux-gnueabihf-gcc option to accept ISO C89
+configure:9371: result: none needed
+configure:9396: checking whether arm-linux-gnueabihf-gcc understands -c and -o together
+configure:9433: result: yes
+configure:9452: checking dependency style of arm-linux-gnueabihf-gcc
+configure:9563: result: none
+configure:9578: checking for arm-linux-gnueabihf-gcc option to accept ISO C99
+configure:9727: arm-linux-gnueabihf-gcc  -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 conftest.c >&5
+configure:9727: $? = 0
+configure:9740: result: none needed
+configure:9758: checking for nih-dbus-tool
+configure:9776: found /usr/bin/nih-dbus-tool
+configure:9788: result: /usr/bin/nih-dbus-tool
+configure:9800: checking for setns
+configure:9800: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c  >&5
+configure:9800: $? = 0
+configure:9800: result: yes
+configure:9800: checking for pivot_root
+configure:9800: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wl,-z,relro -Wl,-z,now conftest.c  >&5
+configure:9800: $? = 0
+configure:9800: result: yes
+configure:9821: checking for arm-linux-gnueabihf-pkg-config
+configure:9839: found /usr/bin/arm-linux-gnueabihf-pkg-config
+configure:9851: result: /usr/bin/arm-linux-gnueabihf-pkg-config
+configure:9919: checking pkg-config is at least version 0.9.0
+configure:9922: result: yes
+configure:9932: checking for NIH
+configure:9939: $PKG_CONFIG --exists --print-errors "libnih >= 1.0.3"
+configure:9942: $? = 0
+configure:9956: $PKG_CONFIG --exists --print-errors "libnih >= 1.0.3"
+configure:9959: $? = 0
+configure:10017: result: yes
+configure:10023: checking for NIH_DBUS
+configure:10030: $PKG_CONFIG --exists --print-errors "libnih-dbus >= 1.0.0"
+configure:10033: $? = 0
+configure:10047: $PKG_CONFIG --exists --print-errors "libnih-dbus >= 1.0.0"
+configure:10050: $? = 0
+configure:10108: result: yes
+configure:10114: checking for DBUS
+configure:10121: $PKG_CONFIG --exists --print-errors "dbus-1 >= 1.2.16"
+configure:10124: $? = 0
+configure:10138: $PKG_CONFIG --exists --print-errors "dbus-1 >= 1.2.16"
+configure:10141: $? = 0
+configure:10199: result: yes
+configure:10206: checking host distribution
+configure:10218: checking for /etc/redhat-release
+configure:10224: error: cannot check for file existence when cross compiling
+
+## ---------------- ##
+## Cache variables. ##
+## ---------------- ##
+
+ac_cv_build=x86_64-pc-linux-gnu
+ac_cv_c_bigendian=no
+ac_cv_c_char_unsigned=yes
+ac_cv_c_compiler_gnu=yes
+ac_cv_env_CC_set=
+ac_cv_env_CC_value=
+ac_cv_env_CFLAGS_set=set
+ac_cv_env_CFLAGS_value='-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'
+ac_cv_env_CPPFLAGS_set=set
+ac_cv_env_CPPFLAGS_value='-Wdate-time -D_FORTIFY_SOURCE=2'
+ac_cv_env_CPP_set=
+ac_cv_env_CPP_value=
+ac_cv_env_DBUS_CFLAGS_set=
+ac_cv_env_DBUS_CFLAGS_value=
+ac_cv_env_DBUS_LIBS_set=
+ac_cv_env_DBUS_LIBS_value=
+ac_cv_env_LDFLAGS_set=set
+ac_cv_env_LDFLAGS_value='-Wl,-z,relro -Wl,-z,now'
+ac_cv_env_LIBS_set=
+ac_cv_env_LIBS_value=
+ac_cv_env_LT_SYS_LIBRARY_PATH_set=
+ac_cv_env_LT_SYS_LIBRARY_PATH_value=
+ac_cv_env_NIH_CFLAGS_set=
+ac_cv_env_NIH_CFLAGS_value=
+ac_cv_env_NIH_DBUS_CFLAGS_set=
+ac_cv_env_NIH_DBUS_CFLAGS_value=
+ac_cv_env_NIH_DBUS_LIBS_set=
+ac_cv_env_NIH_DBUS_LIBS_value=
+ac_cv_env_NIH_LIBS_set=
+ac_cv_env_NIH_LIBS_value=
+ac_cv_env_PAM_CFLAGS_set=
+ac_cv_env_PAM_CFLAGS_value=
+ac_cv_env_PAM_LIBS_set=
+ac_cv_env_PAM_LIBS_value=
+ac_cv_env_PKG_CONFIG_LIBDIR_set=
+ac_cv_env_PKG_CONFIG_LIBDIR_value=
+ac_cv_env_PKG_CONFIG_PATH_set=
+ac_cv_env_PKG_CONFIG_PATH_value=
+ac_cv_env_PKG_CONFIG_set=
+ac_cv_env_PKG_CONFIG_value=
+ac_cv_env_build_alias_set=set
+ac_cv_env_build_alias_value=x86_64-linux-gnu
+ac_cv_env_host_alias_set=set
+ac_cv_env_host_alias_value=arm-linux-gnueabihf
+ac_cv_env_target_alias_set=
+ac_cv_env_target_alias_value=
+ac_cv_func_malloc_0_nonnull=yes
+ac_cv_func_pivot_root=yes
+ac_cv_func_realloc_0_nonnull=yes
+ac_cv_func_setns=yes
+ac_cv_func_setpgrp_void=yes
+ac_cv_header_dlfcn_h=yes
+ac_cv_header_inttypes_h=yes
+ac_cv_header_memory_h=yes
+ac_cv_header_minix_config_h=no
+ac_cv_header_stdc=yes
+ac_cv_header_stdint_h=yes
+ac_cv_header_stdlib_h=yes
+ac_cv_header_string_h=yes
+ac_cv_header_strings_h=yes
+ac_cv_header_sys_stat_h=yes
+ac_cv_header_sys_types_h=yes
+ac_cv_header_unistd_h=yes
+ac_cv_host=arm-unknown-linux-gnueabihf
+ac_cv_objext=o
+ac_cv_path_EGREP='/bin/grep -E'
+ac_cv_path_FGREP='/bin/grep -F'
+ac_cv_path_GREP=/bin/grep
+ac_cv_path_NIH_DBUS_TOOL=/usr/bin/nih-dbus-tool
+ac_cv_path_PKG_CONFIG=/usr/bin/arm-linux-gnueabihf-pkg-config
+ac_cv_path_SED=/bin/sed
+ac_cv_path_install='/usr/bin/install -c'
+ac_cv_path_lt_DD=/bin/dd
+ac_cv_path_mkdir=/bin/mkdir
+ac_cv_prog_AR=arm-linux-gnueabihf-ar
+ac_cv_prog_AWK=mawk
+ac_cv_prog_CC=arm-linux-gnueabihf-gcc
+ac_cv_prog_CPP='arm-linux-gnueabihf-gcc -E'
+ac_cv_prog_OBJDUMP=arm-linux-gnueabihf-objdump
+ac_cv_prog_RANLIB=arm-linux-gnueabihf-ranlib
+ac_cv_prog_STRIP=arm-linux-gnueabihf-strip
+ac_cv_prog_cc_c89=
+ac_cv_prog_cc_c99=
+ac_cv_prog_cc_g=yes
+ac_cv_prog_make_make_set=yes
+ac_cv_safe_to_define___extensions__=yes
+ac_cv_sizeof_char=1
+ac_cv_sizeof_char_p=4
+ac_cv_sizeof_double=8
+ac_cv_sizeof_float=4
+ac_cv_sizeof_int=4
+ac_cv_sizeof_long=4
+ac_cv_sizeof_long_double=8
+ac_cv_sizeof_long_long=8
+ac_cv_sizeof_short=2
+ac_cv_sizeof_signed_char=1
+ac_cv_sizeof_unsigned_char=1
+ac_cv_sizeof_unsigned_int=4
+ac_cv_sizeof_unsigned_long=4
+ac_cv_sizeof_unsigned_long_long=8
+ac_cv_sizeof_unsigned_short=2
+ac_cv_sizeof_void_p=4
+am_cv_CC_dependencies_compiler_type=none
+am_cv_make_support_nested_variables=yes
+am_cv_prog_cc_c_o=yes
+lt_cv_ar_at_file=@
+lt_cv_archive_cmds_need_lc=no
+lt_cv_deplibs_check_method=pass_all
+lt_cv_file_magic_cmd='$MAGIC_CMD'
+lt_cv_file_magic_test_file=
+lt_cv_ld_reload_flag=-r
+lt_cv_nm_interface='BSD nm'
+lt_cv_objdir=.libs
+lt_cv_path_LD=/usr/arm-linux-gnueabihf/bin/ld
+lt_cv_path_NM='/usr/bin/arm-linux-gnueabihf-nm -B'
+lt_cv_path_mainfest_tool=no
+lt_cv_prog_compiler_c_o=yes
+lt_cv_prog_compiler_pic='-fPIC -DPIC'
+lt_cv_prog_compiler_pic_works=yes
+lt_cv_prog_compiler_rtti_exceptions=no
+lt_cv_prog_compiler_static_works=yes
+lt_cv_prog_gnu_ld=yes
+lt_cv_sharedlib_from_linklib_cmd='printf %s\n'
+lt_cv_shlibpath_overrides_runpath=yes
+lt_cv_sys_global_symbol_pipe='sed -n -e '\''s/^.*[	 ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[	 ][	 ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p'\'' | sed '\''/ __gnu_lto/d'\'''
+lt_cv_sys_global_symbol_to_c_name_address='sed -n -e '\''s/^: \(.*\) .*$/  {"\1", (void *) 0},/p'\'' -e '\''s/^[ABCDGIRSTW][ABCDGIRSTW]* .* \(.*\)$/  {"\1", (void *) \&\1},/p'\'''
+lt_cv_sys_global_symbol_to_c_name_address_lib_prefix='sed -n -e '\''s/^: \(.*\) .*$/  {"\1", (void *) 0},/p'\'' -e '\''s/^[ABCDGIRSTW][ABCDGIRSTW]* .* \(lib.*\)$/  {"\1", (void *) \&\1},/p'\'' -e '\''s/^[ABCDGIRSTW][ABCDGIRSTW]* .* \(.*\)$/  {"lib\1", (void *) \&\1},/p'\'''
+lt_cv_sys_global_symbol_to_cdecl='sed -n -e '\''s/^T .* \(.*\)$/extern int \1();/p'\'' -e '\''s/^[ABCDGIRSTW][ABCDGIRSTW]* .* \(.*\)$/extern char \1;/p'\'''
+lt_cv_sys_global_symbol_to_import=
+lt_cv_sys_lib_dlsearch_path_spec=' /lib/arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf /lib /usr/lib /usr/local/lib'
+lt_cv_sys_max_cmd_len=1572864
+lt_cv_to_host_file_cmd=func_convert_file_noop
+lt_cv_to_tool_file_cmd=func_convert_file_noop
+lt_cv_truncate_bin='/bin/dd bs=4096 count=1'
+pkg_cv_DBUS_CFLAGS='-I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include'
+pkg_cv_DBUS_LIBS='-L/usr/lib/arm-linux-gnueabihf -ldbus-1'
+pkg_cv_NIH_CFLAGS=
+pkg_cv_NIH_DBUS_CFLAGS=
+pkg_cv_NIH_DBUS_LIBS='-L/usr/lib/arm-linux-gnueabihf -lnih-dbus'
+pkg_cv_NIH_LIBS='-L/usr/lib/arm-linux-gnueabihf -lnih'
+
+## ----------------- ##
+## Output variables. ##
+## ----------------- ##
+
+ACLOCAL='${SHELL} /<<PKGBUILDDIR>>/missing aclocal-1.16'
+AMDEPBACKSLASH=''
+AMDEP_FALSE=''
+AMDEP_TRUE='#'
+AMTAR='$${TAR-tar}'
+AM_BACKSLASH='\'
+AM_DEFAULT_V='$(AM_DEFAULT_VERBOSITY)'
+AM_DEFAULT_VERBOSITY='1'
+AM_V='$(V)'
+AR='arm-linux-gnueabihf-ar'
+AUTOCONF='${SHELL} /<<PKGBUILDDIR>>/missing autoconf'
+AUTOHEADER='${SHELL} /<<PKGBUILDDIR>>/missing autoheader'
+AUTOMAKE='${SHELL} /<<PKGBUILDDIR>>/missing automake-1.16'
+AWK='mawk'
+CC='arm-linux-gnueabihf-gcc'
+CCDEPMODE='depmode=none'
+CFLAGS='-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'
+CPP='arm-linux-gnueabihf-gcc -E'
+CPPFLAGS='-Wdate-time -D_FORTIFY_SOURCE=2'
+CYGPATH_W='echo'
+DBUS_CFLAGS='-I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include'
+DBUS_LIBS='-L/usr/lib/arm-linux-gnueabihf -ldbus-1'
+DEFS=''
+DEPDIR='.deps'
+DISTRO_UBUNTU_FALSE=''
+DISTRO_UBUNTU_TRUE=''
+DLLTOOL='false'
+DSYMUTIL=''
+DUMPBIN=''
+ECHO_C=''
+ECHO_N='-n'
+ECHO_T=''
+EGREP='/bin/grep -E'
+EXEEXT=''
+FGREP='/bin/grep -F'
+GREP='/bin/grep'
+HAVE_DEBIAN_FALSE=''
+HAVE_DEBIAN_TRUE=''
+HAVE_HELP2MAN_FALSE=''
+HAVE_HELP2MAN_TRUE=''
+HAVE_PAM_FALSE=''
+HAVE_PAM_TRUE=''
+HELP2MAN=''
+INIT_SCRIPT_BSD_FALSE=''
+INIT_SCRIPT_BSD_TRUE=''
+INIT_SCRIPT_OPENRC_FALSE=''
+INIT_SCRIPT_OPENRC_TRUE=''
+INIT_SCRIPT_SYSTEMD_FALSE=''
+INIT_SCRIPT_SYSTEMD_TRUE=''
+INIT_SCRIPT_SYSV_FALSE=''
+INIT_SCRIPT_SYSV_TRUE=''
+INIT_SCRIPT_UPSTART_FALSE=''
+INIT_SCRIPT_UPSTART_TRUE=''
+INSTALL_DATA='${INSTALL} -m 644'
+INSTALL_PROGRAM='${INSTALL}'
+INSTALL_SCRIPT='${INSTALL}'
+INSTALL_STRIP_PROGRAM='$(install_sh) -c -s'
+LD='/usr/arm-linux-gnueabihf/bin/ld'
+LDFLAGS='-Wl,-z,relro -Wl,-z,now'
+LIBEXECDIR=''
+LIBOBJS=''
+LIBS=''
+LIBTOOL='$(SHELL) $(top_builddir)/libtool'
+LIPO=''
+LN_S='ln -s'
+LTLIBOBJS=''
+LT_SYS_LIBRARY_PATH=''
+MAKEINFO='${SHELL} /<<PKGBUILDDIR>>/missing makeinfo'
+MANIFEST_TOOL=':'
+MKDIR_P='/bin/mkdir -p'
+NIH_CFLAGS=''
+NIH_DBUS_CFLAGS=''
+NIH_DBUS_LIBS='-L/usr/lib/arm-linux-gnueabihf -lnih-dbus'
+NIH_DBUS_TOOL='/usr/bin/nih-dbus-tool'
+NIH_LIBS='-L/usr/lib/arm-linux-gnueabihf -lnih'
+NM='/usr/bin/arm-linux-gnueabihf-nm -B'
+NMEDIT=''
+OBJDUMP='arm-linux-gnueabihf-objdump'
+OBJEXT='o'
+OTOOL64=''
+OTOOL=''
+PACKAGE='cgmanager'
+PACKAGE_BUGREPORT='cgmanager-devel@lists.linuxcontainers.org'
+PACKAGE_NAME='cgmanager'
+PACKAGE_STRING='cgmanager 0.41'
+PACKAGE_TARNAME='cgmanager'
+PACKAGE_URL=''
+PACKAGE_VERSION='0.41'
+PAM_CFLAGS=''
+PAM_LIBS=''
+PATH_SEPARATOR=':'
+PKG_CONFIG='/usr/bin/arm-linux-gnueabihf-pkg-config'
+PKG_CONFIG_LIBDIR=''
+PKG_CONFIG_PATH=''
+RANLIB='arm-linux-gnueabihf-ranlib'
+SBINDIR=''
+SED='/bin/sed'
+SET_MAKE=''
+SHELL='/bin/bash'
+STRIP='arm-linux-gnueabihf-strip'
+VERSION='0.41'
+ac_ct_AR=''
+ac_ct_CC=''
+ac_ct_DUMPBIN=''
+am__EXEEXT_FALSE=''
+am__EXEEXT_TRUE=''
+am__fastdepCC_FALSE=''
+am__fastdepCC_TRUE='#'
+am__include='include'
+am__isrc=''
+am__leading_dot='.'
+am__nodep=''
+am__quote=''
+am__tar='$${TAR-tar} chof - "$$tardir"'
+am__untar='$${TAR-tar} xf -'
+bindir='${exec_prefix}/bin'
+build='x86_64-pc-linux-gnu'
+build_alias='x86_64-linux-gnu'
+build_cpu='x86_64'
+build_os='linux-gnu'
+build_vendor='pc'
+datadir='${datarootdir}'
+datarootdir='${prefix}/share'
+docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
+dvidir='${docdir}'
+exec_prefix=''
+host='arm-unknown-linux-gnueabihf'
+host_alias='arm-linux-gnueabihf'
+host_cpu='arm'
+host_os='linux-gnueabihf'
+host_vendor='unknown'
+htmldir='${docdir}'
+includedir='${prefix}/include'
+infodir='${prefix}/share/info'
+install_sh='${SHELL} /<<PKGBUILDDIR>>/install-sh'
+libdir='${prefix}/lib/arm-linux-gnueabihf'
+libexecdir='/lib'
+localedir='${datarootdir}/locale'
+localstatedir='/var'
+mandir='${prefix}/share/man'
+mkdir_p='$(MKDIR_P)'
+oldincludedir='/usr/include'
+pamdir=''
+pdfdir='${docdir}'
+prefix='/usr'
+program_transform_name='s,x,x,'
+psdir='${docdir}'
+runstatedir='${localstatedir}/run'
+sbindir='${exec_prefix}/sbin'
+sharedstatedir='${prefix}/com'
+sysconfdir='/etc'
+target_alias=''
+
+## ----------- ##
+## confdefs.h. ##
+## ----------- ##
+
+/* confdefs.h */
+#define PACKAGE_NAME "cgmanager"
+#define PACKAGE_TARNAME "cgmanager"
+#define PACKAGE_VERSION "0.41"
+#define PACKAGE_STRING "cgmanager 0.41"
+#define PACKAGE_BUGREPORT "cgmanager-devel@lists.linuxcontainers.org"
+#define PACKAGE_URL ""
+#define PACKAGE "cgmanager"
+#define VERSION "0.41"
+#define STDC_HEADERS 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_SYS_STAT_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRING_H 1
+#define HAVE_MEMORY_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_STDINT_H 1
+#define HAVE_UNISTD_H 1
+#define __EXTENSIONS__ 1
+#define _ALL_SOURCE 1
+#define _GNU_SOURCE 1
+#define _POSIX_PTHREAD_SEMANTICS 1
+#define _TANDEM_SOURCE 1
+#define HAVE_DLFCN_H 1
+#define LT_OBJDIR ".libs/"
+#define HAVE_SETNS 1
+#define HAVE_PIVOT_ROOT 1
+
+configure: exit 1
+dh_auto_configure: ./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --exec-prefix= --libexecdir=/lib returned exit code 1
+make[1]: *** [debian/rules:19: override_dh_auto_configure] Error 2
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make: *** [debian/rules:12: build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T09:52:45Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* dh-systemd* dwz* gcc-8-base:armhf*
+  gettext* gettext-base* groff-base* help2man* intltool-debian*
+  libarchive-zip-perl* libasan5:armhf* libatomic1:armhf* libaudit1:armhf*
+  libbsd0* libc6:armhf* libc6-dev:armhf* libcap-ng0:armhf* libcroco3*
+  libdbus-1-3:armhf* libdbus-1-dev:armhf* libelf1* libexpat1:armhf*
+  libfile-stripnondeterminism-perl* libgcc-8-dev:armhf* libgcc1:armhf*
+  libgcrypt20:armhf* libglib2.0-0* libgomp1:armhf* libgpg-error0:armhf*
+  liblz4-1:armhf* liblzma5:armhf* libncurses6* libnih-dbus-dev:armhf*
+  libnih-dbus1:armhf* libnih-dev:armhf* libnih1:armhf* libpam0g:armhf*
+  libpam0g-dev:armhf* libpipeline1* libsigsegv2* libstdc++-8-dev:armhf*
+  libstdc++6:armhf* libsystemd0:armhf* libtool* libubsan1:armhf* libuchardet0*
+  linux-libc-dev:armhf* m4* man-db* nih-dbus-tool:armhf* pkg-config*
+  po-debconf* sbuild-build-depends-main-dummy:armhf*
+0 upgraded, 0 newly installed, 60 to remove and 0 not upgraded.
+After this operation, 85.1 MB disk space will be freed.
+(Reading database ... 19482 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing dh-systemd (12.1.1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing help2man (1.47.8) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libpam0g-dev:armhf (1.3.1-5) ...
+Removing libpam0g:armhf (1.3.1-5) ...
+Removing libaudit1:armhf (1:2.8.4-2) ...
+Removing nih-dbus-tool:armhf (1.0.3-10+b2) ...
+Removing libnih-dbus-dev:armhf (1.0.3-10+b2) ...
+Removing libnih-dbus1:armhf (1.0.3-10+b2) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcap-ng0:armhf (0.7.9-2) ...
+Removing libdbus-1-dev:armhf (1.12.12-1) ...
+Removing libexpat1:armhf (2.2.6-1) ...
+Removing pkg-config (0.29-6) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libnih-dev:armhf (1.0.3-10+b2) ...
+Removing libnih1:armhf (1.0.3-10+b2) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing libdbus-1-3:armhf (1.12.12-1) ...
+Removing libsystemd0:armhf (241-1) ...
+Removing liblzma5:armhf (5.2.4-1) ...
+Removing liblz4-1:armhf (1.8.3-1) ...
+Removing libgcrypt20:armhf (1.8.4-5) ...
+Removing libgpg-error0:armhf (1.35-1) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16458 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libpam0g:armhf (1.3.1-5) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 32
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 11
+Job: /home/build/sbuild-setup/repo/pool/main/c/cgmanager/cgmanager_0.41-2.dsc
+Machine Architecture: amd64
+Package: cgmanager
+Package-Time: 48
+Source-Version: 0.41-2
+Space: n/a
+Status: attempted
+Version: 0.41-2
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T09:52:45Z
+Build needed 00:00:48, no disk space

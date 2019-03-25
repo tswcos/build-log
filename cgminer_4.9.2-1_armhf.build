@@ -1,0 +1,2127 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| cgminer 4.9.2-1 (armhf)                      Fri, 01 Mar 2019 09:53:00 +0000 |
++==============================================================================+
+
+Package: cgminer
+Version: 4.9.2-1
+Source Version: 4.9.2-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-afe3ed1e-62de-478c-b61f-5f244e93466f' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/cgminer-OEy2XA/resolver-f1Yu51' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/c/cgminer/cgminer_4.9.2-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/c/cgminer; copying to chroot
+I: NOTICE: Log filtering will replace 'build/cgminer-OEy2XA/cgminer-4.9.2' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/cgminer-OEy2XA' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 9), dh-autoreconf, libcurl4-gnutls-dev | libcurl4-dev, libncurses5-dev, libusb-1.0-0-dev, libjansson-dev, libudev-dev, pkg-config, zlib1g-dev, libsystemd-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 9), dh-autoreconf, libcurl4-gnutls-dev, libncurses5-dev, libusb-1.0-0-dev, libjansson-dev, libudev-dev, pkg-config, zlib1g-dev, libsystemd-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [484 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [548 B]
+Fetched 1989 B in 0s (0 B/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcom-err2:armhf
+  libcroco3 libcurl3-gnutls:armhf libcurl4-gnutls-dev:armhf libdb5.3:armhf
+  libelf1 libffi6:armhf libfile-stripnondeterminism-perl libgcc-8-dev:armhf
+  libgcc1:armhf libgcrypt20:armhf libglib2.0-0 libgmp10:armhf
+  libgnutls30:armhf libgomp1:armhf libgpg-error0:armhf libgssapi-krb5-2:armhf
+  libhogweed4:armhf libidn2-0:armhf libjansson-dev:armhf libjansson4:armhf
+  libk5crypto3:armhf libkeyutils1:armhf libkrb5-3:armhf libkrb5support0:armhf
+  libldap-2.4-2:armhf liblz4-1:armhf liblzma5:armhf libncurses-dev:armhf
+  libncurses5-dev:armhf libncurses6 libncurses6:armhf libncursesw6:armhf
+  libnettle6:armhf libnghttp2-14:armhf libp11-kit0:armhf libpipeline1
+  libpsl5:armhf librtmp1:armhf libsasl2-2:armhf libsasl2-modules-db:armhf
+  libsigsegv2 libssh2-1:armhf libssl1.1:armhf libstdc++-8-dev:armhf
+  libstdc++6:armhf libsystemd-dev:armhf libsystemd0:armhf libtasn1-6:armhf
+  libtinfo6:armhf libtool libubsan1:armhf libuchardet0 libudev-dev:armhf
+  libudev1:armhf libunistring2:armhf libusb-1.0-0:armhf libusb-1.0-0-dev:armhf
+  linux-libc-dev:armhf m4 man-db pkg-config po-debconf zlib1g:armhf
+  zlib1g-dev:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  libcurl4-doc:armhf libgnutls28-dev:armhf libidn11-dev:armhf
+  libkrb5-dev:armhf libldap2-dev:armhf librtmp-dev:armhf libssh2-1-dev:armhf
+  rng-tools:armhf gnutls-bin:armhf krb5-doc:armhf krb5-user:armhf
+  ncurses-doc:armhf libstdc++-8-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk m4-doc apparmor less www-browser
+  libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libarchive-cpio-perl libglib2.0-data shared-mime-info
+  xdg-user-dirs libgpg-error-l10n:armhf krb5-locales:armhf libgpm2
+  libgpm2:armhf publicsuffix:armhf libsasl2-modules:armhf libltdl-dev
+  libusb-1.0-doc:armhf libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcom-err2:armhf
+  libcroco3 libcurl3-gnutls:armhf libcurl4-gnutls-dev:armhf libdb5.3:armhf
+  libelf1 libffi6:armhf libfile-stripnondeterminism-perl libgcc-8-dev:armhf
+  libgcc1:armhf libgcrypt20:armhf libglib2.0-0 libgmp10:armhf
+  libgnutls30:armhf libgomp1:armhf libgpg-error0:armhf libgssapi-krb5-2:armhf
+  libhogweed4:armhf libidn2-0:armhf libjansson-dev:armhf libjansson4:armhf
+  libk5crypto3:armhf libkeyutils1:armhf libkrb5-3:armhf libkrb5support0:armhf
+  libldap-2.4-2:armhf liblz4-1:armhf liblzma5:armhf libncurses-dev:armhf
+  libncurses5-dev:armhf libncurses6 libncurses6:armhf libncursesw6:armhf
+  libnettle6:armhf libnghttp2-14:armhf libp11-kit0:armhf libpipeline1
+  libpsl5:armhf librtmp1:armhf libsasl2-2:armhf libsasl2-modules-db:armhf
+  libsigsegv2 libssh2-1:armhf libssl1.1:armhf libstdc++-8-dev:armhf
+  libstdc++6:armhf libsystemd-dev:armhf libsystemd0:armhf libtasn1-6:armhf
+  libtinfo6:armhf libtool libubsan1:armhf libuchardet0 libudev-dev:armhf
+  libudev1:armhf libunistring2:armhf libusb-1.0-0:armhf libusb-1.0-0-dev:armhf
+  linux-libc-dev:armhf m4 man-db pkg-config po-debconf
+  sbuild-build-depends-main-dummy:armhf zlib1g:armhf zlib1g-dev:armhf
+0 upgraded, 86 newly installed, 0 to remove and 0 not upgraded.
+Need to get 973 kB/27.9 MB of archives.
+After this operation, 99.9 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [972 B]
+Get:2 http://10.116.41.102/debian sid/main armhf libcurl4-gnutls-dev armhf 7.64.0-1 [390 kB]
+Get:3 http://10.116.41.102/debian sid/main armhf libjansson-dev armhf 2.12-1 [36.7 kB]
+Get:4 http://10.116.41.102/debian sid/main armhf libncurses5-dev armhf 6.1+20181013-2 [940 B]
+Get:5 http://10.116.41.102/debian sid/main armhf libsystemd-dev armhf 241-1 [318 kB]
+Get:6 http://10.116.41.102/debian sid/main armhf libudev-dev armhf 241-1 [106 kB]
+Get:7 http://10.116.41.102/debian sid/main armhf libusb-1.0-0 armhf 2:1.0.22-2 [50.1 kB]
+Get:8 http://10.116.41.102/debian sid/main armhf libusb-1.0-0-dev armhf 2:1.0.22-2 [70.7 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 973 kB in 0s (3197 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../06-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../07-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../08-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libgpg-error0:armhf.
+Preparing to unpack .../09-libgpg-error0_1.35-1_armhf.deb ...
+Unpacking libgpg-error0:armhf (1.35-1) ...
+Selecting previously unselected package libgcrypt20:armhf.
+Preparing to unpack .../10-libgcrypt20_1.8.4-5_armhf.deb ...
+Unpacking libgcrypt20:armhf (1.8.4-5) ...
+Selecting previously unselected package liblz4-1:armhf.
+Preparing to unpack .../11-liblz4-1_1.8.3-1_armhf.deb ...
+Unpacking liblz4-1:armhf (1.8.3-1) ...
+Selecting previously unselected package liblzma5:armhf.
+Preparing to unpack .../12-liblzma5_5.2.4-1_armhf.deb ...
+Unpacking liblzma5:armhf (5.2.4-1) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up libgpg-error0:armhf (1.35-1) ...
+Setting up libgcrypt20:armhf (1.8.4-5) ...
+Setting up liblz4-1:armhf (1.8.3-1) ...
+Setting up liblzma5:armhf (5.2.4-1) ...
+Selecting previously unselected package libsystemd0:armhf.
+(Reading database ... 17389 files and directories currently installed.)
+Preparing to unpack .../00-libsystemd0_241-1_armhf.deb ...
+Unpacking libsystemd0:armhf (241-1) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../01-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../02-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../03-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../04-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../05-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../06-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../07-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../08-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../09-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../10-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../11-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../12-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../13-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../14-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../15-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../16-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../17-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../18-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../19-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../20-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../21-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../22-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../23-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../24-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../25-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../26-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libcom-err2:armhf.
+Preparing to unpack .../27-libcom-err2_1.44.5-1_armhf.deb ...
+Unpacking libcom-err2:armhf (1.44.5-1) ...
+Selecting previously unselected package libgmp10:armhf.
+Preparing to unpack .../28-libgmp10_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libnettle6:armhf.
+Preparing to unpack .../29-libnettle6_3.4.1-1_armhf.deb ...
+Unpacking libnettle6:armhf (3.4.1-1) ...
+Selecting previously unselected package libhogweed4:armhf.
+Preparing to unpack .../30-libhogweed4_3.4.1-1_armhf.deb ...
+Unpacking libhogweed4:armhf (3.4.1-1) ...
+Selecting previously unselected package libunistring2:armhf.
+Preparing to unpack .../31-libunistring2_0.9.10-1_armhf.deb ...
+Unpacking libunistring2:armhf (0.9.10-1) ...
+Selecting previously unselected package libidn2-0:armhf.
+Preparing to unpack .../32-libidn2-0_2.0.5-1_armhf.deb ...
+Unpacking libidn2-0:armhf (2.0.5-1) ...
+Selecting previously unselected package libffi6:armhf.
+Preparing to unpack .../33-libffi6_3.2.1-9_armhf.deb ...
+Unpacking libffi6:armhf (3.2.1-9) ...
+Selecting previously unselected package libp11-kit0:armhf.
+Preparing to unpack .../34-libp11-kit0_0.23.15-2_armhf.deb ...
+Unpacking libp11-kit0:armhf (0.23.15-2) ...
+Selecting previously unselected package libtasn1-6:armhf.
+Preparing to unpack .../35-libtasn1-6_4.13-3_armhf.deb ...
+Unpacking libtasn1-6:armhf (4.13-3) ...
+Selecting previously unselected package libgnutls30:armhf.
+Preparing to unpack .../36-libgnutls30_3.6.6-2_armhf.deb ...
+Unpacking libgnutls30:armhf (3.6.6-2) ...
+Selecting previously unselected package libkeyutils1:armhf.
+Preparing to unpack .../37-libkeyutils1_1.6-4_armhf.deb ...
+Unpacking libkeyutils1:armhf (1.6-4) ...
+Selecting previously unselected package libkrb5support0:armhf.
+Preparing to unpack .../38-libkrb5support0_1.17-2_armhf.deb ...
+Unpacking libkrb5support0:armhf (1.17-2) ...
+Selecting previously unselected package libk5crypto3:armhf.
+Preparing to unpack .../39-libk5crypto3_1.17-2_armhf.deb ...
+Unpacking libk5crypto3:armhf (1.17-2) ...
+Selecting previously unselected package libssl1.1:armhf.
+Preparing to unpack .../40-libssl1.1_1.1.1b-1_armhf.deb ...
+Unpacking libssl1.1:armhf (1.1.1b-1) ...
+Selecting previously unselected package libkrb5-3:armhf.
+Preparing to unpack .../41-libkrb5-3_1.17-2_armhf.deb ...
+Unpacking libkrb5-3:armhf (1.17-2) ...
+Selecting previously unselected package libgssapi-krb5-2:armhf.
+Preparing to unpack .../42-libgssapi-krb5-2_1.17-2_armhf.deb ...
+Unpacking libgssapi-krb5-2:armhf (1.17-2) ...
+Selecting previously unselected package libdb5.3:armhf.
+Preparing to unpack .../43-libdb5.3_5.3.28+dfsg1-0.5_armhf.deb ...
+Unpacking libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Selecting previously unselected package libsasl2-modules-db:armhf.
+Preparing to unpack .../44-libsasl2-modules-db_2.1.27+dfsg-1_armhf.deb ...
+Unpacking libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Selecting previously unselected package libsasl2-2:armhf.
+Preparing to unpack .../45-libsasl2-2_2.1.27+dfsg-1_armhf.deb ...
+Unpacking libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Selecting previously unselected package libldap-2.4-2:armhf.
+Preparing to unpack .../46-libldap-2.4-2_2.4.47+dfsg-3_armhf.deb ...
+Unpacking libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Selecting previously unselected package libnghttp2-14:armhf.
+Preparing to unpack .../47-libnghttp2-14_1.36.0-2_armhf.deb ...
+Unpacking libnghttp2-14:armhf (1.36.0-2) ...
+Selecting previously unselected package libpsl5:armhf.
+Preparing to unpack .../48-libpsl5_0.20.2-2_armhf.deb ...
+Unpacking libpsl5:armhf (0.20.2-2) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../49-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package librtmp1:armhf.
+Preparing to unpack .../50-librtmp1_2.4+20151223.gitfa8646d.1-2_armhf.deb ...
+Unpacking librtmp1:armhf (2.4+20151223.gitfa8646d.1-2) ...
+Selecting previously unselected package libssh2-1:armhf.
+Preparing to unpack .../51-libssh2-1_1.8.0-2_armhf.deb ...
+Unpacking libssh2-1:armhf (1.8.0-2) ...
+Selecting previously unselected package libcurl3-gnutls:armhf.
+Preparing to unpack .../52-libcurl3-gnutls_7.64.0-1_armhf.deb ...
+Unpacking libcurl3-gnutls:armhf (7.64.0-1) ...
+Selecting previously unselected package libcurl4-gnutls-dev:armhf.
+Preparing to unpack .../53-libcurl4-gnutls-dev_7.64.0-1_armhf.deb ...
+Unpacking libcurl4-gnutls-dev:armhf (7.64.0-1) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../54-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../55-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../56-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libjansson4:armhf.
+Preparing to unpack .../57-libjansson4_2.12-1_armhf.deb ...
+Unpacking libjansson4:armhf (2.12-1) ...
+Selecting previously unselected package libjansson-dev:armhf.
+Preparing to unpack .../58-libjansson-dev_2.12-1_armhf.deb ...
+Unpacking libjansson-dev:armhf (2.12-1) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../59-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../60-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../61-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../62-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses5-dev:armhf.
+Preparing to unpack .../63-libncurses5-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses5-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../64-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libsystemd-dev:armhf.
+Preparing to unpack .../65-libsystemd-dev_241-1_armhf.deb ...
+Unpacking libsystemd-dev:armhf (241-1) ...
+Selecting previously unselected package libudev1:armhf.
+Preparing to unpack .../66-libudev1_241-1_armhf.deb ...
+Unpacking libudev1:armhf (241-1) ...
+Selecting previously unselected package libudev-dev:armhf.
+Preparing to unpack .../67-libudev-dev_241-1_armhf.deb ...
+Unpacking libudev-dev:armhf (241-1) ...
+Selecting previously unselected package libusb-1.0-0:armhf.
+Preparing to unpack .../68-libusb-1.0-0_2%3a1.0.22-2_armhf.deb ...
+Unpacking libusb-1.0-0:armhf (2:1.0.22-2) ...
+Selecting previously unselected package libusb-1.0-0-dev:armhf.
+Preparing to unpack .../69-libusb-1.0-0-dev_2%3a1.0.22-2_armhf.deb ...
+Unpacking libusb-1.0-0-dev:armhf (2:1.0.22-2) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../70-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package zlib1g-dev:armhf.
+Preparing to unpack .../71-zlib1g-dev_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../72-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libkeyutils1:armhf (1.6-4) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up libssl1.1:armhf (1.1.1b-1) ...
+Setting up libnghttp2-14:armhf (1.36.0-2) ...
+Setting up libunistring2:armhf (0.9.10-1) ...
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libffi6:armhf (3.2.1-9) ...
+Setting up libidn2-0:armhf (2.0.5-1) ...
+Setting up libcom-err2:armhf (1.44.5-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libsystemd0:armhf (241-1) ...
+Setting up libjansson4:armhf (2.12-1) ...
+Setting up libkrb5support0:armhf (1.17-2) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up libp11-kit0:armhf (0.23.15-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libk5crypto3:armhf (1.17-2) ...
+Setting up libnettle6:armhf (3.4.1-1) ...
+Setting up libudev1:armhf (241-1) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libtasn1-6:armhf (4.13-3) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libssh2-1:armhf (1.8.0-2) ...
+Setting up libkrb5-3:armhf (1.17-2) ...
+Setting up libusb-1.0-0:armhf (2:1.0.22-2) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Setting up libjansson-dev:armhf (2.12-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libsystemd-dev:armhf (241-1) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up libpsl5:armhf (0.20.2-2) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up libhogweed4:armhf (3.4.1-1) ...
+Setting up libusb-1.0-0-dev:armhf (2:1.0.22-2) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libgnutls30:armhf (3.6.6-2) ...
+Setting up librtmp1:armhf (2.4+20151223.gitfa8646d.1-2) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up libgssapi-krb5-2:armhf (1.17-2) ...
+Setting up libudev-dev:armhf (241-1) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Setting up autoconf (2.69-11) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up po-debconf (1.0.21) ...
+Setting up libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Setting up libcurl3-gnutls:armhf (7.64.0-1) ...
+Setting up libcurl4-gnutls-dev:armhf (7.64.0-1) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libncurses5-dev:armhf (6.1+20181013-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up dh-autoreconf (19) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libcurl3-gnutls_7.64.0-1 libcurl4-gnutls-dev_7.64.0-1 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libgssapi-krb5-2_1.17-2 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libjansson-dev_2.12-1 libjansson4_2.12-1 libk5crypto3_1.17-2 libkeyutils1_1.6-4 libkrb5-3_1.17-2 libkrb5support0_1.17-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses5-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnghttp2-14_1.36.0-2 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpsl5_0.20.2-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 librtmp1_2.4+20151223.gitfa8646d.1-2 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssh2-1_1.8.0-2 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd-dev_241-1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev-dev_241-1 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libusb-1.0-0_2:1.0.22-2 libusb-1.0-0-dev_2:1.0.22-2 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1 zlib1g-dev_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Format: 3.0 (quilt)
+Source: cgminer
+Binary: cgminer
+Architecture: any
+Version: 4.9.2-1
+Maintainer: Debian Bitcoin Packaging Team <pkg-bitcoin-devel@lists.alioth.debian.org>
+Uploaders: Scott Howard <showard@debian.org>
+Homepage: https://github.com/ckolivas/cgminer
+Standards-Version: 3.9.6
+Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-bitcoin/cgminer.git
+Vcs-Git: git://anonscm.debian.org/pkg-bitcoin/cgminer.git
+Build-Depends: debhelper (>= 9), dh-autoreconf, libcurl4-gnutls-dev | libcurl4-dev, libncurses5-dev, libusb-1.0-0-dev, libjansson-dev, libudev-dev [!kfreebsd-any], pkg-config, zlib1g-dev, libsystemd-dev
+Package-List:
+ cgminer deb net optional arch=any
+Checksums-Sha1:
+ dfe6a42bc4c69b23a4e864ededdd18807140e7f3 2076800 cgminer_4.9.2.orig.tar.gz
+ f4bf827cb373b129ff0212aebffb1d919761cebd 13128 cgminer_4.9.2-1.debian.tar.xz
+Checksums-Sha256:
+ 50b93968410880a69f3c4e4b3758c5ed00162ab53ece87c53635313bcf82308a 2076800 cgminer_4.9.2.orig.tar.gz
+ 951e89b0d64d409dfd0119504f095213928cfc3727fd1bbe5e0d341612fce8f4 13128 cgminer_4.9.2-1.debian.tar.xz
+Files:
+ df1ddf3a3c06d2f9bb8841b9c1f3bb09 2076800 cgminer_4.9.2.orig.tar.gz
+ 104ba3fe58bb9af6c6d43504f608e53c 13128 cgminer_4.9.2-1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAEBAgAGBQJVjB+iAAoJEI7QYGkDfiTy6gQP/0P28q55DLq5yqMoUumwLqA2
+ZOYXxMzK9ceriv2vI9uMthP11O3uNoWN/YCTm0hCpkThf6gXMYjYP6+lzjMbaQmP
+nUEG54N1mKjqgI3dLD2fqyNf0bf5exsQotrJP0+py3tCE/iH06r0q+Gl01YUvo3G
+MXm9YP+Fj/RTEZEUAOzFQNmYoSnHtvNJBf7v9oqQRpi1SzKXTk/76dwJGMt1qP9i
+fIm9J/U+rNg+SwH6utW61WH/ZkJBU0Fo0rvm2dytPGvJEvy0HXhkivYo69Napp+C
+dZ2TQRet8q6esqlVP2aqVaxpV74dpPIzA11d4hMpmH81HPJ0zrVXRwesdEUAYVfx
+mv9dydbiWSvWT4kycmAO97Topa95B+X8zxGwVT06D7VMKte4n1Z1fcupiGCXUtKL
+pb2enr2sp3c5q9F8ZPtFca1T5/ky7587n13GtKeHlB61OSN4qVV355CSXQoZPCKG
+auwlJz3n8aOrh+U7ErIjFvnofhqRn9O1WUjACQJUc4LgSaMc7Dkjm/YJqKjh6x8M
+1ESMyUz7gWLwh7r/WInE13jnKxhMmvwquITfHlcHZJD4pBDBWQJqWt46EwSQucdH
+AKh6Y9gS3Ko2j01GgD2tYxyd40u5NnziPLJhoa8njsEXXB2MubfFh3dkX9PwqRqw
+GIDOlKdHm9B+7R6Q93RK
+=V2Es
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Thu Jun 25 15:34:58 2015 UTC
+gpgv:                using RSA key 8ED06069037E24F2
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./cgminer_4.9.2-1.dsc
+dpkg-source: info: extracting cgminer in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking cgminer_4.9.2.orig.tar.gz
+dpkg-source: info: unpacking cgminer_4.9.2-1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying kfreebsd_usb.patch
+dpkg-source: info: applying libusb_init_warning.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-afe3ed1e-62de-478c-b61f-5f244e93466f
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package cgminer
+dpkg-buildpackage: info: source version 4.9.2-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Scott Howard <showard@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+dpkg-source: info: using options from cgminer-4.9.2/debian/source/options: --compression=xz
+ fakeroot debian/rules clean
+dh clean --with autoreconf
+   dh_clean
+ debian/rules build-arch
+dh build-arch --with autoreconf
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:38: installing './compile'
+configure.ac:39: installing './config.guess'
+configure.ac:39: installing './config.sub'
+configure.ac:29: installing './install-sh'
+configure.ac:29: installing './missing'
+libusb/Makefile.am: installing './depcomp'
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:13: installing './compile'
+configure.ac:14: installing './config.guess'
+configure.ac:14: installing './config.sub'
+configure.ac:6: installing './install-sh'
+configure.ac:6: installing './missing'
+src/Makefile.am: installing './depcomp'
+configure.ac:24: installing './compile'
+configure.ac:17: installing './config.guess'
+configure.ac:17: installing './config.sub'
+configure.ac:22: installing './install-sh'
+configure.ac:22: installing './missing'
+Makefile.am: installing './depcomp'
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_configure -- --bindir=/usr/lib/cgminer --enable-avalon --enable-avalon2 --enable-avalon4 --enable-bflsc --enable-bitfury --enable-cointerra --enable-drillbit --enable-hashfast --enable-hashratio --enable-icarus --enable-klondike --with-system-libusb --disable-silent-rules --enable-libsystemd --with-system-jansson
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --bindir=/usr/lib/cgminer --enable-avalon --enable-avalon2 --enable-avalon4 --enable-bflsc --enable-bitfury --enable-cointerra --enable-drillbit --enable-hashfast --enable-hashratio --enable-icarus --enable-klondike --with-system-libusb --disable-silent-rules --enable-libsystemd --with-system-jansson
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking target system type... arm-unknown-linux-gnueabihf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for arm-linux-gnueabihf-gcc... (cached) arm-linux-gnueabihf-gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... (cached) yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... (cached) yes
+checking dependency style of arm-linux-gnueabihf-gcc... (cached) none
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking whether arm-linux-gnueabihf-gcc needs -traditional... no
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking for stdint.h... (cached) yes
+checking for mprotect... yes
+checking for sigaction... yes
+checking for sigaltstack... yes
+checking for siginterrupt... yes
+checking for mmap... yes
+checking for MAP_ANONYMOUS... yes
+checking whether memchr works... guessing no
+checking whether memmem is declared... yes
+checking for memmem... yes
+checking whether memmem works... yes
+checking for C/C++ restrict keyword... __restrict
+checking for uid_t in sys/types.h... yes
+checking for inline... inline
+checking whether the preprocessor supports include_next... yes
+checking whether system header files limit the line length... no
+checking for wchar_t... yes
+checking for unsigned long long int... yes
+checking for long long int... yes
+checking whether stdint.h conforms to C99... yes
+checking whether memmem is declared without a macro... yes
+checking whether mempcpy is declared without a macro... yes
+checking whether memrchr is declared without a macro... yes
+checking whether rawmemchr is declared without a macro... yes
+checking whether stpcpy is declared without a macro... yes
+checking whether stpncpy is declared without a macro... yes
+checking whether strchrnul is declared without a macro... yes
+checking whether strdup is declared without a macro... yes
+checking whether strncat is declared without a macro... yes
+checking whether strndup is declared without a macro... yes
+checking whether strnlen is declared without a macro... yes
+checking whether strpbrk is declared without a macro... yes
+checking whether strsep is declared without a macro... yes
+checking whether strcasestr is declared without a macro... yes
+checking whether strtok_r is declared without a macro... yes
+checking whether strerror_r is declared without a macro... yes
+checking whether strsignal is declared without a macro... yes
+checking whether strverscmp is declared without a macro... yes
+checking bp-sym.h usability... no
+checking bp-sym.h presence... no
+checking for bp-sym.h... no
+checking whether memmem works in linear time... yes
+checking for memmem... (cached) yes
+checking whether memmem works... (cached) yes
+checking for struct sigaction.sa_sigaction... yes
+checking for volatile sig_atomic_t... yes
+checking for sighandler_t... yes
+checking whether sigaction is declared without a macro... yes
+checking whether sigaddset is declared without a macro... yes
+checking whether sigdelset is declared without a macro... yes
+checking whether sigemptyset is declared without a macro... yes
+checking whether sigfillset is declared without a macro... yes
+checking whether sigismember is declared without a macro... yes
+checking whether sigpending is declared without a macro... yes
+checking whether sigprocmask is declared without a macro... yes
+checking for sigprocmask... yes
+checking whether NULL can be used in arbitrary expressions... yes
+checking for ANSI C header files... (cached) yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking for pthread_create in -lpthread... yes
+checking for library containing addstr... -lncurses
+checking for arm-linux-gnueabihf-pkg-config... /usr/bin/arm-linux-gnueabihf-pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for LIBUSB... yes
+checking for JANSSON... yes
+checking for arm-linux-gnueabihf-pkg-config... (cached) /usr/bin/arm-linux-gnueabihf-pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for LIBCURL... yes
+checking for LIBSYSTEMD... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating compat/Makefile
+config.status: creating ccan/Makefile
+config.status: creating lib/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+
+
+
+------------------------------------------------------------------------
+cgminer 4.9.2
+------------------------------------------------------------------------
+
+
+Configuration Options Summary:
+
+  libcurl(GBT+getwork).: Enabled: -L/usr/lib/arm-linux-gnueabihf -lcurl
+  libsystemd...........: Enabled: -L/lib/arm-linux-gnueabihf -lsystemd
+  curses.TUI...........: FOUND: -lncurses
+
+  Antminer.S1.Bitmain..: Disabled
+  Antminer.S2.Bitmain..: Disabled
+  Antminer.S3.Bitmain..: Disabled
+  Avalon.ASICs.........: Enabled
+  Avalon2.ASICs........: Enabled
+  Avalon4.ASICs........: Enabled
+  BlackArrowMinion.ASIC: Disabled
+  BlackArrow.ASICs.....: Disabled
+  BFL.ASICs............: Enabled
+  BitForce.FPGAs.......: Disabled
+  BitFury.ASICs........: Enabled
+  BlockErupter.ASICs...: Disabled
+  Cointerra.ASICs......: Enabled
+  Spond-sp10.ASICs.....: Disabled
+  Spond-sp30.ASICs.....: Disabled
+  Bitmine-A1.ASICs.....: Disabled
+  Drillbit.BitFury.....: Enabled
+  Hashfast.ASICs.......: Enabled
+  Hashratio.ASICs......: Enabled
+  Icarus.ASICs/FPGAs...: Enabled
+  Klondike.ASICs.......: Enabled
+  KnC.ASICs............: Disabled
+  ModMiner.FPGAs.......: Disabled
+
+Compilation............: make (or gmake)
+  CPPFLAGS.............: -Wdate-time -D_FORTIFY_SOURCE=2
+  CFLAGS...............: -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security
+  LDFLAGS..............: -specs=/usr/share/dpkg/no-pie-link.specs -Wl,-z,relro -Wl,-z,now -lpthread
+  LDADD................: -ldl -L/usr/lib/arm-linux-gnueabihf -lcurl -L/lib/arm-linux-gnueabihf -lsystemd -L/usr/lib/arm-linux-gnueabihf -ljansson -lpthread    -lm -L/usr/lib/arm-linux-gnueabihf -lusb-1.0 -lrt
+
+Installation...........: make install (as root if needed, with 'su' or 'sudo')
+  prefix...............: /usr
+
+*** SYSTEM JANSSON BEING ADDED - NOT RECOMMENDED UNLESS YOU ARE UNABLE TO COMPILE THE INCLUDED JANSSON ***
+
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_build
+	make -j1
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make  all-recursive
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in lib
+make[4]: Entering directory '/<<PKGBUILDDIR>>/lib'
+rm -f arg-nonnull.h-t arg-nonnull.h && \
+sed -n -e '/GL_ARG_NONNULL/,$p' \
+  < .././arg-nonnull.h \
+  > arg-nonnull.h-t && \
+mv arg-nonnull.h-t arg-nonnull.h
+rm -f c++defs.h-t c++defs.h && \
+sed -n -e '/_GL_CXXDEFS/,$p' \
+  < .././c++defs.h \
+  > c++defs.h-t && \
+mv c++defs.h-t c++defs.h
+rm -f warn-on-use.h-t warn-on-use.h && \
+sed -n -e '/^.ifndef/,$p' \
+  < .././warn-on-use.h \
+  > warn-on-use.h-t && \
+mv warn-on-use.h-t warn-on-use.h
+rm -f signal.h-t signal.h && \
+{ echo '/* DO NOT EDIT! GENERATED AUTOMATICALLY! */' && \
+  sed -e 's|@''GUARD_PREFIX''@|GL|g' \
+      -e 's|@''INCLUDE_NEXT''@|include_next|g' \
+      -e 's|@''PRAGMA_SYSTEM_HEADER''@|#pragma GCC system_header|g' \
+      -e 's|@''PRAGMA_COLUMNS''@||g' \
+      -e 's|@''NEXT_SIGNAL_H''@|<signal.h>|g' \
+      -e 's/@''GNULIB_SIGNAL_H_SIGPIPE''@/0/g' \
+      -e 's/@''GNULIB_SIGPROCMASK''@/1/g' \
+      -e 's/@''GNULIB_SIGACTION''@/1/g' \
+      -e 's|@''HAVE_POSIX_SIGNALBLOCKING''@|1|g' \
+      -e 's|@''HAVE_SIGSET_T''@|1|g' \
+      -e 's|@''HAVE_SIGINFO_T''@|1|g' \
+      -e 's|@''HAVE_SIGACTION''@|1|g' \
+      -e 's|@''HAVE_STRUCT_SIGACTION_SA_SIGACTION''@|1|g' \
+      -e 's|@''HAVE_TYPE_VOLATILE_SIG_ATOMIC_T''@|1|g' \
+      -e 's|@''HAVE_SIGHANDLER_T''@|1|g' \
+      -e '/definitions of _GL_FUNCDECL_RPL/r c++defs.h' \
+      -e '/definition of _GL_ARG_NONNULL/r arg-nonnull.h' \
+      -e '/definition of _GL_WARN_ON_USE/r warn-on-use.h' \
+      < ./signal.in.h; \
+} > signal.h-t && \
+mv signal.h-t signal.h
+rm -f string.h-t string.h && \
+{ echo '/* DO NOT EDIT! GENERATED AUTOMATICALLY! */' && \
+  sed -e 's|@''GUARD_PREFIX''@|GL|g' \
+      -e 's|@''INCLUDE_NEXT''@|include_next|g' \
+      -e 's|@''PRAGMA_SYSTEM_HEADER''@|#pragma GCC system_header|g' \
+      -e 's|@''PRAGMA_COLUMNS''@||g' \
+      -e 's|@''NEXT_STRING_H''@|<string.h>|g' \
+      -e 's/@''GNULIB_MBSLEN''@/0/g' \
+      -e 's/@''GNULIB_MBSNLEN''@/0/g' \
+      -e 's/@''GNULIB_MBSCHR''@/0/g' \
+      -e 's/@''GNULIB_MBSRCHR''@/0/g' \
+      -e 's/@''GNULIB_MBSSTR''@/0/g' \
+      -e 's/@''GNULIB_MBSCASECMP''@/0/g' \
+      -e 's/@''GNULIB_MBSNCASECMP''@/0/g' \
+      -e 's/@''GNULIB_MBSPCASECMP''@/0/g' \
+      -e 's/@''GNULIB_MBSCASESTR''@/0/g' \
+      -e 's/@''GNULIB_MBSCSPN''@/0/g' \
+      -e 's/@''GNULIB_MBSPBRK''@/0/g' \
+      -e 's/@''GNULIB_MBSSPN''@/0/g' \
+      -e 's/@''GNULIB_MBSSEP''@/0/g' \
+      -e 's/@''GNULIB_MBSTOK_R''@/0/g' \
+      -e 's/@''GNULIB_MEMCHR''@/1/g' \
+      -e 's/@''GNULIB_MEMMEM''@/1/g' \
+      -e 's/@''GNULIB_MEMPCPY''@/0/g' \
+      -e 's/@''GNULIB_MEMRCHR''@/0/g' \
+      -e 's/@''GNULIB_RAWMEMCHR''@/0/g' \
+      -e 's/@''GNULIB_STPCPY''@/0/g' \
+      -e 's/@''GNULIB_STPNCPY''@/0/g' \
+      -e 's/@''GNULIB_STRCHRNUL''@/0/g' \
+      -e 's/@''GNULIB_STRDUP''@/0/g' \
+      -e 's/@''GNULIB_STRNCAT''@/0/g' \
+      -e 's/@''GNULIB_STRNDUP''@/0/g' \
+      -e 's/@''GNULIB_STRNLEN''@/0/g' \
+      -e 's/@''GNULIB_STRPBRK''@/0/g' \
+      -e 's/@''GNULIB_STRSEP''@/0/g' \
+      -e 's/@''GNULIB_STRSTR''@/0/g' \
+      -e 's/@''GNULIB_STRCASESTR''@/0/g' \
+      -e 's/@''GNULIB_STRTOK_R''@/0/g' \
+      -e 's/@''GNULIB_STRERROR''@/0/g' \
+      -e 's/@''GNULIB_STRERROR_R''@/0/g' \
+      -e 's/@''GNULIB_STRSIGNAL''@/0/g' \
+      -e 's/@''GNULIB_STRVERSCMP''@/0/g' \
+      < ./string.in.h | \
+  sed -e 's|@''HAVE_MBSLEN''@|0|g' \
+      -e 's|@''HAVE_MEMCHR''@|1|g' \
+      -e 's|@''HAVE_DECL_MEMMEM''@|1|g' \
+      -e 's|@''HAVE_MEMPCPY''@|1|g' \
+      -e 's|@''HAVE_DECL_MEMRCHR''@|1|g' \
+      -e 's|@''HAVE_RAWMEMCHR''@|1|g' \
+      -e 's|@''HAVE_STPCPY''@|1|g' \
+      -e 's|@''HAVE_STPNCPY''@|1|g' \
+      -e 's|@''HAVE_STRCHRNUL''@|1|g' \
+      -e 's|@''HAVE_DECL_STRDUP''@|1|g' \
+      -e 's|@''HAVE_DECL_STRNDUP''@|1|g' \
+      -e 's|@''HAVE_DECL_STRNLEN''@|1|g' \
+      -e 's|@''HAVE_STRPBRK''@|1|g' \
+      -e 's|@''HAVE_STRSEP''@|1|g' \
+      -e 's|@''HAVE_STRCASESTR''@|1|g' \
+      -e 's|@''HAVE_DECL_STRTOK_R''@|1|g' \
+      -e 's|@''HAVE_DECL_STRERROR_R''@|1|g' \
+      -e 's|@''HAVE_DECL_STRSIGNAL''@|1|g' \
+      -e 's|@''HAVE_STRVERSCMP''@|1|g' \
+      -e 's|@''REPLACE_STPNCPY''@|0|g' \
+      -e 's|@''REPLACE_MEMCHR''@|1|g' \
+      -e 's|@''REPLACE_MEMMEM''@|0|g' \
+      -e 's|@''REPLACE_STRCASESTR''@|0|g' \
+      -e 's|@''REPLACE_STRCHRNUL''@|0|g' \
+      -e 's|@''REPLACE_STRDUP''@|0|g' \
+      -e 's|@''REPLACE_STRSTR''@|0|g' \
+      -e 's|@''REPLACE_STRERROR''@|0|g' \
+      -e 's|@''REPLACE_STRERROR_R''@|0|g' \
+      -e 's|@''REPLACE_STRNCAT''@|0|g' \
+      -e 's|@''REPLACE_STRNDUP''@|0|g' \
+      -e 's|@''REPLACE_STRNLEN''@|0|g' \
+      -e 's|@''REPLACE_STRSIGNAL''@|0|g' \
+      -e 's|@''REPLACE_STRTOK_R''@|0|g' \
+      -e 's|@''UNDEFINE_STRTOK_R''@|0|g' \
+      -e '/definitions of _GL_FUNCDECL_RPL/r c++defs.h' \
+      -e '/definition of _GL_ARG_NONNULL/r arg-nonnull.h' \
+      -e '/definition of _GL_WARN_ON_USE/r warn-on-use.h'; \
+      < ./string.in.h; \
+} > string.h-t && \
+mv string.h-t string.h
+make  all-recursive
+make[5]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[6]: Entering directory '/<<PKGBUILDDIR>>/lib'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o dummy.o dummy.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o memchr.o memchr.c
+rm -f libgnu.a
+ar cru libgnu.a dummy.o memchr.o
+ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib libgnu.a
+make[6]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+Making all in compat
+make[4]: Entering directory '/<<PKGBUILDDIR>>/compat'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/compat'
+make[5]: Nothing to be done for 'all-am'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/compat'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/compat'
+Making all in ccan
+make[4]: Entering directory '/<<PKGBUILDDIR>>/ccan'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o opt/libccan_a-helpers.o `test -f 'opt/helpers.c' || echo './'`opt/helpers.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o opt/libccan_a-opt.o `test -f 'opt/opt.c' || echo './'`opt/opt.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o opt/libccan_a-parse.o `test -f 'opt/parse.c' || echo './'`opt/parse.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I.. -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o opt/libccan_a-usage.o `test -f 'opt/usage.c' || echo './'`opt/usage.c
+rm -f libccan.a
+ar cru libccan.a opt/libccan_a-helpers.o opt/libccan_a-opt.o opt/libccan_a-parse.o opt/libccan_a-usage.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib libccan.a
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/ccan'
+make[4]: Entering directory '/<<PKGBUILDDIR>>'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-cgminer.o `test -f 'cgminer.c' || echo './'`cgminer.c
+In file included from ./miner.h:26,
+                 from ./sha2.h:36,
+                 from cgminer.c:57:
+cgminer.c: In function ‘benchfile_dspwork’:
+cgminer.c:3622:18: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size between 209 and 218 [-Wformat-truncation=]
+  applog(LOG_ERR, "BENCHFILE nonce %u=0x%08x for work=%s",
+                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    (unsigned int)dn, (unsigned int)dn, buf);
+                                        ~~~
+./logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from /usr/include/curses.h:183,
+                 from cgminer.c:16:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 39 and 1071 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cgminer.c: In function ‘curses_print_devstatus.part.24’:
+cgminer.c:2841:24: warning: ‘ | ’ directive output may be truncated writing 3 bytes into a region of size between 1 and 256 [-Wformat-truncation=]
+  cg_wprintw(statuswin, "%s | ", logline);
+                        ^~~~~~~
+cgminer.c:2727:33: note: in definition of macro ‘cg_wprintw’
+  snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                 ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from /usr/include/curses.h:183,
+                 from cgminer.c:16:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 4 and 259 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./sha2.h:36,
+                 from cgminer.c:57:
+cgminer.c: In function ‘get_statline’:
+cgminer.c:2702:27: warning: ‘%.1f’ directive output may be truncated writing between 3 and 312 bytes into a region of size between 0 and 30 [-Wformat-truncation=]
+  tailsprintf(buf, bufsiz, "(%ds):%s (avg):%sh/s | A:%.0f R:%.0f HW:%d WU:%.1f/m",
+                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./miner.h:1451:33: note: in definition of macro ‘tailsprintf’
+  snprintf(tmp13, sizeof(tmp13), fmt, ##__VA_ARGS__); \
+                                 ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from /usr/include/curses.h:183,
+                 from cgminer.c:16:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 40 and 1017 bytes into a destination of size 64
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./miner.h:26,
+                 from ./sha2.h:36,
+                 from cgminer.c:57:
+cgminer.c: In function ‘app_restart’:
+cgminer.c:3913:22: warning: ‘%s’ directive output may be truncated writing up to 255 bytes into a region of size 234 [-Wformat-truncation=]
+  applog(LOG_WARNING, "Attempting to restart %s", packagename);
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~
+./logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from /usr/include/curses.h:183,
+                 from cgminer.c:16:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 23 and 278 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cgminer.c: In function ‘watchdog_thread’:
+cgminer.c:2741:32: warning: ‘__builtin___snprintf_chk’ output may be truncated before the last format character [-Wformat-truncation=]
+  cg_mvwprintw(statuswin, 2, 0, " %s", statusline);
+                                ^~~~~
+cgminer.c:2722:33: note: in definition of macro ‘cg_mvwprintw’
+  snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                 ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from /usr/include/curses.h:183,
+                 from cgminer.c:16:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 2 and 257 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from ./miner.h:26,
+                 from ./sha2.h:36,
+                 from cgminer.c:57:
+cgminer.c: In function ‘main’:
+cgminer.c:9383:22: warning: ‘%s’ directive output may be truncated writing up to 255 bytes into a region of size 248 [-Wformat-truncation=]
+  applog(LOG_WARNING, "Started %s", packagename);
+                      ^~~~~~~~~~~~  ~~~~~~~~~~~
+./logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from /usr/include/curses.h:183,
+                 from cgminer.c:16:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 9 and 264 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-util.o `test -f 'util.c' || echo './'`util.c
+In file included from miner.h:26,
+                 from util.c:43:
+util.c: In function ‘http_negotiate’:
+util.c:2419:20: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 238 [-Wformat-truncation=]
+  applog(LOG_DEBUG, "Sending proxy %s:%s - %s",
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~
+   pool->sockaddr_proxy_url, pool->sockaddr_proxy_port, buf);
+                                                        ~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from util.c:14:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 19 or more bytes (assuming 1042) into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from miner.h:26,
+                 from util.c:43:
+util.c:2429:20: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 232 [-Wformat-truncation=]
+  applog(LOG_DEBUG, "Received from proxy %s:%s - %s",
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         pool->sockaddr_proxy_url, pool->sockaddr_proxy_port, buf);
+                                                              ~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from util.c:14:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 25 or more bytes (assuming 1048) into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from miner.h:26,
+                 from util.c:43:
+util.c:2432:23: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 230 [-Wformat-truncation=]
+   applog(LOG_WARNING, "HTTP Error from proxy %s:%s - %s",
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          pool->sockaddr_proxy_url, pool->sockaddr_proxy_port, buf);
+                                                               ~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from util.c:14:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 27 or more bytes (assuming 1050) into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from miner.h:26,
+                 from util.c:43:
+util.c: In function ‘json_web_config’:
+util.c:542:19: warning: ‘%s’ directive output may be truncated writing up to 255 bytes into a region of size 222 [-Wformat-truncation=]
+   applog(LOG_ERR, "HTTP config request of '%s' failed: %s", url, curl_err_str);
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~       ~~~~~~~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from util.c:14:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 35 or more bytes (assuming 290) into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from miner.h:26,
+                 from util.c:43:
+util.c: In function ‘json_rpc_call’:
+util.c:678:20: warning: ‘%s’ directive output may be truncated writing up to 255 bytes into a region of size 235 [-Wformat-truncation=]
+   applog(LOG_INFO, "HTTP request failed: %s", curl_err_str);
+                    ^~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from util.c:14:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 22 and 277 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from miner.h:26,
+                 from util.c:43:
+util.c: In function ‘parse_reconnect’:
+util.c:2194:22: warning: ‘%s’ directive output may be truncated writing up to 255 bytes into a region of size between 203 and 213 [-Wformat-truncation=]
+  applog(LOG_WARNING, "Stratum reconnect requested from pool %d to %s", pool->pool_no, address);
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                 ~~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from util.c:14:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 44 and 309 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-sha2.o `test -f 'sha2.c' || echo './'`sha2.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-api.o `test -f 'api.c' || echo './'`api.c
+In file included from miner.h:26,
+                 from api.c:25:
+api.c: In function ‘mcast’:
+api.c:4729:21: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size between 222 and 231 [-Wformat-truncation=]
+   applog(LOG_DEBUG, "API mcast request rep=%d (%s) from [%s]:%s",
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      (int)rep, buf, connectaddr, came_from_port);
+                ~~~   
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from api.c:14:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 36 or more bytes (assuming 1077) into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from miner.h:26,
+                 from api.c:25:
+api.c:4769:24: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 234 [-Wformat-truncation=]
+      applog(LOG_DEBUG, "API mcast send reply (%s) succeeded (%d) (%d)",
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         replybuf, (int)rep, (int)reply_sock);
+         ~~~~~~~~        
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+api.c:4769:24: note: directive argument in the range [0, 2147483647]
+      applog(LOG_DEBUG, "API mcast send reply (%s) succeeded (%d) (%d)",
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from api.c:14:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 42 and 1084 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from miner.h:26,
+                 from api.c:25:
+api.c: In function ‘api’:
+api.c:4975:24: warning: ‘%s’ directive output may be truncated writing up to 8191 bytes into a region of size between 223 and 232 [-Wformat-truncation=]
+      applog(LOG_DEBUG, "API: recv command: (%d) '%s'", n, buf);
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~     ~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from api.c:14:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 26 and 8226 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-logging.o `test -f 'logging.c' || echo './'`logging.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-klist.o `test -f 'klist.c' || echo './'`klist.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-noncedup.o `test -f 'noncedup.c' || echo './'`noncedup.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-usbutils.o `test -f 'usbutils.c' || echo './'`usbutils.c
+In file included from usbutils.c:17:
+usbutils.c: In function ‘_usb_init’:
+usbutils.c:2132:22: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size 226 [-Wformat-truncation=]
+    applog(LOG_DEBUG, "USB init, kernel attached ... %s", devstr);
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 31 and 287 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2141:6: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 160 and 189 [-Wformat-truncation=]
+      "USB init, kernel detach ifinfo %d interface %d failed,"
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+usbutils.c:2143:42:
+      ifinfo, THISIF(found, ifinfo), err, devstr);
+                                          ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+usbutils.c:2142:23: note: format string is defined here
+      " err %d in use? %s",
+                       ^~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 68 and 353 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2136:6: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 177 and 196 [-Wformat-truncation=]
+      "USB init, kernel detached ifinfo %d interface %d"
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+usbutils.c:2138:37:
+      ifinfo, THISIF(found, ifinfo), devstr);
+                                     ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+usbutils.c:2137:21: note: format string is defined here
+      " successfully %s",
+                     ^~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 61 and 336 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2180:23: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size 214 [-Wformat-truncation=]
+     applog(LOG_DEBUG, "USB init, alternative iManufacturer match %s",
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            devstr);
+            ~~~~~~      
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 43 and 299 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2161:22: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size 223 [-Wformat-truncation=]
+    applog(LOG_DEBUG, "USB init, iManufacturer mismatch %s",
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           devstr);
+           ~~~~~~      
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 34 and 290 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2163:22: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size 250 [-Wformat-truncation=]
+    applog(LOG_DEBUG, "Found %s vs %s", man, found->iManufacturer);
+                      ^~~~~~~~~~~~~~~~  ~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 11 or more bytes (assuming 267) into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2214:23: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size 219 [-Wformat-truncation=]
+     applog(LOG_DEBUG, "USB init, alternative iProduct match %s",
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            devstr);
+            ~~~~~~      
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 38 and 294 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2200:22: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size 228 [-Wformat-truncation=]
+    applog(LOG_DEBUG, "USB init, iProduct mismatch %s",
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           devstr);
+           ~~~~~~      
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 29 and 285 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2202:22: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size 250 [-Wformat-truncation=]
+    applog(LOG_DEBUG, "Found %s vs %s", prod, found->iProduct);
+                      ^~~~~~~~~~~~~~~~  ~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 11 or more bytes (assuming 267) into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2235:7: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 216 and 226 [-Wformat-truncation=]
+       "USB init, set config %d in use %s",
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       found->config, devstr);
+                      ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 31 and 297 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2240:7: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 193 and 213 [-Wformat-truncation=]
+       "USB init, failed to set config to %d, err %d %s",
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       found->config, err, devstr);
+                           ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 44 and 320 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2295:23: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 208 and 226 [-Wformat-truncation=]
+     applog(LOG_DEBUG, "USB init found (%d,%d) == false %s",
+                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            ifinfo, epinfo, devstr);
+                            ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 31 and 305 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2261:21: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 196 and 207 [-Wformat-truncation=]
+   applog(LOG_DEBUG, "USB init bNumInterfaces %d <= interface max %d for %s",
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          (int)(config->bNumInterfaces), imax, devstr);
+                                               ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 50 and 317 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2309:7: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 193 and 212 [-Wformat-truncation=]
+       "USB init, claim ifinfo %d interface %d in use %s",
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       ifinfo, THISIF(found, ifinfo), devstr);
+                                      ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 45 and 320 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2314:7: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 176 and 205 [-Wformat-truncation=]
+       "USB init, claim ifinfo %d interface %d failed,"
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+usbutils.c:2316:43:
+       ifinfo, THISIF(found, ifinfo), err, devstr);
+                                           ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+usbutils.c:2315:16: note: format string is defined here
+       " err %d %s",
+                ^~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 52 and 337 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2368:3: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size 247 [-Wformat-truncation=]
+   "USB init %s usbver=%04x prod='%s' manuf='%s' serial='%s'",
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   devstr, cgusb->usbver, cgusb->prod_string,
+   ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+usbutils.c:2368:3: note: directive argument in the range [0, 65535]
+   "USB init %s usbver=%04x prod='%s' manuf='%s' serial='%s'",
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 49 or more bytes (assuming 305) into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2328:4: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 187 and 207 [-Wformat-truncation=]
+    "USB init, incorrect config (%d!=%d) after claim of %s",
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    cfg, found->config, devstr);
+                        ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 50 and 326 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2250:4: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 197 and 207 [-Wformat-truncation=]
+    "USB init, failed to get config descriptor, err %d %s",
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    err, devstr);
+         ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 50 and 316 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2194:4: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 206 and 215 [-Wformat-truncation=]
+    "USB init, failed to get iProduct, err %d %s",
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    err, devstr);
+         ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 42 and 307 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2155:4: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 201 and 210 [-Wformat-truncation=]
+    "USB init, failed to get iManufacturer, err %d %s",
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    err, devstr);
+         ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 47 and 312 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2107:6: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size 183 [-Wformat-truncation=]
+      "USB init, open device failed, err %d, "
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+usbutils.c:2109:11:
+      err, devstr);
+           ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+usbutils.c:2108:42: note: format string is defined here
+      "you don't have privilege to access %s",
+                                          ^~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 74 and 330 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2123:6: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 217 and 227 [-Wformat-truncation=]
+      "USB init, open failed, err %d %s",
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      err, devstr);
+           ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 30 and 296 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c:2095:4: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 205 and 215 [-Wformat-truncation=]
+    "USB init failed to get descriptor, err %d %s",
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    err, devstr);
+         ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 42 and 308 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+usbutils.c: In function ‘usb_all’:
+usbutils.c:1015:13: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 194 and 459 [-Wformat-truncation=]
+ #define EOL "\n"
+             ^~~~
+usbutils.c:1339:29: note: in expansion of macro ‘EOL’
+  snprintf(tmp, sizeof(tmp), EOL "     dev %d: More Info:" EOL "\tManufacturer: '%s'" EOL
+                             ^~~
+usbutils.c:1340:17: note: format string is defined here
+    "\tProduct: '%s'" EOL "\tSerial '%s'",
+                 ^~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 66 and 843 bytes into a destination of size 512
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+usbutils.c:1015:13: warning: ‘%s’ directive output may be truncated writing up to 256 bytes into a region of size between 224 and 480 [-Wformat-truncation=]
+ #define EOL "\n"
+             ^~~~
+usbutils.c:1265:30: note: in expansion of macro ‘EOL’
+   snprintf(tmp, sizeof(tmp), EOL "  Manufacturer: '%s'" EOL "  Product: '%s'", man, prod);
+                              ^~~
+usbutils.c:1339:74: note: format string is defined here
+  snprintf(tmp, sizeof(tmp), EOL "     dev %d: More Info:" EOL "\tManufacturer: '%s'" EOL
+                                                                          ^~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 34 and 546 bytes into a destination of size 512
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from usbutils.c:17:
+usbutils.c: In function ‘usb_list’:
+usbutils.c:1668:26: warning: ‘%s’ directive output may be truncated writing up to 255 bytes into a region of size between 223 and 227 [-Wformat-truncation=]
+   simplelog(LOG_WARNING, "Bus %u Device %u ID: %04x:%04x %s %s %sactive %s",
+                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+usbutils.c:1670:10:
+          manuf, prod, active ? "" : "in", blacklisted ? "blacklisted" : "");
+          ~~~~~            
+logging.h:50:35: note: in definition of macro ‘simplelog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from usbutils.c:18:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 39 and 566 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-libbitfury.o `test -f 'libbitfury.c' || echo './'`libbitfury.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-mcp2210.o `test -f 'mcp2210.c' || echo './'`mcp2210.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-crc16.o `test -f 'crc16.c' || echo './'`crc16.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-driver-avalon.o `test -f 'driver-avalon.c' || echo './'`driver-avalon.c
+driver-avalon.c: In function ‘avalon_api_stats’:
+driver-avalon.c:1606:33: warning: ‘%d’ directive writing between 1 and 10 bytes into a region of size 8 [-Wformat-overflow=]
+   sprintf(mcw, "match_work_count%d", i + 1);
+                                 ^~
+driver-avalon.c:1606:16: note: directive argument in the range [1, 2147483647]
+   sprintf(mcw, "match_work_count%d", i + 1);
+                ^~~~~~~~~~~~~~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from driver-avalon.c:17:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:36:10: note: ‘__builtin___sprintf_chk’ output between 18 and 27 bytes into a destination of size 24
+   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       __bos (__s), __fmt, __va_arg_pack ());
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from miner.h:26,
+                 from driver-avalon.c:39:
+driver-avalon.c: In function ‘avalon_detect_one’:
+driver-avalon.c:461:11: warning: ‘%s’ directive output may be truncated writing up to 8192 bytes into a region of size 223 [-Wformat-truncation=]
+   quit(1, "Invalid avalon-options for baud (%s) "
+           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    "must be 115200, 57600, 38400 or 19200", buf);
+                                             ~~~
+logging.h:79:34: note: in definition of macro ‘quit’
+   snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                  ^~~
+driver-avalon.c:461:45: note: format string is defined here
+   quit(1, "Invalid avalon-options for baud (%s) "
+                                             ^~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from driver-avalon.c:17:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 73 and 8265 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-driver-bflsc.o `test -f 'driver-bflsc.c' || echo './'`driver-bflsc.c
+In file included from miner.h:26,
+                 from driver-bflsc.c:28:
+driver-bflsc.c: In function ‘bflsc_detect_one’:
+driver-bflsc.c:761:21: warning: ‘%s’ directive output may be truncated writing up to 4096 bytes into a region of size 230 [-Wformat-truncation=]
+   applog(LOG_DEBUG, "%s detect (%s) found an FPGA '%s' ignoring",
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    bflsc->drv->dname, bflsc->device_path, buf);
+                                           ~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from driver-bflsc.c:17:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 37 or more bytes (assuming 4133) into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from miner.h:26,
+                 from driver-bflsc.c:28:
+driver-bflsc.c:773:21: warning: ‘%s’ directive output may be truncated writing up to 4096 bytes into a region of size 227 [-Wformat-truncation=]
+   applog(LOG_DEBUG, "%s detect (%s) didn't recognise '%s' on 2nd attempt",
+                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    bflsc->drv->dname, bflsc->device_path, buf);
+                                           ~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from driver-bflsc.c:17:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 46 or more bytes (assuming 4142) into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from miner.h:26,
+                 from driver-bflsc.c:28:
+driver-bflsc.c:768:22: warning: ‘%s’ directive output may be truncated writing up to 4096 bytes into a region of size 227 [-Wformat-truncation=]
+    applog(LOG_DEBUG, "%s detect (%s) didn't recognise '%s' trying again ...",
+                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     bflsc->drv->dname, bflsc->device_path, buf);
+                                            ~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from driver-bflsc.c:17:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 48 or more bytes (assuming 4144) into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-driver-hashfast.o `test -f 'driver-hashfast.c' || echo './'`driver-hashfast.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-driver-hashratio.o `test -f 'driver-hashratio.c' || echo './'`driver-hashratio.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-driver-bitfury.o `test -f 'driver-bitfury.c' || echo './'`driver-bitfury.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-driver-drillbit.o `test -f 'driver-drillbit.c' || echo './'`driver-drillbit.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-driver-icarus.o `test -f 'driver-icarus.c' || echo './'`driver-icarus.c
+In file included from miner.h:26,
+                 from driver-icarus.c:50:
+driver-icarus.c: In function ‘icarus_detect_one’:
+driver-icarus.c:930:13: warning: ‘%s’ directive output may be truncated writing up to 8192 bytes into a region of size 223 [-Wformat-truncation=]
+     quit(1, "Invalid icarus-options for baud (%s) must be 115200 or 57600", buf);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  ~~~
+logging.h:79:34: note: in definition of macro ‘quit’
+   snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                  ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from driver-icarus.c:37:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 59 and 8251 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-driver-klondike.o `test -f 'driver-klondike.c' || echo './'`driver-klondike.c
+In file included from miner.h:26,
+                 from driver-klondike.c:29:
+driver-klondike.c: In function ‘klondike_get_replies’:
+driver-klondike.c:319:23: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 256 [-Wformat-truncation=]
+   applog(LOG_WARNING, "%s", errbuf);
+                       ^~~~  ~~~~~~
+logging.h:40:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from driver-klondike.c:16:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin_snprintf’ output between 1 and 1024 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-driver-cointerra.o `test -f 'driver-cointerra.c' || echo './'`driver-cointerra.c
+driver-cointerra.c: In function ‘cta_api_stats’:
+driver-cointerra.c:1275:34: warning: ‘%s’ directive output may be truncated writing up to 35 bytes into a region of size between 29 and 38 [-Wformat-truncation=]
+    snprintf(bitmapcount, 40, "%d:%s", count, bitmaphex);
+                                  ^~          ~~~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ./compat/jansson-2.6/src/jansson.h:11,
+                 from miner.h:10,
+                 from driver-cointerra.c:12:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 3 and 47 bytes into a destination of size 40
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-driver-avalon2.o `test -f 'driver-avalon2.c' || echo './'`driver-avalon2.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -lpthread -fno-strict-aliasing -I./compat/jansson-2.6/src -I./compat/jansson-2.6/src -I./compat/libusb-1.0/libusb -I./compat/libusb-1.0/libusb -I./lib -I./lib -I/usr/include/arm-linux-gnueabihf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o cgminer-driver-avalon4.o `test -f 'driver-avalon4.c' || echo './'`driver-avalon4.c
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -lpthread -specs=/usr/share/dpkg/no-pie-link.specs -Wl,-z,relro -Wl,-z,now -o cgminer cgminer-cgminer.o cgminer-util.o cgminer-sha2.o cgminer-api.o cgminer-logging.o cgminer-klist.o cgminer-noncedup.o  cgminer-usbutils.o cgminer-libbitfury.o cgminer-mcp2210.o cgminer-crc16.o cgminer-driver-avalon.o  cgminer-driver-bflsc.o  cgminer-driver-hashfast.o cgminer-driver-hashratio.o cgminer-driver-bitfury.o  cgminer-driver-drillbit.o cgminer-driver-icarus.o cgminer-driver-klondike.o cgminer-driver-cointerra.o    cgminer-driver-avalon2.o cgminer-driver-avalon4.o       -ldl -L/usr/lib/arm-linux-gnueabihf -lcurl -L/usr/lib/arm-linux-gnueabihf -ljansson -lpthread -L/usr/lib/arm-linux-gnueabihf -lusb-1.0  -lrt -L/lib/arm-linux-gnueabihf -lsystemd -lm lib/libgnu.a ccan/libccan.a  -lncurses -lpthread 
+make[4]: Leaving directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+cc api-example.c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security \
+                        -specs=/usr/share/dpkg/no-pie-link.specs -Wl,-z,relro -Wl,-z,now \
+                        -Wdate-time -D_FORTIFY_SOURCE=2 \
+                        -I /usr/include/libusb-1.0/ -o cgminer-api
+In file included from api-example.c:26:
+miner.h:12:10: fatal error: curl/curl.h: No such file or directory
+ #include <curl/curl.h>
+          ^~~~~~~~~~~~~
+compilation terminated.
+make[1]: *** [debian/rules:29: override_dh_auto_build] Error 1
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make: *** [debian/rules:22: build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T09:56:57Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* dwz* gcc-8-base:armhf* gettext*
+  gettext-base* groff-base* intltool-debian* libarchive-zip-perl*
+  libasan5:armhf* libatomic1:armhf* libbsd0* libc6:armhf* libc6-dev:armhf*
+  libcom-err2:armhf* libcroco3* libcurl3-gnutls:armhf*
+  libcurl4-gnutls-dev:armhf* libdb5.3:armhf* libelf1* libffi6:armhf*
+  libfile-stripnondeterminism-perl* libgcc-8-dev:armhf* libgcc1:armhf*
+  libgcrypt20:armhf* libglib2.0-0* libgmp10:armhf* libgnutls30:armhf*
+  libgomp1:armhf* libgpg-error0:armhf* libgssapi-krb5-2:armhf*
+  libhogweed4:armhf* libidn2-0:armhf* libjansson-dev:armhf* libjansson4:armhf*
+  libk5crypto3:armhf* libkeyutils1:armhf* libkrb5-3:armhf*
+  libkrb5support0:armhf* libldap-2.4-2:armhf* liblz4-1:armhf* liblzma5:armhf*
+  libncurses-dev:armhf* libncurses5-dev:armhf* libncurses6* libncurses6:armhf*
+  libncursesw6:armhf* libnettle6:armhf* libnghttp2-14:armhf*
+  libp11-kit0:armhf* libpipeline1* libpsl5:armhf* librtmp1:armhf*
+  libsasl2-2:armhf* libsasl2-modules-db:armhf* libsigsegv2* libssh2-1:armhf*
+  libssl1.1:armhf* libstdc++-8-dev:armhf* libstdc++6:armhf*
+  libsystemd-dev:armhf* libsystemd0:armhf* libtasn1-6:armhf* libtinfo6:armhf*
+  libtool* libubsan1:armhf* libuchardet0* libudev-dev:armhf* libudev1:armhf*
+  libunistring2:armhf* libusb-1.0-0:armhf* libusb-1.0-0-dev:armhf*
+  linux-libc-dev:armhf* m4* man-db* pkg-config* po-debconf*
+  sbuild-build-depends-main-dummy:armhf* zlib1g:armhf* zlib1g-dev:armhf*
+0 upgraded, 0 newly installed, 86 to remove and 0 not upgraded.
+After this operation, 99.9 MB disk space will be freed.
+(Reading database ... 20084 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Removing libcurl4-gnutls-dev:armhf (7.64.0-1) ...
+Removing libcurl3-gnutls:armhf (7.64.0-1) ...
+Removing librtmp1:armhf (2.4+20151223.gitfa8646d.1-2) ...
+Removing libsystemd-dev:armhf (241-1) ...
+Removing libsystemd0:armhf (241-1) ...
+Removing liblzma5:armhf (5.2.4-1) ...
+Removing libncurses5-dev:armhf (6.1+20181013-2) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libgssapi-krb5-2:armhf (1.17-2) ...
+Removing libkrb5-3:armhf (1.17-2) ...
+Removing libcom-err2:armhf (1.44.5-1) ...
+Removing libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Removing libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Removing libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Removing libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Removing libgnutls30:armhf (3.6.6-2) ...
+Removing libp11-kit0:armhf (0.23.15-2) ...
+Removing libffi6:armhf (3.2.1-9) ...
+Removing libssh2-1:armhf (1.8.0-2) ...
+Removing libgcrypt20:armhf (1.8.4-5) ...
+Removing pkg-config (0.29-6) ...
+Removing libhogweed4:armhf (3.4.1-1) ...
+Removing libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libgpg-error0:armhf (1.35-1) ...
+Removing libpsl5:armhf (0.20.2-2) ...
+Removing libidn2-0:armhf (2.0.5-1) ...
+Removing libjansson-dev:armhf (2.12-1) ...
+Removing libjansson4:armhf (2.12-1) ...
+Removing libk5crypto3:armhf (1.17-2) ...
+Removing libkrb5support0:armhf (1.17-2) ...
+Removing libkeyutils1:armhf (1.6-4) ...
+Removing liblz4-1:armhf (1.8.3-1) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing libnettle6:armhf (3.4.1-1) ...
+Removing libnghttp2-14:armhf (1.36.0-2) ...
+Removing libssl1.1:armhf (1.1.1b-1) ...
+Removing libtasn1-6:armhf (4.13-3) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libudev-dev:armhf (241-1) ...
+Removing libusb-1.0-0-dev:armhf (2:1.0.22-2) ...
+Removing libusb-1.0-0:armhf (2:1.0.22-2) ...
+Removing libudev1:armhf (241-1) ...
+Removing libunistring2:armhf (0.9.10-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16458 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for libssl1.1:armhf (1.1.1b-1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for libgssapi-krb5-2:armhf (1.17-2) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for libudev-dev:armhf (241-1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 214
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 18
+Job: /home/build/sbuild-setup/repo/pool/main/c/cgminer/cgminer_4.9.2-1.dsc
+Machine Architecture: amd64
+Package: cgminer
+Package-Time: 237
+Source-Version: 4.9.2-1
+Space: n/a
+Status: attempted
+Version: 4.9.2-1
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T09:56:57Z
+Build needed 00:03:57, no disk space

@@ -1,0 +1,1135 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| gnugo 3.8-9 (armhf)                          Mon, 04 Mar 2019 09:30:29 +0000 |
++==============================================================================+
+
+Package: gnugo
+Version: 3.8-9
+Source Version: 3.8-9
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-43eb6a4c-0b98-4d9f-a713-660a9ddcddce' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/gnugo-CVqcSN/resolver-jxC0VN' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/g/gnugo/gnugo_3.8-9.dsc exists in /home/build/sbuild-setup/repo/pool/main/g/gnugo; copying to chroot
+I: NOTICE: Log filtering will replace 'build/gnugo-CVqcSN/gnugo-3.8' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/gnugo-CVqcSN' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: libncurses5-dev, libreadline-dev, texinfo, texi2html, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: libncurses5-dev, libreadline-dev, texinfo, texi2html, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [407 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [497 B]
+Fetched 1861 B in 0s (139 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  gcc-8-base:armhf libasan5:armhf libatomic1:armhf libc6:armhf libc6-dev:armhf
+  libgcc-8-dev:armhf libgcc1:armhf libgomp1:armhf libncurses-dev:armhf
+  libncurses5-dev:armhf libncurses6:armhf libncursesw6:armhf
+  libreadline-dev:armhf libreadline7:armhf libstdc++-8-dev:armhf
+  libstdc++6:armhf libtext-unidecode-perl libtinfo6:armhf libubsan1:armhf
+  linux-libc-dev:armhf tex-common texi2html texinfo
+Suggested packages:
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  ncurses-doc:armhf readline-doc:armhf libstdc++-8-doc:armhf debhelper
+  latex2html texlive-base texlive-latex-base texlive-generic-recommended
+  texinfo-doc-nonfree texlive-fonts-recommended
+Recommended packages:
+  libidn2-0:armhf libgpm2:armhf
+The following NEW packages will be installed:
+  gcc-8-base:armhf libasan5:armhf libatomic1:armhf libc6:armhf libc6-dev:armhf
+  libgcc-8-dev:armhf libgcc1:armhf libgomp1:armhf libncurses-dev:armhf
+  libncurses5-dev:armhf libncurses6:armhf libncursesw6:armhf
+  libreadline-dev:armhf libreadline7:armhf libstdc++-8-dev:armhf
+  libstdc++6:armhf libtext-unidecode-perl libtinfo6:armhf libubsan1:armhf
+  linux-libc-dev:armhf sbuild-build-depends-main-dummy:armhf tex-common
+  texi2html texinfo
+0 upgraded, 24 newly installed, 0 to remove and 0 not upgraded.
+Need to get 357 kB/11.9 MB of archives.
+After this operation, 65.1 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [920 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 texi2html all 1.82+dfsg1-5 [356 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 357 kB in 0s (10.6 MB/s)
+Selecting previously unselected package tex-common.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-tex-common_6.10_all.deb ...
+Unpacking tex-common (6.10) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../01-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../02-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../03-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../04-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../05-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../06-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../07-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../08-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../09-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../10-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../11-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../12-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../13-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../14-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../15-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses5-dev:armhf.
+Preparing to unpack .../16-libncurses5-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses5-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libreadline7:armhf.
+Preparing to unpack .../17-libreadline7_7.0-5_armhf.deb ...
+Unpacking libreadline7:armhf (7.0-5) ...
+Selecting previously unselected package libreadline-dev:armhf.
+Preparing to unpack .../18-libreadline-dev_7.0-5_armhf.deb ...
+Unpacking libreadline-dev:armhf (7.0-5) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../19-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libtext-unidecode-perl.
+Preparing to unpack .../20-libtext-unidecode-perl_1.30-1_all.deb ...
+Unpacking libtext-unidecode-perl (1.30-1) ...
+Selecting previously unselected package texi2html.
+Preparing to unpack .../21-texi2html_1.82+dfsg1-5_all.deb ...
+Unpacking texi2html (1.82+dfsg1-5) ...
+Selecting previously unselected package texinfo.
+Preparing to unpack .../22-texinfo_6.5.0.dfsg.1-4+b1_amd64.deb ...
+Unpacking texinfo (6.5.0.dfsg.1-4+b1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../23-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up tex-common (6.10) ...
+update-language: texlive-base not installed and configured, doing nothing!
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up libtext-unidecode-perl (1.30-1) ...
+Setting up texi2html (1.82+dfsg1-5) ...
+Setting up texinfo (6.5.0.dfsg.1-4+b1) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libreadline7:armhf (7.0-5) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up libreadline-dev:armhf (7.0-5) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libncurses5-dev:armhf (6.1+20181013-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debian-archive-keyring_2018.1 debianutils_4.8.6.1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses5-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libquadmath0_8.3.0-2 libreadline-dev_7.0-5 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtext-unidecode-perl_1.30-1 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 make_4.2.1-1.2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tex-common_6.10 texi2html_1.82+dfsg1-5 texinfo_6.5.0.dfsg.1-4+b1 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: gnugo
+Binary: gnugo
+Architecture: any
+Version: 3.8-9
+Maintainer: Martin A. Godisch <godisch@debian.org>
+Homepage: http://www.gnu.org/software/gnugo/
+Standards-Version: 3.9.7
+Build-Depends: libncurses5-dev, libreadline-dev, texinfo, texi2html
+Package-List:
+ gnugo deb games optional arch=any
+Checksums-Sha1:
+ a8ce3c7512634f789bc0c964fe23a5a6209f25db 3200454 gnugo_3.8.orig.tar.gz
+ 56eca67ce074c3d45a80d02ac3a4ee0bcce79f07 32932 gnugo_3.8-9.debian.tar.xz
+Checksums-Sha256:
+ da68d7a65f44dcf6ce6e4e630b6f6dd9897249d34425920bfdd4e07ff1866a72 3200454 gnugo_3.8.orig.tar.gz
+ e757bfb76b5ed5218cabee732e44ff82cabdb0f2e3bfa4e138a3c8ab92c1aaaf 32932 gnugo_3.8-9.debian.tar.xz
+Files:
+ 6db0a528df58876d2b0ef1659c374a9a 3200454 gnugo_3.8.orig.tar.gz
+ 0ae6432659f3baec4482e7ab8f8c3a96 32932 gnugo_3.8-9.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAEBCAAGBQJWzCTfAAoJEKNQuZHwWkhX2ZAQAKhCQ9tYGc0ApxnJUTZAYg5v
+5vInYed1LcVLxNIChE6A0g1xSSZ1LPWPlwf6AEGjtFpNInaSeMuCDmPAzeeCVNZT
+7z/KIgsIBdlz3k7vG3y+a7w/jCm3AiAMUpQOcsUPU1pvW+CQCNx0CZNo2CsFZb5R
+Z6BoxAqExsyl3HRelgCg/rfKUQA91CcYSASnnUyavH1PQ3eOLOpDBLPqlRRfN4pE
+FTxnL4imW6+uJg0BuGz8a4VsoXUif5dvhA84WeWtjk0GRnNvr1n5eD9W5DGT4TKH
+EVo+UX2hzeSiMQ2+ry9AhHBliZSL4MUNw4Y2MQqsfaKVjQ1+d3yEKGyi13+FbSi7
+uAljrKZsv+z0NMwfLqHv4bHbmphwAtRLhAgDGtdoPbj0U/gt8R4fMqb8kP5lYU/c
+yyMiiCg6sxJMsFQ30N7+AEXVQ6N8t2Hhmn7tjQpIYhiqhjvwvziIBecsOpwIWMAv
+6Xwjp9DLTwfX1wVZR0gNKr8K+SFtZRFfpChC86h9YerT93BCuBXqMhOXdRtJ2Vwp
+/h382BLAMa8ZKV2y4AuwoyZysfWMQ3xr9BZ5P6CuQ0U0N0BAvUUvlxgWD8jnMsmt
+Xl+dLITVCBzEbigCGz+q1qlhJxeQiDZssAIPHqOsUkGDnq4+xW3O0ZlSufR8TUHM
+oYkq5zxJpzEbTzUdj5hi
+=hVNx
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Tue Feb 23 09:22:39 2016 UTC
+gpgv:                using RSA key A350B991F05A4857
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./gnugo_3.8-9.dsc
+dpkg-source: info: extracting gnugo in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking gnugo_3.8.orig.tar.gz
+dpkg-source: info: unpacking gnugo_3.8-9.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 557756_libreadline_newline.diff
+dpkg-source: info: applying 712338_ftbfs_texinfo.diff
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-43eb6a4c-0b98-4d9f-a713-660a9ddcddce
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package gnugo
+dpkg-buildpackage: info: source version 3.8-9
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Martin A. Godisch <godisch@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+test -f engine/gnugo.h && test -f debian/rules
+rm -f  build-stamp debian/files debian/rejected debian/substvars doc/gnugo.info* doc/*.html
+[ ! -f Makefile ] || /usr/bin/make distclean
+rm -fr debian/gnugo
+ debian/rules build-arch
+test -f engine/gnugo.h && test -f debian/rules
+./configure --build x86_64-linux-gnu --host arm-linux-gnueabihf --with-readline --prefix=/usr --bindir=/usr/games --infodir=/usr/share/info --mandir=/usr/share/man
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking for style of include used by make... GNU
+checking dependency style of arm-linux-gnueabihf-gcc... gcc3
+checking for library containing pow... -lm
+checking for mingw32... no
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking whether make sets $(MAKE)... (cached) yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for an ANSI C-conforming const... yes
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for unistd.h... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/times.h usability... yes
+checking sys/times.h presence... yes
+checking for sys/times.h... yes
+checking curses.h usability... yes
+checking curses.h presence... yes
+checking for curses.h... yes
+checking term.h usability... yes
+checking term.h presence... yes
+checking for term.h... yes
+checking ncurses/curses.h usability... no
+checking ncurses/curses.h presence... no
+checking for ncurses/curses.h... no
+checking ncurses/term.h usability... no
+checking ncurses/term.h presence... no
+checking for ncurses/term.h... no
+checking for long... yes
+checking size of long... (cached) 4
+checking for vsnprintf... yes
+checking for gettimeofday... yes
+checking for usleep... yes
+checking for times... yes
+checking for variadic cpp define... yes
+checking whether arm-linux-gnueabihf-gcc supports transparent unions... yes
+checking for library containing tparm... -lncurses
+checking for color support... curses
+checking for library containing readline... -lreadline
+checking whether socket support can be compiled... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating interface/Makefile
+config.status: creating patterns/Makefile
+config.status: creating sgf/Makefile
+config.status: creating utils/Makefile
+config.status: creating engine/Makefile
+config.status: creating doc/Makefile
+config.status: creating regression/Makefile
+config.status: creating config.vc
+config.status: creating config.h
+config.status: executing depfiles commands
+/usr/bin/make
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make  all-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in utils
+make[3]: Entering directory '/<<PKGBUILDDIR>>/utils'
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT getopt.o -MD -MP -MF ".deps/getopt.Tpo" -c -o getopt.o getopt.c; \
+then mv -f ".deps/getopt.Tpo" ".deps/getopt.Po"; else rm -f ".deps/getopt.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT getopt1.o -MD -MP -MF ".deps/getopt1.Tpo" -c -o getopt1.o getopt1.c; \
+then mv -f ".deps/getopt1.Tpo" ".deps/getopt1.Po"; else rm -f ".deps/getopt1.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT random.o -MD -MP -MF ".deps/random.Tpo" -c -o random.o random.c; \
+then mv -f ".deps/random.Tpo" ".deps/random.Po"; else rm -f ".deps/random.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT gg_utils.o -MD -MP -MF ".deps/gg_utils.Tpo" -c -o gg_utils.o gg_utils.c; \
+then mv -f ".deps/gg_utils.Tpo" ".deps/gg_utils.Po"; else rm -f ".deps/gg_utils.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT winsocket.o -MD -MP -MF ".deps/winsocket.Tpo" -c -o winsocket.o winsocket.c; \
+then mv -f ".deps/winsocket.Tpo" ".deps/winsocket.Po"; else rm -f ".deps/winsocket.Tpo"; exit 1; fi
+rm -f libutils.a
+ar cru libutils.a getopt.o getopt1.o random.o gg_utils.o winsocket.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib libutils.a
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/utils'
+Making all in sgf
+make[3]: Entering directory '/<<PKGBUILDDIR>>/sgf'
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT sgf_utils.o -MD -MP -MF ".deps/sgf_utils.Tpo" -c -o sgf_utils.o sgf_utils.c; \
+then mv -f ".deps/sgf_utils.Tpo" ".deps/sgf_utils.Po"; else rm -f ".deps/sgf_utils.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT sgfnode.o -MD -MP -MF ".deps/sgfnode.Tpo" -c -o sgfnode.o sgfnode.c; \
+then mv -f ".deps/sgfnode.Tpo" ".deps/sgfnode.Po"; else rm -f ".deps/sgfnode.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT sgftree.o -MD -MP -MF ".deps/sgftree.Tpo" -c -o sgftree.o sgftree.c; \
+then mv -f ".deps/sgftree.Tpo" ".deps/sgftree.Po"; else rm -f ".deps/sgftree.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT sgfgen.o -MD -MP -MF ".deps/sgfgen.Tpo" -c -o sgfgen.o sgfgen.c; \
+then mv -f ".deps/sgfgen.Tpo" ".deps/sgfgen.Po"; else rm -f ".deps/sgfgen.Tpo"; exit 1; fi
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security  -Wl,-z,relro -o sgfgen  sgfgen.o  -lreadline -lncurses -lm 
+rm -f libsgf.a
+ar cru libsgf.a sgf_utils.o sgfnode.o sgftree.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib libsgf.a
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/sgf'
+Making all in engine
+make[3]: Entering directory '/<<PKGBUILDDIR>>/engine'
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT aftermath.o -MD -MP -MF ".deps/aftermath.Tpo" -c -o aftermath.o aftermath.c; \
+then mv -f ".deps/aftermath.Tpo" ".deps/aftermath.Po"; else rm -f ".deps/aftermath.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT board.o -MD -MP -MF ".deps/board.Tpo" -c -o board.o board.c; \
+then mv -f ".deps/board.Tpo" ".deps/board.Po"; else rm -f ".deps/board.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT boardlib.o -MD -MP -MF ".deps/boardlib.Tpo" -c -o boardlib.o boardlib.c; \
+then mv -f ".deps/boardlib.Tpo" ".deps/boardlib.Po"; else rm -f ".deps/boardlib.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT breakin.o -MD -MP -MF ".deps/breakin.Tpo" -c -o breakin.o breakin.c; \
+then mv -f ".deps/breakin.Tpo" ".deps/breakin.Po"; else rm -f ".deps/breakin.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT cache.o -MD -MP -MF ".deps/cache.Tpo" -c -o cache.o cache.c; \
+then mv -f ".deps/cache.Tpo" ".deps/cache.Po"; else rm -f ".deps/cache.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT clock.o -MD -MP -MF ".deps/clock.Tpo" -c -o clock.o clock.c; \
+then mv -f ".deps/clock.Tpo" ".deps/clock.Po"; else rm -f ".deps/clock.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT combination.o -MD -MP -MF ".deps/combination.Tpo" -c -o combination.o combination.c; \
+then mv -f ".deps/combination.Tpo" ".deps/combination.Po"; else rm -f ".deps/combination.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT dragon.o -MD -MP -MF ".deps/dragon.Tpo" -c -o dragon.o dragon.c; \
+then mv -f ".deps/dragon.Tpo" ".deps/dragon.Po"; else rm -f ".deps/dragon.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT endgame.o -MD -MP -MF ".deps/endgame.Tpo" -c -o endgame.o endgame.c; \
+then mv -f ".deps/endgame.Tpo" ".deps/endgame.Po"; else rm -f ".deps/endgame.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT filllib.o -MD -MP -MF ".deps/filllib.Tpo" -c -o filllib.o filllib.c; \
+then mv -f ".deps/filllib.Tpo" ".deps/filllib.Po"; else rm -f ".deps/filllib.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT fuseki.o -MD -MP -MF ".deps/fuseki.Tpo" -c -o fuseki.o fuseki.c; \
+then mv -f ".deps/fuseki.Tpo" ".deps/fuseki.Po"; else rm -f ".deps/fuseki.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT genmove.o -MD -MP -MF ".deps/genmove.Tpo" -c -o genmove.o genmove.c; \
+then mv -f ".deps/genmove.Tpo" ".deps/genmove.Po"; else rm -f ".deps/genmove.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT globals.o -MD -MP -MF ".deps/globals.Tpo" -c -o globals.o globals.c; \
+then mv -f ".deps/globals.Tpo" ".deps/globals.Po"; else rm -f ".deps/globals.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT handicap.o -MD -MP -MF ".deps/handicap.Tpo" -c -o handicap.o handicap.c; \
+then mv -f ".deps/handicap.Tpo" ".deps/handicap.Po"; else rm -f ".deps/handicap.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT hash.o -MD -MP -MF ".deps/hash.Tpo" -c -o hash.o hash.c; \
+then mv -f ".deps/hash.Tpo" ".deps/hash.Po"; else rm -f ".deps/hash.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT influence.o -MD -MP -MF ".deps/influence.Tpo" -c -o influence.o influence.c; \
+then mv -f ".deps/influence.Tpo" ".deps/influence.Po"; else rm -f ".deps/influence.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from boardlib.c:27:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT interface.o -MD -MP -MF ".deps/interface.Tpo" -c -o interface.o interface.c; \
+then mv -f ".deps/interface.Tpo" ".deps/interface.Po"; else rm -f ".deps/interface.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from globals.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT matchpat.o -MD -MP -MF ".deps/matchpat.Tpo" -c -o matchpat.o matchpat.c; \
+then mv -f ".deps/matchpat.Tpo" ".deps/matchpat.Po"; else rm -f ".deps/matchpat.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from clock.h:27,
+                 from clock.c:39:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT montecarlo.o -MD -MP -MF ".deps/montecarlo.Tpo" -c -o montecarlo.o montecarlo.c; \
+then mv -f ".deps/montecarlo.Tpo" ".deps/montecarlo.Po"; else rm -f ".deps/montecarlo.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from hash.c:25:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from handicap.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from endgame.c:25:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT move_reasons.o -MD -MP -MF ".deps/move_reasons.Tpo" -c -o move_reasons.o move_reasons.c; \
+then mv -f ".deps/move_reasons.Tpo" ".deps/move_reasons.Po"; else rm -f ".deps/move_reasons.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT movelist.o -MD -MP -MF ".deps/movelist.Tpo" -c -o movelist.o movelist.c; \
+then mv -f ".deps/movelist.Tpo" ".deps/movelist.Po"; else rm -f ".deps/movelist.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from fuseki.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT optics.o -MD -MP -MF ".deps/optics.Tpo" -c -o optics.o optics.c; \
+then mv -f ".deps/optics.Tpo" ".deps/optics.Po"; else rm -f ".deps/optics.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT oracle.o -MD -MP -MF ".deps/oracle.Tpo" -c -o oracle.o oracle.c; \
+then mv -f ".deps/oracle.Tpo" ".deps/oracle.Po"; else rm -f ".deps/oracle.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from cache.c:26:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT owl.o -MD -MP -MF ".deps/owl.Tpo" -c -o owl.o owl.c; \
+then mv -f ".deps/owl.Tpo" ".deps/owl.Po"; else rm -f ".deps/owl.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT persistent.o -MD -MP -MF ".deps/persistent.Tpo" -c -o persistent.o persistent.c; \
+then mv -f ".deps/persistent.Tpo" ".deps/persistent.Po"; else rm -f ".deps/persistent.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from breakin.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+breakin.c: In function ‘break_in_goal’:
+breakin.c:385:3: warning: ‘memset’ used with length equal to number of elements without multiplication by element size [-Wmemset-elt-size]
+   memset(non_territory, 0, BOARDMAX);
+   ^~~~~~
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT printutils.o -MD -MP -MF ".deps/printutils.Tpo" -c -o printutils.o printutils.c; \
+then mv -f ".deps/printutils.Tpo" ".deps/printutils.Po"; else rm -f ".deps/printutils.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from interface.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT readconnect.o -MD -MP -MF ".deps/readconnect.Tpo" -c -o readconnect.o readconnect.c; \
+then mv -f ".deps/readconnect.Tpo" ".deps/readconnect.Po"; else rm -f ".deps/readconnect.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from filllib.c:25:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT reading.o -MD -MP -MF ".deps/reading.Tpo" -c -o reading.o reading.c; \
+then mv -f ".deps/reading.Tpo" ".deps/reading.Po"; else rm -f ".deps/reading.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from movelist.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT semeai.o -MD -MP -MF ".deps/semeai.Tpo" -c -o semeai.o semeai.c; \
+then mv -f ".deps/semeai.Tpo" ".deps/semeai.Po"; else rm -f ".deps/semeai.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from genmove.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT sgfdecide.o -MD -MP -MF ".deps/sgfdecide.Tpo" -c -o sgfdecide.o sgfdecide.c; \
+then mv -f ".deps/sgfdecide.Tpo" ".deps/sgfdecide.Po"; else rm -f ".deps/sgfdecide.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from combination.c:29:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT sgffile.o -MD -MP -MF ".deps/sgffile.Tpo" -c -o sgffile.o sgffile.c; \
+then mv -f ".deps/sgffile.Tpo" ".deps/sgffile.Po"; else rm -f ".deps/sgffile.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from matchpat.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT shapes.o -MD -MP -MF ".deps/shapes.Tpo" -c -o shapes.o shapes.c; \
+then mv -f ".deps/shapes.Tpo" ".deps/shapes.Po"; else rm -f ".deps/shapes.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from printutils.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT showbord.o -MD -MP -MF ".deps/showbord.Tpo" -c -o showbord.o showbord.c; \
+then mv -f ".deps/showbord.Tpo" ".deps/showbord.Po"; else rm -f ".deps/showbord.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from aftermath.c:25:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT surround.o -MD -MP -MF ".deps/surround.Tpo" -c -o surround.o surround.c; \
+then mv -f ".deps/surround.Tpo" ".deps/surround.Po"; else rm -f ".deps/surround.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from sgffile.c:33:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT unconditional.o -MD -MP -MF ".deps/unconditional.Tpo" -c -o unconditional.o unconditional.c; \
+then mv -f ".deps/unconditional.Tpo" ".deps/unconditional.Po"; else rm -f ".deps/unconditional.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from sgfdecide.c:28:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT utils.o -MD -MP -MF ".deps/utils.Tpo" -c -o utils.o utils.c; \
+then mv -f ".deps/utils.Tpo" ".deps/utils.Po"; else rm -f ".deps/utils.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from semeai.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT value_moves.o -MD -MP -MF ".deps/value_moves.Tpo" -c -o value_moves.o value_moves.c; \
+then mv -f ".deps/value_moves.Tpo" ".deps/value_moves.Po"; else rm -f ".deps/value_moves.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from showbord.c:38:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from shapes.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../patterns -I../patterns -I../sgf -I../utils -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT worm.o -MD -MP -MF ".deps/worm.Tpo" -c -o worm.o worm.c; \
+then mv -f ".deps/worm.Tpo" ".deps/worm.Po"; else rm -f ".deps/worm.Tpo"; exit 1; fi
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from persistent.c:49:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from influence.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from move_reasons.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+move_reasons.c: In function ‘list_move_reasons’:
+move_reasons.c:1865:4: warning: this statement may fall through [-Wimplicit-fallthrough=]
+    gfprintf(out, "Move at %1m captures something\n", pos);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+move_reasons.c:1867:2: note: here
+  case YOUR_ATARI_ATARI_MOVE:
+  ^~~~
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from dragon.c:44:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from montecarlo.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from unconditional.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from surround.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from utils.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from worm.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from board.h:30,
+                 from board.c:32:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+rm -f libboard.a
+ar cru libboard.a board.o boardlib.o hash.o printutils.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib libboard.a
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from optics.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from value_moves.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+value_moves.c: In function ‘estimate_strategical_value’:
+value_moves.c:2789:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  if (!move[pos].move_safety)
+     ^
+value_moves.c:2792:7: note: here
+       case CUT_MOVE:
+       ^~~~
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from owl.c:49:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from readconnect.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+readconnect.c: In function ‘recursive_disconnect’:
+readconnect.c:1467:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   if (res == 0)
+   ^~
+readconnect.c:1470:5: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+     for (i = 1; ((i < Moves[0] + 1) && (res == 0)); i++)
+     ^~~
+readconnect.c: In function ‘recursive_non_transitivity’:
+readconnect.c:1747:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   if (res == 0)
+   ^~
+readconnect.c:1750:5: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+     for (i = 1; ((i < Moves[0] + 1) && (res == 0)); i++)
+     ^~~
+In file included from board.h:30,
+                 from gnugo.h:33,
+                 from reading.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+reading.c: In function ‘defend4’:
+reading.c:1851:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   if (stackp <= superstring_depth)
+   ^~
+reading.c:1853:5: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+     squeeze_moves(str, &moves);
+     ^~~~~~~~~~~~~
+rm -f libengine.a
+ar cru libengine.a aftermath.o board.o boardlib.o breakin.o cache.o clock.o combination.o dragon.o endgame.o filllib.o fuseki.o genmove.o globals.o handicap.o hash.o influence.o interface.o matchpat.o montecarlo.o move_reasons.o movelist.o optics.o oracle.o owl.o persistent.o printutils.o readconnect.o reading.o semeai.o sgfdecide.o sgffile.o shapes.o showbord.o surround.o unconditional.o utils.o value_moves.o worm.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib libengine.a
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/engine'
+Making all in patterns
+make[3]: Entering directory '/<<PKGBUILDDIR>>/patterns'
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../engine -I../utils -I../sgf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT connections.o -MD -MP -MF ".deps/connections.Tpo" -c -o connections.o connections.c; \
+then mv -f ".deps/connections.Tpo" ".deps/connections.Po"; else rm -f ".deps/connections.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../engine -I../utils -I../sgf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT helpers.o -MD -MP -MF ".deps/helpers.Tpo" -c -o helpers.o helpers.c; \
+then mv -f ".deps/helpers.Tpo" ".deps/helpers.Po"; else rm -f ".deps/helpers.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../engine -I../utils -I../sgf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT transform.o -MD -MP -MF ".deps/transform.Tpo" -c -o transform.o transform.c; \
+then mv -f ".deps/transform.Tpo" ".deps/transform.Po"; else rm -f ".deps/transform.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../engine -I../utils -I../sgf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT mkpat.o -MD -MP -MF ".deps/mkpat.Tpo" -c -o mkpat.o mkpat.c; \
+then mv -f ".deps/mkpat.Tpo" ".deps/mkpat.Po"; else rm -f ".deps/mkpat.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../engine -I../utils -I../sgf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT dfa.o -MD -MP -MF ".deps/dfa.Tpo" -c -o dfa.o dfa.c; \
+then mv -f ".deps/dfa.Tpo" ".deps/dfa.Po"; else rm -f ".deps/dfa.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../engine -I../utils -I../sgf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT mkeyes.o -MD -MP -MF ".deps/mkeyes.Tpo" -c -o mkeyes.o mkeyes.c; \
+then mv -f ".deps/mkeyes.Tpo" ".deps/mkeyes.Po"; else rm -f ".deps/mkeyes.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../engine -I../utils -I../sgf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT uncompress_fuseki.o -MD -MP -MF ".deps/uncompress_fuseki.Tpo" -c -o uncompress_fuseki.o uncompress_fuseki.c; \
+then mv -f ".deps/uncompress_fuseki.Tpo" ".deps/uncompress_fuseki.Po"; else rm -f ".deps/uncompress_fuseki.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../engine -I../utils -I../sgf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT joseki.o -MD -MP -MF ".deps/joseki.Tpo" -c -o joseki.o joseki.c; \
+then mv -f ".deps/joseki.Tpo" ".deps/joseki.Po"; else rm -f ".deps/joseki.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../engine -I../utils -I../sgf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT mkmcpat.o -MD -MP -MF ".deps/mkmcpat.Tpo" -c -o mkmcpat.o mkmcpat.c; \
+then mv -f ".deps/mkmcpat.Tpo" ".deps/mkmcpat.Po"; else rm -f ".deps/mkmcpat.Tpo"; exit 1; fi
+if arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I..  -Wall -W -Wpointer-arith -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wundef -Wdeclaration-after-statement -I../engine -I../utils -I../sgf -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security -MT globals.o -MD -MP -MF ".deps/globals.Tpo" -c -o globals.o `test -f '../engine/globals.c' || echo './'`../engine/globals.c; \
+then mv -f ".deps/globals.Tpo" ".deps/globals.Po"; else rm -f ".deps/globals.Tpo"; exit 1; fi
+In file included from ../engine/board.h:30,
+                 from ../engine/gnugo.h:33,
+                 from ../engine/globals.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from ../engine/board.h:30,
+                 from ../engine/liberty.h:27,
+                 from transform.c:24:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from ../engine/board.h:30,
+                 from ../engine/liberty.h:27,
+                 from mkmcpat.c:32:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from ../engine/board.h:30,
+                 from ../engine/liberty.h:27,
+                 from connections.c:25:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wno-error=format-security  -Wl,-z,relro -o mkmcpat  mkmcpat.o globals.o ../engine/libengine.a ../sgf/libsgf.a ../utils/libutils.a -lreadline -lncurses -lm 
+./mkmcpat ./mc_montegnu_classic.db ./mc_mogo_classic.db ./mc_uniform.db > mcpat.c
+In file included from ../engine/board.h:30,
+                 from uncompress_fuseki.c:28:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+uncompress_fuseki.c: In function ‘main’:
+uncompress_fuseki.c:227:5: warning: format not a string literal and no format arguments [-Wformat-security]
+     printf(output_strings[PREAMBLE]);
+     ^~~~~~
+uncompress_fuseki.c:229:5: warning: format not a string literal and no format arguments [-Wformat-security]
+     printf(output_strings[FOOTER]);
+     ^~~~~~
+uncompress_fuseki.c:254:3: warning: format not a string literal and no format arguments [-Wformat-security]
+   printf(output_strings[PREAMBLE]);
+   ^~~~~~
+uncompress_fuseki.c:311:3: warning: format not a string literal and no format arguments [-Wformat-security]
+   printf(output_strings[FOOTER]);
+   ^~~~~~
+/bin/bash: ./mkmcpat: cannot execute binary file: Exec format error
+make[3]: *** [Makefile:700: mcpat.c] Error 126
+make[3]: *** Waiting for unfinished jobs....
+In file included from ../engine/board.h:30,
+                 from joseki.c:26:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from ../engine/board.h:30,
+                 from ../engine/liberty.h:27,
+                 from helpers.c:25:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from ../engine/board.h:30,
+                 from ../engine/liberty.h:27,
+                 from eyes.h:24,
+                 from mkeyes.c:40:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+In file included from ../engine/board.h:30,
+                 from ../engine/liberty.h:27,
+                 from dfa.c:28:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+dfa.c: In function ‘dump_dfa’:
+dfa.c:291:3: warning: format not a string literal and no format arguments [-Wformat-security]
+   fprintf(f, line);
+   ^~~~~~~
+dfa.c:298:3: warning: format not a string literal and no format arguments [-Wformat-security]
+   fprintf(f, line);
+   ^~~~~~~
+dfa.c:303:3: warning: format not a string literal and no format arguments [-Wformat-security]
+   fprintf(f, line);
+   ^~~~~~~
+dfa.c:321:3: warning: format not a string literal and no format arguments [-Wformat-security]
+   fprintf(f, line);
+   ^~~~~~~
+In file included from ../engine/board.h:30,
+                 from ../engine/liberty.h:27,
+                 from mkpat.c:84:
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+ #if USE_WINDOWS_SOCKET_CLUDGE
+     ^~~~~~~~~~~~~~~~~~~~~~~~~
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+../utils/winsocket.h:39:5: warning: this use of "defined" may not be portable [-Wexpansion-to-defined]
+mkpat.c: In function ‘generate_autohelper_code’:
+mkpat.c:1422:7: warning: format not a string literal and no format arguments [-Wformat-security]
+       code_pos += sprintf(code_pos, autohelper_functions[funcno].code);
+       ^~~~~~~~
+mkpat.c: In function ‘main’:
+mkpat.c:2731:6: warning: this statement may fall through [-Wimplicit-fallthrough=]
+   if (command != 2)
+      ^
+mkpat.c:2733:8: note: here
+        case '!':
+        ^~~~
+mkpat.c:2735:6: warning: this statement may fall through [-Wimplicit-fallthrough=]
+   if (command != 2)
+      ^
+mkpat.c:2737:8: note: here
+        default:
+        ^~~~~~~
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/patterns'
+make[2]: *** [Makefile:232: all-recursive] Error 1
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: *** [Makefile:168: all] Error 2
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make: *** [debian/rules:36: build-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-03-04T09:30:54Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  gcc-8-base:armhf* libasan5:armhf* libatomic1:armhf* libc6:armhf*
+  libc6-dev:armhf* libgcc-8-dev:armhf* libgcc1:armhf* libgomp1:armhf*
+  libncurses-dev:armhf* libncurses5-dev:armhf* libncurses6:armhf*
+  libncursesw6:armhf* libreadline-dev:armhf* libreadline7:armhf*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libtext-unidecode-perl*
+  libtinfo6:armhf* libubsan1:armhf* linux-libc-dev:armhf*
+  sbuild-build-depends-main-dummy:armhf* tex-common* texi2html* texinfo*
+0 upgraded, 0 newly installed, 24 to remove and 0 not upgraded.
+After this operation, 65.1 MB disk space will be freed.
+(Reading database ... 18079 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libreadline-dev:armhf (7.0-5) ...
+Removing libreadline7:armhf (7.0-5) ...
+Removing libncurses5-dev:armhf (6.1+20181013-2) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing texinfo (6.5.0.dfsg.1-4+b1) ...
+Running update-fmtutil. This may take some time. ... done.
+Removing texi2html (1.82+dfsg1-5) ...
+Removing libtext-unidecode-perl (1.30-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing tex-common (6.10) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing libc6:armhf (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16448 files and directories currently installed.)
+Purging configuration files for tex-common (6.10) ...
+dpkg: warning: while removing tex-common, directory '/usr/share/texmf' not empty so not removed
+Purging configuration files for texinfo (6.5.0.dfsg.1-4+b1) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 14
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 6
+Job: /home/build/sbuild-setup/repo/pool/main/g/gnugo/gnugo_3.8-9.dsc
+Machine Architecture: amd64
+Package: gnugo
+Package-Time: 25
+Source-Version: 3.8-9
+Space: n/a
+Status: attempted
+Version: 3.8-9
+--------------------------------------------------------------------------------
+Finished at 2019-03-04T09:30:54Z
+Build needed 00:00:25, no disk space

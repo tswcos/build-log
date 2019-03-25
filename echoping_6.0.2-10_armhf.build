@@ -1,0 +1,2359 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| echoping 6.0.2-10 (armhf)                    Fri, 01 Mar 2019 15:59:16 +0000 |
++==============================================================================+
+
+Package: echoping
+Version: 6.0.2-10
+Source Version: 6.0.2-10
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-5cd582db-0d47-40a3-84c0-1cfce274600b' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/echoping-gZjSd9/resolver-Z3T1Yr' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/e/echoping/echoping_6.0.2-10.dsc exists in /home/build/sbuild-setup/repo/pool/main/e/echoping; copying to chroot
+I: NOTICE: Log filtering will replace 'build/echoping-gZjSd9/echoping-6.0.2' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/echoping-gZjSd9' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 9), autotools-dev, dh-autoreconf, libgnutls28-dev, libidn11-dev, libpopt-dev, pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 9), autotools-dev, dh-autoreconf, libgnutls28-dev, libidn11-dev, libpopt-dev, pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [437 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [527 B]
+Fetched 1921 B in 0s (136 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libevent-2.1-6:armhf libffi6:armhf libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgmp-dev:armhf
+  libgmp10:armhf libgmpxx4ldbl:armhf libgnutls-dane0:armhf
+  libgnutls-openssl27:armhf libgnutls28-dev:armhf libgnutls30:armhf
+  libgnutlsxx28:armhf libgomp1:armhf libhogweed4:armhf libidn11:armhf
+  libidn11-dev:armhf libidn2-0:armhf libidn2-dev:armhf libncurses6
+  libnettle6:armhf libp11-kit-dev:armhf libp11-kit0:armhf libpipeline1
+  libpopt-dev:armhf libpopt0:armhf libsigsegv2 libstdc++-8-dev:armhf
+  libstdc++6:armhf libtasn1-6:armhf libtasn1-6-dev:armhf libtool
+  libubsan1:armhf libuchardet0 libunbound8:armhf libunistring2:armhf
+  linux-libc-dev:armhf m4 man-db nettle-dev:armhf pkg-config po-debconf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  gmp-doc:armhf libgmp10-doc:armhf libmpfr-dev:armhf dns-root-data:armhf
+  gnutls-bin:armhf gnutls-doc:armhf libstdc++-8-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk m4-doc apparmor less www-browser
+  libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libarchive-cpio-perl libglib2.0-data shared-mime-info
+  xdg-user-dirs libgpm2 libtasn1-doc:armhf libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libevent-2.1-6:armhf libffi6:armhf libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgmp-dev:armhf
+  libgmp10:armhf libgmpxx4ldbl:armhf libgnutls-dane0:armhf
+  libgnutls-openssl27:armhf libgnutls28-dev:armhf libgnutls30:armhf
+  libgnutlsxx28:armhf libgomp1:armhf libhogweed4:armhf libidn11:armhf
+  libidn11-dev:armhf libidn2-0:armhf libidn2-dev:armhf libncurses6
+  libnettle6:armhf libp11-kit-dev:armhf libp11-kit0:armhf libpipeline1
+  libpopt-dev:armhf libpopt0:armhf libsigsegv2 libstdc++-8-dev:armhf
+  libstdc++6:armhf libtasn1-6:armhf libtasn1-6-dev:armhf libtool
+  libubsan1:armhf libuchardet0 libunbound8:armhf libunistring2:armhf
+  linux-libc-dev:armhf m4 man-db nettle-dev:armhf pkg-config po-debconf
+  sbuild-build-depends-main-dummy:armhf
+0 upgraded, 66 newly installed, 0 to remove and 0 not upgraded.
+Need to get 4763 kB/26.1 MB of archives.
+After this operation, 96.4 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [952 B]
+Get:2 http://10.116.41.102/debian sid/main armhf libgmpxx4ldbl armhf 2:6.1.2+dfsg-4 [21.7 kB]
+Get:3 http://10.116.41.102/debian sid/main armhf libgmp-dev armhf 2:6.1.2+dfsg-4 [581 kB]
+Get:4 http://10.116.41.102/debian sid/main armhf libunbound8 armhf 1.9.0-2 [411 kB]
+Get:5 http://10.116.41.102/debian sid/main armhf libgnutls-dane0 armhf 3.6.6-2 [306 kB]
+Get:6 http://10.116.41.102/debian sid/main armhf libgnutls-openssl27 armhf 3.6.6-2 [306 kB]
+Get:7 http://10.116.41.102/debian sid/main armhf libgnutlsxx28 armhf 3.6.6-2 [12.1 kB]
+Get:8 http://10.116.41.102/debian sid/main armhf libidn2-dev armhf 2.0.5-1 [76.4 kB]
+Get:9 http://10.116.41.102/debian sid/main armhf libp11-kit-dev armhf 0.23.15-2 [195 kB]
+Get:10 http://10.116.41.102/debian sid/main armhf libtasn1-6-dev armhf 4.13-3 [98.9 kB]
+Get:11 http://10.116.41.102/debian sid/main armhf nettle-dev armhf 3.4.1-1 [1081 kB]
+Get:12 http://10.116.41.102/debian sid/main armhf libgnutls28-dev armhf 3.6.6-2 [1034 kB]
+Get:13 http://10.116.41.102/debian sid/main armhf libidn11-dev armhf 1.33-2.2 [591 kB]
+Get:14 http://10.116.41.102/debian sid/main armhf libpopt-dev armhf 1.16-12 [48.2 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 4763 kB in 1s (5391 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../07-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../08-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../09-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../10-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../11-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../12-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../13-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../14-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../15-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../16-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../17-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../18-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../19-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../20-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../21-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../22-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../23-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../24-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../25-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../26-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../27-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../28-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../29-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../30-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../31-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../32-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../33-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../34-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libevent-2.1-6:armhf.
+Preparing to unpack .../35-libevent-2.1-6_2.1.8-stable-4_armhf.deb ...
+Unpacking libevent-2.1-6:armhf (2.1.8-stable-4) ...
+Selecting previously unselected package libffi6:armhf.
+Preparing to unpack .../36-libffi6_3.2.1-9_armhf.deb ...
+Unpacking libffi6:armhf (3.2.1-9) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../37-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../38-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../39-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libgmp10:armhf.
+Preparing to unpack .../40-libgmp10_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libgmpxx4ldbl:armhf.
+Preparing to unpack .../41-libgmpxx4ldbl_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libgmp-dev:armhf.
+Preparing to unpack .../42-libgmp-dev_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libnettle6:armhf.
+Preparing to unpack .../43-libnettle6_3.4.1-1_armhf.deb ...
+Unpacking libnettle6:armhf (3.4.1-1) ...
+Selecting previously unselected package libhogweed4:armhf.
+Preparing to unpack .../44-libhogweed4_3.4.1-1_armhf.deb ...
+Unpacking libhogweed4:armhf (3.4.1-1) ...
+Selecting previously unselected package libunistring2:armhf.
+Preparing to unpack .../45-libunistring2_0.9.10-1_armhf.deb ...
+Unpacking libunistring2:armhf (0.9.10-1) ...
+Selecting previously unselected package libidn2-0:armhf.
+Preparing to unpack .../46-libidn2-0_2.0.5-1_armhf.deb ...
+Unpacking libidn2-0:armhf (2.0.5-1) ...
+Selecting previously unselected package libp11-kit0:armhf.
+Preparing to unpack .../47-libp11-kit0_0.23.15-2_armhf.deb ...
+Unpacking libp11-kit0:armhf (0.23.15-2) ...
+Selecting previously unselected package libtasn1-6:armhf.
+Preparing to unpack .../48-libtasn1-6_4.13-3_armhf.deb ...
+Unpacking libtasn1-6:armhf (4.13-3) ...
+Selecting previously unselected package libgnutls30:armhf.
+Preparing to unpack .../49-libgnutls30_3.6.6-2_armhf.deb ...
+Unpacking libgnutls30:armhf (3.6.6-2) ...
+Selecting previously unselected package libunbound8:armhf.
+Preparing to unpack .../50-libunbound8_1.9.0-2_armhf.deb ...
+Unpacking libunbound8:armhf (1.9.0-2) ...
+Selecting previously unselected package libgnutls-dane0:armhf.
+Preparing to unpack .../51-libgnutls-dane0_3.6.6-2_armhf.deb ...
+Unpacking libgnutls-dane0:armhf (3.6.6-2) ...
+Selecting previously unselected package libgnutls-openssl27:armhf.
+Preparing to unpack .../52-libgnutls-openssl27_3.6.6-2_armhf.deb ...
+Unpacking libgnutls-openssl27:armhf (3.6.6-2) ...
+Selecting previously unselected package libgnutlsxx28:armhf.
+Preparing to unpack .../53-libgnutlsxx28_3.6.6-2_armhf.deb ...
+Unpacking libgnutlsxx28:armhf (3.6.6-2) ...
+Selecting previously unselected package libidn2-dev:armhf.
+Preparing to unpack .../54-libidn2-dev_2.0.5-1_armhf.deb ...
+Unpacking libidn2-dev:armhf (2.0.5-1) ...
+Selecting previously unselected package libp11-kit-dev:armhf.
+Preparing to unpack .../55-libp11-kit-dev_0.23.15-2_armhf.deb ...
+Unpacking libp11-kit-dev:armhf (0.23.15-2) ...
+Selecting previously unselected package libtasn1-6-dev:armhf.
+Preparing to unpack .../56-libtasn1-6-dev_4.13-3_armhf.deb ...
+Unpacking libtasn1-6-dev:armhf (4.13-3) ...
+Selecting previously unselected package nettle-dev:armhf.
+Preparing to unpack .../57-nettle-dev_3.4.1-1_armhf.deb ...
+Unpacking nettle-dev:armhf (3.4.1-1) ...
+Selecting previously unselected package libgnutls28-dev:armhf.
+Preparing to unpack .../58-libgnutls28-dev_3.6.6-2_armhf.deb ...
+Unpacking libgnutls28-dev:armhf (3.6.6-2) ...
+Selecting previously unselected package libidn11:armhf.
+Preparing to unpack .../59-libidn11_1.33-2.2_armhf.deb ...
+Unpacking libidn11:armhf (1.33-2.2) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../60-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package libidn11-dev:armhf.
+Preparing to unpack .../61-libidn11-dev_1.33-2.2_armhf.deb ...
+Unpacking libidn11-dev:armhf (1.33-2.2) ...
+Selecting previously unselected package libpopt0:armhf.
+Preparing to unpack .../62-libpopt0_1.16-12_armhf.deb ...
+Unpacking libpopt0:armhf (1.16-12) ...
+Selecting previously unselected package libpopt-dev:armhf.
+Preparing to unpack .../63-libpopt-dev_1.16-12_armhf.deb ...
+Unpacking libpopt-dev:armhf (1.16-12) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../64-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../65-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-7) ...
+Setting up libtasn1-6:armhf (4.13-3) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libtasn1-6-dev:armhf (4.13-3) ...
+Setting up libpopt0:armhf (1.16-12) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libunistring2:armhf (0.9.10-1) ...
+Setting up libffi6:armhf (3.2.1-9) ...
+Setting up libidn2-0:armhf (2.0.5-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libpopt-dev:armhf (1.16-12) ...
+Setting up dh-autoreconf (19) ...
+Setting up libidn11:armhf (1.33-2.2) ...
+Setting up libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Setting up libp11-kit0:armhf (0.23.15-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libnettle6:armhf (3.4.1-1) ...
+Setting up libidn2-dev:armhf (2.0.5-1) ...
+Setting up libevent-2.1-6:armhf (2.1.8-stable-4) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libp11-kit-dev:armhf (0.23.15-2) ...
+Setting up libidn11-dev:armhf (1.33-2.2) ...
+Setting up libhogweed4:armhf (3.4.1-1) ...
+Setting up debhelper (12.1.1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libunbound8:armhf (1.9.0-2) ...
+Setting up libgnutls30:armhf (3.6.6-2) ...
+Setting up libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Setting up libgnutlsxx28:armhf (3.6.6-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libgnutls-dane0:armhf (3.6.6-2) ...
+Setting up libgnutls-openssl27:armhf (3.6.6-2) ...
+Setting up libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Setting up nettle-dev:armhf (3.4.1-1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libgnutls28-dev:armhf (3.6.6-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libevent-2.1-6_2.1.8-stable-4 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp-dev_2:6.1.2+dfsg-4 libgmp10_2:6.1.2+dfsg-4 libgmpxx4ldbl_2:6.1.2+dfsg-4 libgnutls-dane0_3.6.6-2 libgnutls-openssl27_3.6.6-2 libgnutls28-dev_3.6.6-2 libgnutls30_3.6.6-2 libgnutlsxx28_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn11_1.33-2.2 libidn11-dev_1.33-2.2 libidn2-0_2.0.5-1 libidn2-dev_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit-dev_0.23.15-2 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpopt-dev_1.16-12 libpopt0_1.16-12 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtasn1-6-dev_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunbound8_1.9.0-2 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 nettle-dev_3.4.1-1 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: echoping
+Binary: echoping
+Architecture: any
+Version: 6.0.2-10
+Maintainer: Dario Minnucci <midget@debian.org>
+Homepage: https://github.com/bortzmeyer/echoping/
+Standards-Version: 3.9.8
+Vcs-Browser: https://anonscm.debian.org/git/collab-maint/echoping.git
+Vcs-Git: https://anonscm.debian.org/git/collab-maint/echoping.git
+Build-Depends: debhelper (>= 9), autotools-dev, dh-autoreconf, libgnutls28-dev, libidn11-dev, libpopt-dev, pkg-config
+Package-List:
+ echoping deb net optional arch=any
+Checksums-Sha1:
+ 8b414d1dbc5a0f21a7f2cccb0138aec13117a1a4 1660983 echoping_6.0.2.orig.tar.gz
+ c9db79dff2a12afa400d200f006e12ba32ad0886 8832 echoping_6.0.2-10.debian.tar.xz
+Checksums-Sha256:
+ 1dfa4c45bf461b2379ff91773ed7136176e2abac9e85c26bc9654942b5155eac 1660983 echoping_6.0.2.orig.tar.gz
+ de31d97e592e9087dc997a9b26fa4a7116840f0f7b5bf24e2cb25e2bcb1538a8 8832 echoping_6.0.2-10.debian.tar.xz
+Files:
+ 991478532b56ab3b6f46ea9fa332626f 1660983 echoping_6.0.2.orig.tar.gz
+ a9dbd9fb4eb1e3b803fda579387b11a9 8832 echoping_6.0.2-10.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJGBAEBCAAwFiEEuqF6r7IdZWfUV9Z9qC+7g/PVcDMFAlh01L8SHG1pZGdldEBk
+ZWJpYW4ub3JnAAoJEKgvu4Pz1XAzSx0QAJskG+EGe7pyD4Q5zXMGrHFfL3w/OJcP
+SJJvhWcybw+aEPT7j5W7+MDJDuwLQW4Mh91KAcvGD569af6mml0G7tKPSbRid8Q1
+M9KMbNoU0qxZ3E+F1oFxXGOxTefGb5zDjsdk1DalUsmqIKWRST8LDaona86kXrIe
+D8/J6DgqRNHe0pIbf9u9htLuUf8g3TZw7sfVtC44Hp6hzjts+BxruXuYXai7gdJd
+HzzesM1YxKkn3RozU79AJ0LZSHdAbyUM0Tapf9tG1FY4o6zkixtXBSzGGSaSVTRk
+UhVrq/xTgJHcEL4sq7CZ1eJA/U9ZEeCiR8m6fwzB2IBxH89QLDeq6RMpgBLM3jFB
+xdnKBDkt73WbAiUePFDltP8IbeOLU745fBf+nBY00YPoOFjB/FRoeAJElcGQIHRZ
+0ONSdi3Ddi8xCE6lvixjhqW42E7/u1eRlGMrLJfyHHeZtlvNMg8TO5MnOMDjl0fC
+aKlusnEkq8QAjf63RLXZcBkY+Wl9pGYEs8+vSFCfdIv6nCQZ6o6N0tm5lj9R1ALd
+53cbez8IYO6MAslMmwIcBhWPfzOzlOr0c9s9zAzBafb+IY8T8/yqt8773F7oO8de
+CCGx05At/eQTdAdoc5SXLgoTbUL7ksGRsXNdYUlFe8/vcbNaeAwPpM4vP9pRRlXR
+yyCs4Gjonxr9
+=aGvh
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Tue Jan 10 12:34:07 2017 UTC
+gpgv:                using RSA key BAA17AAFB21D6567D457D67DA82FBB83F3D57033
+gpgv:                issuer "midget@debian.org"
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./echoping_6.0.2-10.dsc
+dpkg-source: info: extracting echoping in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking echoping_6.0.2.orig.tar.gz
+dpkg-source: info: unpacking echoping_6.0.2-10.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 006_reproducible-build.diff
+dpkg-source: info: applying 005_gnutls34.diff
+dpkg-source: info: applying 004-only-append-port-number-if-port-is-not-80.diff
+dpkg-source: info: applying 003-fix-for-https-creashes.diff
+dpkg-source: info: applying 002-FTBFS_against_gnutls26_greater_the_2.7.x_fix.diff
+dpkg-source: info: applying 001-manpage_fixes.diff
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-5cd582db-0d47-40a3-84c0-1cfce274600b
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package echoping
+dpkg-buildpackage: info: source version 6.0.2-10
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Dario Minnucci <midget@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp
+rm -f plugins/dir
+#
+# Add here commands to clean up after the build process.
+#
+[ ! -f Makefile ] || /usr/bin/make distclean
+#
+dh_autoreconf_clean
+dh_autotools-dev_restoreconfig
+dh_autotools-dev_restoreconfig: dh_autotools-dev_restoreconfig is deprecated; please see dh_autotools-dev_restoreconfig(1) for a replacement
+dh_autotools-dev_restoreconfig: This feature will be removed in compat 12.
+dh_clean
+ debian/rules build-arch
+dh_testdir
+dh_autotools-dev_updateconfig
+dh_autotools-dev_updateconfig: dh_autotools-dev_updateconfig is deprecated; please see dh_autotools-dev_updateconfig(1) for a replacement
+dh_autotools-dev_updateconfig: This feature will be removed in compat 12.
+dh_autoreconf
+# Add here commands to configure the package.
+CFLAGS="-Wall -g -O2"
+LDFLAGS="-Wl,-z,defs"
+./configure \
+	--host=arm-linux-gnueabihf \
+	--build=x86_64-linux-gnu \
+	--prefix=/usr \
+	--mandir=\${prefix}/share/man \
+	--infodir=\${prefix}/share/info \
+	--enable-icp \
+	--without-ssl \
+	--with-gnutls \
+	--with-libidn \
+
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for arm-linux-gnueabihf-cc... no
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/arm-linux-gnueabihf-nm -B
+checking whether ln -s works... yes
+checking how to recognise dependent libraries... pass_all
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for arm-linux-gnueabihf-g++... arm-linux-gnueabihf-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... yes
+checking how to run the C++ preprocessor... arm-linux-gnueabihf-g++ -E
+checking for arm-linux-gnueabihf-g77... no
+checking for arm-linux-gnueabihf-xlf... no
+checking for arm-linux-gnueabihf-f77... no
+checking for arm-linux-gnueabihf-frt... no
+checking for arm-linux-gnueabihf-pgf77... no
+checking for arm-linux-gnueabihf-cf77... no
+checking for arm-linux-gnueabihf-fort77... no
+checking for arm-linux-gnueabihf-fl32... no
+checking for arm-linux-gnueabihf-af77... no
+checking for arm-linux-gnueabihf-xlf90... no
+checking for arm-linux-gnueabihf-f90... no
+checking for arm-linux-gnueabihf-pgf90... no
+checking for arm-linux-gnueabihf-pghpf... no
+checking for arm-linux-gnueabihf-epcf90... no
+checking for arm-linux-gnueabihf-gfortran... no
+checking for arm-linux-gnueabihf-g95... no
+checking for arm-linux-gnueabihf-xlf95... no
+checking for arm-linux-gnueabihf-f95... no
+checking for arm-linux-gnueabihf-fort... no
+checking for arm-linux-gnueabihf-ifort... no
+checking for arm-linux-gnueabihf-ifc... no
+checking for arm-linux-gnueabihf-efc... no
+checking for arm-linux-gnueabihf-pgf95... no
+checking for arm-linux-gnueabihf-lf95... no
+checking for arm-linux-gnueabihf-ftn... no
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking the maximum length of command line arguments... 32768
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for objdir... .libs
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for correct ltmain.sh version... yes
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dlopen... no
+checking for dlopen in -ldl... yes
+checking whether a program can dlopen itself... cross
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by arm-linux-gnueabihf-g++... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking for arm-linux-gnueabihf-g++ option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-g++ PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-g++ static flag -static works... yes
+checking if arm-linux-gnueabihf-g++ supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking dependency style of arm-linux-gnueabihf-gcc... gcc3
+checking dependency style of arm-linux-gnueabihf-g++... gcc3
+checking for int... yes
+checking size of int... (cached) 4
+checking for long... yes
+checking size of long... (cached) 4
+Package gnutls was not found in the pkg-config search path.
+Perhaps you should add the directory containing `gnutls.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'gnutls' found
+Package gnutls was not found in the pkg-config search path.
+Perhaps you should add the directory containing `gnutls.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'gnutls' found
+checking for arm-linux-gnueabihf-gcc... (cached) arm-linux-gnueabihf-gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... (cached) yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for ANSI C header files... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking for an ANSI C-conforming const... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for socket in -lsocket... no
+checking for gethostbyname in -lnsl... yes
+checking if libnsl is mandatory... no
+checking for pow in -lm... yes
+checking if libmath is mandatory... yes
+checking return type of signal handlers... void
+checking for vprintf... yes
+checking for _doprnt... no
+checking for getaddrinfo... yes
+checking for getnameinfo... yes
+checking for inet_ntop... yes
+checking for gettimeofday... yes
+checking for socket... yes
+checking for sigaction... yes
+checking for strerror... yes
+checking for poptGetContext... no
+checking for poptGetContext in -lpopt... yes
+checking for usleep... yes
+checking for dlopen... (cached) no
+checking for dlopen in -ldl... (cached) yes
+checking for idna_to_ascii_8z in -lidn... yes
+checking for gnutls_global_init in -lgnutls... yes
+Package gnutls was not found in the pkg-config search path.
+Perhaps you should add the directory containing `gnutls.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'gnutls' found
+checking TCP info from socket... yes
+checking Type Of Service... yes
+checking Socket priority... yes
+
+Configuration of echoping:
+HTTP : enabled
+ICP : enabled
+OPENSSL : disabled
+GNUTLS : enabled
+SMTP : enabled
+LIBIDN : enabled
+TOS : enabled
+PRIORITY : enabled
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating echoping.1
+config.status: creating compilation.h
+config.status: creating config.h
+config.status: executing depfiles commands
+=== configuring in plugins (/<<PKGBUILDDIR>>/plugins)
+configure: running /bin/bash ./configure '--prefix=/usr'  '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--enable-icp' '--without-ssl' '--with-gnutls' '--with-libidn' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' --cache-file=/dev/null --srcdir=.
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for arm-linux-gnueabihf-cc... no
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/arm-linux-gnueabihf-nm -B
+checking whether ln -s works... yes
+checking how to recognise dependent libraries... pass_all
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for arm-linux-gnueabihf-g++... arm-linux-gnueabihf-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... yes
+checking how to run the C++ preprocessor... arm-linux-gnueabihf-g++ -E
+checking for arm-linux-gnueabihf-g77... no
+checking for arm-linux-gnueabihf-xlf... no
+checking for arm-linux-gnueabihf-f77... no
+checking for arm-linux-gnueabihf-frt... no
+checking for arm-linux-gnueabihf-pgf77... no
+checking for arm-linux-gnueabihf-cf77... no
+checking for arm-linux-gnueabihf-fort77... no
+checking for arm-linux-gnueabihf-fl32... no
+checking for arm-linux-gnueabihf-af77... no
+checking for arm-linux-gnueabihf-xlf90... no
+checking for arm-linux-gnueabihf-f90... no
+checking for arm-linux-gnueabihf-pgf90... no
+checking for arm-linux-gnueabihf-pghpf... no
+checking for arm-linux-gnueabihf-epcf90... no
+checking for arm-linux-gnueabihf-gfortran... no
+checking for arm-linux-gnueabihf-g95... no
+checking for arm-linux-gnueabihf-xlf95... no
+checking for arm-linux-gnueabihf-f95... no
+checking for arm-linux-gnueabihf-fort... no
+checking for arm-linux-gnueabihf-ifort... no
+checking for arm-linux-gnueabihf-ifc... no
+checking for arm-linux-gnueabihf-efc... no
+checking for arm-linux-gnueabihf-pgf95... no
+checking for arm-linux-gnueabihf-lf95... no
+checking for arm-linux-gnueabihf-ftn... no
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking the maximum length of command line arguments... 32768
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for objdir... .libs
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for correct ltmain.sh version... yes
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dlopen... no
+checking for dlopen in -ldl... yes
+checking whether a program can dlopen itself... cross
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by arm-linux-gnueabihf-g++... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking for arm-linux-gnueabihf-g++ option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-g++ PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-g++ static flag -static works... yes
+checking if arm-linux-gnueabihf-g++ supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking dependency style of arm-linux-gnueabihf-gcc... gcc3
+checking dependency style of arm-linux-gnueabihf-g++... gcc3
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+=== configuring in dns (/<<PKGBUILDDIR>>/plugins/dns)
+configure: running /bin/bash ./configure '--prefix=/usr'  '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--enable-icp' '--without-ssl' '--with-gnutls' '--with-libidn' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' --cache-file=/dev/null --srcdir=.
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for arm-linux-gnueabihf-cc... no
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/arm-linux-gnueabihf-nm -B
+checking whether ln -s works... yes
+checking how to recognise dependent libraries... pass_all
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for arm-linux-gnueabihf-g++... arm-linux-gnueabihf-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... yes
+checking how to run the C++ preprocessor... arm-linux-gnueabihf-g++ -E
+checking for arm-linux-gnueabihf-g77... no
+checking for arm-linux-gnueabihf-xlf... no
+checking for arm-linux-gnueabihf-f77... no
+checking for arm-linux-gnueabihf-frt... no
+checking for arm-linux-gnueabihf-pgf77... no
+checking for arm-linux-gnueabihf-cf77... no
+checking for arm-linux-gnueabihf-fort77... no
+checking for arm-linux-gnueabihf-fl32... no
+checking for arm-linux-gnueabihf-af77... no
+checking for arm-linux-gnueabihf-xlf90... no
+checking for arm-linux-gnueabihf-f90... no
+checking for arm-linux-gnueabihf-pgf90... no
+checking for arm-linux-gnueabihf-pghpf... no
+checking for arm-linux-gnueabihf-epcf90... no
+checking for arm-linux-gnueabihf-gfortran... no
+checking for arm-linux-gnueabihf-g95... no
+checking for arm-linux-gnueabihf-xlf95... no
+checking for arm-linux-gnueabihf-f95... no
+checking for arm-linux-gnueabihf-fort... no
+checking for arm-linux-gnueabihf-ifort... no
+checking for arm-linux-gnueabihf-ifc... no
+checking for arm-linux-gnueabihf-efc... no
+checking for arm-linux-gnueabihf-pgf95... no
+checking for arm-linux-gnueabihf-lf95... no
+checking for arm-linux-gnueabihf-ftn... no
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking the maximum length of command line arguments... 32768
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for objdir... .libs
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for correct ltmain.sh version... yes
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dlopen... no
+checking for dlopen in -ldl... yes
+checking whether a program can dlopen itself... cross
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by arm-linux-gnueabihf-g++... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking for arm-linux-gnueabihf-g++ option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-g++ PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-g++ static flag -static works... yes
+checking if arm-linux-gnueabihf-g++ supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking dependency style of arm-linux-gnueabihf-gcc... gcc3
+checking dependency style of arm-linux-gnueabihf-g++... gcc3
+checking for poptGetContext... no
+checking for poptGetContext in -lpopt... yes
+checking for res_mkquery... no
+checking for res_mkquery in -lbind... no
+checking for res_mkquery in -lresolv... no
+checking for res_mkquery in -lresolv again... yes
+checking _res ... yes
+checking _res_ext ... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+=== configuring in ldap (/<<PKGBUILDDIR>>/plugins/ldap)
+configure: running /bin/bash ./configure '--prefix=/usr'  '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--enable-icp' '--without-ssl' '--with-gnutls' '--with-libidn' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' --cache-file=/dev/null --srcdir=.
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for arm-linux-gnueabihf-cc... no
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/arm-linux-gnueabihf-nm -B
+checking whether ln -s works... yes
+checking how to recognise dependent libraries... pass_all
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for arm-linux-gnueabihf-g++... arm-linux-gnueabihf-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... yes
+checking how to run the C++ preprocessor... arm-linux-gnueabihf-g++ -E
+checking for arm-linux-gnueabihf-g77... no
+checking for arm-linux-gnueabihf-xlf... no
+checking for arm-linux-gnueabihf-f77... no
+checking for arm-linux-gnueabihf-frt... no
+checking for arm-linux-gnueabihf-pgf77... no
+checking for arm-linux-gnueabihf-cf77... no
+checking for arm-linux-gnueabihf-fort77... no
+checking for arm-linux-gnueabihf-fl32... no
+checking for arm-linux-gnueabihf-af77... no
+checking for arm-linux-gnueabihf-xlf90... no
+checking for arm-linux-gnueabihf-f90... no
+checking for arm-linux-gnueabihf-pgf90... no
+checking for arm-linux-gnueabihf-pghpf... no
+checking for arm-linux-gnueabihf-epcf90... no
+checking for arm-linux-gnueabihf-gfortran... no
+checking for arm-linux-gnueabihf-g95... no
+checking for arm-linux-gnueabihf-xlf95... no
+checking for arm-linux-gnueabihf-f95... no
+checking for arm-linux-gnueabihf-fort... no
+checking for arm-linux-gnueabihf-ifort... no
+checking for arm-linux-gnueabihf-ifc... no
+checking for arm-linux-gnueabihf-efc... no
+checking for arm-linux-gnueabihf-pgf95... no
+checking for arm-linux-gnueabihf-lf95... no
+checking for arm-linux-gnueabihf-ftn... no
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking the maximum length of command line arguments... 32768
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for objdir... .libs
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for correct ltmain.sh version... yes
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dlopen... no
+checking for dlopen in -ldl... yes
+checking whether a program can dlopen itself... cross
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by arm-linux-gnueabihf-g++... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking for arm-linux-gnueabihf-g++ option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-g++ PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-g++ static flag -static works... yes
+checking if arm-linux-gnueabihf-g++ supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking dependency style of arm-linux-gnueabihf-gcc... gcc3
+checking dependency style of arm-linux-gnueabihf-g++... gcc3
+checking for poptGetContext... no
+checking for poptGetContext in -lpopt... yes
+checking for ldap_open... no
+checking for ldap_open in -lldap... no
+configure: WARNING: No LDAP development environment found, not building this plugin
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+=== configuring in postgresql (/<<PKGBUILDDIR>>/plugins/postgresql)
+configure: running /bin/bash ./configure '--prefix=/usr'  '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--enable-icp' '--without-ssl' '--with-gnutls' '--with-libidn' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' --cache-file=/dev/null --srcdir=.
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for arm-linux-gnueabihf-cc... no
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/arm-linux-gnueabihf-nm -B
+checking whether ln -s works... yes
+checking how to recognise dependent libraries... pass_all
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for arm-linux-gnueabihf-g++... arm-linux-gnueabihf-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... yes
+checking how to run the C++ preprocessor... arm-linux-gnueabihf-g++ -E
+checking for arm-linux-gnueabihf-g77... no
+checking for arm-linux-gnueabihf-xlf... no
+checking for arm-linux-gnueabihf-f77... no
+checking for arm-linux-gnueabihf-frt... no
+checking for arm-linux-gnueabihf-pgf77... no
+checking for arm-linux-gnueabihf-cf77... no
+checking for arm-linux-gnueabihf-fort77... no
+checking for arm-linux-gnueabihf-fl32... no
+checking for arm-linux-gnueabihf-af77... no
+checking for arm-linux-gnueabihf-xlf90... no
+checking for arm-linux-gnueabihf-f90... no
+checking for arm-linux-gnueabihf-pgf90... no
+checking for arm-linux-gnueabihf-pghpf... no
+checking for arm-linux-gnueabihf-epcf90... no
+checking for arm-linux-gnueabihf-gfortran... no
+checking for arm-linux-gnueabihf-g95... no
+checking for arm-linux-gnueabihf-xlf95... no
+checking for arm-linux-gnueabihf-f95... no
+checking for arm-linux-gnueabihf-fort... no
+checking for arm-linux-gnueabihf-ifort... no
+checking for arm-linux-gnueabihf-ifc... no
+checking for arm-linux-gnueabihf-efc... no
+checking for arm-linux-gnueabihf-pgf95... no
+checking for arm-linux-gnueabihf-lf95... no
+checking for arm-linux-gnueabihf-ftn... no
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking the maximum length of command line arguments... 32768
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for objdir... .libs
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for correct ltmain.sh version... yes
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dlopen... no
+checking for dlopen in -ldl... yes
+checking whether a program can dlopen itself... cross
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by arm-linux-gnueabihf-g++... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking for arm-linux-gnueabihf-g++ option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-g++ PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-g++ static flag -static works... yes
+checking if arm-linux-gnueabihf-g++ supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking dependency style of arm-linux-gnueabihf-gcc... gcc3
+checking dependency style of arm-linux-gnueabihf-g++... gcc3
+checking for poptGetContext... no
+checking for poptGetContext in -lpopt... yes
+checking for PQconnectdb... no
+checking for PQconnectdb in -lpq... no
+configure: WARNING: No PostgreSQL development environment found, not building this plugin
+checking libpq-fe.h usability... no
+checking libpq-fe.h presence... no
+checking for libpq-fe.h... no
+checking postgresql/libpq-fe.h usability... no
+checking postgresql/libpq-fe.h presence... no
+checking for postgresql/libpq-fe.h... no
+configure: WARNING: No PostgreSQL header found, not building this plugin
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+=== configuring in random (/<<PKGBUILDDIR>>/plugins/random)
+configure: running /bin/bash ./configure '--prefix=/usr'  '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--enable-icp' '--without-ssl' '--with-gnutls' '--with-libidn' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' --cache-file=/dev/null --srcdir=.
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for arm-linux-gnueabihf-cc... no
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/arm-linux-gnueabihf-nm -B
+checking whether ln -s works... yes
+checking how to recognise dependent libraries... pass_all
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for arm-linux-gnueabihf-g++... arm-linux-gnueabihf-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... yes
+checking how to run the C++ preprocessor... arm-linux-gnueabihf-g++ -E
+checking for arm-linux-gnueabihf-g77... no
+checking for arm-linux-gnueabihf-xlf... no
+checking for arm-linux-gnueabihf-f77... no
+checking for arm-linux-gnueabihf-frt... no
+checking for arm-linux-gnueabihf-pgf77... no
+checking for arm-linux-gnueabihf-cf77... no
+checking for arm-linux-gnueabihf-fort77... no
+checking for arm-linux-gnueabihf-fl32... no
+checking for arm-linux-gnueabihf-af77... no
+checking for arm-linux-gnueabihf-xlf90... no
+checking for arm-linux-gnueabihf-f90... no
+checking for arm-linux-gnueabihf-pgf90... no
+checking for arm-linux-gnueabihf-pghpf... no
+checking for arm-linux-gnueabihf-epcf90... no
+checking for arm-linux-gnueabihf-gfortran... no
+checking for arm-linux-gnueabihf-g95... no
+checking for arm-linux-gnueabihf-xlf95... no
+checking for arm-linux-gnueabihf-f95... no
+checking for arm-linux-gnueabihf-fort... no
+checking for arm-linux-gnueabihf-ifort... no
+checking for arm-linux-gnueabihf-ifc... no
+checking for arm-linux-gnueabihf-efc... no
+checking for arm-linux-gnueabihf-pgf95... no
+checking for arm-linux-gnueabihf-lf95... no
+checking for arm-linux-gnueabihf-ftn... no
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking the maximum length of command line arguments... 32768
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for objdir... .libs
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for correct ltmain.sh version... yes
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dlopen... no
+checking for dlopen in -ldl... yes
+checking whether a program can dlopen itself... cross
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by arm-linux-gnueabihf-g++... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking for arm-linux-gnueabihf-g++ option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-g++ PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-g++ static flag -static works... yes
+checking if arm-linux-gnueabihf-g++ supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking dependency style of arm-linux-gnueabihf-gcc... gcc3
+checking dependency style of arm-linux-gnueabihf-g++... gcc3
+checking for usleep... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+=== configuring in whois (/<<PKGBUILDDIR>>/plugins/whois)
+configure: running /bin/bash ./configure '--prefix=/usr'  '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--enable-icp' '--without-ssl' '--with-gnutls' '--with-libidn' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' --cache-file=/dev/null --srcdir=.
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for arm-linux-gnueabihf-cc... no
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/arm-linux-gnueabihf-nm -B
+checking whether ln -s works... yes
+checking how to recognise dependent libraries... pass_all
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for arm-linux-gnueabihf-g++... arm-linux-gnueabihf-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... yes
+checking how to run the C++ preprocessor... arm-linux-gnueabihf-g++ -E
+checking for arm-linux-gnueabihf-g77... no
+checking for arm-linux-gnueabihf-xlf... no
+checking for arm-linux-gnueabihf-f77... no
+checking for arm-linux-gnueabihf-frt... no
+checking for arm-linux-gnueabihf-pgf77... no
+checking for arm-linux-gnueabihf-cf77... no
+checking for arm-linux-gnueabihf-fort77... no
+checking for arm-linux-gnueabihf-fl32... no
+checking for arm-linux-gnueabihf-af77... no
+checking for arm-linux-gnueabihf-xlf90... no
+checking for arm-linux-gnueabihf-f90... no
+checking for arm-linux-gnueabihf-pgf90... no
+checking for arm-linux-gnueabihf-pghpf... no
+checking for arm-linux-gnueabihf-epcf90... no
+checking for arm-linux-gnueabihf-gfortran... no
+checking for arm-linux-gnueabihf-g95... no
+checking for arm-linux-gnueabihf-xlf95... no
+checking for arm-linux-gnueabihf-f95... no
+checking for arm-linux-gnueabihf-fort... no
+checking for arm-linux-gnueabihf-ifort... no
+checking for arm-linux-gnueabihf-ifc... no
+checking for arm-linux-gnueabihf-efc... no
+checking for arm-linux-gnueabihf-pgf95... no
+checking for arm-linux-gnueabihf-lf95... no
+checking for arm-linux-gnueabihf-ftn... no
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking the maximum length of command line arguments... 32768
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for objdir... .libs
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for correct ltmain.sh version... yes
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dlopen... no
+checking for dlopen in -ldl... yes
+checking whether a program can dlopen itself... cross
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by arm-linux-gnueabihf-g++... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking for arm-linux-gnueabihf-g++ option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-g++ PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-g++ static flag -static works... yes
+checking if arm-linux-gnueabihf-g++ supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking dependency style of arm-linux-gnueabihf-gcc... gcc3
+checking dependency style of arm-linux-gnueabihf-g++... gcc3
+checking for poptGetContext... no
+checking for poptGetContext in -lpopt... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+
+Plugins to build: random whois dns postgresql ldap
+dh_testdir
+rm -f config.log
+mkdir -p /<<PKGBUILDDIR>>/debian/echoping/usr/share/doc/echoping/examples
+# Add here commands to compile the package.
+/usr/bin/make
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+cd . && /bin/bash /<<PKGBUILDDIR>>/missing --run aclocal-1.10 
+/<<PKGBUILDDIR>>/missing: line 54: aclocal-1.10: command not found
+WARNING: `aclocal-1.10' is missing on your system.  You should only need it if
+         you modified `acinclude.m4' or `configure.ac'.  You might want
+         to install the `Automake' and `Perl' packages.  Grab them from
+         any GNU archive site.
+cd . && /bin/bash /<<PKGBUILDDIR>>/missing --run autoconf
+ cd . && /bin/bash /<<PKGBUILDDIR>>/missing --run automake-1.10 --gnu 
+/<<PKGBUILDDIR>>/missing: line 54: automake-1.10: command not found
+WARNING: `automake-1.10' is missing on your system.  You should only need it if
+         you modified `Makefile.am', `acinclude.m4' or `configure.ac'.
+         You might want to install the `Automake' and `Perl' packages.
+         Grab them from any GNU archive site.
+aclocal.m4:14: error: this file was generated for autoconf 2.61.
+You have another version of autoconf.  If you want to use that,
+you should regenerate the build system entirely.
+aclocal.m4:14: the top level
+autom4te: /usr/bin/m4 failed with exit status: 63
+WARNING: `autoconf' is probably too old.  You should only need it if
+         you modified `configure.ac'.  You might want to install the
+         `Autoconf' and `GNU m4' packages.  Grab them from any GNU
+         archive site.
+/bin/bash ./config.status --recheck
+running CONFIG_SHELL=/bin/bash /bin/bash ./configure  --host=arm-linux-gnueabihf --build=x86_64-linux-gnu --prefix=/usr --mandir=${prefix}/share/man --infodir=${prefix}/share/info --enable-icp --without-ssl --with-gnutls --with-libidn build_alias=x86_64-linux-gnu host_alias=arm-linux-gnueabihf  --no-create --no-recursion
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for arm-linux-gnueabihf-cc... no
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/arm-linux-gnueabihf-nm -B
+checking whether ln -s works... yes
+checking how to recognise dependent libraries... pass_all
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for arm-linux-gnueabihf-g++... arm-linux-gnueabihf-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... yes
+checking how to run the C++ preprocessor... arm-linux-gnueabihf-g++ -E
+checking for arm-linux-gnueabihf-g77... no
+checking for arm-linux-gnueabihf-xlf... no
+checking for arm-linux-gnueabihf-f77... no
+checking for arm-linux-gnueabihf-frt... no
+checking for arm-linux-gnueabihf-pgf77... no
+checking for arm-linux-gnueabihf-cf77... no
+checking for arm-linux-gnueabihf-fort77... no
+checking for arm-linux-gnueabihf-fl32... no
+checking for arm-linux-gnueabihf-af77... no
+checking for arm-linux-gnueabihf-xlf90... no
+checking for arm-linux-gnueabihf-f90... no
+checking for arm-linux-gnueabihf-pgf90... no
+checking for arm-linux-gnueabihf-pghpf... no
+checking for arm-linux-gnueabihf-epcf90... no
+checking for arm-linux-gnueabihf-gfortran... no
+checking for arm-linux-gnueabihf-g95... no
+checking for arm-linux-gnueabihf-xlf95... no
+checking for arm-linux-gnueabihf-f95... no
+checking for arm-linux-gnueabihf-fort... no
+checking for arm-linux-gnueabihf-ifort... no
+checking for arm-linux-gnueabihf-ifc... no
+checking for arm-linux-gnueabihf-efc... no
+checking for arm-linux-gnueabihf-pgf95... no
+checking for arm-linux-gnueabihf-lf95... no
+checking for arm-linux-gnueabihf-ftn... no
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking the maximum length of command line arguments... 32768
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for objdir... .libs
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for correct ltmain.sh version... yes
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking for shl_load... no
+checking for shl_load in -ldld... no
+checking for dlopen... no
+checking for dlopen in -ldl... yes
+checking whether a program can dlopen itself... cross
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by arm-linux-gnueabihf-g++... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking for arm-linux-gnueabihf-g++ option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-g++ PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-g++ static flag -static works... yes
+checking if arm-linux-gnueabihf-g++ supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking dependency style of arm-linux-gnueabihf-gcc... gcc3
+checking dependency style of arm-linux-gnueabihf-g++... gcc3
+checking for int... yes
+checking size of int... (cached) 4
+checking for long... yes
+checking size of long... (cached) 4
+Package gnutls was not found in the pkg-config search path.
+Perhaps you should add the directory containing `gnutls.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'gnutls' found
+Package gnutls was not found in the pkg-config search path.
+Perhaps you should add the directory containing `gnutls.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'gnutls' found
+checking for arm-linux-gnueabihf-gcc... (cached) arm-linux-gnueabihf-gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... (cached) yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for ANSI C header files... (cached) yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking for an ANSI C-conforming const... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for socket in -lsocket... no
+checking for gethostbyname in -lnsl... yes
+checking if libnsl is mandatory... no
+checking for pow in -lm... yes
+checking if libmath is mandatory... yes
+checking return type of signal handlers... void
+checking for vprintf... yes
+checking for _doprnt... no
+checking for getaddrinfo... yes
+checking for getnameinfo... yes
+checking for inet_ntop... yes
+checking for gettimeofday... yes
+checking for socket... yes
+checking for sigaction... yes
+checking for strerror... yes
+checking for poptGetContext... no
+checking for poptGetContext in -lpopt... yes
+checking for usleep... yes
+checking for dlopen... (cached) no
+checking for dlopen in -ldl... (cached) yes
+checking for idna_to_ascii_8z in -lidn... yes
+checking for gnutls_global_init in -lgnutls... yes
+Package gnutls was not found in the pkg-config search path.
+Perhaps you should add the directory containing `gnutls.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'gnutls' found
+checking TCP info from socket... yes
+checking Type Of Service... yes
+checking Socket priority... yes
+
+Configuration of echoping:
+HTTP : enabled
+ICP : enabled
+OPENSSL : disabled
+GNUTLS : enabled
+SMTP : enabled
+LIBIDN : enabled
+TOS : enabled
+PRIORITY : enabled
+configure: creating ./config.status
+ /bin/bash ./config.status
+config.status: creating Makefile
+config.status: creating echoping.1
+config.status: creating compilation.h
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: executing depfiles commands
+cd . && /bin/bash /<<PKGBUILDDIR>>/missing --run autoheader
+aclocal.m4:14: error: this file was generated for autoconf 2.61.
+You have another version of autoconf.  If you want to use that,
+you should regenerate the build system entirely.
+aclocal.m4:14: the top level
+autom4te: /usr/bin/m4 failed with exit status: 63
+autoheader: '/usr/bin/autom4te' failed with exit status: 63
+WARNING: `autoheader' is probably too old.  You should only need it if
+         you modified `acconfig.h' or `configure.ac'.  You might want
+         to install the `Autoconf' and `GNU m4' packages.  Grab them
+         from any GNU archive site.
+rm -f stamp-h1
+touch config.h.in
+cd . && /bin/bash ./config.status config.h
+config.status: creating config.h
+config.status: config.h is unchanged
+/usr/bin/make  all-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in plugins
+make[3]: Entering directory '/<<PKGBUILDDIR>>/plugins'
+ cd . && /bin/bash ./config.status Makefile 
+config.status: creating Makefile
+Making all in dns
+make[4]: Entering directory '/<<PKGBUILDDIR>>/plugins/dns'
+ cd . && /bin/bash ./config.status Makefile depfiles
+config.status: creating Makefile
+config.status: executing depfiles commands
+/usr/bin/make  all-am
+make[5]: Entering directory '/<<PKGBUILDDIR>>/plugins/dns'
+/bin/bash ./libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.     -g -O2 -MT dns.lo -MD -MP -MF .deps/dns.Tpo -c -o dns.lo dns.c
+mkdir .libs
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -g -O2 -MT dns.lo -MD -MP -MF .deps/dns.Tpo -c dns.c  -fPIC -DPIC -o .libs/dns.o
+In file included from dns.c:6:
+../../echoping.h:107:3: warning: 'gnutls_session' is deprecated [-Wdeprecated-declarations]
+   gnutls_session tls;
+   ^~~~~~~~~~~~~~
+dns.c: In function 'nsError':
+dns.c:47:4: warning: implicit declaration of function 'to_upper'; did you mean 'si_upper'? [-Wimplicit-function-declaration]
+    to_upper(type_name), domain);
+    ^~~~~~~~
+    si_upper
+dns.c: In function 'init':
+dns.c:81:11: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   {"tcp", (char) NULL, POPT_ARG_NONE, &use_tcp, 0,
+           ^
+dns.c:84:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   {"no-recurse", (char) NULL, POPT_ARG_NONE, &no_recurse, 0,
+                  ^
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -g -O2 -MT dns.lo -MD -MP -MF .deps/dns.Tpo -c dns.c -o dns.o >/dev/null 2>&1
+mv -f .deps/dns.Tpo .deps/dns.Plo
+/bin/bash ./libtool --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -module  -o dns.la -rpath /usr/lib/echoping dns.lo  -lpopt  -lresolv
+arm-linux-gnueabihf-gcc -shared  .libs/dns.o  -lpopt -lresolv  -Wl,-soname -Wl,dns.so.0 -o .libs/dns.so.0.0.0
+(cd .libs && rm -f dns.so.0 && ln -s dns.so.0.0.0 dns.so.0)
+(cd .libs && rm -f dns.so && ln -s dns.so.0.0.0 dns.so)
+arm-linux-gnueabihf-ar cru .libs/dns.a  dns.o
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib .libs/dns.a
+creating dns.la
+(cd .libs && rm -f dns.la && ln -s ../dns.la dns.la)
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/plugins/dns'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/plugins/dns'
+Making all in ldap
+make[4]: Entering directory '/<<PKGBUILDDIR>>/plugins/ldap'
+ cd . && /bin/bash ./config.status Makefile depfiles
+config.status: creating Makefile
+config.status: executing depfiles commands
+/usr/bin/make  all-am
+make[5]: Entering directory '/<<PKGBUILDDIR>>/plugins/ldap'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/plugins/ldap'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/plugins/ldap'
+Making all in postgresql
+make[4]: Entering directory '/<<PKGBUILDDIR>>/plugins/postgresql'
+ cd . && /bin/bash ./config.status Makefile depfiles
+config.status: creating Makefile
+config.status: executing depfiles commands
+/usr/bin/make  all-am
+make[5]: Entering directory '/<<PKGBUILDDIR>>/plugins/postgresql'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/plugins/postgresql'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/plugins/postgresql'
+Making all in random
+make[4]: Entering directory '/<<PKGBUILDDIR>>/plugins/random'
+ cd . && /bin/bash ./config.status Makefile depfiles
+config.status: creating Makefile
+config.status: executing depfiles commands
+/usr/bin/make  all-am
+make[5]: Entering directory '/<<PKGBUILDDIR>>/plugins/random'
+/bin/bash ./libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.     -g -O2 -MT random.lo -MD -MP -MF .deps/random.Tpo -c -o random.lo random.c
+mkdir .libs
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -g -O2 -MT random.lo -MD -MP -MF .deps/random.Tpo -c random.c  -fPIC -DPIC -o .libs/random.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -g -O2 -MT random.lo -MD -MP -MF .deps/random.Tpo -c random.c -o random.o >/dev/null 2>&1
+mv -f .deps/random.Tpo .deps/random.Plo
+/bin/bash ./libtool --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -module  -o random.la -rpath /usr/lib/echoping random.lo  
+arm-linux-gnueabihf-gcc -shared  .libs/random.o   -Wl,-soname -Wl,random.so.0 -o .libs/random.so.0.0.0
+(cd .libs && rm -f random.so.0 && ln -s random.so.0.0.0 random.so.0)
+(cd .libs && rm -f random.so && ln -s random.so.0.0.0 random.so)
+arm-linux-gnueabihf-ar cru .libs/random.a  random.o
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib .libs/random.a
+creating random.la
+(cd .libs && rm -f random.la && ln -s ../random.la random.la)
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/plugins/random'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/plugins/random'
+Making all in whois
+make[4]: Entering directory '/<<PKGBUILDDIR>>/plugins/whois'
+ cd . && /bin/bash ./config.status Makefile depfiles
+config.status: creating Makefile
+config.status: executing depfiles commands
+/usr/bin/make  all-am
+make[5]: Entering directory '/<<PKGBUILDDIR>>/plugins/whois'
+/bin/bash ./libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.     -g -O2 -MT whois.lo -MD -MP -MF .deps/whois.Tpo -c -o whois.lo whois.c
+mkdir .libs
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -g -O2 -MT whois.lo -MD -MP -MF .deps/whois.Tpo -c whois.c  -fPIC -DPIC -o .libs/whois.o
+In file included from whois.c:8:
+../../echoping.h:107:3: warning: 'gnutls_session' is deprecated [-Wdeprecated-declarations]
+   gnutls_session tls;
+   ^~~~~~~~~~~~~~
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -g -O2 -MT whois.lo -MD -MP -MF .deps/whois.Tpo -c whois.c -o whois.o >/dev/null 2>&1
+mv -f .deps/whois.Tpo .deps/whois.Plo
+/bin/bash ./libtool --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -module  -o whois.la -rpath /usr/lib/echoping whois.lo  -lpopt 
+arm-linux-gnueabihf-gcc -shared  .libs/whois.o  -lpopt  -Wl,-soname -Wl,whois.so.0 -o .libs/whois.so.0.0.0
+(cd .libs && rm -f whois.so.0 && ln -s whois.so.0.0.0 whois.so.0)
+(cd .libs && rm -f whois.so && ln -s whois.so.0.0.0 whois.so)
+arm-linux-gnueabihf-ar cru .libs/whois.a  whois.o
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib .libs/whois.a
+creating whois.la
+(cd .libs && rm -f whois.la && ln -s ../whois.la whois.la)
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/plugins/whois'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/plugins/whois'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/plugins'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/plugins'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/plugins'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -MT echoping.o -MD -MP -MF .deps/echoping.Tpo -c -o echoping.o echoping.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -MT error.o -MD -MP -MF .deps/error.Tpo -c -o error.o error.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -MT readline.o -MD -MP -MF .deps/readline.Tpo -c -o readline.o readline.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -MT writen.o -MD -MP -MF .deps/writen.Tpo -c -o writen.o writen.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -MT util.o -MD -MP -MF .deps/util.Tpo -c -o util.o util.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -MT http.o -MD -MP -MF .deps/http.Tpo -c -o http.o http.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -MT icp.o -MD -MP -MF .deps/icp.Tpo -c -o icp.o icp.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -MT HTParse.o -MD -MP -MF .deps/HTParse.Tpo -c -o HTParse.o HTParse.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.     -g -O2 -Wall -MT smtp.o -MD -MP -MF .deps/smtp.Tpo -c -o smtp.o smtp.c
+In file included from icp.c:9:
+echoping.h:107:3: warning: ‘gnutls_session’ is deprecated [-Wdeprecated-declarations]
+   gnutls_session tls;
+   ^~~~~~~~~~~~~~
+icp.c: In function ‘recv_icp’:
+icp.c:92:64: warning: pointer targets in passing argument 6 of ‘recvfrom’ differ in signedness [-Wpointer-sign]
+  nr = recvfrom(sockfd, buf, DEFLINE, 0, (struct sockaddr *) 0, (int *) 0);
+                                                                ^~~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/netinet/in.h:23,
+                 from /usr/arm-linux-gnueabihf/include/netdb.h:27,
+                 from echoping.h:24,
+                 from icp.c:9:
+/usr/arm-linux-gnueabihf/include/sys/socket.h:163:16: note: expected ‘socklen_t * restrict’ {aka ‘unsigned int * restrict’} but argument is of type ‘int *’
+ extern ssize_t recvfrom (int __fd, void *__restrict __buf, size_t __n,
+                ^~~~~~~~
+mv -f .deps/icp.Tpo .deps/icp.Po
+In file included from error.c:1:
+echoping.h:107:3: warning: ‘gnutls_session’ is deprecated [-Wdeprecated-declarations]
+   gnutls_session tls;
+   ^~~~~~~~~~~~~~
+mv -f .deps/error.Tpo .deps/error.Po
+In file included from writen.c:8:
+echoping.h:107:3: warning: ‘gnutls_session’ is deprecated [-Wdeprecated-declarations]
+   gnutls_session tls;
+   ^~~~~~~~~~~~~~
+mv -f .deps/writen.Tpo .deps/writen.Po
+In file included from smtp.c:7:
+echoping.h:107:3: warning: ‘gnutls_session’ is deprecated [-Wdeprecated-declarations]
+   gnutls_session tls;
+   ^~~~~~~~~~~~~~
+mv -f .deps/smtp.Tpo .deps/smtp.Po
+In file included from readline.c:8:
+echoping.h:107:3: warning: ‘gnutls_session’ is deprecated [-Wdeprecated-declarations]
+   gnutls_session tls;
+   ^~~~~~~~~~~~~~
+readline.c: In function ‘TLS_readline’:
+readline.c:132:2: warning: ‘gnutls_session’ is deprecated [-Wdeprecated-declarations]
+  gnutls_session  session;
+  ^~~~~~~~~~~~~~
+mv -f .deps/readline.Tpo .deps/readline.Po
+In file included from http.c:3:
+echoping.h:107:3: warning: ‘gnutls_session’ is deprecated [-Wdeprecated-declarations]
+   gnutls_session tls;
+   ^~~~~~~~~~~~~~
+mv -f .deps/http.Tpo .deps/http.Po
+In file included from util.c:5:
+echoping.h:107:3: warning: ‘gnutls_session’ is deprecated [-Wdeprecated-declarations]
+   gnutls_session tls;
+   ^~~~~~~~~~~~~~
+mv -f .deps/util.Tpo .deps/util.Po
+In file included from HTParse.h:9,
+                 from HTParse.c:5:
+echoping.h:107:3: warning: ‘gnutls_session’ is deprecated [-Wdeprecated-declarations]
+   gnutls_session tls;
+   ^~~~~~~~~~~~~~
+HTParse.c: In function ‘HTParse’:
+HTParse.c:397:25: warning: comparison between pointer and zero character constant [-Wpointer-compare]
+      if (p != NULL && p != '\0' && access != NULL)
+                         ^~
+HTParse.c:397:23: note: did you mean to dereference the pointer?
+      if (p != NULL && p != '\0' && access != NULL)
+                       ^
+mv -f .deps/HTParse.Tpo .deps/HTParse.Po
+In file included from echoping.c:14:
+echoping.h:107:3: warning: ‘gnutls_session’ is deprecated [-Wdeprecated-declarations]
+   gnutls_session tls;
+   ^~~~~~~~~~~~~~
+echoping.c: In function ‘main’:
+echoping.c:137:2: warning: ‘gnutls_session’ is deprecated [-Wdeprecated-declarations]
+  gnutls_session  session;
+  ^~~~~~~~~~~~~~
+echoping.c:138:2: warning: ‘gnutls_certificate_credentials’ is deprecated [-Wdeprecated-declarations]
+  gnutls_certificate_credentials xcred;
+  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+echoping.c:473:4: warning: passing argument 1 to restrict-qualified parameter aliases with argument 3 [-Wrestrict]
+    sprintf(plugin_name, "%s.so", plugin_name);
+    ^~~~~~~
+echoping.c:1028:10: warning: ‘gnutls_transport_ptr’ is deprecated [-Wdeprecated-declarations]
+          (long) sockfd);
+          ^
+echoping.c:218:20: warning: iteration 20 invokes undefined behavior [-Waggressive-loop-optimizations]
+   results[i].valid = 0;
+   ~~~~~~~~~~~~~~~~~^~~
+echoping.c:217:2: note: within this loop
+  for (i = 0; i <= MAX_ITERATIONS; i++) {
+  ^~~
+echoping.c:1464:5: warning: ‘channel.fs’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     gnutls_bye(channel.tls, GNUTLS_SHUT_RDWR);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mv -f .deps/echoping.Tpo .deps/echoping.Po
+/bin/bash ./libtool --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -Wall -export-dynamic  -o echoping echoping.o error.o readline.o writen.o util.o http.o icp.o HTParse.o smtp.o  -ldl -lpopt  -lm -lidn 
+mkdir .libs
+arm-linux-gnueabihf-gcc -g -O2 -Wall -o echoping echoping.o error.o readline.o writen.o util.o http.o icp.o HTParse.o smtp.o -Wl,--export-dynamic  -ldl -lpopt -lm -lidn
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: echoping.o: in function `main':
+/<<PKGBUILDDIR>>/echoping.c:1464: undefined reference to `gnutls_bye'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/echoping.c:1465: undefined reference to `gnutls_deinit'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/echoping.c:1016: undefined reference to `gnutls_init'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/echoping.c:1020: undefined reference to `gnutls_priority_set_direct'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/echoping.c:1023: undefined reference to `gnutls_credentials_set'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/echoping.c:1026: undefined reference to `gnutls_transport_set_ptr'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/echoping.c:1029: undefined reference to `gnutls_handshake'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/echoping.c:1045: undefined reference to `gnutls_cipher_get'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/echoping.c:1045: undefined reference to `gnutls_cipher_get_name'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/echoping.c:767: undefined reference to `gnutls_global_init'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/echoping.c:768: undefined reference to `gnutls_certificate_allocate_credentials'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/echoping.c:1481: undefined reference to `gnutls_global_deinit'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/echoping.c:1121: undefined reference to `gnutls_record_send'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/echoping.c:1134: undefined reference to `gnutls_strerror'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/echoping.c:1038: undefined reference to `gnutls_strerror'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: readline.o: in function `TLS_readline':
+/<<PKGBUILDDIR>>/readline.c:159: undefined reference to `gnutls_record_recv'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/readline.c:143: undefined reference to `gnutls_record_recv'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/readline.c:180: undefined reference to `gnutls_record_recv'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /<<PKGBUILDDIR>>/readline.c:153: undefined reference to `gnutls_record_recv'
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: http.o: in function `read_from_server':
+/<<PKGBUILDDIR>>/http.c:107: undefined reference to `gnutls_strerror'
+collect2: error: ld returned 1 exit status
+make[3]: *** [Makefile:326: echoping] Error 1
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: *** [Makefile:443: all-recursive] Error 1
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: *** [Makefile:238: all] Error 2
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make: *** [debian/rules:58: build-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T16:00:37Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* dwz* gcc-8-base:armhf* gettext*
+  gettext-base* groff-base* intltool-debian* libarchive-zip-perl*
+  libasan5:armhf* libatomic1:armhf* libbsd0* libc6:armhf* libc6-dev:armhf*
+  libcroco3* libelf1* libevent-2.1-6:armhf* libffi6:armhf*
+  libfile-stripnondeterminism-perl* libgcc-8-dev:armhf* libgcc1:armhf*
+  libglib2.0-0* libgmp-dev:armhf* libgmp10:armhf* libgmpxx4ldbl:armhf*
+  libgnutls-dane0:armhf* libgnutls-openssl27:armhf* libgnutls28-dev:armhf*
+  libgnutls30:armhf* libgnutlsxx28:armhf* libgomp1:armhf* libhogweed4:armhf*
+  libidn11:armhf* libidn11-dev:armhf* libidn2-0:armhf* libidn2-dev:armhf*
+  libncurses6* libnettle6:armhf* libp11-kit-dev:armhf* libp11-kit0:armhf*
+  libpipeline1* libpopt-dev:armhf* libpopt0:armhf* libsigsegv2*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libtasn1-6:armhf*
+  libtasn1-6-dev:armhf* libtool* libubsan1:armhf* libuchardet0*
+  libunbound8:armhf* libunistring2:armhf* linux-libc-dev:armhf* m4* man-db*
+  nettle-dev:armhf* pkg-config* po-debconf*
+  sbuild-build-depends-main-dummy:armhf*
+0 upgraded, 0 newly installed, 66 to remove and 0 not upgraded.
+After this operation, 96.4 MB disk space will be freed.
+(Reading database ... 19645 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libgnutls28-dev:armhf (3.6.6-2) ...
+Removing libgnutlsxx28:armhf (3.6.6-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libgnutls-dane0:armhf (3.6.6-2) ...
+Removing libunbound8:armhf (1.9.0-2) ...
+Removing libpopt-dev:armhf (1.16-12) ...
+Removing libpopt0:armhf (1.16-12) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libevent-2.1-6:armhf (2.1.8-stable-4) ...
+Removing libp11-kit-dev:armhf (0.23.15-2) ...
+Removing libgnutls-openssl27:armhf (3.6.6-2) ...
+Removing libgnutls30:armhf (3.6.6-2) ...
+Removing libp11-kit0:armhf (0.23.15-2) ...
+Removing libffi6:armhf (3.2.1-9) ...
+Removing nettle-dev:armhf (3.4.1-1) ...
+Removing libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Removing libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Removing libidn11-dev:armhf (1.33-2.2) ...
+Removing pkg-config (0.29-6) ...
+Removing libhogweed4:armhf (3.4.1-1) ...
+Removing libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libidn11:armhf (1.33-2.2) ...
+Removing libidn2-dev:armhf (2.0.5-1) ...
+Removing libidn2-0:armhf (2.0.5-1) ...
+Removing libnettle6:armhf (3.4.1-1) ...
+Removing libtasn1-6-dev:armhf (4.13-3) ...
+Removing libtasn1-6:armhf (4.13-3) ...
+Removing libunistring2:armhf (0.9.10-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16458 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 67
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 9
+Job: /home/build/sbuild-setup/repo/pool/main/e/echoping/echoping_6.0.2-10.dsc
+Machine Architecture: amd64
+Package: echoping
+Package-Time: 81
+Source-Version: 6.0.2-10
+Space: n/a
+Status: attempted
+Version: 6.0.2-10
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T16:00:37Z
+Build needed 00:01:21, no disk space

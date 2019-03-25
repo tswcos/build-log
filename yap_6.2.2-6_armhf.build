@@ -1,0 +1,2026 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| yap 6.2.2-6 (armhf)                          Thu, 07 Mar 2019 16:18:30 +0000 |
++==============================================================================+
+
+Package: yap
+Version: 6.2.2-6
+Source Version: 6.2.2-6
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-64b8f304-a92a-43ae-9267-b87f3d68b44b' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/yap-uM9Nrv/resolver-3XeH9k' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/y/yap/yap_6.2.2-6.dsc exists in /home/build/sbuild-setup/repo/pool/main/y/yap; copying to chroot
+I: NOTICE: Log filtering will replace 'build/yap-uM9Nrv/yap-6.2.2' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/yap-uM9Nrv' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 5), autotools-dev, libreadline-dev, libgmp-dev, libncurses-dev, zlib1g-dev, texinfo, chrpath, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 5), autotools-dev, libreadline-dev, libgmp-dev, libncurses-dev, zlib1g-dev, texinfo, chrpath, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [438 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [528 B]
+Fetched 1923 B in 0s (132 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils chrpath debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgmp-dev:armhf libgmp10:armhf libgmpxx4ldbl:armhf
+  libgomp1:armhf libncurses-dev:armhf libncurses6 libncurses6:armhf
+  libncursesw6:armhf libpipeline1 libreadline-dev:armhf libreadline7:armhf
+  libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf libtext-unidecode-perl
+  libtinfo6:armhf libtool libubsan1:armhf libuchardet0 linux-libc-dev:armhf m4
+  man-db po-debconf tex-common texinfo zlib1g:armhf zlib1g-dev:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  gmp-doc:armhf libgmp10-doc:armhf libmpfr-dev:armhf ncurses-doc:armhf
+  readline-doc:armhf libstdc++-8-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk m4-doc apparmor less www-browser
+  libmail-box-perl texlive-base texlive-latex-base texlive-generic-recommended
+  texinfo-doc-nonfree texlive-fonts-recommended
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpm2 libgpm2:armhf libltdl-dev
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils chrpath debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgmp-dev:armhf libgmp10:armhf libgmpxx4ldbl:armhf
+  libgomp1:armhf libncurses-dev:armhf libncurses6 libncurses6:armhf
+  libncursesw6:armhf libpipeline1 libreadline-dev:armhf libreadline7:armhf
+  libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf libtext-unidecode-perl
+  libtinfo6:armhf libtool libubsan1:armhf libuchardet0 linux-libc-dev:armhf m4
+  man-db po-debconf sbuild-build-depends-main-dummy:armhf tex-common texinfo
+  zlib1g:armhf zlib1g-dev:armhf
+0 upgraded, 55 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1483 kB/22.3 MB of archives.
+After this operation, 95.0 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [948 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main amd64 tex-common all 6.11 [53.1 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main amd64 texinfo amd64 6.5.0.dfsg.1-5 [1429 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 1483 kB in 1s (1022 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16452 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package tex-common.
+Preparing to unpack .../06-tex-common_6.11_all.deb ...
+Unpacking tex-common (6.11) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../07-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../08-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../09-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../10-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../11-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../12-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../13-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package chrpath.
+Preparing to unpack .../14-chrpath_0.16-2+b1_amd64.deb ...
+Unpacking chrpath (0.16-2+b1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../15-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../16-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../17-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../18-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../19-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../20-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../21-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../22-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../23-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../24-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../25-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../26-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../27-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../28-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../29-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../30-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../31-libc6_2.28-8_armhf.deb ...
+Unpacking libc6:armhf (2.28-8) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../32-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../33-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../34-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../35-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../36-libc6-dev_2.28-8_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-8) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../37-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../38-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../39-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libgmp10:armhf.
+Preparing to unpack .../40-libgmp10_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libgmpxx4ldbl:armhf.
+Preparing to unpack .../41-libgmpxx4ldbl_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libgmp-dev:armhf.
+Preparing to unpack .../42-libgmp-dev_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../43-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../44-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../45-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../46-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libreadline7:armhf.
+Preparing to unpack .../47-libreadline7_7.0-5_armhf.deb ...
+Unpacking libreadline7:armhf (7.0-5) ...
+Selecting previously unselected package libreadline-dev:armhf.
+Preparing to unpack .../48-libreadline-dev_7.0-5_armhf.deb ...
+Unpacking libreadline-dev:armhf (7.0-5) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../49-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libtext-unidecode-perl.
+Preparing to unpack .../50-libtext-unidecode-perl_1.30-1_all.deb ...
+Unpacking libtext-unidecode-perl (1.30-1) ...
+Selecting previously unselected package texinfo.
+Preparing to unpack .../51-texinfo_6.5.0.dfsg.1-5_amd64.deb ...
+Unpacking texinfo (6.5.0.dfsg.1-5) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../52-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package zlib1g-dev:armhf.
+Preparing to unpack .../53-zlib1g-dev_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../54-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up tex-common (6.11) ...
+update-language: texlive-base not installed and configured, doing nothing!
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libtext-unidecode-perl (1.30-1) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up chrpath (0.16-2+b1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up texinfo (6.5.0.dfsg.1-5) ...
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-3) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-8) ...
+Setting up libc6-dev:armhf (2.28-8) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libreadline7:armhf (7.0-5) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libreadline-dev:armhf (7.0-5) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-8) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in amd64 arm64 armel armhf i386 powerpc ppc64el s390)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-15 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-8 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-15 binutils-arm-linux-gnueabihf_2.31.1-15 binutils-common_2.31.1-15 binutils-x86-64-linux-gnu_2.31.1-15 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.6 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 chrpath_0.16-2+b1 coreutils_8.30-3 cpp_4:8.3.0-1 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.3.0-2cross1 cpp-arm-linux-gnueabihf_4:8.3.0-1 cross-config_2.6.15-2 crossbuild-essential-armhf_12.6 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.13-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.45.0-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-4 findutils_4.6.0+git+20190209-2 g++_4:8.3.0-1 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.3.0-2cross1 g++-arm-linux-gnueabihf_4:8.3.0-1 gcc_4:8.3.0-1 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.3.0-2cross1 gcc-8-arm-linux-gnueabihf-base_8.3.0-2cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.3.0-2cross1 gcc-arm-linux-gnueabihf_4:8.3.0-1 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.13-1 gnupg-l10n_2.2.13-1 gnupg-utils_2.2.13-1 gpg_2.2.13-1 gpg-agent_2.2.13-1 gpg-wks-client_2.2.13-1 gpg-wks-server_2.2.13-1 gpgconf_2.2.13-1 gpgsm_2.2.13-1 gpgv_2.2.13-1 grep_3.3-1 groff-base_1.22.4-3 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.53-4 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.3.0-2cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.3.0-2cross1 libattr1_1:2.4.48-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-15 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-8 libc-dev-bin_2.28-8 libc6_2.28-8 libc6-armhf-cross_2.28-7cross1 libc6-dev_2.28-8 libc6-dev-armhf-cross_2.28-7cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.45.0-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.248 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.45.0-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.3.0-2cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.3.0-2cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp-dev_2:6.1.2+dfsg-4 libgmp10_2:6.1.2+dfsg-4 libgmpxx4ldbl_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.3.0-2cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-3 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-4 libmagic1_1:5.35-4 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libquadmath0_8.3.0-2 libreadline-dev_7.0-5 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.45.0-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtext-unidecode-perl_1.30-1 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.3.0-2cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-4 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.20-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tex-common_6.11 texinfo_6.5.0.dfsg.1-5 tzdata_2018i-2 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1 zlib1g-dev_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: yap
+Binary: yap
+Architecture: amd64 arm64 armel armhf i386 powerpc ppc64el s390
+Version: 6.2.2-6
+Maintainer: Ralf Treinen <treinen@debian.org>
+Homepage: http://www.dcc.fc.up.pt/~vsc/Yap/
+Standards-Version: 3.9.6
+Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/yap.git;a=summary
+Vcs-Git: git://anonscm.debian.org/collab-maint/yap.git
+Testsuite: autopkgtest
+Build-Depends: debhelper (>= 5), autotools-dev, libreadline-dev, libgmp-dev, libncurses-dev, zlib1g-dev, texinfo, chrpath
+Package-List:
+ yap deb devel extra arch=amd64,arm64,armel,armhf,i386,powerpc,ppc64el,s390
+Checksums-Sha1:
+ a02f80cac67c287645b2ced9502f5ea24a07f1c3 5499811 yap_6.2.2.orig.tar.gz
+ 88f06d8ee74636be734ed6c1aefc6d7f2a426e07 10512 yap_6.2.2-6.debian.tar.xz
+Checksums-Sha256:
+ f15f8382104443319a5883eafce5f52f4143b526c7f1cd88d19c1f63fc06d750 5499811 yap_6.2.2.orig.tar.gz
+ 692fbb8a874f01407172d75e98e8e6884e71e32f56b350821cf58da3bb60a6d3 10512 yap_6.2.2-6.debian.tar.xz
+Files:
+ 95eaa54978e4811ff6e504e7dca9e835 5499811 yap_6.2.2.orig.tar.gz
+ 64348dafb656fe810bf1f2d38cdad965 10512 yap_6.2.2-6.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAEBCAAGBQJVpW/BAAoJEHRcR2bUys3/aoYP/02D2OEw48j9u1d9zXJFf4th
+N98ajwGFtdcN2N2xw/HnTQSf9YuX+ZYRqB6i8x+Q7jYAg5yKDkDPWFhY5aRvxDxQ
+bBoeQZk7X+gmi/V4ST2h0EqkEO0IfFWNOVXODujz3FuidJbPTtojZg8K73CaTTiN
+75tBf7X7QTS55lqyALkCxLtKmihyI6KUp/OxMor1Lm6z1oymGrO+9+hkF9t1xUkP
+Cx9SFO8Flcjs/JMvO9/waiEvIMC4H4mbGg8Mo9XcKcAEobMbhODr5LmFL/L90yKC
+swNrOvENylrzzGhxSIz+ipdpkprLut1LuHkln9eieyK4mvC4BDmskGrW6IscdxDY
+VeB3c+b5e4Hiy4cIrBNT5NWyGpZshsXIb0j4jtSAZTaLo0m++9zRnt54sXIFQyWx
+MUCvdZJuc3kesdM7Lancxc4ruGVBCSAxz6xXAszOk53RwHaj0wSlOHIw1aSMHOmt
+bpgmBnwu4vPct/DaROo/FnzuIC+46iVjPYNe9qGn2o8rXo6Bl9Y6FXDHvGXgHz2t
+Bx2B1mmw5ZFsQiThWOQb3w2dQF9Gla6xuQsCGVk3it0k4fZ4SzApp0aoVyWDXQss
+j5Qmu7kYdCsq6e4j5/VfR89Fgr5amrjWUxGZXAUYLUPfH/4i1q7svI5UQ5LJuRDE
+ArtWK3pWQ52JyRxlJYO0
+=N4zN
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Tue Jul 14 20:23:29 2015 UTC
+gpgv:                using RSA key 745C4766D4CACDFF
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./yap_6.2.2-6.dsc
+dpkg-source: info: extracting yap in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking yap_6.2.2.orig.tar.gz
+dpkg-source: info: unpacking yap_6.2.2-6.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying pillow-info
+dpkg-source: info: applying include-stdlib
+dpkg-source: info: applying clpr-docu
+dpkg-source: info: applying yap-texinfo
+dpkg-source: info: applying tai-ldflags
+dpkg-source: info: applying replace-texi2html-by-makeinfo
+dpkg-source: warning: unexpected end of diff '/<<PKGBUILDDIR>>/debian/patches/upstream_6_3_branch_handle_unknown_arch'
+dpkg-source: info: applying upstream_6_3_branch_handle_unknown_arch
+dpkg-source: info: applying regexp
+dpkg-source: info: applying gcc5
+dpkg-source: info: applying off-by-one-when-initializing-yap-flags
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-64b8f304-a92a-43ae-9267-b87f3d68b44b
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package yap
+dpkg-buildpackage: info: source version 6.2.2-6
+dpkg-buildpackage: info: source distribution sid
+dpkg-buildpackage: info: source changed by Ralf Treinen <treinen@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+[ ! -h  config.guess ] || mv config.guess.upstream config.guess
+[ ! -h  config.sub ] || mv config.sub.upstream config.sub
+rm -f build-stamp config-stamp
+! [ -d arch ] || rm -r arch 
+dh_clean 
+dh_clean: Compatibility levels before 9 are deprecated (level 5 in use)
+ debian/rules build-arch
+dh_testdir
+mkdir arch
+[ -h config.guess ] || { mv config.guess config.guess.upstream; \
+	ln -s /usr/share/misc/config.guess; }
+[ -h config.sub ] || { mv config.sub config.sub.upstream; \
+	ln -s /usr/share/misc/config.sub; }
+cd arch && \
+../configure --host=arm-linux-gnueabihf \
+	--build=x86_64-linux-gnu \
+	--prefix=/usr \
+	--mandir=\${prefix}/share/man \
+	--infodir=\${prefix}/share/info \
+	CFLAGS="" LDFLAGS="-Wl,-z,relro"
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking for arm-linux-gnueabihf-g++... arm-linux-gnueabihf-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... yes
+checking for gawk... no
+checking for mawk... mawk
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking target system type... arm-unknown-linux-gnueabihf
+checking whether ln -s works... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-indent... no
+checking for indent... no
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-mpicc... no
+checking for mpicc... no
+checking for install-info... true
+checking for sh... /bin/bash
+checking for sin in -lm... yes
+checking for socket in -lsocket... no
+checking for getsockname in -lxnet... no
+checking for main in -lstdc++... yes
+checking for main in -lnsl... yes
+checking for main in -lcrypt... yes
+checking for main in -lnss_files... yes
+checking for main in -lnss_dns... yes
+checking for main in -lresolv... yes
+checking for main in -lreadline... yes
+checking for main in -lgmp... yes
+checking for zlibVersion in -lz... yes
+checking for main in -lmysqlclient... no
+checking for main in -lodbc... no
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for dlopen in -ldl... yes
+checking for zlibVersion in -lz... (cached) yes
+checking for main in -llam... no
+checking for ANSI C header files... no
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking arpa/inet.h usability... yes
+checking arpa/inet.h presence... yes
+checking for arpa/inet.h... yes
+checking alloca.h usability... yes
+checking alloca.h presence... yes
+checking for alloca.h... yes
+checking crypt.h usability... yes
+checking crypt.h presence... yes
+checking for crypt.h... yes
+checking ctype.h usability... yes
+checking ctype.h presence... yes
+checking for ctype.h... yes
+checking direct.h usability... no
+checking direct.h presence... no
+checking for direct.h... no
+checking dirent.h usability... yes
+checking dirent.h presence... yes
+checking for dirent.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking fenv.h usability... yes
+checking fenv.h presence... yes
+checking for fenv.h... yes
+checking float.h usability... yes
+checking float.h presence... yes
+checking for float.h... yes
+checking fpu_control.h usability... yes
+checking fpu_control.h presence... yes
+checking for fpu_control.h... yes
+checking ieeefp.h usability... no
+checking ieeefp.h presence... no
+checking for ieeefp.h... no
+checking io.h usability... no
+checking io.h presence... no
+checking for io.h... no
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking math.h usability... yes
+checking math.h presence... yes
+checking for math.h... yes
+checking memory.h usability... yes
+checking memory.h presence... yes
+checking for memory.h... yes
+checking mpe.h usability... no
+checking mpe.h presence... no
+checking for mpe.h... no
+checking mpi.h usability... no
+checking mpi.h presence... no
+checking for mpi.h... no
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking netinet/tcp.h usability... yes
+checking netinet/tcp.h presence... yes
+checking for netinet/tcp.h... yes
+checking pwd.h usability... yes
+checking pwd.h presence... yes
+checking for pwd.h... yes
+checking regex.h usability... yes
+checking regex.h presence... yes
+checking for regex.h... yes
+checking siginfo.h usability... no
+checking siginfo.h presence... no
+checking for siginfo.h... no
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking string.h usability... yes
+checking string.h presence... yes
+checking for string.h... yes
+checking stropts.h usability... yes
+checking stropts.h presence... yes
+checking for stropts.h... yes
+checking sys/conf.h usability... no
+checking sys/conf.h presence... no
+checking for sys/conf.h... no
+checking sys/dir.h usability... yes
+checking sys/dir.h presence... yes
+checking for sys/dir.h... yes
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking sys/ndir.h usability... no
+checking sys/ndir.h presence... no
+checking for sys/ndir.h... no
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/shm.h usability... yes
+checking sys/shm.h presence... yes
+checking for sys/shm.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/stat.h usability... yes
+checking sys/stat.h presence... yes
+checking for sys/stat.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/times.h usability... yes
+checking sys/times.h presence... yes
+checking for sys/times.h... yes
+checking sys/types.h usability... yes
+checking sys/types.h presence... yes
+checking for sys/types.h... yes
+checking sys/ucontext.h usability... yes
+checking sys/ucontext.h presence... yes
+checking for sys/ucontext.h... yes
+checking sys/un.h usability... yes
+checking sys/un.h presence... yes
+checking for sys/un.h... yes
+checking for sys/wait.h... (cached) yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking unistd.h usability... yes
+checking unistd.h presence... yes
+checking for unistd.h... yes
+checking utime.h usability... yes
+checking utime.h presence... yes
+checking for utime.h... yes
+checking wctype.h usability... yes
+checking wctype.h presence... yes
+checking for wctype.h... yes
+checking winsock.h usability... no
+checking winsock.h presence... no
+checking for winsock.h... no
+checking winsock2.h usability... no
+checking winsock2.h presence... no
+checking for winsock2.h... no
+checking zlib.h usability... yes
+checking zlib.h presence... yes
+checking for zlib.h... yes
+checking zutil.h usability... no
+checking zutil.h presence... no
+checking for zutil.h... no
+checking mach-o/dyld.h usability... no
+checking mach-o/dyld.h presence... no
+checking for mach-o/dyld.h... no
+checking gmp.h usability... yes
+checking gmp.h presence... yes
+checking for gmp.h... yes
+checking mysql/mysql.h usability... no
+checking mysql/mysql.h presence... no
+checking for mysql/mysql.h... no
+checking readline/readline.h usability... yes
+checking readline/readline.h presence... yes
+checking for readline/readline.h... yes
+checking for mpe.h... (cached) no
+checking for inline... inline
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking size of int *... 4
+checking size of short int... 2
+checking size of int... (cached) 4
+checking size of long int... 4
+checking size of long long int... 8
+checking size of float... (cached) 4
+checking size of double... (cached) 8
+checking for type of malloc... void *
+checking for gcc inline... yes
+checking for gcc threaded code... yes
+checking for IEEE floats... yes
+checking for sigsetjmp... yes
+checking for sigsegv... yes
+checking for sigprof... yes
+checking for siginfo... yes
+checking union wait... no
+checking environ... yes
+checking return type of signal handlers... void
+checking for _NSGetEnviron... no
+checking for access... yes
+checking for acosh... yes
+checking for alloca... no
+checking for asinh... yes
+checking for atanh... yes
+checking for chdir... yes
+checking for ctime... yes
+checking for dlopen... yes
+checking for dup2... yes
+checking for erf... yes
+checking for feclearexcept... yes
+checking for fesettrapenable... no
+checking for fgetpos... yes
+checking for finite... yes
+checking for fpclass... no
+checking for ftime... yes
+checking for getcwd... yes
+checking for getenv... yes
+checking for gethostbyname... yes
+checking for gethostent... yes
+checking for gethostid... yes
+checking for gethostname... yes
+checking for gethrtime... no
+checking for getpagesize... yes
+checking for getpwnam... yes
+checking for getrlimit... yes
+checking for getrusage... yes
+checking for gettimeofday... yes
+checking for getwd... yes
+checking for isatty... yes
+checking for isnan... yes
+checking for isinf... yes
+checking for kill... yes
+checking for labs... yes
+checking for link... yes
+checking for lgamma... yes
+checking for localtime... yes
+checking for lstat... yes
+checking for mallinfo... yes
+checking for mbsnrtowcs... yes
+checking for memcpy... yes
+checking for memmove... yes
+checking for mkstemp... yes
+checking for mktemp... yes
+checking for nanosleep... yes
+checking for mktime... yes
+checking for opendir... yes
+checking for putenv... yes
+checking for rand... yes
+checking for random... yes
+checking for readlink... yes
+checking for regexec... yes
+checking for rename... yes
+checking for rint... yes
+checking for rl_set_prompt... yes
+checking for sbrk... yes
+checking for select... yes
+checking for setbuf... yes
+checking for setitimer... yes
+checking for setsid... yes
+checking for setlinebuf... yes
+checking for sigaction... yes
+checking for siggetmask... yes
+checking for siginterrupt... yes
+checking for signal... yes
+checking for sigprocmask... yes
+checking for socket... yes
+checking for stat... yes
+checking for strchr... yes
+checking for strerror... yes
+checking for stricmp... no
+checking for strncat... yes
+checking for strncpy... yes
+checking for strtod... yes
+checking for time... yes
+checking for times... yes
+checking for tmpnam... yes
+checking for usleep... yes
+checking for utime... yes
+checking for vsnprintf... yes
+checking for regexec... (cached) yes
+checking for NSLinkModule... no
+checking for alarm... yes
+checking for mmap... yes
+checking for popen... yes
+checking for shmat... yes
+checking for sleep... yes
+checking for system... yes
+checking for ttyname... yes
+checking for waitpid... yes
+checking for fetestexcept... yes
+checking for snprintf... yes
+checking for mpz_xor... yes
+checking if fflush(NULL) clobbers input pipes... ../configure: line 9174: ./conftest: cannot execute binary file: Exec format error
+yes
+yes
+checking for pthread_create in -lpthread... yes
+checking for crypt in -lcrypt... yes
+checking for crypt... yes
+checking for socklen_t... yes
+checking for ssize_t... yes
+checking "variable timezone in tzset"... assuming no
+checking for struct tm.tm_gmtoff... yes
+checking _XOPEN_SOURCE... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating GPL/Makefile
+config.status: creating library/Makefile
+config.status: creating library/lammpi/Makefile
+config.status: creating library/matlab/Makefile
+config.status: creating library/matrix/Makefile
+config.status: creating library/mpi/Makefile
+config.status: creating library/random/Makefile
+config.status: creating library/regex/Makefile
+config.status: creating library/rltree/Makefile
+config.status: creating library/system/Makefile
+config.status: creating library/tries/Makefile
+config.status: creating LGPL/Makefile
+config.status: creating LGPL/clp/Makefile
+config.status: creating LGPL/swi_console/Makefile
+config.status: creating packages/clib/Makefile
+config.status: creating packages/clib/maildrop/rfc822/Makefile
+config.status: creating packages/clib/maildrop/rfc2045/Makefile
+config.status: creating packages/CLPBN/Makefile
+config.status: creating packages/cplint/Makefile
+config.status: creating packages/cplint/approx/simplecuddLPADs/Makefile
+config.status: creating packages/cplint/slipcase/Makefile
+config.status: creating packages/http/Makefile
+config.status: creating packages/tai/Makefile
+config.status: creating packages/tai/libtai/Makefile
+config.status: creating packages/PLStream/Makefile
+config.status: creating packages/plunit/Makefile
+config.status: creating packages/ProbLog/Makefile
+config.status: creating packages/RDF/Makefile
+config.status: creating packages/semweb/Makefile
+config.status: creating packages/sgml/Makefile
+config.status: creating packages/zlib/Makefile
+config.status: creating packages/chr/Makefile
+config.status: creating packages/clpqr/Makefile
+config.status: creating packages/swi-minisat2/Makefile
+config.status: creating packages/swi-minisat2/C/Makefile
+config.status: creating config.h
+touch config-stamp
+dh_testdir
+cd arch && make && make info html
+make[1]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+make[1]: Entering directory '/<<PKGBUILDDIR>>/arch'
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS -I../include ../console/yap.c -o yap.o
+../console/yap.c: In function ‘add_end_dot’:
+../console/yap.c:189:5: warning: ‘strncpy’ output truncated before terminating nul copying as many bytes from a string as its length [-Wstringop-truncation]
+     strncpy(p,arg,sz);
+     ^~~~~~~~~~~~~~~~~
+../console/yap.c:182:12: note: length computed here
+   int sz = strlen(arg), i;
+            ^~~~~~~~~~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/agc.c -o agc.o
+In file included from ../C/agc.c:202:
+../H/rheap.h: In function ‘RestoreForeignCode’:
+../H/rheap.h:967:7: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+       if (objs->next != NULL)
+       ^~
+../H/rheap.h:969:2: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  objs->name = AtomAdjust(objs->name);
+  ^~~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/absmi.c -o absmi.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/adtdefs.c -o adtdefs.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/alloc.c -o alloc.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/amasm.c -o amasm.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/analyst.c -o analyst.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/arrays.c -o arrays.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/arith0.c -o arith0.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/arith1.c -o arith1.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/arith2.c -o arith2.o
+../C/arith2.c: In function ‘p_rem’:
+../C/arith2.c:180:6: warning: variable ‘mod’ set but not used [-Wunused-but-set-variable]
+  Int mod;
+      ^~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/attvar.c -o attvar.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/bignum.c -o bignum.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/bb.c -o bb.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/cdmgr.c -o cdmgr.o
+../C/cdmgr.c: In function ‘decrease_log_indices’:
+../C/cdmgr.c:1282:14: warning: variable ‘op’ set but not used [-Wunused-but-set-variable]
+   op_numbers op;
+              ^~
+../C/cdmgr.c: In function ‘p_env_info’:
+../C/cdmgr.c:5414:14: warning: variable ‘pe’ set but not used [-Wunused-but-set-variable]
+   PredEntry *pe;
+              ^~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/cmppreds.c -o cmppreds.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/compiler.c -o compiler.o
+../C/compiler.c: In function ‘c_layout’:
+../C/compiler.c:2734:27: warning: variable ‘Arity’ set but not used [-Wunused-but-set-variable]
+   Int *up = cglobs->Uses, Arity;
+                           ^~~~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/computils.c -o computils.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/corout.c -o corout.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/cut_c.c -o cut_c.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/dbase.c -o dbase.o
+../C/dbase.c: In function ‘GetDBTerm’:
+../C/dbase.c:2464:2: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  if (H+NOf > ASP)
+  ^~
+../C/dbase.c:2466:4: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+    Yap_exit( 1);
+    ^~~~~~~~
+../C/dbase.c: In function ‘MyEraseClause’:
+../C/dbase.c:4158:19: warning: variable ‘clmask’ set but not used [-Wunused-but-set-variable]
+   SMALLUNSGN      clmask;
+                   ^~~~~~
+../C/dbase.c: In function ‘p_enqueue’:
+../C/dbase.c:5029:8: warning: variable ‘t’ set but not used [-Wunused-but-set-variable]
+   Term t;
+        ^
+../C/dbase.c: In function ‘p_enqueue_unlocked’:
+../C/dbase.c:5069:8: warning: variable ‘t’ set but not used [-Wunused-but-set-variable]
+   Term t;
+        ^
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/dlmalloc.c -o dlmalloc.o
+../C/dlmalloc.c: In function ‘Yap_RestoreDLMalloc’:
+../C/dlmalloc.c:2944:16: warning: variable ‘idx’ set but not used [-Wunused-but-set-variable]
+   unsigned int idx;
+                ^~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/errors.c -o errors.o
+../C/errors.c: In function ‘Yap_Error’:
+../C/errors.c:384:9: warning: variable ‘tp’ set but not used [-Wunused-but-set-variable]
+   char *tp = tmpbuf;
+         ^~
+../C/errors.c:1832:7: warning: ‘strncpy’ specified bound 1024 equals destination size [-Wstringop-truncation]
+       strncpy(Yap_ErrorSay, RepAtom(NameOfFunctor(FunctorOfTerm(nt[0])))->StrOfAE,\
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  MAX_ERROR_MSG_SIZE);
+  ~~~~~~~~~~~~~~~~~~~
+../C/errors.c:1828:7: warning: ‘strncpy’ specified bound 1024 equals destination size [-Wstringop-truncation]
+       strncpy(Yap_ErrorSay, RepAtom(AtomOfTerm(nt[0]))->StrOfAE, MAX_ERROR_MSG_SIZ\
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ E);
+ ~~     
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/eval.c -o eval.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/exec.c -o exec.o
+../C/exec.c: In function ‘Yap_execute_goal’:
+../C/exec.c:1143:22: warning: variable ‘old_B’ set but not used [-Wunused-but-set-variable]
+     choiceptr cut_B, old_B;
+                      ^~~~~
+../C/exec.c:1096:14: warning: variable ‘ppe’ set but not used [-Wunused-but-set-variable]
+   PredEntry *ppe;
+              ^~~
+../C/exec.c: In function ‘Yap_RunTopGoal’:
+../C/exec.c:1236:8: warning: variable ‘mod’ set but not used [-Wunused-but-set-variable]
+   Term mod = CurrentModule;
+        ^~~
+../C/exec.c: In function ‘p_execute5’:
+../C/exec.c:268:16: warning: iteration 1073741823 invokes undefined behavior [-Waggressive-loop-optimizations]
+       *H++ = pt[i];
+                ^
+../C/exec.c:267:5: note: within this loop
+     for (i = 0; i<arity-n;i++) {
+     ^~~
+../C/exec.c: In function ‘p_execute6’:
+../C/exec.c:268:16: warning: iteration 1073741823 invokes undefined behavior [-Waggressive-loop-optimizations]
+       *H++ = pt[i];
+                ^
+../C/exec.c:267:5: note: within this loop
+     for (i = 0; i<arity-n;i++) {
+     ^~~
+../C/exec.c: In function ‘p_execute7’:
+../C/exec.c:268:16: warning: iteration 1073741823 invokes undefined behavior [-Waggressive-loop-optimizations]
+       *H++ = pt[i];
+                ^
+../C/exec.c:267:5: note: within this loop
+     for (i = 0; i<arity-n;i++) {
+     ^~~
+../C/exec.c: In function ‘p_execute8’:
+../C/exec.c:268:16: warning: iteration 1073741823 invokes undefined behavior [-Waggressive-loop-optimizations]
+       *H++ = pt[i];
+                ^
+../C/exec.c:267:5: note: within this loop
+     for (i = 0; i<arity-n;i++) {
+     ^~~
+../C/exec.c: In function ‘p_execute10’:
+../C/exec.c:268:16: warning: iteration 1073741823 invokes undefined behavior [-Waggressive-loop-optimizations]
+       *H++ = pt[i];
+                ^
+../C/exec.c:267:5: note: within this loop
+     for (i = 0; i<arity-n;i++) {
+     ^~~
+../C/exec.c: In function ‘p_execute11’:
+../C/exec.c:268:16: warning: iteration 1073741823 invokes undefined behavior [-Waggressive-loop-optimizations]
+       *H++ = pt[i];
+                ^
+../C/exec.c:267:5: note: within this loop
+     for (i = 0; i<arity-n;i++) {
+     ^~~
+../C/exec.c: In function ‘p_execute4’:
+../C/exec.c:268:16: warning: iteration 1073741823 invokes undefined behavior [-Waggressive-loop-optimizations]
+       *H++ = pt[i];
+                ^
+../C/exec.c:267:5: note: within this loop
+     for (i = 0; i<arity-n;i++) {
+     ^~~
+../C/exec.c:268:16: warning: iteration 1073741823 invokes undefined behavior [-Waggressive-loop-optimizations]
+       *H++ = pt[i];
+                ^
+../C/exec.c:267:5: note: within this loop
+     for (i = 0; i<arity-n;i++) {
+     ^~~
+../C/exec.c: In function ‘p_execute9’:
+../C/exec.c:268:16: warning: iteration 1073741823 invokes undefined behavior [-Waggressive-loop-optimizations]
+       *H++ = pt[i];
+                ^
+../C/exec.c:267:5: note: within this loop
+     for (i = 0; i<arity-n;i++) {
+     ^~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/globals.c -o globals.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/gmp_support.c -o gmp_support.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/gprof.c -o gprof.o
+../C/gprof.c: In function ‘profile_names’:
+../C/gprof.c:689:5: warning: passing argument 1 to restrict-qualified parameter aliases with argument 3 [-Wrestrict]
+     sprintf(FNAME,"%s/PROFILING_%d",FNAME,getpid());
+     ^~~~~~~
+../C/gprof.c:691:5: warning: passing argument 1 to restrict-qualified parameter aliases with argument 3 [-Wrestrict]
+     sprintf(FNAME,"%s/PROFPREDS_%d",FNAME,getpid());
+     ^~~~~~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/grow.c -o grow.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/heapgc.c -o heapgc.o
+../C/heapgc.c: In function ‘sweep_trail’:
+../C/heapgc.c:2651:8: warning: variable ‘ptr’ set but not used [-Wunused-but-set-variable]
+  CELL *ptr;
+        ^~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/index.c -o index.o
+../C/index.c: In function ‘install_log_upd_clause’:
+../C/index.c:3626:7: warning: variable ‘last_arg’ set but not used [-Wunused-but-set-variable]
+   int last_arg = TRUE;
+       ^~~~~~~~
+../C/index.c: In function ‘expand_index’:
+../C/index.c:3927:10: warning: variable ‘eblk’ set but not used [-Wunused-but-set-variable]
+   yamop *eblk = NULL;
+          ^~~~
+../C/index.c: In function ‘ExpandIndex’:
+../C/index.c:4498:15: warning: variable ‘cl’ set but not used [-Wunused-but-set-variable]
+  StaticIndex *cl;
+               ^~
+../C/index.c: In function ‘add_to_index’:
+../C/index.c:5543:7: warning: variable ‘last_arg’ set but not used [-Wunused-but-set-variable]
+   int last_arg = TRUE;
+       ^~~~~~~~
+../C/index.c: In function ‘remove_from_index’:
+../C/index.c:6098:8: warning: variable ‘current_arity’ set but not used [-Wunused-but-set-variable]
+   UInt current_arity = 0;
+        ^~~~~~~~~~~~~
+../C/index.c: In function ‘Yap_FollowIndexingCode’:
+../C/index.c:6635:11: warning: variable ‘jlbl’ set but not used [-Wunused-but-set-variable]
+   yamop **jlbl = NULL;
+           ^~~~
+../C/index.c:6633:10: warning: variable ‘start_pc’ set but not used [-Wunused-but-set-variable]
+   yamop *start_pc = ipc;
+          ^~~~~~~~
+../C/index.c: In function ‘Yap_NthClause’:
+../C/index.c:7204:11: warning: variable ‘jlbl’ set but not used [-Wunused-but-set-variable]
+   yamop **jlbl = NULL;
+           ^~~~
+../C/index.c: In function ‘Yap_CleanUpIndex’:
+../C/index.c:7400:32: warning: variable ‘codep’ set but not used [-Wunused-but-set-variable]
+   yamop *start = blk->ClCode, *codep;
+                                ^~~~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/init.c -o init.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/inlines.c -o inlines.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/iopreds.c -o iopreds.o
+../C/iopreds.c: In function ‘p_always_prompt_user’:
+../C/iopreds.c:368:8: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+        if (Stream[0].status & Tty_Stream_f &&
+        ^~
+../C/iopreds.c:371:3: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   s->stream_wputc = put_wchar;
+   ^
+../C/iopreds.c: In function ‘LookupSWIStream’:
+../C/iopreds.c:3473:26: warning: assignment to ‘int (*)(int,  wchar_t)’ {aka ‘int (*)(int,  unsigned int)’} from incompatible pointer type ‘int (*)(int,  int)’ [-Wincompatible-pointer-types]
+   Stream[i].stream_wputc = IOSWIWidePutc;
+                          ^
+../C/iopreds.c: In function ‘StreamName’:
+../C/iopreds.c:3607:3: warning: this ‘else’ clause does not guard... [-Wmisleading-indentation]
+   else
+   ^~~~
+../C/iopreds.c:3611:5: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘else’
+     if (Stream[i].status & InMemory_Stream_f)
+     ^~
+../C/iopreds.c: In function ‘p_open’:
+../C/iopreds.c:2770:4: warning: array subscript 1 is above array bounds of ‘Term[1]’ {aka ‘unsigned int[1]’} [-Warray-bounds]
+  ta[1] = MkAtomTerm(AtomTrue);
+  ~~^~~
+../C/iopreds.c:2673:8: warning: ‘strncpy’ specified bound 1024 equals destination size [-Wstringop-truncation]
+   if (!strncpy(Yap_FileNameBuf, RepAtom (AtomOfTerm (file_name))->StrOfAE, YAP_FILENAME_MAX))
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/depth_bound.c -o depth_bound.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/mavar.c -o mavar.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../MYDDAS/myddas_mysql.c -o myddas_mysql.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../MYDDAS/myddas_odbc.c -o myddas_odbc.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../MYDDAS/myddas_shared.c -o myddas_shared.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../MYDDAS/myddas_initialization.c -o myddas_initialization.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../MYDDAS/myddas_util.c -o myddas_util.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../MYDDAS/myddas_statistics.c -o myddas_statistics.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../MYDDAS/myddas_top_level.c -o myddas_top_level.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../MYDDAS/myddas_wkb2prolog.c -o myddas_wkb2prolog.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/modules.c -o modules.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/other.c -o other.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/parser.c -o parser.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/readutil.c -o readutil.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/save.c -o save.o
+In file included from ../C/save.c:1198:
+../H/rheap.h: In function ‘RestoreForeignCode’:
+../H/rheap.h:967:7: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+       if (objs->next != NULL)
+       ^~
+../H/rheap.h:969:2: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  objs->name = AtomAdjust(objs->name);
+  ^~~~
+../C/save.c: In function ‘cat_file_name.constprop’:
+../C/save.c:1404:3: warning: ‘strncat’ specified bound 1024 equals destination size [-Wstringop-overflow=]
+   strncat(s,"/", max_length);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c: In function ‘myread.constprop’:
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c: In function ‘get_header_cell’:
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 975 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 51 or more bytes (assuming 1074) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c: In function ‘save_code_info’:
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c: In function ‘put_info.constprop’:
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c: In function ‘do_save’:
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c: In function ‘check_header’:
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 975 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 51 or more bytes (assuming 1074) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 975 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 51 or more bytes (assuming 1074) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 975 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 51 or more bytes (assuming 1074) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 975 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 51 or more bytes (assuming 1074) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 964 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 62 or more bytes (assuming 1085) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 966 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 60 or more bytes (assuming 1083) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:682:5: warning: ‘strncat’ specified bound 1024 equals destination size [-Wstringop-overflow=]
+     strncat(Yap_ErrorMessage, Yap_FileNameBuf, MAX_ERROR_MSG_SIZE);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c: In function ‘OpenRestore’:
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 982 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 44 or more bytes (assuming 1067) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 987 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 39 or more bytes (assuming 1062) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In function ‘cat_file_name.constprop’,
+    inlined from ‘OpenRestore’ at ../C/save.c:1466:7:
+../C/save.c:1400:3: warning: ‘strncpy’ specified bound 1024 equals destination size [-Wstringop-truncation]
+   strncpy(s, prefix, max_length);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In function ‘cat_file_name.constprop’,
+    inlined from ‘OpenRestore’ at ../C/save.c:1479:2:
+../C/save.c:1400:3: warning: ‘strncpy’ specified bound 1024 equals destination size [-Wstringop-truncation]
+   strncpy(s, prefix, max_length);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c: In function ‘OpenRestore’:
+../C/save.c:1539:7: warning: ‘strncpy’ output may be truncated copying 1023 bytes from a string of length 1024 [-Wstringop-truncation]
+       strncpy(Yap_FileNameBuf, save_buffer, YAP_FILENAME_MAX-1);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c: In function ‘Restore’:
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 985 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 41 or more bytes (assuming 1064) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/save.c: In function ‘Yap_SavedInfo’:
+../C/save.c:165:65: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 984 [-Wformat-truncation=]
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+                                                                 ^~                          ~~~~~~~~~~~~~~~
+../C/save.c:165:3: note: ‘snprintf’ output 42 or more bytes (assuming 1065) into a destination of size 1024
+   snprintf(Yap_ErrorSay,MAX_ERROR_MSG_SIZE,"%s (%s when reading %s)", msg, strerror(errno), Yap_FileNameBuf);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/scanner.c -o scanner.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/sort.c -o sort.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/stdpreds.c -o stdpreds.o
+../C/stdpreds.c: In function ‘p_atom_number’:
+../C/stdpreds.c:2249:12: warning: variable ‘s’ set but not used [-Wunused-but-set-variable]
+     char  *s;
+            ^
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/sysbits.c -o sysbits.o
+../C/sysbits.c: In function ‘Yap_InitSysPath’:
+../C/sysbits.c:249:3: warning: ‘strncat’ specified bound 1024 equals destination size [-Wstringop-overflow=]
+   strncat(Yap_FileNameBuf,"/", YAP_FILENAME_MAX);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/sysbits.c:252:3: warning: ‘strncat’ specified bound 1024 equals destination size [-Wstringop-overflow=]
+   strncat(Yap_FileNameBuf, "Yap", YAP_FILENAME_MAX);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/sysbits.c:265:7: warning: ‘strncat’ specified bound 1024 equals destination size [-Wstringop-overflow=]
+       strncat(Yap_FileNameBuf, "PrologCommons", YAP_FILENAME_MAX);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/sysbits.c: In function ‘TrueFileName’:
+../C/sysbits.c:2016:6: warning: ‘strncpy’ specified bound 1024 equals destination size [-Wstringop-truncation]
+      strncpy(ares1, yap_env, YAP_FILENAME_MAX);
+      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/sysbits.c:2011:4: warning: ‘strncpy’ specified bound 1024 equals destination size [-Wstringop-truncation]
+    strncpy(Yap_FileNameBuf, Yap_LibDir, YAP_FILENAME_MAX);
+    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/threads.c -o threads.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/tracer.c -o tracer.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS -I../include ../C/udi.c -o udi.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS -I../include ../packages/udi/rtree.c -o rtree.o
+../packages/udi/rtree.c: In function ‘RTreePrint’:
+../packages/udi/rtree.c:403:6: warning: suggest explicit braces to avoid ambiguous ‘else’ [-Wdangling-else]
+   if (t->level != 0)
+      ^
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS -I../include ../packages/udi/rtree_udi.c -o rtree_udi.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/unify.c -o unify.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/userpreds.c -o userpreds.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/utilpreds.c -o utilpreds.o
+../C/utilpreds.c: In function ‘AddAtomToHash’:
+../C/utilpreds.c:2778:10: warning: variable ‘start’ set but not used [-Wunused-but-set-variable]
+   CELL * start;
+          ^~~~~
+../C/utilpreds.c:2807:5: warning: ‘strncpy’ output truncated before terminating nul copying as many bytes from a string as its length [-Wstringop-truncation]
+     strncpy((char *)st, c, ulen);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/utilpreds.c:2794:16: note: length computed here
+     int ulen = strlen(c);
+                ^~~~~~~~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/write.c -o write.o
+../C/write.c: In function ‘wrputf’:
+../C/write.c:215:26: warning: variable ‘found_exp’ set but not used [-Wunused-but-set-variable]
+   int found_dot = FALSE, found_exp = FALSE;
+                          ^~~~~~~~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS -I../include  -I../library/dialect/swi/fli  ../library/dialect/swi/fli/blobs.c  -o blobs.o
+../library/dialect/swi/fli/blobs.c: In function ‘PL_blob_data’:
+../library/dialect/swi/fli/blobs.c:81:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+     if ( len )
+     ^~
+../library/dialect/swi/fli/blobs.c:83:7: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+       if ( type )
+       ^~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS -I../include  -I../library/dialect/swi/fli  ../library/dialect/swi/fli/swi.c  -o swi.o
+../library/dialect/swi/fli/swi.c: In function ‘PL_error’:
+../library/dialect/swi/fli/swi.c:1488:11: warning: variable ‘rc’ set but not used [-Wunused-but-set-variable]
+       int rc;
+           ^~
+../library/dialect/swi/fli/swi.c: In function ‘PL_recorded’:
+../library/dialect/swi/fli/swi.c:2339:33: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 3 has type ‘Term’ {aka ‘unsigned int’} [-Wformat=]
+   fprintf(stderr,"PL_recorded %ld\n", t);
+                               ~~^     ~
+                               %d
+../library/dialect/swi/fli/swi.c: In function ‘PL_module_name’:
+../library/dialect/swi/fli/swi.c:2481:8: warning: variable ‘t’ set but not used [-Wunused-but-set-variable]
+   Term t;
+        ^
+../library/dialect/swi/fli/swi.c: In function ‘PL_thread_attach_engine’:
+../library/dialect/swi/fli/swi.c:2784:11: warning: variable ‘wid’ set but not used [-Wunused-but-set-variable]
+       int wid;
+           ^~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/ypsocks.c -o ypsocks.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/ypstdio.c -o ypstdio.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/load_foreign.c -o load_foreign.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/load_dl.c -o load_dl.o
+In function ‘LoadForeign’,
+    inlined from ‘Yap_LoadForeign’ at ../C/load_dl.c:154:10:
+../C/load_dl.c:97:7: warning: ‘strncpy’ specified bound 1024 equals destination size [-Wstringop-truncation]
+       strncpy(Yap_FileNameBuf, AtomName(libs->name), YAP_FILENAME_MAX);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/load_dl.c: In function ‘Yap_ReLoadForeign’:
+../C/load_dl.c:97:7: warning: ‘strncpy’ specified bound 1024 equals destination size [-Wstringop-truncation]
+       strncpy(Yap_FileNameBuf, AtomName(libs->name), YAP_FILENAME_MAX);
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/load_dld.c -o load_dld.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/load_dyld.c -o load_dyld.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/load_none.c -o load_none.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/load_aout.c -o load_aout.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/load_aix.c -o load_aix.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/load_dll.c -o load_dll.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../C/load_shl.c -o load_shl.o
+arm-linux-gnueabihf-gcc -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS -I../include -c ../C/c_interface.c -o c_interface.o
+../C/c_interface.c: In function ‘YAP_cwd’:
+../C/c_interface.c:3070:3: warning: ‘strncpy’ output truncated before terminating nul copying as many bytes from a string as its length [-Wstringop-truncation]
+   strncpy(buf, Yap_FileNameBuf, len);
+   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../C/c_interface.c:3066:9: note: length computed here
+   len = strlen(Yap_FileNameBuf);
+         ^~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS -I../include -c ../C/clause_list.c -o clause_list.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../OPTYap/opt.memory.c -o opt.memory.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../OPTYap/opt.init.c -o opt.init.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../OPTYap/opt.preds.c -o opt.preds.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../OPTYap/or.engine.c -o or.engine.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../OPTYap/or.cowengine.c -o or.cowengine.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../OPTYap/or.sbaengine.c -o or.sbaengine.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../OPTYap/or.threadengine.c -o or.threadengine.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../OPTYap/or.scheduler.c -o or.scheduler.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../OPTYap/or.cut.c -o or.cut.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../OPTYap/tab.tries.c -o tab.tries.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../OPTYap/tab.completion.c -o tab.completion.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../BEAM/eamamasm.c -o eamamasm.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../BEAM/eam_showcode.c -o eam_showcode.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../BEAM/eamindex.c -o eamindex.o
+arm-linux-gnueabihf-gcc -c -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS ../BEAM/eam_am.c -o eam_am.o
+rm -f libYap.a
+arm-linux-gnueabihf-ar rc libYap.a agc.o absmi.o adtdefs.o alloc.o amasm.o analyst.o arrays.o arith0.o arith1.o arith2.o attvar.o bignum.o bb.o cdmgr.o cmppreds.o compiler.o computils.o corout.o cut_c.o dbase.o dlmalloc.o errors.o eval.o exec.o globals.o gmp_support.o gprof.o grow.o heapgc.o index.o init.o  inlines.o iopreds.o depth_bound.o mavar.o myddas_mysql.o myddas_odbc.o myddas_shared.o myddas_initialization.o myddas_util.o myddas_statistics.o myddas_top_level.o myddas_wkb2prolog.o modules.o other.o parser.o readutil.o save.o scanner.o sort.o stdpreds.o sysbits.o threads.o tracer.o udi.o rtree.o rtree_udi.o unify.o userpreds.o utilpreds.o write.o blobs.o swi.o ypsocks.o ypstdio.o  load_foreign.o load_dl.o load_dld.o load_dyld.o load_none.o load_aout.o load_aix.o load_dll.o load_shl.o c_interface.o clause_list.o opt.memory.o opt.init.o opt.preds.o or.engine.o or.cowengine.o or.sbaengine.o or.threadengine.o or.scheduler.o or.cut.o tab.tries.o tab.completion.o eamamasm.o eam_showcode.o eamindex.o eam_am.o 
+arm-linux-gnueabihf-ranlib libYap.a
+arm-linux-gnueabihf-gcc -O3 -fomit-frame-pointer -Wall -Wstrict-prototypes -Wmissing-prototypes  -DCUT_C=1  -DCOROUTINING=1 -DRATIONAL_TREES=1 -DDEPTH_LIMIT=1 -DHAVE_CONFIG_H -D_YAP_NOT_INSTALLED_=1 -I. -I../H -I../OPTYap -I../BEAM -I../MYDDAS -rdynamic -Wl,-z,relro -L/<<PKGBUILDDIR>>/arch -Wl,-R/usr/lib -Wl,-R,/usr/lib/Yap -o yap yap.o libYap.a -lgmp -lresolv -lnss_dns -lnss_files -lcrypt -lstdc++ -lm  -lreadline -lncurses -lz -ldl -lnsl 
+rm -f startup.yss
+echo "bootstrap('../pl/init.yap'). module(user). save_program('startup.yss')." |   ./yap -b ../pl/boot.yap
+/bin/bash: ./yap: cannot execute binary file: Exec format error
+make[1]: *** [Makefile:534: startup.yss] Error 126
+make[1]: Leaving directory '/<<PKGBUILDDIR>>/arch'
+make: *** [debian/rules:39: build-stamp] Error 2
+dpkg-buildpackage: error: debian/rules build-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-03-07T16:20:11Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* chrpath*
+  debhelper* dh-autoreconf* dh-strip-nondeterminism* dwz* gcc-8-base:armhf*
+  gettext* gettext-base* groff-base* intltool-debian* libarchive-zip-perl*
+  libasan5:armhf* libatomic1:armhf* libbsd0* libc6:armhf* libc6-dev:armhf*
+  libcroco3* libelf1* libfile-stripnondeterminism-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libglib2.0-0* libgmp-dev:armhf* libgmp10:armhf*
+  libgmpxx4ldbl:armhf* libgomp1:armhf* libncurses-dev:armhf* libncurses6*
+  libncurses6:armhf* libncursesw6:armhf* libpipeline1* libreadline-dev:armhf*
+  libreadline7:armhf* libsigsegv2* libstdc++-8-dev:armhf* libstdc++6:armhf*
+  libtext-unidecode-perl* libtinfo6:armhf* libtool* libubsan1:armhf*
+  libuchardet0* linux-libc-dev:armhf* m4* man-db* po-debconf*
+  sbuild-build-depends-main-dummy:armhf* tex-common* texinfo* zlib1g:armhf*
+  zlib1g-dev:armhf*
+0 upgraded, 0 newly installed, 55 to remove and 0 not upgraded.
+After this operation, 95.0 MB disk space will be freed.
+(Reading database ... 19994 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing chrpath (0.16-2+b1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Removing libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing libreadline-dev:armhf (7.0-5) ...
+Removing libreadline7:armhf (7.0-5) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-8) ...
+Removing libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing texinfo (6.5.0.dfsg.1-5) ...
+Running update-fmtutil. This may take some time. ... done.
+Removing libtext-unidecode-perl (1.30-1) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing tex-common (6.11) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-3) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-8) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-8) ...
+(Reading database ... 16476 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for tex-common (6.11) ...
+dpkg: warning: while removing tex-common, directory '/usr/share/texmf' not empty so not removed
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for texinfo (6.5.0.dfsg.1-5) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-8) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 87
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 10
+Job: /home/build/sbuild-setup/repo/pool/main/y/yap/yap_6.2.2-6.dsc
+Machine Architecture: amd64
+Package: yap
+Package-Time: 101
+Source-Version: 6.2.2-6
+Space: n/a
+Status: attempted
+Version: 6.2.2-6
+--------------------------------------------------------------------------------
+Finished at 2019-03-07T16:20:11Z
+Build needed 00:01:41, no disk space

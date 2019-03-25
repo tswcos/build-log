@@ -1,0 +1,2778 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| coinmp 1.8.3-2 (armhf)                       Fri, 01 Mar 2019 11:44:21 +0000 |
++==============================================================================+
+
+Package: coinmp
+Version: 1.8.3-2
+Source Version: 1.8.3-2
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-af7713ac-d9ab-41c2-9091-ec7aa906aec7' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/coinmp-X4nRmh/resolver-gex8u3' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/c/coinmp/coinmp_1.8.3-2.dsc exists in /home/build/sbuild-setup/repo/pool/main/c/coinmp; copying to chroot
+I: NOTICE: Log filtering will replace 'build/coinmp-X4nRmh/coinmp-1.8.3' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/coinmp-X4nRmh' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 9.0.0), autotools-dev, coinor-libcoinutils-dev, coinor-libosi-dev, coinor-libcbc-dev, coinor-libcgl-dev, coinor-libclp-dev, pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 9.0.0), autotools-dev, coinor-libcoinutils-dev, coinor-libosi-dev, coinor-libcbc-dev, coinor-libcgl-dev, coinor-libclp-dev, pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [433 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [528 B]
+Fetched 1918 B in 0s (156 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils
+  coinor-libcbc-dev:armhf coinor-libcbc3:armhf coinor-libcgl-dev:armhf
+  coinor-libcgl1:armhf coinor-libclp-dev:armhf coinor-libclp1:armhf
+  coinor-libcoinutils-dev:armhf coinor-libcoinutils3v5:armhf
+  coinor-libosi-dev:armhf coinor-libosi1v5:armhf debhelper dh-autoreconf
+  dh-strip-nondeterminism dwz gcc-8-base:armhf gettext gettext-base groff-base
+  intltool-debian libarchive-zip-perl libasan5:armhf libatomic1:armhf
+  libblas-dev:armhf libblas3:armhf libbsd0 libbz2-1.0:armhf libbz2-dev:armhf
+  libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libgfortran5:armhf libglib2.0-0 libgomp1:armhf liblapack-dev:armhf
+  liblapack3:armhf libncurses6 libpipeline1 libsigsegv2 libstdc++-8-dev:armhf
+  libstdc++6:armhf libtool libubsan1:armhf libuchardet0 linux-libc-dev:armhf
+  m4 man-db pkg-config po-debconf zlib1g:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  liblapack-doc:armhf glibc-doc:armhf libc-l10n:armhf locales:armhf
+  manpages-dev:armhf libstdc++-8-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk m4-doc apparmor less www-browser
+  libmail-box-perl
+Recommended packages:
+  curl | wget | lynx bzip2-doc:armhf libidn2-0:armhf libarchive-cpio-perl
+  libglib2.0-data shared-mime-info xdg-user-dirs libgpm2 libltdl-dev
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils
+  coinor-libcbc-dev:armhf coinor-libcbc3:armhf coinor-libcgl-dev:armhf
+  coinor-libcgl1:armhf coinor-libclp-dev:armhf coinor-libclp1:armhf
+  coinor-libcoinutils-dev:armhf coinor-libcoinutils3v5:armhf
+  coinor-libosi-dev:armhf coinor-libosi1v5:armhf debhelper dh-autoreconf
+  dh-strip-nondeterminism dwz gcc-8-base:armhf gettext gettext-base groff-base
+  intltool-debian libarchive-zip-perl libasan5:armhf libatomic1:armhf
+  libblas-dev:armhf libblas3:armhf libbsd0 libbz2-1.0:armhf libbz2-dev:armhf
+  libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libgfortran5:armhf libglib2.0-0 libgomp1:armhf liblapack-dev:armhf
+  liblapack3:armhf libncurses6 libpipeline1 libsigsegv2 libstdc++-8-dev:armhf
+  libstdc++6:armhf libtool libubsan1:armhf libuchardet0 linux-libc-dev:armhf
+  m4 man-db pkg-config po-debconf sbuild-build-depends-main-dummy:armhf
+  zlib1g:armhf
+0 upgraded, 59 newly installed, 0 to remove and 0 not upgraded.
+Need to get 7392 kB/27.8 MB of archives.
+After this operation, 115 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [952 B]
+Get:2 http://10.116.41.102/debian sid/main armhf libgfortran5 armhf 8.3.0-2 [212 kB]
+Get:3 http://10.116.41.102/debian sid/main armhf coinor-libcoinutils3v5 armhf 2.10.14+repack1-1 [378 kB]
+Get:4 http://10.116.41.102/debian sid/main armhf coinor-libosi1v5 armhf 0.107.9+repack1-1 [228 kB]
+Get:5 http://10.116.41.102/debian sid/main armhf coinor-libclp1 armhf 1.16.11+repack1-1 [694 kB]
+Get:6 http://10.116.41.102/debian sid/main armhf coinor-libcgl1 armhf 0.59.10+repack1-1 [339 kB]
+Get:7 http://10.116.41.102/debian sid/main armhf coinor-libcbc3 armhf 2.9.9+repack1-1 [564 kB]
+Get:8 http://10.116.41.102/debian sid/main armhf libblas-dev armhf 3.8.0-2 [117 kB]
+Get:9 http://10.116.41.102/debian sid/main armhf liblapack-dev armhf 3.8.0-2 [1680 kB]
+Get:10 http://10.116.41.102/debian sid/main armhf libbz2-dev armhf 1.0.6-9 [28.9 kB]
+Get:11 http://10.116.41.102/debian sid/main armhf coinor-libcoinutils-dev armhf 2.10.14+repack1-1 [721 kB]
+Get:12 http://10.116.41.102/debian sid/main armhf coinor-libosi-dev armhf 0.107.9+repack1-1 [312 kB]
+Get:13 http://10.116.41.102/debian sid/main armhf coinor-libclp-dev armhf 1.16.11+repack1-1 [898 kB]
+Get:14 http://10.116.41.102/debian sid/main armhf coinor-libcgl-dev armhf 0.59.10+repack1-1 [457 kB]
+Get:15 http://10.116.41.102/debian sid/main armhf coinor-libcbc-dev armhf 2.9.9+repack1-1 [764 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 7392 kB in 1s (6272 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../07-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../08-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../09-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../10-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../11-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../12-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../13-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../14-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../15-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../16-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libgfortran5:armhf.
+Preparing to unpack .../17-libgfortran5_8.3.0-2_armhf.deb ...
+Unpacking libgfortran5:armhf (8.3.0-2) ...
+Selecting previously unselected package libblas3:armhf.
+Preparing to unpack .../18-libblas3_3.8.0-2_armhf.deb ...
+Unpacking libblas3:armhf (3.8.0-2) ...
+Selecting previously unselected package libbz2-1.0:armhf.
+Preparing to unpack .../19-libbz2-1.0_1.0.6-9_armhf.deb ...
+Unpacking libbz2-1.0:armhf (1.0.6-9) ...
+Selecting previously unselected package liblapack3:armhf.
+Preparing to unpack .../20-liblapack3_3.8.0-2_armhf.deb ...
+Unpacking liblapack3:armhf (3.8.0-2) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../21-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package coinor-libcoinutils3v5:armhf.
+Preparing to unpack .../22-coinor-libcoinutils3v5_2.10.14+repack1-1_armhf.deb ...
+Unpacking coinor-libcoinutils3v5:armhf (2.10.14+repack1-1) ...
+Selecting previously unselected package coinor-libosi1v5:armhf.
+Preparing to unpack .../23-coinor-libosi1v5_0.107.9+repack1-1_armhf.deb ...
+Unpacking coinor-libosi1v5:armhf (0.107.9+repack1-1) ...
+Selecting previously unselected package coinor-libclp1:armhf.
+Preparing to unpack .../24-coinor-libclp1_1.16.11+repack1-1_armhf.deb ...
+Unpacking coinor-libclp1:armhf (1.16.11+repack1-1) ...
+Selecting previously unselected package coinor-libcgl1:armhf.
+Preparing to unpack .../25-coinor-libcgl1_0.59.10+repack1-1_armhf.deb ...
+Unpacking coinor-libcgl1:armhf (0.59.10+repack1-1) ...
+Selecting previously unselected package coinor-libcbc3:armhf.
+Preparing to unpack .../26-coinor-libcbc3_2.9.9+repack1-1_armhf.deb ...
+Unpacking coinor-libcbc3:armhf (2.9.9+repack1-1) ...
+Selecting previously unselected package libblas-dev:armhf.
+Preparing to unpack .../27-libblas-dev_3.8.0-2_armhf.deb ...
+Unpacking libblas-dev:armhf (3.8.0-2) ...
+Selecting previously unselected package liblapack-dev:armhf.
+Preparing to unpack .../28-liblapack-dev_3.8.0-2_armhf.deb ...
+Unpacking liblapack-dev:armhf (3.8.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../29-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../30-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libbz2-dev:armhf.
+Preparing to unpack .../31-libbz2-dev_1.0.6-9_armhf.deb ...
+Unpacking libbz2-dev:armhf (1.0.6-9) ...
+Selecting previously unselected package coinor-libcoinutils-dev:armhf.
+Preparing to unpack .../32-coinor-libcoinutils-dev_2.10.14+repack1-1_armhf.deb ...
+Unpacking coinor-libcoinutils-dev:armhf (2.10.14+repack1-1) ...
+Selecting previously unselected package coinor-libosi-dev:armhf.
+Preparing to unpack .../33-coinor-libosi-dev_0.107.9+repack1-1_armhf.deb ...
+Unpacking coinor-libosi-dev:armhf (0.107.9+repack1-1) ...
+Selecting previously unselected package coinor-libclp-dev:armhf.
+Preparing to unpack .../34-coinor-libclp-dev_1.16.11+repack1-1_armhf.deb ...
+Unpacking coinor-libclp-dev:armhf (1.16.11+repack1-1) ...
+Selecting previously unselected package coinor-libcgl-dev:armhf.
+Preparing to unpack .../35-coinor-libcgl-dev_0.59.10+repack1-1_armhf.deb ...
+Unpacking coinor-libcgl-dev:armhf (0.59.10+repack1-1) ...
+Selecting previously unselected package coinor-libcbc-dev:armhf.
+Preparing to unpack .../36-coinor-libcbc-dev_2.9.9+repack1-1_armhf.deb ...
+Unpacking coinor-libcbc-dev:armhf (2.9.9+repack1-1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../37-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../38-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../39-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../40-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../41-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../42-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../43-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../44-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../45-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../46-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../47-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../48-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../49-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../50-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../51-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../52-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../53-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../54-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../55-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../56-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../57-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../58-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-7) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libbz2-1.0:armhf (1.0.6-9) ...
+Setting up libbz2-dev:armhf (1.0.6-9) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libgfortran5:armhf (8.3.0-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libblas3:armhf (3.8.0-2) ...
+update-alternatives: using /usr/lib/arm-linux-gnueabihf/blas/libblas.so.3 to provide /usr/lib/arm-linux-gnueabihf/libblas.so.3 (libblas.so.3-arm-linux-gnueabihf) in auto mode
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libblas-dev:armhf (3.8.0-2) ...
+update-alternatives: using /usr/lib/arm-linux-gnueabihf/blas/libblas.so to provide /usr/lib/arm-linux-gnueabihf/libblas.so (libblas.so-arm-linux-gnueabihf) in auto mode
+Setting up liblapack3:armhf (3.8.0-2) ...
+update-alternatives: using /usr/lib/arm-linux-gnueabihf/lapack/liblapack.so.3 to provide /usr/lib/arm-linux-gnueabihf/liblapack.so.3 (liblapack.so.3-arm-linux-gnueabihf) in auto mode
+Setting up coinor-libcoinutils3v5:armhf (2.10.14+repack1-1) ...
+Setting up liblapack-dev:armhf (3.8.0-2) ...
+update-alternatives: using /usr/lib/arm-linux-gnueabihf/lapack/liblapack.so to provide /usr/lib/arm-linux-gnueabihf/liblapack.so (liblapack.so-arm-linux-gnueabihf) in auto mode
+Setting up coinor-libcoinutils-dev:armhf (2.10.14+repack1-1) ...
+Setting up coinor-libosi1v5:armhf (0.107.9+repack1-1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up coinor-libosi-dev:armhf (0.107.9+repack1-1) ...
+Setting up coinor-libclp1:armhf (1.16.11+repack1-1) ...
+Setting up coinor-libclp-dev:armhf (1.16.11+repack1-1) ...
+Setting up coinor-libcgl1:armhf (0.59.10+repack1-1) ...
+Setting up coinor-libcgl-dev:armhf (0.59.10+repack1-1) ...
+Setting up coinor-libcbc3:armhf (2.9.9+repack1-1) ...
+Setting up coinor-libcbc-dev:armhf (2.9.9+repack1-1) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coinor-libcbc-dev_2.9.9+repack1-1 coinor-libcbc3_2.9.9+repack1-1 coinor-libcgl-dev_0.59.10+repack1-1 coinor-libcgl1_0.59.10+repack1-1 coinor-libclp-dev_1.16.11+repack1-1 coinor-libclp1_1.16.11+repack1-1 coinor-libcoinutils-dev_2.10.14+repack1-1 coinor-libcoinutils3v5_2.10.14+repack1-1 coinor-libosi-dev_0.107.9+repack1-1 coinor-libosi1v5_0.107.9+repack1-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblas-dev_3.8.0-2 libblas3_3.8.0-2 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libbz2-dev_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libgfortran5_8.3.0-2 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 liblapack-dev_3.8.0-2 liblapack3_3.8.0-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: coinmp
+Binary: coinor-libcoinmp-dev, coinor-libcoinmp1v5
+Architecture: any
+Version: 1.8.3-2
+Maintainer: Debian Science Team <debian-science-maintainers@lists.alioth.debian.org>
+Uploaders: Rene Engelhard <rene@debian.org>
+Homepage: https://projects.coin-or.org/CoinMP
+Standards-Version: 3.9.3
+Build-Depends: debhelper (>= 9.0.0), autotools-dev, coinor-libcoinutils-dev, coinor-libosi-dev, coinor-libcbc-dev, coinor-libcgl-dev, coinor-libclp-dev, pkg-config
+Package-List:
+ coinor-libcoinmp-dev deb libdevel optional arch=any
+ coinor-libcoinmp1v5 deb libs optional arch=any
+Checksums-Sha1:
+ edf88c35292ac021853893077e4e050ef2c3c319 7109200 coinmp_1.8.3.orig.tar.gz
+ 1839e711af989af0ab20e358ac8e8376506e86cb 35360 coinmp_1.8.3-2.debian.tar.xz
+Checksums-Sha256:
+ 253ea6f55ba6cda18f35ccc8ebe6d6e2e9023df64d02f6536abc8b9ae4206681 7109200 coinmp_1.8.3.orig.tar.gz
+ 1f1348eb44a1204368fd98fd764d702443eacc0ff30dc5f3a14cc4696995d8bd 35360 coinmp_1.8.3-2.debian.tar.xz
+Files:
+ 85fefd18174f17f72ca76eb1134ea46b 7109200 coinmp_1.8.3.orig.tar.gz
+ 83f5633a478e5bc21fb5103cadc4a0af 35360 coinmp_1.8.3-2.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEE4S3qRnUGcM+pYIAdCqBFcdA+PnAFAlmivwkACgkQCqBFcdA+
+PnAj8xAArBcc0QzbXG88YQ/Ybu37zTYG7a6Cc06XfHwZe8R5L74o239RTOPLkFTz
+8OIt0HlIUnXmzQAmt/fzhodt4zCAPmLT3n1/Krv1orn8YmZILVg4IRxb5+V29HXa
+GtQqu9yCVMJ8YY9ZUKy6JfxayT7h9z8bAxr9fwYoYGtqF+de0kEuSoaqi1eLs2/z
+xjpu7C/yKC2eqM6n32RV7vZIDwNs5UIGw0ccx8RL8Rhmekf0Nh9HOWdwy05g4l/Y
+AAjGzd+X3e1NCitReG4NL1iCtyybwsR0m9qd9S26YDWOI94DMM+odmaiibx1kZfW
+UKtcp9gSYBxSp+afJHOBq4iByLDKUlgyWnRLEGSudG3/4EJL2Rcs1aeAfwIEH7XI
+qpVZTHWT0v8vXdedRGpTAGovrneL3S0GUtefZSjWNW4m3Nd7uEhfuF8qFp1z6/eZ
+Uabqz/dt4XhiT3+YpduRYwfq2iqZI9x7eP7NruFfdegorCBdg9JEmQbSwH4Qkmog
+DfpZtEsO4YHLt7LFtsMBIozBz/o7ZXJof2hlK+jlOMtQUG6ZteP/yIac28nCchTh
+PvVFFGPGFBbJwFAqXqDo98UEUsGWDe10SsRXlKZDD40HD9ABuQYgL1kpqTcm48rV
+VjRNX3PZpQqbPnZd5g8OsJxQaSwzuKT1NYs9C+zsOPpruTWwOh4=
+=LphA
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sun Aug 27 12:46:01 2017 UTC
+gpgv:                using RSA key E12DEA46750670CFA960801D0AA04571D03E3E70
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./coinmp_1.8.3-2.dsc
+dpkg-source: info: extracting coinmp in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking coinmp_1.8.3.orig.tar.gz
+dpkg-source: info: unpacking coinmp_1.8.3-2.debian.tar.xz
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-af7713ac-d9ab-41c2-9091-ec7aa906aec7
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package coinmp
+dpkg-buildpackage: info: source version 1.8.3-2
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Rene Engelhard <rene@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean --with autotools-dev
+dh: The autotools-dev sequence is deprecated and replaced by dh in debhelper (>= 9.20160115)
+dh: This feature will be removed in compat 12.
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+find CoinMP/test -name "*.mps.gz" -exec rm {} \;
+dh_auto_clean
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_autotools-dev_restoreconfig
+dh_autotools-dev_restoreconfig: dh_autotools-dev_restoreconfig is deprecated; please see dh_autotools-dev_restoreconfig(1) for a replacement
+dh_autotools-dev_restoreconfig: This feature will be removed in compat 12.
+   dh_clean
+ debian/rules build-arch
+dh build-arch --with autotools-dev
+dh: The autotools-dev sequence is deprecated and replaced by dh in debhelper (>= 9.20160115)
+dh: This feature will be removed in compat 12.
+   dh_update_autotools_config -a
+   dh_autotools-dev_updateconfig -a
+dh_autotools-dev_updateconfig: dh_autotools-dev_updateconfig is deprecated; please see dh_autotools-dev_updateconfig(1) for a replacement
+dh_autotools-dev_updateconfig: This feature will be removed in compat 12.
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+Package coinutils was not found in the pkg-config search path.
+Perhaps you should add the directory containing `coinutils.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'coinutils' found
+Package osi was not found in the pkg-config search path.
+Perhaps you should add the directory containing `osi.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'osi' found
+Package clp was not found in the pkg-config search path.
+Perhaps you should add the directory containing `clp.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'clp' found
+Package cgl was not found in the pkg-config search path.
+Perhaps you should add the directory containing `cgl.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'cgl' found
+Package cbc was not found in the pkg-config search path.
+Perhaps you should add the directory containing `cbc.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'cbc' found
+export COIN_SKIP_PROJECTS="Sample"; \
+dh_auto_configure -- --libdir=/usr/lib/arm-linux-gnueabihf \
+	--enable-dependency-linking \
+	 --with-coinutils-incdir=/usr/include/coin  --with-osi-incdir=/usr/include/coin  --with-clp-incdir=/usr/include/coin  --with-cgl-incdir=/usr/include/coin  --with-cbc-incdir=/usr/include/coin \
+	 --with-coinutils-libdir=/usr/lib/arm-linux-gnueabihf  --with-osi-libdir=/usr/lib/arm-linux-gnueabihf  --with-clp-libdir=/usr/lib/arm-linux-gnueabihf  --with-cgl-libdir=/usr/lib/arm-linux-gnueabihf  --with-cbc-libdir=/usr/lib/arm-linux-gnueabihf \
+	 --with-coinutils-lib=  --with-osi-lib=  --with-clp-lib=  --with-cgl-lib=  --with-cbc-lib=
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --libdir=/usr/lib/arm-linux-gnueabihf --enable-dependency-linking --with-coinutils-incdir=/usr/include/coin --with-osi-incdir=/usr/include/coin --with-clp-incdir=/usr/include/coin --with-cgl-incdir=/usr/include/coin --with-cbc-incdir=/usr/include/coin --with-coinutils-libdir=/usr/lib/arm-linux-gnueabihf --with-osi-libdir=/usr/lib/arm-linux-gnueabihf --with-clp-libdir=/usr/lib/arm-linux-gnueabihf --with-cgl-libdir=/usr/lib/arm-linux-gnueabihf --with-cbc-libdir=/usr/lib/arm-linux-gnueabihf --with-coinutils-lib= --with-osi-lib= --with-clp-lib= --with-cgl-lib= --with-cbc-lib=
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for egrep... grep -E
+checking whether ln -s works... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking whether source of project Sample is available and should be compiled... no, Sample has been specified in COIN_SKIP_PROJECTS
+checking whether source of project CoinUtils is available and should be compiled... no, --with-coinutils-lib has been specified
+checking whether source of project Osi is available and should be compiled... no, --with-osi-lib has been specified
+checking whether source of project Clp is available and should be compiled... no, --with-clp-lib has been specified
+checking whether source of project Cgl is available and should be compiled... no, --with-cgl-lib has been specified
+checking whether source of project Cbc is available and should be compiled... no, --with-cbc-lib has been specified
+checking whether source of project CoinMP is available and should be compiled... yes, source in CoinMP
+checking which command should be used to link input files... ln -s
+configure: creating ./config.status
+config.status: creating Makefile
+configure: configuring in CoinMP
+configure: running /bin/bash './configure' --prefix=/usr  '--build=x86_64-linux-gnu' '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--libdir=/usr/lib/arm-linux-gnueabihf' '--enable-dependency-linking' '--with-coinutils-incdir=/usr/include/coin' '--with-osi-incdir=/usr/include/coin' '--with-clp-incdir=/usr/include/coin' '--with-cgl-incdir=/usr/include/coin' '--with-cbc-incdir=/usr/include/coin' '--with-coinutils-libdir=/usr/lib/arm-linux-gnueabihf' '--with-osi-libdir=/usr/lib/arm-linux-gnueabihf' '--with-clp-libdir=/usr/lib/arm-linux-gnueabihf' '--with-cgl-libdir=/usr/lib/arm-linux-gnueabihf' '--with-cbc-libdir=/usr/lib/arm-linux-gnueabihf' '--with-coinutils-lib=' '--with-osi-lib=' '--with-clp-lib=' '--with-cgl-lib=' '--with-cbc-lib=' 'COIN_SKIP_PROJECTS=Sample' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' --cache-file=/dev/null --srcdir=.
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking for svnversion... no
+checking whether we want to compile in debug mode... no
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ANSI C... none needed
+configure: C compiler options are: -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security   -DCOINMP_BUILD
+checking for arm-linux-gnueabihf-g++... arm-linux-gnueabihf-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... yes
+checking whether C++ compiler arm-linux-gnueabihf-g++ works... yes
+configure: C++ compiler options are: -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security   -DCOINMP_BUILD
+checking for egrep... grep -E
+checking whether ln -s works... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for style of include used by make... GNU
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking dependency style of arm-linux-gnueabihf-g++... none
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking host system type... arm-unknown-linux-gnueabihf
+checking for a sed that does not truncate output... /bin/sed
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/arm-linux-gnueabihf-nm -B
+checking how to recognise dependent libraries... pass_all
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking how to run the C++ preprocessor... arm-linux-gnueabihf-g++ -E
+checking for arm-linux-gnueabihf-g77... no
+checking for arm-linux-gnueabihf-f77... no
+checking for arm-linux-gnueabihf-xlf... no
+checking for arm-linux-gnueabihf-frt... no
+checking for arm-linux-gnueabihf-pgf77... no
+checking for arm-linux-gnueabihf-fort77... no
+checking for arm-linux-gnueabihf-fl32... no
+checking for arm-linux-gnueabihf-af77... no
+checking for arm-linux-gnueabihf-f90... no
+checking for arm-linux-gnueabihf-xlf90... no
+checking for arm-linux-gnueabihf-pgf90... no
+checking for arm-linux-gnueabihf-epcf90... no
+checking for arm-linux-gnueabihf-f95... no
+checking for arm-linux-gnueabihf-fort... no
+checking for arm-linux-gnueabihf-xlf95... no
+checking for arm-linux-gnueabihf-ifc... no
+checking for arm-linux-gnueabihf-efc... no
+checking for arm-linux-gnueabihf-pgf95... no
+checking for arm-linux-gnueabihf-lf95... no
+checking for arm-linux-gnueabihf-gfortran... no
+checking for g77... no
+checking for f77... no
+checking for xlf... no
+checking for frt... no
+checking for pgf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for f90... no
+checking for xlf90... no
+checking for pgf90... no
+checking for epcf90... no
+checking for f95... no
+checking for fort... no
+checking for xlf95... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for gfortran... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking the maximum length of command line arguments... 32768
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for objdir... .libs
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by arm-linux-gnueabihf-g++... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking for arm-linux-gnueabihf-g++ option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-g++ PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-g++ static flag -static works... yes
+checking if arm-linux-gnueabihf-g++ supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+configure: Build is "x86_64-pc-linux-gnu".
+checking if library version is set... 9:3:8
+checking for arm-linux-gnueabihf-pkg-config... arm-linux-gnueabihf-pkg-config
+checking pkg-config is at least version 0.16.0... yes
+checking for COIN-OR package Cbc... yes
+checking which command should be used to link input files... ln -s
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating test/Makefile
+config.status: creating examples/Makefile
+config.status: creating coinmp.pc
+config.status: creating coinmp-uninstalled.pc
+config.status: creating src/config.h
+config.status: creating src/config_coinmp.h
+config.status: executing depfiles commands
+configure: In case of trouble, first consult the troubleshooting page at https://projects.coin-or.org/BuildTools/wiki/user-troubleshooting
+configure: Configuration of CoinMP successful
+configure: In case of trouble, first consult the troubleshooting page at https://projects.coin-or.org/BuildTools/wiki/user-troubleshooting
+configure: Main configuration of CoinMP successful
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_build -a
+	make -j1
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in CoinMP
+make[2]: Entering directory '/<<PKGBUILDDIR>>/CoinMP'
+Making all in src
+make[3]: Entering directory '/<<PKGBUILDDIR>>/CoinMP/src'
+make  all-am
+make[4]: Entering directory '/<<PKGBUILDDIR>>/CoinMP/src'
+/bin/bash ../libtool --tag=CXX --mode=compile arm-linux-gnueabihf-g++ -DHAVE_CONFIG_H -I. -I`echo .` -I.  -I/usr/include/coin  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security   -DCOINMP_BUILD -c -o CoinMP.lo CoinMP.cpp
+mkdir .libs
+ arm-linux-gnueabihf-g++ -DHAVE_CONFIG_H -I. -I. -I. -I/usr/include/coin -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DCOINMP_BUILD -c CoinMP.cpp  -fPIC -DPIC -o .libs/CoinMP.o
+/bin/bash ../libtool --tag=CC --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I`echo .` -I.  -I/usr/include/coin  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security   -DCOINMP_BUILD -c -o CoinProblem.lo CoinProblem.c
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I. -I/usr/include/coin -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DCOINMP_BUILD -c CoinProblem.c  -fPIC -DPIC -o .libs/CoinProblem.o
+/bin/bash ../libtool --tag=CC --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I`echo .` -I.  -I/usr/include/coin  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security   -DCOINMP_BUILD -c -o CoinResult.lo CoinResult.c
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I. -I/usr/include/coin -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DCOINMP_BUILD -c CoinResult.c  -fPIC -DPIC -o .libs/CoinResult.o
+/bin/bash ../libtool --tag=CC --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I`echo .` -I.  -I/usr/include/coin  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security   -DCOINMP_BUILD -c -o CoinSolver.lo CoinSolver.c
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I. -I/usr/include/coin -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DCOINMP_BUILD -c CoinSolver.c  -fPIC -DPIC -o .libs/CoinSolver.o
+/bin/bash ../libtool --tag=CC --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I`echo .` -I.  -I/usr/include/coin  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security   -DCOINMP_BUILD -c -o CoinOption.lo CoinOption.c
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I. -I. -I/usr/include/coin -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DCOINMP_BUILD -c CoinOption.c  -fPIC -DPIC -o .libs/CoinOption.o
+/bin/bash ../libtool --tag=CXX --mode=compile arm-linux-gnueabihf-g++ -DHAVE_CONFIG_H -I. -I`echo .` -I.  -I/usr/include/coin  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security   -DCOINMP_BUILD -c -o CoinCbc.lo CoinCbc.cpp
+ arm-linux-gnueabihf-g++ -DHAVE_CONFIG_H -I. -I. -I. -I/usr/include/coin -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -DCOINMP_BUILD -c CoinCbc.cpp  -fPIC -DPIC -o .libs/CoinCbc.o
+/bin/bash ../libtool --tag=CXX --mode=link arm-linux-gnueabihf-g++  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security   -DCOINMP_BUILD  -Wl,-z,relro -o libCoinMP.la -rpath /usr/lib/arm-linux-gnueabihf -no-undefined -version-info 9:3:8 CoinMP.lo CoinProblem.lo CoinResult.lo CoinSolver.lo CoinOption.lo CoinCbc.lo  
+arm-linux-gnueabihf-g++ -shared -nostdlib /usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/lib/crti.o /usr/lib/gcc-cross/arm-linux-gnueabihf/8/crtbeginS.o  .libs/CoinMP.o .libs/CoinProblem.o .libs/CoinResult.o .libs/CoinSolver.o .libs/CoinOption.o .libs/CoinCbc.o  -L/usr/lib/gcc-cross/arm-linux-gnueabihf/8 -L/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/lib -L/lib/arm-linux-gnueabihf -L/usr/lib/arm-linux-gnueabihf -lstdc++ -lm -lc -lgcc_s /usr/lib/gcc-cross/arm-linux-gnueabihf/8/crtendS.o /usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/lib/crtn.o  -Wl,-z -Wl,relro -Wl,-soname -Wl,libCoinMP.so.1 -o .libs/libCoinMP.so.1.8.3
+(cd .libs && rm -f libCoinMP.so.1 && ln -s libCoinMP.so.1.8.3 libCoinMP.so.1)
+(cd .libs && rm -f libCoinMP.so && ln -s libCoinMP.so.1.8.3 libCoinMP.so)
+creating libCoinMP.la
+(cd .libs && rm -f libCoinMP.la && ln -s ../libCoinMP.la libCoinMP.la)
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/CoinMP/src'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/CoinMP/src'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/CoinMP'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/CoinMP'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/CoinMP'
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_test -a
+ fakeroot debian/rules binary-arch
+dh binary-arch --with autotools-dev
+dh: The autotools-dev sequence is deprecated and replaced by dh in debhelper (>= 9.20160115)
+dh: This feature will be removed in compat 12.
+   dh_auto_test -a
+   dh_testroot -a
+   dh_prep -a
+   dh_auto_install -a
+	make -j1 install DESTDIR=/<<PKGBUILDDIR>>/debian/tmp AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+Making install in CoinMP
+make[2]: Entering directory '/<<PKGBUILDDIR>>/CoinMP'
+Making install in src
+make[3]: Entering directory '/<<PKGBUILDDIR>>/CoinMP/src'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/CoinMP/src'
+/<<PKGBUILDDIR>>/CoinMP/install-sh -c -m 644 config_coinmp.h /<<PKGBUILDDIR>>/debian/tmp/usr/include/coin/CoinMPConfig.h
+test -z "/usr/lib/arm-linux-gnueabihf" || mkdir -p -- "/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf"
+ /bin/bash ../libtool --mode=install /usr/bin/install -c  'libCoinMP.la' '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libCoinMP.la'
+/usr/bin/install -c .libs/libCoinMP.so.1.8.3 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libCoinMP.so.1.8.3
+(cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf && { ln -s -f libCoinMP.so.1.8.3 libCoinMP.so.1 || { rm -f libCoinMP.so.1 && ln -s libCoinMP.so.1.8.3 libCoinMP.so.1; }; })
+(cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf && { ln -s -f libCoinMP.so.1.8.3 libCoinMP.so || { rm -f libCoinMP.so && ln -s libCoinMP.so.1.8.3 libCoinMP.so; }; })
+/usr/bin/install -c .libs/libCoinMP.lai /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libCoinMP.la
+libtool: install: warning: remember to run `libtool --finish /usr/lib/arm-linux-gnueabihf'
+test -z "/usr/include/coin" || mkdir -p -- "/<<PKGBUILDDIR>>/debian/tmp/usr/include/coin"
+ /usr/bin/install -c -m 644 'CoinMP.h' '/<<PKGBUILDDIR>>/debian/tmp/usr/include/coin/CoinMP.h'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/CoinMP/src'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/CoinMP/src'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/CoinMP'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/CoinMP'
+test -z "/usr/share/coin/doc/CoinMP" || mkdir -p -- "/<<PKGBUILDDIR>>/debian/tmp/usr/share/coin/doc/CoinMP"
+for file in README AUTHORS LICENSE ; do \
+  if test -f "$file"; then dir=; else dir="./"; fi; \
+  if test -f "$dir$file"; then /usr/bin/install -c -m 644 "$dir$file" "/<<PKGBUILDDIR>>/debian/tmp/usr/share/coin/doc/CoinMP/$file"; fi; \
+done 
+test -z "/<<PKGBUILDDIR>>/debian/tmp/usr/share/coin/doc/CoinMP" || mkdir -p -- "/<<PKGBUILDDIR>>/debian/tmp/<<PKGBUILDDIR>>/debian/tmp/usr/share/coin/doc/CoinMP"
+ /usr/bin/install -c -m 644 'examples/Makefile' '/<<PKGBUILDDIR>>/debian/tmp/<<PKGBUILDDIR>>/debian/tmp/usr/share/coin/doc/CoinMP/Makefile'
+ /usr/bin/install -c -m 644 'examples/example.c' '/<<PKGBUILDDIR>>/debian/tmp/<<PKGBUILDDIR>>/debian/tmp/usr/share/coin/doc/CoinMP/example.c'
+test -z "/usr/lib/arm-linux-gnueabihf/pkgconfig" || mkdir -p -- "/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/pkgconfig"
+ /usr/bin/install -c -m 644 'coinmp.pc' '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/pkgconfig/coinmp.pc'
+make  install-data-hook
+make[5]: Entering directory '/<<PKGBUILDDIR>>/CoinMP'
+PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig::/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/pkgconfig \
+arm-linux-gnueabihf-pkg-config --libs coinmp > /<<PKGBUILDDIR>>/debian/tmp/usr/share/coin/doc/CoinMP/coinmp_addlibs.txt
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/CoinMP'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/CoinMP'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/CoinMP'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/CoinMP'
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_install -a
+   dh_installdocs -a
+   dh_installchangelogs -a
+   dh_installexamples -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   dh_missing -a
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+dpkg-shlibdeps: warning: symbol _ZN15CbcEventHandlerC2ERKS_ used by debian/coinor-libcoinmp1v5/usr/lib/arm-linux-gnueabihf/libCoinMP.so.1.8.3 found in none of the libraries
+dpkg-shlibdeps: warning: symbol _ZN18CoinMessageHandleraSERKS_ used by debian/coinor-libcoinmp1v5/usr/lib/arm-linux-gnueabihf/libCoinMP.so.1.8.3 found in none of the libraries
+dpkg-shlibdeps: warning: symbol _ZTI15CbcEventHandler used by debian/coinor-libcoinmp1v5/usr/lib/arm-linux-gnueabihf/libCoinMP.so.1.8.3 found in none of the libraries
+dpkg-shlibdeps: warning: symbol _ZN9CglGomory7setAwayEd used by debian/coinor-libcoinmp1v5/usr/lib/arm-linux-gnueabihf/libCoinMP.so.1.8.3 found in none of the libraries
+dpkg-shlibdeps: warning: symbol _ZN9CglCliqueC1Ebb used by debian/coinor-libcoinmp1v5/usr/lib/arm-linux-gnueabihf/libCoinMP.so.1.8.3 found in none of the libraries
+dpkg-shlibdeps: warning: symbol _ZN8ClpModel21setDualObjectiveLimitEd used by debian/coinor-libcoinmp1v5/usr/lib/arm-linux-gnueabihf/libCoinMP.so.1.8.3 found in none of the libraries
+dpkg-shlibdeps: warning: symbol _ZN10ClpSimplex12initialSolveEv used by debian/coinor-libcoinmp1v5/usr/lib/arm-linux-gnueabihf/libCoinMP.so.1.8.3 found in none of the libraries
+dpkg-shlibdeps: warning: symbol _ZN8CbcModel18passInEventHandlerEPK15CbcEventHandler used by debian/coinor-libcoinmp1v5/usr/lib/arm-linux-gnueabihf/libCoinMP.so.1.8.3 found in none of the libraries
+dpkg-shlibdeps: warning: symbol _ZN8CbcModel16passInPrioritiesEPKib used by debian/coinor-libcoinmp1v5/usr/lib/arm-linux-gnueabihf/libCoinMP.so.1.8.3 found in none of the libraries
+dpkg-shlibdeps: warning: symbol _ZN15ClpEventHandlerD2Ev used by debian/coinor-libcoinmp1v5/usr/lib/arm-linux-gnueabihf/libCoinMP.so.1.8.3 found in none of the libraries
+dpkg-shlibdeps: warning: 75 other similar warnings have been skipped (use -v to see them all)
+   dh_installdeb -a
+   dh_gencontrol -a
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'coinor-libcoinmp1v5-dbgsym' in '../coinor-libcoinmp1v5-dbgsym_1.8.3-2_armhf.deb'.
+dpkg-deb: building package 'coinor-libcoinmp1v5' in '../coinor-libcoinmp1v5_1.8.3-2_armhf.deb'.
+dpkg-deb: building package 'coinor-libcoinmp-dev' in '../coinor-libcoinmp-dev_1.8.3-2_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../coinmp_1.8.3-2_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T11:44:53Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+coinmp_1.8.3-2_armhf.changes:
+-----------------------------
+
+Format: 1.8
+Date: Sun, 27 Aug 2017 12:42:17 +0000
+Source: coinmp
+Binary: coinor-libcoinmp-dev coinor-libcoinmp1v5 coinor-libcoinmp1v5-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 1.8.3-2
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Debian Science Team <debian-science-maintainers@lists.alioth.debian.org>
+Changed-By: Rene Engelhard <rene@debian.org>
+Description:
+ coinor-libcoinmp-dev - Simple C API for COIN-OR Solvers Clp and Cbc -- development
+ coinor-libcoinmp1v5 - Simple C API for COIN-OR Solvers Clp and Cbc -- library
+Changes:
+ coinmp (1.8.3-2) unstable; urgency=medium
+ .
+   * upload to unstable
+ .
+   * fix COIN_SKIP_PROJECTS setting
+Checksums-Sha1:
+ f17251c7edc8d40ad03b1abeb2405df6d5f4e3bd 5444 coinmp_1.8.3-2_armhf.buildinfo
+ f10a8761856202eff97dc7f04b665441323d8c2c 91912 coinor-libcoinmp-dev_1.8.3-2_armhf.deb
+ 243611536f4fc81e478b1bf344e9847c6dfa9b93 146344 coinor-libcoinmp1v5-dbgsym_1.8.3-2_armhf.deb
+ c43a5c8450870febe3ef339912603f437ebe0592 26640 coinor-libcoinmp1v5_1.8.3-2_armhf.deb
+Checksums-Sha256:
+ 3c80ce9a78c223ccb1c011f3d507cec56c14cf66972a5c7a872156c5a29e060d 5444 coinmp_1.8.3-2_armhf.buildinfo
+ 3deddd19b6b8b5195b24cd263855446b1670be536420f024faff9f9087a4fe6d 91912 coinor-libcoinmp-dev_1.8.3-2_armhf.deb
+ c78ab66a076bc4e80b90ef572d6737ce98175363ab556a7c22f43a6eb98d54b4 146344 coinor-libcoinmp1v5-dbgsym_1.8.3-2_armhf.deb
+ 7bdebbfda458daa6c61bb5cd94f850b76abc59cd96b7566a01c25f008f75a395 26640 coinor-libcoinmp1v5_1.8.3-2_armhf.deb
+Files:
+ 282bc7ac9d16143fcfd9713d75364a7d 5444 libs optional coinmp_1.8.3-2_armhf.buildinfo
+ 7fe2c3a1757c16f3b1674d5d97fdbff8 91912 libdevel optional coinor-libcoinmp-dev_1.8.3-2_armhf.deb
+ 3641131d1fbc44f4f221c579a603f48e 146344 debug optional coinor-libcoinmp1v5-dbgsym_1.8.3-2_armhf.deb
+ 613cc07172dfb350e89e8a634bbf2efc 26640 libs optional coinor-libcoinmp1v5_1.8.3-2_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: coinmp
+Binary: coinor-libcoinmp-dev coinor-libcoinmp1v5
+Architecture: armhf
+Version: 1.8.3-2
+Checksums-Md5:
+ 7fe2c3a1757c16f3b1674d5d97fdbff8 91912 coinor-libcoinmp-dev_1.8.3-2_armhf.deb
+ 3641131d1fbc44f4f221c579a603f48e 146344 coinor-libcoinmp1v5-dbgsym_1.8.3-2_armhf.deb
+ 613cc07172dfb350e89e8a634bbf2efc 26640 coinor-libcoinmp1v5_1.8.3-2_armhf.deb
+Checksums-Sha1:
+ f10a8761856202eff97dc7f04b665441323d8c2c 91912 coinor-libcoinmp-dev_1.8.3-2_armhf.deb
+ 243611536f4fc81e478b1bf344e9847c6dfa9b93 146344 coinor-libcoinmp1v5-dbgsym_1.8.3-2_armhf.deb
+ c43a5c8450870febe3ef339912603f437ebe0592 26640 coinor-libcoinmp1v5_1.8.3-2_armhf.deb
+Checksums-Sha256:
+ 3deddd19b6b8b5195b24cd263855446b1670be536420f024faff9f9087a4fe6d 91912 coinor-libcoinmp-dev_1.8.3-2_armhf.deb
+ c78ab66a076bc4e80b90ef572d6737ce98175363ab556a7c22f43a6eb98d54b4 146344 coinor-libcoinmp1v5-dbgsym_1.8.3-2_armhf.deb
+ 7bdebbfda458daa6c61bb5cd94f850b76abc59cd96b7566a01c25f008f75a395 26640 coinor-libcoinmp1v5_1.8.3-2_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Fri, 01 Mar 2019 11:44:53 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ coinor-libcbc-dev (= 2.9.9+repack1-1),
+ coinor-libcbc3 (= 2.9.9+repack1-1),
+ coinor-libcgl-dev (= 0.59.10+repack1-1),
+ coinor-libcgl1 (= 0.59.10+repack1-1),
+ coinor-libclp-dev (= 1.16.11+repack1-1),
+ coinor-libclp1 (= 1.16.11+repack1-1),
+ coinor-libcoinutils-dev (= 2.10.14+repack1-1),
+ coinor-libcoinutils3v5 (= 2.10.14+repack1-1),
+ coinor-libosi-dev (= 0.107.9+repack1-1),
+ coinor-libosi1v5 (= 0.107.9+repack1-1),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.52-5),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libblas-dev (= 3.8.0-2),
+ libblas3 (= 3.8.0-2),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libbz2-dev (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libgfortran5 (= 8.3.0-2),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ liblapack-dev (= 3.8.0-2),
+ liblapack3 (= 3.8.0-2),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libquadmath0 (= 8.3.0-2),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1503837737"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+coinor-libcoinmp-dev_1.8.3-2_armhf.deb
+--------------------------------------
+
+ new Debian package, version 2.0.
+ size 91912 bytes: control archive=2068 bytes.
+     857 bytes,    21 lines      control              
+    4367 bytes,    44 lines      md5sums              
+ Package: coinor-libcoinmp-dev
+ Source: coinmp
+ Version: 1.8.3-2
+ Architecture: armhf
+ Maintainer: Debian Science Team <debian-science-maintainers@lists.alioth.debian.org>
+ Installed-Size: 204
+ Depends: coinor-libcoinmp1v5 (= 1.8.3-2), coinor-libcbc-dev
+ Section: libdevel
+ Priority: optional
+ Multi-Arch: same
+ Homepage: https://projects.coin-or.org/CoinMP
+ Description: Simple C API for COIN-OR Solvers Clp and Cbc -- development
+  The Coin-MP optimizer is an open source solver, it is part of the COIN-OR
+  project which is an initiative to spur the development of open-source software
+  for the operations research community.
+  .
+  CoinMP is a C-API library that supports most of the functionality of CLP
+  (Coin LP), CBC (Coin Branch-and-Cut), and CGL (Cut Generation Library)
+  projects.
+  .
+  This package contains the files needed to build applications using libCoinMP.
+
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/include/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/include/coin/
+-rw-r--r-- root/root     23260 2017-08-27 12:42 ./usr/include/coin/CoinMP.h
+-rw-r--r-- root/root       358 2017-08-27 12:42 ./usr/include/coin/CoinMPConfig.h
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/lib/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/lib/arm-linux-gnueabihf/
+lrwxrwxrwx root/root         0 2017-08-27 12:42 ./usr/lib/arm-linux-gnueabihf/libCoinMP.so -> libCoinMP.so.1.8.3
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/lib/arm-linux-gnueabihf/pkgconfig/
+-rw-r--r-- root/root       296 2017-08-27 12:42 ./usr/lib/arm-linux-gnueabihf/pkgconfig/coinmp.pc
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/share/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/share/doc/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/share/doc/coinor-libcoinmp-dev/
+-rw-r--r-- root/root       277 2008-07-29 20:51 ./usr/share/doc/coinor-libcoinmp-dev/README
+-rw-r--r-- root/root       564 2017-08-27 12:42 ./usr/share/doc/coinor-libcoinmp-dev/changelog.Debian.gz
+-rw-r--r-- root/root     24871 2017-08-27 09:18 ./usr/share/doc/coinor-libcoinmp-dev/copyright
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/share/doc/coinor-libcoinmp-dev/examples/
+-rw-r--r-- root/root      2947 2017-08-27 12:42 ./usr/share/doc/coinor-libcoinmp-dev/examples/Makefile
+-rw-r--r-- root/root      2845 2011-08-07 15:02 ./usr/share/doc/coinor-libcoinmp-dev/examples/Makefile.in
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/
+-rw-r--r-- root/root      1221 2013-12-01 21:05 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/CoinMPTestCS9.csproj.gz
+-rw-r--r-- root/root      1221 2013-12-01 21:05 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/CoinMPTestCS9.sln
+-rw-r--r-- root/root      2543 2013-09-20 08:06 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/Coinmp.cs.gz
+-rw-r--r-- root/root      3326 2009-05-29 03:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/Form1.Designer.cs
+-rw-r--r-- root/root      1585 2009-11-17 05:36 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/Form1.cs
+-rw-r--r-- root/root      1505 2009-05-29 03:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/Form1.resx.gz
+-rw-r--r-- root/root      1867 2009-05-29 03:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/LogHandler.cs
+-rw-r--r-- root/root      1145 2009-05-29 03:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/ProblemAfiro.cs.gz
+-rw-r--r-- root/root      1975 2009-05-29 03:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/ProblemBakery.cs
+-rw-r--r-- root/root      2867 2009-05-29 03:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/ProblemCoinTest.cs
+-rw-r--r-- root/root      2306 2009-05-29 03:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/ProblemExMip1.cs
+-rw-r--r-- root/root      2171 2009-11-17 05:36 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/ProblemGamsSos1a.cs
+-rw-r--r-- root/root      2383 2009-11-17 05:36 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/ProblemGamsSos2a.cs
+-rw-r--r-- root/root      1108 2009-05-29 03:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/ProblemP0033.cs.gz
+-rw-r--r-- root/root      1940 2009-11-17 05:36 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/ProblemsSemiCont.cs
+-rw-r--r-- root/root       482 2009-05-29 03:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/Program.cs
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/Properties/
+-rw-r--r-- root/root      1312 2009-05-29 03:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/Properties/AssemblyInfo.cs
+-rw-r--r-- root/root      2853 2009-05-29 03:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/Properties/Resources.Designer.cs
+-rw-r--r-- root/root      1474 2009-05-29 03:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/Properties/Resources.resx.gz
+-rw-r--r-- root/root      1094 2009-05-29 03:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/Properties/Settings.Designer.cs
+-rw-r--r-- root/root       249 2009-05-29 03:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/Properties/Settings.settings
+-rw-r--r-- root/root      1446 2013-09-20 08:08 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/SolveProblem.cs.gz
+drwxr-xr-x root/root         0 2015-09-23 07:39 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/bin/
+drwxr-xr-x root/root         0 2015-09-23 07:39 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/bin/x64/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/bin/x64/Release/
+-rw-r--r-- root/root     14194 2013-12-01 19:31 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/bin/x64/Release/CoinMPTestCS9.exe.gz
+drwxr-xr-x root/root         0 2015-09-23 07:39 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/bin/x86/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/bin/x86/Release/
+-rw-r--r-- root/root     14276 2013-12-01 19:31 ./usr/share/doc/coinor-libcoinmp-dev/examples/csharp/bin/x86/Release/CoinMPTestCS9.exe.gz
+-rw-r--r-- root/root      4944 2011-08-07 15:02 ./usr/share/doc/coinor-libcoinmp-dev/examples/example.c.gz
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/share/doc/coinor-libcoinmp-dev/examples/vb6/
+-rw-r--r-- root/root     17390 2013-11-29 10:16 ./usr/share/doc/coinor-libcoinmp-dev/examples/vb6/CoinMPTestVB6.exe.gz
+-rw-r--r-- root/root       986 2009-05-29 04:10 ./usr/share/doc/coinor-libcoinmp-dev/examples/vb6/CoinMPTestVB6.vbp
+-rw-r--r-- root/root      2175 2009-05-30 08:13 ./usr/share/doc/coinor-libcoinmp-dev/examples/vb6/FrmCoinMP.frm
+-rw-r--r-- root/root      2272 2009-11-17 05:26 ./usr/share/doc/coinor-libcoinmp-dev/examples/vb6/LibCoinMP.bas.gz
+-rw-r--r-- root/root       316 2009-05-29 04:10 ./usr/share/doc/coinor-libcoinmp-dev/examples/vb6/LogWrite.bas
+-rw-r--r-- root/root      3694 2009-11-17 05:28 ./usr/share/doc/coinor-libcoinmp-dev/examples/vb6/RunProblem.bas
+-rw-r--r-- root/root      2403 2009-05-29 04:10 ./usr/share/doc/coinor-libcoinmp-dev/examples/vb6/SolveAfiro.bas.gz
+-rw-r--r-- root/root      2569 2009-05-29 04:10 ./usr/share/doc/coinor-libcoinmp-dev/examples/vb6/SolveBakery.bas
+-rw-r--r-- root/root      1184 2009-05-29 04:10 ./usr/share/doc/coinor-libcoinmp-dev/examples/vb6/SolveCoinTest.bas.gz
+-rw-r--r-- root/root      1139 2009-05-29 04:10 ./usr/share/doc/coinor-libcoinmp-dev/examples/vb6/SolveExMip1.bas.gz
+-rw-r--r-- root/root      2419 2009-05-29 04:10 ./usr/share/doc/coinor-libcoinmp-dev/examples/vb6/SolveP0033.bas.gz
+
+
+coinor-libcoinmp1v5-dbgsym_1.8.3-2_armhf.deb
+--------------------------------------------
+
+ new Debian package, version 2.0.
+ size 146344 bytes: control archive=560 bytes.
+     422 bytes,    13 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: coinor-libcoinmp1v5-dbgsym
+ Source: coinmp
+ Version: 1.8.3-2
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian Science Team <debian-science-maintainers@lists.alioth.debian.org>
+ Installed-Size: 168
+ Depends: coinor-libcoinmp1v5 (= 1.8.3-2)
+ Section: debug
+ Priority: optional
+ Multi-Arch: same
+ Description: debug symbols for coinor-libcoinmp1v5
+ Build-Ids: c9116e4b3665fca7362d4d8e8351953a59474259
+
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/lib/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/lib/debug/.build-id/c9/
+-rw-r--r-- root/root    161668 2017-08-27 12:42 ./usr/lib/debug/.build-id/c9/116e4b3665fca7362d4d8e8351953a59474259.debug
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/share/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2017-08-27 12:42 ./usr/share/doc/coinor-libcoinmp1v5-dbgsym -> coinor-libcoinmp1v5
+
+
+coinor-libcoinmp1v5_1.8.3-2_armhf.deb
+-------------------------------------
+
+ new Debian package, version 2.0.
+ size 26640 bytes: control archive=992 bytes.
+     799 bytes,    20 lines      control              
+     247 bytes,     3 lines      md5sums              
+      32 bytes,     1 lines      shlibs               
+      67 bytes,     2 lines      triggers             
+ Package: coinor-libcoinmp1v5
+ Source: coinmp
+ Version: 1.8.3-2
+ Architecture: armhf
+ Maintainer: Debian Science Team <debian-science-maintainers@lists.alioth.debian.org>
+ Installed-Size: 92
+ Depends: libc6 (>= 2.4), libgcc1 (>= 1:3.5), libstdc++6 (>= 5.2)
+ Conflicts: coinor-libcoinmp1
+ Section: libs
+ Priority: optional
+ Multi-Arch: same
+ Homepage: https://projects.coin-or.org/CoinMP
+ Description: Simple C API for COIN-OR Solvers Clp and Cbc -- library
+  The Coin-MP optimizer is an open source solver, it is part of the COIN-OR
+  project which is an initiative to spur the development of open-source software
+  for the operations research community.
+  .
+  CoinMP is a C-API library that supports most of the functionality of CLP
+  (Coin LP), CBC (Coin Branch-and-Cut), and CGL (Cut Generation Library)
+  projects.
+
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/lib/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/lib/arm-linux-gnueabihf/
+lrwxrwxrwx root/root         0 2017-08-27 12:42 ./usr/lib/arm-linux-gnueabihf/libCoinMP.so.1 -> libCoinMP.so.1.8.3
+-rw-r--r-- root/root     55584 2017-08-27 12:42 ./usr/lib/arm-linux-gnueabihf/libCoinMP.so.1.8.3
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/share/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/share/doc/
+drwxr-xr-x root/root         0 2017-08-27 12:42 ./usr/share/doc/coinor-libcoinmp1v5/
+-rw-r--r-- root/root       564 2017-08-27 12:42 ./usr/share/doc/coinor-libcoinmp1v5/changelog.Debian.gz
+-rw-r--r-- root/root     24871 2017-08-27 09:18 ./usr/share/doc/coinor-libcoinmp1v5/copyright
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [568 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [657 B]
+Fetched 2188 B in 0s (206 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 0s (8394 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 19587 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+W: coinmp source: source-contains-prebuilt-windows-binary CoinMP/examples/vb6/CoinMPTestVB6.exe
+W: coinmp source: source-contains-prebuilt-windows-binary CoinMP/examples/csharp/bin/x64/Release/CoinMPTestCS9.exe
+W: coinmp source: source-contains-prebuilt-windows-binary CoinMP/examples/csharp/bin/x86/Release/CoinMPTestCS9.exe
+W: coinmp source: debhelper-tools-from-autotools-dev-are-deprecated dh ... --with autotools-dev (line 5)
+W: coinmp source: unknown-paragraph-in-dep5-copyright paragraph at line 5
+W: coinmp source: file-without-copyright-information AUTHORS
+W: coinmp source: file-without-copyright-information Cbc/AUTHORS
+W: coinmp source: file-without-copyright-information Cbc/CbcSourceFilesTable.csv
+W: coinmp source: file-without-copyright-information Cbc/CbcSourceFilesTable.xls
+W: coinmp source: file-without-copyright-information Cbc/CbcSourceFilesTable2.csv
+W: coinmp source: file-without-copyright-information Cbc/CbcSourceFilesTable2.xls
+W: coinmp source: file-without-copyright-information Cbc/CbcSourceFilesTable3.csv
+W: coinmp source: file-without-copyright-information Cbc/CbcSourceFilesTable3.xls
+W: coinmp source: file-without-copyright-information Cbc/INSTALL
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v10/Cbc.sln
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v10/CbcCSosDllSample/cbcCSosDllSample.vcxproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v10/CbcWithInstalledLibraries/BaseCBCProject.sln
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v10/CbcWithInstalledLibraries/BaseCBCProject.vcxproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v10/CbcWithInstalledLibraries/README.txt
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v10/CbcWithInstalledLibraries/main.cpp
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v10/OsiCbcUnitTest/OsiCbcUnitTest.vcxproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v10/cbc/cbc.vcxproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v10/cbcCInterfaceDll/cbcCInterfaceDll.vcxproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v10/cbcExamplesSample2/cbcExamplesSample2.vcxproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v10/libCbc/libCbc.vcxproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v10/libCbcSolver/libCbcSolver.vcxproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v10/libOsiCbc/libOsiCbc.vcxproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v9/Cbc.sln
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v9/OsiCbcUnitTest/OsiCbcUnitTest.vcproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v9/cbc/cbc.vcproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v9/cbcCInterfaceDll/cbcCInterfaceDll.vcproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v9/cbcCSosDllSample/cbcCSosDllSample.vcproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v9/cbcExamplesSample2/cbcExamplesSample2.vcproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v9/libCbc/libCbc.vcproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v9/libCbcSolver/libCbcSolver.vcproj
+W: coinmp source: file-without-copyright-information Cbc/MSVisualStudio/v9/libOsiCbc/libOsiCbc.vcproj
+W: coinmp source: file-without-copyright-information Cbc/Makefile.am
+W: coinmp source: file-without-copyright-information Cbc/Makefile.in
+W: coinmp source: file-without-copyright-information Cbc/README
+W: coinmp source: file-without-copyright-information Cbc/cbc-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information Cbc/cbc.pc.in
+W: coinmp source: file-without-copyright-information Cbc/config.guess
+W: coinmp source: file-without-copyright-information Cbc/config.sub
+W: coinmp source: file-without-copyright-information Cbc/configure
+W: coinmp source: file-without-copyright-information Cbc/configure.ac
+W: coinmp source: file-without-copyright-information Cbc/depcomp
+W: coinmp source: file-without-copyright-information Cbc/doc/authors.xml
+W: coinmp source: file-without-copyright-information Cbc/doc/cbcexe.xml
+W: coinmp source: file-without-copyright-information Cbc/doc/cbcmodelclass.xml
+W: coinmp source: file-without-copyright-information Cbc/doc/cbcuserguide.xml
+W: coinmp source: file-without-copyright-information Cbc/doc/doxygen.xml
+W: coinmp source: file-without-copyright-information Cbc/doc/faq.xml
+W: coinmp source: file-without-copyright-information Cbc/doc/faqcontent.xml
+W: coinmp source: file-without-copyright-information Cbc/doc/intro.xml
+W: coinmp source: file-without-copyright-information Cbc/doc/legal.xml
+W: coinmp source: file-without-copyright-information Cbc/doc/messages.xml
+W: coinmp source: file-without-copyright-information Cbc/doc/moresamples.xml
+W: coinmp source: file-without-copyright-information Cbc/doc/osibuild.xml
+W: coinmp source: file-without-copyright-information Cbc/doc/otherclasses.xml
+W: coinmp source: file-without-copyright-information Cbc/doc/revhist.xml
+W: coinmp source: file-without-copyright-information Cbc/doxydoc/doxygen.conf.in
+W: coinmp source: file-without-copyright-information Cbc/examples/CbcBranchFollow2.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/CbcBranchFollow2.hpp
+W: coinmp source: file-without-copyright-information Cbc/examples/CbcBranchLink.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/CbcBranchLink.hpp
+W: coinmp source: file-without-copyright-information Cbc/examples/CbcBranchUser.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/CbcBranchUser.hpp
+W: coinmp source: file-without-copyright-information Cbc/examples/CbcCompareUser.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/CbcCompareUser.hpp
+W: coinmp source: file-without-copyright-information Cbc/examples/CbcSolver2.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/CbcSolver2.hpp
+W: coinmp source: file-without-copyright-information Cbc/examples/CbcSolver3.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/CbcSolver3.hpp
+W: coinmp source: file-without-copyright-information Cbc/examples/CbcSolverLongThin.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/CbcSolverLongThin.hpp
+W: coinmp source: file-without-copyright-information Cbc/examples/ClpQuadInterface.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/ClpQuadInterface.hpp
+W: coinmp source: file-without-copyright-information Cbc/examples/Makefile.in
+W: coinmp source: file-without-copyright-information Cbc/examples/allCuts.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/barrier.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/cbc_driverC_sos.c
+W: coinmp source: file-without-copyright-information Cbc/examples/crew.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/driver.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/driver2.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/driver3.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/driver4.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/driver6.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/fast0507.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/fast0507b.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/gear.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/hotstart.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/interrupt.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/link.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/longthin.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/lotsize.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/minimum.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/modify.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/nway.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/parallel.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/pool.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/qmip.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/qmip2.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/quad.mps
+W: coinmp source: file-without-copyright-information Cbc/examples/quad2.mps
+W: coinmp source: file-without-copyright-information Cbc/examples/repeat.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/sample1.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/sample2.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/sample3.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/sample4.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/sample5.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/simpleBAB.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/sos.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/sudoku.cpp
+W: coinmp source: file-without-copyright-information Cbc/examples/sudoku_sample.csv
+W: coinmp source: file-without-copyright-information Cbc/install-sh
+W: coinmp source: file-without-copyright-information Cbc/ltmain.sh
+W: coinmp source: file-without-copyright-information Cbc/missing
+W: coinmp source: file-without-copyright-information Cbc/osi-cbc-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information Cbc/osi-cbc.pc.in
+W: coinmp source: file-without-copyright-information Cbc/scripts/get.miplib2010
+W: coinmp source: file-without-copyright-information Cbc/scripts/parse.awk
+W: coinmp source: file-without-copyright-information Cbc/scripts/parse_cbc.awk
+W: coinmp source: file-without-copyright-information Cbc/scripts/parse_cbc_sol.awk
+W: coinmp source: file-without-copyright-information Cbc/scripts/run.sh
+W: coinmp source: file-without-copyright-information Cbc/scripts/run_cbc.sh
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchActual.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchAllDifferent.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchAllDifferent.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchBase.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchBase.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchCut.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchCut.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchDecision.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchDecision.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchDefaultDecision.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchDefaultDecision.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchDynamic.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchDynamic.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchLotsize.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchLotsize.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchToFixLots.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchToFixLots.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchingObject.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcBranchingObject.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCbcParam.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcClique.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcClique.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCompare.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCompareActual.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCompareBase.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCompareDefault.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCompareDefault.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCompareDepth.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCompareDepth.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCompareEstimate.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCompareEstimate.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCompareObjective.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCompareObjective.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcConfig.h
+W: coinmp source: file-without-copyright-information Cbc/src/CbcConsequence.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcConsequence.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCountRowCut.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCountRowCut.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCutGenerator.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCutGenerator.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCutModifier.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCutModifier.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCutSubsetModifier.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcCutSubsetModifier.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcDummyBranchingObject.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcDummyBranchingObject.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcEventHandler.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcEventHandler.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcFathom.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcFathom.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcFathomDynamicProgramming.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcFathomDynamicProgramming.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcFeasibilityBase.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcFixVariable.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcFixVariable.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcFollowOn.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcFollowOn.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcFullNodeInfo.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcFullNodeInfo.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenBaB.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenCbcParam.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenCbcParam.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenCbcParamUtils.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenCtlBlk.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenCtlBlk.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenMessages.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenMessages.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenOsiParam.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenOsiParam.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenOsiParamUtils.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenParam.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenParam.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenParamUtils.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenSolution.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGenSolvers.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGeneral.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGeneral.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGeneralDepth.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGeneralDepth.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcGeneric.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristic.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristic.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDINS.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDINS.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDW.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDW.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDive.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDive.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDiveCoefficient.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDiveCoefficient.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDiveFractional.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDiveFractional.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDiveGuided.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDiveGuided.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDiveLineSearch.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDiveLineSearch.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDivePseudoCost.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDivePseudoCost.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDiveVectorLength.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicDiveVectorLength.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicFPump.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicFPump.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicGreedy.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicGreedy.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicLocal.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicLocal.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicPivotAndFix.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicPivotAndFix.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicRENS.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicRENS.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicRINS.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicRINS.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicRandRound.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicRandRound.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicVND.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcHeuristicVND.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcLinked.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcLinked.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcLinkedUtils.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcMessage.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcMessage.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcMipStartIO.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcMipStartIO.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcModel.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcModel.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcNWay.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcNWay.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcNode.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcNode.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcNodeInfo.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcNodeInfo.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcObject.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcObject.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcObjectUpdateData.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcObjectUpdateData.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcParam.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcParam.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcPartialNodeInfo.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcPartialNodeInfo.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSOS.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSOS.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSimpleInteger.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSimpleInteger.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSimpleIntegerDynamicPseudoCost.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSimpleIntegerDynamicPseudoCost.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSimpleIntegerPseudoCost.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSimpleIntegerPseudoCost.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSolver.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSolver.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSolverAnalyze.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSolverAnalyze.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSolverExpandKnapsack.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSolverExpandKnapsack.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSolverHeuristics.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSolverHeuristics.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcStatistics.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcStatistics.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcStrategy.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcStrategy.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSubProblem.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSubProblem.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSymmetry.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcSymmetry.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcThread.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcThread.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcTree.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcTree.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcTreeLocal.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/CbcTreeLocal.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/Cbc_C_Interface.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/Cbc_C_Interface.h
+W: coinmp source: file-without-copyright-information Cbc/src/Cbc_ampl.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/Cbc_ampl.h
+W: coinmp source: file-without-copyright-information Cbc/src/ClpAmplObjective.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/ClpConstraintAmpl.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/CoinSolve.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/Makefile.am
+W: coinmp source: file-without-copyright-information Cbc/src/Makefile.in
+W: coinmp source: file-without-copyright-information Cbc/src/OsiCbc/Makefile.am
+W: coinmp source: file-without-copyright-information Cbc/src/OsiCbc/Makefile.in
+W: coinmp source: file-without-copyright-information Cbc/src/OsiCbc/OsiCbcSolverInterface.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/OsiCbc/OsiCbcSolverInterface.hpp
+W: coinmp source: file-without-copyright-information Cbc/src/config.h.in
+W: coinmp source: file-without-copyright-information Cbc/src/config_cbc.h.in
+W: coinmp source: file-without-copyright-information Cbc/src/config_cbc_default.h
+W: coinmp source: file-without-copyright-information Cbc/src/config_default.h
+W: coinmp source: file-without-copyright-information Cbc/src/unitTest.cpp
+W: coinmp source: file-without-copyright-information Cbc/src/unitTestClp.cpp
+W: coinmp source: file-without-copyright-information Cbc/test/CInterfaceTest.c
+W: coinmp source: file-without-copyright-information Cbc/test/Makefile.am
+W: coinmp source: file-without-copyright-information Cbc/test/Makefile.in
+W: coinmp source: file-without-copyright-information Cbc/test/OsiCbcSolverInterfaceTest.cpp
+W: coinmp source: file-without-copyright-information Cbc/test/gamsTest.cpp
+W: coinmp source: file-without-copyright-information Cbc/test/osiUnitTest.cpp
+W: coinmp source: file-without-copyright-information Cgl/AUTHORS
+W: coinmp source: file-without-copyright-information Cgl/MSVisualStudio/v10/Cgl.sln
+W: coinmp source: file-without-copyright-information Cgl/MSVisualStudio/v10/CglUnitTest/CglUnitTest.vcxproj
+W: coinmp source: file-without-copyright-information Cgl/MSVisualStudio/v10/libCgl/libCgl.vcxproj
+W: coinmp source: file-without-copyright-information Cgl/MSVisualStudio/v9/Cgl.sln
+W: coinmp source: file-without-copyright-information Cgl/MSVisualStudio/v9/CglUnitTest/CglUnitTest.vcproj
+W: coinmp source: file-without-copyright-information Cgl/MSVisualStudio/v9/libCgl/libCgl.vcproj
+W: coinmp source: file-without-copyright-information Cgl/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/README
+W: coinmp source: file-without-copyright-information Cgl/cgl-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information Cgl/cgl.pc.in
+W: coinmp source: file-without-copyright-information Cgl/config.guess
+W: coinmp source: file-without-copyright-information Cgl/config.sub
+W: coinmp source: file-without-copyright-information Cgl/configure
+W: coinmp source: file-without-copyright-information Cgl/configure.ac
+W: coinmp source: file-without-copyright-information Cgl/depcomp
+W: coinmp source: file-without-copyright-information Cgl/doxydoc/doxygen.conf.in
+W: coinmp source: file-without-copyright-information Cgl/examples/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/examples/cgl1.cpp
+W: coinmp source: file-without-copyright-information Cgl/examples/cgl_data_test.cpp
+W: coinmp source: file-without-copyright-information Cgl/install-sh
+W: coinmp source: file-without-copyright-information Cgl/ltmain.sh
+W: coinmp source: file-without-copyright-information Cgl/missing
+W: coinmp source: file-without-copyright-information Cgl/src/CglAllDifferent/CglAllDifferent.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglAllDifferent/CglAllDifferent.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglAllDifferent/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglAllDifferent/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglClique/CglClique.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglClique/CglClique.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglClique/CglCliqueHelper.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglClique/CglCliqueTest.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglClique/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglClique/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglConfig.h
+W: coinmp source: file-without-copyright-information Cgl/src/CglCutGenerator.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglCutGenerator.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglDuplicateRow/CglDuplicateRow.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglDuplicateRow/CglDuplicateRow.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglDuplicateRow/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglDuplicateRow/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglFlowCover/CglFlowCover.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglFlowCover/CglFlowCover.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglFlowCover/CglFlowCoverTest.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglFlowCover/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglFlowCover/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglGMI/CglGMI.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglGMI/CglGMI.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglGMI/CglGMIParam.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglGMI/CglGMIParam.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglGMI/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglGMI/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglGomory/CglGomory.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglGomory/CglGomory.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglGomory/CglGomoryTest.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglGomory/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglGomory/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglKnapsackCover/CglKnapsackCover.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglKnapsackCover/CglKnapsackCover.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglKnapsackCover/CglKnapsackCoverTest.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglKnapsackCover/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglKnapsackCover/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/CglLandP.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/CglLandP.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/CglLandPMessages.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/CglLandPMessages.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/CglLandPSimplex.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/CglLandPSimplex.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/CglLandPTabRow.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/CglLandPTabRow.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/CglLandPTest.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/CglLandPUtils.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/CglLandPUtils.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/CglLandPValidator.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/CglLandPValidator.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglLandP/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglLiftAndProject/CglLiftAndProject.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLiftAndProject/CglLiftAndProject.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglLiftAndProject/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglLiftAndProject/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglMessage.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglMessage.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglMixedIntegerRounding/CglMixedIntegerRounding.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglMixedIntegerRounding/CglMixedIntegerRounding.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglMixedIntegerRounding/CglMixedIntegerRoundingTest.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglMixedIntegerRounding/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglMixedIntegerRounding/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglMixedIntegerRounding2/CglMixedIntegerRounding2.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglMixedIntegerRounding2/CglMixedIntegerRounding2.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglMixedIntegerRounding2/CglMixedIntegerRounding2Test.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglMixedIntegerRounding2/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglMixedIntegerRounding2/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglOddHole/CglOddHole.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglOddHole/CglOddHole.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglOddHole/CglOddHoleTest.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglOddHole/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglOddHole/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglParam.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglParam.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglPreProcess/CglPreProcess.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglPreProcess/CglPreProcess.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglPreProcess/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglPreProcess/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglProbing/CglProbing.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglProbing/CglProbing.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglProbing/CglProbingTest.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglProbing/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglProbing/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglRedSplit/CglRedSplit.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglRedSplit/CglRedSplit.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglRedSplit/CglRedSplitParam.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglRedSplit/CglRedSplitParam.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglRedSplit/CglRedSplitTest.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglRedSplit/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglRedSplit/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglRedSplit2/CglRedSplit2.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglRedSplit2/CglRedSplit2.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglRedSplit2/CglRedSplit2Param.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglRedSplit2/CglRedSplit2Param.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglRedSplit2/CglRedSplit2Test.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglRedSplit2/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglRedSplit2/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglResidualCapacity/CglResidualCapacity.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglResidualCapacity/CglResidualCapacity.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglResidualCapacity/CglResidualCapacityTest.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglResidualCapacity/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglResidualCapacity/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglSimpleRounding/CglSimpleRounding.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglSimpleRounding/CglSimpleRounding.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglSimpleRounding/CglSimpleRoundingTest.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglSimpleRounding/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglSimpleRounding/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglStored.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglStored.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglTreeInfo.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglTreeInfo.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglTwomir/CglTwomir.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglTwomir/CglTwomir.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglTwomir/CglTwomirTest.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglTwomir/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglTwomir/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/CglZeroHalf/Cgl012cut.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglZeroHalf/Cgl012cut.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglZeroHalf/CglZeroHalf.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglZeroHalf/CglZeroHalf.hpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglZeroHalf/CglZeroHalfTest.cpp
+W: coinmp source: file-without-copyright-information Cgl/src/CglZeroHalf/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/CglZeroHalf/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/src/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/src/config.h.in
+W: coinmp source: file-without-copyright-information Cgl/src/config_cgl.h.in
+W: coinmp source: file-without-copyright-information Cgl/src/config_cgl_default.h
+W: coinmp source: file-without-copyright-information Cgl/src/config_default.h
+W: coinmp source: file-without-copyright-information Cgl/test/CglTestData/capPlan1.mps
+W: coinmp source: file-without-copyright-information Cgl/test/CglTestData/egout.mps
+W: coinmp source: file-without-copyright-information Cgl/test/CglTestData/l152lav.mps
+W: coinmp source: file-without-copyright-information Cgl/test/CglTestData/lseu.mps
+W: coinmp source: file-without-copyright-information Cgl/test/Makefile.am
+W: coinmp source: file-without-copyright-information Cgl/test/Makefile.in
+W: coinmp source: file-without-copyright-information Cgl/test/unitTest.cpp
+W: coinmp source: file-without-copyright-information Clp/AUTHORS
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v10/Clp.sln
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v10/ClpExamplesMinimum/ClpExamplesMinimum.vcxproj
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v10/ClpExamplesTestBarrier/ClpExamplesTestBarrier.vcxproj
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v10/ClpExamplesTestQP/ClpExamplesTestQP.vcxproj
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v10/OsiClpUnitTest/OsiClpUnitTest.vcxproj
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v10/clp/clp.vcxproj
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v10/libClp/libClp.vcxproj
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v10/libOsiClp/libOsiClp.vcxproj
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v9/Clp.sln
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v9/ClpExamplesMinimum/ClpExamplesMinimum.vcproj
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v9/ClpExamplesTestBarrier/ClpExamplesTestBarrier.vcproj
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v9/ClpExamplesTestQP/ClpExamplesTestQP.vcproj
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v9/OsiClpUnitTest/OsiClpUnitTest.vcproj
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v9/clp/clp.vcproj
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v9/libClp/libClp.vcproj
+W: coinmp source: file-without-copyright-information Clp/MSVisualStudio/v9/libOsiClp/libOsiClp.vcproj
+W: coinmp source: file-without-copyright-information Clp/Makefile.am
+W: coinmp source: file-without-copyright-information Clp/Makefile.in
+W: coinmp source: file-without-copyright-information Clp/README
+W: coinmp source: file-without-copyright-information Clp/clp-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information Clp/clp.pc.in
+W: coinmp source: file-without-copyright-information Clp/config.guess
+W: coinmp source: file-without-copyright-information Clp/config.sub
+W: coinmp source: file-without-copyright-information Clp/configure
+W: coinmp source: file-without-copyright-information Clp/configure.ac
+W: coinmp source: file-without-copyright-information Clp/depcomp
+W: coinmp source: file-without-copyright-information Clp/doc/Howto/docbook4clp.xml
+W: coinmp source: file-without-copyright-information Clp/doc/authors.xml
+W: coinmp source: file-without-copyright-information Clp/doc/basicmodelclasses.xml
+W: coinmp source: file-without-copyright-information Clp/doc/clpexe.xml
+W: coinmp source: file-without-copyright-information Clp/doc/clpuserguide.xml
+W: coinmp source: file-without-copyright-information Clp/doc/doxygen.xml
+W: coinmp source: file-without-copyright-information Clp/doc/faq.xml
+W: coinmp source: file-without-copyright-information Clp/doc/faqcontent.xml
+W: coinmp source: file-without-copyright-information Clp/doc/intro.xml
+W: coinmp source: file-without-copyright-information Clp/doc/legal.xml
+W: coinmp source: file-without-copyright-information Clp/doc/messages.xml
+W: coinmp source: file-without-copyright-information Clp/doc/moresamples.xml
+W: coinmp source: file-without-copyright-information Clp/doc/notsobasic.xml
+W: coinmp source: file-without-copyright-information Clp/doc/revhist.xml
+W: coinmp source: file-without-copyright-information Clp/doxydoc/doxygen.conf.in
+W: coinmp source: file-without-copyright-information Clp/examples/INSTALL
+W: coinmp source: file-without-copyright-information Clp/examples/Makefile.in
+W: coinmp source: file-without-copyright-information Clp/examples/addBits.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/addColumns.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/addRows.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/decomp2.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/decomp3.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/decompose.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/defaults.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/driver.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/driver2.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/driver3.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/driverC.c
+W: coinmp source: file-without-copyright-information Clp/examples/dualCuts.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/ekk.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/ekk_interface.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/g.tiny
+W: coinmp source: file-without-copyright-information Clp/examples/gparm.tiny
+W: coinmp source: file-without-copyright-information Clp/examples/hello.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/hello.mps
+W: coinmp source: file-without-copyright-information Clp/examples/input.130
+W: coinmp source: file-without-copyright-information Clp/examples/makeDual.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/minimum.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/modify.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/myPdco.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/myPdco.hpp
+W: coinmp source: file-without-copyright-information Clp/examples/network.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/pdco.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/piece.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/rowColumn.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/sprint.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/sprint2.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/testBarrier.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/testBasis.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/testGub.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/testGub2.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/testQP.cpp
+W: coinmp source: file-without-copyright-information Clp/examples/useVolume.cpp
+W: coinmp source: file-without-copyright-information Clp/install-sh
+W: coinmp source: file-without-copyright-information Clp/ltmain.sh
+W: coinmp source: file-without-copyright-information Clp/missing
+W: coinmp source: file-without-copyright-information Clp/src/AbcCommon.hpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcDualRowDantzig.cpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcDualRowDantzig.hpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcDualRowPivot.cpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcDualRowPivot.hpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcDualRowSteepest.cpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcDualRowSteepest.hpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcMatrix.cpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcMatrix.hpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcNonLinearCost.cpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcNonLinearCost.hpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcPrimalColumnDantzig.cpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcPrimalColumnDantzig.hpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcPrimalColumnPivot.cpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcPrimalColumnPivot.hpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcPrimalColumnSteepest.cpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcPrimalColumnSteepest.hpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcSimplex.cpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcSimplex.hpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcSimplexDual.cpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcSimplexDual.hpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcSimplexFactorization.cpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcSimplexFactorization.hpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcSimplexParallel.cpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcSimplexPrimal.cpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcSimplexPrimal.hpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcWarmStart.cpp
+W: coinmp source: file-without-copyright-information Clp/src/AbcWarmStart.hpp
+W: coinmp source: file-without-copyright-information Clp/src/CbcOrClpParam.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CbcOrClpParam.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpCholeskyBase.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpCholeskyBase.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpCholeskyDense.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpCholeskyDense.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpCholeskyMumps.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpCholeskyMumps.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpCholeskyTaucs.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpCholeskyTaucs.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpCholeskyUfl.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpCholeskyUfl.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpCholeskyWssmp.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpCholeskyWssmp.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpCholeskyWssmpKKT.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpCholeskyWssmpKKT.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpConfig.h
+W: coinmp source: file-without-copyright-information Clp/src/ClpConstraint.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpConstraint.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpConstraintLinear.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpConstraintLinear.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpConstraintQuadratic.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpConstraintQuadratic.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpDualRowDantzig.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpDualRowDantzig.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpDualRowPivot.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpDualRowPivot.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpDualRowSteepest.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpDualRowSteepest.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpDummyMatrix.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpDummyMatrix.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpDynamicExampleMatrix.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpDynamicExampleMatrix.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpDynamicMatrix.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpDynamicMatrix.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpEventHandler.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpEventHandler.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpFactorization.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpFactorization.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpGubDynamicMatrix.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpGubDynamicMatrix.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpGubMatrix.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpGubMatrix.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpHelperFunctions.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpHelperFunctions.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpInterior.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpInterior.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpLinearObjective.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpLinearObjective.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpLsqr.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpLsqr.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpMain.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpMatrixBase.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpMatrixBase.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpMessage.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpMessage.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpModel.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpModel.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpNetworkBasis.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpNetworkBasis.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpNetworkMatrix.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpNetworkMatrix.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpNode.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpNode.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpNonLinearCost.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpNonLinearCost.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpObjective.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpObjective.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPackedMatrix.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPackedMatrix.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpParameters.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPdco.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPdco.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPdcoBase.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPdcoBase.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPlusMinusOneMatrix.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPlusMinusOneMatrix.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPredictorCorrector.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPredictorCorrector.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPresolve.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPresolve.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPrimalColumnDantzig.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPrimalColumnDantzig.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPrimalColumnPivot.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPrimalColumnPivot.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPrimalColumnSteepest.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPrimalColumnSteepest.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpPrimalQuadraticDantzig.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpQuadraticObjective.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpQuadraticObjective.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpSimplex.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpSimplex.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpSimplexDual.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpSimplexDual.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpSimplexNonlinear.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpSimplexNonlinear.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpSimplexOther.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpSimplexOther.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpSimplexPrimal.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpSimplexPrimal.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpSolve.cpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpSolve.hpp
+W: coinmp source: file-without-copyright-information Clp/src/ClpSolver.cpp
+W: coinmp source: file-without-copyright-information Clp/src/Clp_C_Interface.cpp
+W: coinmp source: file-without-copyright-information Clp/src/Clp_C_Interface.h
+W: coinmp source: file-without-copyright-information Clp/src/Clp_ampl.cpp
+W: coinmp source: file-without-copyright-information Clp/src/Clp_ampl.h
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcBaseFactorization.hpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcBaseFactorization1.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcBaseFactorization2.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcBaseFactorization3.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcBaseFactorization4.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcBaseFactorization5.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcCommon.hpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcCommonFactorization.hpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcDenseFactorization.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcDenseFactorization.hpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcFactorization.hpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcFactorization1.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcFactorization2.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcFactorization3.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcFactorization4.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcFactorization5.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcHelperFunctions.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcHelperFunctions.hpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcOrderedFactorization1.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcOrderedFactorization2.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcOrderedFactorization3.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcOrderedFactorization4.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcOrderedFactorization5.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcSmallFactorization1.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcSmallFactorization2.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcSmallFactorization3.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcSmallFactorization4.cpp
+W: coinmp source: file-without-copyright-information Clp/src/CoinAbcSmallFactorization5.cpp
+W: coinmp source: file-without-copyright-information Clp/src/IdiSolve.cpp
+W: coinmp source: file-without-copyright-information Clp/src/Idiot.cpp
+W: coinmp source: file-without-copyright-information Clp/src/Idiot.hpp
+W: coinmp source: file-without-copyright-information Clp/src/Makefile.am
+W: coinmp source: file-without-copyright-information Clp/src/Makefile.in
+W: coinmp source: file-without-copyright-information Clp/src/MyEventHandler.cpp
+W: coinmp source: file-without-copyright-information Clp/src/MyEventHandler.hpp
+W: coinmp source: file-without-copyright-information Clp/src/MyMessageHandler.cpp
+W: coinmp source: file-without-copyright-information Clp/src/MyMessageHandler.hpp
+W: coinmp source: file-without-copyright-information Clp/src/OsiClp/Makefile.am
+W: coinmp source: file-without-copyright-information Clp/src/OsiClp/Makefile.in
+W: coinmp source: file-without-copyright-information Clp/src/OsiClp/OsiClpSolverInterface.cpp
+W: coinmp source: file-without-copyright-information Clp/src/OsiClp/OsiClpSolverInterface.hpp
+W: coinmp source: file-without-copyright-information Clp/src/OsiClp/osi-clp-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information Clp/src/OsiClp/osi-clp.pc.in
+W: coinmp source: file-without-copyright-information Clp/src/config.h.in
+W: coinmp source: file-without-copyright-information Clp/src/config_clp.h.in
+W: coinmp source: file-without-copyright-information Clp/src/config_clp_default.h
+W: coinmp source: file-without-copyright-information Clp/src/config_default.h
+W: coinmp source: file-without-copyright-information Clp/src/unitTest.cpp
+W: coinmp source: file-without-copyright-information Clp/test/Makefile.am
+W: coinmp source: file-without-copyright-information Clp/test/Makefile.in
+W: coinmp source: file-without-copyright-information Clp/test/OsiClpSolverInterfaceTest.cpp
+W: coinmp source: file-without-copyright-information Clp/test/osiUnitTest.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/AUTHORS
+W: coinmp source: file-without-copyright-information CoinUtils/INSTALL
+W: coinmp source: file-without-copyright-information CoinUtils/MSVisualStudio/v10/CoinUtils.sln
+W: coinmp source: file-without-copyright-information CoinUtils/MSVisualStudio/v10/libCoinUtils/libCoinUtils.vcxproj
+W: coinmp source: file-without-copyright-information CoinUtils/MSVisualStudio/v10/unitTestCoinUtils/unitTestCoinUtils.vcxproj
+W: coinmp source: file-without-copyright-information CoinUtils/MSVisualStudio/v9/CoinUtils.sln
+W: coinmp source: file-without-copyright-information CoinUtils/MSVisualStudio/v9/libCoinUtils/libCoinUtils.vcproj
+W: coinmp source: file-without-copyright-information CoinUtils/MSVisualStudio/v9/unitTestCoinUtils/unitTestCoinUtils.vcproj
+W: coinmp source: file-without-copyright-information CoinUtils/Makefile.am
+W: coinmp source: file-without-copyright-information CoinUtils/Makefile.in
+W: coinmp source: file-without-copyright-information CoinUtils/README
+W: coinmp source: file-without-copyright-information CoinUtils/coinutils-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information CoinUtils/coinutils.pc.in
+W: coinmp source: file-without-copyright-information CoinUtils/config.guess
+W: coinmp source: file-without-copyright-information CoinUtils/config.sub
+W: coinmp source: file-without-copyright-information CoinUtils/configure
+W: coinmp source: file-without-copyright-information CoinUtils/configure.ac
+W: coinmp source: file-without-copyright-information CoinUtils/depcomp
+W: coinmp source: file-without-copyright-information CoinUtils/doxydoc/doxygen.conf.in
+W: coinmp source: file-without-copyright-information CoinUtils/install-sh
+W: coinmp source: file-without-copyright-information CoinUtils/ltmain.sh
+W: coinmp source: file-without-copyright-information CoinUtils/missing
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinAlloc.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinAlloc.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinBuild.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinBuild.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinDenseFactorization.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinDenseFactorization.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinDenseVector.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinDenseVector.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinDistance.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinError.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinError.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinFactorization.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinFactorization1.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinFactorization2.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinFactorization3.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinFactorization4.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinFileIO.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinFileIO.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinFinite.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinFinite.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinFloatEqual.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinHelperFunctions.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinIndexedVector.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinIndexedVector.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinLpIO.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinLpIO.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinMessage.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinMessage.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinMessageHandler.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinMessageHandler.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinModel.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinModel.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinModelUseful.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinModelUseful.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinModelUseful2.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinMpsIO.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinMpsIO.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinOslC.h
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinOslFactorization.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinOslFactorization.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinOslFactorization2.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinOslFactorization3.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPackedMatrix.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPackedMatrix.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPackedVector.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPackedVector.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPackedVectorBase.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPackedVectorBase.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinParam.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinParam.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinParamUtils.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPostsolveMatrix.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPragma.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPrePostsolveMatrix.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveDoubleton.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveDoubleton.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveDual.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveDual.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveDupcol.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveDupcol.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveEmpty.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveEmpty.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveFixed.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveFixed.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveForcing.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveForcing.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveHelperFunctions.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveImpliedFree.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveImpliedFree.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveIsolated.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveIsolated.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveMatrix.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveMatrix.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveMonitor.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveMonitor.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolvePsdebug.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolvePsdebug.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveSingleton.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveSingleton.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveSubst.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveSubst.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveTighten.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveTighten.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveTripleton.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveTripleton.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveUseless.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveUseless.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveZeros.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinPresolveZeros.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinRational.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinRational.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinSearchTree.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinSearchTree.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinShallowPackedVector.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinShallowPackedVector.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinSignal.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinSimpFactorization.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinSimpFactorization.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinSmartPtr.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinSnapshot.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinSnapshot.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinSort.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinStructuredModel.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinStructuredModel.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinTime.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinTypes.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinUtility.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinUtilsConfig.h
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinWarmStart.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinWarmStartBasis.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinWarmStartBasis.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinWarmStartDual.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinWarmStartDual.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinWarmStartPrimalDual.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinWarmStartPrimalDual.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinWarmStartVector.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/CoinWarmStartVector.hpp
+W: coinmp source: file-without-copyright-information CoinUtils/src/Coin_C_defines.h
+W: coinmp source: file-without-copyright-information CoinUtils/src/Makefile.am
+W: coinmp source: file-without-copyright-information CoinUtils/src/Makefile.in
+W: coinmp source: file-without-copyright-information CoinUtils/src/config.h.in
+W: coinmp source: file-without-copyright-information CoinUtils/src/config_coinutils.h.in
+W: coinmp source: file-without-copyright-information CoinUtils/src/config_coinutils_default.h
+W: coinmp source: file-without-copyright-information CoinUtils/src/config_default.h
+W: coinmp source: file-without-copyright-information CoinUtils/test/CoinDenseVectorTest.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/test/CoinErrorTest.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/test/CoinIndexedVectorTest.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/test/CoinLpIOTest.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/test/CoinMessageHandlerTest.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/test/CoinModelTest.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/test/CoinMpsIOTest.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/test/CoinPackedMatrixTest.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/test/CoinPackedVectorTest.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/test/CoinShallowPackedVectorTest.cpp
+W: coinmp source: file-without-copyright-information CoinUtils/test/Makefile.am
+W: coinmp source: file-without-copyright-information CoinUtils/test/Makefile.in
+W: coinmp source: file-without-copyright-information CoinUtils/test/plan.mod
+W: coinmp source: file-without-copyright-information CoinUtils/test/unitTest.cpp
+W: coinmp source: file-without-copyright-information Data/Sample/Makefile.am
+W: coinmp source: file-without-copyright-information Data/Sample/Makefile.in
+W: coinmp source: file-without-copyright-information Data/Sample/afiro.mps
+W: coinmp source: file-without-copyright-information Data/Sample/app0110.cor
+W: coinmp source: file-without-copyright-information Data/Sample/app0110.stoch
+W: coinmp source: file-without-copyright-information Data/Sample/app0110.time
+W: coinmp source: file-without-copyright-information Data/Sample/app0110R.cor
+W: coinmp source: file-without-copyright-information Data/Sample/app0110R.stoch
+W: coinmp source: file-without-copyright-information Data/Sample/app0110R.time
+W: coinmp source: file-without-copyright-information Data/Sample/atm_5_10_1.block
+W: coinmp source: file-without-copyright-information Data/Sample/atm_5_10_1.mps
+W: coinmp source: file-without-copyright-information Data/Sample/block_milp.dec
+W: coinmp source: file-without-copyright-information Data/Sample/block_milp.lp
+W: coinmp source: file-without-copyright-information Data/Sample/brandy.mps
+W: coinmp source: file-without-copyright-information Data/Sample/bug.cor
+W: coinmp source: file-without-copyright-information Data/Sample/bug.stoch
+W: coinmp source: file-without-copyright-information Data/Sample/bug.time
+W: coinmp source: file-without-copyright-information Data/Sample/coindatasample-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information Data/Sample/coindatasample.pc.in
+W: coinmp source: file-without-copyright-information Data/Sample/config.guess
+W: coinmp source: file-without-copyright-information Data/Sample/config.sub
+W: coinmp source: file-without-copyright-information Data/Sample/configure
+W: coinmp source: file-without-copyright-information Data/Sample/configure.ac
+W: coinmp source: file-without-copyright-information Data/Sample/conic.mps
+W: coinmp source: file-without-copyright-information Data/Sample/depcomp
+W: coinmp source: file-without-copyright-information Data/Sample/e226.mps
+W: coinmp source: file-without-copyright-information Data/Sample/exmip1.5.mps
+W: coinmp source: file-without-copyright-information Data/Sample/exmip1.lp
+W: coinmp source: file-without-copyright-information Data/Sample/exmip1.mps
+W: coinmp source: file-without-copyright-information Data/Sample/finnis.mps
+W: coinmp source: file-without-copyright-information Data/Sample/galenet.mps
+W: coinmp source: file-without-copyright-information Data/Sample/galenetbnds.mps
+W: coinmp source: file-without-copyright-information Data/Sample/hello.mps
+W: coinmp source: file-without-copyright-information Data/Sample/input.130
+W: coinmp source: file-without-copyright-information Data/Sample/install-sh
+W: coinmp source: file-without-copyright-information Data/Sample/lseu.mps
+W: coinmp source: file-without-copyright-information Data/Sample/ltmain.sh
+W: coinmp source: file-without-copyright-information Data/Sample/missing
+W: coinmp source: file-without-copyright-information Data/Sample/nw460.mps
+W: coinmp source: file-without-copyright-information Data/Sample/p0033.mps
+W: coinmp source: file-without-copyright-information Data/Sample/p0201.mps
+W: coinmp source: file-without-copyright-information Data/Sample/p0548.mps
+W: coinmp source: file-without-copyright-information Data/Sample/pack1.mps
+W: coinmp source: file-without-copyright-information Data/Sample/retail3.block
+W: coinmp source: file-without-copyright-information Data/Sample/retail3.mps
+W: coinmp source: file-without-copyright-information Data/Sample/scOneInt.mps
+W: coinmp source: file-without-copyright-information Data/Sample/share2qp.mps
+W: coinmp source: file-without-copyright-information Data/Sample/spec_sections.mps
+W: coinmp source: file-without-copyright-information Data/Sample/tp3.mps
+W: coinmp source: file-without-copyright-information Data/Sample/tp4.mps
+W: coinmp source: file-without-copyright-information Data/Sample/tp5.mps
+W: coinmp source: file-without-copyright-information Data/Sample/wedding_16.block
+W: coinmp source: file-without-copyright-information Data/Sample/wedding_16.mps
+W: coinmp source: file-without-copyright-information Dependencies
+W: coinmp source: file-without-copyright-information Externals
+W: coinmp source: file-without-copyright-information INSTALL
+W: coinmp source: file-without-copyright-information Makefile.am
+W: coinmp source: file-without-copyright-information Makefile.in
+W: coinmp source: file-without-copyright-information Osi/AUTHORS
+W: coinmp source: file-without-copyright-information Osi/CHANGELOG
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v10/Osi.sln
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v10/OsiExamplesBasic/OsiExamplesBasic.vcxproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v10/OsiExamplesBuild/OsiExamplesBuild.vcxproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v10/OsiExamplesParameters/OsiExamplesParameters.vcxproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v10/OsiExamplesQuery/OsiExamplesQuery.vcxproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v10/OsiExamplesSpecific/OsiExamplesSpecific.vcxproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v10/OsiUnitTest/OsiUnitTest.vcxproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v10/libOsi/libOsi.vcxproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v10/libOsiCommonTest/libOsiCommonTest.vcxproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v9/Osi.sln
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v9/OsiExamplesBasic/OsiExamplesBasic.vcproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v9/OsiExamplesBuild/OsiExamplesBuild.vcproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v9/OsiExamplesParameters/OsiExamplesParameters.vcproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v9/OsiExamplesQuery/OsiExamplesQuery.vcproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v9/OsiExamplesSpecific/OsiExamplesSpecific.vcproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v9/OsiUnitTest/OsiUnitTest.vcproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v9/libOsi/libOsi.vcproj
+W: coinmp source: file-without-copyright-information Osi/MSVisualStudio/v9/libOsiCommonTest/libOsiCommonTest.vcproj
+W: coinmp source: file-without-copyright-information Osi/Makefile.am
+W: coinmp source: file-without-copyright-information Osi/Makefile.in
+W: coinmp source: file-without-copyright-information Osi/README
+W: coinmp source: file-without-copyright-information Osi/config.guess
+W: coinmp source: file-without-copyright-information Osi/config.sub
+W: coinmp source: file-without-copyright-information Osi/configure
+W: coinmp source: file-without-copyright-information Osi/configure.ac
+W: coinmp source: file-without-copyright-information Osi/depcomp
+W: coinmp source: file-without-copyright-information Osi/doxydoc/doxygen.conf.in
+W: coinmp source: file-without-copyright-information Osi/examples/Makefile.in
+W: coinmp source: file-without-copyright-information Osi/examples/README
+W: coinmp source: file-without-copyright-information Osi/examples/basic.cpp
+W: coinmp source: file-without-copyright-information Osi/examples/build.cpp
+W: coinmp source: file-without-copyright-information Osi/examples/opbdp_solve.cpp
+W: coinmp source: file-without-copyright-information Osi/examples/opbdp_solve.hpp
+W: coinmp source: file-without-copyright-information Osi/examples/parameters.cpp
+W: coinmp source: file-without-copyright-information Osi/examples/query.cpp
+W: coinmp source: file-without-copyright-information Osi/examples/readconic.cpp
+W: coinmp source: file-without-copyright-information Osi/install-sh
+W: coinmp source: file-without-copyright-information Osi/ltmain.sh
+W: coinmp source: file-without-copyright-information Osi/missing
+W: coinmp source: file-without-copyright-information Osi/osi-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information Osi/osi-unittests-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information Osi/osi-unittests.pc.in
+W: coinmp source: file-without-copyright-information Osi/osi.pc.in
+W: coinmp source: file-without-copyright-information Osi/src/Osi/Makefile.am
+W: coinmp source: file-without-copyright-information Osi/src/Osi/Makefile.in
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiAuxInfo.cpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiAuxInfo.hpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiBranchingObject.cpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiBranchingObject.hpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiChooseVariable.cpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiChooseVariable.hpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiColCut.cpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiColCut.hpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiCollections.hpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiConfig.h
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiCut.cpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiCut.hpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiCuts.cpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiCuts.hpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiNames.cpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiPresolve.cpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiPresolve.hpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiRowCut.cpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiRowCut.hpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiRowCutDebugger.cpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiRowCutDebugger.hpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiSolverBranch.cpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiSolverBranch.hpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiSolverInterface.cpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiSolverInterface.hpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/OsiSolverParameters.hpp
+W: coinmp source: file-without-copyright-information Osi/src/Osi/config.h.in
+W: coinmp source: file-without-copyright-information Osi/src/Osi/config_default.h
+W: coinmp source: file-without-copyright-information Osi/src/Osi/config_osi.h.in
+W: coinmp source: file-without-copyright-information Osi/src/Osi/config_osi_default.h
+W: coinmp source: file-without-copyright-information Osi/src/OsiCommonTest/Makefile.am
+W: coinmp source: file-without-copyright-information Osi/src/OsiCommonTest/Makefile.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiCommonTest/OsiColCutTest.cpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiCommonTest/OsiCutsTest.cpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiCommonTest/OsiNetlibTest.cpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiCommonTest/OsiRowCutDebuggerTest.cpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiCommonTest/OsiRowCutTest.cpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiCommonTest/OsiSimplexAPITest.cpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiCommonTest/OsiSolverInterfaceTest.cpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiCommonTest/OsiUnitTestUtils.cpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiCommonTest/OsiUnitTests.hpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiCpx/Makefile.am
+W: coinmp source: file-without-copyright-information Osi/src/OsiCpx/Makefile.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiCpx/OsiCpxSolverInterface.cpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiCpx/OsiCpxSolverInterface.hpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiCpx/osi-cplex-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiCpx/osi-cplex.pc.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiGlpk/Makefile.am
+W: coinmp source: file-without-copyright-information Osi/src/OsiGlpk/Makefile.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiGlpk/OsiGlpkSolverInterface.cpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiGlpk/OsiGlpkSolverInterface.hpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiGlpk/osi-glpk-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiGlpk/osi-glpk.pc.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiGrb/Makefile.am
+W: coinmp source: file-without-copyright-information Osi/src/OsiGrb/Makefile.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiGrb/OsiGrbSolverInterface.cpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiGrb/OsiGrbSolverInterface.hpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiGrb/osi-gurobi-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiGrb/osi-gurobi.pc.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiMsk/Makefile.am
+W: coinmp source: file-without-copyright-information Osi/src/OsiMsk/Makefile.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiMsk/OsiMskSolverInterface.cpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiMsk/OsiMskSolverInterface.hpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiMsk/osi-mosek-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiMsk/osi-mosek.pc.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiSpx/Makefile.am
+W: coinmp source: file-without-copyright-information Osi/src/OsiSpx/Makefile.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiSpx/OsiSpxSolverInterface.cpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiSpx/OsiSpxSolverInterface.hpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiSpx/osi-soplex-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiSpx/osi-soplex.pc.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiXpr/Makefile.am
+W: coinmp source: file-without-copyright-information Osi/src/OsiXpr/Makefile.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiXpr/OsiXprSolverInterface.cpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiXpr/OsiXprSolverInterface.hpp
+W: coinmp source: file-without-copyright-information Osi/src/OsiXpr/osi-xpress-uninstalled.pc.in
+W: coinmp source: file-without-copyright-information Osi/src/OsiXpr/osi-xpress.pc.in
+W: coinmp source: file-without-copyright-information Osi/test/Makefile.am
+W: coinmp source: file-without-copyright-information Osi/test/Makefile.in
+W: coinmp source: file-without-copyright-information Osi/test/OsiCpxSolverInterfaceTest.cpp
+W: coinmp source: file-without-copyright-information Osi/test/OsiGlpkSolverInterfaceTest.cpp
+W: coinmp source: file-without-copyright-information Osi/test/OsiGrbSolverInterfaceTest.cpp
+W: coinmp source: file-without-copyright-information Osi/test/OsiMskSolverInterfaceTest.cpp
+W: coinmp source: file-without-copyright-information Osi/test/OsiSpxSolverInterfaceTest.cpp
+W: coinmp source: file-without-copyright-information Osi/test/OsiTestSolver.cpp
+W: coinmp source: file-without-copyright-information Osi/test/OsiTestSolver.hpp
+W: coinmp source: file-without-copyright-information Osi/test/OsiTestSolverInterface.cpp
+W: coinmp source: file-without-copyright-information Osi/test/OsiTestSolverInterface.hpp
+W: coinmp source: file-without-copyright-information Osi/test/OsiTestSolverInterfaceIO.cpp
+W: coinmp source: file-without-copyright-information Osi/test/OsiTestSolverInterfaceTest.cpp
+W: coinmp source: file-without-copyright-information Osi/test/OsiXprSolverInterfaceTest.cpp
+W: coinmp source: file-without-copyright-information Osi/test/unitTest.cpp
+W: coinmp source: file-without-copyright-information README
+W: coinmp source: file-without-copyright-information config.guess
+W: coinmp source: file-without-copyright-information config.sub
+W: coinmp source: file-without-copyright-information configure
+W: coinmp source: file-without-copyright-information configure.ac
+W: coinmp source: file-without-copyright-information depcomp
+W: coinmp source: file-without-copyright-information install-sh
+W: coinmp source: file-without-copyright-information ltmain.sh
+W: coinmp source: file-without-copyright-information missing
+W: coinmp source: ancient-standards-version 3.9.3 (released 2012-02-23) (current is 4.3.0)
+W: coinor-libcoinmp1v5: package-name-doesnt-match-sonames libCoinMP1
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils*
+  coinor-libcbc-dev:armhf* coinor-libcbc3:armhf* coinor-libcgl-dev:armhf*
+  coinor-libcgl1:armhf* coinor-libclp-dev:armhf* coinor-libclp1:armhf*
+  coinor-libcoinutils-dev:armhf* coinor-libcoinutils3v5:armhf*
+  coinor-libosi-dev:armhf* coinor-libosi1v5:armhf* debhelper* dh-autoreconf*
+  dh-strip-nondeterminism* diffstat* dwz* gcc-8-base:armhf* gettext*
+  gettext-base* groff-base* intltool-debian* libapt-pkg-perl*
+  libarchive-zip-perl* libasan5:armhf* libatomic1:armhf* libblas-dev:armhf*
+  libblas3:armhf* libbsd0* libbz2-1.0:armhf* libbz2-dev:armhf* libc6:armhf*
+  libc6-dev:armhf* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclone-perl* libcroco3* libdigest-hmac-perl*
+  libelf1* libemail-valid-perl* libexporter-tiny-perl* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfuture-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libgfortran5:armhf* libglib2.0-0* libgomp1:armhf*
+  libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* liblapack-dev:armhf* liblapack3:armhf*
+  liblist-moreutils-perl* libncurses6* libnet-dns-perl*
+  libnet-domain-tld-perl* libnet-ip-perl* libparse-debianchangelog-perl*
+  libpath-tiny-perl* libpipeline1* libsigsegv2* libstdc++-8-dev:armhf*
+  libstdc++6:armhf* libstruct-dumb-perl* libsub-name-perl*
+  libtext-levenshtein-perl* libtool* libubsan1:armhf* libuchardet0* lintian*
+  linux-libc-dev:armhf* m4* man-db* patchutils* pkg-config* po-debconf*
+  sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* zlib1g:armhf*
+0 upgraded, 0 newly installed, 87 to remove and 0 not upgraded.
+After this operation, 124 MB disk space will be freed.
+(Reading database ... 20865 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing coinor-libcbc-dev:armhf (2.9.9+repack1-1) ...
+Removing coinor-libcbc3:armhf (2.9.9+repack1-1) ...
+Removing coinor-libcgl-dev:armhf (0.59.10+repack1-1) ...
+Removing coinor-libcgl1:armhf (0.59.10+repack1-1) ...
+Removing coinor-libclp-dev:armhf (1.16.11+repack1-1) ...
+Removing coinor-libclp1:armhf (1.16.11+repack1-1) ...
+Removing coinor-libcoinutils-dev:armhf (2.10.14+repack1-1) ...
+Removing coinor-libosi-dev:armhf (0.107.9+repack1-1) ...
+Removing coinor-libosi1v5:armhf (0.107.9+repack1-1) ...
+Removing coinor-libcoinutils3v5:armhf (2.10.14+repack1-1) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing liblapack-dev:armhf (3.8.0-2) ...
+Removing libblas-dev:armhf (3.8.0-2) ...
+Removing liblapack3:armhf (3.8.0-2) ...
+Removing libblas3:armhf (3.8.0-2) ...
+Removing libbz2-dev:armhf (1.0.6-9) ...
+Removing libbz2-1.0:armhf (1.0.6-9) ...
+Removing libgfortran5:armhf (8.3.0-2) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing pkg-config (0.29-6) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16459 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 18
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 9
+Job: /home/build/sbuild-setup/repo/pool/main/c/coinmp/coinmp_1.8.3-2.dsc
+Lintian: warn
+Machine Architecture: amd64
+Package: coinmp
+Package-Time: 32
+Source-Version: 1.8.3-2
+Space: n/a
+Status: successful
+Version: 1.8.3-2
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T11:44:53Z
+Build needed 00:00:32, no disk space

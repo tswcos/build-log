@@ -1,0 +1,1677 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| redis 5:5.0.4-1 (armhf)                      Sat, 23 Mar 2019 09:27:04 +0000 |
++==============================================================================+
+
+Package: redis
+Version: 5:5.0.4-1
+Source Version: 5:5.0.4-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-e4b22480-9eee-4aa4-a897-6de3eab78a63' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/redis-fhWh7W/resolver-9FOIxR' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/r/redis/redis_5.0.4-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/r/redis; copying to chroot
+I: NOTICE: Log filtering will replace 'build/redis-fhWh7W/redis-5.0.4' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/redis-fhWh7W' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper-compat (= 12), dpkg-dev (>= 1.17.14), libhiredis-dev (>= 0.14.0), libjemalloc-dev, liblua5.1-dev, lua-bitop-dev, lua-cjson-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper-compat (= 12), dpkg-dev (>= 1.17.14), libhiredis-dev (>= 0.14.0), libjemalloc-dev, liblua5.1-dev, lua-bitop-dev, lua-cjson-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [482 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [545 B]
+Fetched 1984 B in 0s (127 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libhiredis-dev:armhf libhiredis0.14:armhf
+  libjemalloc-dev:armhf libjemalloc2:armhf liblua5.1-0:armhf
+  liblua5.1-0-dev:armhf libncurses-dev:armhf libncurses6 libncurses6:armhf
+  libncursesw6:armhf libpipeline1 libreadline-dev:armhf libreadline7:armhf
+  libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf libtinfo6:armhf libtool
+  libubsan1:armhf libuchardet0 linux-libc-dev:armhf lua-bitop:armhf
+  lua-bitop-dev:armhf lua-cjson:armhf lua-cjson-dev:armhf m4 man-db po-debconf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  binutils:armhf ncurses-doc:armhf readline-doc:armhf libstdc++-8-doc:armhf
+  libtool-doc gfortran | fortran95-compiler gcj-jdk m4-doc apparmor less
+  www-browser libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs pkg-config:armhf libtool-bin:armhf libgpm2
+  libgpm2:armhf libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libhiredis-dev:armhf libhiredis0.14:armhf
+  libjemalloc-dev:armhf libjemalloc2:armhf liblua5.1-0:armhf
+  liblua5.1-0-dev:armhf libncurses-dev:armhf libncurses6 libncurses6:armhf
+  libncursesw6:armhf libpipeline1 libreadline-dev:armhf libreadline7:armhf
+  libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf libtinfo6:armhf libtool
+  libubsan1:armhf libuchardet0 linux-libc-dev:armhf lua-bitop:armhf
+  lua-bitop-dev:armhf lua-cjson:armhf lua-cjson-dev:armhf m4 man-db po-debconf
+  sbuild-build-depends-main-dummy:armhf
+0 upgraded, 56 newly installed, 0 to remove and 0 not upgraded.
+Need to get 613 kB/20.4 MB of archives.
+After this operation, 85.5 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [964 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main armhf libhiredis0.14 armhf 0.14.0-3 [27.8 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main armhf libhiredis-dev armhf 0.14.0-3 [47.6 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian sid/main armhf libjemalloc2 armhf 5.1.0-3 [167 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian sid/main armhf libjemalloc-dev armhf 5.1.0-3 [299 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian sid/main armhf lua-bitop armhf 1.0.2-5 [6340 B]
+Get:7 http://cdn-fastly.deb.debian.org/debian sid/main armhf lua-bitop-dev armhf 1.0.2-5 [19.4 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian sid/main armhf lua-cjson armhf 2.1.0+dfsg-2.1 [15.1 kB]
+Get:9 http://cdn-fastly.deb.debian.org/debian sid/main armhf lua-cjson-dev armhf 2.1.0+dfsg-2.1 [29.3 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 613 kB in 3s (210 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16454 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../07-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../08-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../09-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../10-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../11-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../12-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../13-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../14-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../15-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../16-libfile-stripnondeterminism-perl_1.1.2-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.2-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../17-dh-strip-nondeterminism_1.1.2-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.2-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../18-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../19-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../20-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../21-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../22-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../23-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../24-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../25-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../26-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../27-gcc-8-base_8.3.0-3_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-3) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../28-libgcc1_1%3a8.3.0-3_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-3) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../29-libc6_2.28-8_armhf.deb ...
+Unpacking libc6:armhf (2.28-8) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../30-libstdc++6_8.3.0-3_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-3) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../31-libasan5_8.3.0-3_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-3) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../32-libatomic1_8.3.0-3_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-3) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../33-linux-libc-dev_4.19.28-2_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.28-2) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../34-libc6-dev_2.28-8_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-8) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../35-libgomp1_8.3.0-3_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-3) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../36-libubsan1_8.3.0-3_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-3) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../37-libgcc-8-dev_8.3.0-3_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-3) ...
+Selecting previously unselected package libhiredis0.14:armhf.
+Preparing to unpack .../38-libhiredis0.14_0.14.0-3_armhf.deb ...
+Unpacking libhiredis0.14:armhf (0.14.0-3) ...
+Selecting previously unselected package libhiredis-dev:armhf.
+Preparing to unpack .../39-libhiredis-dev_0.14.0-3_armhf.deb ...
+Unpacking libhiredis-dev:armhf (0.14.0-3) ...
+Selecting previously unselected package libjemalloc2:armhf.
+Preparing to unpack .../40-libjemalloc2_5.1.0-3_armhf.deb ...
+Unpacking libjemalloc2:armhf (5.1.0-3) ...
+Selecting previously unselected package libjemalloc-dev:armhf.
+Preparing to unpack .../41-libjemalloc-dev_5.1.0-3_armhf.deb ...
+Unpacking libjemalloc-dev:armhf (5.1.0-3) ...
+Selecting previously unselected package liblua5.1-0:armhf.
+Preparing to unpack .../42-liblua5.1-0_5.1.5-8.1+b2_armhf.deb ...
+Unpacking liblua5.1-0:armhf (5.1.5-8.1+b2) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../43-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libreadline7:armhf.
+Preparing to unpack .../44-libreadline7_7.0-5_armhf.deb ...
+Unpacking libreadline7:armhf (7.0-5) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../45-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../46-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../47-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libreadline-dev:armhf.
+Preparing to unpack .../48-libreadline-dev_7.0-5_armhf.deb ...
+Unpacking libreadline-dev:armhf (7.0-5) ...
+Selecting previously unselected package liblua5.1-0-dev:armhf.
+Preparing to unpack .../49-liblua5.1-0-dev_5.1.5-8.1+b2_armhf.deb ...
+Unpacking liblua5.1-0-dev:armhf (5.1.5-8.1+b2) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../50-libstdc++-8-dev_8.3.0-3_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-3) ...
+Selecting previously unselected package lua-bitop:armhf.
+Preparing to unpack .../51-lua-bitop_1.0.2-5_armhf.deb ...
+Unpacking lua-bitop:armhf (1.0.2-5) ...
+Selecting previously unselected package lua-bitop-dev:armhf.
+Preparing to unpack .../52-lua-bitop-dev_1.0.2-5_armhf.deb ...
+Unpacking lua-bitop-dev:armhf (1.0.2-5) ...
+Selecting previously unselected package lua-cjson:armhf.
+Preparing to unpack .../53-lua-cjson_2.1.0+dfsg-2.1_armhf.deb ...
+Unpacking lua-cjson:armhf (2.1.0+dfsg-2.1) ...
+Selecting previously unselected package lua-cjson-dev:armhf.
+Preparing to unpack .../54-lua-cjson-dev_2.1.0+dfsg-2.1_armhf.deb ...
+Unpacking lua-cjson-dev:armhf (2.1.0+dfsg-2.1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../55-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.28-2) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-3) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.2-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-3) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-8) ...
+Setting up libc6-dev:armhf (2.28-8) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libhiredis0.14:armhf (0.14.0-3) ...
+Setting up libhiredis-dev:armhf (0.14.0-3) ...
+Setting up libgcc1:armhf (1:8.3.0-3) ...
+Setting up libgomp1:armhf (8.3.0-3) ...
+Setting up dh-autoreconf (19) ...
+Setting up lua-cjson:armhf (2.1.0+dfsg-2.1) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up libatomic1:armhf (8.3.0-3) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up lua-bitop:armhf (1.0.2-5) ...
+Setting up dh-strip-nondeterminism (1.1.2-1) ...
+Setting up libstdc++6:armhf (8.3.0-3) ...
+Setting up libreadline7:armhf (7.0-5) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libjemalloc2:armhf (5.1.0-3) ...
+Setting up libreadline-dev:armhf (7.0-5) ...
+Setting up libjemalloc-dev:armhf (5.1.0-3) ...
+Setting up lua-cjson-dev:armhf (2.1.0+dfsg-2.1) ...
+Setting up libasan5:armhf (8.3.0-3) ...
+Setting up lua-bitop-dev:armhf (1.0.2-5) ...
+Setting up libubsan1:armhf (8.3.0-3) ...
+Setting up liblua5.1-0:armhf (5.1.5-8.1+b2) ...
+Setting up liblua5.1-0-dev:armhf (5.1.5-8.1+b2) ...
+Setting up libgcc-8-dev:armhf (8.3.0-3) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-3) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-8) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-16 dpkg-dev_1.19.5 g++-8_8.3.0-3 gcc-8_8.3.0-3 libc6-dev_2.28-8 libstdc++-8-dev_8.3.0-3 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-3 libstdc++6-armhf-cross_8.3.0-2cross1 linux-libc-dev_4.19.28-2
+Package versions: adduser_3.118 apt_1.8.0 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-16 binutils-arm-linux-gnueabihf_2.31.1-16 binutils-common_2.31.1-16 binutils-x86-64-linux-gnu_2.31.1-16 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.6 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-3 cpp_4:8.3.0-1 cpp-8_8.3.0-3 cpp-8-arm-linux-gnueabihf_8.3.0-2cross1 cpp-arm-linux-gnueabihf_4:8.3.0-1 cross-config_2.6.15-2 crossbuild-essential-armhf_12.6 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.2-1 diffutils_1:3.7-2 dirmngr_2.2.13-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.45.0-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-4 findutils_4.6.0+git+20190209-2 g++_4:8.3.0-1 g++-8_8.3.0-3 g++-8-arm-linux-gnueabihf_8.3.0-2cross1 g++-arm-linux-gnueabihf_4:8.3.0-1 gcc_4:8.3.0-1 gcc-8_8.3.0-3 gcc-8-arm-linux-gnueabihf_8.3.0-2cross1 gcc-8-arm-linux-gnueabihf-base_8.3.0-2cross1 gcc-8-base_8.3.0-3 gcc-8-cross-base_8.3.0-2cross1 gcc-arm-linux-gnueabihf_4:8.3.0-1 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.13-1 gnupg-l10n_2.2.13-1 gnupg-utils_2.2.13-1 gpg_2.2.13-1 gpg-agent_2.2.13-1 gpg-wks-client_2.2.13-1 gpg-wks-server_2.2.13-1 gpgconf_2.2.13-1 gpgsm_2.2.13-1 gpgv_2.2.13-1 grep_3.3-1 groff-base_1.22.4-3 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.53-4 libapt-pkg5.0_1.8.0 libarchive-zip-perl_1.64-1 libasan5_8.3.0-3 libasan5-armhf-cross_8.3.0-2cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-3 libatomic1-armhf-cross_8.3.0-2cross1 libattr1_1:2.4.48-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-16 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-8 libc-dev-bin_2.28-8 libc6_2.28-8 libc6-armhf-cross_2.28-7cross1 libc6-dev_2.28-8 libc6-dev-armhf-cross_2.28-7cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-3 libcom-err2_1.45.0-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.6 libdebconfclient0_0.248 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.45.0-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.2-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-3 libgcc-8-dev-armhf-cross_8.3.0-2cross1 libgcc1_1:8.3.0-3 libgcc1-armhf-cross_1:8.3.0-2cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-4 libgdbm6_1.18.1-4 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-3 libgomp1_8.3.0-3 libgomp1-armhf-cross_8.3.0-2cross1 libgpg-error0_1.35-1 libhiredis-dev_0.14.0-3 libhiredis0.14_0.14.0-3 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-3 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-3 libjemalloc-dev_5.1.0-3 libjemalloc2_5.1.0-3 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-3 liblua5.1-0_5.1.5-8.1+b2 liblua5.1-0-dev_5.1.5-8.1+b2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-4 libmagic1_1:5.35-4 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-3 libncurses-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-12 libperl5.28_5.28.1-5 libpipeline1_1.5.1-2 libquadmath0_8.3.0-3 libreadline-dev_7.0-5 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-2 libss2_1.45.0-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-3 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-3 libstdc++6-armhf-cross_8.3.0-2cross1 libsystemd0_241-2 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-3 libubsan1_8.3.0-3 libubsan1-armhf-cross_8.3.0-2cross1 libuchardet0_0.0.6-3 libudev1_241-2 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-4 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.28-2 linux-libc-dev-armhf-cross_4.19.20-1cross1 login_1:4.5-1.1 lsb-base_10.2019031300 lua-bitop_1.0.2-5 lua-bitop-dev_1.0.2-5 lua-cjson_2.1.0+dfsg-2.1 lua-cjson-dev_2.1.0+dfsg-2.1 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-5 perl-base_5.28.1-5 perl-modules-5.28_5.28.1-5 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-2 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: redis
+Binary: redis, redis-sentinel, redis-server, redis-tools
+Architecture: any all
+Version: 5:5.0.4-1
+Maintainer: Chris Lamb <lamby@debian.org>
+Homepage: https://redis.io/
+Standards-Version: 4.3.0
+Vcs-Browser: https://salsa.debian.org/lamby/pkg-redis
+Vcs-Git: https://salsa.debian.org/lamby/pkg-redis.git
+Testsuite: autopkgtest
+Build-Depends: debhelper-compat (= 12), dpkg-dev (>= 1.17.14), libhiredis-dev (>= 0.14.0), libjemalloc-dev [linux-any], liblua5.1-dev, lua-bitop-dev, lua-cjson-dev, procps <!nocheck>, tcl <!nocheck>
+Package-List:
+ redis deb database optional arch=all
+ redis-sentinel deb database optional arch=any
+ redis-server deb database optional arch=any
+ redis-tools deb database optional arch=any
+Checksums-Sha1:
+ 4eeb899dce9030bc30882cd3d340e111fc48ed4c 1982962 redis_5.0.4.orig.tar.gz
+ bf7d2240f2ca10056aad5932bc472626a75b899c 26312 redis_5.0.4-1.debian.tar.xz
+Checksums-Sha256:
+ 5f3b6b5407a76611c276ed63a7b269f1abbbe8bc7da2451744ef77ca7a905d0f 1982962 redis_5.0.4.orig.tar.gz
+ d9e614954c587af45217f5281949a8fbfa0de4264f4e57bab47a9da10ac06721 26312 redis_5.0.4-1.debian.tar.xz
+Files:
+ bf37d5a5f2fdc2e9c197efa56930691b 1982962 redis_5.0.4.orig.tar.gz
+ 126f1a597ee7076d8295c583cb3004b2 26312 redis_5.0.4-1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEwv5L0nHBObhsUz5GHpU+J9QxHlgFAlyP49IACgkQHpU+J9Qx
+Hlj5Nw//X+kerPnSu5GLTejAJ3i7hjYD+L1J9i2n16avfzYBEyIL/HGyeV4xizy0
+7b3DH6tc4ZylAHKb4RroT9giecxMp5qpfyuouPTnv9uzX0dRScExsAkGuazOX+jL
+cO18gMVCVaOY0zH/R1k8mVXnIOVXoeISkad8vnC+g6+Hl7Z0wyfZjvdaUzrOKatP
+hVLSRwW8in8VJ27OttEsj1v0wwRZhENh8MVc032/w+Aqlh+k5CbBoiaotbfjiMRk
+ixyvHDcThFJq4WGNFPRO58tfl3TaB9jZEioTtUtEK2iVzAq3fwWYjzpfmkuLq1oR
+S/HNRr/YEtsILGOzbpzivNAE4+GHF+6seRTWQaBLtJlS/5Y+ZtQWWuG6ii/Q4375
+VPsG1fZ4hJJ2cgE+QeX2d7fHAgLBRk0kNSwZygbfy/uk71o0oR/yyb7H1o7je9yu
+g7GIazSy6DXHXkUVuy6eFiMRxBIgWuoCT7IeE03RVVN9T7DfelcUhD/0BcEEPRmH
+wesppZAVeXCBtxwz5bgWiRFlE/LChU+jLxZA+UkH3qHob2qxVGDyxqMQKA8uZ+CY
+5lULrtAGgoMzX4C9u21zVIIk1tqbkAOxVpOY6xyqzYOeNE+i/2AAqqhdEZ+BVYMb
+zpookjz+ogGPS9uxBthDFf/P7N0w60/qag2r/6yHxPhIggijB6g=
+=rI5E
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Mon Mar 18 18:30:42 2019 UTC
+gpgv:                using RSA key C2FE4BD271C139B86C533E461E953E27D4311E58
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./redis_5.0.4-1.dsc
+dpkg-source: info: extracting redis in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking redis_5.0.4.orig.tar.gz
+dpkg-source: info: unpacking redis_5.0.4-1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 0001-fix-ftbfs-on-kfreebsd.patch
+dpkg-source: info: applying debian-packaging/0003-dpkg-buildflags.patch
+dpkg-source: info: applying debian-packaging/0007-Set-Debian-configuration-defaults.patch
+dpkg-source: info: applying 0010-Use-get_current_dir_name-over-PATHMAX-etc.patch
+dpkg-source: info: applying 0010-Add-support-for-USE_SYSTEM_JEMALLOC-flag.patch
+dpkg-source: info: applying 0011-Add-support-for-a-USE_SYSTEM_LUA-flag.patch
+dpkg-source: info: applying 0007-Add-support-for-a-USE_SYSTEM_HIREDIS-flag.patch
+dpkg-source: info: applying debian-packaging/0008-Ensure-we-use-the-modules-for-third-party-libraries.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-e4b22480-9eee-4aa4-a897-6de3eab78a63
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package redis
+dpkg-buildpackage: info: source version 5:5.0.4-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Chris Lamb <lamby@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+dpkg-source: info: using options from redis-5.0.4/debian/source/options: --extend-diff-ignore=^\.travis\.yml$
+ fakeroot debian/rules clean
+dh clean
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_clean
+	make -j16 distclean
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+cd src && make distclean
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+rm -rf redis-server redis-sentinel redis-cli redis-benchmark redis-check-rdb redis-check-aof *.o *.gcda *.gcno *.gcov redis.info lcov-html Makefile.dep dict-benchmark
+(cd ../deps && make distclean)
+make[4]: Entering directory '/<<PKGBUILDDIR>>/deps'
+(cd hiredis && make clean) > /dev/null || true
+(cd linenoise && make clean) > /dev/null || true
+(cd lua && make clean) > /dev/null || true
+(cd jemalloc && [ -f Makefile ] && make distclean) > /dev/null || true
+(rm -f .make-*)
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/deps'
+(rm -f .make-*)
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+rm -f src/release.h debian/*.service debian/lua_libs_debian.c
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+   dh_auto_configure -a
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+echo "// Automatically generated; do not edit." >debian/lua_libs_debian.c
+echo "luaLoadLib(lua, LUA_LOADLIBNAME, luaopen_package);" >>debian/lua_libs_debian.c
+set -e; for X in cjson bit; do \
+	echo "if (luaL_dostring(lua, \"$X = require('$X');\"))" >>debian/lua_libs_debian.c; \
+	echo "    serverLog(LL_NOTICE, \"Error loading $X library\");" >>debian/lua_libs_debian.c; \
+done
+echo 'luaL_dostring(lua, "module = nil; require = nil;");' >>debian/lua_libs_debian.c
+# Build the non-bundled Lua libraries
+dh_auto_build --sourcedirectory=deps/lua/src -- lua_struct.o lua_cmsgpack.o
+	cd deps/lua/src && make -j16 "INSTALL=install --strip-program=true" PKG_CONFIG=arm-linux-gnueabihf-pkg-config CXX=arm-linux-gnueabihf-g\+\+ CC=arm-linux-gnueabihf-gcc lua_struct.o lua_cmsgpack.o
+make[2]: Entering directory '/<<PKGBUILDDIR>>/deps/lua/src'
+arm-linux-gnueabihf-gcc -O2 -Wall  -Wdate-time -D_FORTIFY_SOURCE=2  -c -o lua_struct.o lua_struct.c
+arm-linux-gnueabihf-gcc -O2 -Wall  -Wdate-time -D_FORTIFY_SOURCE=2  -c -o lua_cmsgpack.o lua_cmsgpack.c
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/deps/lua/src'
+dh_auto_build --parallel -- V=1 USE_SYSTEM_JEMALLOC=yes USE_SYSTEM_LUA=yes USE_SYSTEM_HIREDIS=yes
+	make -j16 "INSTALL=install --strip-program=true" PKG_CONFIG=arm-linux-gnueabihf-pkg-config CXX=arm-linux-gnueabihf-g\+\+ CC=arm-linux-gnueabihf-gcc V=1 USE_SYSTEM_JEMALLOC=yes USE_SYSTEM_LUA=yes USE_SYSTEM_HIREDIS=yes
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+cd src && make all
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -MM *.c > Makefile.dep 2> /dev/null || true
+rm -rf redis-server redis-sentinel redis-cli redis-benchmark redis-check-rdb redis-check-aof *.o *.gcda *.gcno *.gcov redis.info lcov-html Makefile.dep dict-benchmark
+(cd ../deps && make distclean)
+make[4]: Entering directory '/<<PKGBUILDDIR>>/deps'
+(cd linenoise && make clean) > /dev/null || true
+(rm -f .make-*)
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/deps'
+(rm -f .make-*)
+echo STD=-std=c99 -pedantic -DREDIS_STATIC='' >> .make-settings
+echo WARN=-Wall -W -Wno-missing-field-initializers >> .make-settings
+echo OPT=-O2 >> .make-settings
+echo MALLOC=jemalloc >> .make-settings
+echo CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security >> .make-settings
+echo LDFLAGS=-Wl,-z,relro -Wl,-z,now -Wl,-no-as-needed -ldl -latomic -llua5.1-cjson -llua5.1-bitop ../deps/lua/src/lua_struct.o ../deps/lua/src/lua_cmsgpack.o >> .make-settings
+echo REDIS_CFLAGS= >> .make-settings
+echo REDIS_LDFLAGS= >> .make-settings
+echo PREV_FINAL_CFLAGS=-std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis >> .make-settings
+echo PREV_FINAL_LDFLAGS=-Wl,-z,relro -Wl,-z,now -Wl,-no-as-needed -ldl -latomic -llua5.1-cjson -llua5.1-bitop ../deps/lua/src/lua_struct.o ../deps/lua/src/lua_cmsgpack.o  -g -ggdb -rdynamic >> .make-settings
+(cd ../deps && make linenoise)
+make[4]: Entering directory '/<<PKGBUILDDIR>>/deps'
+(cd linenoise && make clean) > /dev/null || true
+(rm -f .make-*)
+(echo "-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security" > .make-cflags)
+(echo "-Wl,-z,relro -Wl,-z,now -Wl,-no-as-needed -ldl -latomic -llua5.1-cjson -llua5.1-bitop ../deps/lua/src/lua_struct.o ../deps/lua/src/lua_cmsgpack.o" > .make-ldflags)
+[32;1mMAKE[0m [37;1mlinenoise[0m
+cd linenoise && make
+make[5]: Entering directory '/<<PKGBUILDDIR>>/deps/linenoise'
+arm-linux-gnueabihf-gcc  -Wall -Os -g -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -c linenoise.c
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/deps/linenoise'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/deps'
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c adlist.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c quicklist.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c ae.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c anet.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c dict.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c server.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c sds.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c zmalloc.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c lzf_c.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c lzf_d.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c pqsort.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c zipmap.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c sha1.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c ziplist.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c release.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c networking.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c util.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c object.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c db.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c replication.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c rdb.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c t_string.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c t_list.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c t_set.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c t_zset.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c t_hash.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c config.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c aof.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c pubsub.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c multi.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c debug.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c sort.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c intset.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c syncio.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c cluster.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c crc16.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c endianconv.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c slowlog.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c scripting.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c bio.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c rio.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c rand.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c memtest.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c crc64.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c bitops.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c sentinel.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c notify.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c setproctitle.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c blocked.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c hyperloglog.c
+debug.c: In function ‘logRegisters’:
+debug.c:799:31: warning: unused parameter ‘uc’ [-Wunused-parameter]
+ void logRegisters(ucontext_t *uc) {
+                   ~~~~~~~~~~~~^~
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c latency.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c sparkline.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c redis-check-rdb.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c redis-check-aof.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c geo.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c lazyfree.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c module.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c evict.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c expire.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c geohash.c
+redis-check-aof.c: In function ‘consumeNewline.part.0’:
+redis-check-aof.c:37:36: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 1004 [-Wformat-truncation=]
+     snprintf(error, sizeof(error), "0x%16llx: %s", (long long)epos, __buf); \
+                                    ^~~~~~~~~~~~~~                   ~~~~~
+redis-check-aof.c:45:9: note: in expansion of macro ‘ERROR’
+         ERROR("Expected \\r\\n, got: %02x%02x",buf[0],buf[1]);
+         ^~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from rio.h:35,
+                 from server.h:36,
+                 from redis-check-aof.c:31:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 21 and 1044 bytes into a destination of size 1024
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+redis-check-aof.c: In function ‘readLong’:
+redis-check-aof.c:37:36: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 1004 [-Wformat-truncation=]
+     snprintf(error, sizeof(error), "0x%16llx: %s", (long long)epos, __buf); \
+                                    ^~~~~~~~~~~~~~                   ~~~~~
+redis-check-aof.c:58:9: note: in expansion of macro ‘ERROR’
+         ERROR("Expected prefix '%c', got: '%c'",prefix,buf[0]);
+         ^~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from rio.h:35,
+                 from server.h:36,
+                 from redis-check-aof.c:31:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 21 and 1044 bytes into a destination of size 1024
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+redis-check-aof.c: In function ‘readBytes’:
+redis-check-aof.c:37:36: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 1004 [-Wformat-truncation=]
+     snprintf(error, sizeof(error), "0x%16llx: %s", (long long)epos, __buf); \
+                                    ^~~~~~~~~~~~~~                   ~~~~~
+redis-check-aof.c:70:9: note: in expansion of macro ‘ERROR’
+         ERROR("Expected to read %ld bytes, got %ld bytes",length,real);
+         ^~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from rio.h:35,
+                 from server.h:36,
+                 from redis-check-aof.c:31:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 21 and 1044 bytes into a destination of size 1024
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+redis-check-aof.c: In function ‘process’:
+redis-check-aof.c:37:36: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 1004 [-Wformat-truncation=]
+     snprintf(error, sizeof(error), "0x%16llx: %s", (long long)epos, __buf); \
+                                    ^~~~~~~~~~~~~~                   ~~~~~
+redis-check-aof.c:120:25: note: in expansion of macro ‘ERROR’
+                         ERROR("Unexpected EXEC");
+                         ^~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from rio.h:35,
+                 from server.h:36,
+                 from redis-check-aof.c:31:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 21 and 1044 bytes into a destination of size 1024
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+redis-check-aof.c:37:36: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 1004 [-Wformat-truncation=]
+     snprintf(error, sizeof(error), "0x%16llx: %s", (long long)epos, __buf); \
+                                    ^~~~~~~~~~~~~~                   ~~~~~
+redis-check-aof.c:115:25: note: in expansion of macro ‘ERROR’
+                         ERROR("Unexpected MULTI");
+                         ^~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from rio.h:35,
+                 from server.h:36,
+                 from redis-check-aof.c:31:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 21 and 1044 bytes into a destination of size 1024
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+redis-check-aof.c:37:36: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 1004 [-Wformat-truncation=]
+     snprintf(error, sizeof(error), "0x%16llx: %s", (long long)epos, __buf); \
+                                    ^~~~~~~~~~~~~~                   ~~~~~
+redis-check-aof.c:136:9: note: in expansion of macro ‘ERROR’
+         ERROR("Reached EOF before reading EXEC for MULTI");
+         ^~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from rio.h:35,
+                 from server.h:36,
+                 from redis-check-aof.c:31:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 21 and 1044 bytes into a destination of size 1024
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c geohash_helper.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c childinfo.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c defrag.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c siphash.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c rax.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c t_stream.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c listpack.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c localtime.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c lolwut.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c lolwut5.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c redis-cli.c
+arm-linux-gnueabihf-gcc -std=c99 -pedantic -DREDIS_STATIC='' -Wall -W -Wno-missing-field-initializers -O2 -g -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -I../deps/linenoise -DUSE_JEMALLOC -I/usr/include/jemalloc/include -I/usr/include/lua5.1 -I/usr/include/hiredis -Wdate-time -D_FORTIFY_SOURCE=2 -c redis-benchmark.c
+listpack.c: In function ‘lpSeek’:
+listpack.c:771:19: warning: comparison of integer expressions of different signedness: ‘long int’ and ‘uint32_t’ {aka ‘unsigned int’} [-Wsign-compare]
+         if (index >= numele) return NULL; /* Out of range the other side. */
+                   ^~
+listpack.c:774:19: warning: comparison of integer expressions of different signedness: ‘long int’ and ‘uint32_t’ {aka ‘unsigned int’} [-Wsign-compare]
+         if (index > numele/2) {
+                   ^
+In file included from scripting.c:36:
+../debian/lua_libs_debian.c: In function ‘luaLoadLibraries’:
+/usr/include/lua5.1/lauxlib.h:115:25: warning: value computed is not used [-Wunused-value]
+  (luaL_loadstring(L, s) || lua_pcall(L, 0, LUA_MULTRET, 0))
+                         ^~
+../debian/lua_libs_debian.c:7:1: note: in expansion of macro ‘luaL_dostring’
+ luaL_dostring(lua, "module = nil; require = nil;");
+ ^~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -Wl,-z,relro -Wl,-z,now -Wl,-no-as-needed -ldl -latomic -llua5.1-cjson -llua5.1-bitop ../deps/lua/src/lua_struct.o ../deps/lua/src/lua_cmsgpack.o  -g -ggdb -rdynamic -o redis-benchmark ae.o anet.o redis-benchmark.o adlist.o zmalloc.o -llua5.1 -ljemalloc -lm -ldl -pthread -lrt -lhiredis
+arm-linux-gnueabihf-gcc -Wl,-z,relro -Wl,-z,now -Wl,-no-as-needed -ldl -latomic -llua5.1-cjson -llua5.1-bitop ../deps/lua/src/lua_struct.o ../deps/lua/src/lua_cmsgpack.o  -g -ggdb -rdynamic -o redis-server adlist.o quicklist.o ae.o anet.o dict.o server.o sds.o zmalloc.o lzf_c.o lzf_d.o pqsort.o zipmap.o sha1.o ziplist.o release.o networking.o util.o object.o db.o replication.o rdb.o t_string.o t_list.o t_set.o t_zset.o t_hash.o config.o aof.o pubsub.o multi.o debug.o sort.o intset.o syncio.o cluster.o crc16.o endianconv.o slowlog.o scripting.o bio.o rio.o rand.o memtest.o crc64.o bitops.o sentinel.o notify.o setproctitle.o blocked.o hyperloglog.o latency.o sparkline.o redis-check-rdb.o redis-check-aof.o geo.o lazyfree.o module.o evict.o expire.o geohash.o geohash_helper.o childinfo.o defrag.o siphash.o rax.o t_stream.o listpack.o localtime.o lolwut.o lolwut5.o -llua5.1 -ljemalloc -lm -ldl -pthread -lrt -lhiredis
+install --strip-program=true redis-server redis-sentinel
+install --strip-program=true redis-server redis-check-rdb
+install --strip-program=true redis-server redis-check-aof
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install: WARNING: ignoring --strip-program option as -s option was not specified
+arm-linux-gnueabihf-gcc -Wl,-z,relro -Wl,-z,now -Wl,-no-as-needed -ldl -latomic -llua5.1-cjson -llua5.1-bitop ../deps/lua/src/lua_struct.o ../deps/lua/src/lua_cmsgpack.o  -g -ggdb -rdynamic -o redis-cli anet.o adlist.o dict.o redis-cli.o zmalloc.o release.o ae.o crc64.o siphash.o crc16.o ../deps/linenoise/linenoise.o -llua5.1 -ljemalloc -lm -ldl -pthread -lrt -lhiredis
+
+Hint: It's a good idea to run 'make test' ;)
+
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary-arch
+dh binary-arch
+   dh_testroot -a
+   dh_prep -a
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+debian/bin/generate-systemd-service-files
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_install -a
+   dh_installdocs -a
+   debian/rules override_dh_installchangelogs
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_installchangelogs --keep 00-RELEASENOTES
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installexamples -a
+   dh_installman -a
+   dh_installinit -a
+   dh_installsystemd -a
+   dh_installlogrotate -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   debian/rules override_dh_compress
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_compress -Xredis-trib.rb
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_fixperms -a
+   dh_missing -a
+   dh_dwz -a
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/redis-tools/usr/bin/redis-cli debian/redis-tools/usr/bin/redis-check-rdb debian/redis-tools/usr/bin/redis-benchmark debian/redis-tools/usr/bin/redis-check-aof were not linked against libatomic.so.1 (they use none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/redis-tools/usr/bin/redis-cli debian/redis-tools/usr/bin/redis-check-rdb debian/redis-tools/usr/bin/redis-benchmark debian/redis-tools/usr/bin/redis-check-aof were not linked against librt.so.1 (they use none of the library's symbols)
+   dh_installdeb -a
+   dh_gencontrol -a
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'redis-sentinel' in '../redis-sentinel_5.0.4-1_armhf.deb'.
+dpkg-deb: building package 'redis-server' in '../redis-server_5.0.4-1_armhf.deb'.
+dpkg-deb: building package 'redis-tools-dbgsym' in '../redis-tools-dbgsym_5.0.4-1_armhf.deb'.
+dpkg-deb: building package 'redis-tools' in '../redis-tools_5.0.4-1_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../redis_5.0.4-1_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-source: info: using options from redis-5.0.4/debian/source/options: --extend-diff-ignore=^\.travis\.yml$
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-23T09:27:36Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+redis_5.0.4-1_armhf.changes:
+----------------------------
+
+Format: 1.8
+Date: Mon, 18 Mar 2019 14:20:46 -0400
+Source: redis
+Binary: redis-sentinel redis-server redis-tools redis-tools-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 5:5.0.4-1
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Chris Lamb <lamby@debian.org>
+Changed-By: Chris Lamb <lamby@debian.org>
+Description:
+ redis-sentinel - Persistent key-value database with network interface (monitoring)
+ redis-server - Persistent key-value database with network interface
+ redis-tools - Persistent key-value database with network interface (client)
+Changes:
+ redis (5:5.0.4-1) unstable; urgency=medium
+ .
+   * New upstream release.
+     <https://groups.google.com/forum/#!topic/redis-db/aXusvS8da8g>
+Checksums-Sha1:
+ 95be4a0d321d49e1e965ac7956ce702cd8ed36b0 54500 redis-sentinel_5.0.4-1_armhf.deb
+ 4283635a3fbeb118453fb63f007f332cb473aeb9 80352 redis-server_5.0.4-1_armhf.deb
+ 8b23f849e206ff228f10f76b839a7237906a8e73 1221456 redis-tools-dbgsym_5.0.4-1_armhf.deb
+ b9b963484b6b29b70f21430792ed55801c82757c 467116 redis-tools_5.0.4-1_armhf.deb
+ fe59a9adce6abed7c1c1dee1ba8072d764d30087 5464 redis_5.0.4-1_armhf.buildinfo
+Checksums-Sha256:
+ 8e4f2560a1946692e6e89cdbccb80d87124a8ea6683bf79087c326e451420dff 54500 redis-sentinel_5.0.4-1_armhf.deb
+ 38f68bcc72395e3ca7fa08bdcc6fe46d93f05e4d62ba56f306e7b5c5b50f8d93 80352 redis-server_5.0.4-1_armhf.deb
+ 202d2a4f54cf0da150e7872d78877b3ccd985bb4f32089f1e42fffd877509af5 1221456 redis-tools-dbgsym_5.0.4-1_armhf.deb
+ b81ce5cff366268042fe93c7ecedfa22e95bc56d8829ec314ebd389b52d802c3 467116 redis-tools_5.0.4-1_armhf.deb
+ e34e0499f3e600bb096745594beb452d549d68b996d341294ac0c8ce1ad63d0e 5464 redis_5.0.4-1_armhf.buildinfo
+Files:
+ 795101c56b28f21809acf24afc48b608 54500 database optional redis-sentinel_5.0.4-1_armhf.deb
+ e5d258af31ba198773cd3f7e75ae4b2b 80352 database optional redis-server_5.0.4-1_armhf.deb
+ 40142ae43812ddede9b06ce85f5a78ba 1221456 debug optional redis-tools-dbgsym_5.0.4-1_armhf.deb
+ 0f838a3965ebc51d30f53874819396c7 467116 database optional redis-tools_5.0.4-1_armhf.deb
+ 9e70202f90fe77b97257578331bb37d5 5464 database optional redis_5.0.4-1_armhf.buildinfo
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: redis
+Binary: redis redis-sentinel redis-server redis-tools
+Architecture: armhf
+Version: 5:5.0.4-1
+Checksums-Md5:
+ 795101c56b28f21809acf24afc48b608 54500 redis-sentinel_5.0.4-1_armhf.deb
+ e5d258af31ba198773cd3f7e75ae4b2b 80352 redis-server_5.0.4-1_armhf.deb
+ 40142ae43812ddede9b06ce85f5a78ba 1221456 redis-tools-dbgsym_5.0.4-1_armhf.deb
+ 0f838a3965ebc51d30f53874819396c7 467116 redis-tools_5.0.4-1_armhf.deb
+Checksums-Sha1:
+ 95be4a0d321d49e1e965ac7956ce702cd8ed36b0 54500 redis-sentinel_5.0.4-1_armhf.deb
+ 4283635a3fbeb118453fb63f007f332cb473aeb9 80352 redis-server_5.0.4-1_armhf.deb
+ 8b23f849e206ff228f10f76b839a7237906a8e73 1221456 redis-tools-dbgsym_5.0.4-1_armhf.deb
+ b9b963484b6b29b70f21430792ed55801c82757c 467116 redis-tools_5.0.4-1_armhf.deb
+Checksums-Sha256:
+ 8e4f2560a1946692e6e89cdbccb80d87124a8ea6683bf79087c326e451420dff 54500 redis-sentinel_5.0.4-1_armhf.deb
+ 38f68bcc72395e3ca7fa08bdcc6fe46d93f05e4d62ba56f306e7b5c5b50f8d93 80352 redis-server_5.0.4-1_armhf.deb
+ 202d2a4f54cf0da150e7872d78877b3ccd985bb4f32089f1e42fffd877509af5 1221456 redis-tools-dbgsym_5.0.4-1_armhf.deb
+ b81ce5cff366268042fe93c7ecedfa22e95bc56d8829ec314ebd389b52d802c3 467116 redis-tools_5.0.4-1_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Sat, 23 Mar 2019 09:27:36 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-16),
+ binutils-common (= 2.31.1-16),
+ binutils-x86-64-linux-gnu (= 2.31.1-16),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.6),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-3),
+ cpp (= 4:8.3.0-1),
+ cpp-8 (= 8.3.0-3),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.2-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-4),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.3.0-1),
+ g++-8 (= 8.3.0-3),
+ gcc (= 4:8.3.0-1),
+ gcc-8 (= 8.3.0-3),
+ gcc-8-base (= 8.3.0-3),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-3),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.53-4),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-3),
+ libatomic1 (= 8.3.0-3),
+ libattr1 (= 1:2.4.48-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-16),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-8),
+ libc-dev-bin (= 2.28-8),
+ libc6 (= 2.28-8),
+ libc6-dev (= 2.28-8),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-3),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.6),
+ libdebconfclient0 (= 0.248),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.2-1),
+ libgcc-8-dev (= 8.3.0-3),
+ libgcc1 (= 1:8.3.0-3),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-4),
+ libgdbm6 (= 1.18.1-4),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-3),
+ libgpg-error0 (= 1.35-1),
+ libhiredis-dev (= 0.14.0-3),
+ libhiredis0.14 (= 0.14.0-3),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-3),
+ libjemalloc-dev (= 5.1.0-3),
+ libjemalloc2 (= 5.1.0-3),
+ liblsan0 (= 8.3.0-3),
+ liblua5.1-0 (= 5.1.5-8.1+b2),
+ liblua5.1-0-dev (= 5.1.5-8.1+b2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-4),
+ libmagic1 (= 1:5.35-4),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-3),
+ libncurses-dev (= 6.1+20181013-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-12),
+ libperl5.28 (= 5.28.1-5),
+ libpipeline1 (= 1.5.1-2),
+ libquadmath0 (= 8.3.0-3),
+ libreadline-dev (= 7.0-5),
+ libreadline7 (= 7.0-5),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libstdc++-8-dev (= 8.3.0-3),
+ libstdc++6 (= 8.3.0-3),
+ libsystemd0 (= 241-2),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-3),
+ libubsan1 (= 8.3.0-3),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-2),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.28-2),
+ login (= 1:4.5-1.1),
+ lua-bitop (= 1.0.2-5),
+ lua-bitop-dev (= 1.0.2-5),
+ lua-cjson (= 2.1.0+dfsg-2.1),
+ lua-cjson-dev (= 2.1.0+dfsg-2.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-5),
+ perl-base (= 5.28.1-5),
+ perl-modules-5.28 (= 5.28.1-5),
+ po-debconf (= 1.0.21),
+ readline-common (= 7.0-5),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1552933246"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+redis-sentinel_5.0.4-1_armhf.deb
+--------------------------------
+
+ new Debian package, version 2.0.
+ size 54500 bytes: control archive=1980 bytes.
+     112 bytes,     4 lines      conffiles            
+     669 bytes,    17 lines      control              
+     536 bytes,     7 lines      md5sums              
+    2681 bytes,    73 lines   *  postinst             #!/bin/sh
+    1446 bytes,    44 lines   *  postrm               #!/bin/sh
+     511 bytes,     8 lines   *  preinst              #!/bin/sh
+     939 bytes,    18 lines   *  prerm                #!/bin/sh
+ Package: redis-sentinel
+ Source: redis
+ Version: 5:5.0.4-1
+ Architecture: armhf
+ Maintainer: Chris Lamb <lamby@debian.org>
+ Installed-Size: 97
+ Pre-Depends: init-system-helpers (>= 1.54~)
+ Depends: lsb-base (>= 3.2-14), redis-tools (= 5:5.0.4-1)
+ Section: database
+ Priority: optional
+ Homepage: https://redis.io/
+ Description: Persistent key-value database with network interface (monitoring)
+  Redis is a key-value database in a similar vein to memcache but the dataset
+  is non-volatile. Redis additionally provides native support for atomically
+  manipulating and querying data structures such as lists and sets.
+  .
+  This package contains the Redis Sentinel monitoring software.
+
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./etc/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./etc/default/
+-rw-r--r-- root/root       294 2019-03-18 18:20 ./etc/default/redis-sentinel
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./etc/init.d/
+-rwxr-xr-x root/root      1650 2019-03-18 18:20 ./etc/init.d/redis-sentinel
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./etc/logrotate.d/
+-rw-r--r-- root/root       126 2019-03-18 18:20 ./etc/logrotate.d/redis-sentinel
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./etc/redis/
+-rw-r--r-- root/root      9780 2019-03-18 18:20 ./etc/redis/sentinel.conf
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./lib/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./lib/systemd/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./lib/systemd/system/
+-rw-r--r-- root/root      1244 2019-03-18 18:20 ./lib/systemd/system/redis-sentinel.service
+-rw-r--r-- root/root      2513 2019-03-18 18:20 ./lib/systemd/system/redis-sentinel@.service
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/bin/
+lrwxrwxrwx root/root         0 2019-03-18 18:20 ./usr/bin/redis-sentinel -> redis-check-rdb
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/doc/redis-sentinel/
+lrwxrwxrwx root/root         0 2019-03-18 18:20 ./usr/share/doc/redis-sentinel/00-RELEASENOTES.gz -> changelog.gz
+-rw-r--r-- root/root       266 2019-03-18 18:20 ./usr/share/doc/redis-sentinel/NEWS.Debian.gz
+-rw-r--r-- root/root     14462 2019-03-18 18:20 ./usr/share/doc/redis-sentinel/changelog.Debian.gz
+-rw-r--r-- root/root     28635 2019-03-18 16:21 ./usr/share/doc/redis-sentinel/changelog.gz
+-rw-r--r-- root/root      5433 2019-03-18 18:20 ./usr/share/doc/redis-sentinel/copyright
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/man/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/man/man1/
+-rw-r--r-- root/root       499 2019-03-18 18:20 ./usr/share/man/man1/redis-sentinel.1.gz
+
+
+redis-server_5.0.4-1_armhf.deb
+------------------------------
+
+ new Debian package, version 2.0.
+ size 80352 bytes: control archive=2056 bytes.
+     103 bytes,     4 lines      conffiles            
+     668 bytes,    17 lines      control              
+     670 bytes,     9 lines      md5sums              
+    2652 bytes,    73 lines   *  postinst             #!/bin/sh
+    1429 bytes,    44 lines   *  postrm               #!/bin/sh
+     503 bytes,     8 lines   *  preinst              #!/bin/sh
+     925 bytes,    18 lines   *  prerm                #!/bin/sh
+ Package: redis-server
+ Source: redis
+ Version: 5:5.0.4-1
+ Architecture: armhf
+ Maintainer: Chris Lamb <lamby@debian.org>
+ Installed-Size: 158
+ Pre-Depends: init-system-helpers (>= 1.54~)
+ Depends: lsb-base (>= 3.2-14), redis-tools (= 5:5.0.4-1)
+ Section: database
+ Priority: optional
+ Homepage: https://redis.io/
+ Description: Persistent key-value database with network interface
+  Redis is a key-value database in a similar vein to memcache but the dataset
+  is non-volatile. Redis additionally provides native support for atomically
+  manipulating and querying data structures such as lists and sets.
+  .
+  The dataset is stored entirely in memory and periodically flushed to disk.
+
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./etc/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./etc/default/
+-rw-r--r-- root/root       271 2019-03-18 18:20 ./etc/default/redis-server
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./etc/init.d/
+-rwxr-xr-x root/root      1614 2019-03-18 18:20 ./etc/init.d/redis-server
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./etc/logrotate.d/
+-rw-r--r-- root/root       124 2019-03-18 18:20 ./etc/logrotate.d/redis-server
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./etc/redis/
+-rw-r--r-- root/root     62226 2019-03-18 18:20 ./etc/redis/redis.conf
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./lib/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./lib/systemd/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./lib/systemd/system/
+-rw-r--r-- root/root      1221 2019-03-18 18:20 ./lib/systemd/system/redis-server.service
+-rw-r--r-- root/root      2449 2019-03-18 18:20 ./lib/systemd/system/redis-server@.service
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/bin/
+lrwxrwxrwx root/root         0 2019-03-18 18:20 ./usr/bin/redis-server -> redis-check-rdb
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/doc/redis-server/
+lrwxrwxrwx root/root         0 2019-03-18 18:20 ./usr/share/doc/redis-server/00-RELEASENOTES.gz -> changelog.gz
+-rw-r--r-- root/root      1915 2019-03-18 16:21 ./usr/share/doc/redis-server/MANIFESTO.gz
+-rw-r--r-- root/root       266 2019-03-18 18:20 ./usr/share/doc/redis-server/NEWS.Debian.gz
+-rw-r--r-- root/root      7760 2019-03-18 16:21 ./usr/share/doc/redis-server/README.md.gz
+-rw-r--r-- root/root     14462 2019-03-18 18:20 ./usr/share/doc/redis-server/changelog.Debian.gz
+-rw-r--r-- root/root     28635 2019-03-18 16:21 ./usr/share/doc/redis-server/changelog.gz
+-rw-r--r-- root/root      5433 2019-03-18 18:20 ./usr/share/doc/redis-server/copyright
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/man/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/man/man1/
+-rw-r--r-- root/root       485 2019-03-18 18:20 ./usr/share/man/man1/redis-server.1.gz
+
+
+redis-tools-dbgsym_5.0.4-1_armhf.deb
+------------------------------------
+
+ new Debian package, version 2.0.
+ size 1221456 bytes: control archive=684 bytes.
+     424 bytes,    12 lines      control              
+     409 bytes,     4 lines      md5sums              
+ Package: redis-tools-dbgsym
+ Source: redis
+ Version: 5:5.0.4-1
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Chris Lamb <lamby@debian.org>
+ Installed-Size: 1362
+ Depends: redis-tools (= 5:5.0.4-1)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for redis-tools
+ Build-Ids: 20da09698875ba3b5aebe6fe6647248267312314 29ed772b40e09f1ebea5ba3f194f919f4d7c5473 7c427f53e3b5d0db79a075e1ee33bebae2ec2cd1
+
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/lib/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/lib/debug/.build-id/20/
+-rw-r--r-- root/root     57536 2019-03-18 18:20 ./usr/lib/debug/.build-id/20/da09698875ba3b5aebe6fe6647248267312314.debug
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/lib/debug/.build-id/29/
+-rw-r--r-- root/root   1028760 2019-03-18 18:20 ./usr/lib/debug/.build-id/29/ed772b40e09f1ebea5ba3f194f919f4d7c5473.debug
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/lib/debug/.build-id/7c/
+-rw-r--r-- root/root    215876 2019-03-18 18:20 ./usr/lib/debug/.build-id/7c/427f53e3b5d0db79a075e1ee33bebae2ec2cd1.debug
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/lib/debug/.dwz/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/lib/debug/.dwz/arm-linux-gnueabihf/
+-rw-r--r-- root/root     76464 2019-03-18 18:20 ./usr/lib/debug/.dwz/arm-linux-gnueabihf/redis-tools.debug
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2019-03-18 18:20 ./usr/share/doc/redis-tools-dbgsym -> redis-tools
+
+
+redis-tools_5.0.4-1_armhf.deb
+-----------------------------
+
+ new Debian package, version 2.0.
+ size 467116 bytes: control archive=1656 bytes.
+     804 bytes,    19 lines      control              
+    1234 bytes,    17 lines      md5sums              
+     571 bytes,    47 lines   *  postinst             #!/bin/sh
+     123 bytes,    13 lines   *  postrm               #!/bin/sh
+ Package: redis-tools
+ Source: redis
+ Version: 5:5.0.4-1
+ Architecture: armhf
+ Maintainer: Chris Lamb <lamby@debian.org>
+ Installed-Size: 1587
+ Depends: adduser, libatomic1 (>= 4.8), libc6 (>= 2.28), libhiredis0.14 (>= 0.14.0), libjemalloc2 (>= 2.1.1), liblua5.1-0, lua-bitop, lua-cjson
+ Suggests: ruby-redis
+ Breaks: redis-server (<< 2:2.6.16-1)
+ Replaces: redis-server (<< 2:2.6.16-1)
+ Section: database
+ Priority: optional
+ Homepage: https://redis.io/
+ Description: Persistent key-value database with network interface (client)
+  Redis is a key-value database in a similar vein to memcache but the dataset
+  is non-volatile. Redis additionally provides native support for atomically
+  manipulating and querying data structures such as lists and sets.
+  .
+  This package contains the command line client and other tools.
+
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/bin/
+-rwxr-xr-x root/root     46696 2019-03-18 18:20 ./usr/bin/redis-benchmark
+-rwxr-xr-x root/root    662360 2019-03-18 18:20 ./usr/bin/redis-check-aof
+-rwxr-xr-x root/root    662360 2019-03-18 18:20 ./usr/bin/redis-check-rdb
+-rwxr-xr-x root/root    162600 2019-03-18 18:20 ./usr/bin/redis-cli
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/bash-completion/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/bash-completion/completions/
+-rw-r--r-- root/root      1003 2019-03-18 18:20 ./usr/share/bash-completion/completions/redis-cli
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/doc/redis-tools/
+lrwxrwxrwx root/root         0 2019-03-18 18:20 ./usr/share/doc/redis-tools/00-RELEASENOTES.gz -> changelog.gz
+-rw-r--r-- root/root       266 2019-03-18 18:20 ./usr/share/doc/redis-tools/NEWS.Debian.gz
+-rw-r--r-- root/root     14462 2019-03-18 18:20 ./usr/share/doc/redis-tools/changelog.Debian.gz
+-rw-r--r-- root/root     28635 2019-03-18 16:21 ./usr/share/doc/redis-tools/changelog.gz
+-rw-r--r-- root/root      5433 2019-03-18 18:20 ./usr/share/doc/redis-tools/copyright
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/doc/redis-tools/examples/
+drwxr-xr-x root/root         0 2019-03-18 16:21 ./usr/share/doc/redis-tools/examples/lru/
+-rw-r--r-- root/root       771 2019-03-18 16:21 ./usr/share/doc/redis-tools/examples/lru/README
+-rw-r--r-- root/root      5297 2019-03-18 16:21 ./usr/share/doc/redis-tools/examples/lru/lfu-simulation.c
+-rw-r--r-- root/root      5545 2019-03-18 16:21 ./usr/share/doc/redis-tools/examples/lru/test-lru.rb
+-rwxr-xr-x root/root      3600 2019-03-18 16:21 ./usr/share/doc/redis-tools/examples/redis-trib.rb
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/man/
+drwxr-xr-x root/root         0 2019-03-18 18:20 ./usr/share/man/man1/
+-rw-r--r-- root/root       924 2019-03-18 18:20 ./usr/share/man/man1/redis-benchmark.1.gz
+-rw-r--r-- root/root       382 2019-03-18 18:20 ./usr/share/man/man1/redis-check-aof.1.gz
+-rw-r--r-- root/root       382 2019-03-18 18:20 ./usr/share/man/man1/redis-check-rdb.1.gz
+-rw-r--r-- root/root       426 2019-03-18 18:20 ./usr/share/man/man1/redis-cli.1.gz
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [614 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [672 B]
+Fetched 2249 B in 0s (153 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2842 kB/2965 kB of archives.
+After this operation, 9372 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://cdn-fastly.deb.debian.org/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://cdn-fastly.deb.debian.org/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://cdn-fastly.deb.debian.org/debian sid/main amd64 lintian all 2.11.0 [1187 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2842 kB in 7s (428 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 19458 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.11.0_all.deb ...
+Unpacking lintian (2.11.0) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.11.0) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* dwz* gcc-8-base:armhf*
+  gettext* gettext-base* groff-base* intltool-debian* libapt-pkg-perl*
+  libarchive-zip-perl* libasan5:armhf* libatomic1:armhf* libbsd0* libc6:armhf*
+  libc6-dev:armhf* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclone-perl* libcroco3* libdigest-hmac-perl*
+  libelf1* libemail-valid-perl* libexporter-tiny-perl* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfuture-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libglib2.0-0* libgomp1:armhf* libhiredis-dev:armhf*
+  libhiredis0.14:armhf* libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* libjemalloc-dev:armhf* libjemalloc2:armhf*
+  liblist-moreutils-perl* liblua5.1-0:armhf* liblua5.1-0-dev:armhf*
+  libncurses-dev:armhf* libncurses6* libncurses6:armhf* libncursesw6:armhf*
+  libnet-dns-perl* libnet-domain-tld-perl* libnet-ip-perl*
+  libparse-debianchangelog-perl* libpath-tiny-perl* libpipeline1*
+  libreadline-dev:armhf* libreadline7:armhf* libsigsegv2*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libstruct-dumb-perl*
+  libsub-name-perl* libtext-levenshtein-perl* libtinfo6:armhf* libtool*
+  libubsan1:armhf* libuchardet0* lintian* linux-libc-dev:armhf*
+  lua-bitop:armhf* lua-bitop-dev:armhf* lua-cjson:armhf* lua-cjson-dev:armhf*
+  m4* man-db* patchutils* po-debconf*
+  sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils*
+0 upgraded, 0 newly installed, 84 to remove and 0 not upgraded.
+After this operation, 94.8 MB disk space will be freed.
+(Reading database ... 20742 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.11.0) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-3) ...
+Removing libgcc-8-dev:armhf (8.3.0-3) ...
+Removing libubsan1:armhf (8.3.0-3) ...
+Removing liblua5.1-0-dev:armhf (5.1.5-8.1+b2) ...
+Removing liblua5.1-0:armhf (5.1.5-8.1+b2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libasan5:armhf (8.3.0-3) ...
+Removing libatomic1:armhf (8.3.0-3) ...
+Removing libreadline-dev:armhf (7.0-5) ...
+Removing libreadline7:armhf (7.0-5) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-8) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libgomp1:armhf (8.3.0-3) ...
+Removing libhiredis-dev:armhf (0.14.0-3) ...
+Removing libhiredis0.14:armhf (0.14.0-3) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libjemalloc-dev:armhf (5.1.0-3) ...
+Removing libjemalloc2:armhf (5.1.0-3) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing linux-libc-dev:armhf (4.19.28-2) ...
+Removing lua-bitop-dev:armhf (1.0.2-5) ...
+Removing lua-bitop:armhf (1.0.2-5) ...
+Removing lua-cjson-dev:armhf (2.1.0+dfsg-2.1) ...
+Removing lua-cjson:armhf (2.1.0+dfsg-2.1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libstdc++6:armhf (8.3.0-3) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libgcc1:armhf (1:8.3.0-3) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.2-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-3) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-3) ...
+Removing libfile-stripnondeterminism-perl (1.1.2-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-8) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-8) ...
+(Reading database ... 16471 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for lintian (2.11.0) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-8) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 18
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 10
+Job: /home/build/sbuild-setup/repo/pool/main/r/redis/redis_5.0.4-1.dsc
+Lintian: pass
+Machine Architecture: amd64
+Package: redis
+Package-Time: 32
+Source-Version: 5:5.0.4-1
+Space: n/a
+Status: successful
+Version: 5:5.0.4-1
+--------------------------------------------------------------------------------
+Finished at 2019-03-23T09:27:36Z
+Build needed 00:00:32, no disk space

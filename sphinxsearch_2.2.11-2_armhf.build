@@ -1,0 +1,3328 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| sphinxsearch 2.2.11-2 (armhf)                Thu, 07 Mar 2019 01:37:13 +0000 |
++==============================================================================+
+
+Package: sphinxsearch
+Version: 2.2.11-2
+Source Version: 2.2.11-2
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-61718f73-93fb-4f31-a2f8-66b9085bb60d' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/sphinxsearch-JDipUQ/resolver-IqirSI' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/s/sphinxsearch/sphinxsearch_2.2.11-2.dsc exists in /home/build/sbuild-setup/repo/pool/main/s/sphinxsearch; copying to chroot
+I: NOTICE: Log filtering will replace 'build/sphinxsearch-JDipUQ/sphinxsearch-2.2.11' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/sphinxsearch-JDipUQ' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 9), gawk, default-libmysqlclient-dev, libpq-dev, docbook-to-man, libexpat-dev, libstemmer-dev, dh-autoreconf, autotools-dev, adduser, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 9), gawk, default-libmysqlclient-dev, libpq-dev, docbook-to-man, libexpat-dev, libstemmer-dev, dh-autoreconf, autotools-dev, adduser, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [461 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [547 B]
+Fetched 1965 B in 0s (130 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  default-libmysqlclient-dev:armhf dh-autoreconf dh-strip-nondeterminism
+  docbook docbook-to-man dwz gawk gcc-8-base:armhf gettext gettext-base
+  groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcom-err2:armhf
+  libcroco3 libdb5.3:armhf libelf1 libevent-2.1-6:armhf libexpat1:armhf
+  libexpat1-dev:armhf libffi6:armhf libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgmp-dev:armhf
+  libgmp10:armhf libgmpxx4ldbl:armhf libgnutls-dane0:armhf
+  libgnutls-openssl27:armhf libgnutls28-dev:armhf libgnutls30:armhf
+  libgnutlsxx28:armhf libgomp1:armhf libgssapi-krb5-2:armhf libhogweed4:armhf
+  libidn2-0:armhf libidn2-dev:armhf libk5crypto3:armhf libkeyutils1:armhf
+  libkrb5-3:armhf libkrb5support0:armhf libldap-2.4-2:armhf
+  libmariadb-dev:armhf libmariadb-dev-compat:armhf libmariadb3:armhf
+  libncurses6 libnettle6:armhf libosp5 libp11-kit-dev:armhf libp11-kit0:armhf
+  libpipeline1 libpq-dev:armhf libpq5:armhf libsasl2-2:armhf
+  libsasl2-modules-db:armhf libsigsegv2 libssl1.1:armhf libstdc++-8-dev:armhf
+  libstdc++6:armhf libstemmer-dev:armhf libstemmer0d:armhf libtasn1-6:armhf
+  libtasn1-6-dev:armhf libtool libubsan1:armhf libuchardet0 libunbound8:armhf
+  libunistring2:armhf linux-libc-dev:armhf m4 man-db mariadb-common
+  mysql-common nettle-dev:armhf opensp po-debconf sgml-base sgml-data xml-core
+  zlib1g:armhf zlib1g-dev:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make docbook-defguide docbook-dsssl docbook-xml psgml gawk-doc
+  gettext-doc libasprintf-dev libgettextpo-dev groff glibc-doc:armhf
+  libc-l10n:armhf locales:armhf manpages-dev:armhf gmp-doc:armhf
+  libgmp10-doc:armhf libmpfr-dev:armhf dns-root-data:armhf gnutls-bin:armhf
+  gnutls-doc:armhf krb5-doc:armhf krb5-user:armhf postgresql-doc-11:armhf
+  libstdc++-8-doc:armhf libtool-doc gfortran | fortran95-compiler gcj-jdk
+  m4-doc apparmor less www-browser doc-base libmail-box-perl sgml-base-doc
+  perlsgml w3-recs libxml2-utils
+Recommended packages:
+  curl | wget | lynx libarchive-cpio-perl libglib2.0-data shared-mime-info
+  xdg-user-dirs krb5-locales:armhf libgpm2 libsasl2-modules:armhf
+  libtasn1-doc:armhf libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  default-libmysqlclient-dev:armhf dh-autoreconf dh-strip-nondeterminism
+  docbook docbook-to-man dwz gawk gcc-8-base:armhf gettext gettext-base
+  groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcom-err2:armhf
+  libcroco3 libdb5.3:armhf libelf1 libevent-2.1-6:armhf libexpat1:armhf
+  libexpat1-dev:armhf libffi6:armhf libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgmp-dev:armhf
+  libgmp10:armhf libgmpxx4ldbl:armhf libgnutls-dane0:armhf
+  libgnutls-openssl27:armhf libgnutls28-dev:armhf libgnutls30:armhf
+  libgnutlsxx28:armhf libgomp1:armhf libgssapi-krb5-2:armhf libhogweed4:armhf
+  libidn2-0:armhf libidn2-dev:armhf libk5crypto3:armhf libkeyutils1:armhf
+  libkrb5-3:armhf libkrb5support0:armhf libldap-2.4-2:armhf
+  libmariadb-dev:armhf libmariadb-dev-compat:armhf libmariadb3:armhf
+  libncurses6 libnettle6:armhf libosp5 libp11-kit-dev:armhf libp11-kit0:armhf
+  libpipeline1 libpq-dev:armhf libpq5:armhf libsasl2-2:armhf
+  libsasl2-modules-db:armhf libsigsegv2 libssl1.1:armhf libstdc++-8-dev:armhf
+  libstdc++6:armhf libstemmer-dev:armhf libstemmer0d:armhf libtasn1-6:armhf
+  libtasn1-6-dev:armhf libtool libubsan1:armhf libuchardet0 libunbound8:armhf
+  libunistring2:armhf linux-libc-dev:armhf m4 man-db mariadb-common
+  mysql-common nettle-dev:armhf opensp po-debconf
+  sbuild-build-depends-main-dummy:armhf sgml-base sgml-data xml-core
+  zlib1g:armhf zlib1g-dev:armhf
+0 upgraded, 94 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2318 kB/32.8 MB of archives.
+After this operation, 121 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [976 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main amd64 gawk amd64 1:4.2.1+dfsg-1 [660 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main amd64 mysql-common all 5.8+1.0.5 [7324 B]
+Get:4 http://cdn-fastly.deb.debian.org/debian sid/main amd64 mariadb-common all 1:10.3.13-1 [30.5 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian sid/main armhf libmariadb3 armhf 1:10.3.13-1 [170 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian sid/main armhf libmariadb-dev armhf 1:10.3.13-1 [983 kB]
+Get:7 http://cdn-fastly.deb.debian.org/debian sid/main armhf libmariadb-dev-compat armhf 1:10.3.13-1 [29.7 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian sid/main armhf default-libmysqlclient-dev armhf 1.0.5 [3764 B]
+Get:9 http://cdn-fastly.deb.debian.org/debian sid/main armhf libkeyutils1 armhf 1.6-6 [13.9 kB]
+Get:10 http://cdn-fastly.deb.debian.org/debian sid/main armhf libpq5 armhf 11.2-2 [151 kB]
+Get:11 http://cdn-fastly.deb.debian.org/debian sid/main armhf libpq-dev armhf 11.2-2 [148 kB]
+Get:12 http://cdn-fastly.deb.debian.org/debian sid/main armhf libstemmer0d armhf 0+svn585-1+b2 [55.5 kB]
+Get:13 http://cdn-fastly.deb.debian.org/debian sid/main armhf libstemmer-dev armhf 0+svn585-1+b2 [64.7 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2318 kB in 3s (845 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16441 files and directories currently installed.)
+Preparing to unpack .../0-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../1-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../2-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../3-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../4-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../5-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../6-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package gawk.
+(Reading database ... 17084 files and directories currently installed.)
+Preparing to unpack .../00-gawk_1%3a4.2.1+dfsg-1_amd64.deb ...
+Unpacking gawk (1:4.2.1+dfsg-1) ...
+Selecting previously unselected package sgml-base.
+Preparing to unpack .../01-sgml-base_1.29_all.deb ...
+Unpacking sgml-base (1.29) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../02-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../03-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../04-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../05-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../06-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../07-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../08-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../09-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../10-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../11-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../12-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../13-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../14-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../15-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../16-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../17-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../18-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../19-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../20-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../21-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package mysql-common.
+Preparing to unpack .../22-mysql-common_5.8+1.0.5_all.deb ...
+Unpacking mysql-common (5.8+1.0.5) ...
+Selecting previously unselected package mariadb-common.
+Preparing to unpack .../23-mariadb-common_1%3a10.3.13-1_all.deb ...
+Unpacking mariadb-common (1:10.3.13-1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../24-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../25-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../26-libc6_2.28-8_armhf.deb ...
+Unpacking libc6:armhf (2.28-8) ...
+Selecting previously unselected package libgmp10:armhf.
+Preparing to unpack .../27-libgmp10_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libnettle6:armhf.
+Preparing to unpack .../28-libnettle6_3.4.1-1_armhf.deb ...
+Unpacking libnettle6:armhf (3.4.1-1) ...
+Selecting previously unselected package libhogweed4:armhf.
+Preparing to unpack .../29-libhogweed4_3.4.1-1_armhf.deb ...
+Unpacking libhogweed4:armhf (3.4.1-1) ...
+Selecting previously unselected package libunistring2:armhf.
+Preparing to unpack .../30-libunistring2_0.9.10-1_armhf.deb ...
+Unpacking libunistring2:armhf (0.9.10-1) ...
+Selecting previously unselected package libidn2-0:armhf.
+Preparing to unpack .../31-libidn2-0_2.0.5-1_armhf.deb ...
+Unpacking libidn2-0:armhf (2.0.5-1) ...
+Selecting previously unselected package libffi6:armhf.
+Preparing to unpack .../32-libffi6_3.2.1-9_armhf.deb ...
+Unpacking libffi6:armhf (3.2.1-9) ...
+Selecting previously unselected package libp11-kit0:armhf.
+Preparing to unpack .../33-libp11-kit0_0.23.15-2_armhf.deb ...
+Unpacking libp11-kit0:armhf (0.23.15-2) ...
+Selecting previously unselected package libtasn1-6:armhf.
+Preparing to unpack .../34-libtasn1-6_4.13-3_armhf.deb ...
+Unpacking libtasn1-6:armhf (4.13-3) ...
+Selecting previously unselected package libgnutls30:armhf.
+Preparing to unpack .../35-libgnutls30_3.6.6-2_armhf.deb ...
+Unpacking libgnutls30:armhf (3.6.6-2) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../36-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../37-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libmariadb3:armhf.
+Preparing to unpack .../38-libmariadb3_1%3a10.3.13-1_armhf.deb ...
+Unpacking libmariadb3:armhf (1:10.3.13-1) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../39-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../40-libc6-dev_2.28-8_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-8) ...
+Selecting previously unselected package libevent-2.1-6:armhf.
+Preparing to unpack .../41-libevent-2.1-6_2.1.8-stable-4_armhf.deb ...
+Unpacking libevent-2.1-6:armhf (2.1.8-stable-4) ...
+Selecting previously unselected package libunbound8:armhf.
+Preparing to unpack .../42-libunbound8_1.9.0-2_armhf.deb ...
+Unpacking libunbound8:armhf (1.9.0-2) ...
+Selecting previously unselected package libgnutls-dane0:armhf.
+Preparing to unpack .../43-libgnutls-dane0_3.6.6-2_armhf.deb ...
+Unpacking libgnutls-dane0:armhf (3.6.6-2) ...
+Selecting previously unselected package libgnutls-openssl27:armhf.
+Preparing to unpack .../44-libgnutls-openssl27_3.6.6-2_armhf.deb ...
+Unpacking libgnutls-openssl27:armhf (3.6.6-2) ...
+Selecting previously unselected package libgnutlsxx28:armhf.
+Preparing to unpack .../45-libgnutlsxx28_3.6.6-2_armhf.deb ...
+Unpacking libgnutlsxx28:armhf (3.6.6-2) ...
+Selecting previously unselected package libidn2-dev:armhf.
+Preparing to unpack .../46-libidn2-dev_2.0.5-1_armhf.deb ...
+Unpacking libidn2-dev:armhf (2.0.5-1) ...
+Selecting previously unselected package libp11-kit-dev:armhf.
+Preparing to unpack .../47-libp11-kit-dev_0.23.15-2_armhf.deb ...
+Unpacking libp11-kit-dev:armhf (0.23.15-2) ...
+Selecting previously unselected package libtasn1-6-dev:armhf.
+Preparing to unpack .../48-libtasn1-6-dev_4.13-3_armhf.deb ...
+Unpacking libtasn1-6-dev:armhf (4.13-3) ...
+Selecting previously unselected package libgmpxx4ldbl:armhf.
+Preparing to unpack .../49-libgmpxx4ldbl_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libgmp-dev:armhf.
+Preparing to unpack .../50-libgmp-dev_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package nettle-dev:armhf.
+Preparing to unpack .../51-nettle-dev_3.4.1-1_armhf.deb ...
+Unpacking nettle-dev:armhf (3.4.1-1) ...
+Selecting previously unselected package libgnutls28-dev:armhf.
+Preparing to unpack .../52-libgnutls28-dev_3.6.6-2_armhf.deb ...
+Unpacking libgnutls28-dev:armhf (3.6.6-2) ...
+Selecting previously unselected package zlib1g-dev:armhf.
+Preparing to unpack .../53-zlib1g-dev_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libmariadb-dev:armhf.
+Preparing to unpack .../54-libmariadb-dev_1%3a10.3.13-1_armhf.deb ...
+Unpacking libmariadb-dev:armhf (1:10.3.13-1) ...
+Selecting previously unselected package libmariadb-dev-compat:armhf.
+Preparing to unpack .../55-libmariadb-dev-compat_1%3a10.3.13-1_armhf.deb ...
+Unpacking libmariadb-dev-compat:armhf (1:10.3.13-1) ...
+Selecting previously unselected package default-libmysqlclient-dev:armhf.
+Preparing to unpack .../56-default-libmysqlclient-dev_1.0.5_armhf.deb ...
+Unpacking default-libmysqlclient-dev:armhf (1.0.5) ...
+Selecting previously unselected package xml-core.
+Preparing to unpack .../57-xml-core_0.18+nmu1_all.deb ...
+Unpacking xml-core (0.18+nmu1) ...
+Selecting previously unselected package sgml-data.
+Preparing to unpack .../58-sgml-data_2.0.11_all.deb ...
+Unpacking sgml-data (2.0.11) ...
+Selecting previously unselected package docbook.
+Preparing to unpack .../59-docbook_4.5-6_all.deb ...
+Unpacking docbook (4.5-6) ...
+Selecting previously unselected package libosp5.
+Preparing to unpack .../60-libosp5_1.5.2-13+b1_amd64.deb ...
+Unpacking libosp5 (1.5.2-13+b1) ...
+Selecting previously unselected package opensp.
+Preparing to unpack .../61-opensp_1.5.2-13+b1_amd64.deb ...
+Unpacking opensp (1.5.2-13+b1) ...
+Selecting previously unselected package docbook-to-man.
+Preparing to unpack .../62-docbook-to-man_1%3a2.0.0-42_amd64.deb ...
+Unpacking docbook-to-man (1:2.0.0-42) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../63-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../64-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libcom-err2:armhf.
+Preparing to unpack .../65-libcom-err2_1.44.6-1_armhf.deb ...
+Unpacking libcom-err2:armhf (1.44.6-1) ...
+Selecting previously unselected package libdb5.3:armhf.
+Preparing to unpack .../66-libdb5.3_5.3.28+dfsg1-0.5_armhf.deb ...
+Unpacking libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Selecting previously unselected package libexpat1:armhf.
+Preparing to unpack .../67-libexpat1_2.2.6-1_armhf.deb ...
+Unpacking libexpat1:armhf (2.2.6-1) ...
+Selecting previously unselected package libexpat1-dev:armhf.
+Preparing to unpack .../68-libexpat1-dev_2.2.6-1_armhf.deb ...
+Unpacking libexpat1-dev:armhf (2.2.6-1) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../69-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../70-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../71-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libkeyutils1:armhf.
+Preparing to unpack .../72-libkeyutils1_1.6-6_armhf.deb ...
+Unpacking libkeyutils1:armhf (1.6-6) ...
+Selecting previously unselected package libkrb5support0:armhf.
+Preparing to unpack .../73-libkrb5support0_1.17-2_armhf.deb ...
+Unpacking libkrb5support0:armhf (1.17-2) ...
+Selecting previously unselected package libk5crypto3:armhf.
+Preparing to unpack .../74-libk5crypto3_1.17-2_armhf.deb ...
+Unpacking libk5crypto3:armhf (1.17-2) ...
+Selecting previously unselected package libssl1.1:armhf.
+Preparing to unpack .../75-libssl1.1_1.1.1b-1_armhf.deb ...
+Unpacking libssl1.1:armhf (1.1.1b-1) ...
+Selecting previously unselected package libkrb5-3:armhf.
+Preparing to unpack .../76-libkrb5-3_1.17-2_armhf.deb ...
+Unpacking libkrb5-3:armhf (1.17-2) ...
+Selecting previously unselected package libgssapi-krb5-2:armhf.
+Preparing to unpack .../77-libgssapi-krb5-2_1.17-2_armhf.deb ...
+Unpacking libgssapi-krb5-2:armhf (1.17-2) ...
+Selecting previously unselected package libsasl2-modules-db:armhf.
+Preparing to unpack .../78-libsasl2-modules-db_2.1.27+dfsg-1_armhf.deb ...
+Unpacking libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Selecting previously unselected package libsasl2-2:armhf.
+Preparing to unpack .../79-libsasl2-2_2.1.27+dfsg-1_armhf.deb ...
+Unpacking libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Selecting previously unselected package libldap-2.4-2:armhf.
+Preparing to unpack .../80-libldap-2.4-2_2.4.47+dfsg-3_armhf.deb ...
+Unpacking libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Selecting previously unselected package libpq5:armhf.
+Preparing to unpack .../81-libpq5_11.2-2_armhf.deb ...
+Unpacking libpq5:armhf (11.2-2) ...
+Selecting previously unselected package libpq-dev:armhf.
+Preparing to unpack .../82-libpq-dev_11.2-2_armhf.deb ...
+Unpacking libpq-dev:armhf (11.2-2) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../83-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libstemmer0d:armhf.
+Preparing to unpack .../84-libstemmer0d_0+svn585-1+b2_armhf.deb ...
+Unpacking libstemmer0d:armhf (0+svn585-1+b2) ...
+Selecting previously unselected package libstemmer-dev:armhf.
+Preparing to unpack .../85-libstemmer-dev_0+svn585-1+b2_armhf.deb ...
+Unpacking libstemmer-dev:armhf (0+svn585-1+b2) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../86-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up mysql-common (5.8+1.0.5) ...
+update-alternatives: using /etc/mysql/my.cnf.fallback to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Setting up gawk (1:4.2.1+dfsg-1) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up m4 (1.4.18-2) ...
+Setting up libosp5 (1.5.2-13+b1) ...
+Setting up mariadb-common (1:10.3.13-1) ...
+update-alternatives: using /etc/mysql/mariadb.cnf to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up autoconf (2.69-11) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up sgml-base (1.29) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up opensp (1.5.2-13+b1) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-3) ...
+Setting up xml-core (0.18+nmu1) ...
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-8) ...
+Setting up libtasn1-6:armhf (4.13-3) ...
+Setting up libc6-dev:armhf (2.28-8) ...
+Setting up libstemmer0d:armhf (0+svn585-1+b2) ...
+Setting up libtasn1-6-dev:armhf (4.13-3) ...
+Setting up libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Setting up libkeyutils1:armhf (1.6-6) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libssl1.1:armhf (1.1.1b-1) ...
+Setting up libunistring2:armhf (0.9.10-1) ...
+Setting up debhelper (12.1.1) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libffi6:armhf (3.2.1-9) ...
+Setting up libidn2-0:armhf (2.0.5-1) ...
+Setting up libcom-err2:armhf (1.44.6-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libkrb5support0:armhf (1.17-2) ...
+Setting up libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Setting up dh-autoreconf (19) ...
+Setting up libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Setting up libp11-kit0:armhf (0.23.15-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libstemmer-dev:armhf (0+svn585-1+b2) ...
+Setting up libk5crypto3:armhf (1.17-2) ...
+Setting up libnettle6:armhf (3.4.1-1) ...
+Setting up libidn2-dev:armhf (2.0.5-1) ...
+Setting up libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Setting up libevent-2.1-6:armhf (2.1.8-stable-4) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Setting up libkrb5-3:armhf (1.17-2) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libp11-kit-dev:armhf (0.23.15-2) ...
+Setting up libexpat1:armhf (2.2.6-1) ...
+Setting up libhogweed4:armhf (3.4.1-1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libunbound8:armhf (1.9.0-2) ...
+Setting up libgnutls30:armhf (3.6.6-2) ...
+Setting up libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Setting up libexpat1-dev:armhf (2.2.6-1) ...
+Setting up libgssapi-krb5-2:armhf (1.17-2) ...
+Setting up libmariadb3:armhf (1:10.3.13-1) ...
+Setting up libgnutlsxx28:armhf (3.6.6-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libgnutls-dane0:armhf (3.6.6-2) ...
+Setting up libgnutls-openssl27:armhf (3.6.6-2) ...
+Setting up libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Setting up nettle-dev:armhf (3.4.1-1) ...
+Setting up libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libgnutls28-dev:armhf (3.6.6-2) ...
+Setting up libpq5:armhf (11.2-2) ...
+Setting up libpq-dev:armhf (11.2-2) ...
+Setting up libmariadb-dev:armhf (1:10.3.13-1) ...
+Setting up libmariadb-dev-compat:armhf (1:10.3.13-1) ...
+Setting up default-libmysqlclient-dev:armhf (1.0.5) ...
+Processing triggers for libc-bin (2.28-8) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for sgml-base (1.29) ...
+Setting up sgml-data (2.0.11) ...
+Processing triggers for sgml-base (1.29) ...
+Setting up docbook (4.5-6) ...
+Processing triggers for sgml-base (1.29) ...
+Setting up docbook-to-man (1:2.0.0-42) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-15 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-8 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-15 binutils-arm-linux-gnueabihf_2.31.1-15 binutils-common_2.31.1-15 binutils-x86-64-linux-gnu_2.31.1-15 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.6 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-3 cpp_4:8.3.0-1 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.3.0-2cross1 cpp-arm-linux-gnueabihf_4:8.3.0-1 cross-config_2.6.15-2 crossbuild-essential-armhf_12.6 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 default-libmysqlclient-dev_1.0.5 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.13-1 docbook_4.5-6 docbook-to-man_1:2.0.0-42 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.6-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-4 findutils_4.6.0+git+20190209-2 g++_4:8.3.0-1 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.3.0-2cross1 g++-arm-linux-gnueabihf_4:8.3.0-1 gawk_1:4.2.1+dfsg-1 gcc_4:8.3.0-1 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.3.0-2cross1 gcc-8-arm-linux-gnueabihf-base_8.3.0-2cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.3.0-2cross1 gcc-arm-linux-gnueabihf_4:8.3.0-1 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.13-1 gnupg-l10n_2.2.13-1 gnupg-utils_2.2.13-1 gpg_2.2.13-1 gpg-agent_2.2.13-1 gpg-wks-client_2.2.13-1 gpg-wks-server_2.2.13-1 gpgconf_2.2.13-1 gpgsm_2.2.13-1 gpgv_2.2.13-1 grep_3.3-1 groff-base_1.22.4-3 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.53-4 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.3.0-2cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.3.0-2cross1 libattr1_1:2.4.48-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-15 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-8 libc-dev-bin_2.28-8 libc6_2.28-8 libc6-armhf-cross_2.28-7cross1 libc6-dev_2.28-8 libc6-dev-armhf-cross_2.28-7cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.6-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.248 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libevent-2.1-6_2.1.8-stable-4 libexpat1_2.2.6-1 libexpat1-dev_2.2.6-1 libext2fs2_1.44.6-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.3.0-2cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.3.0-2cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp-dev_2:6.1.2+dfsg-4 libgmp10_2:6.1.2+dfsg-4 libgmpxx4ldbl_2:6.1.2+dfsg-4 libgnutls-dane0_3.6.6-2 libgnutls-openssl27_3.6.6-2 libgnutls28-dev_3.6.6-2 libgnutls30_3.6.6-2 libgnutlsxx28_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.3.0-2cross1 libgpg-error0_1.35-1 libgssapi-krb5-2_1.17-2 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-3 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libidn2-dev_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libk5crypto3_1.17-2 libkeyutils1_1.6-6 libkrb5-3_1.17-2 libkrb5support0_1.17-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-4 libmagic1_1:5.35-4 libmailtools-perl_2.18-1 libmariadb-dev_1:10.3.13-1 libmariadb-dev-compat_1:10.3.13-1 libmariadb3_1:10.3.13-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libosp5_1.5.2-13+b1 libp11-kit-dev_0.23.15-2 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpq-dev_11.2-2 libpq5_11.2-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.6-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 libstemmer-dev_0+svn585-1+b2 libstemmer0d_0+svn585-1+b2 libsystemd0_241-1 libtasn1-6_4.13-3 libtasn1-6-dev_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.3.0-2cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunbound8_1.9.0-2 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-4 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.20-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mariadb-common_1:10.3.13-1 mawk_1.3.3-17+b3 mount_2.33.1-0.1 mysql-common_5.8+1.0.5 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 nettle-dev_3.4.1-1 opensp_1.5.2-13+b1 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sgml-base_1.29 sgml-data_2.0.11 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-2 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xml-core_0.18+nmu1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1 zlib1g-dev_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: sphinxsearch
+Binary: sphinxsearch
+Architecture: any
+Version: 2.2.11-2
+Maintainer: Radu Spineanu <radu@debian.org>
+Uploaders: YunQiang Su <syq@debian.org>
+Standards-Version: 3.9.8
+Build-Depends: debhelper (>= 9), gawk, default-libmysqlclient-dev, libpq-dev, docbook-to-man, libexpat-dev, libstemmer-dev, dh-autoreconf, autotools-dev, adduser
+Package-List:
+ sphinxsearch deb misc optional arch=any
+Checksums-Sha1:
+ 34e83f43de0e69e258bf749ea00348c60a51632a 3061998 sphinxsearch_2.2.11.orig.tar.gz
+ 62635e2cbc4b479384100256c286b6fd19111ed1 12916 sphinxsearch_2.2.11-2.debian.tar.xz
+Checksums-Sha256:
+ 6662039f093314f896950519fa781bc87610f926f64b3d349229002f06ac41a9 3061998 sphinxsearch_2.2.11.orig.tar.gz
+ c4d302d58cc357ab5ca87ec15863e66bbfbed683e82a8c7ce3dcb8c586be1ba8 12916 sphinxsearch_2.2.11-2.debian.tar.xz
+Files:
+ 5cac34f3d78a9d612ca4301abfcbd666 3061998 sphinxsearch_2.2.11.orig.tar.gz
+ c0f6902dcc18c42842a164e8a49bc21a 12916 sphinxsearch_2.2.11-2.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEET3MbhxKET+7/a6zdW0gHVdEZ6o4FAlmZCD0ACgkQW0gHVdEZ
+6o5ergf/es6Y/+RPAFZ8E/oITwrOdzIgnCokq8PLZ4tYU2J00y+3g/1kaWXjstLN
+LbfRBKdiZ36a5rVIXw87zxiFTL0xUPNG3ukBi1/Sn5czxbzj0mn+8BOsV8uUvMr/
+nZ+4E5CBOOFT0weuB68Tzu5tHYEOFPNlVSkUGdWx3d8h7XBSnMq8G/fnrRhG3XXT
+N6gP4olpOHgkfdGLAkltzuuUY8nIw9yL7a+HaycFNabjqZinTecJh+uAOki2YyOR
+fE2uAzFI7Ks1NjcEUk3Fkh8Av8PGdsByPnlDxz1JeO+4vzVCmo5t4wZWiVFDlrZM
+h80uWrGNhD6zCyhbBcK1ARkNyB6Okw==
+=XPZh
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sun Aug 20 03:55:41 2017 UTC
+gpgv:                using RSA key 4F731B8712844FEEFF6BACDD5B480755D119EA8E
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./sphinxsearch_2.2.11-2.dsc
+dpkg-source: info: extracting sphinxsearch in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking sphinxsearch_2.2.11.orig.tar.gz
+dpkg-source: info: unpacking sphinxsearch_2.2.11-2.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying configure.diff
+dpkg-source: info: applying 01_Makefile_am.patch
+dpkg-source: info: applying 02_sphinx.conf.patch
+dpkg-source: info: applying add-multiarch-libdir.patch
+dpkg-source: info: applying fix-2540.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-61718f73-93fb-4f31-a2f8-66b9085bb60d
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package sphinxsearch
+dpkg-buildpackage: info: source version 2.2.11-2
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by YunQiang Su <syq@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_clean
+dh_autoreconf_clean
+dh_autotools-dev_restoreconfig
+dh_autotools-dev_restoreconfig: dh_autotools-dev_restoreconfig is deprecated; please see dh_autotools-dev_restoreconfig(1) for a replacement
+dh_autotools-dev_restoreconfig: This feature will be removed in compat 12.
+	for c_g in `find . -type f -name config.guess` ; do if test -e "$c_g.dh-orig" ; then mv -f "$c_g.dh-orig" "$c_g" ; fi ; done
+	for c_s in `find . -type f -name config.sub`   ; do if test -e "$c_s.dh-orig" ; then mv -f "$c_s.dh-orig" "$c_s" ; fi ; done
+	find . -type f \( -name config.guess.dh-orig -o -name config.sub.dh-orig \) -delete
+rm -f config.log
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_clean
+	rm -f debian/debhelper-build-stamp
+	rm -rf debian/.debhelper/
+	rm -f debian/sphinxsearch.debhelper.log
+	rm -f -- debian/sphinxsearch.substvars debian/files
+	rm -fr -- debian/sphinxsearch/ debian/tmp/
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+	install -d debian/.debhelper/bucket/files
+	cp -an --reflink=auto api/libsphinxclient/config.guess debian/.debhelper/bucket/files/3aa4bf68c1d16472915b97ff594686c70d9b2c4c53832454c558fc09566a072d.tmp
+	mv debian/.debhelper/bucket/files/3aa4bf68c1d16472915b97ff594686c70d9b2c4c53832454c558fc09566a072d.tmp debian/.debhelper/bucket/files/3aa4bf68c1d16472915b97ff594686c70d9b2c4c53832454c558fc09566a072d
+	cp -f /usr/share/misc/config.guess ./api/libsphinxclient/config.guess
+	cp -an --reflink=auto api/libsphinxclient/config.sub debian/.debhelper/bucket/files/e8de8a79269508a10007e1de8393f29fc05838ff0a16378b4b2dee2e9f8dbba6.tmp
+	mv debian/.debhelper/bucket/files/e8de8a79269508a10007e1de8393f29fc05838ff0a16378b4b2dee2e9f8dbba6.tmp debian/.debhelper/bucket/files/e8de8a79269508a10007e1de8393f29fc05838ff0a16378b4b2dee2e9f8dbba6
+	cp -f /usr/share/misc/config.sub ./api/libsphinxclient/config.sub
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_autotools-dev_updateconfig
+dh_autotools-dev_updateconfig: dh_autotools-dev_updateconfig is deprecated; please see dh_autotools-dev_updateconfig(1) for a replacement
+dh_autotools-dev_updateconfig: This feature will be removed in compat 12.
+	for c_g in `find -type f -name config.guess` ; do if ! test -e "$c_g.dh-orig" ; then mv -f "$c_g" "$c_g.dh-orig" ; cp -f /usr/share/misc/config.guess "$c_g" ; fi ; done
+	for c_s in `find -type f -name config.sub`   ; do if ! test -e "$c_s.dh-orig" ; then mv -f "$c_s" "$c_s.dh-orig" ; cp -f /usr/share/misc/config.sub   "$c_s" ; fi ; done
+dh_autoreconf
+	find ! -ipath "./debian/*" -a ! \( -path '*/.git/*' -o -path '*/.hg/*' -o -path '*/.bzr/*' -o -path '*/.svn/*' -o -path '*/CVS/*' \) -a  -type f -exec md5sum {} + -o -type l -printf "symlink  %p
+" > debian/autoreconf.before
+	grep -q ^XDT_ configure.ac
+	autoreconf -f -i
+configure.ac:70: installing 'config/ar-lib'
+configure.ac:67: installing 'config/compile'
+	find ! -ipath "./debian/*" -a ! \( -path '*/.git/*' -o -path '*/.hg/*' -o -path '*/.bzr/*' -o -path '*/.svn/*' -o -path '*/CVS/*' \) -a  -type f -exec md5sum {} + -o -type l -printf "symlink  %p
+" > debian/autoreconf.after
+dh_auto_configure -- --host=arm-linux-gnueabihf --build=x86_64-linux-gnu \
+            --localstatedir=/var/lib/sphinxsearch --sysconfdir=/etc/sphinxsearch --with-libstemmer --with-pgsql
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --host=arm-linux-gnueabihf --build=x86_64-linux-gnu --localstatedir=/var/lib/sphinxsearch --sysconfdir=/etc/sphinxsearch --with-libstemmer --with-pgsql
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+
+checking build environment
+--------------------------
+
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+
+checking for compiler programs
+------------------------------
+
+checking whether to compile debug version... no
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking for arm-linux-gnueabihf-g++... arm-linux-gnueabihf-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... yes
+checking dependency style of arm-linux-gnueabihf-g++... none
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking the archiver (arm-linux-gnueabihf-ar) interface... ar
+
+checking for header files
+-------------------------
+
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking netdb.h usability... yes
+checking netdb.h presence... yes
+checking for netdb.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking for unistd.h... (cached) yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking sys/epoll.h usability... yes
+checking sys/epoll.h presence... yes
+checking for sys/epoll.h... yes
+checking expat.h usability... yes
+checking expat.h presence... yes
+checking for expat.h... yes
+checking iconv.h usability... yes
+checking iconv.h presence... yes
+checking for iconv.h... yes
+checking zlib.h usability... yes
+checking zlib.h presence... yes
+checking for zlib.h... yes
+checking sql.h usability... no
+checking sql.h presence... no
+checking for sql.h... no
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+
+checking for types
+------------------
+
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for off_t... yes
+checking for size_t... yes
+checking whether time.h and sys/time.h may both be included... yes
+
+checking for library functions
+------------------------------
+
+checking for pid_t... yes
+checking vfork.h usability... no
+checking vfork.h presence... no
+checking for vfork.h... no
+checking for fork... yes
+checking for vfork... yes
+checking for working fork... cross
+configure: WARNING: result yes guessed because of cross compilation
+checking for working vfork... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... (cached) yes
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking for sys/socket.h... (cached) yes
+checking types of arguments for select... int,fd_set *,struct timeval *
+checking return type of signal handlers... void
+checking whether lstat correctly handles trailing slash... no
+checking whether stat accepts an empty string... yes
+checking for vprintf... yes
+checking for _doprnt... no
+checking for library containing setsockopt... none required
+checking for library containing gethostbyname... none required
+checking for library containing inflate... -lz
+checking for library containing logf... -lm
+checking for dup2... yes
+checking for gethostbyname... yes
+checking for gettimeofday... yes
+checking for memmove... yes
+checking for memset... yes
+checking for select... yes
+checking for socket... yes
+checking for strcasecmp... yes
+checking for strchr... yes
+checking for strerror... yes
+checking for strncasecmp... yes
+checking for strnlen... yes
+checking for strstr... yes
+checking for strtol... yes
+checking for logf... yes
+checking for pread... yes
+checking for poll... yes
+checking for backtrace... yes
+checking for backtrace_symbols... yes
+checking for epoll_ctl... yes
+checking for clock_gettime in -lrt... yes
+checking for clock_gettime... yes
+checking for LOCK_EX in sys/file.h... yes
+checking for F_SETLKW in fcntl.h... yes
+checking for library containing dlopen... -ldl
+checking for dlopen... yes
+checking for dlerror... yes
+checking for interlocked builtins... yes
+
+configuring Sphinx
+------------------
+
+checking whether to use dynamic linking for DB drivers... no
+checking for CFLAGS needed for pthreads... none
+checking for LIBS needed for pthreads... -lpthread
+checking for pthreads... assumed as found (cross-compiling)
+checking for pthread_mutex_timedlock... yes
+checking whether to compile with MySQL support... dynamic
+checking for mysql_config... not found
+checking MySQL include files... -I/usr/include/mysql
+checking MySQL libraries... configure: error: missing libraries.
+
+******************************************************************************
+ERROR: cannot find MySQL libraries.
+
+Check that you do have MySQL libraries installed.
+The package name is typically 'mysql-devel'.
+
+If libraries are installed on your system, but you are still getting
+this message, you should do one of the following:
+
+1) either specify libraries location explicitly, using --with-mysql-libs;
+2) or specify MySQL installation root location explicitly, using --with-mysql;
+3) or make sure that the path to 'mysql_config' program is listed in
+   your PATH environment variable.
+
+To disable MySQL support, use --without-mysql option.
+******************************************************************************
+
+	tail -v -n \+0 config.log
+==> config.log <==
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+It was created by sphinx configure 2.2.10, which was
+generated by GNU Autoconf 2.69.  Invocation command line was
+
+  $ ./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=${prefix}/include --mandir=${prefix}/share/man --infodir=${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=${prefix}/lib/arm-linux-gnueabihf --libexecdir=${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --host=arm-linux-gnueabihf --build=x86_64-linux-gnu --localstatedir=/var/lib/sphinxsearch --sysconfdir=/etc/sphinxsearch --with-libstemmer --with-pgsql
+
+## --------- ##
+## Platform. ##
+## --------- ##
+
+hostname = 36857dea695f
+uname -m = x86_64
+uname -r = 3.16.0-4-amd64
+uname -s = Linux
+uname -v = #1 SMP Debian 3.16.51-3 (2017-12-13)
+
+/usr/bin/uname -p = unknown
+/bin/uname -X     = unknown
+
+/bin/arch              = unknown
+/usr/bin/arch -k       = unknown
+/usr/convex/getsysinfo = unknown
+/usr/bin/hostinfo      = unknown
+/bin/machine           = unknown
+/usr/bin/oslevel       = unknown
+/bin/universe          = unknown
+
+PATH: /usr/lib/ccache
+PATH: /usr/local/sbin
+PATH: /usr/local/bin
+PATH: /usr/sbin
+PATH: /usr/bin
+PATH: /sbin
+PATH: /bin
+PATH: /usr/games
+
+
+## ----------- ##
+## Core tests. ##
+## ----------- ##
+
+configure:2295: loading site script /etc/dpkg-cross/cross-config.armhf
+| # read in package-specific and global values.
+| . `dirname $ac_site_file`/cross-config.cache
+| # now ensure the real architecture-dependent values take priority
+| ac_cv_c_bigendian=no
+| ac_cv_c_char_unsigned=yes
+| ac_cv_sizeof_long_long=8
+| ac_cv_sizeof_unsigned_long_long=8
+| ac_cv_sizeof_long=4
+| ac_cv_sizeof_unsigned_long=4
+| ac_cv_sizeof_int=4
+| ac_cv_sizeof_unsigned_int=4
+| ac_cv_sizeof_short=2
+| ac_cv_sizeof_unsigned_short=2
+| ac_cv_sizeof_char=1
+| ac_cv_sizeof_unsigned_char=1
+| ac_cv_sizeof_signed_char=1
+| ac_cv_sizeof_float=4
+| ac_cv_sizeof_double=8
+| ac_cv_sizeof_long_double=8
+| ac_cv_sizeof_void_p=4
+| ac_cv_sizeof_char_p=4
+| 
+| path=`dirname $ac_site_file`
+| # now allow package-specific architecture-independent values to be set
+| if [ -d $path/cross-config.d/armhf/ ]; then
+| for file in `ls $path/cross-config.d/armhf/`; do
+| 	if [ "$file" = "$PACKAGE" -o "$file" = "$PACKAGE_NAME" ]; then
+| 		[ -d $path/cross-config.d/armhf/$file ] || . $path/cross-config.d/armhf/$file
+| 		HAVE_PKG_CACHE=1
+| 	fi
+| done
+| fi
+| 
+| if [ -z "$HAVE_PKG_CACHE" ]; then
+| 	# orbit2 - only needed until liborbit-dev provides these directly
+| 	# using the mechanism above.
+| 	if [ "$PACKAGE" = "orbit2" -o "$PACKAGE_NAME" = "ORBit2" ]; then
+| 		ac_cv_alignof_CORBA_octet=1
+| 		ac_cv_alignof_CORBA_boolean=1
+| 		ac_cv_alignof_CORBA_char=1
+| 		ac_cv_alignof_CORBA_wchar=2
+| 		ac_cv_alignof_CORBA_short=2
+| 		ac_cv_alignof_CORBA_long=4
+| 		ac_cv_alignof_CORBA_long_long=8
+| 		ac_cv_alignof_CORBA_float=4
+| 		ac_cv_alignof_CORBA_double=4
+| 		ac_cv_alignof_CORBA_long_double=8
+| 		ac_cv_alignof_CORBA_struct=1
+| 		ac_cv_alignof_CORBA_pointer=4
+| 	fi
+| fi
+configure:2394: result: 
+configure:2396: result: checking build environment
+configure:2399: result: --------------------------
+configure:2401: result: 
+configure:2450: checking for a BSD-compatible install
+configure:2518: result: /usr/bin/install -c
+configure:2529: checking whether build environment is sane
+configure:2584: result: yes
+configure:2641: checking for arm-linux-gnueabihf-strip
+configure:2657: found /usr/bin/arm-linux-gnueabihf-strip
+configure:2668: result: arm-linux-gnueabihf-strip
+configure:2733: checking for a thread-safe mkdir -p
+configure:2772: result: /bin/mkdir -p
+configure:2779: checking for gawk
+configure:2795: found /usr/bin/gawk
+configure:2806: result: gawk
+configure:2817: checking whether make sets $(MAKE)
+configure:2839: result: yes
+configure:2868: checking whether make supports nested variables
+configure:2885: result: yes
+configure:3012: checking whether to enable maintainer-specific portions of Makefiles
+configure:3021: result: no
+configure:3044: result: 
+configure:3046: result: checking for compiler programs
+configure:3049: result: ------------------------------
+configure:3051: result: 
+configure:3075: checking whether to compile debug version
+configure:3091: result: no
+configure:3116: checking for arm-linux-gnueabihf-gcc
+configure:3132: found /usr/lib/ccache/arm-linux-gnueabihf-gcc
+configure:3143: result: arm-linux-gnueabihf-gcc
+configure:3412: checking for C compiler version
+configure:3421: arm-linux-gnueabihf-gcc --version >&5
+arm-linux-gnueabihf-gcc (Debian 8.3.0-2) 8.3.0
+Copyright (C) 2018 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:3432: $? = 0
+configure:3421: arm-linux-gnueabihf-gcc -v >&5
+Using built-in specs.
+COLLECT_GCC=/usr/bin/arm-linux-gnueabihf-gcc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/arm-linux-gnueabihf/8/lto-wrapper
+Target: arm-linux-gnueabihf
+Configured with: ../src/configure -v --with-pkgversion='Debian 8.3.0-2' --with-bugurl=file:///usr/share/doc/gcc-8/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-multiarch --disable-sjlj-exceptions --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=arm-linux-gnueabihf --program-prefix=arm-linux-gnueabihf- --includedir=/usr/arm-linux-gnueabihf/include
+Thread model: posix
+gcc version 8.3.0 (Debian 8.3.0-2) 
+configure:3432: $? = 0
+configure:3421: arm-linux-gnueabihf-gcc -V >&5
+arm-linux-gnueabihf-gcc: error: unrecognized command line option '-V'
+arm-linux-gnueabihf-gcc: fatal error: no input files
+compilation terminated.
+configure:3432: $? = 1
+configure:3421: arm-linux-gnueabihf-gcc -qversion >&5
+arm-linux-gnueabihf-gcc: error: unrecognized command line option '-qversion'; did you mean '--version'?
+arm-linux-gnueabihf-gcc: fatal error: no input files
+compilation terminated.
+configure:3432: $? = 1
+configure:3452: checking whether the C compiler works
+configure:3474: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c  -L/usr/local/lib >&5
+configure:3478: $? = 0
+configure:3526: result: yes
+configure:3529: checking for C compiler default output file name
+configure:3531: result: a.out
+configure:3537: checking for suffix of executables
+configure:3544: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c  -L/usr/local/lib >&5
+configure:3548: $? = 0
+configure:3570: result: 
+configure:3592: checking whether we are cross compiling
+configure:3630: result: yes
+configure:3635: checking for suffix of object files
+configure:3657: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:3661: $? = 0
+configure:3682: result: o
+configure:3686: checking whether we are using the GNU C compiler
+configure:3705: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:3705: $? = 0
+configure:3714: result: yes
+configure:3723: checking whether arm-linux-gnueabihf-gcc accepts -g
+configure:3743: arm-linux-gnueabihf-gcc -c -g -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:3743: $? = 0
+configure:3784: result: yes
+configure:3801: checking for arm-linux-gnueabihf-gcc option to accept ISO C89
+configure:3864: arm-linux-gnueabihf-gcc  -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:3864: $? = 0
+configure:3877: result: none needed
+configure:3902: checking whether arm-linux-gnueabihf-gcc understands -c and -o together
+configure:3924: arm-linux-gnueabihf-gcc -c conftest.c -o conftest2.o
+configure:3927: $? = 0
+configure:3924: arm-linux-gnueabihf-gcc -c conftest.c -o conftest2.o
+configure:3927: $? = 0
+configure:3939: result: yes
+configure:3959: checking whether make supports the include directive
+configure:3974: make -f confmf.GNU && cat confinc.out
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+this is the am__doit target
+configure:3977: $? = 0
+configure:3996: result: yes (GNU style)
+configure:4021: checking dependency style of arm-linux-gnueabihf-gcc
+configure:4132: result: none
+configure:4161: checking for arm-linux-gnueabihf-g++
+configure:4177: found /usr/lib/ccache/arm-linux-gnueabihf-g++
+configure:4188: result: arm-linux-gnueabihf-g++
+configure:4259: checking for C++ compiler version
+configure:4268: arm-linux-gnueabihf-g++ --version >&5
+arm-linux-gnueabihf-g++ (Debian 8.3.0-2) 8.3.0
+Copyright (C) 2018 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:4279: $? = 0
+configure:4268: arm-linux-gnueabihf-g++ -v >&5
+Using built-in specs.
+COLLECT_GCC=/usr/bin/arm-linux-gnueabihf-g++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc-cross/arm-linux-gnueabihf/8/lto-wrapper
+Target: arm-linux-gnueabihf
+Configured with: ../src/configure -v --with-pkgversion='Debian 8.3.0-2' --with-bugurl=file:///usr/share/doc/gcc-8/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-8 --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --with-sysroot=/ --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-libitm --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib --enable-multiarch --disable-sjlj-exceptions --with-arch=armv7-a --with-fpu=vfpv3-d16 --with-float=hard --with-mode=thumb --disable-werror --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=arm-linux-gnueabihf --program-prefix=arm-linux-gnueabihf- --includedir=/usr/arm-linux-gnueabihf/include
+Thread model: posix
+gcc version 8.3.0 (Debian 8.3.0-2) 
+configure:4279: $? = 0
+configure:4268: arm-linux-gnueabihf-g++ -V >&5
+arm-linux-gnueabihf-g++: error: unrecognized command line option '-V'
+arm-linux-gnueabihf-g++: fatal error: no input files
+compilation terminated.
+configure:4279: $? = 1
+configure:4268: arm-linux-gnueabihf-g++ -qversion >&5
+arm-linux-gnueabihf-g++: error: unrecognized command line option '-qversion'; did you mean '--version'?
+arm-linux-gnueabihf-g++: fatal error: no input files
+compilation terminated.
+configure:4279: $? = 1
+configure:4283: checking whether we are using the GNU C++ compiler
+configure:4302: arm-linux-gnueabihf-g++ -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.cpp >&5
+configure:4302: $? = 0
+configure:4311: result: yes
+configure:4320: checking whether arm-linux-gnueabihf-g++ accepts -g
+configure:4340: arm-linux-gnueabihf-g++ -c -g -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.cpp >&5
+configure:4340: $? = 0
+configure:4381: result: yes
+configure:4406: checking dependency style of arm-linux-gnueabihf-g++
+configure:4517: result: none
+configure:4535: checking for arm-linux-gnueabihf-ranlib
+configure:4551: found /usr/bin/arm-linux-gnueabihf-ranlib
+configure:4562: result: arm-linux-gnueabihf-ranlib
+configure:4630: checking for arm-linux-gnueabihf-ar
+configure:4646: found /usr/bin/arm-linux-gnueabihf-ar
+configure:4657: result: arm-linux-gnueabihf-ar
+configure:4727: checking the archiver (arm-linux-gnueabihf-ar) interface
+configure:4743: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:4743: $? = 0
+configure:4745: arm-linux-gnueabihf-ar cru libconftest.a conftest.o >&5
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+configure:4748: $? = 0
+configure:4747: result: ar
+configure:4780: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:4780: $? = 0
+configure:4805: result: 
+configure:4807: result: checking for header files
+configure:4810: result: -------------------------
+configure:4812: result: 
+configure:4822: checking how to run the C preprocessor
+configure:4853: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:4853: $? = 0
+configure:4867: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+conftest.c:14:10: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:4867: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:4892: result: arm-linux-gnueabihf-gcc -E
+configure:4912: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:4912: $? = 0
+configure:4926: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+conftest.c:14:10: fatal error: ac_nonexistent.h: No such file or directory
+ #include <ac_nonexistent.h>
+          ^~~~~~~~~~~~~~~~~~
+compilation terminated.
+configure:4926: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| /* end confdefs.h.  */
+| #include <ac_nonexistent.h>
+configure:4955: checking for grep that handles long lines and -e
+configure:5013: result: /bin/grep
+configure:5018: checking for egrep
+configure:5080: result: /bin/grep -E
+configure:5085: checking for ANSI C header files
+configure:5105: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5105: $? = 0
+configure:5189: result: yes
+configure:5197: checking for sys/wait.h that is POSIX.1 compatible
+configure:5223: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5223: $? = 0
+configure:5230: result: yes
+configure:5243: checking for sys/types.h
+configure:5243: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5243: $? = 0
+configure:5243: result: yes
+configure:5243: checking for sys/stat.h
+configure:5243: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5243: $? = 0
+configure:5243: result: yes
+configure:5243: checking for stdlib.h
+configure:5243: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5243: $? = 0
+configure:5243: result: yes
+configure:5243: checking for string.h
+configure:5243: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5243: $? = 0
+configure:5243: result: yes
+configure:5243: checking for memory.h
+configure:5243: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5243: $? = 0
+configure:5243: result: yes
+configure:5243: checking for strings.h
+configure:5243: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5243: $? = 0
+configure:5243: result: yes
+configure:5243: checking for inttypes.h
+configure:5243: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5243: $? = 0
+configure:5243: result: yes
+configure:5243: checking for stdint.h
+configure:5243: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5243: $? = 0
+configure:5243: result: yes
+configure:5243: checking for unistd.h
+configure:5243: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5243: $? = 0
+configure:5243: result: yes
+configure:5258: checking fcntl.h usability
+configure:5258: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking fcntl.h presence
+configure:5258: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking for fcntl.h
+configure:5258: result: yes
+configure:5258: checking limits.h usability
+configure:5258: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking limits.h presence
+configure:5258: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking for limits.h
+configure:5258: result: yes
+configure:5258: checking netdb.h usability
+configure:5258: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking netdb.h presence
+configure:5258: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking for netdb.h
+configure:5258: result: yes
+configure:5258: checking netinet/in.h usability
+configure:5258: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking netinet/in.h presence
+configure:5258: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking for netinet/in.h
+configure:5258: result: yes
+configure:5258: checking for stdlib.h
+configure:5258: result: yes
+configure:5258: checking for string.h
+configure:5258: result: yes
+configure:5258: checking sys/file.h usability
+configure:5258: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking sys/file.h presence
+configure:5258: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking for sys/file.h
+configure:5258: result: yes
+configure:5258: checking sys/socket.h usability
+configure:5258: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking sys/socket.h presence
+configure:5258: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking for sys/socket.h
+configure:5258: result: yes
+configure:5258: checking sys/time.h usability
+configure:5258: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking sys/time.h presence
+configure:5258: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking for sys/time.h
+configure:5258: result: yes
+configure:5258: checking for unistd.h
+configure:5258: result: yes
+configure:5258: checking pthread.h usability
+configure:5258: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking pthread.h presence
+configure:5258: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking for pthread.h
+configure:5258: result: yes
+configure:5258: checking execinfo.h usability
+configure:5258: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking execinfo.h presence
+configure:5258: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking for execinfo.h
+configure:5258: result: yes
+configure:5258: checking sys/epoll.h usability
+configure:5258: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking sys/epoll.h presence
+configure:5258: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5258: $? = 0
+configure:5258: result: yes
+configure:5258: checking for sys/epoll.h
+configure:5258: result: yes
+configure:5268: checking expat.h usability
+configure:5268: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5268: $? = 0
+configure:5268: result: yes
+configure:5268: checking expat.h presence
+configure:5268: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5268: $? = 0
+configure:5268: result: yes
+configure:5268: checking for expat.h
+configure:5268: result: yes
+configure:5276: checking iconv.h usability
+configure:5276: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5276: $? = 0
+configure:5276: result: yes
+configure:5276: checking iconv.h presence
+configure:5276: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5276: $? = 0
+configure:5276: result: yes
+configure:5276: checking for iconv.h
+configure:5276: result: yes
+configure:5284: checking zlib.h usability
+configure:5284: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5284: $? = 0
+configure:5284: result: yes
+configure:5284: checking zlib.h presence
+configure:5284: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5284: $? = 0
+configure:5284: result: yes
+configure:5284: checking for zlib.h
+configure:5284: result: yes
+configure:5292: checking sql.h usability
+configure:5292: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+conftest.c:71:10: fatal error: sql.h: No such file or directory
+ #include <sql.h>
+          ^~~~~~~
+compilation terminated.
+configure:5292: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_FILE_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <sql.h>
+configure:5292: result: no
+configure:5292: checking sql.h presence
+configure:5292: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+conftest.c:38:10: fatal error: sql.h: No such file or directory
+ #include <sql.h>
+          ^~~~~~~
+compilation terminated.
+configure:5292: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_FILE_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| /* end confdefs.h.  */
+| #include <sql.h>
+configure:5292: result: no
+configure:5292: checking for sql.h
+configure:5292: result: no
+configure:5300: checking syslog.h usability
+configure:5300: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5300: $? = 0
+configure:5300: result: yes
+configure:5300: checking syslog.h presence
+configure:5300: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5300: $? = 0
+configure:5300: result: yes
+configure:5300: checking for syslog.h
+configure:5300: result: yes
+configure:5311: result: 
+configure:5313: result: checking for types
+configure:5316: result: ------------------
+configure:5318: result: 
+configure:5323: checking for stdbool.h that conforms to C99
+configure:5390: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5390: $? = 0
+configure:5397: result: yes
+configure:5399: checking for _Bool
+configure:5399: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5399: $? = 0
+configure:5399: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:74:20: error: expected expression before ')' token
+ if (sizeof ((_Bool)))
+                    ^
+configure:5399: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_FILE_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| int
+| main ()
+| {
+| if (sizeof ((_Bool)))
+| 	    return 0;
+|   ;
+|   return 0;
+| }
+configure:5399: result: yes
+configure:5416: checking for an ANSI C-conforming const
+configure:5482: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5482: $? = 0
+configure:5489: result: yes
+configure:5497: checking for inline
+configure:5513: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5513: $? = 0
+configure:5521: result: inline
+configure:5539: checking for off_t
+configure:5539: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5539: $? = 0
+configure:5539: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:76:20: error: expected expression before ')' token
+ if (sizeof ((off_t)))
+                    ^
+configure:5539: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_FILE_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE__BOOL 1
+| #define HAVE_STDBOOL_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| int
+| main ()
+| {
+| if (sizeof ((off_t)))
+| 	    return 0;
+|   ;
+|   return 0;
+| }
+configure:5539: result: yes
+configure:5550: checking for size_t
+configure:5550: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5550: $? = 0
+configure:5550: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:76:21: error: expected expression before ')' token
+ if (sizeof ((size_t)))
+                     ^
+configure:5550: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_FILE_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE__BOOL 1
+| #define HAVE_STDBOOL_H 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| int
+| main ()
+| {
+| if (sizeof ((size_t)))
+| 	    return 0;
+|   ;
+|   return 0;
+| }
+configure:5550: result: yes
+configure:5561: checking whether time.h and sys/time.h may both be included
+configure:5581: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5581: $? = 0
+configure:5588: result: yes
+configure:5599: result: 
+configure:5601: result: checking for library functions
+configure:5604: result: ------------------------------
+configure:5606: result: 
+configure:5611: checking for pid_t
+configure:5611: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5611: $? = 0
+configure:5611: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:77:20: error: expected expression before ')' token
+ if (sizeof ((pid_t)))
+                    ^
+configure:5611: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_FILE_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE__BOOL 1
+| #define HAVE_STDBOOL_H 1
+| #define TIME_WITH_SYS_TIME 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| int
+| main ()
+| {
+| if (sizeof ((pid_t)))
+| 	    return 0;
+|   ;
+|   return 0;
+| }
+configure:5611: result: yes
+configure:5624: checking vfork.h usability
+configure:5624: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+conftest.c:74:10: fatal error: vfork.h: No such file or directory
+ #include <vfork.h>
+          ^~~~~~~~~
+compilation terminated.
+configure:5624: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_FILE_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE__BOOL 1
+| #define HAVE_STDBOOL_H 1
+| #define TIME_WITH_SYS_TIME 1
+| /* end confdefs.h.  */
+| #include <stdio.h>
+| #ifdef HAVE_SYS_TYPES_H
+| # include <sys/types.h>
+| #endif
+| #ifdef HAVE_SYS_STAT_H
+| # include <sys/stat.h>
+| #endif
+| #ifdef STDC_HEADERS
+| # include <stdlib.h>
+| # include <stddef.h>
+| #else
+| # ifdef HAVE_STDLIB_H
+| #  include <stdlib.h>
+| # endif
+| #endif
+| #ifdef HAVE_STRING_H
+| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
+| #  include <memory.h>
+| # endif
+| # include <string.h>
+| #endif
+| #ifdef HAVE_STRINGS_H
+| # include <strings.h>
+| #endif
+| #ifdef HAVE_INTTYPES_H
+| # include <inttypes.h>
+| #endif
+| #ifdef HAVE_STDINT_H
+| # include <stdint.h>
+| #endif
+| #ifdef HAVE_UNISTD_H
+| # include <unistd.h>
+| #endif
+| #include <vfork.h>
+configure:5624: result: no
+configure:5624: checking vfork.h presence
+configure:5624: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+conftest.c:41:10: fatal error: vfork.h: No such file or directory
+ #include <vfork.h>
+          ^~~~~~~~~
+compilation terminated.
+configure:5624: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_FILE_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE__BOOL 1
+| #define HAVE_STDBOOL_H 1
+| #define TIME_WITH_SYS_TIME 1
+| /* end confdefs.h.  */
+| #include <vfork.h>
+configure:5624: result: no
+configure:5624: checking for vfork.h
+configure:5624: result: no
+configure:5637: checking for fork
+configure:5637: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c  -L/usr/local/lib >&5
+conftest.c:64:6: warning: conflicting types for built-in function 'fork' [-Wbuiltin-declaration-mismatch]
+ char fork ();
+      ^~~~
+configure:5637: $? = 0
+configure:5637: result: yes
+configure:5637: checking for vfork
+configure:5637: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c  -L/usr/local/lib >&5
+configure:5637: $? = 0
+configure:5637: result: yes
+configure:5647: checking for working fork
+configure:5679: result: cross
+configure:5695: WARNING: result yes guessed because of cross compilation
+configure:5700: checking for working vfork
+configure:5810: result: yes
+configure:5837: checking for stdlib.h
+configure:5837: result: yes
+configure:5847: checking for GNU libc compatible malloc
+configure:5881: result: yes
+configure:5905: checking sys/select.h usability
+configure:5905: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5905: $? = 0
+configure:5905: result: yes
+configure:5905: checking sys/select.h presence
+configure:5905: arm-linux-gnueabihf-gcc -E -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c
+configure:5905: $? = 0
+configure:5905: result: yes
+configure:5905: checking for sys/select.h
+configure:5905: result: yes
+configure:5905: checking for sys/socket.h
+configure:5905: result: yes
+configure:5915: checking types of arguments for select
+configure:5943: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:5943: $? = 0
+configure:5954: result: int,fd_set *,struct timeval *
+configure:5977: checking return type of signal handlers
+configure:5995: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+conftest.c: In function 'main':
+conftest.c:58:10: error: void value not ignored as it ought to be
+ return *(signal (0, 0)) (0) == 1;
+         ~^~~~~~~~~~~~~~~~~~
+configure:5995: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_FILE_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE__BOOL 1
+| #define HAVE_STDBOOL_H 1
+| #define TIME_WITH_SYS_TIME 1
+| #define HAVE_FORK 1
+| #define HAVE_VFORK 1
+| #define HAVE_WORKING_VFORK 1
+| #define HAVE_WORKING_FORK 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_MALLOC 1
+| #define HAVE_SYS_SELECT_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define SELECT_TYPE_ARG1 int
+| #define SELECT_TYPE_ARG234 (fd_set *)
+| #define SELECT_TYPE_ARG5 (struct timeval *)
+| /* end confdefs.h.  */
+| #include <sys/types.h>
+| #include <signal.h>
+| 
+| int
+| main ()
+| {
+| return *(signal (0, 0)) (0) == 1;
+|   ;
+|   return 0;
+| }
+configure:6002: result: void
+configure:6010: checking whether lstat correctly handles trailing slash
+configure:6053: result: no
+configure:6072: checking whether stat accepts an empty string
+configure:6102: result: yes
+configure:6120: checking for vprintf
+configure:6120: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c  -L/usr/local/lib >&5
+conftest.c:77:6: warning: conflicting types for built-in function 'vprintf' [-Wbuiltin-declaration-mismatch]
+ char vprintf ();
+      ^~~~~~~
+configure:6120: $? = 0
+configure:6120: result: yes
+configure:6126: checking for _doprnt
+configure:6126: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c  -L/usr/local/lib >&5
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /tmp/cclJVevW.o: in function `main':
+./conftest.c:89: undefined reference to `_doprnt'
+collect2: error: ld returned 1 exit status
+configure:6126: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_FILE_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE__BOOL 1
+| #define HAVE_STDBOOL_H 1
+| #define TIME_WITH_SYS_TIME 1
+| #define HAVE_FORK 1
+| #define HAVE_VFORK 1
+| #define HAVE_WORKING_VFORK 1
+| #define HAVE_WORKING_FORK 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_MALLOC 1
+| #define HAVE_SYS_SELECT_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define SELECT_TYPE_ARG1 int
+| #define SELECT_TYPE_ARG234 (fd_set *)
+| #define SELECT_TYPE_ARG5 (struct timeval *)
+| #define RETSIGTYPE void
+| #define HAVE_STAT_EMPTY_STRING_BUG 1
+| #define HAVE_VPRINTF 1
+| /* end confdefs.h.  */
+| /* Define _doprnt to an innocuous variant, in case <limits.h> declares _doprnt.
+|    For example, HP-UX 11i <limits.h> declares gettimeofday.  */
+| #define _doprnt innocuous__doprnt
+| 
+| /* System header to define __stub macros and hopefully few prototypes,
+|     which can conflict with char _doprnt (); below.
+|     Prefer <limits.h> to <assert.h> if __STDC__ is defined, since
+|     <limits.h> exists even on freestanding compilers.  */
+| 
+| #ifdef __STDC__
+| # include <limits.h>
+| #else
+| # include <assert.h>
+| #endif
+| 
+| #undef _doprnt
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char _doprnt ();
+| /* The GNU C library defines this for functions which it implements
+|     to always fail with ENOSYS.  Some functions are actually named
+|     something starting with __ and the normal name is an alias.  */
+| #if defined __stub__doprnt || defined __stub____doprnt
+| choke me
+| #endif
+| 
+| int
+| main ()
+| {
+| return _doprnt ();
+|   ;
+|   return 0;
+| }
+configure:6126: result: no
+configure:6137: checking for library containing setsockopt
+configure:6168: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c  -L/usr/local/lib >&5
+configure:6168: $? = 0
+configure:6185: result: none required
+configure:6193: checking for library containing gethostbyname
+configure:6224: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c  -L/usr/local/lib >&5
+configure:6224: $? = 0
+configure:6241: result: none required
+configure:6249: checking for library containing inflate
+configure:6280: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c  -L/usr/local/lib >&5
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /tmp/cce7pJka.o: in function `main':
+./conftest.c:66: undefined reference to `inflate'
+collect2: error: ld returned 1 exit status
+configure:6280: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_FILE_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE__BOOL 1
+| #define HAVE_STDBOOL_H 1
+| #define TIME_WITH_SYS_TIME 1
+| #define HAVE_FORK 1
+| #define HAVE_VFORK 1
+| #define HAVE_WORKING_VFORK 1
+| #define HAVE_WORKING_FORK 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_MALLOC 1
+| #define HAVE_SYS_SELECT_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define SELECT_TYPE_ARG1 int
+| #define SELECT_TYPE_ARG234 (fd_set *)
+| #define SELECT_TYPE_ARG5 (struct timeval *)
+| #define RETSIGTYPE void
+| #define HAVE_STAT_EMPTY_STRING_BUG 1
+| #define HAVE_VPRINTF 1
+| /* end confdefs.h.  */
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char inflate ();
+| int
+| main ()
+| {
+| return inflate ();
+|   ;
+|   return 0;
+| }
+configure:6280: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lz   -L/usr/local/lib >&5
+configure:6280: $? = 0
+configure:6297: result: -lz
+configure:6307: checking for library containing logf
+configure:6338: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lz  -L/usr/local/lib >&5
+conftest.c:62:6: warning: conflicting types for built-in function 'logf' [-Wbuiltin-declaration-mismatch]
+ char logf ();
+      ^~~~
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /tmp/ccLsUqmk.o: in function `main':
+./conftest.c:66: undefined reference to `logf'
+collect2: error: ld returned 1 exit status
+configure:6338: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_FILE_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE__BOOL 1
+| #define HAVE_STDBOOL_H 1
+| #define TIME_WITH_SYS_TIME 1
+| #define HAVE_FORK 1
+| #define HAVE_VFORK 1
+| #define HAVE_WORKING_VFORK 1
+| #define HAVE_WORKING_FORK 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_MALLOC 1
+| #define HAVE_SYS_SELECT_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define SELECT_TYPE_ARG1 int
+| #define SELECT_TYPE_ARG234 (fd_set *)
+| #define SELECT_TYPE_ARG5 (struct timeval *)
+| #define RETSIGTYPE void
+| #define HAVE_STAT_EMPTY_STRING_BUG 1
+| #define HAVE_VPRINTF 1
+| /* end confdefs.h.  */
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char logf ();
+| int
+| main ()
+| {
+| return logf ();
+|   ;
+|   return 0;
+| }
+configure:6338: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm  -lz  -L/usr/local/lib >&5
+conftest.c:62:6: warning: conflicting types for built-in function 'logf' [-Wbuiltin-declaration-mismatch]
+ char logf ();
+      ^~~~
+configure:6338: $? = 0
+configure:6355: result: -lm
+configure:6366: checking for dup2
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for gethostbyname
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for gettimeofday
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for memmove
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+conftest.c:81:6: warning: conflicting types for built-in function 'memmove' [-Wbuiltin-declaration-mismatch]
+ char memmove ();
+      ^~~~~~~
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for memset
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+conftest.c:82:6: warning: conflicting types for built-in function 'memset' [-Wbuiltin-declaration-mismatch]
+ char memset ();
+      ^~~~~~
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for select
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for socket
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for strcasecmp
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+conftest.c:85:6: warning: conflicting types for built-in function 'strcasecmp' [-Wbuiltin-declaration-mismatch]
+ char strcasecmp ();
+      ^~~~~~~~~~
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for strchr
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+conftest.c:86:6: warning: conflicting types for built-in function 'strchr' [-Wbuiltin-declaration-mismatch]
+ char strchr ();
+      ^~~~~~
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for strerror
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for strncasecmp
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+conftest.c:88:6: warning: conflicting types for built-in function 'strncasecmp' [-Wbuiltin-declaration-mismatch]
+ char strncasecmp ();
+      ^~~~~~~~~~~
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for strnlen
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for strstr
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+conftest.c:90:6: warning: conflicting types for built-in function 'strstr' [-Wbuiltin-declaration-mismatch]
+ char strstr ();
+      ^~~~~~
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for strtol
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for logf
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+conftest.c:92:6: warning: conflicting types for built-in function 'logf' [-Wbuiltin-declaration-mismatch]
+ char logf ();
+      ^~~~
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for pread
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6366: checking for poll
+configure:6366: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+configure:6366: $? = 0
+configure:6366: result: yes
+configure:6378: checking for backtrace
+configure:6378: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+configure:6378: $? = 0
+configure:6378: result: yes
+configure:6378: checking for backtrace_symbols
+configure:6378: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+configure:6378: $? = 0
+configure:6378: result: yes
+configure:6392: checking for epoll_ctl
+configure:6392: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib >&5
+configure:6392: $? = 0
+configure:6392: result: yes
+configure:6419: checking for clock_gettime in -lrt
+configure:6444: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lrt   >&5
+configure:6444: $? = 0
+configure:6453: result: yes
+configure:6472: checking for clock_gettime
+configure:6472: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib -lrt  >&5
+configure:6472: $? = 0
+configure:6472: result: yes
+configure:6483: checking for LOCK_EX in sys/file.h
+configure:6508: result: yes
+configure:6517: checking for F_SETLKW in fcntl.h
+configure:6542: result: yes
+configure:6554: checking for library containing dlopen
+configure:6585: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -lm -lz  -L/usr/local/lib -lrt  >&5
+/usr/lib/gcc-cross/arm-linux-gnueabihf/8/../../../../arm-linux-gnueabihf/bin/ld: /tmp/cc60Oqdy.o: in function `main':
+./conftest.c:91: undefined reference to `dlopen'
+collect2: error: ld returned 1 exit status
+configure:6585: $? = 1
+configure: failed program was:
+| /* confdefs.h */
+| #define PACKAGE_NAME "sphinx"
+| #define PACKAGE_TARNAME "sphinx"
+| #define PACKAGE_VERSION "2.2.10"
+| #define PACKAGE_STRING "sphinx 2.2.10"
+| #define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+| #define PACKAGE_URL ""
+| #define PACKAGE "sphinx"
+| #define VERSION "2.2.10"
+| #define COMPILER "arm-linux-gnueabihf-gcc 8"
+| #define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+| #define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+| #define STDC_HEADERS 1
+| #define HAVE_SYS_WAIT_H 1
+| #define HAVE_SYS_TYPES_H 1
+| #define HAVE_SYS_STAT_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_MEMORY_H 1
+| #define HAVE_STRINGS_H 1
+| #define HAVE_INTTYPES_H 1
+| #define HAVE_STDINT_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_FCNTL_H 1
+| #define HAVE_LIMITS_H 1
+| #define HAVE_NETDB_H 1
+| #define HAVE_NETINET_IN_H 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_STRING_H 1
+| #define HAVE_SYS_FILE_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define HAVE_SYS_TIME_H 1
+| #define HAVE_UNISTD_H 1
+| #define HAVE_PTHREAD_H 1
+| #define HAVE_EXECINFO_H 1
+| #define HAVE_SYS_EPOLL_H 1
+| #define HAVE__BOOL 1
+| #define HAVE_STDBOOL_H 1
+| #define TIME_WITH_SYS_TIME 1
+| #define HAVE_FORK 1
+| #define HAVE_VFORK 1
+| #define HAVE_WORKING_VFORK 1
+| #define HAVE_WORKING_FORK 1
+| #define HAVE_STDLIB_H 1
+| #define HAVE_MALLOC 1
+| #define HAVE_SYS_SELECT_H 1
+| #define HAVE_SYS_SOCKET_H 1
+| #define SELECT_TYPE_ARG1 int
+| #define SELECT_TYPE_ARG234 (fd_set *)
+| #define SELECT_TYPE_ARG5 (struct timeval *)
+| #define RETSIGTYPE void
+| #define HAVE_STAT_EMPTY_STRING_BUG 1
+| #define HAVE_VPRINTF 1
+| #define HAVE_DUP2 1
+| #define HAVE_GETHOSTBYNAME 1
+| #define HAVE_GETTIMEOFDAY 1
+| #define HAVE_MEMMOVE 1
+| #define HAVE_MEMSET 1
+| #define HAVE_SELECT 1
+| #define HAVE_SOCKET 1
+| #define HAVE_STRCASECMP 1
+| #define HAVE_STRCHR 1
+| #define HAVE_STRERROR 1
+| #define HAVE_STRNCASECMP 1
+| #define HAVE_STRNLEN 1
+| #define HAVE_STRSTR 1
+| #define HAVE_STRTOL 1
+| #define HAVE_LOGF 1
+| #define HAVE_PREAD 1
+| #define HAVE_POLL 1
+| #define HAVE_BACKTRACE 1
+| #define HAVE_BACKTRACE_SYMBOLS 1
+| #define HAVE_EPOLL_CTL 1
+| #define HAVE_EPOLL 1
+| #define HAVE_LIBRT 1
+| #define HAVE_CLOCK_GETTIME 1
+| #define HAVE_LOCK_EX 1
+| #define HAVE_F_SETLKW 1
+| /* end confdefs.h.  */
+| 
+| /* Override any GCC internal prototype to avoid an error.
+|    Use char because int might match the return type of a GCC
+|    builtin and then its argument prototype would still apply.  */
+| #ifdef __cplusplus
+| extern "C"
+| #endif
+| char dlopen ();
+| int
+| main ()
+| {
+| return dlopen ();
+|   ;
+|   return 0;
+| }
+configure:6585: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -ldl  -lm -lz  -L/usr/local/lib -lrt  >&5
+configure:6585: $? = 0
+configure:6602: result: -ldl
+configure:6613: checking for dlopen
+configure:6613: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -ldl -lm -lz  -L/usr/local/lib -lrt  >&5
+configure:6613: $? = 0
+configure:6613: result: yes
+configure:6613: checking for dlerror
+configure:6613: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -ldl -lm -lz  -L/usr/local/lib -lrt  >&5
+configure:6613: $? = 0
+configure:6613: result: yes
+configure:6643: checking for interlocked builtins
+configure:6655: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:6655: $? = 0
+configure:6678: result: yes
+configure:6690: result: 
+configure:6692: result: configuring Sphinx
+configure:6695: result: ------------------
+configure:6697: result: 
+configure:6702: checking whether to use dynamic linking for DB drivers
+configure:6721: result: no
+configure:6757: checking for CFLAGS needed for pthreads
+configure:6796: arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include conftest.c >&5
+configure:6796: $? = 0
+configure:6814: result: none
+configure:6825: checking for LIBS needed for pthreads
+configure:6863: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -ldl -lm -lz  -L/usr/local/lib -lrt  -lpthread >&5
+configure:6863: $? = 0
+configure:6882: result: -lpthread
+configure:6891: checking for pthreads
+configure:6898: result: assumed as found (cross-compiling)
+configure:6907: checking for pthread_mutex_timedlock
+configure:6907: arm-linux-gnueabihf-gcc -o conftest -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include -Wl,-z,relro conftest.c -ldl -lm -lz  -L/usr/local/lib -lrt  -lpthread >&5
+configure:6907: $? = 0
+configure:6907: result: yes
+configure:6940: checking whether to compile with MySQL support
+configure:7444: result: dynamic
+configure:7487: checking for mysql_config
+configure:7513: result: not found
+configure:7631: checking MySQL include files
+configure:7655: result: -I/usr/include/mysql
+configure:7660: checking MySQL libraries
+configure:7664: error: missing libraries.
+
+******************************************************************************
+ERROR: cannot find MySQL libraries.
+
+Check that you do have MySQL libraries installed.
+The package name is typically 'mysql-devel'.
+
+If libraries are installed on your system, but you are still getting
+this message, you should do one of the following:
+
+1) either specify libraries location explicitly, using --with-mysql-libs;
+2) or specify MySQL installation root location explicitly, using --with-mysql;
+3) or make sure that the path to 'mysql_config' program is listed in
+   your PATH environment variable.
+
+To disable MySQL support, use --without-mysql option.
+******************************************************************************
+
+
+## ---------------- ##
+## Cache variables. ##
+## ---------------- ##
+
+ac_cv_c_bigendian=no
+ac_cv_c_char_unsigned=yes
+ac_cv_c_compiler_gnu=yes
+ac_cv_c_const=yes
+ac_cv_c_inline=inline
+ac_cv_cxx_compiler_gnu=yes
+ac_cv_define_F_SETLKW=yes
+ac_cv_define_LOCK_EX=yes
+ac_cv_env_CCC_set=
+ac_cv_env_CCC_value=
+ac_cv_env_CC_set=
+ac_cv_env_CC_value=
+ac_cv_env_CFLAGS_set=set
+ac_cv_env_CFLAGS_value='-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2'
+ac_cv_env_CPPFLAGS_set=set
+ac_cv_env_CPPFLAGS_value='-Wdate-time -D_FORTIFY_SOURCE=2'
+ac_cv_env_CPP_set=
+ac_cv_env_CPP_value=
+ac_cv_env_CXXFLAGS_set=set
+ac_cv_env_CXXFLAGS_value='-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'
+ac_cv_env_CXX_set=
+ac_cv_env_CXX_value=
+ac_cv_env_LDFLAGS_set=set
+ac_cv_env_LDFLAGS_value=-Wl,-z,relro
+ac_cv_env_LIBS_set=
+ac_cv_env_LIBS_value=
+ac_cv_env_build_alias_set=set
+ac_cv_env_build_alias_value=x86_64-linux-gnu
+ac_cv_env_host_alias_set=set
+ac_cv_env_host_alias_value=arm-linux-gnueabihf
+ac_cv_env_target_alias_set=
+ac_cv_env_target_alias_value=
+ac_cv_func__doprnt=no
+ac_cv_func_backtrace=yes
+ac_cv_func_backtrace_symbols=yes
+ac_cv_func_clock_gettime=yes
+ac_cv_func_dlerror=yes
+ac_cv_func_dlopen=yes
+ac_cv_func_dup2=yes
+ac_cv_func_epoll=yes
+ac_cv_func_epoll_ctl=yes
+ac_cv_func_fork=yes
+ac_cv_func_fork_works=yes
+ac_cv_func_gethostbyname=yes
+ac_cv_func_gettimeofday=yes
+ac_cv_func_logf=yes
+ac_cv_func_lstat_dereferences_slashed_symlink=no
+ac_cv_func_malloc_0_nonnull=yes
+ac_cv_func_memmove=yes
+ac_cv_func_memset=yes
+ac_cv_func_poll=yes
+ac_cv_func_pread=yes
+ac_cv_func_pthread_mutex_timedlock=yes
+ac_cv_func_realloc_0_nonnull=yes
+ac_cv_func_select=yes
+ac_cv_func_select_args='int,fd_set *,struct timeval *'
+ac_cv_func_setpgrp_void=yes
+ac_cv_func_socket=yes
+ac_cv_func_stat_empty_string_bug=yes
+ac_cv_func_strcasecmp=yes
+ac_cv_func_strchr=yes
+ac_cv_func_strerror=yes
+ac_cv_func_strncasecmp=yes
+ac_cv_func_strnlen=yes
+ac_cv_func_strstr=yes
+ac_cv_func_strtol=yes
+ac_cv_func_vfork=yes
+ac_cv_func_vfork_works=yes
+ac_cv_func_vprintf=yes
+ac_cv_header_execinfo_h=yes
+ac_cv_header_expat_h=yes
+ac_cv_header_fcntl_h=yes
+ac_cv_header_iconv_h=yes
+ac_cv_header_inttypes_h=yes
+ac_cv_header_limits_h=yes
+ac_cv_header_memory_h=yes
+ac_cv_header_netdb_h=yes
+ac_cv_header_netinet_in_h=yes
+ac_cv_header_pthread_h=yes
+ac_cv_header_sql_h=no
+ac_cv_header_stdbool_h=yes
+ac_cv_header_stdc=yes
+ac_cv_header_stdint_h=yes
+ac_cv_header_stdlib_h=yes
+ac_cv_header_string_h=yes
+ac_cv_header_strings_h=yes
+ac_cv_header_sys_epoll_h=yes
+ac_cv_header_sys_file_h=yes
+ac_cv_header_sys_select_h=yes
+ac_cv_header_sys_socket_h=yes
+ac_cv_header_sys_stat_h=yes
+ac_cv_header_sys_time_h=yes
+ac_cv_header_sys_types_h=yes
+ac_cv_header_sys_wait_h=yes
+ac_cv_header_syslog_h=yes
+ac_cv_header_time=yes
+ac_cv_header_unistd_h=yes
+ac_cv_header_vfork_h=no
+ac_cv_header_zlib_h=yes
+ac_cv_lib_rt_clock_gettime=yes
+ac_cv_objext=o
+ac_cv_path_EGREP='/bin/grep -E'
+ac_cv_path_GREP=/bin/grep
+ac_cv_path_install='/usr/bin/install -c'
+ac_cv_path_mkdir=/bin/mkdir
+ac_cv_prog_AR=arm-linux-gnueabihf-ar
+ac_cv_prog_AWK=gawk
+ac_cv_prog_CC=arm-linux-gnueabihf-gcc
+ac_cv_prog_CPP='arm-linux-gnueabihf-gcc -E'
+ac_cv_prog_CXX=arm-linux-gnueabihf-g++
+ac_cv_prog_RANLIB=arm-linux-gnueabihf-ranlib
+ac_cv_prog_STRIP=arm-linux-gnueabihf-strip
+ac_cv_prog_cc_c89=
+ac_cv_prog_cc_g=yes
+ac_cv_prog_cxx_g=yes
+ac_cv_prog_make_make_set=yes
+ac_cv_search_dlopen=-ldl
+ac_cv_search_gethostbyname='none required'
+ac_cv_search_inflate=-lz
+ac_cv_search_logf=-lm
+ac_cv_search_setsockopt='none required'
+ac_cv_sizeof_char=1
+ac_cv_sizeof_char_p=4
+ac_cv_sizeof_double=8
+ac_cv_sizeof_float=4
+ac_cv_sizeof_int=4
+ac_cv_sizeof_long=4
+ac_cv_sizeof_long_double=8
+ac_cv_sizeof_long_long=8
+ac_cv_sizeof_short=2
+ac_cv_sizeof_signed_char=1
+ac_cv_sizeof_unsigned_char=1
+ac_cv_sizeof_unsigned_int=4
+ac_cv_sizeof_unsigned_long=4
+ac_cv_sizeof_unsigned_long_long=8
+ac_cv_sizeof_unsigned_short=2
+ac_cv_sizeof_void_p=4
+ac_cv_type__Bool=yes
+ac_cv_type_off_t=yes
+ac_cv_type_pid_t=yes
+ac_cv_type_signal=void
+ac_cv_type_size_t=yes
+ac_cv_use_assert=no
+ac_cv_use_debug=no
+ac_cv_use_mysql=yes
+ac_cv_use_static_mysql=no
+am_cv_CC_dependencies_compiler_type=none
+am_cv_CXX_dependencies_compiler_type=none
+am_cv_ar_interface=ar
+am_cv_make_support_nested_variables=yes
+am_cv_prog_cc_c_o=yes
+lt_cv_sys_lib_dlsearch_path_spec=' /lib/arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf /lib /usr/lib /usr/local/lib'
+sphinx_cv_interlocked=yes
+sphinx_cv_pthreads_cflags=none
+sphinx_cv_pthreads_libs=-lpthread
+
+## ----------------- ##
+## Output variables. ##
+## ----------------- ##
+
+ACLOCAL='${SHELL} /<<PKGBUILDDIR>>/config/missing aclocal-1.16'
+AMDEPBACKSLASH=''
+AMDEP_FALSE=''
+AMDEP_TRUE='#'
+AMTAR='$${TAR-tar}'
+AM_BACKSLASH='\'
+AM_DEFAULT_V='$(AM_DEFAULT_VERBOSITY)'
+AM_DEFAULT_VERBOSITY='1'
+AM_V='$(V)'
+AR='arm-linux-gnueabihf-ar'
+AUTOCONF='${SHELL} /<<PKGBUILDDIR>>/config/missing autoconf'
+AUTOHEADER='${SHELL} /<<PKGBUILDDIR>>/config/missing autoheader'
+AUTOMAKE='${SHELL} /<<PKGBUILDDIR>>/config/missing automake-1.16'
+AWK='gawk'
+CC='arm-linux-gnueabihf-gcc'
+CCDEPMODE='depmode=none'
+CFLAGS='-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -D_FILE_OFFSET_BITS=64 -DNDEBUG'
+CONFDIR=''
+CPP='arm-linux-gnueabihf-gcc -E'
+CPPFLAGS='-Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/local/include'
+CXX='arm-linux-gnueabihf-g++'
+CXXDEPMODE='depmode=none'
+CXXFLAGS='-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -D_FILE_OFFSET_BITS=64 -DNDEBUG'
+CYGPATH_W='echo'
+DEFS=''
+DEPDIR='.deps'
+ECHO_C=''
+ECHO_N='-n'
+ECHO_T=''
+EGREP='/bin/grep -E'
+EXEEXT=''
+GREP='/bin/grep'
+INSTALL_DATA='${INSTALL} -m 644'
+INSTALL_PROGRAM='${INSTALL}'
+INSTALL_SCRIPT='${INSTALL}'
+INSTALL_STRIP_PROGRAM='$(install_sh) -c -s'
+LDFLAGS='-Wl,-z,relro'
+LIBOBJS=' lstat.o stat.o epoll.o'
+LIBRE2_CFLAGS=''
+LIBRE2_LIBS=''
+LIBRE2_PATH=''
+LIBRT='-lrt '
+LIBS='-ldl -lm -lz  -L/usr/local/lib -lrt  -lpthread'
+LIBSTEMMER_CFLAGS=''
+LIBSTEMMER_LIBS=''
+LTLIBOBJS=''
+MAINT='#'
+MAINTAINER_MODE_FALSE=''
+MAINTAINER_MODE_TRUE='#'
+MAKEINFO='${SHELL} /<<PKGBUILDDIR>>/config/missing makeinfo'
+MKDIR_P='/bin/mkdir -p'
+MYSQL_CFLAGS='-I/usr/include/mysql'
+MYSQL_LIBS=''
+OBJEXT='o'
+PACKAGE='sphinx'
+PACKAGE_BUGREPORT='shodan(at)sphinxsearch.com'
+PACKAGE_NAME='sphinx'
+PACKAGE_STRING='sphinx 2.2.10'
+PACKAGE_TARNAME='sphinx'
+PACKAGE_URL=''
+PACKAGE_VERSION='2.2.10'
+PATH_SEPARATOR=':'
+PGSQL_CFLAGS=''
+PGSQL_LIBS=''
+RANLIB='arm-linux-gnueabihf-ranlib'
+SET_MAKE=''
+SHELL='/bin/bash'
+STRIP='arm-linux-gnueabihf-strip'
+USE_INTERNAL_LIBSTEMMER_FALSE=''
+USE_INTERNAL_LIBSTEMMER_TRUE=''
+USE_LIBSTEMMER_FALSE=''
+USE_LIBSTEMMER_TRUE=''
+USE_MYSQL_FALSE=''
+USE_MYSQL_TRUE=''
+USE_PGSQL_FALSE=''
+USE_PGSQL_TRUE=''
+USE_RE2_FALSE=''
+USE_RE2_TRUE=''
+USE_RLP_FALSE=''
+USE_RLP_TRUE=''
+VERSION='2.2.10'
+ac_ct_AR=''
+ac_ct_CC=''
+ac_ct_CXX=''
+am__EXEEXT_FALSE=''
+am__EXEEXT_TRUE=''
+am__fastdepCC_FALSE=''
+am__fastdepCC_TRUE='#'
+am__fastdepCXX_FALSE=''
+am__fastdepCXX_TRUE='#'
+am__include='include'
+am__isrc=''
+am__leading_dot='.'
+am__nodep=''
+am__quote=''
+am__tar='$${TAR-tar} chof - "$$tardir"'
+am__untar='$${TAR-tar} xf -'
+bindir='${exec_prefix}/bin'
+build_alias='x86_64-linux-gnu'
+datadir='${datarootdir}'
+datarootdir='${prefix}/share'
+docdir='${datarootdir}/doc/${PACKAGE_TARNAME}'
+dvidir='${docdir}'
+exec_prefix='NONE'
+host_alias='arm-linux-gnueabihf'
+htmldir='${docdir}'
+includedir='${prefix}/include'
+infodir='${prefix}/share/info'
+install_sh='${SHELL} /<<PKGBUILDDIR>>/config/install-sh'
+libdir='${prefix}/lib/arm-linux-gnueabihf'
+libexecdir='${prefix}/lib/arm-linux-gnueabihf'
+localedir='${datarootdir}/locale'
+localstatedir='/var/lib/sphinxsearch'
+mandir='${prefix}/share/man'
+mkdir_p='$(MKDIR_P)'
+oldincludedir='/usr/include'
+pdfdir='${docdir}'
+pgconfig=''
+prefix='/usr'
+program_transform_name='s,x,x,'
+psdir='${docdir}'
+runstatedir='${localstatedir}/run'
+sbindir='${exec_prefix}/sbin'
+sharedstatedir='${prefix}/com'
+sysconfdir='/etc/sphinxsearch'
+target_alias=''
+
+## ----------- ##
+## confdefs.h. ##
+## ----------- ##
+
+/* confdefs.h */
+#define PACKAGE_NAME "sphinx"
+#define PACKAGE_TARNAME "sphinx"
+#define PACKAGE_VERSION "2.2.10"
+#define PACKAGE_STRING "sphinx 2.2.10"
+#define PACKAGE_BUGREPORT "shodan(at)sphinxsearch.com"
+#define PACKAGE_URL ""
+#define PACKAGE "sphinx"
+#define VERSION "2.2.10"
+#define COMPILER "arm-linux-gnueabihf-gcc 8"
+#define OS_UNAME "Linux 36857dea695f 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) x86_64 GNU/Linux"
+#define CONFIGURE_FLAGS " '--prefix=/usr' '--includedir=${prefix}/include' '--mandir=${prefix}/share/man' '--infodir=${prefix}/share/info' '--sysconfdir=/etc' '--localstatedir=/var' '--disable-silent-rules' '--libdir=${prefix}/lib/arm-linux-gnueabihf' '--libexecdir=${prefix}/lib/arm-linux-gnueabihf' '--disable-maintainer-mode' '--disable-dependency-tracking' '--host=arm-linux-gnueabihf' '--build=x86_64-linux-gnu' '--localstatedir=/var/lib/sphinxsearch' '--sysconfdir=/etc/sphinxsearch' '--with-libstemmer' '--with-pgsql' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-linux-gnueabihf' 'CFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2' 'LDFLAGS=-Wl,-z,relro' 'CPPFLAGS=-Wdate-time -D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'"
+#define STDC_HEADERS 1
+#define HAVE_SYS_WAIT_H 1
+#define HAVE_SYS_TYPES_H 1
+#define HAVE_SYS_STAT_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRING_H 1
+#define HAVE_MEMORY_H 1
+#define HAVE_STRINGS_H 1
+#define HAVE_INTTYPES_H 1
+#define HAVE_STDINT_H 1
+#define HAVE_UNISTD_H 1
+#define HAVE_FCNTL_H 1
+#define HAVE_LIMITS_H 1
+#define HAVE_NETDB_H 1
+#define HAVE_NETINET_IN_H 1
+#define HAVE_STDLIB_H 1
+#define HAVE_STRING_H 1
+#define HAVE_SYS_FILE_H 1
+#define HAVE_SYS_SOCKET_H 1
+#define HAVE_SYS_TIME_H 1
+#define HAVE_UNISTD_H 1
+#define HAVE_PTHREAD_H 1
+#define HAVE_EXECINFO_H 1
+#define HAVE_SYS_EPOLL_H 1
+#define HAVE__BOOL 1
+#define HAVE_STDBOOL_H 1
+#define TIME_WITH_SYS_TIME 1
+#define HAVE_FORK 1
+#define HAVE_VFORK 1
+#define HAVE_WORKING_VFORK 1
+#define HAVE_WORKING_FORK 1
+#define HAVE_STDLIB_H 1
+#define HAVE_MALLOC 1
+#define HAVE_SYS_SELECT_H 1
+#define HAVE_SYS_SOCKET_H 1
+#define SELECT_TYPE_ARG1 int
+#define SELECT_TYPE_ARG234 (fd_set *)
+#define SELECT_TYPE_ARG5 (struct timeval *)
+#define RETSIGTYPE void
+#define HAVE_STAT_EMPTY_STRING_BUG 1
+#define HAVE_VPRINTF 1
+#define HAVE_DUP2 1
+#define HAVE_GETHOSTBYNAME 1
+#define HAVE_GETTIMEOFDAY 1
+#define HAVE_MEMMOVE 1
+#define HAVE_MEMSET 1
+#define HAVE_SELECT 1
+#define HAVE_SOCKET 1
+#define HAVE_STRCASECMP 1
+#define HAVE_STRCHR 1
+#define HAVE_STRERROR 1
+#define HAVE_STRNCASECMP 1
+#define HAVE_STRNLEN 1
+#define HAVE_STRSTR 1
+#define HAVE_STRTOL 1
+#define HAVE_LOGF 1
+#define HAVE_PREAD 1
+#define HAVE_POLL 1
+#define HAVE_BACKTRACE 1
+#define HAVE_BACKTRACE_SYMBOLS 1
+#define HAVE_EPOLL_CTL 1
+#define HAVE_EPOLL 1
+#define HAVE_LIBRT 1
+#define HAVE_CLOCK_GETTIME 1
+#define HAVE_LOCK_EX 1
+#define HAVE_F_SETLKW 1
+#define HAVE_DLOPEN 1
+#define HAVE_DLERROR 1
+#define HAVE_SYNC_FETCH 1
+#define HAVE_PTHREAD_MUTEX_TIMEDLOCK 1
+
+configure: exit 1
+dh_auto_configure: ./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --host=arm-linux-gnueabihf --build=x86_64-linux-gnu --localstatedir=/var/lib/sphinxsearch --sysconfdir=/etc/sphinxsearch --with-libstemmer --with-pgsql returned exit code 1
+make[1]: *** [debian/rules:24: override_dh_auto_configure] Error 2
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make: *** [debian/rules:19: build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-03-07T01:37:45Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  default-libmysqlclient-dev:armhf* dh-autoreconf* dh-strip-nondeterminism*
+  docbook* docbook-to-man* dwz* gawk* gcc-8-base:armhf* gettext* gettext-base*
+  groff-base* intltool-debian* libarchive-zip-perl* libasan5:armhf*
+  libatomic1:armhf* libbsd0* libc6:armhf* libc6-dev:armhf* libcom-err2:armhf*
+  libcroco3* libdb5.3:armhf* libelf1* libevent-2.1-6:armhf* libexpat1:armhf*
+  libexpat1-dev:armhf* libffi6:armhf* libfile-stripnondeterminism-perl*
+  libgcc-8-dev:armhf* libgcc1:armhf* libglib2.0-0* libgmp-dev:armhf*
+  libgmp10:armhf* libgmpxx4ldbl:armhf* libgnutls-dane0:armhf*
+  libgnutls-openssl27:armhf* libgnutls28-dev:armhf* libgnutls30:armhf*
+  libgnutlsxx28:armhf* libgomp1:armhf* libgssapi-krb5-2:armhf*
+  libhogweed4:armhf* libidn2-0:armhf* libidn2-dev:armhf* libk5crypto3:armhf*
+  libkeyutils1:armhf* libkrb5-3:armhf* libkrb5support0:armhf*
+  libldap-2.4-2:armhf* libmariadb-dev:armhf* libmariadb-dev-compat:armhf*
+  libmariadb3:armhf* libncurses6* libnettle6:armhf* libosp5*
+  libp11-kit-dev:armhf* libp11-kit0:armhf* libpipeline1* libpq-dev:armhf*
+  libpq5:armhf* libsasl2-2:armhf* libsasl2-modules-db:armhf* libsigsegv2*
+  libssl1.1:armhf* libstdc++-8-dev:armhf* libstdc++6:armhf*
+  libstemmer-dev:armhf* libstemmer0d:armhf* libtasn1-6:armhf*
+  libtasn1-6-dev:armhf* libtool* libubsan1:armhf* libuchardet0*
+  libunbound8:armhf* libunistring2:armhf* linux-libc-dev:armhf* m4* man-db*
+  mariadb-common* mysql-common* nettle-dev:armhf* opensp* po-debconf*
+  sbuild-build-depends-main-dummy:armhf* sgml-base* sgml-data* xml-core*
+  zlib1g:armhf* zlib1g-dev:armhf*
+0 upgraded, 0 newly installed, 94 to remove and 0 not upgraded.
+After this operation, 121 MB disk space will be freed.
+(Reading database ... 20770 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing default-libmysqlclient-dev:armhf (1.0.5) ...
+Removing docbook-to-man (1:2.0.0-42) ...
+Removing docbook (4.5-6) ...
+Removing gawk (1:4.2.1+dfsg-1) ...
+update-alternatives: using /usr/bin/mawk to provide /usr/bin/awk (awk) in auto mode
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libmariadb-dev-compat:armhf (1:10.3.13-1) ...
+Removing libmariadb-dev:armhf (1:10.3.13-1) ...
+Removing libmariadb3:armhf (1:10.3.13-1) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing libgnutls28-dev:armhf (3.6.6-2) ...
+Removing libgnutls-dane0:armhf (3.6.6-2) ...
+Removing libunbound8:armhf (1.9.0-2) ...
+Removing libexpat1-dev:armhf (2.2.6-1) ...
+Removing libc6-dev:armhf (2.28-8) ...
+Removing libpq-dev:armhf (11.2-2) ...
+Removing libpq5:armhf (11.2-2) ...
+Removing libgssapi-krb5-2:armhf (1.17-2) ...
+Removing libkrb5-3:armhf (1.17-2) ...
+Removing libcom-err2:armhf (1.44.6-1) ...
+Removing libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Removing libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Removing libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Removing libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Removing libevent-2.1-6:armhf (2.1.8-stable-4) ...
+Removing libexpat1:armhf (2.2.6-1) ...
+Removing libp11-kit-dev:armhf (0.23.15-2) ...
+Removing libgnutlsxx28:armhf (3.6.6-2) ...
+Removing nettle-dev:armhf (3.4.1-1) ...
+Removing libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Removing libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Removing libgnutls-openssl27:armhf (3.6.6-2) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libidn2-dev:armhf (2.0.5-1) ...
+Removing libk5crypto3:armhf (1.17-2) ...
+Removing libkrb5support0:armhf (1.17-2) ...
+Removing libkeyutils1:armhf (1.6-6) ...
+Removing opensp (1.5.2-13+b1) ...
+Removing libosp5 (1.5.2-13+b1) ...
+Removing libssl1.1:armhf (1.1.1b-1) ...
+Removing libstemmer-dev:armhf (0+svn585-1+b2) ...
+Removing libstemmer0d:armhf (0+svn585-1+b2) ...
+Removing libtasn1-6-dev:armhf (4.13-3) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing mariadb-common (1:10.3.13-1) ...
+update-alternatives: using /etc/mysql/my.cnf.fallback to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Removing mysql-common (5.8+1.0.5) ...
+Removing sgml-data (2.0.11) ...
+Removing xml-core (0.18+nmu1) ...
+Removing sgml-base (1.29) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libgnutls30:armhf (3.6.6-2) ...
+Removing libp11-kit0:armhf (0.23.15-2) ...
+Removing libffi6:armhf (3.2.1-9) ...
+Removing libhogweed4:armhf (3.4.1-1) ...
+Removing libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Removing libidn2-0:armhf (2.0.5-1) ...
+Removing libnettle6:armhf (3.4.1-1) ...
+Removing libtasn1-6:armhf (4.13-3) ...
+Removing libunistring2:armhf (0.9.10-1) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-3) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-8) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-8) ...
+(Reading database ... 16491 files and directories currently installed.)
+Purging configuration files for mysql-common (5.8+1.0.5) ...
+Purging configuration files for gawk (1:4.2.1+dfsg-1) ...
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for libssl1.1:armhf (1.1.1b-1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for mariadb-common (1:10.3.13-1) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for libgssapi-krb5-2:armhf (1.17-2) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-8) ...
+Purging configuration files for docbook (4.5-6) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+Purging configuration files for xml-core (0.18+nmu1) ...
+dpkg: warning: while removing xml-core, directory '/etc/xml' not empty so not removed
+Purging configuration files for sgml-base (1.29) ...
+Purging configuration files for sgml-data (2.0.11) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 14
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 13
+Job: /home/build/sbuild-setup/repo/pool/main/s/sphinxsearch/sphinxsearch_2.2.11-2.dsc
+Machine Architecture: amd64
+Package: sphinxsearch
+Package-Time: 32
+Source-Version: 2.2.11-2
+Space: n/a
+Status: attempted
+Version: 2.2.11-2
+--------------------------------------------------------------------------------
+Finished at 2019-03-07T01:37:45Z
+Build needed 00:00:32, no disk space

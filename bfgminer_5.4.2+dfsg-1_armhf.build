@@ -1,0 +1,2308 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| bfgminer 5.4.2+dfsg-1 (armhf)                Fri, 01 Mar 2019 07:21:46 +0000 |
++==============================================================================+
+
+Package: bfgminer
+Version: 5.4.2+dfsg-1
+Source Version: 5.4.2+dfsg-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-88352695-26d9-4ba8-8a34-59be0a5640a7' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/bfgminer-56khKP/resolver-ycDtHR' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/b/bfgminer/bfgminer_5.4.2+dfsg-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/b/bfgminer; copying to chroot
+I: NOTICE: Log filtering will replace 'build/bfgminer-56khKP/bfgminer-5.4.2+dfsg' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/bfgminer-56khKP' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 9), dh-autoreconf, help2man, libbase58-dev (>= 0.1.4), libblkmaker-0.1-dev, libcurl4-gnutls-dev | libcurl4-dev, libevent-dev, libjansson-dev, libmicrohttpd-dev, libncurses5-dev, libsensors4-dev, libudev-dev, libusb-1.0-0-dev, pkg-config, uthash-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 9), dh-autoreconf, help2man, libbase58-dev (>= 0.1.4), libblkmaker-0.1-dev, libcurl4-gnutls-dev, libevent-dev, libjansson-dev, libmicrohttpd-dev, libncurses5-dev, libsensors4-dev, libudev-dev, libusb-1.0-0-dev, pkg-config, uthash-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [528 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [593 B]
+Fetched 2078 B in 0s (146 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base help2man intltool-debian libarchive-zip-perl
+  libasan5:armhf libatomic1:armhf libbase58-0:armhf libbase58-dev:armhf
+  libblkmaker-0.1-6:armhf libblkmaker-0.1-dev:armhf libbsd0 libc6:armhf
+  libc6-dev:armhf libcom-err2:armhf libcroco3 libcurl3-gnutls:armhf
+  libcurl4-gnutls-dev:armhf libdb5.3:armhf libelf1 libevent-2.1-6:armhf
+  libevent-core-2.1-6:armhf libevent-dev:armhf libevent-extra-2.1-6:armhf
+  libevent-openssl-2.1-6:armhf libevent-pthreads-2.1-6:armhf libffi6:armhf
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libgcrypt20:armhf libgcrypt20-dev:armhf libglib2.0-0 libgmp-dev:armhf
+  libgmp10:armhf libgmpxx4ldbl:armhf libgnutls-dane0:armhf
+  libgnutls-openssl27:armhf libgnutls28-dev:armhf libgnutls30:armhf
+  libgnutlsxx28:armhf libgomp1:armhf libgpg-error-dev:armhf
+  libgpg-error0:armhf libgssapi-krb5-2:armhf libhogweed4:armhf libidn2-0:armhf
+  libidn2-dev:armhf libjansson-dev:armhf libjansson4:armhf libk5crypto3:armhf
+  libkeyutils1:armhf libkrb5-3:armhf libkrb5support0:armhf libldap-2.4-2:armhf
+  libmicrohttpd-dev:armhf libmicrohttpd12:armhf libncurses-dev:armhf
+  libncurses5-dev:armhf libncurses6 libncurses6:armhf libncursesw6:armhf
+  libnettle6:armhf libnghttp2-14:armhf libp11-kit-dev:armhf libp11-kit0:armhf
+  libpipeline1 libpsl5:armhf librtmp1:armhf libsasl2-2:armhf
+  libsasl2-modules-db:armhf libsensors-config libsensors4-dev:armhf
+  libsensors5:armhf libsigsegv2 libssh2-1:armhf libssl1.1:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libtasn1-6:armhf libtasn1-6-dev:armhf
+  libtinfo6:armhf libtool libubsan1:armhf libuchardet0 libudev-dev:armhf
+  libudev1:armhf libunbound8:armhf libunistring2:armhf libusb-1.0-0:armhf
+  libusb-1.0-0-dev:armhf linux-libc-dev:armhf m4 man-db nettle-dev:armhf
+  pkg-config po-debconf uthash-dev:armhf zlib1g:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  libcurl4-doc:armhf libidn11-dev:armhf libkrb5-dev:armhf libldap2-dev:armhf
+  librtmp-dev:armhf libssh2-1-dev:armhf zlib1g-dev:armhf rng-tools:armhf
+  libgcrypt20-doc:armhf gmp-doc:armhf libgmp10-doc:armhf libmpfr-dev:armhf
+  dns-root-data:armhf gnutls-bin:armhf gnutls-doc:armhf krb5-doc:armhf
+  krb5-user:armhf ncurses-doc:armhf lm-sensors lm-sensors:armhf
+  libstdc++-8-doc:armhf libtool-doc gfortran | fortran95-compiler gcj-jdk
+  m4-doc apparmor less www-browser libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libarchive-cpio-perl libglib2.0-data shared-mime-info
+  xdg-user-dirs libgpg-error-l10n:armhf krb5-locales:armhf libgpm2
+  libgpm2:armhf publicsuffix:armhf libsasl2-modules:armhf libtasn1-doc:armhf
+  libltdl-dev libusb-1.0-doc:armhf libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base help2man intltool-debian libarchive-zip-perl
+  libasan5:armhf libatomic1:armhf libbase58-0:armhf libbase58-dev:armhf
+  libblkmaker-0.1-6:armhf libblkmaker-0.1-dev:armhf libbsd0 libc6:armhf
+  libc6-dev:armhf libcom-err2:armhf libcroco3 libcurl3-gnutls:armhf
+  libcurl4-gnutls-dev:armhf libdb5.3:armhf libelf1 libevent-2.1-6:armhf
+  libevent-core-2.1-6:armhf libevent-dev:armhf libevent-extra-2.1-6:armhf
+  libevent-openssl-2.1-6:armhf libevent-pthreads-2.1-6:armhf libffi6:armhf
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libgcrypt20:armhf libgcrypt20-dev:armhf libglib2.0-0 libgmp-dev:armhf
+  libgmp10:armhf libgmpxx4ldbl:armhf libgnutls-dane0:armhf
+  libgnutls-openssl27:armhf libgnutls28-dev:armhf libgnutls30:armhf
+  libgnutlsxx28:armhf libgomp1:armhf libgpg-error-dev:armhf
+  libgpg-error0:armhf libgssapi-krb5-2:armhf libhogweed4:armhf libidn2-0:armhf
+  libidn2-dev:armhf libjansson-dev:armhf libjansson4:armhf libk5crypto3:armhf
+  libkeyutils1:armhf libkrb5-3:armhf libkrb5support0:armhf libldap-2.4-2:armhf
+  libmicrohttpd-dev:armhf libmicrohttpd12:armhf libncurses-dev:armhf
+  libncurses5-dev:armhf libncurses6 libncurses6:armhf libncursesw6:armhf
+  libnettle6:armhf libnghttp2-14:armhf libp11-kit-dev:armhf libp11-kit0:armhf
+  libpipeline1 libpsl5:armhf librtmp1:armhf libsasl2-2:armhf
+  libsasl2-modules-db:armhf libsensors-config libsensors4-dev:armhf
+  libsensors5:armhf libsigsegv2 libssh2-1:armhf libssl1.1:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libtasn1-6:armhf libtasn1-6-dev:armhf
+  libtinfo6:armhf libtool libubsan1:armhf libuchardet0 libudev-dev:armhf
+  libudev1:armhf libunbound8:armhf libunistring2:armhf libusb-1.0-0:armhf
+  libusb-1.0-0-dev:armhf linux-libc-dev:armhf m4 man-db nettle-dev:armhf
+  pkg-config po-debconf sbuild-build-depends-main-dummy:armhf uthash-dev:armhf
+  zlib1g:armhf
+0 upgraded, 111 newly installed, 0 to remove and 0 not upgraded.
+Need to get 6156 kB/33.3 MB of archives.
+After this operation, 113 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [1020 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 help2man amd64 1.47.8 [177 kB]
+Get:3 http://10.116.41.102/debian sid/main armhf libbase58-0 armhf 0.1.4-2 [7864 B]
+Get:4 http://10.116.41.102/debian sid/main armhf libbase58-dev armhf 0.1.4-2 [6376 B]
+Get:5 http://10.116.41.102/debian sid/main armhf libblkmaker-0.1-6 armhf 0.5.3-1 [15.6 kB]
+Get:6 http://10.116.41.102/debian sid/main armhf libblkmaker-0.1-dev armhf 0.5.3-1 [3310 B]
+Get:7 http://10.116.41.102/debian sid/main armhf libcurl4-gnutls-dev armhf 7.64.0-1 [390 kB]
+Get:8 http://10.116.41.102/debian sid/main armhf libevent-extra-2.1-6 armhf 2.1.8-stable-4 [90.9 kB]
+Get:9 http://10.116.41.102/debian sid/main armhf libevent-openssl-2.1-6 armhf 2.1.8-stable-4 [52.2 kB]
+Get:10 http://10.116.41.102/debian sid/main armhf libevent-dev armhf 2.1.8-stable-4 [291 kB]
+Get:11 http://10.116.41.102/debian sid/main armhf libgmpxx4ldbl armhf 2:6.1.2+dfsg-4 [21.7 kB]
+Get:12 http://10.116.41.102/debian sid/main armhf libgmp-dev armhf 2:6.1.2+dfsg-4 [581 kB]
+Get:13 http://10.116.41.102/debian sid/main armhf libunbound8 armhf 1.9.0-2 [411 kB]
+Get:14 http://10.116.41.102/debian sid/main armhf libgnutls-dane0 armhf 3.6.6-2 [306 kB]
+Get:15 http://10.116.41.102/debian sid/main armhf libgnutls-openssl27 armhf 3.6.6-2 [306 kB]
+Get:16 http://10.116.41.102/debian sid/main armhf libgnutlsxx28 armhf 3.6.6-2 [12.1 kB]
+Get:17 http://10.116.41.102/debian sid/main armhf libidn2-dev armhf 2.0.5-1 [76.4 kB]
+Get:18 http://10.116.41.102/debian sid/main armhf libp11-kit-dev armhf 0.23.15-2 [195 kB]
+Get:19 http://10.116.41.102/debian sid/main armhf libtasn1-6-dev armhf 4.13-3 [98.9 kB]
+Get:20 http://10.116.41.102/debian sid/main armhf nettle-dev armhf 3.4.1-1 [1081 kB]
+Get:21 http://10.116.41.102/debian sid/main armhf libgnutls28-dev armhf 3.6.6-2 [1034 kB]
+Get:22 http://10.116.41.102/debian sid/main armhf libjansson-dev armhf 2.12-1 [36.7 kB]
+Get:23 http://10.116.41.102/debian sid/main armhf libmicrohttpd12 armhf 0.9.62-1 [88.2 kB]
+Get:24 http://10.116.41.102/debian sid/main armhf libmicrohttpd-dev armhf 0.9.62-1 [255 kB]
+Get:25 http://10.116.41.102/debian sid/main armhf libncurses5-dev armhf 6.1+20181013-2 [940 B]
+Get:26 http://10.116.41.102/debian sid/main armhf libsensors4-dev armhf 1:3.5.0-3 [60.6 kB]
+Get:27 http://10.116.41.102/debian sid/main armhf libudev1 armhf 241-1 [140 kB]
+Get:28 http://10.116.41.102/debian sid/main armhf libudev-dev armhf 241-1 [106 kB]
+Get:29 http://10.116.41.102/debian sid/main armhf libusb-1.0-0 armhf 2:1.0.22-2 [50.1 kB]
+Get:30 http://10.116.41.102/debian sid/main armhf libusb-1.0-0-dev armhf 2:1.0.22-2 [70.7 kB]
+Get:31 http://10.116.41.102/debian sid/main armhf uthash-dev armhf 2.0.2-1 [190 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 6156 kB in 1s (7152 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../000-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../001-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../002-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../003-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../004-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../005-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../006-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../007-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../008-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../009-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../010-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../011-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../012-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../013-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../014-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../015-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../016-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../017-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../018-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../019-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../020-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../021-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../022-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../023-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../024-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../025-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../026-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../027-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package help2man.
+Preparing to unpack .../028-help2man_1.47.8_amd64.deb ...
+Unpacking help2man (1.47.8) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../029-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../030-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../031-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../032-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../033-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libbase58-0:armhf.
+Preparing to unpack .../034-libbase58-0_0.1.4-2_armhf.deb ...
+Unpacking libbase58-0:armhf (0.1.4-2) ...
+Selecting previously unselected package libbase58-dev:armhf.
+Preparing to unpack .../035-libbase58-dev_0.1.4-2_armhf.deb ...
+Unpacking libbase58-dev:armhf (0.1.4-2) ...
+Selecting previously unselected package libjansson4:armhf.
+Preparing to unpack .../036-libjansson4_2.12-1_armhf.deb ...
+Unpacking libjansson4:armhf (2.12-1) ...
+Selecting previously unselected package libblkmaker-0.1-6:armhf.
+Preparing to unpack .../037-libblkmaker-0.1-6_0.5.3-1_armhf.deb ...
+Unpacking libblkmaker-0.1-6:armhf (0.5.3-1) ...
+Selecting previously unselected package libblkmaker-0.1-dev:armhf.
+Preparing to unpack .../038-libblkmaker-0.1-dev_0.5.3-1_armhf.deb ...
+Unpacking libblkmaker-0.1-dev:armhf (0.5.3-1) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../039-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../040-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libcom-err2:armhf.
+Preparing to unpack .../041-libcom-err2_1.44.5-1_armhf.deb ...
+Unpacking libcom-err2:armhf (1.44.5-1) ...
+Selecting previously unselected package libgmp10:armhf.
+Preparing to unpack .../042-libgmp10_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libnettle6:armhf.
+Preparing to unpack .../043-libnettle6_3.4.1-1_armhf.deb ...
+Unpacking libnettle6:armhf (3.4.1-1) ...
+Selecting previously unselected package libhogweed4:armhf.
+Preparing to unpack .../044-libhogweed4_3.4.1-1_armhf.deb ...
+Unpacking libhogweed4:armhf (3.4.1-1) ...
+Selecting previously unselected package libunistring2:armhf.
+Preparing to unpack .../045-libunistring2_0.9.10-1_armhf.deb ...
+Unpacking libunistring2:armhf (0.9.10-1) ...
+Selecting previously unselected package libidn2-0:armhf.
+Preparing to unpack .../046-libidn2-0_2.0.5-1_armhf.deb ...
+Unpacking libidn2-0:armhf (2.0.5-1) ...
+Selecting previously unselected package libffi6:armhf.
+Preparing to unpack .../047-libffi6_3.2.1-9_armhf.deb ...
+Unpacking libffi6:armhf (3.2.1-9) ...
+Selecting previously unselected package libp11-kit0:armhf.
+Preparing to unpack .../048-libp11-kit0_0.23.15-2_armhf.deb ...
+Unpacking libp11-kit0:armhf (0.23.15-2) ...
+Selecting previously unselected package libtasn1-6:armhf.
+Preparing to unpack .../049-libtasn1-6_4.13-3_armhf.deb ...
+Unpacking libtasn1-6:armhf (4.13-3) ...
+Selecting previously unselected package libgnutls30:armhf.
+Preparing to unpack .../050-libgnutls30_3.6.6-2_armhf.deb ...
+Unpacking libgnutls30:armhf (3.6.6-2) ...
+Selecting previously unselected package libkeyutils1:armhf.
+Preparing to unpack .../051-libkeyutils1_1.6-4_armhf.deb ...
+Unpacking libkeyutils1:armhf (1.6-4) ...
+Selecting previously unselected package libkrb5support0:armhf.
+Preparing to unpack .../052-libkrb5support0_1.17-2_armhf.deb ...
+Unpacking libkrb5support0:armhf (1.17-2) ...
+Selecting previously unselected package libk5crypto3:armhf.
+Preparing to unpack .../053-libk5crypto3_1.17-2_armhf.deb ...
+Unpacking libk5crypto3:armhf (1.17-2) ...
+Selecting previously unselected package libssl1.1:armhf.
+Preparing to unpack .../054-libssl1.1_1.1.1b-1_armhf.deb ...
+Unpacking libssl1.1:armhf (1.1.1b-1) ...
+Selecting previously unselected package libkrb5-3:armhf.
+Preparing to unpack .../055-libkrb5-3_1.17-2_armhf.deb ...
+Unpacking libkrb5-3:armhf (1.17-2) ...
+Selecting previously unselected package libgssapi-krb5-2:armhf.
+Preparing to unpack .../056-libgssapi-krb5-2_1.17-2_armhf.deb ...
+Unpacking libgssapi-krb5-2:armhf (1.17-2) ...
+Selecting previously unselected package libdb5.3:armhf.
+Preparing to unpack .../057-libdb5.3_5.3.28+dfsg1-0.5_armhf.deb ...
+Unpacking libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Selecting previously unselected package libsasl2-modules-db:armhf.
+Preparing to unpack .../058-libsasl2-modules-db_2.1.27+dfsg-1_armhf.deb ...
+Unpacking libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Selecting previously unselected package libsasl2-2:armhf.
+Preparing to unpack .../059-libsasl2-2_2.1.27+dfsg-1_armhf.deb ...
+Unpacking libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Selecting previously unselected package libldap-2.4-2:armhf.
+Preparing to unpack .../060-libldap-2.4-2_2.4.47+dfsg-3_armhf.deb ...
+Unpacking libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Selecting previously unselected package libnghttp2-14:armhf.
+Preparing to unpack .../061-libnghttp2-14_1.36.0-2_armhf.deb ...
+Unpacking libnghttp2-14:armhf (1.36.0-2) ...
+Selecting previously unselected package libpsl5:armhf.
+Preparing to unpack .../062-libpsl5_0.20.2-2_armhf.deb ...
+Unpacking libpsl5:armhf (0.20.2-2) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../063-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package librtmp1:armhf.
+Preparing to unpack .../064-librtmp1_2.4+20151223.gitfa8646d.1-2_armhf.deb ...
+Unpacking librtmp1:armhf (2.4+20151223.gitfa8646d.1-2) ...
+Selecting previously unselected package libgpg-error0:armhf.
+Preparing to unpack .../065-libgpg-error0_1.35-1_armhf.deb ...
+Unpacking libgpg-error0:armhf (1.35-1) ...
+Selecting previously unselected package libgcrypt20:armhf.
+Preparing to unpack .../066-libgcrypt20_1.8.4-5_armhf.deb ...
+Unpacking libgcrypt20:armhf (1.8.4-5) ...
+Selecting previously unselected package libssh2-1:armhf.
+Preparing to unpack .../067-libssh2-1_1.8.0-2_armhf.deb ...
+Unpacking libssh2-1:armhf (1.8.0-2) ...
+Selecting previously unselected package libcurl3-gnutls:armhf.
+Preparing to unpack .../068-libcurl3-gnutls_7.64.0-1_armhf.deb ...
+Unpacking libcurl3-gnutls:armhf (7.64.0-1) ...
+Selecting previously unselected package libcurl4-gnutls-dev:armhf.
+Preparing to unpack .../069-libcurl4-gnutls-dev_7.64.0-1_armhf.deb ...
+Unpacking libcurl4-gnutls-dev:armhf (7.64.0-1) ...
+Selecting previously unselected package libevent-2.1-6:armhf.
+Preparing to unpack .../070-libevent-2.1-6_2.1.8-stable-4_armhf.deb ...
+Unpacking libevent-2.1-6:armhf (2.1.8-stable-4) ...
+Selecting previously unselected package libevent-core-2.1-6:armhf.
+Preparing to unpack .../071-libevent-core-2.1-6_2.1.8-stable-4_armhf.deb ...
+Unpacking libevent-core-2.1-6:armhf (2.1.8-stable-4) ...
+Selecting previously unselected package libevent-extra-2.1-6:armhf.
+Preparing to unpack .../072-libevent-extra-2.1-6_2.1.8-stable-4_armhf.deb ...
+Unpacking libevent-extra-2.1-6:armhf (2.1.8-stable-4) ...
+Selecting previously unselected package libevent-pthreads-2.1-6:armhf.
+Preparing to unpack .../073-libevent-pthreads-2.1-6_2.1.8-stable-4_armhf.deb ...
+Unpacking libevent-pthreads-2.1-6:armhf (2.1.8-stable-4) ...
+Selecting previously unselected package libevent-openssl-2.1-6:armhf.
+Preparing to unpack .../074-libevent-openssl-2.1-6_2.1.8-stable-4_armhf.deb ...
+Unpacking libevent-openssl-2.1-6:armhf (2.1.8-stable-4) ...
+Selecting previously unselected package libevent-dev:armhf.
+Preparing to unpack .../075-libevent-dev_2.1.8-stable-4_armhf.deb ...
+Unpacking libevent-dev:armhf (2.1.8-stable-4) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../076-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../077-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../078-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libgpg-error-dev:armhf.
+Preparing to unpack .../079-libgpg-error-dev_1.35-1_armhf.deb ...
+Unpacking libgpg-error-dev:armhf (1.35-1) ...
+Selecting previously unselected package libgcrypt20-dev:armhf.
+Preparing to unpack .../080-libgcrypt20-dev_1.8.4-5_armhf.deb ...
+Unpacking libgcrypt20-dev:armhf (1.8.4-5) ...
+Selecting previously unselected package libgmpxx4ldbl:armhf.
+Preparing to unpack .../081-libgmpxx4ldbl_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libgmp-dev:armhf.
+Preparing to unpack .../082-libgmp-dev_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libunbound8:armhf.
+Preparing to unpack .../083-libunbound8_1.9.0-2_armhf.deb ...
+Unpacking libunbound8:armhf (1.9.0-2) ...
+Selecting previously unselected package libgnutls-dane0:armhf.
+Preparing to unpack .../084-libgnutls-dane0_3.6.6-2_armhf.deb ...
+Unpacking libgnutls-dane0:armhf (3.6.6-2) ...
+Selecting previously unselected package libgnutls-openssl27:armhf.
+Preparing to unpack .../085-libgnutls-openssl27_3.6.6-2_armhf.deb ...
+Unpacking libgnutls-openssl27:armhf (3.6.6-2) ...
+Selecting previously unselected package libgnutlsxx28:armhf.
+Preparing to unpack .../086-libgnutlsxx28_3.6.6-2_armhf.deb ...
+Unpacking libgnutlsxx28:armhf (3.6.6-2) ...
+Selecting previously unselected package libidn2-dev:armhf.
+Preparing to unpack .../087-libidn2-dev_2.0.5-1_armhf.deb ...
+Unpacking libidn2-dev:armhf (2.0.5-1) ...
+Selecting previously unselected package libp11-kit-dev:armhf.
+Preparing to unpack .../088-libp11-kit-dev_0.23.15-2_armhf.deb ...
+Unpacking libp11-kit-dev:armhf (0.23.15-2) ...
+Selecting previously unselected package libtasn1-6-dev:armhf.
+Preparing to unpack .../089-libtasn1-6-dev_4.13-3_armhf.deb ...
+Unpacking libtasn1-6-dev:armhf (4.13-3) ...
+Selecting previously unselected package nettle-dev:armhf.
+Preparing to unpack .../090-nettle-dev_3.4.1-1_armhf.deb ...
+Unpacking nettle-dev:armhf (3.4.1-1) ...
+Selecting previously unselected package libgnutls28-dev:armhf.
+Preparing to unpack .../091-libgnutls28-dev_3.6.6-2_armhf.deb ...
+Unpacking libgnutls28-dev:armhf (3.6.6-2) ...
+Selecting previously unselected package libjansson-dev:armhf.
+Preparing to unpack .../092-libjansson-dev_2.12-1_armhf.deb ...
+Unpacking libjansson-dev:armhf (2.12-1) ...
+Selecting previously unselected package libmicrohttpd12:armhf.
+Preparing to unpack .../093-libmicrohttpd12_0.9.62-1_armhf.deb ...
+Unpacking libmicrohttpd12:armhf (0.9.62-1) ...
+Selecting previously unselected package libmicrohttpd-dev:armhf.
+Preparing to unpack .../094-libmicrohttpd-dev_0.9.62-1_armhf.deb ...
+Unpacking libmicrohttpd-dev:armhf (0.9.62-1) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../095-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../096-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../097-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../098-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses5-dev:armhf.
+Preparing to unpack .../099-libncurses5-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses5-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libsensors-config.
+Preparing to unpack .../100-libsensors-config_1%3a3.5.0-3_all.deb ...
+Unpacking libsensors-config (1:3.5.0-3) ...
+Selecting previously unselected package libsensors5:armhf.
+Preparing to unpack .../101-libsensors5_1%3a3.5.0-3_armhf.deb ...
+Unpacking libsensors5:armhf (1:3.5.0-3) ...
+Selecting previously unselected package libsensors4-dev:armhf.
+Preparing to unpack .../102-libsensors4-dev_1%3a3.5.0-3_armhf.deb ...
+Unpacking libsensors4-dev:armhf (1:3.5.0-3) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../103-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libudev1:armhf.
+Preparing to unpack .../104-libudev1_241-1_armhf.deb ...
+Unpacking libudev1:armhf (241-1) ...
+Selecting previously unselected package libudev-dev:armhf.
+Preparing to unpack .../105-libudev-dev_241-1_armhf.deb ...
+Unpacking libudev-dev:armhf (241-1) ...
+Selecting previously unselected package libusb-1.0-0:armhf.
+Preparing to unpack .../106-libusb-1.0-0_2%3a1.0.22-2_armhf.deb ...
+Unpacking libusb-1.0-0:armhf (2:1.0.22-2) ...
+Selecting previously unselected package libusb-1.0-0-dev:armhf.
+Preparing to unpack .../107-libusb-1.0-0-dev_2%3a1.0.22-2_armhf.deb ...
+Unpacking libusb-1.0-0-dev:armhf (2:1.0.22-2) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../108-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package uthash-dev:armhf.
+Preparing to unpack .../109-uthash-dev_2.0.2-1_armhf.deb ...
+Unpacking uthash-dev:armhf (2.0.2-1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../110-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up uthash-dev:armhf (2.0.2-1) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up libsensors-config (1:3.5.0-3) ...
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up help2man (1.47.8) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-7) ...
+Setting up libudev1:armhf (241-1) ...
+Setting up libtasn1-6:armhf (4.13-3) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libusb-1.0-0:armhf (2:1.0.22-2) ...
+Setting up libtasn1-6-dev:armhf (4.13-3) ...
+Setting up libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libkeyutils1:armhf (1.6-4) ...
+Setting up libgpg-error0:armhf (1.35-1) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libssl1.1:armhf (1.1.1b-1) ...
+Setting up libnghttp2-14:armhf (1.36.0-2) ...
+Setting up libunistring2:armhf (0.9.10-1) ...
+Setting up libusb-1.0-0-dev:armhf (2:1.0.22-2) ...
+Setting up libgcrypt20:armhf (1.8.4-5) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libffi6:armhf (3.2.1-9) ...
+Setting up libidn2-0:armhf (2.0.5-1) ...
+Setting up libcom-err2:armhf (1.44.5-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libjansson4:armhf (2.12-1) ...
+Setting up libkrb5support0:armhf (1.17-2) ...
+Setting up libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Setting up dh-autoreconf (19) ...
+Setting up libgpg-error-dev:armhf (1.35-1) ...
+Setting up libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up libp11-kit0:armhf (0.23.15-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libbase58-0:armhf (0.1.4-2) ...
+Setting up libudev-dev:armhf (241-1) ...
+Setting up libsensors5:armhf (1:3.5.0-3) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up libk5crypto3:armhf (1.17-2) ...
+Setting up libnettle6:armhf (3.4.1-1) ...
+Setting up libidn2-dev:armhf (2.0.5-1) ...
+Setting up libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Setting up libevent-core-2.1-6:armhf (2.1.8-stable-4) ...
+Setting up libevent-2.1-6:armhf (2.1.8-stable-4) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libssh2-1:armhf (1.8.0-2) ...
+Setting up libkrb5-3:armhf (1.17-2) ...
+Setting up libjansson-dev:armhf (2.12-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libp11-kit-dev:armhf (0.23.15-2) ...
+Setting up libevent-extra-2.1-6:armhf (2.1.8-stable-4) ...
+Setting up libevent-pthreads-2.1-6:armhf (2.1.8-stable-4) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up libpsl5:armhf (0.20.2-2) ...
+Setting up libhogweed4:armhf (3.4.1-1) ...
+Setting up libevent-openssl-2.1-6:armhf (2.1.8-stable-4) ...
+Setting up libbase58-dev:armhf (0.1.4-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libsensors4-dev:armhf (1:3.5.0-3) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libunbound8:armhf (1.9.0-2) ...
+Setting up libgnutls30:armhf (3.6.6-2) ...
+Setting up libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Setting up libblkmaker-0.1-6:armhf (0.5.3-1) ...
+Setting up libgcrypt20-dev:armhf (1.8.4-5) ...
+Setting up librtmp1:armhf (2.4+20151223.gitfa8646d.1-2) ...
+Setting up libevent-dev:armhf (2.1.8-stable-4) ...
+Setting up libgssapi-krb5-2:armhf (1.17-2) ...
+Setting up libgnutlsxx28:armhf (3.6.6-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libncurses5-dev:armhf (6.1+20181013-2) ...
+Setting up libgnutls-dane0:armhf (3.6.6-2) ...
+Setting up libgnutls-openssl27:armhf (3.6.6-2) ...
+Setting up libblkmaker-0.1-dev:armhf (0.5.3-1) ...
+Setting up libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Setting up nettle-dev:armhf (3.4.1-1) ...
+Setting up libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Setting up libcurl3-gnutls:armhf (7.64.0-1) ...
+Setting up libcurl4-gnutls-dev:armhf (7.64.0-1) ...
+Setting up libmicrohttpd12:armhf (0.9.62-1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libgnutls28-dev:armhf (3.6.6-2) ...
+Setting up libmicrohttpd-dev:armhf (0.9.62-1) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 help2man_1.47.8 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbase58-0_0.1.4-2 libbase58-dev_0.1.4-2 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libblkmaker-0.1-6_0.5.3-1 libblkmaker-0.1-dev_0.5.3-1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libcurl3-gnutls_7.64.0-1 libcurl4-gnutls-dev_7.64.0-1 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libevent-2.1-6_2.1.8-stable-4 libevent-core-2.1-6_2.1.8-stable-4 libevent-dev_2.1.8-stable-4 libevent-extra-2.1-6_2.1.8-stable-4 libevent-openssl-2.1-6_2.1.8-stable-4 libevent-pthreads-2.1-6_2.1.8-stable-4 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgcrypt20-dev_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp-dev_2:6.1.2+dfsg-4 libgmp10_2:6.1.2+dfsg-4 libgmpxx4ldbl_2:6.1.2+dfsg-4 libgnutls-dane0_3.6.6-2 libgnutls-openssl27_3.6.6-2 libgnutls28-dev_3.6.6-2 libgnutls30_3.6.6-2 libgnutlsxx28_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error-dev_1.35-1 libgpg-error0_1.35-1 libgssapi-krb5-2_1.17-2 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libidn2-dev_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libjansson-dev_2.12-1 libjansson4_2.12-1 libk5crypto3_1.17-2 libkeyutils1_1.6-4 libkrb5-3_1.17-2 libkrb5support0_1.17-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmicrohttpd-dev_0.9.62-1 libmicrohttpd12_0.9.62-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses5-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnghttp2-14_1.36.0-2 libnpth0_1.6-1 libp11-kit-dev_0.23.15-2 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpsl5_0.20.2-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 librtmp1_2.4+20151223.gitfa8646d.1-2 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsensors-config_1:3.5.0-3 libsensors4-dev_1:3.5.0-3 libsensors5_1:3.5.0-3 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssh2-1_1.8.0-2 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtasn1-6-dev_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev-dev_241-1 libudev1_241-1 libunbound8_1.9.0-2 libunistring2_0.9.10-1 liburi-perl_1.76-1 libusb-1.0-0_2:1.0.22-2 libusb-1.0-0-dev_2:1.0.22-2 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 nettle-dev_3.4.1-1 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 uthash-dev_2.0.2-1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: bfgminer
+Binary: bfgminer
+Architecture: any
+Version: 5.4.2+dfsg-1
+Maintainer: Debian Bitcoin Packaging Team <pkg-bitcoin-devel@lists.alioth.debian.org>
+Uploaders: Dmitry Smirnov <onlyjob@debian.org>
+Homepage: https://github.com/luke-jr/bfgminer
+Standards-Version: 3.9.8
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-bitcoin/bfgminer.git
+Vcs-Git: git://anonscm.debian.org/pkg-bitcoin/bfgminer.git
+Build-Depends: debhelper (>= 9), dh-autoreconf, help2man, libbase58-dev (>= 0.1.4), libblkmaker-0.1-dev, libcurl4-gnutls-dev | libcurl4-dev, libevent-dev, libjansson-dev, libmicrohttpd-dev, libncurses5-dev, libsensors4-dev [!hurd-any], libudev-dev [!kfreebsd-any], libusb-1.0-0-dev, pkg-config, uthash-dev
+Package-List:
+ bfgminer deb net optional arch=any
+Checksums-Sha1:
+ 6b605b88373007618120a4da778e52c8d1dcc2a4 887244 bfgminer_5.4.2+dfsg.orig.tar.xz
+ 44290d83b26cffa0698e886e34ef0a8413410a2c 12336 bfgminer_5.4.2+dfsg-1.debian.tar.xz
+Checksums-Sha256:
+ acf8232cd4f94c06cd47be07ba653dcc89560027337d63b456a82028f928922b 887244 bfgminer_5.4.2+dfsg.orig.tar.xz
+ fa8b40d9831e64feaf829822552c59afab35bf228c1ff7196a9a906dbb4081d4 12336 bfgminer_5.4.2+dfsg-1.debian.tar.xz
+Files:
+ df097f834782b218714cfb4ac84289b6 887244 bfgminer_5.4.2+dfsg.orig.tar.xz
+ 37d8541fe0eb32110e4ca89a278751ec 12336 bfgminer_5.4.2+dfsg-1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAEBCAAGBQJXLbqBAAoJEFK2u9lTlo0bMMQQAJTlPfbdOuqMkcHOba3GIQ7i
+b6HKaaM1WJP60DhYlGdHy7bPbPvDU4lMwi+YKM1c55cbI6fihKsfaxqom+2SI3oq
+LrAsPoZbniXzxWKtbf92EBzwJxWoI1e0aum40YYSuUlSpwOxyFHNbC9VlbsgK7CB
+9Msbs0o8Kuzat1qKUiYv14qvSDcx53G1BLEihroW6N2dFh2xuICZTjMRQto4TJVD
+JzIGOYKLx06f8qTzYEN8xSQ/0z79StDbYoEeJ7V43h1wboW1y67JXSfqVNNBKdlS
+v8KiQouIsiFJ/gK5D7yw5Idb46Qp2cPAquefXVR08oiKUSmQvz3Gx6Xq4Y7eh1cP
+2MaXc8fJm2M1WVV1DWsHY1331hlCqi+VtDfB9WvdfwAhT87ihWMWI+FY0Hz3Zot6
+kcx4Cbg6J4D+uun4UVgYeNTO0KnUimKoti29A2/UwaI19XWjO0Us/C5txWtBYV59
+/HXErzjJbjUwn5rx2NR8xeyC/OTRJgyzDvjjpY5OLZwqAp7Cm/eXka1DkJnm0KUp
+KlCZFwQVEs6Pe34/M5NtLSPrALitxMjfBY4T5avVDZdiAEUaonM/iMYzJ91XmzJr
+UPqrhdI89e80epjquNSBlNBJrIJHF2Tj3+HoQKm1PSdgXLoBZbBXczBBknCv4VtQ
+lPGBSsIC6SU1LMMhLCAL
+=bFwH
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sat May  7 09:50:57 2016 UTC
+gpgv:                using RSA key 52B6BBD953968D1B
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./bfgminer_5.4.2+dfsg-1.dsc
+dpkg-source: info: extracting bfgminer in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking bfgminer_5.4.2+dfsg.orig.tar.xz
+dpkg-source: info: unpacking bfgminer_5.4.2+dfsg-1.debian.tar.xz
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-88352695-26d9-4ba8-8a34-59be0a5640a7
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package bfgminer
+dpkg-buildpackage: info: source version 5.4.2+dfsg-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Dmitry Smirnov <onlyjob@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+dpkg-source: info: using options from bfgminer-5.4.2+dfsg/debian/source/options: --compression=xz
+ fakeroot debian/rules clean
+dh clean --with autoreconf
+   dh_clean
+ debian/rules build-arch
+dh build-arch --with autoreconf
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+Makefile.am:40: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_configure -- --bindir=/usr/lib/bfgminer \
+                             --disable-silent-rules \
+                             --enable-opencl \
+                             --enable-scrypt \
+                             --with-system-libblkmaker
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --bindir=/usr/lib/bfgminer --disable-silent-rules --enable-opencl --enable-scrypt --with-system-libblkmaker
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking target system type... arm-unknown-linux-gnueabihf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for arm-linux-gnueabihf-gcc option to accept ISO C99... none needed
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking whether arm-linux-gnueabihf-gcc needs -traditional... no
+checking for arm-linux-gnueabihf-ranlib... (cached) arm-linux-gnueabihf-ranlib
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for a sed that does not truncate output... /bin/sed
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking for stdint.h... (cached) yes
+checking for mprotect... yes
+checking for sigaction... yes
+checking for sigaltstack... yes
+checking for siginterrupt... yes
+checking for mmap... yes
+checking for MAP_ANONYMOUS... yes
+checking whether memchr works... guessing no
+checking whether memmem is declared... yes
+checking for memmem... yes
+checking whether memmem works... yes
+checking for C/C++ restrict keyword... __restrict
+checking for uid_t in sys/types.h... yes
+checking for inline... inline
+checking whether the preprocessor supports include_next... yes
+checking whether system header files limit the line length... no
+checking for wchar_t... yes
+checking for unsigned long long int... yes
+checking for long long int... yes
+checking whether stdint.h conforms to C99... yes
+checking whether memmem is declared without a macro... yes
+checking whether mempcpy is declared without a macro... yes
+checking whether memrchr is declared without a macro... yes
+checking whether rawmemchr is declared without a macro... yes
+checking whether stpcpy is declared without a macro... yes
+checking whether stpncpy is declared without a macro... yes
+checking whether strchrnul is declared without a macro... yes
+checking whether strdup is declared without a macro... yes
+checking whether strncat is declared without a macro... yes
+checking whether strndup is declared without a macro... yes
+checking whether strnlen is declared without a macro... yes
+checking whether strpbrk is declared without a macro... yes
+checking whether strsep is declared without a macro... yes
+checking whether strcasestr is declared without a macro... yes
+checking whether strtok_r is declared without a macro... yes
+checking whether strerror_r is declared without a macro... yes
+checking whether strsignal is declared without a macro... yes
+checking whether strverscmp is declared without a macro... yes
+checking whether strtok_r is declared... (cached) yes
+checking bp-sym.h usability... no
+checking bp-sym.h presence... no
+checking for bp-sym.h... no
+checking whether memmem works in linear time... yes
+checking for memmem... (cached) yes
+checking whether memmem works... (cached) yes
+checking for struct sigaction.sa_sigaction... yes
+checking for volatile sig_atomic_t... yes
+checking for sighandler_t... yes
+checking whether sigaction is declared without a macro... yes
+checking whether sigaddset is declared without a macro... yes
+checking whether sigdelset is declared without a macro... yes
+checking whether sigemptyset is declared without a macro... yes
+checking whether sigfillset is declared without a macro... yes
+checking whether sigismember is declared without a macro... yes
+checking whether sigpending is declared without a macro... yes
+checking whether sigprocmask is declared without a macro... yes
+checking for sigprocmask... yes
+checking whether NULL can be used in arbitrary expressions... yes
+checking for strtok_r... yes
+checking whether strtok_r works... guessing no
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking for ANSI C header files... (cached) yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking sys/epoll.h usability... yes
+checking sys/epoll.h presence... yes
+checking for sys/epoll.h... yes
+checking for sys/mman.h... (cached) yes
+checking sys/prctl.h usability... yes
+checking sys/prctl.h presence... yes
+checking for sys/prctl.h... yes
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking sys/termios.h usability... yes
+checking sys/termios.h presence... yes
+checking for sys/termios.h... yes
+checking linux/spi/spidev.h usability... yes
+checking linux/spi/spidev.h presence... yes
+checking for linux/spi/spidev.h... yes
+checking for struct i2c_msg.buf... no
+checking for struct i2c_msg.len... yes
+checking pwd.h usability... yes
+checking pwd.h presence... yes
+checking for pwd.h... yes
+checking for chroot... yes
+checking for sleep... yes
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking whether HASH_ITER is declared... yes
+checking whether DL_CONCAT is declared... yes
+checking linux/vfio.h usability... yes
+checking linux/vfio.h presence... yes
+checking for linux/vfio.h... yes
+checking for pthread_cancel... with -pthread -lpthread
+checking for nanosleep... yes
+checking for arm-linux-gnueabihf-pkg-config... /usr/bin/arm-linux-gnueabihf-pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for JANSSON... yes
+checking for libsensors... yes
+checking for libmicrohttpd... yes
+checking for libevent... yes
+checking for arm-linux-gnueabihf-pkg-config... (cached) /usr/bin/arm-linux-gnueabihf-pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for LIBUSB... yes
+checking for hidapi... no
+checking for hidapi... no
+checking for hidapi... no
+checking whether libusb_error_name is declared... yes
+checking what baud rates your system supports... done
+checking for library containing addstr... -lncursesw
+checking for ncursesw/curses.h... yes
+checking curses.h path... /usr/include/
+checking whether curses library supports wide characters... yes
+checking for libbase58... yes
+checking for libblkmaker... yes
+checking libudev.h usability... yes
+checking libudev.h presence... yes
+checking for libudev.h... yes
+checking for LIBCURL... yes
+checking for setrlimit... yes
+checking for bswap_* functions... found in byteswap.h
+checking if bswap_16 is already a macro... yes
+checking for platform endian... little endian (endian.h)
+checking if good static asserts compile... yes
+checking if GNU format attribute compiles... yes
+checking for clock_gettime(CLOCK_MONOTONIC)... yes
+checking for library containing clock_gettime... none required
+checking for clock_nanosleep... yes
+checking for clock_gettime(CLOCK_MONOTONIC_RAW)... yes
+checking for log2... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating x86_64/Makefile
+config.status: creating x86_32/Makefile
+config.status: creating ccan.bfg/Makefile
+config.status: creating lib/Makefile
+config.status: creating 70-bfgminer.rules
+config.status: creating config.h
+config.status: executing depfiles commands
+
+------------------------------------------------------------------------
+bfgminer 5.4.2 configuration options summary
+------------------------------------------------------------------------
+
+  CFLAGS...............: -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/ -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -I/usr/include/libusb-1.0 -pthread -I/usr/include/libblkmaker-0.1
+  LDFLAGS..............: -specs=/usr/share/dpkg/no-pie-link.specs -Wl,-z,relro -Wl,-z,now -pthread -lpthread -ldl -L/usr/lib/arm-linux-gnueabihf -lcurl -L/usr/lib/arm-linux-gnueabihf -ljansson -lncursesw -lm -ludev -L/usr/lib/arm-linux-gnueabihf -lusb-1.0 -lsensors -L/usr/lib/arm-linux-gnueabihf -lbase58 -L/usr/lib/arm-linux-gnueabihf -lblkmaker-0.1 -lblkmaker_jansson-0.1
+  Installation.prefix..: /usr
+
+  Enabled..Lowlevel....: ftdi pci pci:uio pci:vfio spi usb vcom 
+  Disabled.Lowlevel....: hid mswin 
+  Enabled..Drivers.....: antminer avalon avalonmm bfx bifury bigpic bitforce bitforce:pci bitfury cairnsmore cointerra compac drillbit dualminer erupter gridseed hashbusterusb hashfast icarus klondike littlefury modminer opencl opencl:adl opencl:sensors proxy proxy:getwork proxy:stratum rockminer twinfury x6500 zeusminer ztex 
+  Disabled.Drivers.....: alchemist bfsb bitforce:mswin bitmain cpu hashbuster jingtian knc kncasic metabank minergate minion nanofury titan 
+    To enable nanofury: install hidapi
+    To enable hashbuster: install hidapi
+  Enabled..Algorithms..: SHA256d scrypt 
+  Disabled.Algorithms..: Keccak 
+  Enabled..Options.....: ncursesw 
+  Disabled.Options.....: 
+
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_build -a
+	make -j1
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+( cd . && ./gen-version.sh ) >version.h.new
+cmp ./version.h version.h.new && rm version.h.new || mv version.h.new ./version.h
+make  all-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in lib
+make[3]: Entering directory '/<<PKGBUILDDIR>>/lib'
+rm -f arg-nonnull.h-t arg-nonnull.h && \
+sed -n -e '/GL_ARG_NONNULL/,$p' \
+  < .././arg-nonnull.h \
+  > arg-nonnull.h-t && \
+mv arg-nonnull.h-t arg-nonnull.h
+rm -f c++defs.h-t c++defs.h && \
+sed -n -e '/_GL_CXXDEFS/,$p' \
+  < .././c++defs.h \
+  > c++defs.h-t && \
+mv c++defs.h-t c++defs.h
+rm -f warn-on-use.h-t warn-on-use.h && \
+sed -n -e '/^.ifndef/,$p' \
+  < .././warn-on-use.h \
+  > warn-on-use.h-t && \
+mv warn-on-use.h-t warn-on-use.h
+rm -f signal.h-t signal.h && \
+{ echo '/* DO NOT EDIT! GENERATED AUTOMATICALLY! */' && \
+  sed -e 's|@''GUARD_PREFIX''@|GL|g' \
+      -e 's|@''INCLUDE_NEXT''@|include_next|g' \
+      -e 's|@''PRAGMA_SYSTEM_HEADER''@|#pragma GCC system_header|g' \
+      -e 's|@''PRAGMA_COLUMNS''@||g' \
+      -e 's|@''NEXT_SIGNAL_H''@|<signal.h>|g' \
+      -e 's/@''GNULIB_SIGNAL_H_SIGPIPE''@/0/g' \
+      -e 's/@''GNULIB_SIGPROCMASK''@/1/g' \
+      -e 's/@''GNULIB_SIGACTION''@/1/g' \
+      -e 's|@''HAVE_POSIX_SIGNALBLOCKING''@|1|g' \
+      -e 's|@''HAVE_SIGSET_T''@|1|g' \
+      -e 's|@''HAVE_SIGINFO_T''@|1|g' \
+      -e 's|@''HAVE_SIGACTION''@|1|g' \
+      -e 's|@''HAVE_STRUCT_SIGACTION_SA_SIGACTION''@|1|g' \
+      -e 's|@''HAVE_TYPE_VOLATILE_SIG_ATOMIC_T''@|1|g' \
+      -e 's|@''HAVE_SIGHANDLER_T''@|1|g' \
+      -e '/definitions of _GL_FUNCDECL_RPL/r c++defs.h' \
+      -e '/definition of _GL_ARG_NONNULL/r arg-nonnull.h' \
+      -e '/definition of _GL_WARN_ON_USE/r warn-on-use.h' \
+      < ./signal.in.h; \
+} > signal.h-t && \
+mv signal.h-t signal.h
+rm -f string.h-t string.h && \
+{ echo '/* DO NOT EDIT! GENERATED AUTOMATICALLY! */' && \
+  sed -e 's|@''GUARD_PREFIX''@|GL|g' \
+      -e 's|@''INCLUDE_NEXT''@|include_next|g' \
+      -e 's|@''PRAGMA_SYSTEM_HEADER''@|#pragma GCC system_header|g' \
+      -e 's|@''PRAGMA_COLUMNS''@||g' \
+      -e 's|@''NEXT_STRING_H''@|<string.h>|g' \
+      -e 's/@''GNULIB_MBSLEN''@/0/g' \
+      -e 's/@''GNULIB_MBSNLEN''@/0/g' \
+      -e 's/@''GNULIB_MBSCHR''@/0/g' \
+      -e 's/@''GNULIB_MBSRCHR''@/0/g' \
+      -e 's/@''GNULIB_MBSSTR''@/0/g' \
+      -e 's/@''GNULIB_MBSCASECMP''@/0/g' \
+      -e 's/@''GNULIB_MBSNCASECMP''@/0/g' \
+      -e 's/@''GNULIB_MBSPCASECMP''@/0/g' \
+      -e 's/@''GNULIB_MBSCASESTR''@/0/g' \
+      -e 's/@''GNULIB_MBSCSPN''@/0/g' \
+      -e 's/@''GNULIB_MBSPBRK''@/0/g' \
+      -e 's/@''GNULIB_MBSSPN''@/0/g' \
+      -e 's/@''GNULIB_MBSSEP''@/0/g' \
+      -e 's/@''GNULIB_MBSTOK_R''@/0/g' \
+      -e 's/@''GNULIB_MEMCHR''@/1/g' \
+      -e 's/@''GNULIB_MEMMEM''@/1/g' \
+      -e 's/@''GNULIB_MEMPCPY''@/0/g' \
+      -e 's/@''GNULIB_MEMRCHR''@/0/g' \
+      -e 's/@''GNULIB_RAWMEMCHR''@/0/g' \
+      -e 's/@''GNULIB_STPCPY''@/0/g' \
+      -e 's/@''GNULIB_STPNCPY''@/0/g' \
+      -e 's/@''GNULIB_STRCHRNUL''@/0/g' \
+      -e 's/@''GNULIB_STRDUP''@/0/g' \
+      -e 's/@''GNULIB_STRNCAT''@/0/g' \
+      -e 's/@''GNULIB_STRNDUP''@/0/g' \
+      -e 's/@''GNULIB_STRNLEN''@/0/g' \
+      -e 's/@''GNULIB_STRPBRK''@/0/g' \
+      -e 's/@''GNULIB_STRSEP''@/0/g' \
+      -e 's/@''GNULIB_STRSTR''@/0/g' \
+      -e 's/@''GNULIB_STRCASESTR''@/0/g' \
+      -e 's/@''GNULIB_STRTOK_R''@/1/g' \
+      -e 's/@''GNULIB_STRERROR''@/0/g' \
+      -e 's/@''GNULIB_STRERROR_R''@/0/g' \
+      -e 's/@''GNULIB_STRSIGNAL''@/0/g' \
+      -e 's/@''GNULIB_STRVERSCMP''@/0/g' \
+      < ./string.in.h | \
+  sed -e 's|@''HAVE_MBSLEN''@|0|g' \
+      -e 's|@''HAVE_MEMCHR''@|1|g' \
+      -e 's|@''HAVE_DECL_MEMMEM''@|1|g' \
+      -e 's|@''HAVE_MEMPCPY''@|1|g' \
+      -e 's|@''HAVE_DECL_MEMRCHR''@|1|g' \
+      -e 's|@''HAVE_RAWMEMCHR''@|1|g' \
+      -e 's|@''HAVE_STPCPY''@|1|g' \
+      -e 's|@''HAVE_STPNCPY''@|1|g' \
+      -e 's|@''HAVE_STRCHRNUL''@|1|g' \
+      -e 's|@''HAVE_DECL_STRDUP''@|1|g' \
+      -e 's|@''HAVE_DECL_STRNDUP''@|1|g' \
+      -e 's|@''HAVE_DECL_STRNLEN''@|1|g' \
+      -e 's|@''HAVE_STRPBRK''@|1|g' \
+      -e 's|@''HAVE_STRSEP''@|1|g' \
+      -e 's|@''HAVE_STRCASESTR''@|1|g' \
+      -e 's|@''HAVE_DECL_STRTOK_R''@|1|g' \
+      -e 's|@''HAVE_DECL_STRERROR_R''@|1|g' \
+      -e 's|@''HAVE_DECL_STRSIGNAL''@|1|g' \
+      -e 's|@''HAVE_STRVERSCMP''@|1|g' \
+      -e 's|@''REPLACE_STPNCPY''@|0|g' \
+      -e 's|@''REPLACE_MEMCHR''@|1|g' \
+      -e 's|@''REPLACE_MEMMEM''@|0|g' \
+      -e 's|@''REPLACE_STRCASESTR''@|0|g' \
+      -e 's|@''REPLACE_STRCHRNUL''@|0|g' \
+      -e 's|@''REPLACE_STRDUP''@|0|g' \
+      -e 's|@''REPLACE_STRSTR''@|0|g' \
+      -e 's|@''REPLACE_STRERROR''@|0|g' \
+      -e 's|@''REPLACE_STRERROR_R''@|0|g' \
+      -e 's|@''REPLACE_STRNCAT''@|0|g' \
+      -e 's|@''REPLACE_STRNDUP''@|0|g' \
+      -e 's|@''REPLACE_STRNLEN''@|0|g' \
+      -e 's|@''REPLACE_STRSIGNAL''@|0|g' \
+      -e 's|@''REPLACE_STRTOK_R''@|0|g' \
+      -e 's|@''UNDEFINE_STRTOK_R''@|1|g' \
+      -e '/definitions of _GL_FUNCDECL_RPL/r c++defs.h' \
+      -e '/definition of _GL_ARG_NONNULL/r arg-nonnull.h' \
+      -e '/definition of _GL_WARN_ON_USE/r warn-on-use.h'; \
+      < ./string.in.h; \
+} > string.h-t && \
+mv string.h-t string.h
+make  all-recursive
+make[4]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/lib'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o dummy.o dummy.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o memchr.o memchr.c
+rm -f libgnu.a
+ar cru libgnu.a dummy.o memchr.o
+ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib libgnu.a
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+Making all in ccan.bfg
+make[3]: Entering directory '/<<PKGBUILDDIR>>/ccan.bfg'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../ccan-upstream -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o ../ccan-upstream/ccan/opt/libccan_a-helpers.o `test -f '../ccan-upstream/ccan/opt/helpers.c' || echo './'`../ccan-upstream/ccan/opt/helpers.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../ccan-upstream -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o ../ccan-upstream/ccan/opt/libccan_a-opt.o `test -f '../ccan-upstream/ccan/opt/opt.c' || echo './'`../ccan-upstream/ccan/opt/opt.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../ccan-upstream -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o ../ccan-upstream/ccan/opt/libccan_a-parse.o `test -f '../ccan-upstream/ccan/opt/parse.c' || echo './'`../ccan-upstream/ccan/opt/parse.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../ccan-upstream -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o ../ccan-upstream/ccan/opt/libccan_a-usage.o `test -f '../ccan-upstream/ccan/opt/usage.c' || echo './'`../ccan-upstream/ccan/opt/usage.c
+rm -f libccan.a
+ar cru libccan.a ../ccan-upstream/ccan/opt/libccan_a-helpers.o ../ccan-upstream/ccan/opt/libccan_a-opt.o ../ccan-upstream/ccan/opt/libccan_a-parse.o ../ccan-upstream/ccan/opt/libccan_a-usage.o 
+ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib libccan.a
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/ccan.bfg'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-miner.o `test -f 'miner.c' || echo './'`miner.c
+In file included from ./miner.h:47,
+                 from ./sha2.h:39,
+                 from miner.c:68:
+miner.c: In function ‘work_decode’:
+miner.c:3399:24: warning: ‘%s’ directive argument is null [-Wformat-truncation=]
+    applog(LOG_WARNING, "Error %cetting coinbase address from pool %d: %s", 'g', pool->pool_no, estrc);
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./logging.h:60:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+miner.c:3399:24: warning: ‘%s’ directive argument is null [-Wformat-truncation=]
+    applog(LOG_WARNING, "Error %cetting coinbase address from pool %d: %s", 'g', pool->pool_no, estrc);
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./logging.h:60:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-deviceapi.o `test -f 'deviceapi.c' || echo './'`deviceapi.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-util.o `test -f 'util.c' || echo './'`util.c
+util.c: In function ‘parse_method.part.25’:
+util.c:2919:75: warning: ‘%s’ directive argument is null [-Wformat-truncation=]
+    snprintf(buf, sizeof(buf), "{\"id\":%s,\"result\":null,\"error\":[-1,\"%s\",null]}", idstr, emsg);
+                                                                           ^~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-sha2.o `test -f 'sha2.c' || echo './'`sha2.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-api.o `test -f 'api.c' || echo './'`api.c
+api.c: In function ‘gpuintensity’:
+api.c:2684:52: warning: ‘%g’ directive output may be truncated writing between 1 and 13 bytes into a region of size 7 [-Wformat-truncation=]
+    snprintf(intensitystr, sizeof(intensitystr), "%s%g", iunit, intensity);
+                                                    ^~
+api.c:2684:49: note: assuming directive output of 12 bytes
+    snprintf(intensitystr, sizeof(intensitystr), "%s%g", iunit, intensity);
+                                                 ^~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from api.c:20:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 2 or more bytes (assuming 13) into a destination of size 7
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from miner.h:47,
+                 from deviceapi.h:10,
+                 from api.c:33:
+api.c: In function ‘api’:
+api.c:4244:24: warning: ‘%s’ directive output may be truncated writing up to 8191 bytes into a region of size between 4063 and 4072 [-Wformat-truncation=]
+      applog(LOG_DEBUG, "API: recv command: (%d) '%s'", n, buf);
+                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~     ~~~
+logging.h:60:35: note: in definition of macro ‘applog’
+    snprintf(tmp42, sizeof(tmp42), fmt, ##__VA_ARGS__); \
+                                   ^~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from api.c:20:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 26 and 8226 bytes into a destination of size 4096
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-version.o `test -f 'version.c' || echo './'`version.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-logging.o `test -f 'logging.c' || echo './'`logging.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-proxy.o `test -f 'driver-proxy.c' || echo './'`driver-proxy.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-httpsrv.o `test -f 'httpsrv.c' || echo './'`httpsrv.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-getwork.o `test -f 'driver-getwork.c' || echo './'`driver-getwork.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-stratum.o `test -f 'driver-stratum.c' || echo './'`driver-stratum.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-opencl.o `test -f 'driver-opencl.c' || echo './'`driver-opencl.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-ocl.o `test -f 'ocl.c' || echo './'`ocl.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-findnonce.o `test -f 'findnonce.c' || echo './'`findnonce.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-adl.o `test -f 'adl.c' || echo './'`adl.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o malgo/bfgminer-sha256d.o `test -f 'malgo/sha256d.c' || echo './'`malgo/sha256d.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o malgo/bfgminer-scrypt.o `test -f 'malgo/scrypt.c' || echo './'`malgo/scrypt.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-lowl-vcom.o `test -f 'lowl-vcom.c' || echo './'`lowl-vcom.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-lowl-usb.o `test -f 'lowl-usb.c' || echo './'`lowl-usb.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-binloader.o `test -f 'binloader.c' || echo './'`binloader.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-lowlevel.o `test -f 'lowlevel.c' || echo './'`lowlevel.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-dynclock.o `test -f 'dynclock.c' || echo './'`dynclock.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-work2d.o `test -f 'work2d.c' || echo './'`work2d.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-bitforce.o `test -f 'driver-bitforce.c' || echo './'`driver-bitforce.c
+driver-bitforce.c: In function ‘bitforce_drv_stats’:
+driver-bitforce.c:1938:25: warning: ‘%d’ directive output may be truncated writing between 1 and 10 bytes into a region of size 3 [-Wformat-truncation=]
+   snprintf(&key[7], 3, "%d", i);
+                         ^~
+driver-bitforce.c:1938:24: note: directive argument in the range [0, 2147483647]
+   snprintf(&key[7], 3, "%d", i);
+                        ^~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from driver-bitforce.c:19:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 2 and 11 bytes into a destination of size 3
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-bigpic.o `test -f 'driver-bigpic.c' || echo './'`driver-bigpic.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-drillbit.o `test -f 'driver-drillbit.c' || echo './'`driver-drillbit.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-twinfury.o `test -f 'driver-twinfury.c' || echo './'`driver-twinfury.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-icarus.o `test -f 'driver-icarus.c' || echo './'`driver-icarus.c
+driver-icarus.c: In function ‘icarus_job_prepare’:
+driver-icarus.c:791:8: warning: ‘__builtin_memcmp_eq’ reading 32 bytes from a region of size 4 [-Wstringop-overflow=]
+     || memcmp(&ob_bin, "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 32))) {
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-cairnsmore.o `test -f 'driver-cairnsmore.c' || echo './'`driver-cairnsmore.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-erupter.o `test -f 'driver-erupter.c' || echo './'`driver-erupter.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-antminer.o `test -f 'driver-antminer.c' || echo './'`driver-antminer.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-gc3355.o `test -f 'gc3355.c' || echo './'`gc3355.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-gridseed.o `test -f 'driver-gridseed.c' || echo './'`driver-gridseed.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-dualminer.o `test -f 'driver-dualminer.c' || echo './'`driver-dualminer.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-zeusminer.o `test -f 'driver-zeusminer.c' || echo './'`driver-zeusminer.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-avalon.o `test -f 'driver-avalon.c' || echo './'`driver-avalon.c
+driver-avalon.c: In function ‘avalon_api_stats’:
+driver-avalon.c:1020:33: warning: ‘%d’ directive writing between 1 and 10 bytes into a region of size 8 [-Wformat-overflow=]
+   sprintf(mcw, "match_work_count%d", i + 1);
+                                 ^~
+driver-avalon.c:1020:16: note: directive argument in the range [1, 2147483647]
+   sprintf(mcw, "match_work_count%d", i + 1);
+                ^~~~~~~~~~~~~~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from driver-avalon.c:19:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:36:10: note: ‘__builtin___sprintf_chk’ output between 18 and 27 bytes into a destination of size 24
+   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       __bos (__s), __fmt, __va_arg_pack ());
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-avalonmm.o `test -f 'driver-avalonmm.c' || echo './'`driver-avalonmm.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-klondike.o `test -f 'driver-klondike.c' || echo './'`driver-klondike.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-hashbusteravalon.o `test -f 'driver-hashbusteravalon.c' || echo './'`driver-hashbusteravalon.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-modminer.o `test -f 'driver-modminer.c' || echo './'`driver-modminer.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-x6500.o `test -f 'driver-x6500.c' || echo './'`driver-x6500.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-jtag.o `test -f 'jtag.c' || echo './'`jtag.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-ztex.o `test -f 'driver-ztex.c' || echo './'`driver-ztex.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-libztex.o `test -f 'libztex.c' || echo './'`libztex.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-bifury.o `test -f 'driver-bifury.c' || echo './'`driver-bifury.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-bitfury.o `test -f 'driver-bitfury.c' || echo './'`driver-bitfury.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-libbitfury.o `test -f 'libbitfury.c' || echo './'`libbitfury.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-bfx.o `test -f 'driver-bfx.c' || echo './'`driver-bfx.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-littlefury.o `test -f 'driver-littlefury.c' || echo './'`driver-littlefury.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-hashbusterusb.o `test -f 'driver-hashbusterusb.c' || echo './'`driver-hashbusterusb.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-cointerra.o `test -f 'driver-cointerra.c' || echo './'`driver-cointerra.c
+driver-cointerra.c: In function ‘cta_api_stats’:
+driver-cointerra.c:1316:29: warning: ‘Core’ directive writing 4 bytes into a region of size between 0 and 7 [-Wformat-overflow=]
+    sprintf(asiccore, "Asic%dCore%d", asic, core);
+                             ^~~~
+driver-cointerra.c:1316:22: note: directive argument in the range [-3, 3]
+    sprintf(asiccore, "Asic%dCore%d", asic, core);
+                      ^~~~~~~~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from /usr/include/jansson.h:11,
+                 from miner.h:29,
+                 from driver-cointerra.c:15:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:36:10: note: ‘__builtin___sprintf_chk’ output between 11 and 19 bytes into a destination of size 12
+   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       __bos (__s), __fmt, __va_arg_pack ());
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+driver-cointerra.c:1320:34: warning: ‘%s’ directive output may be truncated writing up to 35 bytes into a region of size between 29 and 38 [-Wformat-truncation=]
+    snprintf(bitmapcount, 40, "%d:%s", count, bitmaphex);
+                                  ^~          ~~~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from /usr/include/jansson.h:11,
+                 from miner.h:29,
+                 from driver-cointerra.c:15:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 3 and 47 bytes into a destination of size 40
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-hashfast.o `test -f 'driver-hashfast.c' || echo './'`driver-hashfast.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-driver-rockminer.o `test -f 'driver-rockminer.c' || echo './'`driver-rockminer.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-lowl-ftdi.o `test -f 'lowl-ftdi.c' || echo './'`lowl-ftdi.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-lowl-pci.o `test -f 'lowl-pci.c' || echo './'`lowl-pci.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing -I./lib -I./lib -I./ccan-upstream  -I/usr/include/libblkmaker-0.1 -I/usr/include/libusb-1.0 -I/usr/include/arm-linux-gnueabihf -DCGMINER_PREFIX='"/usr/share/bfgminer"' -pthread -I/usr/include/  -I/usr/include/p11-kit-1   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o bfgminer-lowl-spi.o `test -f 'lowl-spi.c' || echo './'`lowl-spi.c
+make -C lib
+make[4]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make  all-recursive
+make[5]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[6]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[6]: Nothing to be done for 'all-am'.
+make[6]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -pthread   -specs=/usr/share/dpkg/no-pie-link.specs -Wl,-z,relro -Wl,-z,now -o bfgminer bfgminer-miner.o bfgminer-deviceapi.o bfgminer-util.o bfgminer-sha2.o bfgminer-api.o bfgminer-version.o bfgminer-logging.o  bfgminer-driver-proxy.o bfgminer-httpsrv.o bfgminer-driver-getwork.o bfgminer-driver-stratum.o bfgminer-driver-opencl.o bfgminer-ocl.o bfgminer-findnonce.o bfgminer-adl.o  malgo/bfgminer-sha256d.o  malgo/bfgminer-scrypt.o  bfgminer-lowl-vcom.o  bfgminer-lowl-usb.o bfgminer-binloader.o bfgminer-lowlevel.o bfgminer-dynclock.o bfgminer-work2d.o  bfgminer-driver-bitforce.o  bfgminer-driver-bigpic.o bfgminer-driver-drillbit.o bfgminer-driver-twinfury.o bfgminer-driver-icarus.o bfgminer-driver-cairnsmore.o bfgminer-driver-erupter.o bfgminer-driver-antminer.o bfgminer-gc3355.o bfgminer-driver-gridseed.o bfgminer-driver-dualminer.o bfgminer-driver-zeusminer.o bfgminer-driver-avalon.o bfgminer-driver-avalonmm.o   bfgminer-driver-klondike.o bfgminer-driver-hashbusteravalon.o bfgminer-driver-modminer.o   bfgminer-driver-x6500.o bfgminer-jtag.o bfgminer-driver-ztex.o bfgminer-libztex.o bfgminer-driver-bifury.o bfgminer-driver-bitfury.o bfgminer-libbitfury.o  bfgminer-driver-bfx.o  bfgminer-driver-littlefury.o   bfgminer-driver-hashbusterusb.o bfgminer-driver-cointerra.o bfgminer-driver-hashfast.o    bfgminer-driver-rockminer.o bfgminer-lowl-ftdi.o   bfgminer-lowl-pci.o bfgminer-lowl-spi.o lib/libgnu.a ccan.bfg/libccan.a -L/usr/lib/arm-linux-gnueabihf -lbase58 -L/usr/lib/arm-linux-gnueabihf -lblkmaker-0.1 -lblkmaker_jansson-0.1 -ldl -L/usr/lib/arm-linux-gnueabihf -lcurl -L/usr/lib/arm-linux-gnueabihf -ljansson  -lpthread -lncursesw -ludev -L/usr/lib/arm-linux-gnueabihf -lusb-1.0 -lm  -L/usr/lib/arm-linux-gnueabihf -lmicrohttpd -L/usr/lib/arm-linux-gnueabihf -levent -lsensors    
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -fno-strict-aliasing  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security -c -o api-example.o api-example.c
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -specs=/usr/share/dpkg/no-pie-compile.specs -fstack-protector-strong -Wformat -Werror=format-security  -specs=/usr/share/dpkg/no-pie-link.specs -Wl,-z,relro -Wl,-z,now -o bfgminer-rpc api-example.o  
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_test -a
+ fakeroot debian/rules binary-arch
+dh binary-arch --with autoreconf
+   dh_auto_test -a
+   dh_testroot -a
+   dh_prep -a
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_install
+	make -j1 install DESTDIR=/<<BUILDDIR>>/bfgminer-5.4.2\+dfsg/debian/bfgminer AM_UPDATE_INFO_DIR=no
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+( cd . && ./gen-version.sh ) >version.h.new
+cmp ./version.h version.h.new && rm version.h.new || mv version.h.new ./version.h
+make  install-recursive
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+Making install in lib
+make[4]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make  install-recursive
+make[5]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[6]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[7]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[7]: Nothing to be done for 'install-exec-am'.
+make[7]: Nothing to be done for 'install-data-am'.
+make[7]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[6]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+Making install in ccan.bfg
+make[4]: Entering directory '/<<PKGBUILDDIR>>/ccan.bfg'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/ccan.bfg'
+make[5]: Nothing to be done for 'install-exec-am'.
+make[5]: Nothing to be done for 'install-data-am'.
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/ccan.bfg'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/ccan.bfg'
+make[4]: Entering directory '/<<PKGBUILDDIR>>'
+make -C lib
+make[5]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make  all-recursive
+make[6]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[7]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[7]: Nothing to be done for 'all-am'.
+make[7]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[6]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[5]: Entering directory '/<<PKGBUILDDIR>>'
+make -C lib
+make[6]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make  all-recursive
+make[7]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[8]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[8]: Nothing to be done for 'all-am'.
+make[8]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[7]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[6]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/bfgminer/usr/lib/bfgminer'
+  /usr/bin/install -c bfgminer bfgminer-rpc '/<<PKGBUILDDIR>>/debian/bfgminer/usr/lib/bfgminer'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/bfgminer/usr/lib/bfgminer'
+ /usr/bin/install -c start-bfgminer.sh '/<<PKGBUILDDIR>>/debian/bfgminer/usr/lib/bfgminer'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/bfgminer/usr/sbin'
+ /usr/bin/install -c setup-vfio '/<<PKGBUILDDIR>>/debian/bfgminer/usr/sbin'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/bfgminer/usr/share/doc/bfgminer'
+ /usr/bin/install -c -m 644 AUTHORS COPYING HACKING NEWS README example.conf README.RPC README.GPU README.scrypt README.FPGA README.ASIC '/<<PKGBUILDDIR>>/debian/bfgminer/usr/share/doc/bfgminer'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/bfgminer/usr/share/bfgminer/opencl'
+ /usr/bin/install -c -m 644 ./opencl/diablo.cl ./opencl/diakgcn.cl ./opencl/phatk.cl ./opencl/poclbm.cl ./opencl/psw.cl ./opencl/scrypt.cl ./opencl/zuikkis.cl '/<<PKGBUILDDIR>>/debian/bfgminer/usr/share/bfgminer/opencl'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/bfgminer/usr/share/doc/bfgminer/rpc-examples'
+ /usr/bin/install -c -m 644 api-example.php miner.php api-example.c api-example.py '/<<PKGBUILDDIR>>/debian/bfgminer/usr/share/doc/bfgminer/rpc-examples'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/bfgminer/lib/udev/rules.d'
+ /usr/bin/install -c -m 644 70-bfgminer.rules '/<<PKGBUILDDIR>>/debian/bfgminer/lib/udev/rules.d'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+## remove duplicates
+cd /<<PKGBUILDDIR>>/debian/bfgminer/usr/share/doc/bfgminer && rm -f -v COPYING* NEWS*
+removed 'COPYING'
+removed 'NEWS'
+## move executable to private location
+mv -v /<<PKGBUILDDIR>>/debian/bfgminer/usr/sbin/setup-vfio  /<<PKGBUILDDIR>>/debian/bfgminer/usr/lib/bfgminer/
+renamed '/<<PKGBUILDDIR>>/debian/bfgminer/usr/sbin/setup-vfio' -> '/<<PKGBUILDDIR>>/debian/bfgminer/usr/lib/bfgminer/setup-vfio'
+# Wipe empty dirs if any
+find /<<PKGBUILDDIR>>/debian -type d -empty -delete -printf 'removed %p\n'
+removed /<<PKGBUILDDIR>>/debian/patches
+removed /<<PKGBUILDDIR>>/debian/bfgminer/usr/sbin
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installdocs -a
+   debian/rules override_dh_installchangelogs
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_installchangelogs NEWS
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installman -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   dh_missing -a
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/bfgminer/usr/lib/bfgminer/bfgminer-rpc debian/bfgminer/usr/lib/bfgminer/bfgminer were not linked against ld-linux-armhf.so.3 (they use none of the library's symbols)
+   dh_installdeb -a
+   dh_gencontrol -a
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'bfgminer-dbgsym' in '../bfgminer-dbgsym_5.4.2+dfsg-1_armhf.deb'.
+dpkg-deb: building package 'bfgminer' in '../bfgminer_5.4.2+dfsg-1_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../bfgminer_5.4.2+dfsg-1_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-source: info: using options from bfgminer-5.4.2+dfsg/debian/source/options: --compression=xz
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T07:23:02Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+bfgminer_5.4.2+dfsg-1_armhf.changes:
+------------------------------------
+
+Format: 1.8
+Date: Sat, 07 May 2016 18:29:33 +1000
+Source: bfgminer
+Binary: bfgminer bfgminer-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 5.4.2+dfsg-1
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Debian Bitcoin Packaging Team <pkg-bitcoin-devel@lists.alioth.debian.org>
+Changed-By: Dmitry Smirnov <onlyjob@debian.org>
+Description:
+ bfgminer   - multi-threaded multi-pool ASIC, FPGA and GPU bitcoin miner
+Changes:
+ bfgminer (5.4.2+dfsg-1) unstable; urgency=medium
+ .
+   * New upstream release [March 2016].
+   * Standards-Version: 3.9.8.
+   * Upgraded Vcs-Browser URL.
+   * Suggests += "mesa-opencl-icd".
+Checksums-Sha1:
+ 34551b265d0a7ef3e39d4cda7727d9bcc80e9b83 1778336 bfgminer-dbgsym_5.4.2+dfsg-1_armhf.deb
+ 6e08a7676ac331d7939885f0db0573ae0b8c2348 6418 bfgminer_5.4.2+dfsg-1_armhf.buildinfo
+ 0c1dae94dee9aa87f289871b32cda5994d0807eb 584736 bfgminer_5.4.2+dfsg-1_armhf.deb
+Checksums-Sha256:
+ 5a99fe691631d80b832048ee13c927a50750cae4b588f176d50be164a66737c5 1778336 bfgminer-dbgsym_5.4.2+dfsg-1_armhf.deb
+ 464e3798f7bae352027bf815f4cf44f73cdbccf1e75926720d3306656bf5044c 6418 bfgminer_5.4.2+dfsg-1_armhf.buildinfo
+ 222e46337c27b819bad355f261d8c3a18f3fbb45271f5494b5b0c0276bd244dd 584736 bfgminer_5.4.2+dfsg-1_armhf.deb
+Files:
+ 0bcf6747063f101c6a8012667bfdb77c 1778336 debug optional bfgminer-dbgsym_5.4.2+dfsg-1_armhf.deb
+ e24451fe2eaa0886ca6658f9570cfcac 6418 net optional bfgminer_5.4.2+dfsg-1_armhf.buildinfo
+ 7b61458262ecdfc2f79602b7341b1825 584736 net optional bfgminer_5.4.2+dfsg-1_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: bfgminer
+Binary: bfgminer
+Architecture: armhf
+Version: 5.4.2+dfsg-1
+Checksums-Md5:
+ 0bcf6747063f101c6a8012667bfdb77c 1778336 bfgminer-dbgsym_5.4.2+dfsg-1_armhf.deb
+ 7b61458262ecdfc2f79602b7341b1825 584736 bfgminer_5.4.2+dfsg-1_armhf.deb
+Checksums-Sha1:
+ 34551b265d0a7ef3e39d4cda7727d9bcc80e9b83 1778336 bfgminer-dbgsym_5.4.2+dfsg-1_armhf.deb
+ 0c1dae94dee9aa87f289871b32cda5994d0807eb 584736 bfgminer_5.4.2+dfsg-1_armhf.deb
+Checksums-Sha256:
+ 5a99fe691631d80b832048ee13c927a50750cae4b588f176d50be164a66737c5 1778336 bfgminer-dbgsym_5.4.2+dfsg-1_armhf.deb
+ 222e46337c27b819bad355f261d8c3a18f3fbb45271f5494b5b0c0276bd244dd 584736 bfgminer_5.4.2+dfsg-1_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Fri, 01 Mar 2019 07:23:02 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ help2man (= 1.47.8),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.52-5),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbase58-0 (= 0.1.4-2),
+ libbase58-dev (= 0.1.4-2),
+ libbinutils (= 2.31.1-14),
+ libblkid1 (= 2.33.1-0.1),
+ libblkmaker-0.1-6 (= 0.5.3-1),
+ libblkmaker-0.1-dev (= 0.5.3-1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcom-err2 (= 1.44.5-1),
+ libcroco3 (= 0.6.12-3),
+ libcurl3-gnutls (= 7.64.0-1),
+ libcurl4-gnutls-dev (= 7.64.0-1),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libevent-2.1-6 (= 2.1.8-stable-4),
+ libevent-core-2.1-6 (= 2.1.8-stable-4),
+ libevent-dev (= 2.1.8-stable-4),
+ libevent-extra-2.1-6 (= 2.1.8-stable-4),
+ libevent-openssl-2.1-6 (= 2.1.8-stable-4),
+ libevent-pthreads-2.1-6 (= 2.1.8-stable-4),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgcrypt20-dev (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp-dev (= 2:6.1.2+dfsg-4),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgmpxx4ldbl (= 2:6.1.2+dfsg-4),
+ libgnutls-dane0 (= 3.6.6-2),
+ libgnutls-openssl27 (= 3.6.6-2),
+ libgnutls28-dev (= 3.6.6-2),
+ libgnutls30 (= 3.6.6-2),
+ libgnutlsxx28 (= 3.6.6-2),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error-dev (= 1.35-1),
+ libgpg-error0 (= 1.35-1),
+ libgssapi-krb5-2 (= 1.17-2),
+ libhogweed4 (= 3.4.1-1),
+ libicu63 (= 63.1-6),
+ libidn2-0 (= 2.0.5-1),
+ libidn2-dev (= 2.0.5-1),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ libjansson-dev (= 2.12-1),
+ libjansson4 (= 2.12-1),
+ libk5crypto3 (= 1.17-2),
+ libkeyutils1 (= 1.6-4),
+ libkrb5-3 (= 1.17-2),
+ libkrb5support0 (= 1.17-2),
+ libldap-2.4-2 (= 2.4.47+dfsg-3),
+ libldap-common (= 2.4.47+dfsg-3),
+ liblocale-gettext-perl (= 1.07-3+b4),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmicrohttpd-dev (= 0.9.62-1),
+ libmicrohttpd12 (= 0.9.62-1),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses-dev (= 6.1+20181013-2),
+ libncurses5-dev (= 6.1+20181013-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libnettle6 (= 3.4.1-1),
+ libnghttp2-14 (= 1.36.0-2),
+ libp11-kit-dev (= 0.23.15-2),
+ libp11-kit0 (= 0.23.15-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libpsl5 (= 0.20.2-2),
+ libquadmath0 (= 8.3.0-2),
+ librtmp1 (= 2.4+20151223.gitfa8646d.1-2),
+ libsasl2-2 (= 2.1.27+dfsg-1),
+ libsasl2-modules-db (= 2.1.27+dfsg-1),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsensors-config (= 1:3.5.0-3),
+ libsensors4-dev (= 1:3.5.0-3),
+ libsensors5 (= 1:3.5.0-3),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libssh2-1 (= 1.8.0-2),
+ libssl1.1 (= 1.1.1b-1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtasn1-6 (= 4.13-3),
+ libtasn1-6-dev (= 4.13-3),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev-dev (= 241-1),
+ libudev1 (= 241-1),
+ libunbound8 (= 1.9.0-2),
+ libunistring2 (= 0.9.10-1),
+ libusb-1.0-0 (= 2:1.0.22-2),
+ libusb-1.0-0-dev (= 2:1.0.22-2),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ nettle-dev (= 3.4.1-1),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ uthash-dev (= 2.0.2-1),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1462609773"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+bfgminer-dbgsym_5.4.2+dfsg-1_armhf.deb
+--------------------------------------
+
+ new Debian package, version 2.0.
+ size 1778336 bytes: control archive=608 bytes.
+     427 bytes,    12 lines      control              
+     212 bytes,     2 lines      md5sums              
+ Package: bfgminer-dbgsym
+ Source: bfgminer
+ Version: 5.4.2+dfsg-1
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian Bitcoin Packaging Team <pkg-bitcoin-devel@lists.alioth.debian.org>
+ Installed-Size: 1861
+ Depends: bfgminer (= 5.4.2+dfsg-1)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for bfgminer
+ Build-Ids: 8951cf8ba47a1d25b9092d970b5c18c692d98ba7 fb4c94cd53e4d84e4691360f32f9f1de96009ac8
+
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/lib/
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/lib/debug/.build-id/89/
+-rw-r--r-- root/root   1880132 2016-05-07 08:29 ./usr/lib/debug/.build-id/89/51cf8ba47a1d25b9092d970b5c18c692d98ba7.debug
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/lib/debug/.build-id/fb/
+-rw-r--r-- root/root     12492 2016-05-07 08:29 ./usr/lib/debug/.build-id/fb/4c94cd53e4d84e4691360f32f9f1de96009ac8.debug
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/share/
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2016-05-07 08:29 ./usr/share/doc/bfgminer-dbgsym -> bfgminer
+
+
+bfgminer_5.4.2+dfsg-1_armhf.deb
+-------------------------------
+
+ new Debian package, version 2.0.
+ size 584736 bytes: control archive=1712 bytes.
+    1078 bytes,    20 lines      control              
+    2064 bytes,    29 lines      md5sums              
+ Package: bfgminer
+ Version: 5.4.2+dfsg-1
+ Architecture: armhf
+ Maintainer: Debian Bitcoin Packaging Team <pkg-bitcoin-devel@lists.alioth.debian.org>
+ Installed-Size: 1107
+ Depends: libbase58-0 (>= 0.1.3), libblkmaker-0.1-6 (>= 0.5.3), libc6 (>= 2.28), libcurl3-gnutls (>= 7.18.2), libevent-2.1-6 (>= 2.1.8-stable), libjansson4 (>= 2.1), libmicrohttpd12 (>= 0.9.50), libncursesw6 (>= 6), libsensors5 (>= 1:3.5.0), libtinfo6 (>= 6), libudev1 (>= 183), libusb-1.0-0 (>= 2:1.0.9)
+ Recommends: ocl-icd-libopencl1, opencl-icd
+ Suggests: mesa-opencl-icd
+ Section: net
+ Priority: optional
+ Homepage: https://github.com/luke-jr/bfgminer
+ Description: multi-threaded multi-pool ASIC, FPGA and GPU bitcoin miner
+  Bitcoin miner software with multi-threaded multi-pool GPU, FPGA and ASIC
+  mining support.
+  .
+  BitCoins are a digital currency, exchanged freely against
+  all other currencies. Coins may be issued by everyone, one
+  just needs considerable computer power - and luck. To even
+  out rewards for one's contribution, many initiative have
+  forms to provide pools of computers and share the load.
+
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./lib/
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./lib/udev/
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./lib/udev/rules.d/
+-rw-r--r-- root/root      2876 2016-05-07 08:29 ./lib/udev/rules.d/70-bfgminer.rules
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/bin/
+lrwxrwxrwx root/root         0 2016-05-07 08:29 ./usr/bin/bfgminer -> ../lib/bfgminer/bfgminer
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/lib/
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/lib/bfgminer/
+-rwxr-xr-x root/root    625012 2016-05-07 08:29 ./usr/lib/bfgminer/bfgminer
+-rwxr-xr-x root/root      5592 2016-05-07 08:29 ./usr/lib/bfgminer/bfgminer-rpc
+-rwxr-xr-x root/root      3119 2016-05-07 08:29 ./usr/lib/bfgminer/setup-vfio
+-rwxr-xr-x root/root       628 2016-05-07 08:29 ./usr/lib/bfgminer/start-bfgminer.sh
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/share/
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/share/bfgminer/
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/share/bfgminer/opencl/
+-rw-r--r-- root/root     44764 2016-05-07 08:29 ./usr/share/bfgminer/opencl/diablo.cl
+-rw-r--r-- root/root     30840 2016-05-07 08:29 ./usr/share/bfgminer/opencl/diakgcn.cl
+-rw-r--r-- root/root     13092 2016-05-07 08:29 ./usr/share/bfgminer/opencl/phatk.cl
+-rw-r--r-- root/root     43847 2016-05-07 08:29 ./usr/share/bfgminer/opencl/poclbm.cl
+-rw-r--r-- root/root     21395 2016-05-07 08:29 ./usr/share/bfgminer/opencl/psw.cl
+-rw-r--r-- root/root     24020 2016-05-07 08:29 ./usr/share/bfgminer/opencl/scrypt.cl
+-rw-r--r-- root/root     22615 2016-05-07 08:29 ./usr/share/bfgminer/opencl/zuikkis.cl
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/share/doc/
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/share/doc/bfgminer/
+-rw-r--r-- root/root      3003 2016-03-26 06:53 ./usr/share/doc/bfgminer/AUTHORS
+-rw-r--r-- root/root      2863 2016-05-07 08:29 ./usr/share/doc/bfgminer/HACKING.gz
+-rw-r--r-- root/root      7507 2016-03-26 06:53 ./usr/share/doc/bfgminer/README.ASIC.gz
+-rw-r--r-- root/root      5445 2016-03-26 06:53 ./usr/share/doc/bfgminer/README.FPGA.gz
+-rw-r--r-- root/root      9101 2016-03-26 06:53 ./usr/share/doc/bfgminer/README.GPU.gz
+-rw-r--r-- root/root     17478 2016-03-26 06:53 ./usr/share/doc/bfgminer/README.RPC.gz
+-rw-r--r-- root/root     17032 2016-03-26 06:53 ./usr/share/doc/bfgminer/README.gz
+-rw-r--r-- root/root      4304 2016-03-26 06:53 ./usr/share/doc/bfgminer/README.scrypt.gz
+-rw-r--r-- root/root      1093 2016-05-07 08:29 ./usr/share/doc/bfgminer/changelog.Debian.gz
+-rw-r--r-- root/root    147246 2016-03-26 06:53 ./usr/share/doc/bfgminer/changelog.gz
+-rw-r--r-- root/root     19300 2016-05-07 08:29 ./usr/share/doc/bfgminer/copyright
+-rw-r--r-- root/root       844 2016-05-07 08:29 ./usr/share/doc/bfgminer/example.conf
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/share/doc/bfgminer/rpc-examples/
+-rw-r--r-- root/root      2920 2016-05-07 08:29 ./usr/share/doc/bfgminer/rpc-examples/api-example.c.gz
+-rw-r--r-- root/root      2057 2016-05-07 08:29 ./usr/share/doc/bfgminer/rpc-examples/api-example.php
+-rw-r--r-- root/root      1510 2016-05-07 08:29 ./usr/share/doc/bfgminer/rpc-examples/api-example.py
+-rw-r--r-- root/root     17536 2016-05-07 08:29 ./usr/share/doc/bfgminer/rpc-examples/miner.php.gz
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/share/man/
+drwxr-xr-x root/root         0 2016-05-07 08:29 ./usr/share/man/man1/
+-rw-r--r-- root/root      3465 2016-05-07 08:29 ./usr/share/man/man1/bfgminer.1.gz
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [662 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [726 B]
+Fetched 2351 B in 0s (204 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 1s (2828 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 20284 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+W: bfgminer source: debian-source-options-has-custom-compression-settings compression = "xz" (line 1)
+W: bfgminer source: vcs-obsolete-in-debian-infrastructure vcs-git git://anonscm.debian.org/pkg-bitcoin/bfgminer.git
+W: bfgminer source: vcs-obsolete-in-debian-infrastructure vcs-browser https://anonscm.debian.org/cgit/pkg-bitcoin/bfgminer.git
+W: bfgminer source: dep5-copyright-license-name-not-unique (paragraph at line 175)
+W: bfgminer source: missing-license-paragraph-in-dep5-copyright expat (paragraph at line 154)
+W: bfgminer: hardening-no-pie usr/lib/bfgminer/bfgminer
+W: bfgminer: hardening-no-pie usr/lib/bfgminer/bfgminer-rpc
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* dwz* gcc-8-base:armhf*
+  gettext* gettext-base* groff-base* help2man* intltool-debian*
+  libapt-pkg-perl* libarchive-zip-perl* libasan5:armhf* libatomic1:armhf*
+  libbase58-0:armhf* libbase58-dev:armhf* libblkmaker-0.1-6:armhf*
+  libblkmaker-0.1-dev:armhf* libbsd0* libc6:armhf* libc6-dev:armhf*
+  libcapture-tiny-perl* libcgi-pm-perl* libclass-accessor-perl* libclone-perl*
+  libcom-err2:armhf* libcroco3* libcurl3-gnutls:armhf*
+  libcurl4-gnutls-dev:armhf* libdb5.3:armhf* libdigest-hmac-perl* libelf1*
+  libemail-valid-perl* libevent-2.1-6:armhf* libevent-core-2.1-6:armhf*
+  libevent-dev:armhf* libevent-extra-2.1-6:armhf*
+  libevent-openssl-2.1-6:armhf* libevent-pthreads-2.1-6:armhf*
+  libexporter-tiny-perl* libffi6:armhf* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfuture-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libgcrypt20:armhf* libgcrypt20-dev:armhf* libglib2.0-0*
+  libgmp-dev:armhf* libgmp10:armhf* libgmpxx4ldbl:armhf*
+  libgnutls-dane0:armhf* libgnutls-openssl27:armhf* libgnutls28-dev:armhf*
+  libgnutls30:armhf* libgnutlsxx28:armhf* libgomp1:armhf*
+  libgpg-error-dev:armhf* libgpg-error0:armhf* libgssapi-krb5-2:armhf*
+  libhogweed4:armhf* libidn2-0:armhf* libidn2-dev:armhf* libio-async-perl*
+  libio-pty-perl* libipc-run-perl* libipc-system-simple-perl*
+  libjansson-dev:armhf* libjansson4:armhf* libk5crypto3:armhf*
+  libkeyutils1:armhf* libkrb5-3:armhf* libkrb5support0:armhf*
+  libldap-2.4-2:armhf* liblist-moreutils-perl* libmicrohttpd-dev:armhf*
+  libmicrohttpd12:armhf* libncurses-dev:armhf* libncurses5-dev:armhf*
+  libncurses6* libncurses6:armhf* libncursesw6:armhf* libnet-dns-perl*
+  libnet-domain-tld-perl* libnet-ip-perl* libnettle6:armhf*
+  libnghttp2-14:armhf* libp11-kit-dev:armhf* libp11-kit0:armhf*
+  libparse-debianchangelog-perl* libpath-tiny-perl* libpipeline1*
+  libpsl5:armhf* librtmp1:armhf* libsasl2-2:armhf* libsasl2-modules-db:armhf*
+  libsensors-config* libsensors4-dev:armhf* libsensors5:armhf* libsigsegv2*
+  libssh2-1:armhf* libssl1.1:armhf* libstdc++-8-dev:armhf* libstdc++6:armhf*
+  libstruct-dumb-perl* libsub-name-perl* libtasn1-6:armhf*
+  libtasn1-6-dev:armhf* libtext-levenshtein-perl* libtinfo6:armhf* libtool*
+  libubsan1:armhf* libuchardet0* libudev-dev:armhf* libudev1:armhf*
+  libunbound8:armhf* libunistring2:armhf* libusb-1.0-0:armhf*
+  libusb-1.0-0-dev:armhf* lintian* linux-libc-dev:armhf* m4* man-db*
+  nettle-dev:armhf* patchutils* pkg-config* po-debconf*
+  sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* uthash-dev:armhf*
+  zlib1g:armhf*
+0 upgraded, 0 newly installed, 139 to remove and 0 not upgraded.
+After this operation, 123 MB disk space will be freed.
+(Reading database ... 21562 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libmicrohttpd-dev:armhf (0.9.62-1) ...
+Removing libgnutls28-dev:armhf (3.6.6-2) ...
+Removing libgnutlsxx28:armhf (3.6.6-2) ...
+Removing help2man (1.47.8) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libblkmaker-0.1-dev:armhf (0.5.3-1) ...
+Removing libblkmaker-0.1-6:armhf (0.5.3-1) ...
+Removing libbase58-dev:armhf (0.1.4-2) ...
+Removing libbase58-0:armhf (0.1.4-2) ...
+Removing libcurl4-gnutls-dev:armhf (7.64.0-1) ...
+Removing libcurl3-gnutls:armhf (7.64.0-1) ...
+Removing librtmp1:armhf (2.4+20151223.gitfa8646d.1-2) ...
+Removing libssh2-1:armhf (1.8.0-2) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing libgnutls-dane0:armhf (3.6.6-2) ...
+Removing libunbound8:armhf (1.9.0-2) ...
+Removing libncurses5-dev:armhf (6.1+20181013-2) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libgcrypt20-dev:armhf (1.8.4-5) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libgssapi-krb5-2:armhf (1.17-2) ...
+Removing libkrb5-3:armhf (1.17-2) ...
+Removing libcom-err2:armhf (1.44.5-1) ...
+Removing libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Removing libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Removing libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Removing libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing libevent-dev:armhf (2.1.8-stable-4) ...
+Removing libevent-2.1-6:armhf (2.1.8-stable-4) ...
+Removing libevent-pthreads-2.1-6:armhf (2.1.8-stable-4) ...
+Removing libevent-openssl-2.1-6:armhf (2.1.8-stable-4) ...
+Removing libevent-extra-2.1-6:armhf (2.1.8-stable-4) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libp11-kit-dev:armhf (0.23.15-2) ...
+Removing libmicrohttpd12:armhf (0.9.62-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing nettle-dev:armhf (3.4.1-1) ...
+Removing libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Removing libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Removing libgcrypt20:armhf (1.8.4-5) ...
+Removing pkg-config (0.29-6) ...
+Removing libgnutls-openssl27:armhf (3.6.6-2) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libgpg-error-dev:armhf (1.35-1) ...
+Removing libgpg-error0:armhf (1.35-1) ...
+Removing libpsl5:armhf (0.20.2-2) ...
+Removing libidn2-dev:armhf (2.0.5-1) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libjansson-dev:armhf (2.12-1) ...
+Removing libjansson4:armhf (2.12-1) ...
+Removing libk5crypto3:armhf (1.17-2) ...
+Removing libkrb5support0:armhf (1.17-2) ...
+Removing libkeyutils1:armhf (1.6-4) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libnghttp2-14:armhf (1.36.0-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libsensors4-dev:armhf (1:3.5.0-3) ...
+Removing libsensors5:armhf (1:3.5.0-3) ...
+Removing libsensors-config (1:3.5.0-3) ...
+Removing libssl1.1:armhf (1.1.1b-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtasn1-6-dev:armhf (4.13-3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libudev-dev:armhf (241-1) ...
+Removing libusb-1.0-0-dev:armhf (2:1.0.22-2) ...
+Removing libusb-1.0-0:armhf (2:1.0.22-2) ...
+Removing libudev1:armhf (241-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing uthash-dev:armhf (2.0.2-1) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libevent-core-2.1-6:armhf (2.1.8-stable-4) ...
+Removing libgnutls30:armhf (3.6.6-2) ...
+Removing libp11-kit0:armhf (0.23.15-2) ...
+Removing libffi6:armhf (3.2.1-9) ...
+Removing libhogweed4:armhf (3.4.1-1) ...
+Removing libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Removing libidn2-0:armhf (2.0.5-1) ...
+Removing libnettle6:armhf (3.4.1-1) ...
+Removing libtasn1-6:armhf (4.13-3) ...
+Removing libunistring2:armhf (0.9.10-1) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16462 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for libssl1.1:armhf (1.1.1b-1) ...
+Purging configuration files for libsensors-config (1:3.5.0-3) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for libgssapi-krb5-2:armhf (1.17-2) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for libudev-dev:armhf (241-1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 61
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 11
+Job: /home/build/sbuild-setup/repo/pool/main/b/bfgminer/bfgminer_5.4.2+dfsg-1.dsc
+Lintian: warn
+Machine Architecture: amd64
+Package: bfgminer
+Package-Time: 76
+Source-Version: 5.4.2+dfsg-1
+Space: n/a
+Status: successful
+Version: 5.4.2+dfsg-1
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T07:23:02Z
+Build needed 00:01:16, no disk space

@@ -1,0 +1,2637 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| armadillo 1:9.200.7+dfsg-1 (armhf)           Fri, 01 Mar 2019 05:38:20 +0000 |
++==============================================================================+
+
+Package: armadillo
+Version: 1:9.200.7+dfsg-1
+Source Version: 1:9.200.7+dfsg-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-4937922d-d0cc-4090-a88f-31c81170e02e' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/armadillo-Xt8dE1/resolver-EB49Nf' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/a/armadillo/armadillo_9.200.7+dfsg-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/a/armadillo; copying to chroot
+I: NOTICE: Log filtering will replace 'build/armadillo-Xt8dE1/armadillo-9.200.7+dfsg' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/armadillo-Xt8dE1' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 7), libblas-dev, liblapack-dev, cmake, libarpack2-dev, dpkg-dev (>= 1.16.1~), libsuperlu-dev (>= 5.2), quilt, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 7), libblas-dev, liblapack-dev, cmake, libarpack2-dev, dpkg-dev (>= 1.16.1~), libsuperlu-dev (>= 5.2), quilt, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [445 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [536 B]
+Fetched 1938 B in 0s (128 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils cmake cmake-data
+  debhelper dh-autoreconf dh-strip-nondeterminism diffstat dwz
+  gcc-8-base:armhf gettext gettext-base groff-base intltool-debian
+  libarchive-zip-perl libarchive13 libarpack2:armhf libarpack2-dev:armhf
+  libasan5:armhf libatomic1:armhf libblas-dev:armhf libblas3:armhf libbsd0
+  libc6:armhf libc6-dev:armhf libcroco3 libcurl4 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libgfortran5:armhf libglib2.0-0 libgomp1:armhf libgssapi-krb5-2 libjsoncpp1
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 liblapack-dev:armhf
+  liblapack3:armhf libncurses6 libnghttp2-14 libpipeline1 libprocps7 libpsl5
+  librhash0 librtmp1 libsigsegv2 libssh2-1 libstdc++-8-dev:armhf
+  libstdc++6:armhf libsuperlu-dev:armhf libsuperlu5:armhf libtool
+  libubsan1:armhf libuchardet0 libuv1 linux-libc-dev:armhf m4 man-db
+  po-debconf procps quilt zlib1g:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation cmake-doc ninja-build dh-make gettext-doc libasprintf-dev
+  libgettextpo-dev groff lrzip liblapack-doc:armhf glibc-doc:armhf
+  libc-l10n:armhf locales:armhf manpages-dev:armhf krb5-doc krb5-user
+  libstdc++-8-doc:armhf libsuperlu-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk m4-doc apparmor less www-browser
+  libmail-box-perl default-mta | mail-transport-agent graphviz procmail
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs krb5-locales libgpm2 publicsuffix libltdl-dev
+  libmail-sendmail-perl psmisc less
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils cmake cmake-data
+  debhelper dh-autoreconf dh-strip-nondeterminism diffstat dwz
+  gcc-8-base:armhf gettext gettext-base groff-base intltool-debian
+  libarchive-zip-perl libarchive13 libarpack2:armhf libarpack2-dev:armhf
+  libasan5:armhf libatomic1:armhf libblas-dev:armhf libblas3:armhf libbsd0
+  libc6:armhf libc6-dev:armhf libcroco3 libcurl4 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libgfortran5:armhf libglib2.0-0 libgomp1:armhf libgssapi-krb5-2 libjsoncpp1
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 liblapack-dev:armhf
+  liblapack3:armhf libncurses6 libnghttp2-14 libpipeline1 libprocps7 libpsl5
+  librhash0 librtmp1 libsigsegv2 libssh2-1 libstdc++-8-dev:armhf
+  libstdc++6:armhf libsuperlu-dev:armhf libsuperlu5:armhf libtool
+  libubsan1:armhf libuchardet0 libuv1 linux-libc-dev:armhf m4 man-db
+  po-debconf procps quilt sbuild-build-depends-main-dummy:armhf zlib1g:armhf
+0 upgraded, 70 newly installed, 0 to remove and 0 not upgraded.
+Need to get 8908 kB/30.3 MB of archives.
+After this operation, 125 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [956 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libbsd0 amd64 0.9.1-2 [99.5 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libkeyutils1 amd64 1.6-4 [14.8 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libkrb5support0 amd64 1.17-2 [65.6 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libk5crypto3 amd64 1.17-2 [121 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libkrb5-3 amd64 1.17-2 [368 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libgssapi-krb5-2 amd64 1.17-2 [158 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libtool all 2.4.6-10 [547 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 debhelper all 12.1.1 [1016 kB]
+Get:10 http://10.116.41.102/debian sid/main armhf libgfortran5 armhf 8.3.0-2 [212 kB]
+Get:11 http://10.116.41.102/debian sid/main armhf libarpack2 armhf 3.7.0-1 [87.7 kB]
+Get:12 http://10.116.41.102/debian sid/main armhf libblas-dev armhf 3.8.0-2 [117 kB]
+Get:13 http://10.116.41.102/debian sid/main armhf liblapack-dev armhf 3.8.0-2 [1680 kB]
+Get:14 http://10.116.41.102/debian sid/main armhf libarpack2-dev armhf 3.7.0-1 [100 kB]
+Get:15 http://10.116.41.102/debian sid/main armhf libstdc++6 armhf 8.3.0-2 [337 kB]
+Get:16 http://10.116.41.102/debian sid/main armhf libasan5 armhf 8.3.0-2 [335 kB]
+Get:17 http://10.116.41.102/debian sid/main armhf libatomic1 armhf 8.3.0-2 [6752 B]
+Get:18 http://10.116.41.102/debian sid/main armhf linux-libc-dev armhf 4.19.20-1 [1124 kB]
+Get:19 http://10.116.41.102/debian sid/main armhf libgomp1 armhf 8.3.0-2 [64.7 kB]
+Get:20 http://10.116.41.102/debian sid/main armhf libubsan1 armhf 8.3.0-2 [103 kB]
+Get:21 http://10.116.41.102/debian sid/main armhf libgcc-8-dev armhf 8.3.0-2 [613 kB]
+Get:22 http://10.116.41.102/debian sid/main armhf libstdc++-8-dev armhf 8.3.0-2 [1584 kB]
+Get:23 http://10.116.41.102/debian sid/main armhf libsuperlu5 armhf 5.2.1+dfsg1-4 [133 kB]
+Get:24 http://10.116.41.102/debian sid/main armhf libsuperlu-dev armhf 5.2.1+dfsg1-4 [18.4 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 8908 kB in 4s (2374 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../06-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package libprocps7:amd64.
+Preparing to unpack .../07-libprocps7_2%3a3.3.15-2_amd64.deb ...
+Unpacking libprocps7:amd64 (2:3.3.15-2) ...
+Selecting previously unselected package procps.
+Preparing to unpack .../08-procps_2%3a3.3.15-2_amd64.deb ...
+Unpacking procps (2:3.3.15-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../09-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../10-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../11-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../12-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../13-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../14-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../15-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package cmake-data.
+Preparing to unpack .../16-cmake-data_3.13.4-1_all.deb ...
+Unpacking cmake-data (3.13.4-1) ...
+Selecting previously unselected package libarchive13:amd64.
+Preparing to unpack .../17-libarchive13_3.3.3-4_amd64.deb ...
+Unpacking libarchive13:amd64 (3.3.3-4) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Preparing to unpack .../18-libkeyutils1_1.6-4_amd64.deb ...
+Unpacking libkeyutils1:amd64 (1.6-4) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Preparing to unpack .../19-libkrb5support0_1.17-2_amd64.deb ...
+Unpacking libkrb5support0:amd64 (1.17-2) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Preparing to unpack .../20-libk5crypto3_1.17-2_amd64.deb ...
+Unpacking libk5crypto3:amd64 (1.17-2) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Preparing to unpack .../21-libkrb5-3_1.17-2_amd64.deb ...
+Unpacking libkrb5-3:amd64 (1.17-2) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Preparing to unpack .../22-libgssapi-krb5-2_1.17-2_amd64.deb ...
+Unpacking libgssapi-krb5-2:amd64 (1.17-2) ...
+Selecting previously unselected package libnghttp2-14:amd64.
+Preparing to unpack .../23-libnghttp2-14_1.36.0-2_amd64.deb ...
+Unpacking libnghttp2-14:amd64 (1.36.0-2) ...
+Selecting previously unselected package libpsl5:amd64.
+Preparing to unpack .../24-libpsl5_0.20.2-2_amd64.deb ...
+Unpacking libpsl5:amd64 (0.20.2-2) ...
+Selecting previously unselected package librtmp1:amd64.
+Preparing to unpack .../25-librtmp1_2.4+20151223.gitfa8646d.1-2_amd64.deb ...
+Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2) ...
+Selecting previously unselected package libssh2-1:amd64.
+Preparing to unpack .../26-libssh2-1_1.8.0-2_amd64.deb ...
+Unpacking libssh2-1:amd64 (1.8.0-2) ...
+Selecting previously unselected package libcurl4:amd64.
+Preparing to unpack .../27-libcurl4_7.64.0-1_amd64.deb ...
+Unpacking libcurl4:amd64 (7.64.0-1) ...
+Selecting previously unselected package libjsoncpp1:amd64.
+Preparing to unpack .../28-libjsoncpp1_1.7.4-3_amd64.deb ...
+Unpacking libjsoncpp1:amd64 (1.7.4-3) ...
+Selecting previously unselected package librhash0:amd64.
+Preparing to unpack .../29-librhash0_1.3.8-1_amd64.deb ...
+Unpacking librhash0:amd64 (1.3.8-1) ...
+Selecting previously unselected package libuv1:amd64.
+Preparing to unpack .../30-libuv1_1.24.1-1_amd64.deb ...
+Unpacking libuv1:amd64 (1.24.1-1) ...
+Selecting previously unselected package cmake.
+Preparing to unpack .../31-cmake_3.13.4-1_amd64.deb ...
+Unpacking cmake (3.13.4-1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../32-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../33-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../34-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../35-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../36-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../37-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../38-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../39-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../40-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../41-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../42-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../43-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../44-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package diffstat.
+Preparing to unpack .../45-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../46-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../47-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../48-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../49-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libgfortran5:armhf.
+Preparing to unpack .../50-libgfortran5_8.3.0-2_armhf.deb ...
+Unpacking libgfortran5:armhf (8.3.0-2) ...
+Selecting previously unselected package libblas3:armhf.
+Preparing to unpack .../51-libblas3_3.8.0-2_armhf.deb ...
+Unpacking libblas3:armhf (3.8.0-2) ...
+Selecting previously unselected package liblapack3:armhf.
+Preparing to unpack .../52-liblapack3_3.8.0-2_armhf.deb ...
+Unpacking liblapack3:armhf (3.8.0-2) ...
+Selecting previously unselected package libarpack2:armhf.
+Preparing to unpack .../53-libarpack2_3.7.0-1_armhf.deb ...
+Unpacking libarpack2:armhf (3.7.0-1) ...
+Selecting previously unselected package libblas-dev:armhf.
+Preparing to unpack .../54-libblas-dev_3.8.0-2_armhf.deb ...
+Unpacking libblas-dev:armhf (3.8.0-2) ...
+Selecting previously unselected package liblapack-dev:armhf.
+Preparing to unpack .../55-liblapack-dev_3.8.0-2_armhf.deb ...
+Unpacking liblapack-dev:armhf (3.8.0-2) ...
+Selecting previously unselected package libarpack2-dev:armhf.
+Preparing to unpack .../56-libarpack2-dev_3.7.0-1_armhf.deb ...
+Unpacking libarpack2-dev:armhf (3.7.0-1) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../57-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../58-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../59-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../60-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../61-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../62-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../63-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../64-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../65-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libsuperlu5:armhf.
+Preparing to unpack .../66-libsuperlu5_5.2.1+dfsg1-4_armhf.deb ...
+Unpacking libsuperlu5:armhf (5.2.1+dfsg1-4) ...
+Selecting previously unselected package libsuperlu-dev:armhf.
+Preparing to unpack .../67-libsuperlu-dev_5.2.1+dfsg1-4_armhf.deb ...
+Unpacking libsuperlu-dev:armhf (5.2.1+dfsg1-4) ...
+Selecting previously unselected package quilt.
+Preparing to unpack .../68-quilt_0.65-3_all.deb ...
+Unpacking quilt (0.65-3) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../69-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libkeyutils1:amd64 (1.6-4) ...
+Setting up libpsl5:amd64 (0.20.2-2) ...
+Setting up libarchive13:amd64 (3.3.3-4) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up libprocps7:amd64 (2:3.3.15-2) ...
+Setting up libnghttp2-14:amd64 (1.36.0-2) ...
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up libkrb5support0:amd64 (1.17-2) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libuv1:amd64 (1.24.1-1) ...
+Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up diffstat (1.62-1) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libk5crypto3:amd64 (1.17-2) ...
+Setting up librhash0:amd64 (1.3.8-1) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up procps (2:3.3.15-2) ...
+update-alternatives: using /usr/bin/w.procps to provide /usr/bin/w (w) in auto mode
+Setting up libssh2-1:amd64 (1.8.0-2) ...
+Setting up cmake-data (3.13.4-1) ...
+Setting up libkrb5-3:amd64 (1.17-2) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libjsoncpp1:amd64 (1.7.4-3) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up libgssapi-krb5-2:amd64 (1.17-2) ...
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up libcurl4:amd64 (7.64.0-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up quilt (0.65-3) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up cmake (3.13.4-1) ...
+Setting up dh-autoreconf (19) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libgfortran5:armhf (8.3.0-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libblas3:armhf (3.8.0-2) ...
+update-alternatives: using /usr/lib/arm-linux-gnueabihf/blas/libblas.so.3 to provide /usr/lib/arm-linux-gnueabihf/libblas.so.3 (libblas.so.3-arm-linux-gnueabihf) in auto mode
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libblas-dev:armhf (3.8.0-2) ...
+update-alternatives: using /usr/lib/arm-linux-gnueabihf/blas/libblas.so to provide /usr/lib/arm-linux-gnueabihf/libblas.so (libblas.so-arm-linux-gnueabihf) in auto mode
+Setting up liblapack3:armhf (3.8.0-2) ...
+update-alternatives: using /usr/lib/arm-linux-gnueabihf/lapack/liblapack.so.3 to provide /usr/lib/arm-linux-gnueabihf/liblapack.so.3 (liblapack.so.3-arm-linux-gnueabihf) in auto mode
+Setting up libarpack2:armhf (3.7.0-1) ...
+Setting up libsuperlu5:armhf (5.2.1+dfsg1-4) ...
+Setting up liblapack-dev:armhf (3.8.0-2) ...
+update-alternatives: using /usr/lib/arm-linux-gnueabihf/lapack/liblapack.so to provide /usr/lib/arm-linux-gnueabihf/liblapack.so (liblapack.so-arm-linux-gnueabihf) in auto mode
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libsuperlu-dev:armhf (5.2.1+dfsg1-4) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libarpack2-dev:armhf (3.7.0-1) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 cmake_3.13.4-1 cmake-data_3.13.4-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffstat_1.62-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libarchive13_3.3.3-4 libarpack2_3.7.0-1 libarpack2-dev_3.7.0-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblas-dev_3.8.0-2 libblas3_3.8.0-2 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libcurl4_7.64.0-1 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libgfortran5_8.3.0-2 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libgssapi-krb5-2_1.17-2 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libjsoncpp1_1.7.4-3 libk5crypto3_1.17-2 libkeyutils1_1.6-4 libkrb5-3_1.17-2 libkrb5support0_1.17-2 libksba8_1.3.5-2 liblapack-dev_3.8.0-2 liblapack3_3.8.0-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnghttp2-14_1.36.0-2 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libprocps7_2:3.3.15-2 libpsl5_0.20.2-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 librhash0_1.3.8-1 librtmp1_2.4+20151223.gitfa8646d.1-2 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssh2-1_1.8.0-2 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsuperlu-dev_5.2.1+dfsg1-4 libsuperlu5_5.2.1+dfsg1-4 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libuv1_1.24.1-1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 procps_2:3.3.15-2 quilt_0.65-3 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: armadillo
+Binary: libarmadillo-dev, libarmadillo9
+Architecture: any
+Version: 1:9.200.7+dfsg-1
+Maintainer: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>
+Uploaders: Kumar Appaiah <akumar@debian.org>
+Homepage: http://arma.sourceforge.net/
+Standards-Version: 4.1.1
+Vcs-Browser: https://salsa.debian.org/science-team/armadillo
+Vcs-Git: https://salsa.debian.org/science-team/armadillo.git
+Build-Depends: debhelper (>= 7), libblas-dev, liblapack-dev, cmake, libarpack2-dev, dpkg-dev (>= 1.16.1~), libsuperlu-dev (>= 5.2), quilt
+Package-List:
+ libarmadillo-dev deb libdevel optional arch=any
+ libarmadillo9 deb libs optional arch=any
+Checksums-Sha1:
+ 9991db936b81569dc46bd7c34d4ca34490b3b5bb 535500 armadillo_9.200.7+dfsg.orig.tar.xz
+ 7c36954c1143ce3c7e5eea03913bfc74f555544f 6628 armadillo_9.200.7+dfsg-1.debian.tar.xz
+Checksums-Sha256:
+ d0e162aa7c79bb0998f1a975824935324b09920ef97d0d6fb815d2fa05cb7b36 535500 armadillo_9.200.7+dfsg.orig.tar.xz
+ 61fac2c85057d1379d8e561884d65fcd494822379300593f04077f6f67f7afa6 6628 armadillo_9.200.7+dfsg-1.debian.tar.xz
+Files:
+ 4b1e1fac501b50096b99c30cb6b936e5 535500 armadillo_9.200.7+dfsg.orig.tar.xz
+ 55ba7a58e445572cd61d09f97d1df9a8 6628 armadillo_9.200.7+dfsg-1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEERm/dvxBWD1Cc3jpMeo9J6LY0gL4FAlxF78gACgkQeo9J6LY0
+gL5NJA//XIFuYghe+60MynMLybo7QrMLGA4Ii5x+a98JI6K+3Mv+pw5fZR2m4qr+
+FhcyRbwjpBn/UPLPMgsy8LXgGnKGHH/3rCAqgVUwWKgx4Lxpgyq95/Smj3xNlu8x
+TCdIGZCbTl1BdYqfX1zHX7HR2Y0WmE+PnAHK3LU28Eu7oMumag6MBdy2wf33Mlyr
+4AEA6u3mnESI6Li5bPuOGSK1gvv63Ljp6G0RZMHdwKss5AuGm8WeJPaxbueYNz5E
+x1o+1ojzWgYn/7RwTKKcCoX0qddk6YOlljvgQ6At0KT5XBpiBBDg5OVvF7JcXbno
+sLbvRlx5nDQJmCSfmuc+MzfvQZq5oUNLtN4/A3D0PYu97B2YcrbXn3+RVXyDhPxt
+THCNNE1VrwfDiUl2R43DPHbjjN+DxMYYg66qj/URhJN7+O3KJw+UKQ/XILrOCnl0
+Qu3e55Yr9Myq3WcV0OdCHqndSKmqPcpOniGq6pJ+GXWiPAsVVCR4g+g/Rgkeu5Ow
+uYYzfTjOinjCCmngcNDlzKs4SybdEn9Ie1b3SR11uVfPawArj1Qi+0r30wfruULu
+hkDZcv7di7pYSOoHqMMMGncg4pbokz4wUplixIfBT0HX8XXE4jm0N26fsZBSK3Pt
+ln0utcIpuO/UK2OiDr4F1fEj7LpfRlLp/4ZAQD8pe6XPb1nsEkU=
+=nICj
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Mon Jan 21 16:14:00 2019 UTC
+gpgv:                using RSA key 466FDDBF10560F509CDE3A4C7A8F49E8B63480BE
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./armadillo_9.200.7+dfsg-1.dsc
+dpkg-source: info: extracting armadillo in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking armadillo_9.200.7+dfsg.orig.tar.xz
+dpkg-source: info: unpacking armadillo_9.200.7+dfsg-1.debian.tar.xz
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-4937922d-d0cc-4090-a88f-31c81170e02e
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package armadillo
+dpkg-buildpackage: info: source version 1:9.200.7+dfsg-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Kumar Appaiah <akumar@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+dpkg-source: info: using options from armadillo-9.200.7+dfsg/debian/source/options: --extend-diff-ignore=^\.travis\.yml$
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp
+rm -rf debian/doc_gen
+[ ! -f Makefile ] || /usr/bin/make clean
+rm -f config.guess config.sub Makefile
+rm -f CMakeCache.txt cmake_install.cmake
+rm -rf CMakeFiles
+rm -f install_manifest.txt include/armadillo_bits/config.hpp examples/Makefile
+rm -f ArmadilloConfig.cmake ArmadilloConfigVersion.cmake 
+rm -rf InstallFiles
+dh_clean  --exclude ./src/include/armadillo_bits/dgemm_proto.hpp.orig
+ debian/rules build-arch
+dh_testdir
+dh_auto_configure --buildsystem=cmake --builddirectory=. -- -D INSTALL_LIB_DIR=lib -D CMAKE_INpppSTALL_PREFIX_INITIALIZED_TO_DEFAULT:BOOL=ON  . # specified to install to the debian/tmp directory.
+	cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=None -DCMAKE_INSTALL_SYSCONFDIR=/etc -DCMAKE_INSTALL_LOCALSTATEDIR=/var -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON -DCMAKE_FIND_PACKAGE_NO_PACKAGE_REGISTRY=ON "-GUnix Makefiles" -DCMAKE_VERBOSE_MAKEFILE=ON -DCMAKE_SYSTEM_NAME=Linux -DCMAKE_SYSTEM_PROCESSOR=arm -DCMAKE_C_COMPILER=arm-linux-gnueabihf-gcc -DCMAKE_CXX_COMPILER=arm-linux-gnueabihf-g\+\+ -DPKG_CONFIG_EXECUTABLE=/usr/bin/arm-linux-gnueabihf-pkg-config -DPKGCONFIG_EXECUTABLE=/usr/bin/arm-linux-gnueabihf-pkg-config -DQMAKE_EXECUTABLE=/usr/bin/arm-linux-gnueabihf-qmake -DCMAKE_INSTALL_LIBDIR=lib/arm-linux-gnueabihf -D INSTALL_LIB_DIR=lib -D CMAKE_INpppSTALL_PREFIX_INITIALIZED_TO_DEFAULT:BOOL=ON . .
+-- The CXX compiler identification is GNU 8.2.0
+-- The C compiler identification is GNU 8.2.0
+-- Check for working CXX compiler: /usr/lib/ccache/arm-linux-gnueabihf-g++
+-- Check for working CXX compiler: /usr/lib/ccache/arm-linux-gnueabihf-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Check for working C compiler: /usr/lib/ccache/arm-linux-gnueabihf-gcc
+-- Check for working C compiler: /usr/lib/ccache/arm-linux-gnueabihf-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring Armadillo 9.200.7
+-- *** INSTALL_LIB_DIR is deprecated; use CMAKE_INSTALL_LIBDIR instead
+-- CMAKE_SYSTEM_NAME          = Linux
+-- CMAKE_CXX_COMPILER_ID      = GNU
+-- CMAKE_CXX_COMPILER_VERSION = 8.2.0
+-- CMAKE_COMPILER_IS_GNUCXX   = 1
+-- BUILD_SHARED_LIBS          = ON
+-- DETECT_HDF5                = ON
+-- Found BLAS: /usr/lib/arm-linux-gnueabihf/libblas.so
+-- Found LAPACK: /usr/lib/arm-linux-gnueabihf/liblapack.so
+--      MKL_FOUND = NO
+--   ACMLMP_FOUND = NO
+--     ACML_FOUND = NO
+-- OpenBLAS_FOUND = NO
+--    ATLAS_FOUND = NO
+--     BLAS_FOUND = YES
+--   LAPACK_FOUND = YES
+-- Found PkgConfig: /usr/bin/arm-linux-gnueabihf-pkg-config (found version "") 
+-- Checking for module 'hdf5'
+--   
+-- HDF5_FOUND = 
+-- Found ARPACK: /usr/lib/arm-linux-gnueabihf/libarpack.so
+-- ARPACK_FOUND = YES
+-- Looking for SuperLU version 5
+-- Found SuperLU: /usr/lib/arm-linux-gnueabihf/libsuperlu.so
+-- SuperLU_FOUND = YES
+-- SuperLU_INCLUDE_DIR = /usr/include/superlu
+-- 
+-- *** Armadillo wrapper library will use the following libraries:
+-- *** ARMA_LIBS = /usr/lib/arm-linux-gnueabihf/libblas.so;/usr/lib/arm-linux-gnueabihf/liblapack.so;/usr/lib/arm-linux-gnueabihf/libarpack.so;/usr/lib/arm-linux-gnueabihf/libsuperlu.so
+-- 
+-- Detected gcc 4.8.3 or later. Added '-std=c++11' to compiler flags
+-- Copying /<<PKGBUILDDIR>>/include/ to /<<PKGBUILDDIR>>/tmp/include/
+-- Generating /<<PKGBUILDDIR>>/tmp/include/config.hpp
+-- Generating /<<PKGBUILDDIR>>/examples/Makefile
+-- CMAKE_CXX_FLAGS           = -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wdate-time -D_FORTIFY_SOURCE=2 -std=c++11 -O2
+-- CMAKE_SHARED_LINKER_FLAGS = -Wl,-z,relro -Wl,--no-as-needed
+-- CMAKE_REQUIRED_INCLUDES   = /usr/include/superlu
+-- 
+-- CMAKE_INSTALL_PREFIX     = /usr
+-- CMAKE_INSTALL_LIBDIR     = lib
+-- CMAKE_INSTALL_INCLUDEDIR = include
+-- CMAKE_INSTALL_DATADIR    = share
+-- CMAKE_INSTALL_BINDIR     = bin
+-- Generating '/<<PKGBUILDDIR>>/ArmadilloConfig.cmake'
+-- Generating '/<<PKGBUILDDIR>>/ArmadilloConfigVersion.cmake'
+-- Generating '/<<PKGBUILDDIR>>/InstallFiles/ArmadilloConfig.cmake'
+-- Generating '/<<PKGBUILDDIR>>/InstallFiles/ArmadilloConfigVersion.cmake'
+-- Copying /<<PKGBUILDDIR>>/misc/ to /<<PKGBUILDDIR>>/tmp/misc/
+-- Generating '/<<PKGBUILDDIR>>/tmp/misc/armadillo.pc'
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CMAKE_INpppSTALL_PREFIX_INITIALIZED_TO_DEFAULT
+    PKGCONFIG_EXECUTABLE
+    QMAKE_EXECUTABLE
+
+
+-- Build files have been written to: /<<PKGBUILDDIR>>
+/usr/bin/make
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/cmake -S/<<PKGBUILDDIR>> -B/<<PKGBUILDDIR>> --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /<<PKGBUILDDIR>>/CMakeFiles /<<PKGBUILDDIR>>/CMakeFiles/progress.marks
+/usr/bin/make -f CMakeFiles/Makefile2 all
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make -f CMakeFiles/armadillo.dir/build.make CMakeFiles/armadillo.dir/depend
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+cd /<<PKGBUILDDIR>> && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /<<PKGBUILDDIR>> /<<PKGBUILDDIR>> /<<PKGBUILDDIR>> /<<PKGBUILDDIR>> /<<PKGBUILDDIR>>/CMakeFiles/armadillo.dir/DependInfo.cmake --color=
+Scanning dependencies of target armadillo
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+/usr/bin/make -f CMakeFiles/armadillo.dir/build.make CMakeFiles/armadillo.dir/build
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+[ 50%] Building CXX object CMakeFiles/armadillo.dir/src/wrapper.cpp.o
+/usr/lib/ccache/arm-linux-gnueabihf-g++  -Darmadillo_EXPORTS -I/<<PKGBUILDDIR>>/tmp/include -I/usr/include/superlu  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wdate-time -D_FORTIFY_SOURCE=2 -std=c++11 -O2 -fPIC   -o CMakeFiles/armadillo.dir/src/wrapper.cpp.o -c /<<PKGBUILDDIR>>/src/wrapper.cpp
+[100%] Linking CXX shared library libarmadillo.so
+/usr/bin/cmake -E cmake_link_script CMakeFiles/armadillo.dir/link.txt --verbose=1
+/usr/lib/ccache/arm-linux-gnueabihf-g++ -fPIC -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wdate-time -D_FORTIFY_SOURCE=2 -std=c++11 -O2 -Wl,-z,relro -Wl,--no-as-needed -shared -Wl,-soname,libarmadillo.so.9 -o libarmadillo.so.9.200.7 CMakeFiles/armadillo.dir/src/wrapper.cpp.o -lblas -llapack -larpack -lsuperlu 
+/usr/bin/cmake -E cmake_symlink_library libarmadillo.so.9.200.7 libarmadillo.so.9 libarmadillo.so
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+[100%] Built target armadillo
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+/usr/bin/cmake -E cmake_progress_start /<<PKGBUILDDIR>>/CMakeFiles 0
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+touch build-stamp
+ fakeroot debian/rules binary-arch
+dh_testdir
+dh_testroot
+dh_prep --exclude ./src/include/armadillo_bits/dgemm_proto.hpp.orig
+dh_installdirs
+/usr/bin/make prefix=/<<PKGBUILDDIR>>/debian/tmp/usr install DESTDIR=debian/tmp
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/cmake -S/<<PKGBUILDDIR>> -B/<<PKGBUILDDIR>> --check-build-system CMakeFiles/Makefile.cmake 0
+/usr/bin/cmake -E cmake_progress_start /<<PKGBUILDDIR>>/CMakeFiles /<<PKGBUILDDIR>>/CMakeFiles/progress.marks
+/usr/bin/make -f CMakeFiles/Makefile2 all
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make -f CMakeFiles/armadillo.dir/build.make CMakeFiles/armadillo.dir/depend
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+cd /<<PKGBUILDDIR>> && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /<<PKGBUILDDIR>> /<<PKGBUILDDIR>> /<<PKGBUILDDIR>> /<<PKGBUILDDIR>> /<<PKGBUILDDIR>>/CMakeFiles/armadillo.dir/DependInfo.cmake --color=
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+/usr/bin/make -f CMakeFiles/armadillo.dir/build.make CMakeFiles/armadillo.dir/build
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Nothing to be done for 'CMakeFiles/armadillo.dir/build'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+[100%] Built target armadillo
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+/usr/bin/cmake -E cmake_progress_start /<<PKGBUILDDIR>>/CMakeFiles 0
+/usr/bin/make -f CMakeFiles/Makefile2 preinstall
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[2]: Nothing to be done for 'preinstall'.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+Install the project...
+/usr/bin/cmake -P cmake_install.cmake
+-- Install configuration: "None"
+-- Installing: debian/tmp/usr/include
+-- Installing: debian/tmp/usr/include/armadillo
+-- Installing: debian/tmp/usr/include/armadillo_bits
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_reverse_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_repmat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_schur.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_affmul_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_fft.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_zeros.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_find_unique.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_min_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Op_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_strans_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_sort_index.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_htrans_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_polyfit_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SizeCube_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/include_atlas.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_symmat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/GenSpecialiser.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mtOp_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/strip.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_repmat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_SymEigsSolver_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/arma_str.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_princomp.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_orth_null_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/operator_times.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_as_scalar.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/cond_rel_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_conv_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_shuffle_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpGlue_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_dot_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_DoubleShiftQR_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_strans_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_sqrtmat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_mean.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_normcdf.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_normalise_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_sort_index_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/operator_minus.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_GenEigsSolver_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_numel.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_syl_lyap.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/field_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_hypot_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/BaseCube_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_chi2rnd_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_trimat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_relational_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/typedef_mat_fixed.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_find_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_cumprod_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_GenEigsSolver_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/wrapper_arpack.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/diagmat_proxy.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spglue_join_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fft_engine.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_var_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_index_min.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/upgrade_val.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_symmat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/eOp_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_DenseGenMatProd_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_log_det.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/wrapper_lapack.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/wrapper_atlas.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_inv_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_randi.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mtOpCube_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_cube_slices_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_wishrnd_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_vectorise_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_cor_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/gmm_misc_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Row_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/compiler_extra.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_sprandn.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_sprandu.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_times_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/hdf5_misc.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_flip_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_trans.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/def_blas.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/typedef_elem.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/OpCube_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_reverse.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mul_herk.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/operator_schur.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_kron_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_resize_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/eop_core_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_trimat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_mvnrnd.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_normalise.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Base_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_strans_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Op_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_cov_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_shuffle.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_htrans_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_cube_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Row_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_shuffle_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_misc_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_field_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spdiagview_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/span.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_det.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_trig.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_diff_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_normalise_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/xtrans_mat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_fft2.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/constants_old.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/BaseCube_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_join.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/arma_static_check.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spglue_join_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/podarray_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_hypot_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/eglue_core_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_cross_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/eGlueCube_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_mixed_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_find.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_reshape_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/typedef_mat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_affmul_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_cumsum_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/ProxyCube.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_symmat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/eGlue_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SizeMat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_stddev_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_solve.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_inv_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_range_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_find_unique_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/sp_auxlib_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_conv_to.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_chol_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_intersect_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_trapz.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/memory.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_min.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_chi2rnd.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mtSpOp_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_resize_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Cube_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_svds.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_speye.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_min_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mp_misc.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_randn.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/eop_core_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_cumsum.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mtGlueCube_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/GlueCube_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_eig_pair.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/promote_type.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/eglue_core_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpValProxy_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_unique_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_trunc_log.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_repmat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/eGlue_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_princomp_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_rank.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_reshape.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SizeMat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/GenCube_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/include_hdf5.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/xvec_htrans_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/gmm_full_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_intersect_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_randg.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_max_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_trapz_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpOp_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_elem2_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_toeplitz_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_range_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_symmat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/operator_ostream.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_cx_scalar_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_normalise_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_prod.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_princomp_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/GlueCube_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_regspace.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_chol_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/diagview_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/operator_cube_times.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/arrayops_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_polyval.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/GenCube_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_vectorise.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/diskio_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_expmat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_SparseGenMatProd_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/typedef_elem_check.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_elem.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/xtrans_mat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_shift_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpCol_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/unwrap.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_all_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_SymEigsSolver_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spglue_schur_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/unwrap_spmat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_UpperHessenbergQR_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_DenseGenMatProd_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_normpdf.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_dot.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_min_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/access.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/OpCube_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_diagmat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpMat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_polyfit.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_relational_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/unwrap_cube.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_inplace_trans.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/def_atlas.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_all.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_chol.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_prod_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/compiler_setup_post.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mul_syrk.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/auxlib_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spglue_kron_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spglue_elem_helper_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_cor_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_cross.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Mat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_logmat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_cov_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_mean_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_trapz_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_hess.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_histc_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_cx_scalar_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_misc.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mul_gemm.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/gmm_misc_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_unique_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/arma_rng_cxx11.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_solve_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_misc_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/running_stat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpSubview_iterators_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Col_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/gmm_full_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_kron.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpMat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_mixed_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_trimat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/field_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_lu.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_min_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_pinv_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_diagmat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_kmeans.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpProxy.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_roots.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_join_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_shift.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/operator_cube_relational.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/operator_cube_minus.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_dotext_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/wall_clock_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_diagmat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_max_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_nonzeros.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpValProxy_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_mean_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spdiagview_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_solve_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_reshape_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_diff.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/running_stat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_repmat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_flip.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_atan2_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/arma_ostream_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_sort_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_UpperHessenbergQR_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_htrans_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_any_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_hist_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_hist_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mul_gemv.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/def_hdf5.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/compiler_setup.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_intersect.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_any_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/injector_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_toeplitz_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_TridiagEigen_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Glue_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_sort_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spglue_elem_helper_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_misc_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_inplace_strans.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_eigs_gen.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spglue_times_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_SparseGenMatProd_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_clamp_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/eOp_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_repelem_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_size.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_orth_null.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_n_unique.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_conv_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_nonzeros_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_mvnrnd_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_interp1.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/eOpCube_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_stddev.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_eye.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_nonzeros_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_cor_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_diff_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/auxlib_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_repmat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/arma_config.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/running_stat_vec_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/debug.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_conv.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/running_stat_vec_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_cov_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_reverse_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_reverse_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_roots_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_cumprod.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/traits.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_diagvec_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_field_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_min_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_index_max.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_var_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_cumprod_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spglue_kron_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_cor_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_chi2rnd_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_norm.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpRow_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_trunc_exp.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_var_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_vectorise_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spglue_times_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_prod_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mtOp_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpGlue_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_elem1_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_repelem.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_mean_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_toeplitz.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mtGlue_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpBase_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_sqrtmat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_kron_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_repelem_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_sort.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_each_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/include_superlu.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_expmat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_diagvec_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_cross_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_histc.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_fft_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_spones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_unique.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_UpperHessenbergEigen_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/arma_rng.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/operator_relational.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_diagvec.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/sympd_helper.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/arma_forward.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/diagview_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_elem2_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_sum_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/constants.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_sum_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_find_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_approx_equal.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/xvec_htrans_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spglue_minus_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mul_gemm_mixed.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_logmat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_hist.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/MapMat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_DoubleShiftQR_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_eig_gen.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_orth_null_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_median.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_relational_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_min_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_mvnrnd_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_index_min_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_any.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_diagmat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/distr_param.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/eop_aux.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_cube_slices_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_histc_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spglue_minus_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_misc_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/operator_plus.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_reverse_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_fft_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/cond_rel_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/gmm_diag_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_randu.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_each_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_UpperHessenbergEigen_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpSubview_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_cube_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_sum.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_wishrnd.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_spsolve.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_cov_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_eps.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_pinv.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_sum_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mtOpCube_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_find_unique_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpRow_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_cond_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_max_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_norm_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Proxy.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_cumsum_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_expmat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_range.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_clamp_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_flip_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_max.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_cov.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpCol_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_all_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/restrictors.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_inv.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/operator_cube_plus.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spglue_plus_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_dotext_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_times_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mtGlue_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/sp_auxlib_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/wrapper_blas.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_eig_sym.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_resize.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_strans_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpSubview_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mtGlueCube_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_cube_each_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_cor.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/podarray_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/diskio_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/wrapper_superlu.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_median_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_polyfit_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_EigsSelect.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_qz.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_cond.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpMat_iterators_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_mean_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/band_helper.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Cube_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/operator_div.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_toeplitz_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_svd.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_pinv_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_cond_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_elem1_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/operator_cube_div.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_htrans_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_strans.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/wall_clock_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_accu.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_sort_index_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_index_max_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SizeCube_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_eigs_sym.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spglue_schur_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_stddev_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/eOpCube_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/arma_ostream_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_max_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_median_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_wishrnd_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/def_lapack.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/operator_cube_schur.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Gen_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_polyval_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_diagmat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_trimat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/injector_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpBase_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_sqrtmat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_toeplitz_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_index_min_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_trimat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_shift_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/arrayops_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/arma_version.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/def_arpack.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/SpOp_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_polyval_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/gmm_diag_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_TridiagEigen_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/subview_cube_each_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_norm_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Col_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Mat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_ones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/arma_cmath.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_var.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_max_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_symmat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/config.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_cx_attrib.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/def_superlu.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/newarp_SortEigenvalue.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_clamp.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_relational_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_normalise_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_join_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Gen_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Base_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_index_max_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_roots_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/MapMat_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_sum_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_atan2_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spglue_plus_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/Glue_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_qr.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/arma_rng_cxx98.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_logmat_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_hist_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/eGlueCube_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_hist_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/mtSpOp_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/glue_max_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/spop_var_meat.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/op_dot_bones.hpp
+-- Installing: debian/tmp/usr/include/armadillo_bits/fn_trace.hpp
+-- Installing: debian/tmp/usr/lib/libarmadillo.so.9.200.7
+-- Installing: debian/tmp/usr/lib/libarmadillo.so.9
+-- Installing: debian/tmp/usr/lib/libarmadillo.so
+-- Installing: debian/tmp/usr/share/Armadillo/CMake/ArmadilloLibraryDepends.cmake
+-- Installing: debian/tmp/usr/share/Armadillo/CMake/ArmadilloLibraryDepends-none.cmake
+-- Installing: debian/tmp/usr/share/Armadillo/CMake/ArmadilloConfig.cmake
+-- Installing: debian/tmp/usr/share/Armadillo/CMake/ArmadilloConfigVersion.cmake
+-- Installing: debian/tmp/usr/lib/pkgconfig/armadillo.pc
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+dh_testdir -a
+dh_testroot -a
+dh_installchangelogs -a
+dh_installdocs -a
+dh_installexamples -a
+dh_install -a --sourcedir=debian/tmp
+dh_installman -a
+dh_link -a
+dh_strip -a
+dh_compress -a -X.cpp
+dh_fixperms -a
+dh_makeshlibs -a -V
+dh_installdeb -a
+dh_shlibdeps -a
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/libarmadillo9/usr/lib/libarmadillo.so.9.200.7 was not linked against libstdc++.so.6 (it uses none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/libarmadillo9/usr/lib/libarmadillo.so.9.200.7 was not linked against libgcc_s.so.1 (it uses none of the library's symbols)
+dh_gencontrol -a
+dh_md5sums -a
+dh_builddeb -a
+dpkg-deb: building package 'libarmadillo-dev' in '../libarmadillo-dev_9.200.7+dfsg-1_armhf.deb'.
+dpkg-deb: building package 'libarmadillo9-dbgsym' in '../libarmadillo9-dbgsym_9.200.7+dfsg-1_armhf.deb'.
+dpkg-deb: building package 'libarmadillo9' in '../libarmadillo9_9.200.7+dfsg-1_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../armadillo_9.200.7+dfsg-1_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-source: info: using options from armadillo-9.200.7+dfsg/debian/source/options: --extend-diff-ignore=^\.travis\.yml$
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T05:38:49Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+armadillo_9.200.7+dfsg-1_armhf.changes:
+---------------------------------------
+
+Format: 1.8
+Date: Mon, 21 Jan 2019 21:22:55 +0530
+Source: armadillo
+Binary: libarmadillo-dev libarmadillo9 libarmadillo9-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 1:9.200.7+dfsg-1
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>
+Changed-By: Kumar Appaiah <akumar@debian.org>
+Description:
+ libarmadillo-dev - streamlined C++ linear algebra library - Headers
+ libarmadillo9 - streamlined C++ linear algebra library
+Closes: 920015
+Changes:
+ armadillo (1:9.200.7+dfsg-1) unstable; urgency=medium
+ .
+   * New upstream release (Closes: #920015)
+Checksums-Sha1:
+ 0ff70b2a700ae96582944c03ed7c62132e30998b 6070 armadillo_9.200.7+dfsg-1_armhf.buildinfo
+ 63975b28a391fe7201200429e62397045a3fae64 360076 libarmadillo-dev_9.200.7+dfsg-1_armhf.deb
+ 5c63b08c9edbb8f8979bc6fa94eb9f57fd7b0949 44736 libarmadillo9-dbgsym_9.200.7+dfsg-1_armhf.deb
+ 9c7df5d3d06481de36c44f22938597cf86cdb53d 87024 libarmadillo9_9.200.7+dfsg-1_armhf.deb
+Checksums-Sha256:
+ 355f7d970f6ca8b08520df510f128c120082eb1fd76350631ec2f515d96b375e 6070 armadillo_9.200.7+dfsg-1_armhf.buildinfo
+ 4a53bb088c2ff4ec383da73b260036263a075298289f61568138c4f99684a3b0 360076 libarmadillo-dev_9.200.7+dfsg-1_armhf.deb
+ 3d6955b07be30fbb8ae092c1616cdc5dcd98ae380b1ba1be3b2c931dcc4ac4ad 44736 libarmadillo9-dbgsym_9.200.7+dfsg-1_armhf.deb
+ 4ba4c0f444e6b81db5e6799db86da895aa47bf2cae6684bcc0affa3c8afa24f7 87024 libarmadillo9_9.200.7+dfsg-1_armhf.deb
+Files:
+ d561b68a7e659b7c92b5240d8858d371 6070 libs optional armadillo_9.200.7+dfsg-1_armhf.buildinfo
+ 20b2d658df5211e0ff2d671e25e2b75a 360076 libdevel optional libarmadillo-dev_9.200.7+dfsg-1_armhf.deb
+ 4f016446f2f1691651971e7302fe6963 44736 debug optional libarmadillo9-dbgsym_9.200.7+dfsg-1_armhf.deb
+ c6b24241993e0464f0f318e4dc2e812d 87024 libs optional libarmadillo9_9.200.7+dfsg-1_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: armadillo
+Binary: libarmadillo-dev libarmadillo9
+Architecture: armhf
+Version: 1:9.200.7+dfsg-1
+Checksums-Md5:
+ 20b2d658df5211e0ff2d671e25e2b75a 360076 libarmadillo-dev_9.200.7+dfsg-1_armhf.deb
+ 4f016446f2f1691651971e7302fe6963 44736 libarmadillo9-dbgsym_9.200.7+dfsg-1_armhf.deb
+ c6b24241993e0464f0f318e4dc2e812d 87024 libarmadillo9_9.200.7+dfsg-1_armhf.deb
+Checksums-Sha1:
+ 63975b28a391fe7201200429e62397045a3fae64 360076 libarmadillo-dev_9.200.7+dfsg-1_armhf.deb
+ 5c63b08c9edbb8f8979bc6fa94eb9f57fd7b0949 44736 libarmadillo9-dbgsym_9.200.7+dfsg-1_armhf.deb
+ 9c7df5d3d06481de36c44f22938597cf86cdb53d 87024 libarmadillo9_9.200.7+dfsg-1_armhf.deb
+Checksums-Sha256:
+ 4a53bb088c2ff4ec383da73b260036263a075298289f61568138c4f99684a3b0 360076 libarmadillo-dev_9.200.7+dfsg-1_armhf.deb
+ 3d6955b07be30fbb8ae092c1616cdc5dcd98ae380b1ba1be3b2c931dcc4ac4ad 44736 libarmadillo9-dbgsym_9.200.7+dfsg-1_armhf.deb
+ 4ba4c0f444e6b81db5e6799db86da895aa47bf2cae6684bcc0affa3c8afa24f7 87024 libarmadillo9_9.200.7+dfsg-1_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Fri, 01 Mar 2019 05:38:49 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ cmake (= 3.13.4-1),
+ cmake-data (= 3.13.4-1),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffstat (= 1.62-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.52-5),
+ libarchive-zip-perl (= 1.64-1),
+ libarchive13 (= 3.3.3-4),
+ libarpack2 (= 3.7.0-1),
+ libarpack2-dev (= 3.7.0-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libblas-dev (= 3.8.0-2),
+ libblas3 (= 3.8.0-2),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcom-err2 (= 1.44.5-1),
+ libcroco3 (= 0.6.12-3),
+ libcurl4 (= 7.64.0-1),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libexpat1 (= 2.2.6-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libgfortran5 (= 8.3.0-2),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgnutls30 (= 3.6.6-2),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libgssapi-krb5-2 (= 1.17-2),
+ libhogweed4 (= 3.4.1-1),
+ libicu63 (= 63.1-6),
+ libidn2-0 (= 2.0.5-1),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ libjsoncpp1 (= 1.7.4-3),
+ libk5crypto3 (= 1.17-2),
+ libkeyutils1 (= 1.6-4),
+ libkrb5-3 (= 1.17-2),
+ libkrb5support0 (= 1.17-2),
+ liblapack-dev (= 3.8.0-2),
+ liblapack3 (= 3.8.0-2),
+ libldap-2.4-2 (= 2.4.47+dfsg-3),
+ libldap-common (= 2.4.47+dfsg-3),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libnettle6 (= 3.4.1-1),
+ libnghttp2-14 (= 1.36.0-2),
+ libp11-kit0 (= 0.23.15-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libprocps7 (= 2:3.3.15-2),
+ libpsl5 (= 0.20.2-2),
+ libquadmath0 (= 8.3.0-2),
+ librhash0 (= 1.3.8-1),
+ librtmp1 (= 2.4+20151223.gitfa8646d.1-2),
+ libsasl2-2 (= 2.1.27+dfsg-1),
+ libsasl2-modules-db (= 2.1.27+dfsg-1),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libssh2-1 (= 1.8.0-2),
+ libssl1.1 (= 1.1.1b-1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsuperlu-dev (= 5.2.1+dfsg1-4),
+ libsuperlu5 (= 5.2.1+dfsg1-4),
+ libsystemd0 (= 241-1),
+ libtasn1-6 (= 4.13-3),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libuv1 (= 1.24.1-1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ libzstd1 (= 1.3.8+dfsg-3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ lsb-base (= 10.2018112800),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ po-debconf (= 1.0.21),
+ procps (= 2:3.3.15-2),
+ quilt (= 0.65-3),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1548085975"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+libarmadillo-dev_9.200.7+dfsg-1_armhf.deb
+-----------------------------------------
+
+ new Debian package, version 2.0.
+ size 360076 bytes: control archive=13572 bytes.
+     931 bytes,    21 lines      control              
+   44205 bytes,   558 lines      md5sums              
+ Package: libarmadillo-dev
+ Source: armadillo
+ Version: 1:9.200.7+dfsg-1
+ Architecture: armhf
+ Maintainer: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>
+ Installed-Size: 4690
+ Depends: libarmadillo9 (= 1:9.200.7+dfsg-1), libarpack2-dev, libhdf5-dev, libsuperlu-dev (>= 5.2)
+ Suggests: libitpp-dev
+ Conflicts: libarmadillo-doc
+ Replaces: libarmadillo-doc (<= 1.1.2-1)
+ Section: libdevel
+ Priority: optional
+ Homepage: http://arma.sourceforge.net/
+ Description: streamlined C++ linear algebra library - Headers
+  Armadillo is a streamlined C++ linear algebra library (matrix maths)
+  aiming towards a good balance between speed and ease of use. Integer,
+  floating point and complex numbers are supported, as well as a subset
+  of trigonometric and statistics functions. Optional integration with
+  LAPACK and ATLAS libraries is also provided.
+  .
+  This package has the development libraries and headers for Armadillo.
+
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/include/
+-rw-r--r-- root/root     28414 2016-06-16 16:19 ./usr/include/armadillo
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/include/armadillo_bits/
+-rw-r--r-- root/root      2383 2016-06-16 16:19 ./usr/include/armadillo_bits/BaseCube_bones.hpp
+-rw-r--r-- root/root      3731 2016-06-16 16:19 ./usr/include/armadillo_bits/BaseCube_meat.hpp
+-rw-r--r-- root/root      5200 2016-06-16 16:19 ./usr/include/armadillo_bits/Base_bones.hpp
+-rw-r--r-- root/root     13113 2016-06-16 16:19 ./usr/include/armadillo_bits/Base_meat.hpp
+-rw-r--r-- root/root     10231 2016-06-16 16:19 ./usr/include/armadillo_bits/Col_bones.hpp
+-rw-r--r-- root/root     34656 2016-06-16 16:19 ./usr/include/armadillo_bits/Col_meat.hpp
+-rw-r--r-- root/root     26421 2016-06-16 16:19 ./usr/include/armadillo_bits/Cube_bones.hpp
+-rw-r--r-- root/root    120277 2016-06-16 16:19 ./usr/include/armadillo_bits/Cube_meat.hpp
+-rw-r--r-- root/root      2320 2016-06-16 16:19 ./usr/include/armadillo_bits/GenCube_bones.hpp
+-rw-r--r-- root/root      5327 2016-06-16 16:19 ./usr/include/armadillo_bits/GenCube_meat.hpp
+-rw-r--r-- root/root      1723 2016-06-16 16:19 ./usr/include/armadillo_bits/GenSpecialiser.hpp
+-rw-r--r-- root/root      2398 2016-06-16 16:19 ./usr/include/armadillo_bits/Gen_bones.hpp
+-rw-r--r-- root/root      7185 2016-06-16 16:19 ./usr/include/armadillo_bits/Gen_meat.hpp
+-rw-r--r-- root/root      1374 2016-06-16 16:19 ./usr/include/armadillo_bits/GlueCube_bones.hpp
+-rw-r--r-- root/root      1225 2016-06-16 16:19 ./usr/include/armadillo_bits/GlueCube_meat.hpp
+-rw-r--r-- root/root      3565 2016-06-16 16:19 ./usr/include/armadillo_bits/Glue_bones.hpp
+-rw-r--r-- root/root      1359 2016-06-16 16:19 ./usr/include/armadillo_bits/Glue_meat.hpp
+-rw-r--r-- root/root      7561 2016-06-16 16:19 ./usr/include/armadillo_bits/MapMat_bones.hpp
+-rw-r--r-- root/root     35503 2016-06-16 16:19 ./usr/include/armadillo_bits/MapMat_meat.hpp
+-rw-r--r-- root/root     41676 2016-06-16 16:19 ./usr/include/armadillo_bits/Mat_bones.hpp
+-rw-r--r-- root/root    185733 2016-06-16 16:19 ./usr/include/armadillo_bits/Mat_meat.hpp
+-rw-r--r-- root/root      2562 2016-06-16 16:19 ./usr/include/armadillo_bits/OpCube_bones.hpp
+-rw-r--r-- root/root      2841 2016-06-16 16:19 ./usr/include/armadillo_bits/OpCube_meat.hpp
+-rw-r--r-- root/root      4929 2016-06-16 16:19 ./usr/include/armadillo_bits/Op_bones.hpp
+-rw-r--r-- root/root      2133 2016-06-16 16:19 ./usr/include/armadillo_bits/Op_meat.hpp
+-rw-r--r-- root/root     80033 2016-06-16 16:19 ./usr/include/armadillo_bits/Proxy.hpp
+-rw-r--r-- root/root     22986 2016-06-16 16:19 ./usr/include/armadillo_bits/ProxyCube.hpp
+-rw-r--r-- root/root     10220 2016-06-16 16:19 ./usr/include/armadillo_bits/Row_bones.hpp
+-rw-r--r-- root/root     34594 2016-06-16 16:19 ./usr/include/armadillo_bits/Row_meat.hpp
+-rw-r--r-- root/root      1541 2016-06-16 16:19 ./usr/include/armadillo_bits/SizeCube_bones.hpp
+-rw-r--r-- root/root      3299 2016-06-16 16:19 ./usr/include/armadillo_bits/SizeCube_meat.hpp
+-rw-r--r-- root/root      1479 2016-06-16 16:19 ./usr/include/armadillo_bits/SizeMat_bones.hpp
+-rw-r--r-- root/root      2704 2016-06-16 16:19 ./usr/include/armadillo_bits/SizeMat_meat.hpp
+-rw-r--r-- root/root      3312 2016-06-16 16:19 ./usr/include/armadillo_bits/SpBase_bones.hpp
+-rw-r--r-- root/root      6948 2016-06-16 16:19 ./usr/include/armadillo_bits/SpBase_meat.hpp
+-rw-r--r-- root/root      2700 2016-06-16 16:19 ./usr/include/armadillo_bits/SpCol_bones.hpp
+-rw-r--r-- root/root      8241 2016-06-16 16:19 ./usr/include/armadillo_bits/SpCol_meat.hpp
+-rw-r--r-- root/root      1742 2016-06-16 16:19 ./usr/include/armadillo_bits/SpGlue_bones.hpp
+-rw-r--r-- root/root      1594 2016-06-16 16:19 ./usr/include/armadillo_bits/SpGlue_meat.hpp
+-rw-r--r-- root/root     32491 2016-06-16 16:19 ./usr/include/armadillo_bits/SpMat_bones.hpp
+-rw-r--r-- root/root     25327 2016-06-16 16:19 ./usr/include/armadillo_bits/SpMat_iterators_meat.hpp
+-rw-r--r-- root/root    137081 2016-06-16 16:19 ./usr/include/armadillo_bits/SpMat_meat.hpp
+-rw-r--r-- root/root      2105 2016-06-16 16:19 ./usr/include/armadillo_bits/SpOp_bones.hpp
+-rw-r--r-- root/root      1674 2016-06-16 16:19 ./usr/include/armadillo_bits/SpOp_meat.hpp
+-rw-r--r-- root/root     19014 2016-06-16 16:19 ./usr/include/armadillo_bits/SpProxy.hpp
+-rw-r--r-- root/root      2697 2016-06-16 16:19 ./usr/include/armadillo_bits/SpRow_bones.hpp
+-rw-r--r-- root/root      8959 2016-06-16 16:19 ./usr/include/armadillo_bits/SpRow_meat.hpp
+-rw-r--r-- root/root     16040 2016-06-16 16:19 ./usr/include/armadillo_bits/SpSubview_bones.hpp
+-rw-r--r-- root/root     32307 2016-06-16 16:19 ./usr/include/armadillo_bits/SpSubview_iterators_meat.hpp
+-rw-r--r-- root/root     41402 2016-06-16 16:19 ./usr/include/armadillo_bits/SpSubview_meat.hpp
+-rw-r--r-- root/root      2651 2016-06-16 16:19 ./usr/include/armadillo_bits/SpValProxy_bones.hpp
+-rw-r--r-- root/root      6557 2016-06-16 16:19 ./usr/include/armadillo_bits/SpValProxy_meat.hpp
+-rw-r--r-- root/root      2125 2016-06-16 16:19 ./usr/include/armadillo_bits/access.hpp
+-rw-r--r-- root/root     13212 2016-06-16 16:19 ./usr/include/armadillo_bits/arma_cmath.hpp
+-rw-r--r-- root/root      4024 2016-06-16 16:19 ./usr/include/armadillo_bits/arma_config.hpp
+-rw-r--r-- root/root     12079 2016-06-16 16:19 ./usr/include/armadillo_bits/arma_forward.hpp
+-rw-r--r-- root/root      2998 2016-06-16 16:19 ./usr/include/armadillo_bits/arma_ostream_bones.hpp
+-rw-r--r-- root/root     18203 2016-06-16 16:19 ./usr/include/armadillo_bits/arma_ostream_meat.hpp
+-rw-r--r-- root/root     11365 2016-06-16 16:19 ./usr/include/armadillo_bits/arma_rng.hpp
+-rw-r--r-- root/root      4867 2016-06-16 16:19 ./usr/include/armadillo_bits/arma_rng_cxx11.hpp
+-rw-r--r-- root/root      3856 2016-06-16 16:19 ./usr/include/armadillo_bits/arma_rng_cxx98.hpp
+-rw-r--r-- root/root      1588 2016-06-16 16:19 ./usr/include/armadillo_bits/arma_static_check.hpp
+-rw-r--r-- root/root     11121 2016-06-16 16:19 ./usr/include/armadillo_bits/arma_str.hpp
+-rw-r--r-- root/root      1467 2016-06-16 16:19 ./usr/include/armadillo_bits/arma_version.hpp
+-rw-r--r-- root/root      5304 2016-06-16 16:19 ./usr/include/armadillo_bits/arrayops_bones.hpp
+-rw-r--r-- root/root     17147 2016-06-16 16:19 ./usr/include/armadillo_bits/arrayops_meat.hpp
+-rw-r--r-- root/root     15405 2016-06-16 16:19 ./usr/include/armadillo_bits/auxlib_bones.hpp
+-rw-r--r-- root/root    151903 2016-06-16 16:19 ./usr/include/armadillo_bits/auxlib_meat.hpp
+-rw-r--r-- root/root      9571 2016-06-16 16:19 ./usr/include/armadillo_bits/band_helper.hpp
+-rw-r--r-- root/root      1194 2016-06-16 16:19 ./usr/include/armadillo_bits/compiler_extra.hpp
+-rw-r--r-- root/root     16803 2016-06-16 16:19 ./usr/include/armadillo_bits/compiler_setup.hpp
+-rw-r--r-- root/root       815 2016-06-16 16:19 ./usr/include/armadillo_bits/compiler_setup_post.hpp
+-rw-r--r-- root/root      1295 2016-06-16 16:19 ./usr/include/armadillo_bits/cond_rel_bones.hpp
+-rw-r--r-- root/root      2002 2016-06-16 16:19 ./usr/include/armadillo_bits/cond_rel_meat.hpp
+-rw-r--r-- root/root     10140 2019-01-21 15:52 ./usr/include/armadillo_bits/config.hpp
+-rw-r--r-- root/root     10845 2016-06-16 16:19 ./usr/include/armadillo_bits/constants.hpp
+-rw-r--r-- root/root      6993 2016-06-16 16:19 ./usr/include/armadillo_bits/constants_old.hpp
+-rw-r--r-- root/root     31784 2016-06-16 16:19 ./usr/include/armadillo_bits/debug.hpp
+-rw-r--r-- root/root      5819 2016-06-16 16:19 ./usr/include/armadillo_bits/def_arpack.hpp
+-rw-r--r-- root/root      9041 2016-06-16 16:19 ./usr/include/armadillo_bits/def_atlas.hpp
+-rw-r--r-- root/root      5647 2016-06-16 16:19 ./usr/include/armadillo_bits/def_blas.hpp
+-rw-r--r-- root/root      6792 2016-06-16 16:19 ./usr/include/armadillo_bits/def_hdf5.hpp
+-rw-r--r-- root/root     39012 2016-06-16 16:19 ./usr/include/armadillo_bits/def_lapack.hpp
+-rw-r--r-- root/root      4068 2016-06-16 16:19 ./usr/include/armadillo_bits/def_superlu.hpp
+-rw-r--r-- root/root     15766 2016-06-16 16:19 ./usr/include/armadillo_bits/diagmat_proxy.hpp
+-rw-r--r-- root/root      3668 2016-06-16 16:19 ./usr/include/armadillo_bits/diagview_bones.hpp
+-rw-r--r-- root/root     21581 2016-06-16 16:19 ./usr/include/armadillo_bits/diagview_meat.hpp
+-rw-r--r-- root/root     12204 2016-06-16 16:19 ./usr/include/armadillo_bits/diskio_bones.hpp
+-rw-r--r-- root/root    106029 2016-06-16 16:19 ./usr/include/armadillo_bits/diskio_meat.hpp
+-rw-r--r-- root/root      1292 2016-06-16 16:19 ./usr/include/armadillo_bits/distr_param.hpp
+-rw-r--r-- root/root      2071 2016-06-16 16:19 ./usr/include/armadillo_bits/eGlueCube_bones.hpp
+-rw-r--r-- root/root      4160 2016-06-16 16:19 ./usr/include/armadillo_bits/eGlueCube_meat.hpp
+-rw-r--r-- root/root      2207 2016-06-16 16:19 ./usr/include/armadillo_bits/eGlue_bones.hpp
+-rw-r--r-- root/root      3786 2016-06-16 16:19 ./usr/include/armadillo_bits/eGlue_meat.hpp
+-rw-r--r-- root/root      2902 2016-06-16 16:19 ./usr/include/armadillo_bits/eOpCube_bones.hpp
+-rw-r--r-- root/root      3858 2016-06-16 16:19 ./usr/include/armadillo_bits/eOpCube_meat.hpp
+-rw-r--r-- root/root      2472 2016-06-16 16:19 ./usr/include/armadillo_bits/eOp_bones.hpp
+-rw-r--r-- root/root      3034 2016-06-16 16:19 ./usr/include/armadillo_bits/eOp_meat.hpp
+-rw-r--r-- root/root      3020 2016-06-16 16:19 ./usr/include/armadillo_bits/eglue_core_bones.hpp
+-rw-r--r-- root/root     47137 2016-06-16 16:19 ./usr/include/armadillo_bits/eglue_core_meat.hpp
+-rw-r--r-- root/root     17909 2016-06-16 16:19 ./usr/include/armadillo_bits/eop_aux.hpp
+-rw-r--r-- root/root      6994 2016-06-16 16:19 ./usr/include/armadillo_bits/eop_core_bones.hpp
+-rw-r--r-- root/root     30857 2016-06-16 16:19 ./usr/include/armadillo_bits/eop_core_meat.hpp
+-rw-r--r-- root/root     11016 2016-06-16 16:19 ./usr/include/armadillo_bits/fft_engine.hpp
+-rw-r--r-- root/root     15975 2016-06-16 16:19 ./usr/include/armadillo_bits/field_bones.hpp
+-rw-r--r-- root/root     61755 2016-06-16 16:19 ./usr/include/armadillo_bits/field_meat.hpp
+-rw-r--r-- root/root     20147 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_accu.hpp
+-rw-r--r-- root/root      2403 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_all.hpp
+-rw-r--r-- root/root      2403 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_any.hpp
+-rw-r--r-- root/root     14195 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_approx_equal.hpp
+-rw-r--r-- root/root     12719 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_as_scalar.hpp
+-rw-r--r-- root/root      3717 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_chi2rnd.hpp
+-rw-r--r-- root/root      2005 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_chol.hpp
+-rw-r--r-- root/root      1906 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_clamp.hpp
+-rw-r--r-- root/root      1363 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_cond.hpp
+-rw-r--r-- root/root      2162 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_conv.hpp
+-rw-r--r-- root/root     17558 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_conv_to.hpp
+-rw-r--r-- root/root      1527 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_cor.hpp
+-rw-r--r-- root/root      1525 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_cov.hpp
+-rw-r--r-- root/root      1141 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_cross.hpp
+-rw-r--r-- root/root      1457 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_cumprod.hpp
+-rw-r--r-- root/root      1449 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_cumsum.hpp
+-rw-r--r-- root/root      3845 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_det.hpp
+-rw-r--r-- root/root      2197 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_diagmat.hpp
+-rw-r--r-- root/root      1450 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_diagvec.hpp
+-rw-r--r-- root/root      1366 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_diff.hpp
+-rw-r--r-- root/root      7038 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_dot.hpp
+-rw-r--r-- root/root      2792 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_eig_gen.hpp
+-rw-r--r-- root/root      3041 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_eig_pair.hpp
+-rw-r--r-- root/root      3510 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_eig_sym.hpp
+-rw-r--r-- root/root      3520 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_eigs_gen.hpp
+-rw-r--r-- root/root      3320 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_eigs_sym.hpp
+-rw-r--r-- root/root     20170 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_elem.hpp
+-rw-r--r-- root/root      2231 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_eps.hpp
+-rw-r--r-- root/root      2304 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_expmat.hpp
+-rw-r--r-- root/root      2782 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_eye.hpp
+-rw-r--r-- root/root      2805 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_fft.hpp
+-rw-r--r-- root/root      3049 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_fft2.hpp
+-rw-r--r-- root/root      4788 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_find.hpp
+-rw-r--r-- root/root      1581 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_find_unique.hpp
+-rw-r--r-- root/root      1691 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_flip.hpp
+-rw-r--r-- root/root      3643 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_hess.hpp
+-rw-r--r-- root/root      2050 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_hist.hpp
+-rw-r--r-- root/root      1724 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_histc.hpp
+-rw-r--r-- root/root      3274 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_index_max.hpp
+-rw-r--r-- root/root      3274 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_index_min.hpp
+-rw-r--r-- root/root      2595 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_inplace_strans.hpp
+-rw-r--r-- root/root      2442 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_inplace_trans.hpp
+-rw-r--r-- root/root      8822 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_interp1.hpp
+-rw-r--r-- root/root      1605 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_intersect.hpp
+-rw-r--r-- root/root      7737 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_inv.hpp
+-rw-r--r-- root/root      5466 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_join.hpp
+-rw-r--r-- root/root      1554 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_kmeans.hpp
+-rw-r--r-- root/root      2385 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_kron.hpp
+-rw-r--r-- root/root      3165 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_log_det.hpp
+-rw-r--r-- root/root      3486 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_logmat.hpp
+-rw-r--r-- root/root      2269 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_lu.hpp
+-rw-r--r-- root/root      4812 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_max.hpp
+-rw-r--r-- root/root      4151 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_mean.hpp
+-rw-r--r-- root/root      2042 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_median.hpp
+-rw-r--r-- root/root      4811 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_min.hpp
+-rw-r--r-- root/root     14236 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_misc.hpp
+-rw-r--r-- root/root      2731 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_mvnrnd.hpp
+-rw-r--r-- root/root      3291 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_n_unique.hpp
+-rw-r--r-- root/root      1284 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_nonzeros.hpp
+-rw-r--r-- root/root      7189 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_norm.hpp
+-rw-r--r-- root/root      2186 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_normalise.hpp
+-rw-r--r-- root/root      5776 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_normcdf.hpp
+-rw-r--r-- root/root      5294 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_normpdf.hpp
+-rw-r--r-- root/root      1780 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_numel.hpp
+-rw-r--r-- root/root      3830 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_ones.hpp
+-rw-r--r-- root/root      2410 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_orth_null.hpp
+-rw-r--r-- root/root      2221 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_pinv.hpp
+-rw-r--r-- root/root      1742 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_polyfit.hpp
+-rw-r--r-- root/root      1248 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_polyval.hpp
+-rw-r--r-- root/root      4450 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_princomp.hpp
+-rw-r--r-- root/root      2928 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_prod.hpp
+-rw-r--r-- root/root      2040 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_qr.hpp
+-rw-r--r-- root/root      1868 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_qz.hpp
+-rw-r--r-- root/root      6611 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_randg.hpp
+-rw-r--r-- root/root      5410 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_randi.hpp
+-rw-r--r-- root/root      4355 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_randn.hpp
+-rw-r--r-- root/root      4329 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_randu.hpp
+-rw-r--r-- root/root      1898 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_range.hpp
+-rw-r--r-- root/root      1783 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_rank.hpp
+-rw-r--r-- root/root      5705 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_regspace.hpp
+-rw-r--r-- root/root      1330 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_repelem.hpp
+-rw-r--r-- root/root      1323 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_repmat.hpp
+-rw-r--r-- root/root      4322 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_reshape.hpp
+-rw-r--r-- root/root      2444 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_resize.hpp
+-rw-r--r-- root/root      2009 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_reverse.hpp
+-rw-r--r-- root/root      1616 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_roots.hpp
+-rw-r--r-- root/root      2500 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_schur.hpp
+-rw-r--r-- root/root      1618 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_shift.hpp
+-rw-r--r-- root/root      1345 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_shuffle.hpp
+-rw-r--r-- root/root      3497 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_size.hpp
+-rw-r--r-- root/root      8770 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_solve.hpp
+-rw-r--r-- root/root      3118 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_sort.hpp
+-rw-r--r-- root/root      3710 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_sort_index.hpp
+-rw-r--r-- root/root      2110 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_speye.hpp
+-rw-r--r-- root/root      1346 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_spones.hpp
+-rw-r--r-- root/root      2850 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_sprandn.hpp
+-rw-r--r-- root/root      2816 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_sprandu.hpp
+-rw-r--r-- root/root      5770 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_spsolve.hpp
+-rw-r--r-- root/root      3365 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_sqrtmat.hpp
+-rw-r--r-- root/root      2248 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_stddev.hpp
+-rw-r--r-- root/root      2622 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_strans.hpp
+-rw-r--r-- root/root      3870 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_sum.hpp
+-rw-r--r-- root/root      4704 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_svd.hpp
+-rw-r--r-- root/root      9154 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_svds.hpp
+-rw-r--r-- root/root      2604 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_syl_lyap.hpp
+-rw-r--r-- root/root      3516 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_symmat.hpp
+-rw-r--r-- root/root      1533 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_toeplitz.hpp
+-rw-r--r-- root/root     11082 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_trace.hpp
+-rw-r--r-- root/root      1989 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_trans.hpp
+-rw-r--r-- root/root      1426 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_trapz.hpp
+-rw-r--r-- root/root      8758 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_trig.hpp
+-rw-r--r-- root/root      3407 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_trimat.hpp
+-rw-r--r-- root/root      1904 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_trunc_exp.hpp
+-rw-r--r-- root/root      2027 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_trunc_log.hpp
+-rw-r--r-- root/root      1026 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_unique.hpp
+-rw-r--r-- root/root      3535 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_var.hpp
+-rw-r--r-- root/root      1677 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_vectorise.hpp
+-rw-r--r-- root/root      4214 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_wishrnd.hpp
+-rw-r--r-- root/root      4705 2016-06-16 16:19 ./usr/include/armadillo_bits/fn_zeros.hpp
+-rw-r--r-- root/root      1547 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_affmul_bones.hpp
+-rw-r--r-- root/root     12978 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_affmul_meat.hpp
+-rw-r--r-- root/root      1467 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_atan2_bones.hpp
+-rw-r--r-- root/root      5681 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_atan2_meat.hpp
+-rw-r--r-- root/root      1371 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_conv_bones.hpp
+-rw-r--r-- root/root      8897 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_conv_meat.hpp
+-rw-r--r-- root/root      1315 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_cor_bones.hpp
+-rw-r--r-- root/root      4708 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_cor_meat.hpp
+-rw-r--r-- root/root      1315 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_cov_bones.hpp
+-rw-r--r-- root/root      3842 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_cov_meat.hpp
+-rw-r--r-- root/root       972 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_cross_bones.hpp
+-rw-r--r-- root/root      2412 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_cross_meat.hpp
+-rw-r--r-- root/root      1293 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_hist_bones.hpp
+-rw-r--r-- root/root      6100 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_hist_meat.hpp
+-rw-r--r-- root/root      1292 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_histc_bones.hpp
+-rw-r--r-- root/root      4397 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_histc_meat.hpp
+-rw-r--r-- root/root      1467 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_hypot_bones.hpp
+-rw-r--r-- root/root      4113 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_hypot_meat.hpp
+-rw-r--r-- root/root      1225 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_intersect_bones.hpp
+-rw-r--r-- root/root      3395 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_intersect_meat.hpp
+-rw-r--r-- root/root      1656 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_join_bones.hpp
+-rw-r--r-- root/root      4701 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_join_meat.hpp
+-rw-r--r-- root/root      1427 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_kron_bones.hpp
+-rw-r--r-- root/root      3504 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_kron_meat.hpp
+-rw-r--r-- root/root      1762 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_max_bones.hpp
+-rw-r--r-- root/root      6617 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_max_meat.hpp
+-rw-r--r-- root/root      1762 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_min_bones.hpp
+-rw-r--r-- root/root      6617 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_min_meat.hpp
+-rw-r--r-- root/root      2719 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_mixed_bones.hpp
+-rw-r--r-- root/root     15254 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_mixed_meat.hpp
+-rw-r--r-- root/root      1327 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_mvnrnd_bones.hpp
+-rw-r--r-- root/root      4105 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_mvnrnd_meat.hpp
+-rw-r--r-- root/root      1326 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_polyfit_bones.hpp
+-rw-r--r-- root/root      3364 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_polyfit_meat.hpp
+-rw-r--r-- root/root      1094 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_polyval_bones.hpp
+-rw-r--r-- root/root      1951 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_polyval_meat.hpp
+-rw-r--r-- root/root      3285 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_relational_bones.hpp
+-rw-r--r-- root/root      8023 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_relational_meat.hpp
+-rw-r--r-- root/root      3801 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_solve_bones.hpp
+-rw-r--r-- root/root     10243 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_solve_meat.hpp
+-rw-r--r-- root/root      4908 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_times_bones.hpp
+-rw-r--r-- root/root     32872 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_times_meat.hpp
+-rw-r--r-- root/root       985 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_toeplitz_bones.hpp
+-rw-r--r-- root/root      1906 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_toeplitz_meat.hpp
+-rw-r--r-- root/root      1363 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_trapz_bones.hpp
+-rw-r--r-- root/root      3769 2016-06-16 16:19 ./usr/include/armadillo_bits/glue_trapz_meat.hpp
+-rw-r--r-- root/root      7315 2016-06-16 16:19 ./usr/include/armadillo_bits/gmm_diag_bones.hpp
+-rw-r--r-- root/root     67296 2016-06-16 16:19 ./usr/include/armadillo_bits/gmm_diag_meat.hpp
+-rw-r--r-- root/root      7114 2016-06-16 16:19 ./usr/include/armadillo_bits/gmm_full_bones.hpp
+-rw-r--r-- root/root     69702 2016-06-16 16:19 ./usr/include/armadillo_bits/gmm_full_meat.hpp
+-rw-r--r-- root/root      3638 2016-06-16 16:19 ./usr/include/armadillo_bits/gmm_misc_bones.hpp
+-rw-r--r-- root/root      3129 2016-06-16 16:19 ./usr/include/armadillo_bits/gmm_misc_meat.hpp
+-rw-r--r-- root/root     20681 2016-06-16 16:19 ./usr/include/armadillo_bits/hdf5_misc.hpp
+-rw-r--r-- root/root      1377 2016-06-16 16:19 ./usr/include/armadillo_bits/include_atlas.hpp
+-rw-r--r-- root/root      1365 2016-06-16 16:19 ./usr/include/armadillo_bits/include_hdf5.hpp
+-rw-r--r-- root/root      9903 2016-06-16 16:19 ./usr/include/armadillo_bits/include_superlu.hpp
+-rw-r--r-- root/root      2566 2016-06-16 16:19 ./usr/include/armadillo_bits/injector_bones.hpp
+-rw-r--r-- root/root     11015 2016-06-16 16:19 ./usr/include/armadillo_bits/injector_meat.hpp
+-rw-r--r-- root/root      5866 2016-06-16 16:19 ./usr/include/armadillo_bits/memory.hpp
+-rw-r--r-- root/root      1899 2016-06-16 16:19 ./usr/include/armadillo_bits/mp_misc.hpp
+-rw-r--r-- root/root      1474 2016-06-16 16:19 ./usr/include/armadillo_bits/mtGlueCube_bones.hpp
+-rw-r--r-- root/root      1473 2016-06-16 16:19 ./usr/include/armadillo_bits/mtGlueCube_meat.hpp
+-rw-r--r-- root/root      2101 2016-06-16 16:19 ./usr/include/armadillo_bits/mtGlue_bones.hpp
+-rw-r--r-- root/root      1445 2016-06-16 16:19 ./usr/include/armadillo_bits/mtGlue_meat.hpp
+-rw-r--r-- root/root      2428 2016-06-16 16:19 ./usr/include/armadillo_bits/mtOpCube_bones.hpp
+-rw-r--r-- root/root      2704 2016-06-16 16:19 ./usr/include/armadillo_bits/mtOpCube_meat.hpp
+-rw-r--r-- root/root      3599 2016-06-16 16:19 ./usr/include/armadillo_bits/mtOp_bones.hpp
+-rw-r--r-- root/root      2521 2016-06-16 16:19 ./usr/include/armadillo_bits/mtOp_meat.hpp
+-rw-r--r-- root/root      1924 2016-06-16 16:19 ./usr/include/armadillo_bits/mtSpOp_bones.hpp
+-rw-r--r-- root/root      1870 2016-06-16 16:19 ./usr/include/armadillo_bits/mtSpOp_meat.hpp
+-rw-r--r-- root/root     12770 2016-06-16 16:19 ./usr/include/armadillo_bits/mul_gemm.hpp
+-rw-r--r-- root/root     10728 2016-06-16 16:19 ./usr/include/armadillo_bits/mul_gemm_mixed.hpp
+-rw-r--r-- root/root     13014 2016-06-16 16:19 ./usr/include/armadillo_bits/mul_gemv.hpp
+-rw-r--r-- root/root     13647 2016-06-16 16:19 ./usr/include/armadillo_bits/mul_herk.hpp
+-rw-r--r-- root/root     12651 2016-06-16 16:19 ./usr/include/armadillo_bits/mul_syrk.hpp
+-rw-r--r-- root/root      1211 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_DenseGenMatProd_bones.hpp
+-rw-r--r-- root/root      1345 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_DenseGenMatProd_meat.hpp
+-rw-r--r-- root/root      2508 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_DoubleShiftQR_bones.hpp
+-rw-r--r-- root/root      9455 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_DoubleShiftQR_meat.hpp
+-rw-r--r-- root/root      2229 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_EigsSelect.hpp
+-rw-r--r-- root/root      4025 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_GenEigsSolver_bones.hpp
+-rw-r--r-- root/root     11768 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_GenEigsSolver_meat.hpp
+-rw-r--r-- root/root      5212 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_SortEigenvalue.hpp
+-rw-r--r-- root/root      1219 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_SparseGenMatProd_bones.hpp
+-rw-r--r-- root/root      1349 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_SparseGenMatProd_meat.hpp
+-rw-r--r-- root/root      3860 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_SymEigsSolver_bones.hpp
+-rw-r--r-- root/root     11760 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_SymEigsSolver_meat.hpp
+-rw-r--r-- root/root      1799 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_TridiagEigen_bones.hpp
+-rw-r--r-- root/root      3112 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_TridiagEigen_meat.hpp
+-rw-r--r-- root/root      2037 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_UpperHessenbergEigen_bones.hpp
+-rw-r--r-- root/root      4191 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_UpperHessenbergEigen_meat.hpp
+-rw-r--r-- root/root      2547 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_UpperHessenbergQR_bones.hpp
+-rw-r--r-- root/root      7405 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_UpperHessenbergQR_meat.hpp
+-rw-r--r-- root/root      1345 2016-06-16 16:19 ./usr/include/armadillo_bits/newarp_cx_attrib.hpp
+-rw-r--r-- root/root      2101 2016-06-16 16:19 ./usr/include/armadillo_bits/op_all_bones.hpp
+-rw-r--r-- root/root     11428 2016-06-16 16:19 ./usr/include/armadillo_bits/op_all_meat.hpp
+-rw-r--r-- root/root      2101 2016-06-16 16:19 ./usr/include/armadillo_bits/op_any_bones.hpp
+-rw-r--r-- root/root     10489 2016-06-16 16:19 ./usr/include/armadillo_bits/op_any_meat.hpp
+-rw-r--r-- root/root      1428 2016-06-16 16:19 ./usr/include/armadillo_bits/op_chi2rnd_bones.hpp
+-rw-r--r-- root/root      3971 2016-06-16 16:19 ./usr/include/armadillo_bits/op_chi2rnd_meat.hpp
+-rw-r--r-- root/root      1110 2016-06-16 16:19 ./usr/include/armadillo_bits/op_chol_bones.hpp
+-rw-r--r-- root/root      1830 2016-06-16 16:19 ./usr/include/armadillo_bits/op_chol_meat.hpp
+-rw-r--r-- root/root      1809 2016-06-16 16:19 ./usr/include/armadillo_bits/op_clamp_bones.hpp
+-rw-r--r-- root/root      5987 2016-06-16 16:19 ./usr/include/armadillo_bits/op_clamp_meat.hpp
+-rw-r--r-- root/root      1054 2016-06-16 16:19 ./usr/include/armadillo_bits/op_cond_bones.hpp
+-rw-r--r-- root/root      2110 2016-06-16 16:19 ./usr/include/armadillo_bits/op_cond_meat.hpp
+-rw-r--r-- root/root      1227 2016-06-16 16:19 ./usr/include/armadillo_bits/op_cor_bones.hpp
+-rw-r--r-- root/root      2565 2016-06-16 16:19 ./usr/include/armadillo_bits/op_cor_meat.hpp
+-rw-r--r-- root/root      1227 2016-06-16 16:19 ./usr/include/armadillo_bits/op_cov_bones.hpp
+-rw-r--r-- root/root      2584 2016-06-16 16:19 ./usr/include/armadillo_bits/op_cov_meat.hpp
+-rw-r--r-- root/root      1242 2016-06-16 16:19 ./usr/include/armadillo_bits/op_cumprod_bones.hpp
+-rw-r--r-- root/root      3620 2016-06-16 16:19 ./usr/include/armadillo_bits/op_cumprod_meat.hpp
+-rw-r--r-- root/root      1237 2016-06-16 16:19 ./usr/include/armadillo_bits/op_cumsum_bones.hpp
+-rw-r--r-- root/root      3609 2016-06-16 16:19 ./usr/include/armadillo_bits/op_cumsum_meat.hpp
+-rw-r--r-- root/root      3877 2016-06-16 16:19 ./usr/include/armadillo_bits/op_cx_scalar_bones.hpp
+-rw-r--r-- root/root     12332 2016-06-16 16:19 ./usr/include/armadillo_bits/op_cx_scalar_meat.hpp
+-rw-r--r-- root/root      1271 2016-06-16 16:19 ./usr/include/armadillo_bits/op_diagmat_bones.hpp
+-rw-r--r-- root/root      5997 2016-06-16 16:19 ./usr/include/armadillo_bits/op_diagmat_meat.hpp
+-rw-r--r-- root/root      1334 2016-06-16 16:19 ./usr/include/armadillo_bits/op_diagvec_bones.hpp
+-rw-r--r-- root/root      3374 2016-06-16 16:19 ./usr/include/armadillo_bits/op_diagvec_meat.hpp
+-rw-r--r-- root/root      1242 2016-06-16 16:19 ./usr/include/armadillo_bits/op_diff_bones.hpp
+-rw-r--r-- root/root      4947 2016-06-16 16:19 ./usr/include/armadillo_bits/op_diff_meat.hpp
+-rw-r--r-- root/root      3459 2016-06-16 16:19 ./usr/include/armadillo_bits/op_dot_bones.hpp
+-rw-r--r-- root/root     13170 2016-06-16 16:19 ./usr/include/armadillo_bits/op_dot_meat.hpp
+-rw-r--r-- root/root      1499 2016-06-16 16:19 ./usr/include/armadillo_bits/op_dotext_bones.hpp
+-rw-r--r-- root/root      3783 2016-06-16 16:19 ./usr/include/armadillo_bits/op_dotext_meat.hpp
+-rw-r--r-- root/root      1400 2016-06-16 16:19 ./usr/include/armadillo_bits/op_expmat_bones.hpp
+-rw-r--r-- root/root      4567 2016-06-16 16:19 ./usr/include/armadillo_bits/op_expmat_meat.hpp
+-rw-r--r-- root/root      1912 2016-06-16 16:19 ./usr/include/armadillo_bits/op_fft_bones.hpp
+-rw-r--r-- root/root      8593 2016-06-16 16:19 ./usr/include/armadillo_bits/op_fft_meat.hpp
+-rw-r--r-- root/root      2925 2016-06-16 16:19 ./usr/include/armadillo_bits/op_find_bones.hpp
+-rw-r--r-- root/root     15563 2016-06-16 16:19 ./usr/include/armadillo_bits/op_find_meat.hpp
+-rw-r--r-- root/root      1835 2016-06-16 16:19 ./usr/include/armadillo_bits/op_find_unique_bones.hpp
+-rw-r--r-- root/root      3030 2016-06-16 16:19 ./usr/include/armadillo_bits/op_find_unique_meat.hpp
+-rw-r--r-- root/root      1542 2016-06-16 16:19 ./usr/include/armadillo_bits/op_flip_bones.hpp
+-rw-r--r-- root/root      6062 2016-06-16 16:19 ./usr/include/armadillo_bits/op_flip_meat.hpp
+-rw-r--r-- root/root      1080 2016-06-16 16:19 ./usr/include/armadillo_bits/op_hist_bones.hpp
+-rw-r--r-- root/root      2754 2016-06-16 16:19 ./usr/include/armadillo_bits/op_hist_meat.hpp
+-rw-r--r-- root/root      3675 2016-06-16 16:19 ./usr/include/armadillo_bits/op_htrans_bones.hpp
+-rw-r--r-- root/root     14294 2016-06-16 16:19 ./usr/include/armadillo_bits/op_htrans_meat.hpp
+-rw-r--r-- root/root      1726 2016-06-16 16:19 ./usr/include/armadillo_bits/op_index_max_bones.hpp
+-rw-r--r-- root/root      9200 2016-06-16 16:19 ./usr/include/armadillo_bits/op_index_max_meat.hpp
+-rw-r--r-- root/root      1726 2016-06-16 16:19 ./usr/include/armadillo_bits/op_index_min_bones.hpp
+-rw-r--r-- root/root      9200 2016-06-16 16:19 ./usr/include/armadillo_bits/op_index_min_meat.hpp
+-rw-r--r-- root/root      1636 2016-06-16 16:19 ./usr/include/armadillo_bits/op_inv_bones.hpp
+-rw-r--r-- root/root      3672 2016-06-16 16:19 ./usr/include/armadillo_bits/op_inv_meat.hpp
+-rw-r--r-- root/root      2468 2016-06-16 16:19 ./usr/include/armadillo_bits/op_logmat_bones.hpp
+-rw-r--r-- root/root      9746 2016-06-16 16:19 ./usr/include/armadillo_bits/op_logmat_meat.hpp
+-rw-r--r-- root/root      3931 2016-06-16 16:19 ./usr/include/armadillo_bits/op_max_bones.hpp
+-rw-r--r-- root/root     27214 2016-06-16 16:19 ./usr/include/armadillo_bits/op_max_meat.hpp
+-rw-r--r-- root/root      3221 2016-06-16 16:19 ./usr/include/armadillo_bits/op_mean_bones.hpp
+-rw-r--r-- root/root     14145 2016-06-16 16:19 ./usr/include/armadillo_bits/op_mean_meat.hpp
+-rw-r--r-- root/root      1952 2016-06-16 16:19 ./usr/include/armadillo_bits/op_median_bones.hpp
+-rw-r--r-- root/root     11241 2016-06-16 16:19 ./usr/include/armadillo_bits/op_median_meat.hpp
+-rw-r--r-- root/root      3933 2016-06-16 16:19 ./usr/include/armadillo_bits/op_min_bones.hpp
+-rw-r--r-- root/root     27217 2016-06-16 16:19 ./usr/include/armadillo_bits/op_min_meat.hpp
+-rw-r--r-- root/root      2075 2016-06-16 16:19 ./usr/include/armadillo_bits/op_misc_bones.hpp
+-rw-r--r-- root/root      8319 2016-06-16 16:19 ./usr/include/armadillo_bits/op_misc_meat.hpp
+-rw-r--r-- root/root      1278 2016-06-16 16:19 ./usr/include/armadillo_bits/op_nonzeros_bones.hpp
+-rw-r--r-- root/root      2947 2016-06-16 16:19 ./usr/include/armadillo_bits/op_nonzeros_meat.hpp
+-rw-r--r-- root/root      3320 2016-06-16 16:19 ./usr/include/armadillo_bits/op_norm_bones.hpp
+-rw-r--r-- root/root     20201 2016-06-16 16:19 ./usr/include/armadillo_bits/op_norm_meat.hpp
+-rw-r--r-- root/root      1254 2016-06-16 16:19 ./usr/include/armadillo_bits/op_normalise_bones.hpp
+-rw-r--r-- root/root      3420 2016-06-16 16:19 ./usr/include/armadillo_bits/op_normalise_meat.hpp
+-rw-r--r-- root/root      1447 2016-06-16 16:19 ./usr/include/armadillo_bits/op_orth_null_bones.hpp
+-rw-r--r-- root/root      4150 2016-06-16 16:19 ./usr/include/armadillo_bits/op_orth_null_meat.hpp
+-rw-r--r-- root/root      1146 2016-06-16 16:19 ./usr/include/armadillo_bits/op_pinv_bones.hpp
+-rw-r--r-- root/root      3431 2016-06-16 16:19 ./usr/include/armadillo_bits/op_pinv_meat.hpp
+-rw-r--r-- root/root      2018 2016-06-16 16:19 ./usr/include/armadillo_bits/op_princomp_bones.hpp
+-rw-r--r-- root/root      8194 2016-06-16 16:19 ./usr/include/armadillo_bits/op_princomp_meat.hpp
+-rw-r--r-- root/root      1247 2016-06-16 16:19 ./usr/include/armadillo_bits/op_prod_bones.hpp
+-rw-r--r-- root/root      4316 2016-06-16 16:19 ./usr/include/armadillo_bits/op_prod_meat.hpp
+-rw-r--r-- root/root      1158 2016-06-16 16:19 ./usr/include/armadillo_bits/op_range_bones.hpp
+-rw-r--r-- root/root      2234 2016-06-16 16:19 ./usr/include/armadillo_bits/op_range_meat.hpp
+-rw-r--r-- root/root      3554 2016-06-16 16:19 ./usr/include/armadillo_bits/op_relational_bones.hpp
+-rw-r--r-- root/root     10234 2016-06-16 16:19 ./usr/include/armadillo_bits/op_relational_meat.hpp
+-rw-r--r-- root/root      1123 2016-06-16 16:19 ./usr/include/armadillo_bits/op_repelem_bones.hpp
+-rw-r--r-- root/root      2706 2016-06-16 16:19 ./usr/include/armadillo_bits/op_repelem_meat.hpp
+-rw-r--r-- root/root      1120 2016-06-16 16:19 ./usr/include/armadillo_bits/op_repmat_bones.hpp
+-rw-r--r-- root/root      3334 2016-06-16 16:19 ./usr/include/armadillo_bits/op_repmat_meat.hpp
+-rw-r--r-- root/root      1593 2016-06-16 16:19 ./usr/include/armadillo_bits/op_reshape_bones.hpp
+-rw-r--r-- root/root      9015 2016-06-16 16:19 ./usr/include/armadillo_bits/op_reshape_meat.hpp
+-rw-r--r-- root/root      1075 2016-06-16 16:19 ./usr/include/armadillo_bits/op_resize_bones.hpp
+-rw-r--r-- root/root      3546 2016-06-16 16:19 ./usr/include/armadillo_bits/op_resize_meat.hpp
+-rw-r--r-- root/root      1131 2016-06-16 16:19 ./usr/include/armadillo_bits/op_reverse_bones.hpp
+-rw-r--r-- root/root      2412 2016-06-16 16:19 ./usr/include/armadillo_bits/op_reverse_meat.hpp
+-rw-r--r-- root/root      1304 2016-06-16 16:19 ./usr/include/armadillo_bits/op_roots_bones.hpp
+-rw-r--r-- root/root      3297 2016-06-16 16:19 ./usr/include/armadillo_bits/op_roots_meat.hpp
+-rw-r--r-- root/root      1528 2016-06-16 16:19 ./usr/include/armadillo_bits/op_shift_bones.hpp
+-rw-r--r-- root/root      5499 2016-06-16 16:19 ./usr/include/armadillo_bits/op_shift_meat.hpp
+-rw-r--r-- root/root      1236 2016-06-16 16:19 ./usr/include/armadillo_bits/op_shuffle_bones.hpp
+-rw-r--r-- root/root      5382 2016-06-16 16:19 ./usr/include/armadillo_bits/op_shuffle_meat.hpp
+-rw-r--r-- root/root      2907 2016-06-16 16:19 ./usr/include/armadillo_bits/op_sort_bones.hpp
+-rw-r--r-- root/root      3207 2016-06-16 16:19 ./usr/include/armadillo_bits/op_sort_index_bones.hpp
+-rw-r--r-- root/root      4420 2016-06-16 16:19 ./usr/include/armadillo_bits/op_sort_index_meat.hpp
+-rw-r--r-- root/root      4755 2016-06-16 16:19 ./usr/include/armadillo_bits/op_sort_meat.hpp
+-rw-r--r-- root/root      2265 2016-06-16 16:19 ./usr/include/armadillo_bits/op_sqrtmat_bones.hpp
+-rw-r--r-- root/root      8016 2016-06-16 16:19 ./usr/include/armadillo_bits/op_sqrtmat_meat.hpp
+-rw-r--r-- root/root      1020 2016-06-16 16:19 ./usr/include/armadillo_bits/op_stddev_bones.hpp
+-rw-r--r-- root/root      2648 2016-06-16 16:19 ./usr/include/armadillo_bits/op_stddev_meat.hpp
+-rw-r--r-- root/root      3441 2016-06-16 16:19 ./usr/include/armadillo_bits/op_strans_bones.hpp
+-rw-r--r-- root/root     20130 2016-06-16 16:19 ./usr/include/armadillo_bits/op_strans_meat.hpp
+-rw-r--r-- root/root      2330 2016-06-16 16:19 ./usr/include/armadillo_bits/op_sum_bones.hpp
+-rw-r--r-- root/root     12428 2016-06-16 16:19 ./usr/include/armadillo_bits/op_sum_meat.hpp
+-rw-r--r-- root/root      1115 2016-06-16 16:19 ./usr/include/armadillo_bits/op_symmat_bones.hpp
+-rw-r--r-- root/root      5233 2016-06-16 16:19 ./usr/include/armadillo_bits/op_symmat_meat.hpp
+-rw-r--r-- root/root      1123 2016-06-16 16:19 ./usr/include/armadillo_bits/op_toeplitz_bones.hpp
+-rw-r--r-- root/root      2725 2016-06-16 16:19 ./usr/include/armadillo_bits/op_toeplitz_meat.hpp
+-rw-r--r-- root/root      2087 2016-06-16 16:19 ./usr/include/armadillo_bits/op_trimat_bones.hpp
+-rw-r--r-- root/root      9932 2016-06-16 16:19 ./usr/include/armadillo_bits/op_trimat_meat.hpp
+-rw-r--r-- root/root      1586 2016-06-16 16:19 ./usr/include/armadillo_bits/op_unique_bones.hpp
+-rw-r--r-- root/root      3292 2016-06-16 16:19 ./usr/include/armadillo_bits/op_unique_meat.hpp
+-rw-r--r-- root/root      1987 2016-06-16 16:19 ./usr/include/armadillo_bits/op_var_bones.hpp
+-rw-r--r-- root/root      7261 2016-06-16 16:19 ./usr/include/armadillo_bits/op_var_meat.hpp
+-rw-r--r-- root/root      2033 2016-06-16 16:19 ./usr/include/armadillo_bits/op_vectorise_bones.hpp
+-rw-r--r-- root/root      8031 2016-06-16 16:19 ./usr/include/armadillo_bits/op_vectorise_meat.hpp
+-rw-r--r-- root/root      1986 2016-06-16 16:19 ./usr/include/armadillo_bits/op_wishrnd_bones.hpp
+-rw-r--r-- root/root      7257 2016-06-16 16:19 ./usr/include/armadillo_bits/op_wishrnd_meat.hpp
+-rw-r--r-- root/root      4533 2016-06-16 16:19 ./usr/include/armadillo_bits/operator_cube_div.hpp
+-rw-r--r-- root/root      4772 2016-06-16 16:19 ./usr/include/armadillo_bits/operator_cube_minus.hpp
+-rw-r--r-- root/root      4834 2016-06-16 16:19 ./usr/include/armadillo_bits/operator_cube_plus.hpp
+-rw-r--r-- root/root      7523 2016-06-16 16:19 ./usr/include/armadillo_bits/operator_cube_relational.hpp
+-rw-r--r-- root/root      3176 2016-06-16 16:19 ./usr/include/armadillo_bits/operator_cube_schur.hpp
+-rw-r--r-- root/root      2815 2016-06-16 16:19 ./usr/include/armadillo_bits/operator_cube_times.hpp
+-rw-r--r-- root/root      7764 2016-06-16 16:19 ./usr/include/armadillo_bits/operator_div.hpp
+-rw-r--r-- root/root      9478 2016-06-16 16:19 ./usr/include/armadillo_bits/operator_minus.hpp
+-rw-r--r-- root/root      3111 2016-06-16 16:19 ./usr/include/armadillo_bits/operator_ostream.hpp
+-rw-r--r-- root/root      9061 2016-06-16 16:19 ./usr/include/armadillo_bits/operator_plus.hpp
+-rw-r--r-- root/root      7640 2016-06-16 16:19 ./usr/include/armadillo_bits/operator_relational.hpp
+-rw-r--r-- root/root      7216 2016-06-16 16:19 ./usr/include/armadillo_bits/operator_schur.hpp
+-rw-r--r-- root/root     10877 2016-06-16 16:19 ./usr/include/armadillo_bits/operator_times.hpp
+-rw-r--r-- root/root      2393 2016-06-16 16:19 ./usr/include/armadillo_bits/podarray_bones.hpp
+-rw-r--r-- root/root      6860 2016-06-16 16:19 ./usr/include/armadillo_bits/podarray_meat.hpp
+-rw-r--r-- root/root     14914 2016-06-16 16:19 ./usr/include/armadillo_bits/promote_type.hpp
+-rw-r--r-- root/root      9996 2016-06-16 16:19 ./usr/include/armadillo_bits/restrictors.hpp
+-rw-r--r-- root/root      3005 2016-06-16 16:19 ./usr/include/armadillo_bits/running_stat_bones.hpp
+-rw-r--r-- root/root      8559 2016-06-16 16:19 ./usr/include/armadillo_bits/running_stat_meat.hpp
+-rw-r--r-- root/root      5655 2016-06-16 16:19 ./usr/include/armadillo_bits/running_stat_vec_bones.hpp
+-rw-r--r-- root/root     14416 2016-06-16 16:19 ./usr/include/armadillo_bits/running_stat_vec_meat.hpp
+-rw-r--r-- root/root      4334 2016-06-16 16:19 ./usr/include/armadillo_bits/sp_auxlib_bones.hpp
+-rw-r--r-- root/root     46499 2016-06-16 16:19 ./usr/include/armadillo_bits/sp_auxlib_meat.hpp
+-rw-r--r-- root/root      1609 2016-06-16 16:19 ./usr/include/armadillo_bits/span.hpp
+-rw-r--r-- root/root      3504 2016-06-16 16:19 ./usr/include/armadillo_bits/spdiagview_bones.hpp
+-rw-r--r-- root/root     20711 2016-06-16 16:19 ./usr/include/armadillo_bits/spdiagview_meat.hpp
+-rw-r--r-- root/root      1131 2016-06-16 16:19 ./usr/include/armadillo_bits/spglue_elem_helper_bones.hpp
+-rw-r--r-- root/root      3143 2016-06-16 16:19 ./usr/include/armadillo_bits/spglue_elem_helper_meat.hpp
+-rw-r--r-- root/root      1419 2016-06-16 16:19 ./usr/include/armadillo_bits/spglue_join_bones.hpp
+-rw-r--r-- root/root      5403 2016-06-16 16:19 ./usr/include/armadillo_bits/spglue_join_meat.hpp
+-rw-r--r-- root/root      1100 2016-06-16 16:19 ./usr/include/armadillo_bits/spglue_kron_bones.hpp
+-rw-r--r-- root/root      4094 2016-06-16 16:19 ./usr/include/armadillo_bits/spglue_kron_meat.hpp
+-rw-r--r-- root/root      1929 2016-06-16 16:19 ./usr/include/armadillo_bits/spglue_minus_bones.hpp
+-rw-r--r-- root/root      8464 2016-06-16 16:19 ./usr/include/armadillo_bits/spglue_minus_meat.hpp
+-rw-r--r-- root/root      1721 2016-06-16 16:19 ./usr/include/armadillo_bits/spglue_plus_bones.hpp
+-rw-r--r-- root/root      7303 2016-06-16 16:19 ./usr/include/armadillo_bits/spglue_plus_meat.hpp
+-rw-r--r-- root/root      1918 2016-06-16 16:19 ./usr/include/armadillo_bits/spglue_schur_bones.hpp
+-rw-r--r-- root/root      9204 2016-06-16 16:19 ./usr/include/armadillo_bits/spglue_schur_meat.hpp
+-rw-r--r-- root/root      2243 2016-06-16 16:19 ./usr/include/armadillo_bits/spglue_times_bones.hpp
+-rw-r--r-- root/root     18573 2016-06-16 16:19 ./usr/include/armadillo_bits/spglue_times_meat.hpp
+-rw-r--r-- root/root      2039 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_diagmat_bones.hpp
+-rw-r--r-- root/root     10585 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_diagmat_meat.hpp
+-rw-r--r-- root/root      1282 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_htrans_bones.hpp
+-rw-r--r-- root/root      1565 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_htrans_meat.hpp
+-rw-r--r-- root/root      2318 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_max_bones.hpp
+-rw-r--r-- root/root     15656 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_max_meat.hpp
+-rw-r--r-- root/root      2104 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_mean_bones.hpp
+-rw-r--r-- root/root      8050 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_mean_meat.hpp
+-rw-r--r-- root/root      2318 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_min_bones.hpp
+-rw-r--r-- root/root     16374 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_min_meat.hpp
+-rw-r--r-- root/root      4551 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_misc_bones.hpp
+-rw-r--r-- root/root     11453 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_misc_meat.hpp
+-rw-r--r-- root/root      1104 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_normalise_bones.hpp
+-rw-r--r-- root/root      5360 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_normalise_meat.hpp
+-rw-r--r-- root/root      1109 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_repmat_bones.hpp
+-rw-r--r-- root/root      4648 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_repmat_meat.hpp
+-rw-r--r-- root/root      1207 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_reverse_bones.hpp
+-rw-r--r-- root/root      3990 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_reverse_meat.hpp
+-rw-r--r-- root/root      1260 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_strans_bones.hpp
+-rw-r--r-- root/root      3110 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_strans_meat.hpp
+-rw-r--r-- root/root       963 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_sum_bones.hpp
+-rw-r--r-- root/root      2455 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_sum_meat.hpp
+-rw-r--r-- root/root      1133 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_symmat_bones.hpp
+-rw-r--r-- root/root      8361 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_symmat_meat.hpp
+-rw-r--r-- root/root      1103 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_trimat_bones.hpp
+-rw-r--r-- root/root      3452 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_trimat_meat.hpp
+-rw-r--r-- root/root      2513 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_var_bones.hpp
+-rw-r--r-- root/root      9582 2016-06-16 16:19 ./usr/include/armadillo_bits/spop_var_meat.hpp
+-rw-r--r-- root/root      2210 2016-06-16 16:19 ./usr/include/armadillo_bits/strip.hpp
+-rw-r--r-- root/root     20899 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_bones.hpp
+-rw-r--r-- root/root      8747 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_cube_bones.hpp
+-rw-r--r-- root/root      4833 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_cube_each_bones.hpp
+-rw-r--r-- root/root     22435 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_cube_each_meat.hpp
+-rw-r--r-- root/root     63583 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_cube_meat.hpp
+-rw-r--r-- root/root      3347 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_cube_slices_bones.hpp
+-rw-r--r-- root/root     10468 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_cube_slices_meat.hpp
+-rw-r--r-- root/root      5925 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_each_bones.hpp
+-rw-r--r-- root/root     30356 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_each_meat.hpp
+-rw-r--r-- root/root      3876 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_elem1_bones.hpp
+-rw-r--r-- root/root     22905 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_elem1_meat.hpp
+-rw-r--r-- root/root      3504 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_elem2_bones.hpp
+-rw-r--r-- root/root     19223 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_elem2_meat.hpp
+-rw-r--r-- root/root      3272 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_field_bones.hpp
+-rw-r--r-- root/root     12376 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_field_meat.hpp
+-rw-r--r-- root/root     95376 2016-06-16 16:19 ./usr/include/armadillo_bits/subview_meat.hpp
+-rw-r--r-- root/root      4559 2016-06-16 16:19 ./usr/include/armadillo_bits/sympd_helper.hpp
+-rw-r--r-- root/root     33642 2016-06-16 16:19 ./usr/include/armadillo_bits/traits.hpp
+-rw-r--r-- root/root      3313 2016-06-16 16:19 ./usr/include/armadillo_bits/typedef_elem.hpp
+-rw-r--r-- root/root      2134 2016-06-16 16:19 ./usr/include/armadillo_bits/typedef_elem_check.hpp
+-rw-r--r-- root/root      4342 2016-06-16 16:19 ./usr/include/armadillo_bits/typedef_mat.hpp
+-rw-r--r-- root/root      9947 2016-06-16 16:19 ./usr/include/armadillo_bits/typedef_mat_fixed.hpp
+-rw-r--r-- root/root     67261 2016-06-16 16:19 ./usr/include/armadillo_bits/unwrap.hpp
+-rw-r--r-- root/root      2299 2016-06-16 16:19 ./usr/include/armadillo_bits/unwrap_cube.hpp
+-rw-r--r-- root/root      3521 2016-06-16 16:19 ./usr/include/armadillo_bits/unwrap_spmat.hpp
+-rw-r--r-- root/root      5103 2016-06-16 16:19 ./usr/include/armadillo_bits/upgrade_val.hpp
+-rw-r--r-- root/root      1330 2016-06-16 16:19 ./usr/include/armadillo_bits/wall_clock_bones.hpp
+-rw-r--r-- root/root      2371 2016-06-16 16:19 ./usr/include/armadillo_bits/wall_clock_meat.hpp
+-rw-r--r-- root/root      6458 2016-06-16 16:19 ./usr/include/armadillo_bits/wrapper_arpack.hpp
+-rw-r--r-- root/root     13395 2016-06-16 16:19 ./usr/include/armadillo_bits/wrapper_atlas.hpp
+-rw-r--r-- root/root      8406 2016-06-16 16:19 ./usr/include/armadillo_bits/wrapper_blas.hpp
+-rw-r--r-- root/root     46926 2016-06-16 16:19 ./usr/include/armadillo_bits/wrapper_lapack.hpp
+-rw-r--r-- root/root      4333 2016-06-16 16:19 ./usr/include/armadillo_bits/wrapper_superlu.hpp
+-rw-r--r-- root/root      1634 2016-06-16 16:19 ./usr/include/armadillo_bits/xtrans_mat_bones.hpp
+-rw-r--r-- root/root      1989 2016-06-16 16:19 ./usr/include/armadillo_bits/xtrans_mat_meat.hpp
+-rw-r--r-- root/root      1528 2016-06-16 16:19 ./usr/include/armadillo_bits/xvec_htrans_bones.hpp
+-rw-r--r-- root/root      2114 2016-06-16 16:19 ./usr/include/armadillo_bits/xvec_htrans_meat.hpp
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/lib/
+lrwxrwxrwx root/root         0 2019-01-21 15:52 ./usr/lib/libarmadillo.so -> libarmadillo.so.9
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/share/doc-base/
+-rw-r--r-- root/root       418 2019-01-21 15:49 ./usr/share/doc-base/armadillo
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/share/doc/libarmadillo-dev/
+-rw-r--r-- root/root       432 2016-06-16 16:19 ./usr/share/doc/libarmadillo-dev/armadillo_icon.png
+-rw-r--r-- root/root      3900 2019-01-21 15:52 ./usr/share/doc/libarmadillo-dev/changelog.Debian.gz
+-rw-r--r-- root/root      1126 2019-01-21 15:49 ./usr/share/doc/libarmadillo-dev/copyright
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/share/doc/libarmadillo-dev/examples/
+-rw-r--r-- root/root      1692 2019-01-21 15:52 ./usr/share/doc/libarmadillo-dev/examples/Makefile
+-rw-r--r-- root/root      1698 2016-06-16 16:19 ./usr/share/doc/libarmadillo-dev/examples/Makefile.cmake
+-rw-r--r-- root/root      4422 2016-06-16 16:19 ./usr/share/doc/libarmadillo-dev/examples/example1.cpp
+-rw-r--r-- root/root      2107 2016-06-16 16:19 ./usr/share/doc/libarmadillo-dev/index.html
+
+
+libarmadillo9-dbgsym_9.200.7+dfsg-1_armhf.deb
+---------------------------------------------
+
+ new Debian package, version 2.0.
+ size 44736 bytes: control archive=544 bytes.
+     414 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: libarmadillo9-dbgsym
+ Source: armadillo
+ Version: 1:9.200.7+dfsg-1
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>
+ Installed-Size: 71
+ Depends: libarmadillo9 (= 1:9.200.7+dfsg-1)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for libarmadillo9
+ Build-Ids: b2734c7f3031e2eb797544d18e00f0982cca7375
+
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/lib/
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/lib/debug/.build-id/b2/
+-rw-r--r-- root/root     61868 2019-01-21 15:52 ./usr/lib/debug/.build-id/b2/734c7f3031e2eb797544d18e00f0982cca7375.debug
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2019-01-21 15:52 ./usr/share/doc/libarmadillo9-dbgsym -> libarmadillo9
+
+
+libarmadillo9_9.200.7+dfsg-1_armhf.deb
+--------------------------------------
+
+ new Debian package, version 2.0.
+ size 87024 bytes: control archive=1036 bytes.
+     823 bytes,    16 lines      control              
+     367 bytes,     5 lines      md5sums              
+      49 bytes,     1 lines      shlibs               
+      67 bytes,     2 lines      triggers             
+ Package: libarmadillo9
+ Source: armadillo
+ Version: 1:9.200.7+dfsg-1
+ Architecture: armhf
+ Maintainer: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>
+ Installed-Size: 600
+ Depends: libarpack2 (>= 2.1), libblas3 | libblas.so.3, libc6 (>= 2.4), libgcc1 (>= 1:3.0), liblapack3 | liblapack.so.3, libstdc++6 (>= 4.1.1), libsuperlu5 (>= 5.2.1+dfsg1)
+ Section: libs
+ Priority: optional
+ Homepage: http://arma.sourceforge.net/
+ Description: streamlined C++ linear algebra library
+  Armadillo is a streamlined C++ linear algebra library (matrix maths)
+  aiming towards a good balance between speed and ease of use. Integer,
+  floating point and complex numbers are supported, as well as a subset
+  of trigonometric and statistics functions. Optional integration with
+  LAPACK and ATLAS libraries is also provided.
+
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/lib/
+lrwxrwxrwx root/root         0 2019-01-21 15:52 ./usr/lib/libarmadillo.so.9 -> libarmadillo.so.9.200.7
+-rw-r--r-- root/root     22604 2019-01-21 15:52 ./usr/lib/libarmadillo.so.9.200.7
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/share/
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-01-21 15:52 ./usr/share/doc/libarmadillo9/
+-rw-r--r-- root/root      7141 2016-06-16 16:19 ./usr/share/doc/libarmadillo9/README.md.gz
+-rw-r--r-- root/root      3900 2019-01-21 15:52 ./usr/share/doc/libarmadillo9/changelog.Debian.gz
+-rw-r--r-- root/root      1126 2019-01-21 15:49 ./usr/share/doc/libarmadillo9/copyright
+-rw-r--r-- root/root    566617 2016-06-16 16:19 ./usr/share/doc/libarmadillo9/docs.html
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [574 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [663 B]
+Fetched 2200 B in 0s (175 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl libclass-accessor-perl
+  libclone-perl libdigest-hmac-perl libemail-valid-perl libexporter-tiny-perl
+  libfile-basedir-perl libfuture-perl libio-async-perl libio-pty-perl
+  libipc-run-perl libipc-system-simple-perl liblist-moreutils-perl
+  libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl libclass-accessor-perl
+  libclone-perl libdigest-hmac-perl libemail-valid-perl libexporter-tiny-perl
+  libfile-basedir-perl libfuture-perl libio-async-perl libio-pty-perl
+  libipc-run-perl libipc-system-simple-perl liblist-moreutils-perl
+  libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 27 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2938 kB of archives.
+After this operation, 9286 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 1s (2013 kB/s)
+Selecting previously unselected package libapt-pkg-perl.
+(Reading database ... 22034 files and directories currently installed.)
+Preparing to unpack .../00-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../01-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../02-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../03-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../04-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../05-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../06-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../07-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../08-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../09-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../10-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../11-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../12-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../13-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../14-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../15-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../16-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../17-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../18-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../19-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../20-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../21-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../22-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../23-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../24-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../25-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../26-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* cmake*
+  cmake-data* debhelper* dh-autoreconf* dh-strip-nondeterminism* diffstat*
+  dwz* gcc-8-base:armhf* gettext* gettext-base* groff-base* intltool-debian*
+  libapt-pkg-perl* libarchive-zip-perl* libarchive13* libarpack2:armhf*
+  libarpack2-dev:armhf* libasan5:armhf* libatomic1:armhf* libblas-dev:armhf*
+  libblas3:armhf* libbsd0* libc6:armhf* libc6-dev:armhf* libcapture-tiny-perl*
+  libcgi-pm-perl* libclass-accessor-perl* libclone-perl* libcroco3* libcurl4*
+  libdigest-hmac-perl* libelf1* libemail-valid-perl* libexporter-tiny-perl*
+  libfile-basedir-perl* libfile-stripnondeterminism-perl* libfuture-perl*
+  libgcc-8-dev:armhf* libgcc1:armhf* libgfortran5:armhf* libglib2.0-0*
+  libgomp1:armhf* libgssapi-krb5-2* libio-async-perl* libio-pty-perl*
+  libipc-run-perl* libipc-system-simple-perl* libjsoncpp1* libk5crypto3*
+  libkeyutils1* libkrb5-3* libkrb5support0* liblapack-dev:armhf*
+  liblapack3:armhf* liblist-moreutils-perl* libncurses6* libnet-dns-perl*
+  libnet-domain-tld-perl* libnet-ip-perl* libnghttp2-14*
+  libparse-debianchangelog-perl* libpath-tiny-perl* libpipeline1* libprocps7*
+  libpsl5* librhash0* librtmp1* libsigsegv2* libssh2-1* libstdc++-8-dev:armhf*
+  libstdc++6:armhf* libstruct-dumb-perl* libsub-name-perl*
+  libsuperlu-dev:armhf* libsuperlu5:armhf* libtext-levenshtein-perl* libtool*
+  libubsan1:armhf* libuchardet0* libuv1* lintian* linux-libc-dev:armhf* m4*
+  man-db* patchutils* po-debconf* procps* quilt*
+  sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* zlib1g:armhf*
+0 upgraded, 0 newly installed, 97 to remove and 0 not upgraded.
+After this operation, 134 MB disk space will be freed.
+(Reading database ... 23305 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing quilt (0.65-3) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing cmake (3.13.4-1) ...
+Removing cmake-data (3.13.4-1) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libarchive13:amd64 (3.3.3-4) ...
+Removing libarpack2-dev:armhf (3.7.0-1) ...
+Removing libarpack2:armhf (3.7.0-1) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libsuperlu-dev:armhf (5.2.1+dfsg1-4) ...
+Removing liblapack-dev:armhf (3.8.0-2) ...
+Removing libblas-dev:armhf (3.8.0-2) ...
+Removing libsuperlu5:armhf (5.2.1+dfsg1-4) ...
+Removing liblapack3:armhf (3.8.0-2) ...
+Removing libblas3:armhf (3.8.0-2) ...
+Removing libgfortran5:armhf (8.3.0-2) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libcurl4:amd64 (7.64.0-1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libgssapi-krb5-2:amd64 (1.17-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libjsoncpp1:amd64 (1.7.4-3) ...
+Removing libkrb5-3:amd64 (1.17-2) ...
+Removing libk5crypto3:amd64 (1.17-2) ...
+Removing libkrb5support0:amd64 (1.17-2) ...
+Removing libkeyutils1:amd64 (1.6-4) ...
+Removing procps (2:3.3.15-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libnghttp2-14:amd64 (1.36.0-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libprocps7:amd64 (2:3.3.15-2) ...
+Removing libpsl5:amd64 (0.20.2-2) ...
+Removing librhash0:amd64 (1.3.8-1) ...
+Removing librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2) ...
+Removing libssh2-1:amd64 (1.8.0-2) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libuv1:amd64 (1.24.1-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16465 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for quilt (0.65-3) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for libgssapi-krb5-2:amd64 (1.17-2) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+Purging configuration files for procps (2:3.3.15-2) ...
+Purging configuration files for cmake-data (3.13.4-1) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 11
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 13
+Job: /home/build/sbuild-setup/repo/pool/main/a/armadillo/armadillo_9.200.7+dfsg-1.dsc
+Lintian: pass
+Machine Architecture: amd64
+Package: armadillo
+Package-Time: 29
+Source-Version: 1:9.200.7+dfsg-1
+Space: n/a
+Status: successful
+Version: 1:9.200.7+dfsg-1
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T05:38:49Z
+Build needed 00:00:29, no disk space

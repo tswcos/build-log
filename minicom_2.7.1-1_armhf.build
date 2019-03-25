@@ -1,0 +1,1121 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| minicom 2.7.1-1 (armhf)                      Tue, 05 Mar 2019 15:49:40 +0000 |
++==============================================================================+
+
+Package: minicom
+Version: 2.7.1-1
+Source Version: 2.7.1-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-c312f180-2c27-4143-bbcd-3e9bd1d23104' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/minicom-Kj3iCu/resolver-PwCXL7' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/m/minicom/minicom_2.7.1-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/m/minicom; copying to chroot
+I: NOTICE: Log filtering will replace 'build/minicom-Kj3iCu/minicom-2.7.1' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/minicom-Kj3iCu' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: autotools-dev, gettext, libncurses5-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: autotools-dev, gettext, libncurses5-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [400 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [492 B]
+Fetched 1849 B in 0s (139 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autotools-dev gcc-8-base:armhf gettext gettext-base libasan5:armhf
+  libatomic1:armhf libc6:armhf libc6-dev:armhf libcroco3 libgcc-8-dev:armhf
+  libgcc1:armhf libglib2.0-0 libgomp1:armhf libncurses-dev:armhf
+  libncurses5-dev:armhf libncurses6 libncurses6:armhf libncursesw6:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libtinfo6:armhf libubsan1:armhf
+  linux-libc-dev:armhf
+Suggested packages:
+  gettext-doc autopoint libasprintf-dev libgettextpo-dev glibc-doc:armhf
+  libc-l10n:armhf locales:armhf manpages-dev:armhf ncurses-doc:armhf
+  libstdc++-8-doc:armhf
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libglib2.0-data shared-mime-info
+  xdg-user-dirs libgpm2 libgpm2:armhf
+The following NEW packages will be installed:
+  autotools-dev gcc-8-base:armhf gettext gettext-base libasan5:armhf
+  libatomic1:armhf libc6:armhf libc6-dev:armhf libcroco3 libgcc-8-dev:armhf
+  libgcc1:armhf libglib2.0-0 libgomp1:armhf libncurses-dev:armhf
+  libncurses5-dev:armhf libncurses6 libncurses6:armhf libncursesw6:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libtinfo6:armhf libubsan1:armhf
+  linux-libc-dev:armhf sbuild-build-depends-main-dummy:armhf
+0 upgraded, 24 newly installed, 0 to remove and 0 not upgraded.
+Need to get 912 B/12.7 MB of archives.
+After this operation, 64.5 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [912 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 912 B in 0s (0 B/s)
+Selecting previously unselected package gettext-base.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../01-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../02-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../03-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../04-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../05-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../06-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../07-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../08-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../09-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../10-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../11-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../12-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../13-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../14-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../15-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../16-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../17-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../18-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../19-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../20-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses5-dev:armhf.
+Preparing to unpack .../21-libncurses5-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses5-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../22-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../23-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libncurses5-dev:armhf (6.1+20181013-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debian-archive-keyring_2018.1 debianutils_4.8.6.1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses5-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 make_4.2.1-1.2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: minicom
+Binary: minicom
+Architecture: any
+Version: 2.7.1-1
+Maintainer: Martin A. Godisch <godisch@debian.org>
+Uploaders: Jordi Mallach <jordi@debian.org>
+Homepage: https://alioth.debian.org/projects/minicom/
+Standards-Version: 4.0.1
+Build-Depends: autotools-dev, gettext, libncurses5-dev
+Package-List:
+ minicom deb comm optional arch=any
+Checksums-Sha1:
+ 915432810e7be05c684a634a2c6d45fec3c92cf9 875939 minicom_2.7.1.orig.tar.gz
+ e10b427fbce10b2ecea35c3497f54296c29986ee 14368 minicom_2.7.1-1.debian.tar.xz
+Checksums-Sha256:
+ 532f836b7a677eb0cb1dca8d70302b73729c3d30df26d58368d712e5cca041f1 875939 minicom_2.7.1.orig.tar.gz
+ 7388de5c9b39cd5eb935a7bc0b7bda21d5da76ccbaceeb3e05f064c42ca41deb 14368 minicom_2.7.1-1.debian.tar.xz
+Files:
+ 9021cb8c5445f6e6e74b2acc39962d62 875939 minicom_2.7.1.orig.tar.gz
+ e208f8d7ac1b84fbedadfc7853fa94b0 14368 minicom_2.7.1-1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJHBAEBCAAxFiEEGEIyO0/Pm5CZX6F/o1C5kfBaSFcFAlmQcQITHGdvZGlzY2hA
+ZGViaWFuLm9yZwAKCRCjULmR8FpIV/y7D/9sDu/WsVtn44YOk+6KXxbCQEX/M9r/
+fEdQ0PArBnScCMvWiGAoMV8v0HbBSuQGymZpU8SZXrIr+ajnJ7OJIdgL9bNxk9db
+2gFRj7Ukc9V1uuSV/iTe6WoZMJLqPrwINlSVCO2+8BmrOUOjh6XrbE9H7eaz0zPV
+/s6Y9qUIzVQZVhb3z3zOoqXB6JrJxRs1d5Q5mo8jTw9HGRKYpBBbgXY5sHmyljVg
+rZl+K8tTHlUQZeY5x0Gu3mmouEl3LGkriZnsQeC+PUnFmfUrBZYkMJG3JItR3hdW
+0mHu9eONoDFnQHlZ188RtoZlPx/7YEBMIkH1GHPm9bXBXgx15ozS+Af8FGGXkHnb
+HYdrABMjRMkDr2zuO5JZG/q42C7nPN9eq0E//jekIEQbn/8VL2DI6MaAYPCwtKw1
+z6WOlYjitHJDgu4SHhKRQzIHe3XrDnUJvCSqBE+TJoHU3yLAKgUzGsmnOHtZrIHV
+ZPY4XHk5QQNgQMZz0Qbz3SOubOuCNPlSC9WgfO4stbmU/23i+SlXs9vy9mZ8+SPy
+BRpWprWLKVtX4hJFHrZDarypgrHKeXgCoxhTr/Wg89JpqF6iO2FTIvIJKVmrvaFG
+TkeoPLR9xw0Xy+6HIZTkKAk58awL1etkgdR3osLZshSxqWOPwGCeOtHUKefOTTCn
+E4ive/69tQOdVA==
+=bBdc
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sun Aug 13 15:32:18 2017 UTC
+gpgv:                using RSA key 1842323B4FCF9B90995FA17FA350B991F05A4857
+gpgv:                issuer "godisch@debian.org"
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./minicom_2.7.1-1.dsc
+dpkg-source: info: extracting minicom in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking minicom_2.7.1.orig.tar.gz
+dpkg-source: info: unpacking minicom_2.7.1-1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 00manual.diff
+dpkg-source: info: applying 01manual.diff
+dpkg-source: info: applying 03norzsz.diff
+dpkg-source: info: applying 470582_history_buffer_msg.diff
+dpkg-source: info: applying Add-ARRAY_SIZE-macro.diff
+dpkg-source: info: applying CVE-2017-7467.diff
+dpkg-source: info: applying 869753_environment.diff
+dpkg-source: info: applying compile.diff
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-c312f180-2c27-4143-bbcd-3e9bd1d23104
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package minicom
+dpkg-buildpackage: info: source version 2.7.1-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Martin A. Godisch <godisch@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+test -f src/minicom.c && test -f debian/rules
+rm -f configure-stamp build-stamp
+cp -f /usr/share/misc/config.guess /usr/share/misc/config.sub .
+[ ! -f Makefile ] || /usr/bin/make -i distclean
+rm -rf debian/minicom
+rm -f debian/files debian/substvars
+rm -f config.guess config.sub po/*.gmo po/stamp-po
+ debian/rules build-arch
+test -f src/minicom.c && test -f debian/rules
+cp -f /usr/share/misc/config.guess /usr/share/misc/config.sub .
+./configure --build x86_64-linux-gnu --host arm-linux-gnueabihf --prefix=/usr --mandir=/usr/share/man --sysconfdir=/etc/minicom CFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security" CPPFLAGS="-Wdate-time -D_FORTIFY_SOURCE=2" CXXFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security" FCFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong" FFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong" GCJFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong" LDFLAGS="-Wl,-z,relro" OBJCFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security" OBJCXXFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security" 
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of arm-linux-gnueabihf-gcc... gcc3
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking the archiver (arm-linux-gnueabihf-ar) interface... ar
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for library containing strerror... none required
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for shared library run path origin... done
+checking for iconv... yes
+checking for working iconv... guessing yes
+checking for arm-linux-gnueabihf-pkg-config... no
+checking for pkg-config... no
+checking for a sed that does not truncate output... /bin/sed
+checking whether NLS is requested... yes
+checking for msgfmt... /usr/bin/msgfmt
+checking for gmsgfmt... /usr/bin/msgfmt
+checking for xgettext... /usr/bin/xgettext
+checking for msgmerge... /usr/bin/msgmerge
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for kermit... no
+checking for tputs in -ltinfo... yes
+checking termcap.h usability... yes
+checking termcap.h presence... yes
+checking for termcap.h... yes
+checking for socket in -lsocket... no
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for ANSI C header files... (cached) yes
+checking for sys/wait.h that is POSIX.1 compatible... yes
+checking whether stat file-mode macros are broken... no
+checking whether time.h and sys/time.h may both be included... yes
+checking POSIX termios... yes
+checking whether termios.h defines TIOCGWINSZ... no
+checking whether sys/ioctl.h defines TIOCGWINSZ... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking varargs.h usability... no
+checking varargs.h presence... no
+checking for varargs.h... no
+checking termio.h usability... yes
+checking termio.h presence... yes
+checking for termio.h... yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking setjmp.h usability... yes
+checking setjmp.h presence... yes
+checking for setjmp.h... yes
+checking errno.h usability... yes
+checking errno.h presence... yes
+checking for errno.h... yes
+checking pwd.h usability... yes
+checking pwd.h presence... yes
+checking for pwd.h... yes
+checking signal.h usability... yes
+checking signal.h presence... yes
+checking for signal.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking sgtty.h usability... yes
+checking sgtty.h presence... yes
+checking for sgtty.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking for sys/stat.h... (cached) yes
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking sys/ttold.h usability... no
+checking sys/ttold.h presence... no
+checking for sys/ttold.h... no
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking for unistd.h... (cached) yes
+checking posix1_lim.h usability... no
+checking posix1_lim.h presence... no
+checking for posix1_lim.h... no
+checking for sgtty.h... (cached) yes
+checking features.h usability... yes
+checking features.h presence... yes
+checking for features.h... yes
+checking for an ANSI C-conforming const... yes
+checking for uid_t in sys/types.h... yes
+checking for mode_t... yes
+checking for pid_t... yes
+checking for size_t... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking return type of signal handlers... void
+checking for error_at_line... yes
+checking whether closedir returns void... yes
+checking if malloc debugging is wanted... no
+checking for getcwd... yes
+checking for getwd... yes
+checking for memmove... yes
+checking for strerror... yes
+checking for strstr... yes
+checking for vsnprintf... yes
+checking for vprintf... yes
+checking for select... yes
+checking for snprintf... yes
+checking for usleep... yes
+checking for getopt... yes
+checking for getopt_long... yes
+checking for long file names... yes
+checking for com line lock directory... /var/lock
+checking for default serial port device... /dev/modem
+checking for default baud rate... 115200
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating doc/Makefile
+config.status: creating extras/Makefile
+config.status: creating extras/linux/Makefile
+config.status: creating extras/tables/Makefile
+config.status: creating extras/termcap/Makefile
+config.status: creating extras/terminfo/Makefile
+config.status: creating man/Makefile
+config.status: creating lib/Makefile
+config.status: creating src/Makefile
+config.status: creating po/Makefile.in
+config.status: creating minicom.spec
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing po-directories commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+touch configure-stamp
+test -f src/minicom.c && test -f debian/rules
+/usr/bin/make
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make  all-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in doc
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+Making all in extras
+make[3]: Entering directory '/<<PKGBUILDDIR>>/extras'
+Making all in linux
+make[4]: Entering directory '/<<PKGBUILDDIR>>/extras/linux'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/extras/linux'
+Making all in tables
+make[4]: Entering directory '/<<PKGBUILDDIR>>/extras/tables'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/extras/tables'
+Making all in termcap
+make[4]: Entering directory '/<<PKGBUILDDIR>>/extras/termcap'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/extras/termcap'
+Making all in terminfo
+make[4]: Entering directory '/<<PKGBUILDDIR>>/extras/terminfo'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/extras/terminfo'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/extras'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/extras'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/extras'
+Making all in man
+make[3]: Entering directory '/<<PKGBUILDDIR>>/man'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/man'
+Making all in po
+make[3]: Entering directory '/<<PKGBUILDDIR>>/po'
+test ! -f ./minicom.pot || \
+  test -z "cs.gmo da.gmo de.gmo es.gmo fr.gmo fi.gmo hu.gmo id.gmo ja.gmo nb.gmo pl.gmo pt_BR.gmo ro.gmo ru.gmo rw.gmo sv.gmo vi.gmo zh_TW.gmo" || /usr/bin/make cs.gmo da.gmo de.gmo es.gmo fr.gmo fi.gmo hu.gmo id.gmo ja.gmo nb.gmo pl.gmo pt_BR.gmo ro.gmo ru.gmo rw.gmo sv.gmo vi.gmo zh_TW.gmo
+make[4]: Entering directory '/<<PKGBUILDDIR>>/po'
+rm -f cs.gmo && /usr/bin/msgfmt -c --statistics -o cs.gmo cs.po
+rm -f de.gmo && /usr/bin/msgfmt -c --statistics -o de.gmo de.po
+rm -f da.gmo && /usr/bin/msgfmt -c --statistics -o da.gmo da.po
+rm -f es.gmo && /usr/bin/msgfmt -c --statistics -o es.gmo es.po
+rm -f fr.gmo && /usr/bin/msgfmt -c --statistics -o fr.gmo fr.po
+rm -f id.gmo && /usr/bin/msgfmt -c --statistics -o id.gmo id.po
+rm -f hu.gmo && /usr/bin/msgfmt -c --statistics -o hu.gmo hu.po
+rm -f fi.gmo && /usr/bin/msgfmt -c --statistics -o fi.gmo fi.po
+rm -f pt_BR.gmo && /usr/bin/msgfmt -c --statistics -o pt_BR.gmo pt_BR.po
+rm -f nb.gmo && /usr/bin/msgfmt -c --statistics -o nb.gmo nb.po
+rm -f pl.gmo && /usr/bin/msgfmt -c --statistics -o pl.gmo pl.po
+rm -f ja.gmo && /usr/bin/msgfmt -c --statistics -o ja.gmo ja.po
+rm -f ro.gmo && /usr/bin/msgfmt -c --statistics -o ro.gmo ro.po
+rm -f rw.gmo && /usr/bin/msgfmt -c --statistics -o rw.gmo rw.po
+rm -f sv.gmo && /usr/bin/msgfmt -c --statistics -o sv.gmo sv.po
+rm -f ru.gmo && /usr/bin/msgfmt -c --statistics -o ru.gmo ru.po
+360 translated messages, 20 fuzzy translations, 11 untranslated messages.
+314 translated messages, 47 fuzzy translations, 30 untranslated messages.
+387 translated messages, 4 fuzzy translations.
+387 translated messages, 4 fuzzy translations.
+rm -f vi.gmo && /usr/bin/msgfmt -c --statistics -o vi.gmo vi.po
+12 translated messages, 275 fuzzy translations, 104 untranslated messages.
+387 translated messages, 4 fuzzy translations.
+355 translated messages, 20 fuzzy translations, 16 untranslated messages.
+360 translated messages, 20 fuzzy translations, 11 untranslated messages.
+rm -f zh_TW.gmo && /usr/bin/msgfmt -c --statistics -o zh_TW.gmo zh_TW.po
+387 translated messages, 4 fuzzy translations.
+387 translated messages, 4 fuzzy translations.
+360 translated messages, 20 fuzzy translations, 11 untranslated messages.
+299 translated messages, 56 fuzzy translations, 36 untranslated messages.
+387 translated messages, 4 fuzzy translations.
+293 translated messages, 60 fuzzy translations, 38 untranslated messages.
+313 translated messages, 47 fuzzy translations, 31 untranslated messages.
+293 translated messages, 60 fuzzy translations, 38 untranslated messages.
+313 translated messages, 47 fuzzy translations, 31 untranslated messages.
+314 translated messages, 47 fuzzy translations, 30 untranslated messages.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/po'
+touch stamp-po
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/po'
+Making all in lib
+make[3]: Entering directory '/<<PKGBUILDDIR>>/lib'
+rm -f libport.a
+arm-linux-gnueabihf-ar cru libport.a  
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib libport.a
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+Making all in src
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT minicom.o -MD -MP -MF .deps/minicom.Tpo -c -o minicom.o minicom.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT vt100.o -MD -MP -MF .deps/vt100.Tpo -c -o vt100.o vt100.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT config.o -MD -MP -MF .deps/config.Tpo -c -o config.o config.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT help.o -MD -MP -MF .deps/help.Tpo -c -o help.o help.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT updown.o -MD -MP -MF .deps/updown.Tpo -c -o updown.o updown.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT util.o -MD -MP -MF .deps/util.Tpo -c -o util.o util.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT dial.o -MD -MP -MF .deps/dial.Tpo -c -o dial.o dial.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT window.o -MD -MP -MF .deps/window.Tpo -c -o window.o window.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT wkeys.o -MD -MP -MF .deps/wkeys.Tpo -c -o wkeys.o wkeys.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT ipc.o -MD -MP -MF .deps/ipc.Tpo -c -o ipc.o ipc.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT windiv.o -MD -MP -MF .deps/windiv.Tpo -c -o windiv.o windiv.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT sysdep1.o -MD -MP -MF .deps/sysdep1.Tpo -c -o sysdep1.o sysdep1.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT sysdep1_s.o -MD -MP -MF .deps/sysdep1_s.Tpo -c -o sysdep1_s.o sysdep1_s.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT sysdep2.o -MD -MP -MF .deps/sysdep2.Tpo -c -o sysdep2.o sysdep2.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT rwconf.o -MD -MP -MF .deps/rwconf.Tpo -c -o rwconf.o rwconf.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+mv -f .deps/sysdep2.Tpo .deps/sysdep2.Po
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT file.o -MD -MP -MF .deps/file.Tpo -c -o file.o file.c
+mv -f .deps/sysdep1_s.Tpo .deps/sysdep1_s.Po
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT getsdir.o -MD -MP -MF .deps/getsdir.Tpo -c -o getsdir.o getsdir.c
+mv -f .deps/help.Tpo .deps/help.Po
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT wildmat.o -MD -MP -MF .deps/wildmat.Tpo -c -o wildmat.o wildmat.c
+mv -f .deps/ipc.Tpo .deps/ipc.Po
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT common.o -MD -MP -MF .deps/common.Tpo -c -o common.o common.c
+mv -f .deps/rwconf.Tpo .deps/rwconf.Po
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT script.o -MD -MP -MF .deps/script.Tpo -c -o script.o script.c
+mv -f .deps/util.Tpo .deps/util.Po
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -DCONFDIR=\"/etc/minicom\" -DLOCALEDIR=\"/usr/share/locale\" -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99 -MT ascii-xfr.o -MD -MP -MF .deps/ascii-xfr.Tpo -c -o ascii-xfr.o ascii-xfr.c
+mv -f .deps/windiv.Tpo .deps/windiv.Po
+mv -f .deps/sysdep1.Tpo .deps/sysdep1.Po
+mv -f .deps/wkeys.Tpo .deps/wkeys.Po
+mv -f .deps/wildmat.Tpo .deps/wildmat.Po
+mv -f .deps/common.Tpo .deps/common.Po
+mv -f .deps/vt100.Tpo .deps/vt100.Po
+mv -f .deps/getsdir.Tpo .deps/getsdir.Po
+updown.c: In function ‘mcd’:
+updown.c:67:38: warning: ‘__builtin___snprintf_chk’ output may be truncated before the last format character [-Wformat-truncation=]
+     snprintf(buf, sizeof(buf), "%s/%s", homedir, dir);
+                                      ^
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from port.h:57,
+                 from updown.c:34:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 2 or more bytes (assuming 257) into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+updown.c: In function ‘runscript’:
+updown.c:720:23: warning: ‘%d’ directive writing between 1 and 6 bytes into a region of size 5 [-Wformat-overflow=]
+   sprintf(scr_lines, "%d", (int) lines);  /* jl 13.09.97 */
+                       ^~
+updown.c:720:22: note: directive argument in the range [-32768, 32767]
+   sprintf(scr_lines, "%d", (int) lines);  /* jl 13.09.97 */
+                      ^~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from port.h:57,
+                 from updown.c:34:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:36:10: note: ‘__builtin___sprintf_chk’ output between 2 and 7 bytes into a destination of size 5
+   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       __bos (__s), __fmt, __va_arg_pack ());
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+updown.c:736:42: warning: ‘%s’ directive output may be truncated writing up to 255 bytes into a region of size between 0 and 127 [-Wformat-truncation=]
+   snprintf(cmdline, sizeof(cmdline), "%s %s %s %s",
+                                          ^~
+            P_SCRIPTPROG, scr_name, logfname, logfname[0]==0? "": homedir);
+                          ~~~~~~~~         
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from port.h:57,
+                 from updown.c:34:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 4 and 768 bytes into a destination of size 128
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mv -f .deps/updown.Tpo .deps/updown.Po
+mv -f .deps/ascii-xfr.Tpo .deps/ascii-xfr.Po
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99  -Wl,-z,relro -o ascii-xfr ascii-xfr.o ../lib/libport.a -ltinfo
+main.c: In function ‘open_term’:
+main.c:218:27: warning: ‘/LCK..’ directive output may be truncated writing 6 bytes into a region of size between 1 and 128 [-Wformat-truncation=]
+                        "%s/LCK..%s",
+                           ^~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from port.h:57,
+                 from main.c:26:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 7 and 261 bytes into a destination of size 128
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mv -f .deps/main.Tpo .deps/main.Po
+mv -f .deps/file.Tpo .deps/file.Po
+minicom.c: In function ‘main’:
+minicom.c:1164:32: warning: macro "__DATE__" might prevent reproducible builds [-Wdate-time]
+    printf(_(" (compiled %s)"), __DATE__);
+                                ^~~~~~~~
+minicom.c:1467:53: warning: macro "__DATE__" might prevent reproducible builds [-Wdate-time]
+   mc_wprintf(us, "%s %s, %s.\r\n",_("Compiled on"), __DATE__,__TIME__);
+                                                     ^~~~~~~~
+minicom.c:1467:62: warning: macro "__TIME__" might prevent reproducible builds [-Wdate-time]
+   mc_wprintf(us, "%s %s, %s.\r\n",_("Compiled on"), __DATE__,__TIME__);
+                                                              ^~~~~~~~
+minicom.c: In function ‘scrollback’:
+minicom.c:493:22: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         case_matters = 0; /* case-importance, ie. none :-) */
+         ~~~~~~~~~~~~~^~~
+minicom.c:498:7: note: here
+       case '/':
+       ^~~~
+minicom.c: In function ‘main’:
+minicom.c:1329:43: warning: ‘/.minirc.’ directive output may be truncated writing 9 bytes into a region of size between 1 and 256 [-Wformat-truncation=]
+   snprintf(pparfile, sizeof(pparfile), "%s/.minirc.%s", homedir, use_port);
+                                           ^~~~~~~~~
+minicom.c:1329:40: note: assuming directive output of 3 bytes
+   snprintf(pparfile, sizeof(pparfile), "%s/.minirc.%s", homedir, use_port);
+                                        ^~~~~~~~~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from port.h:57,
+                 from minicom.c:39:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 10 or more bytes (assuming 268) into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mv -f .deps/minicom.Tpo .deps/minicom.Po
+mv -f .deps/script.Tpo .deps/script.Po
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99  -Wl,-z,relro -o runscript script.o sysdep1_s.o common.o ../lib/libport.a -ltinfo
+config.c: In function ‘domodem’:
+config.c:706:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         if (string_size == 0)
+            ^
+config.c:708:7: note: here
+       case 'N':
+       ^~~~
+config.c:709:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         if (string_size == 0)
+            ^
+config.c:711:7: note: here
+       case 'O':
+       ^~~~
+config.c:712:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         if (string_size == 0)
+            ^
+config.c:714:7: note: here
+       case 'P':
+       ^~~~
+config.c:718:14: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         maxl = 4;
+         ~~~~~^~~
+config.c:719:7: note: here
+       case 'K':
+       ^~~~
+config.c:720:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         if (string_size == 0)
+            ^
+config.c:722:7: note: here
+       case 'L':
+       ^~~~
+config.c:726:11: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         c += 3;
+         ~~^~~~
+config.c:727:7: note: here
+       case 'A':
+       ^~~~
+config.c:728:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         if (string_size == 0)
+            ^
+config.c:730:7: note: here
+       case 'B':
+       ^~~~
+config.c:731:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         if (string_size == 0)
+            ^
+config.c:733:7: note: here
+       case 'C':
+       ^~~~
+config.c:734:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         if (string_size == 0)
+            ^
+config.c:736:7: note: here
+       case 'D':
+       ^~~~
+config.c:737:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         if (string_size == 0)
+            ^
+config.c:739:7: note: here
+       case 'E':
+       ^~~~
+config.c:740:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         if (string_size == 0)
+            ^
+config.c:742:7: note: here
+       case 'F':
+       ^~~~
+config.c:743:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         if (string_size == 0)
+            ^
+config.c:745:7: note: here
+       case 'G':
+       ^~~~
+config.c:746:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         if (string_size == 0)
+            ^
+config.c:748:7: note: here
+       case 'H':
+       ^~~~
+config.c:749:12: warning: this statement may fall through [-Wimplicit-fallthrough=]
+         if (string_size == 0)
+            ^
+config.c:751:7: note: here
+       case 'I':
+       ^~~~
+config.c: In function ‘update_bbp_from_char’:
+config.c:1511:13: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       delta = 1;
+       ~~~~~~^~~
+config.c:1512:5: note: here
+     case 'B':
+     ^~~~
+config.c:1514:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       if (speed_idx < 0)
+          ^
+config.c:1519:5: note: here
+     case 'C':
+     ^~~~
+config.c:1522:10: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       if (c == 'C')
+          ^
+config.c:1528:5: note: here
+     case 'K':
+     ^~~~
+mv -f .deps/config.Tpo .deps/config.Po
+dial.c: In function ‘writedialdir’:
+dial.c:1076:37: warning: ‘/.dialdir’ directive output may be truncated writing 9 bytes into a region of size between 1 and 256 [-Wformat-truncation=]
+   snprintf(dfile, sizeof(dfile), "%s/.dialdir", homedir);
+                                     ^~~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from port.h:57,
+                 from dial.c:37:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 10 and 265 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dial.c: In function ‘dial’:
+dial.c:583:32: warning: ‘%4.4d’ directive writing between 4 and 11 bytes into a region of size 9 [-Wformat-overflow=]
+           sprintf(d->lastdate,"%4.4d%2.2d%2.2d",
+                                ^~~~~
+dial.c:583:31: note: directive argument in the range [-2147481748, 2147483647]
+           sprintf(d->lastdate,"%4.4d%2.2d%2.2d",
+                               ^~~~~~~~~~~~~~~~~
+dial.c:583:31: note: directive argument in the range [-2147483647, 2147483647]
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from port.h:57,
+                 from dial.c:37:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:36:10: note: ‘__builtin___sprintf_chk’ output between 9 and 34 bytes into a destination of size 9
+   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       __bos (__s), __fmt, __va_arg_pack ());
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dial.c: In function ‘readdialdir’:
+dial.c:884:37: warning: ‘/.dialdir’ directive output may be truncated writing 9 bytes into a region of size between 1 and 256 [-Wformat-truncation=]
+   snprintf(dfile, sizeof(dfile), "%s/.dialdir", homedir);
+                                     ^~~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from port.h:57,
+                 from dial.c:37:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 10 and 265 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mv -f .deps/dial.Tpo .deps/dial.Po
+mv -f .deps/window.Tpo .deps/window.Po
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W -Wall -Wextra -std=gnu99  -Wl,-z,relro -o minicom minicom.o vt100.o config.o help.o updown.o util.o dial.o window.o wkeys.o ipc.o windiv.o sysdep1.o sysdep1_s.o sysdep2.o rwconf.o main.o file.o getsdir.o wildmat.o common.o  ../lib/libport.a  -ltinfo
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+touch build-stamp
+ fakeroot debian/rules binary-arch
+test -f src/minicom.c && test -f debian/rules
+test x`whoami` = xroot
+rm -rf debian/minicom
+/usr/bin/make DESTDIR=/<<PKGBUILDDIR>>/debian/minicom install
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+Making install in doc
+make[2]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+Making install in extras
+make[2]: Entering directory '/<<PKGBUILDDIR>>/extras'
+Making install in linux
+make[3]: Entering directory '/<<PKGBUILDDIR>>/extras/linux'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/extras/linux'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/extras/linux'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/extras/linux'
+Making install in tables
+make[3]: Entering directory '/<<PKGBUILDDIR>>/extras/tables'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/extras/tables'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/extras/tables'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/extras/tables'
+Making install in termcap
+make[3]: Entering directory '/<<PKGBUILDDIR>>/extras/termcap'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/extras/termcap'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/extras/termcap'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/extras/termcap'
+Making install in terminfo
+make[3]: Entering directory '/<<PKGBUILDDIR>>/extras/terminfo'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/extras/terminfo'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/extras/terminfo'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/extras/terminfo'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/extras'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/extras'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/extras'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/extras'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/extras'
+Making install in man
+make[2]: Entering directory '/<<PKGBUILDDIR>>/man'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/man'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/minicom/usr/share/man/man1'
+ /usr/bin/install -c -m 644 ascii-xfr.1 minicom.1 runscript.1 xminicom.1 '/<<PKGBUILDDIR>>/debian/minicom/usr/share/man/man1'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/man'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/man'
+Making install in po
+make[2]: Entering directory '/<<PKGBUILDDIR>>/po'
+/bin/mkdir -p /<<PKGBUILDDIR>>/debian/minicom/usr/share
+installing cs.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/cs/LC_MESSAGES/minicom.mo
+installing da.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/da/LC_MESSAGES/minicom.mo
+installing de.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/de/LC_MESSAGES/minicom.mo
+installing es.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/es/LC_MESSAGES/minicom.mo
+installing fr.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/fr/LC_MESSAGES/minicom.mo
+installing fi.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/fi/LC_MESSAGES/minicom.mo
+installing hu.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/hu/LC_MESSAGES/minicom.mo
+installing id.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/id/LC_MESSAGES/minicom.mo
+installing ja.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/ja/LC_MESSAGES/minicom.mo
+installing nb.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/nb/LC_MESSAGES/minicom.mo
+installing pl.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/pl/LC_MESSAGES/minicom.mo
+installing pt_BR.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/pt_BR/LC_MESSAGES/minicom.mo
+installing ro.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/ro/LC_MESSAGES/minicom.mo
+installing ru.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/ru/LC_MESSAGES/minicom.mo
+installing rw.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/rw/LC_MESSAGES/minicom.mo
+installing sv.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/sv/LC_MESSAGES/minicom.mo
+installing vi.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/vi/LC_MESSAGES/minicom.mo
+installing zh_TW.gmo as /<<PKGBUILDDIR>>/debian/minicom/usr/share/locale/zh_TW/LC_MESSAGES/minicom.mo
+if test "minicom" = "gettext-tools"; then \
+  /bin/mkdir -p /<<PKGBUILDDIR>>/debian/minicom/usr/share/gettext/po; \
+  for file in Makefile.in.in remove-potcdate.sin    Makevars.template; do \
+    /usr/bin/install -c -m 644 ./$file \
+		    /<<PKGBUILDDIR>>/debian/minicom/usr/share/gettext/po/$file; \
+  done; \
+  for file in Makevars; do \
+    rm -f /<<PKGBUILDDIR>>/debian/minicom/usr/share/gettext/po/$file; \
+  done; \
+else \
+  : ; \
+fi
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/po'
+Making install in lib
+make[2]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/lib'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/lib'
+Making install in src
+make[2]: Entering directory '/<<PKGBUILDDIR>>/src'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+make[3]: Nothing to be done for 'install-data-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/minicom/usr/bin'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/minicom/usr/bin'
+ /usr/bin/install -c xminicom '/<<PKGBUILDDIR>>/debian/minicom/usr/bin'
+  /usr/bin/install -c minicom runscript ascii-xfr '/<<PKGBUILDDIR>>/debian/minicom/usr/bin'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+chmod -R go=u-w debian/minicom
+cd debian/minicom/usr/bin && strip -R .comment -R .note ascii-xfr minicom runscript
+strip: Unable to recognise the format of the input file `ascii-xfr'
+strip: Unable to recognise the format of the input file `minicom'
+strip: Unable to recognise the format of the input file `runscript'
+make: *** [debian/rules:62: binary-arch] Error 1
+dpkg-buildpackage: error: fakeroot debian/rules binary-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-03-05T15:50:11Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autotools-dev* gcc-8-base:armhf* gettext* gettext-base* libasan5:armhf*
+  libatomic1:armhf* libc6:armhf* libc6-dev:armhf* libcroco3*
+  libgcc-8-dev:armhf* libgcc1:armhf* libglib2.0-0* libgomp1:armhf*
+  libncurses-dev:armhf* libncurses5-dev:armhf* libncurses6* libncurses6:armhf*
+  libncursesw6:armhf* libstdc++-8-dev:armhf* libstdc++6:armhf*
+  libtinfo6:armhf* libubsan1:armhf* linux-libc-dev:armhf*
+  sbuild-build-depends-main-dummy:armhf*
+0 upgraded, 0 newly installed, 24 to remove and 0 not upgraded.
+After this operation, 64.5 MB disk space will be freed.
+(Reading database ... 17674 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing autotools-dev (20180224.1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libncurses5-dev:armhf (6.1+20181013-2) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing libc6:armhf (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16441 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 16
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 10
+Job: /home/build/sbuild-setup/repo/pool/main/m/minicom/minicom_2.7.1-1.dsc
+Machine Architecture: amd64
+Package: minicom
+Package-Time: 31
+Source-Version: 2.7.1-1
+Space: n/a
+Status: attempted
+Version: 2.7.1-1
+--------------------------------------------------------------------------------
+Finished at 2019-03-05T15:50:11Z
+Build needed 00:00:31, no disk space
