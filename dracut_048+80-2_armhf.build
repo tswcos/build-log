@@ -1,0 +1,2523 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 4be29f1fdf49
+
++==============================================================================+
+| dracut 048+80-2 (armhf)                      Sat, 11 May 2019 08:12:24 +0000 |
++==============================================================================+
+
+Package: dracut
+Version: 048+80-2
+Source Version: 048+80-2
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-18e5ea59-5b4d-4c0b-8431-821cf1a4437b' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/dracut-gR0sPG/resolver-t0Ar8N' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian unstable InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/d/dracut/dracut_048+80-2.dsc exists in /home/build/sbuild-setup/repo/pool/main/d/dracut; copying to chroot
+I: NOTICE: Log filtering will replace 'build/dracut-gR0sPG/dracut-048+80' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/dracut-gR0sPG' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper, asciidoc-base, xsltproc, docbook-xsl, docbook-xml, quilt, libkmod-dev, pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper, asciidoc-base, xsltproc, docbook-xsl, docbook-xml, quilt, libkmod-dev, pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [436 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [521 B]
+Fetched 1914 B in 0s (137 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  asciidoc-base asciidoc-common autoconf automake autopoint autotools-dev
+  binutils-arm-linux-gnueabihf bsdmainutils cpp-8-arm-linux-gnueabihf
+  cpp-arm-linux-gnueabihf cross-config crossbuild-essential-armhf debhelper
+  dh-autoreconf dh-strip-nondeterminism diffstat docbook-xml docbook-xsl
+  dpkg-cross dwz file g++-8-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+  gcc-8-arm-linux-gnueabihf gcc-8-arm-linux-gnueabihf-base gcc-8-base:armhf
+  gcc-8-cross-base gcc-arm-linux-gnueabihf gettext gettext-base groff-base
+  intltool-debian libarchive-zip-perl libasan5:armhf libasan5-armhf-cross
+  libatomic1:armhf libatomic1-armhf-cross libbsd0 libc6:armhf
+  libc6-armhf-cross libc6-dev:armhf libc6-dev-armhf-cross libconfig-auto-perl
+  libconfig-inifiles-perl libcroco3 libdebian-dpkgcross-perl libelf1 libexpat1
+  libfile-homedir-perl libfile-stripnondeterminism-perl libfile-which-perl
+  libgcc-8-dev:armhf libgcc-8-dev-armhf-cross libgcc1:armhf
+  libgcc1-armhf-cross libglib2.0-0 libgomp1:armhf libgomp1-armhf-cross
+  libicu63 libio-string-perl libkmod-dev:armhf libkmod2:armhf
+  liblocale-gettext-perl liblzma5:armhf libmagic-mgc libmagic1 libncurses6
+  libpipeline1 libpython-stdlib libpython2-stdlib libpython2.7-minimal
+  libpython2.7-stdlib libsigsegv2 libssl1.1 libssl1.1:armhf
+  libstdc++-8-dev:armhf libstdc++-8-dev-armhf-cross libstdc++6:armhf
+  libstdc++6-armhf-cross libtool libubsan1:armhf libubsan1-armhf-cross
+  libuchardet0 libxml-libxml-perl libxml-namespacesupport-perl
+  libxml-sax-base-perl libxml-sax-perl libxml-simple-perl libxml2
+  libxml2-utils libxslt1.1 libyaml-perl linux-libc-dev:armhf
+  linux-libc-dev-armhf-cross m4 man-db mime-support pkg-config po-debconf
+  python python-minimal python2 python2-minimal python2.7 python2.7-minimal
+  quilt sensible-utils sgml-base sgml-data ucf xml-core xsltproc
+Suggested packages:
+  asciidoc-doc docbook-utils source-highlight autoconf-archive gnu-standards
+  autoconf-doc binutils-doc wamerican | wordlist whois vacation gcc-8-locales
+  cpp-doc dh-make docbook docbook-dsssl docbook-defguide dbtoepub
+  docbook-xsl-doc-html | docbook-xsl-doc-pdf | docbook-xsl-doc-text
+  | docbook-xsl-doc docbook-xsl-saxon fop libsaxon-java libxalan2-java
+  libxslthl-java xalan binutils-multiarch gcc-8-doc
+  libstdc++6-8-dbg-armhf-cross libgcc1-dbg-armhf-cross
+  libgomp1-dbg-armhf-cross libitm1-dbg-armhf-cross libatomic1-dbg-armhf-cross
+  libasan5-dbg-armhf-cross liblsan0-dbg-armhf-cross libtsan0-dbg-armhf-cross
+  libubsan1-dbg-armhf-cross libmpx2-dbg-armhf-cross
+  libquadmath0-dbg-armhf-cross manpages-dev flex bison gdb-arm-linux-gnueabihf
+  gcc-doc gettext-doc libasprintf-dev libgettextpo-dev groff glibc-doc:armhf
+  libc-l10n:armhf locales:armhf manpages-dev:armhf libstdc++-8-doc:armhf
+  libtool-doc gfortran | fortran95-compiler gcj-jdk libyaml-shell-perl m4-doc
+  apparmor less www-browser libmail-box-perl python-doc python-tk python2-doc
+  python2.7-doc binfmt-support default-mta | mail-transport-agent graphviz
+  procmail sgml-base-doc perlsgml w3-recs opensp
+Recommended packages:
+  xmlto curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl
+  libglib2.0-data shared-mime-info xdg-user-dirs libgpm2 libltdl-dev
+  libwww-perl libxml-sax-expat-perl libyaml-libyaml-perl | libyaml-syck-perl
+  libmail-sendmail-perl less
+The following NEW packages will be installed:
+  asciidoc-base asciidoc-common autoconf automake autopoint autotools-dev
+  binutils-arm-linux-gnueabihf bsdmainutils cpp-8-arm-linux-gnueabihf
+  cpp-arm-linux-gnueabihf cross-config crossbuild-essential-armhf debhelper
+  dh-autoreconf dh-strip-nondeterminism diffstat docbook-xml docbook-xsl
+  dpkg-cross dwz file g++-8-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+  gcc-8-arm-linux-gnueabihf gcc-8-arm-linux-gnueabihf-base gcc-8-base:armhf
+  gcc-8-cross-base gcc-arm-linux-gnueabihf gettext gettext-base groff-base
+  intltool-debian libarchive-zip-perl libasan5:armhf libasan5-armhf-cross
+  libatomic1:armhf libatomic1-armhf-cross libbsd0 libc6:armhf
+  libc6-armhf-cross libc6-dev:armhf libc6-dev-armhf-cross libconfig-auto-perl
+  libconfig-inifiles-perl libcroco3 libdebian-dpkgcross-perl libelf1 libexpat1
+  libfile-homedir-perl libfile-stripnondeterminism-perl libfile-which-perl
+  libgcc-8-dev:armhf libgcc-8-dev-armhf-cross libgcc1:armhf
+  libgcc1-armhf-cross libglib2.0-0 libgomp1:armhf libgomp1-armhf-cross
+  libicu63 libio-string-perl libkmod-dev:armhf libkmod2:armhf
+  liblocale-gettext-perl liblzma5:armhf libmagic-mgc libmagic1 libncurses6
+  libpipeline1 libpython-stdlib libpython2-stdlib libpython2.7-minimal
+  libpython2.7-stdlib libsigsegv2 libssl1.1 libssl1.1:armhf
+  libstdc++-8-dev:armhf libstdc++-8-dev-armhf-cross libstdc++6:armhf
+  libstdc++6-armhf-cross libtool libubsan1:armhf libubsan1-armhf-cross
+  libuchardet0 libxml-libxml-perl libxml-namespacesupport-perl
+  libxml-sax-base-perl libxml-sax-perl libxml-simple-perl libxml2
+  libxml2-utils libxslt1.1 libyaml-perl linux-libc-dev:armhf
+  linux-libc-dev-armhf-cross m4 man-db mime-support pkg-config po-debconf
+  python python-minimal python2 python2-minimal python2.7 python2.7-minimal
+  quilt sbuild-build-depends-main-dummy:armhf sensible-utils sgml-base
+  sgml-data ucf xml-core xsltproc
+0 upgraded, 113 newly installed, 0 to remove and 0 not upgraded.
+Need to get 8835 kB/70.5 MB of archives.
+After this operation, 278 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [948 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libpython2.7-minimal amd64 2.7.16-2 [395 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 python2.7-minimal amd64 2.7.16-2 [1367 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 python2-minimal amd64 2.7.16-1 [41.4 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 python-minimal amd64 2.7.16-1 [21.0 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libssl1.1 amd64 1.1.1b-2 [1530 kB]
+Get:7 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libexpat1 amd64 2.2.6-1 [105 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libpython2.7-stdlib amd64 2.7.16-2 [1910 kB]
+Get:9 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 python2.7 amd64 2.7.16-2 [305 kB]
+Get:10 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libpython2-stdlib amd64 2.7.16-1 [20.8 kB]
+Get:11 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libpython-stdlib amd64 2.7.16-1 [20.8 kB]
+Get:12 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 python2 amd64 2.7.16-1 [41.6 kB]
+Get:13 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 python amd64 2.7.16-1 [22.8 kB]
+Get:14 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 sgml-base all 1.29 [14.8 kB]
+Get:15 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 asciidoc-common all 8.6.10-3 [282 kB]
+Get:16 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libxml2-utils amd64 2.9.4+dfsg1-7+b3 [99.7 kB]
+Get:17 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 asciidoc-base all 8.6.10-3 [135 kB]
+Get:18 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 diffstat amd64 1.62-1 [33.4 kB]
+Get:19 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 xml-core all 0.18+nmu1 [23.8 kB]
+Get:20 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 sgml-data all 2.0.11 [179 kB]
+Get:21 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 docbook-xml all 4.5-8 [84.7 kB]
+Get:22 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 docbook-xsl all 1.79.1+dfsg-2 [1249 kB]
+Get:23 http://cdn-fastly.deb.debian.org/debian unstable/main armhf liblzma5 armhf 5.2.4-1 [145 kB]
+Get:24 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libkmod2 armhf 26-1 [46.4 kB]
+Get:25 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libkmod-dev armhf 26-1 [22.1 kB]
+Get:26 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libxslt1.1 amd64 1.1.32-2 [236 kB]
+Get:27 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 pkg-config amd64 0.29-6 [63.5 kB]
+Get:28 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 quilt all 0.65-3 [318 kB]
+Get:29 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 xsltproc amd64 1.1.32-2 [121 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 8835 kB in 5s (1679 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 12293 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package libpython2.7-minimal:amd64.
+Preparing to unpack .../06-libpython2.7-minimal_2.7.16-2_amd64.deb ...
+Unpacking libpython2.7-minimal:amd64 (2.7.16-2) ...
+Selecting previously unselected package python2.7-minimal.
+Preparing to unpack .../07-python2.7-minimal_2.7.16-2_amd64.deb ...
+Unpacking python2.7-minimal (2.7.16-2) ...
+Selecting previously unselected package python2-minimal.
+Preparing to unpack .../08-python2-minimal_2.7.16-1_amd64.deb ...
+Unpacking python2-minimal (2.7.16-1) ...
+Selecting previously unselected package python-minimal.
+Preparing to unpack .../09-python-minimal_2.7.16-1_amd64.deb ...
+Unpacking python-minimal (2.7.16-1) ...
+Selecting previously unselected package libssl1.1:amd64.
+Preparing to unpack .../10-libssl1.1_1.1.1b-2_amd64.deb ...
+Unpacking libssl1.1:amd64 (1.1.1b-2) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../11-mime-support_3.62_all.deb ...
+Unpacking mime-support (3.62) ...
+Selecting previously unselected package libexpat1:amd64.
+Preparing to unpack .../12-libexpat1_2.2.6-1_amd64.deb ...
+Unpacking libexpat1:amd64 (2.2.6-1) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Preparing to unpack .../13-libpython2.7-stdlib_2.7.16-2_amd64.deb ...
+Unpacking libpython2.7-stdlib:amd64 (2.7.16-2) ...
+Selecting previously unselected package python2.7.
+Preparing to unpack .../14-python2.7_2.7.16-2_amd64.deb ...
+Unpacking python2.7 (2.7.16-2) ...
+Selecting previously unselected package libpython2-stdlib:amd64.
+Preparing to unpack .../15-libpython2-stdlib_2.7.16-1_amd64.deb ...
+Unpacking libpython2-stdlib:amd64 (2.7.16-1) ...
+Selecting previously unselected package libpython-stdlib:amd64.
+Preparing to unpack .../16-libpython-stdlib_2.7.16-1_amd64.deb ...
+Unpacking libpython-stdlib:amd64 (2.7.16-1) ...
+Setting up libpython2.7-minimal:amd64 (2.7.16-2) ...
+Setting up python2.7-minimal (2.7.16-2) ...
+Setting up python2-minimal (2.7.16-1) ...
+Selecting previously unselected package python2.
+(Reading database ... 13732 files and directories currently installed.)
+Preparing to unpack .../python2_2.7.16-1_amd64.deb ...
+Unpacking python2 (2.7.16-1) ...
+Setting up python-minimal (2.7.16-1) ...
+Selecting previously unselected package python.
+(Reading database ... 13765 files and directories currently installed.)
+Preparing to unpack .../00-python_2.7.16-1_amd64.deb ...
+Unpacking python (2.7.16-1) ...
+Selecting previously unselected package liblocale-gettext-perl.
+Preparing to unpack .../01-liblocale-gettext-perl_1.07-3+b4_amd64.deb ...
+Unpacking liblocale-gettext-perl (1.07-3+b4) ...
+Selecting previously unselected package sgml-base.
+Preparing to unpack .../02-sgml-base_1.29_all.deb ...
+Unpacking sgml-base (1.29) ...
+Selecting previously unselected package sensible-utils.
+Preparing to unpack .../03-sensible-utils_0.0.12_all.deb ...
+Unpacking sensible-utils (0.0.12) ...
+Selecting previously unselected package libmagic-mgc.
+Preparing to unpack .../04-libmagic-mgc_1%3a5.35-4_amd64.deb ...
+Unpacking libmagic-mgc (1:5.35-4) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../05-libmagic1_1%3a5.35-4_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.35-4) ...
+Selecting previously unselected package file.
+Preparing to unpack .../06-file_1%3a5.35-4_amd64.deb ...
+Unpacking file (1:5.35-4) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../07-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package ucf.
+Preparing to unpack .../08-ucf_3.0038+nmu1_all.deb ...
+Moving old data out of the way
+Unpacking ucf (3.0038+nmu1) ...
+Selecting previously unselected package asciidoc-common.
+Preparing to unpack .../09-asciidoc-common_8.6.10-3_all.deb ...
+Unpacking asciidoc-common (8.6.10-3) ...
+Selecting previously unselected package libicu63:amd64.
+Preparing to unpack .../10-libicu63_63.1-6_amd64.deb ...
+Unpacking libicu63:amd64 (63.1-6) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../11-libxml2_2.9.4+dfsg1-7+b3_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.4+dfsg1-7+b3) ...
+Selecting previously unselected package libxml2-utils.
+Preparing to unpack .../12-libxml2-utils_2.9.4+dfsg1-7+b3_amd64.deb ...
+Unpacking libxml2-utils (2.9.4+dfsg1-7+b3) ...
+Selecting previously unselected package asciidoc-base.
+Preparing to unpack .../13-asciidoc-base_8.6.10-3_all.deb ...
+Unpacking asciidoc-base (8.6.10-3) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../14-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../15-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../16-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../17-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../18-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../19-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package binutils-arm-linux-gnueabihf.
+Preparing to unpack .../20-binutils-arm-linux-gnueabihf_2.31.1-16_amd64.deb ...
+Unpacking binutils-arm-linux-gnueabihf (2.31.1-16) ...
+Selecting previously unselected package gcc-8-arm-linux-gnueabihf-base:amd64.
+Preparing to unpack .../21-gcc-8-arm-linux-gnueabihf-base_8.3.0-7cross1_amd64.deb ...
+Unpacking gcc-8-arm-linux-gnueabihf-base:amd64 (8.3.0-7cross1) ...
+Selecting previously unselected package cpp-8-arm-linux-gnueabihf.
+Preparing to unpack .../22-cpp-8-arm-linux-gnueabihf_8.3.0-7cross1_amd64.deb ...
+Unpacking cpp-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Selecting previously unselected package cpp-arm-linux-gnueabihf.
+Preparing to unpack .../23-cpp-arm-linux-gnueabihf_4%3a8.3.0-1_amd64.deb ...
+Unpacking cpp-arm-linux-gnueabihf (4:8.3.0-1) ...
+Selecting previously unselected package cross-config.
+Preparing to unpack .../24-cross-config_2.6.15-2_all.deb ...
+Unpacking cross-config (2.6.15-2) ...
+Selecting previously unselected package gcc-8-cross-base.
+Preparing to unpack .../25-gcc-8-cross-base_8.3.0-7cross1_all.deb ...
+Unpacking gcc-8-cross-base (8.3.0-7cross1) ...
+Selecting previously unselected package libc6-armhf-cross.
+Preparing to unpack .../26-libc6-armhf-cross_2.28-10cross2_all.deb ...
+Unpacking libc6-armhf-cross (2.28-10cross2) ...
+Selecting previously unselected package libgcc1-armhf-cross.
+Preparing to unpack .../27-libgcc1-armhf-cross_1%3a8.3.0-7cross1_all.deb ...
+Unpacking libgcc1-armhf-cross (1:8.3.0-7cross1) ...
+Selecting previously unselected package libgomp1-armhf-cross.
+Preparing to unpack .../28-libgomp1-armhf-cross_8.3.0-7cross1_all.deb ...
+Unpacking libgomp1-armhf-cross (8.3.0-7cross1) ...
+Selecting previously unselected package libatomic1-armhf-cross.
+Preparing to unpack .../29-libatomic1-armhf-cross_8.3.0-7cross1_all.deb ...
+Unpacking libatomic1-armhf-cross (8.3.0-7cross1) ...
+Selecting previously unselected package libstdc++6-armhf-cross.
+Preparing to unpack .../30-libstdc++6-armhf-cross_8.3.0-7cross1_all.deb ...
+Unpacking libstdc++6-armhf-cross (8.3.0-7cross1) ...
+Selecting previously unselected package libasan5-armhf-cross.
+Preparing to unpack .../31-libasan5-armhf-cross_8.3.0-7cross1_all.deb ...
+Unpacking libasan5-armhf-cross (8.3.0-7cross1) ...
+Selecting previously unselected package libubsan1-armhf-cross.
+Preparing to unpack .../32-libubsan1-armhf-cross_8.3.0-7cross1_all.deb ...
+Unpacking libubsan1-armhf-cross (8.3.0-7cross1) ...
+Selecting previously unselected package libgcc-8-dev-armhf-cross.
+Preparing to unpack .../33-libgcc-8-dev-armhf-cross_8.3.0-7cross1_all.deb ...
+Unpacking libgcc-8-dev-armhf-cross (8.3.0-7cross1) ...
+Selecting previously unselected package gcc-8-arm-linux-gnueabihf.
+Preparing to unpack .../34-gcc-8-arm-linux-gnueabihf_8.3.0-7cross1_amd64.deb ...
+Unpacking gcc-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Selecting previously unselected package gcc-arm-linux-gnueabihf.
+Preparing to unpack .../35-gcc-arm-linux-gnueabihf_4%3a8.3.0-1_amd64.deb ...
+Unpacking gcc-arm-linux-gnueabihf (4:8.3.0-1) ...
+Selecting previously unselected package linux-libc-dev-armhf-cross.
+Preparing to unpack .../36-linux-libc-dev-armhf-cross_4.19.28-2cross2_all.deb ...
+Unpacking linux-libc-dev-armhf-cross (4.19.28-2cross2) ...
+Selecting previously unselected package libc6-dev-armhf-cross.
+Preparing to unpack .../37-libc6-dev-armhf-cross_2.28-10cross2_all.deb ...
+Unpacking libc6-dev-armhf-cross (2.28-10cross2) ...
+Selecting previously unselected package libstdc++-8-dev-armhf-cross.
+Preparing to unpack .../38-libstdc++-8-dev-armhf-cross_8.3.0-7cross1_all.deb ...
+Unpacking libstdc++-8-dev-armhf-cross (8.3.0-7cross1) ...
+Selecting previously unselected package g++-8-arm-linux-gnueabihf.
+Preparing to unpack .../39-g++-8-arm-linux-gnueabihf_8.3.0-7cross1_amd64.deb ...
+Unpacking g++-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Selecting previously unselected package g++-arm-linux-gnueabihf.
+Preparing to unpack .../40-g++-arm-linux-gnueabihf_4%3a8.3.0-1_amd64.deb ...
+Unpacking g++-arm-linux-gnueabihf (4:8.3.0-1) ...
+Selecting previously unselected package libconfig-inifiles-perl.
+Preparing to unpack .../41-libconfig-inifiles-perl_3.000001-1_all.deb ...
+Unpacking libconfig-inifiles-perl (3.000001-1) ...
+Selecting previously unselected package libio-string-perl.
+Preparing to unpack .../42-libio-string-perl_1.08-3_all.deb ...
+Unpacking libio-string-perl (1.08-3) ...
+Selecting previously unselected package libxml-namespacesupport-perl.
+Preparing to unpack .../43-libxml-namespacesupport-perl_1.12-1_all.deb ...
+Unpacking libxml-namespacesupport-perl (1.12-1) ...
+Selecting previously unselected package libxml-sax-base-perl.
+Preparing to unpack .../44-libxml-sax-base-perl_1.09-1_all.deb ...
+Unpacking libxml-sax-base-perl (1.09-1) ...
+Selecting previously unselected package libxml-sax-perl.
+Preparing to unpack .../45-libxml-sax-perl_1.00+dfsg-1_all.deb ...
+Unpacking libxml-sax-perl (1.00+dfsg-1) ...
+Selecting previously unselected package libxml-libxml-perl.
+Preparing to unpack .../46-libxml-libxml-perl_2.0134+dfsg-1_amd64.deb ...
+Unpacking libxml-libxml-perl (2.0134+dfsg-1) ...
+Selecting previously unselected package libxml-simple-perl.
+Preparing to unpack .../47-libxml-simple-perl_2.25-1_all.deb ...
+Unpacking libxml-simple-perl (2.25-1) ...
+Selecting previously unselected package libyaml-perl.
+Preparing to unpack .../48-libyaml-perl_1.27-1_all.deb ...
+Unpacking libyaml-perl (1.27-1) ...
+Selecting previously unselected package libconfig-auto-perl.
+Preparing to unpack .../49-libconfig-auto-perl_0.44-1_all.deb ...
+Unpacking libconfig-auto-perl (0.44-1) ...
+Selecting previously unselected package libfile-which-perl.
+Preparing to unpack .../50-libfile-which-perl_1.23-1_all.deb ...
+Unpacking libfile-which-perl (1.23-1) ...
+Selecting previously unselected package libfile-homedir-perl.
+Preparing to unpack .../51-libfile-homedir-perl_1.004-1_all.deb ...
+Unpacking libfile-homedir-perl (1.004-1) ...
+Selecting previously unselected package libdebian-dpkgcross-perl.
+Preparing to unpack .../52-libdebian-dpkgcross-perl_2.6.15-2_all.deb ...
+Unpacking libdebian-dpkgcross-perl (2.6.15-2) ...
+Selecting previously unselected package dpkg-cross.
+Preparing to unpack .../53-dpkg-cross_2.6.15-2_all.deb ...
+Unpacking dpkg-cross (2.6.15-2) ...
+Selecting previously unselected package crossbuild-essential-armhf.
+Preparing to unpack .../54-crossbuild-essential-armhf_12.6_all.deb ...
+Unpacking crossbuild-essential-armhf (12.6) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../55-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../56-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../57-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../58-libfile-stripnondeterminism-perl_1.1.2-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.2-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../59-dh-strip-nondeterminism_1.1.2-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.2-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../60-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../61-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../62-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../63-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../64-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../65-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../66-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../67-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../68-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package diffstat.
+Preparing to unpack .../69-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package xml-core.
+Preparing to unpack .../70-xml-core_0.18+nmu1_all.deb ...
+Unpacking xml-core (0.18+nmu1) ...
+Selecting previously unselected package sgml-data.
+Preparing to unpack .../71-sgml-data_2.0.11_all.deb ...
+Unpacking sgml-data (2.0.11) ...
+Selecting previously unselected package docbook-xml.
+Preparing to unpack .../72-docbook-xml_4.5-8_all.deb ...
+Unpacking docbook-xml (4.5-8) ...
+Selecting previously unselected package docbook-xsl.
+Preparing to unpack .../73-docbook-xsl_1.79.1+dfsg-2_all.deb ...
+Unpacking docbook-xsl (1.79.1+dfsg-2) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../74-gcc-8-base_8.3.0-7_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-7) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../75-libgcc1_1%3a8.3.0-7_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-7) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../76-libc6_2.28-10_armhf.deb ...
+Unpacking libc6:armhf (2.28-10) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../77-libstdc++6_8.3.0-7_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-7) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../78-libasan5_8.3.0-7_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-7) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../79-libatomic1_8.3.0-7_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-7) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../80-linux-libc-dev_4.19.37-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.37-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../81-libc6-dev_2.28-10_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-10) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../82-libgomp1_8.3.0-7_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-7) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../83-libubsan1_8.3.0-7_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-7) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../84-libgcc-8-dev_8.3.0-7_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-7) ...
+Selecting previously unselected package liblzma5:armhf.
+Preparing to unpack .../85-liblzma5_5.2.4-1_armhf.deb ...
+Unpacking liblzma5:armhf (5.2.4-1) ...
+Selecting previously unselected package libssl1.1:armhf.
+Preparing to unpack .../86-libssl1.1_1.1.1b-2_armhf.deb ...
+Unpacking libssl1.1:armhf (1.1.1b-2) ...
+Selecting previously unselected package libkmod2:armhf.
+Preparing to unpack .../87-libkmod2_26-1_armhf.deb ...
+Unpacking libkmod2:armhf (26-1) ...
+Selecting previously unselected package libkmod-dev:armhf.
+Preparing to unpack .../88-libkmod-dev_26-1_armhf.deb ...
+Unpacking libkmod-dev:armhf (26-1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../89-libstdc++-8-dev_8.3.0-7_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-7) ...
+Selecting previously unselected package libxslt1.1:amd64.
+Preparing to unpack .../90-libxslt1.1_1.1.32-2_amd64.deb ...
+Unpacking libxslt1.1:amd64 (1.1.32-2) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../91-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package quilt.
+Preparing to unpack .../92-quilt_0.65-3_all.deb ...
+Unpacking quilt (0.65-3) ...
+Selecting previously unselected package xsltproc.
+Preparing to unpack .../93-xsltproc_1.1.32-2_amd64.deb ...
+Unpacking xsltproc (1.1.32-2) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../94-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libconfig-inifiles-perl (3.000001-1) ...
+Setting up libexpat1:amd64 (2.2.6-1) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libfile-which-perl (1.23-1) ...
+Setting up libc6-armhf-cross (2.28-10cross2) ...
+Setting up mime-support (3.62) ...
+Setting up libmagic-mgc (1:5.35-4) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up libssl1.1:amd64 (1.1.1b-2) ...
+Setting up gcc-8-cross-base (8.3.0-7cross1) ...
+Setting up libmagic1:amd64 (1:5.35-4) ...
+Setting up linux-libc-dev:armhf (4.19.37-1) ...
+Setting up libxml-namespacesupport-perl (1.12-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up file (1:5.35-4) ...
+Setting up libatomic1-armhf-cross (8.3.0-7cross1) ...
+Setting up libyaml-perl (1.27-1) ...
+Setting up libicu63:amd64 (63.1-6) ...
+Setting up libpython2.7-stdlib:amd64 (2.7.16-2) ...
+Setting up asciidoc-common (8.6.10-3) ...
+Setting up libxml-sax-base-perl (1.09-1) ...
+Setting up libio-string-perl (1.08-3) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up cross-config (2.6.15-2) ...
+Setting up libgcc1-armhf-cross (1:8.3.0-7cross1) ...
+Setting up gcc-8-arm-linux-gnueabihf-base:amd64 (8.3.0-7cross1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up diffstat (1.62-1) ...
+Setting up gcc-8-base:armhf (8.3.0-7) ...
+Setting up linux-libc-dev-armhf-cross (4.19.28-2cross2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up pkg-config (0.29-6) ...
+Setting up sensible-utils (0.0.12) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up sgml-base (1.29) ...
+Setting up libfile-homedir-perl (1.004-1) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up binutils-arm-linux-gnueabihf (2.31.1-16) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libxml2:amd64 (2.9.4+dfsg1-7+b3) ...
+Setting up liblocale-gettext-perl (1.07-3+b4) ...
+Setting up cpp-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Setting up libgomp1-armhf-cross (8.3.0-7cross1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.2-1) ...
+Setting up python2.7 (2.7.16-2) ...
+Setting up libtool (2.4.6-10) ...
+Setting up libpython2-stdlib:amd64 (2.7.16-1) ...
+Setting up libc6-dev-armhf-cross (2.28-10cross2) ...
+Setting up m4 (1.4.18-2) ...
+Setting up python2 (2.7.16-1) ...
+Setting up libpython-stdlib:amd64 (2.7.16-1) ...
+Setting up libstdc++6-armhf-cross (8.3.0-7cross1) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libubsan1-armhf-cross (8.3.0-7cross1) ...
+Setting up ucf (3.0038+nmu1) ...
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-3) ...
+Setting up xml-core (0.18+nmu1) ...
+Setting up libxslt1.1:amd64 (1.1.32-2) ...
+Setting up libxml2-utils (2.9.4+dfsg1-7+b3) ...
+Setting up python (2.7.16-1) ...
+Setting up cpp-arm-linux-gnueabihf (4:8.3.0-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up gettext (0.19.8.1-9) ...
+Setting up xsltproc (1.1.32-2) ...
+Setting up quilt (0.65-3) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libxml-sax-perl (1.00+dfsg-1) ...
+update-perl-sax-parsers: Registering Perl SAX parser XML::SAX::PurePerl with priority 10...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+
+Creating config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Setting up libasan5-armhf-cross (8.3.0-7cross1) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up asciidoc-base (8.6.10-3) ...
+Setting up libgcc-8-dev-armhf-cross (8.3.0-7cross1) ...
+Setting up libxml-libxml-perl (2.0134+dfsg-1) ...
+update-perl-sax-parsers: Registering Perl SAX parser XML::LibXML::SAX::Parser with priority 50...
+update-perl-sax-parsers: Registering Perl SAX parser XML::LibXML::SAX with priority 50...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+Replacing config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Setting up libstdc++-8-dev-armhf-cross (8.3.0-7cross1) ...
+Setting up gcc-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Setting up gcc-arm-linux-gnueabihf (4:8.3.0-1) ...
+Setting up po-debconf (1.0.21) ...
+Setting up g++-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Setting up libxml-simple-perl (2.25-1) ...
+Setting up g++-arm-linux-gnueabihf (4:8.3.0-1) ...
+Setting up libconfig-auto-perl (0.44-1) ...
+Setting up libdebian-dpkgcross-perl (2.6.15-2) ...
+Setting up dpkg-cross (2.6.15-2) ...
+Setting up crossbuild-essential-armhf (12.6) ...
+Setting up libc6:armhf (2.28-10) ...
+Setting up libc6-dev:armhf (2.28-10) ...
+Setting up liblzma5:armhf (5.2.4-1) ...
+Setting up libgcc1:armhf (1:8.3.0-7) ...
+Setting up libssl1.1:armhf (1.1.1b-2) ...
+Setting up libgomp1:armhf (8.3.0-7) ...
+Setting up dh-autoreconf (19) ...
+Setting up libatomic1:armhf (8.3.0-7) ...
+Setting up dh-strip-nondeterminism (1.1.2-1) ...
+Setting up libstdc++6:armhf (8.3.0-7) ...
+Setting up libkmod2:armhf (26-1) ...
+Setting up debhelper (12.1.1) ...
+Setting up libasan5:armhf (8.3.0-7) ...
+Setting up libubsan1:armhf (8.3.0-7) ...
+Setting up libkmod-dev:armhf (26-1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-7) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-7) ...
+Processing triggers for libc-bin (2.28-10) ...
+Processing triggers for ccache (3.7.1-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for sgml-base (1.29) ...
+Setting up sgml-data (2.0.11) ...
+Setting up docbook-xsl (1.79.1+dfsg-2) ...
+Processing triggers for sgml-base (1.29) ...
+Setting up docbook-xml (4.5-8) ...
+Processing triggers for sgml-base (1.29) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Arch check ok (armhf included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-16 dpkg-dev_1.19.6 g++-8_8.3.0-7 gcc-8_8.3.0-7 libc6-dev_2.28-10 libstdc++-8-dev_8.3.0-7 libstdc++-8-dev-armhf-cross_8.3.0-7cross1 libstdc++6_8.3.0-7 libstdc++6-armhf-cross_8.3.0-7cross1 linux-libc-dev_4.19.37-1
+Package versions: adduser_3.118 apt_1.8.1 asciidoc-base_8.6.10-3 asciidoc-common_8.6.10-3 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.2 base-passwd_3.5.46 bash_5.0-4 binutils_2.31.1-16 binutils-arm-linux-gnueabihf_2.31.1-16 binutils-common_2.31.1-16 binutils-x86-64-linux-gnu_2.31.1-16 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.6 bzip2_1.0.6-9 ccache_3.7.1-1 coreutils_8.30-3 cpp_4:8.3.0-1 cpp-8_8.3.0-7 cpp-8-arm-linux-gnueabihf_8.3.0-7cross1 cpp-arm-linux-gnueabihf_4:8.3.0-1 cross-config_2.6.15-2 crossbuild-essential-armhf_12.6 dash_0.5.10.2-5 debconf_1.5.72 debhelper_12.1.1 debian-archive-keyring_2019.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.2-1 diffstat_1.62-1 diffutils_1:3.7-3 dirmngr_2.2.13-1 docbook-xml_4.5-8 docbook-xsl_1.79.1+dfsg-2 dpkg_1.19.6 dpkg-cross_2.6.15-2 dpkg-dev_1.19.6 dwz_0.12-3 e2fsprogs_1.45.0-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-4 findutils_4.6.0+git+20190209-2 g++_4:8.3.0-1 g++-8_8.3.0-7 g++-8-arm-linux-gnueabihf_8.3.0-7cross1 g++-arm-linux-gnueabihf_4:8.3.0-1 gcc_4:8.3.0-1 gcc-8_8.3.0-7 gcc-8-arm-linux-gnueabihf_8.3.0-7cross1 gcc-8-arm-linux-gnueabihf-base_8.3.0-7cross1 gcc-8-base_8.3.0-7 gcc-8-cross-base_8.3.0-7cross1 gcc-arm-linux-gnueabihf_4:8.3.0-1 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.13-1 gnupg-l10n_2.2.13-1 gnupg-utils_2.2.13-1 gpg_2.2.13-1 gpg-agent_2.2.13-1 gpg-wks-client_2.2.13-1 gpg-wks-server_2.2.13-1 gpgconf_2.2.13-1 gpgsm_2.2.13-1 gpgv_2.2.13-1 grep_3.3-1 groff-base_1.22.4-3 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.53-4 libapt-pkg5.0_1.8.1 libarchive-zip-perl_1.64-1 libasan5_8.3.0-7 libasan5-armhf-cross_8.3.0-7cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-7 libatomic1-armhf-cross_8.3.0-7cross1 libattr1_1:2.4.48-4 libaudit-common_1:2.8.4-3 libaudit1_1:2.8.4-3 libbinutils_2.31.1-16 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-10 libc-dev-bin_2.28-10 libc6_2.28-10 libc6-armhf-cross_2.28-10cross2 libc6-dev_2.28-10 libc6-dev-armhf-cross_2.28-10cross2 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-7 libcom-err2_1.45.0-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdb5.3_5.3.28+dfsg1-0.6 libdebconfclient0_0.249 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.6 libeatmydata1_105-7 libelf1_0.176-1 libexpat1_2.2.6-1 libext2fs2_1.45.0-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-stripnondeterminism-perl_1.1.2-1 libfile-which-perl_1.23-1 libgcc-8-dev_8.3.0-7 libgcc-8-dev-armhf-cross_8.3.0-7cross1 libgcc1_1:8.3.0-7 libgcc1-armhf-cross_1:8.3.0-7cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-4 libgdbm6_1.18.1-4 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.7-2 libgomp1_8.3.0-7 libgomp1-armhf-cross_8.3.0-7cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-7 libkmod-dev_26-1 libkmod2_26-1 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-7 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-4 libmagic1_1:5.35-4 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-7 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-12 libperl5.28_5.28.1-6 libpipeline1_1.5.1-2 libpython-stdlib_2.7.16-1 libpython2-stdlib_2.7.16-1 libpython2.7-minimal_2.7.16-2 libpython2.7-stdlib_2.7.16-2 libquadmath0_8.3.0-7 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-2 libss2_1.45.0-1 libssl1.1_1.1.1b-2 libstdc++-8-dev_8.3.0-7 libstdc++-8-dev-armhf-cross_8.3.0-7cross1 libstdc++6_8.3.0-7 libstdc++6-armhf-cross_8.3.0-7cross1 libsystemd0_241-3 libtasn1-6_4.13-3 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtsan0_8.3.0-7 libubsan1_8.3.0-7 libubsan1-armhf-cross_8.3.0-7cross1 libuchardet0_0.0.6-3 libudev1_241-3 libunistring2_0.9.10-1 libuuid1_2.33.1-0.1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-sax-base-perl_1.09-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libxml2-utils_2.9.4+dfsg1-7+b3 libxslt1.1_1.1.32-2 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.37-1 linux-libc-dev-armhf-cross_4.19.28-2cross2 login_1:4.5-1.1 lsb-base_10.2019031300 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mime-support_3.62 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-6 perl-base_5.28.1-6 perl-modules-5.28_5.28.1-6 pinentry-curses_1.1.0-2 pkg-config_0.29-6 po-debconf_1.0.21 python_2.7.16-1 python-minimal_2.7.16-1 python2_2.7.16-1 python2-minimal_2.7.16-1 python2.7_2.7.16-2 python2.7-minimal_2.7.16-2 quilt_0.65-3 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sgml-base_1.29 sgml-data_2.0.11 sysvinit-utils_2.93-8 tar_1.30+dfsg-6 tzdata_2019a-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 xml-core_0.18+nmu1 xsltproc_1.1.32-2 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: dracut
+Binary: dracut, dracut-core, dracut-network, dracut-config-generic, dracut-config-rescue
+Architecture: any all
+Version: 048+80-2
+Maintainer: Thomas Lange <lange@debian.org>
+Homepage: http://www.kernel.org/pub/linux/utils/boot/dracut/dracut.html
+Standards-Version: 4.2.0
+Vcs-Browser: https://salsa.debian.org/debian/dracut
+Vcs-Git: https://salsa.debian.org/debian/dracut.git
+Build-Depends: debhelper, asciidoc-base, xsltproc, docbook-xsl, docbook-xml, quilt, libkmod-dev, pkg-config
+Package-List:
+ dracut deb utils optional arch=all
+ dracut-config-generic deb utils optional arch=all
+ dracut-config-rescue deb utils optional arch=all
+ dracut-core deb utils optional arch=any
+ dracut-network deb utils optional arch=all
+Checksums-Sha1:
+ c1b04f238f3468b84fd782214a52f77c7cc560e1 292320 dracut_048+80.orig.tar.xz
+ 8cb7e7d23d833ef473cf328dae2ce899acd23153 12852 dracut_048+80-2.debian.tar.xz
+Checksums-Sha256:
+ 7c4e6098911b3315393c1907449a22309239b8e4c0af66bf7f4906a957681f49 292320 dracut_048+80.orig.tar.xz
+ 7ee58a732cba0edcc26d08a97facf01073057265dc727367d073365253db25af 12852 dracut_048+80-2.debian.tar.xz
+Files:
+ 59db62b9fea865f72d48767b78bcaca1 292320 dracut_048+80.orig.tar.xz
+ bf3f8bc37a8c711367d95349b8b2e79c 12852 dracut_048+80-2.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJFBAEBCAAvFiEEsR7jJz9rLetSjJPaK/jZ/gdLzeQFAlzRaRwRHGxhbmdlQGRl
+Ymlhbi5vcmcACgkQK/jZ/gdLzeReXA//YAw4M3IZs5MWOb0+GB3zfXJwnB8jIluF
+Cxn/DkFx+4SoIbjF6rAv8nfZc2ztXWSKgdavaCAQHUka3LIXKk/9dqpr+QzDP6AK
+ndwH73515mRoiMJNGCLpcRQsYCr1X1+BwxgrGTUUJFJ99wkjok2ZJt9QjHmr8Cze
+X8QX3Mw839wBXSO1JrZByjjMUJGb+jMgFYaupSXlxCtu+/tdpOqD2HWt7ZNcwZm/
+lrrdgPIXmhOB6Ax6mpqZ0OuYHgSNNj4KZNhNZ7VD6nmNbS4eC6DRaBLioO61j7mX
+jInlAQs1Vzlj1VFJRFYf39eIQrVH8HPwz2a1E8KkLEwh+2eMxPGGLwtaNF5SB3PD
+oPP1tbvqx8yIt9gLFyGts3C3kVeG80Rqm83ftalqT21RANmjj6MYg0hpXN6/Wdvy
+3nnOzExOFBDW/FucH5G1MTcMWNjzQOSll7y05DFBVPa/qwUJo3Hpn8UhpXeml9Kv
+5N/kaCiVByDnIht3/j6qKDFrW/06AfPJRYn08F/qy/ev+yyz8NM7CY87OPI0wdFT
+St9OqL1f+Fo1T6MvLt9ZXjsGhHSl4V0lvjzCExKUKN0uN0JX1vFp4ABN9d4BQ0uP
+tODdGNqIzPgqh0iXCe3YdrnkAuAXzBZqIGZWyFw5QDfUgakyBSj1UplXmWB1+2Tw
+ItNtB9A3fpk=
+=uCaT
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Tue May  7 11:16:44 2019 UTC
+gpgv:                using RSA key B11EE3273F6B2DEB528C93DA2BF8D9FE074BCDE4
+gpgv:                issuer "lange@debian.org"
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./dracut_048+80-2.dsc
+dpkg-source: info: extracting dracut in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking dracut_048+80.orig.tar.xz
+dpkg-source: info: unpacking dracut_048+80-2.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying fix-bashism
+dpkg-source: info: applying bash5-fix
+dpkg-source: info: applying crc32c
+dpkg-source: info: applying systemd-udev
+dpkg-source: info: applying plymouth
+dpkg-source: info: applying multipath
+dpkg-source: info: applying libdir
+dpkg-source: info: applying initramfs-restore
+dpkg-source: info: applying dev-shm-mount
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-18e5ea59-5b4d-4c0b-8431-821cf1a4437b
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package dracut
+dpkg-buildpackage: info: source version 048+80-2
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Thomas Lange <lange@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean
+   dh_auto_clean
+	make -j1 clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+rm -f *~
+rm -f */*~
+rm -f */*/*~
+rm -f lsinitrd.1.xml dracut.conf.5.xml dracut.cmdline.7.xml dracut.bootup.7.xml dracut.modules.7.xml dracut.8.xml dracut-catimages.8.xml mkinitrd.8.xml mkinitrd-suse.8.xml modules.d/98dracut-systemd/dracut-cmdline.service.8.xml modules.d/98dracut-systemd/dracut-initqueue.service.8.xml modules.d/98dracut-systemd/dracut-mount.service.8.xml modules.d/98dracut-systemd/dracut-shutdown.service.8.xml modules.d/98dracut-systemd/dracut-pre-mount.service.8.xml modules.d/98dracut-systemd/dracut-pre-pivot.service.8.xml modules.d/98dracut-systemd/dracut-pre-trigger.service.8.xml modules.d/98dracut-systemd/dracut-pre-udev.service.8.xml dracut.xml
+rm -f test-*.img
+rm -f dracut-*.rpm dracut-*.tar.bz2 dracut-*.tar.xz
+rm -f dracut-version.sh
+rm -f dracut-install install/dracut-install install/dracut-install.o install/hashmap.o install/log.o install/strv.o install/util.o
+rm -f skipcpio/skipcpio skipcpio/skipcpio.o
+rm -f lsinitrd.1 dracut.conf.5 dracut.cmdline.7 dracut.bootup.7 dracut.modules.7 dracut.8 dracut-catimages.8 mkinitrd.8 mkinitrd-suse.8 modules.d/98dracut-systemd/dracut-cmdline.service.8 modules.d/98dracut-systemd/dracut-initqueue.service.8 modules.d/98dracut-systemd/dracut-mount.service.8 modules.d/98dracut-systemd/dracut-shutdown.service.8 modules.d/98dracut-systemd/dracut-pre-mount.service.8 modules.d/98dracut-systemd/dracut-pre-pivot.service.8 modules.d/98dracut-systemd/dracut-pre-trigger.service.8 modules.d/98dracut-systemd/dracut-pre-udev.service.8 dracut.html
+make -C test clean
+make[2]: Entering directory '/<<PKGBUILDDIR>>/test'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-01-BASIC'
+TEST CLEANUP: root filesystem on a ext3 filesystem
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-01-BASIC'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-02-SYSTEMD'
+TEST CLEANUP: root filesystem on a ext3 filesystem
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-02-SYSTEMD'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-03-USR-MOUNT'
+TEST CLEANUP: root filesystem on a btrfs filesystem with /usr subvolume
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-03-USR-MOUNT'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-04-FULL-SYSTEMD'
+TEST CLEANUP: Full systemd serialization/deserialization test with /usr mount
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-04-FULL-SYSTEMD'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-10-RAID'
+TEST CLEANUP: root filesystem on an encrypted LVM PV on a RAID-5
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-10-RAID'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-11-LVM'
+TEST CLEANUP: root filesystem on LVM PV
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-11-LVM'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-12-RAID-DEG'
+TEST CLEANUP: root filesystem on an encrypted LVM PV on a degraded RAID-5
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-12-RAID-DEG'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-13-ENC-RAID-LVM'
+TEST CLEANUP: root filesystem on LVM on encrypted partitions of a RAID-5
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-13-ENC-RAID-LVM'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-14-IMSM'
+TEST CLEANUP: root filesystem on LVM PV on a isw dmraid
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-14-IMSM'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-15-BTRFSRAID'
+TEST CLEANUP: root filesystem on multiple device btrfs
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-15-BTRFSRAID'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-16-DMSQUASH'
+TEST CLEANUP: root filesystem on a LiveCD dmsquash filesystem
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-16-DMSQUASH'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-17-LVM-THIN'
+TEST CLEANUP: root filesystem on LVM PV with thin pool
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-17-LVM-THIN'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-20-NFS'
+TEST CLEANUP: root filesystem on NFS
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-20-NFS'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-30-ISCSI'
+TEST CLEANUP: root filesystem over iSCSI
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-30-ISCSI'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-31-ISCSI-MULTI'
+TEST CLEANUP: root filesystem over multiple iSCSI
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-31-ISCSI-MULTI'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-40-NBD'
+TEST CLEANUP: root filesystem on NBD
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-40-NBD'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-50-MULTINIC'
+TEST CLEANUP: root filesystem on NFS with multiple nics
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-50-MULTINIC'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-70-BONDBRIDGETEAMVLAN'
+TEST CLEANUP: root filesystem on NFS with bridging/bonding/vlan
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-70-BONDBRIDGETEAMVLAN'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test/TEST-99-RPM'
+TEST CLEANUP: rpm integrity after dracut and kernel install
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test/TEST-99-RPM'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/test'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_clean dracut.pc Makefile.inc dracut-version.sh
+	rm -f debian/debhelper-build-stamp
+	rm -rf debian/.debhelper/
+	rm -f -- debian/dracut.substvars debian/dracut-core.substvars debian/dracut-network.substvars debian/dracut-config-generic.substvars debian/dracut-config-rescue.substvars dracut.pc Makefile.inc dracut-version.sh debian/files
+	rm -fr -- debian/dracut/ debian/tmp/ debian/dracut-core/ debian/dracut-network/ debian/dracut-config-generic/ debian/dracut-config-rescue/
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_configure -- --systemdsystemunitdir=/lib/systemd/system --libdir=/usr/lib
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --systemdsystemunitdir=/lib/systemd/system --libdir=/usr/lib
+Ignoring unknown option '--build=x86_64-linux-gnu'
+Ignoring unknown option '--disable-silent-rules'
+Ignoring unknown option '--disable-maintainer-mode'
+Ignoring unknown option '--disable-dependency-tracking'
+Ignoring unknown option '--host=arm-linux-gnueabihf'
+debian/fix-revdate
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_build -a
+	make -j1
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -std=gnu99 -D_FILE_OFFSET_BITS=64 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2  -Wdate-time -D_FORTIFY_SOURCE=2  -c -o install/dracut-install.o install/dracut-install.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -std=gnu99 -D_FILE_OFFSET_BITS=64 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2  -Wdate-time -D_FORTIFY_SOURCE=2  -c -o install/hashmap.o install/hashmap.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -std=gnu99 -D_FILE_OFFSET_BITS=64 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2  -Wdate-time -D_FORTIFY_SOURCE=2  -c -o install/log.o install/log.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -std=gnu99 -D_FILE_OFFSET_BITS=64 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2  -Wdate-time -D_FORTIFY_SOURCE=2  -c -o install/strv.o install/strv.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -std=gnu99 -D_FILE_OFFSET_BITS=64 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2  -Wdate-time -D_FORTIFY_SOURCE=2  -c -o install/util.o install/util.c
+arm-linux-gnueabihf-gcc -Wl,-z,relro -o install/dracut-install install/dracut-install.o install/hashmap.o install/log.o install/strv.o install/util.o  -L/usr/lib/arm-linux-gnueabihf -lkmod
+ln -fs install/dracut-install dracut-install
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -std=gnu99 -D_FILE_OFFSET_BITS=64 -Wformat -Werror=format-security -Wp,-D_FORTIFY_SOURCE=2  -Wdate-time -D_FORTIFY_SOURCE=2  -c -o skipcpio/skipcpio.o skipcpio/skipcpio.c
+arm-linux-gnueabihf-gcc -Wl,-z,relro  skipcpio/skipcpio.o   -o skipcpio/skipcpio
+asciidoc -d manpage -b docbook -o "lsinitrd.1.xml" lsinitrd.1.asc
+xsltproc -o "lsinitrd.1" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl lsinitrd.1.xml
+Note: Writing lsinitrd.1
+asciidoc -d manpage -b docbook -o "dracut.conf.5.xml" dracut.conf.5.asc
+xsltproc -o "dracut.conf.5" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl dracut.conf.5.xml
+Note: Writing dracut.conf.5
+asciidoc -d manpage -b docbook -o "dracut.cmdline.7.xml" dracut.cmdline.7.asc
+asciidoc: WARNING: dracut.cmdline.7.asc: line 988: nested inline passthrough
+xsltproc -o "dracut.cmdline.7" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl dracut.cmdline.7.xml
+Element b in namespace '' encountered in literal, but no template matches.
+Note: Writing dracut.cmdline.7
+asciidoc -d manpage -b docbook -o "dracut.bootup.7.xml" dracut.bootup.7.asc
+xsltproc -o "dracut.bootup.7" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl dracut.bootup.7.xml
+Note: Writing dracut.bootup.7
+asciidoc -d manpage -b docbook -o "dracut.modules.7.xml" dracut.modules.7.asc
+xsltproc -o "dracut.modules.7" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl dracut.modules.7.xml
+Note: Writing dracut.modules.7
+asciidoc -d manpage -b docbook -o "dracut.8.xml" dracut.8.asc
+xsltproc -o "dracut.8" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl dracut.8.xml
+Note: Writing dracut.8
+asciidoc -d manpage -b docbook -o "dracut-catimages.8.xml" dracut-catimages.8.asc
+xsltproc -o "dracut-catimages.8" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl dracut-catimages.8.xml
+Note: Writing dracut-catimages.8
+asciidoc -d manpage -b docbook -o "mkinitrd.8.xml" mkinitrd.8.asc
+xsltproc -o "mkinitrd.8" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl mkinitrd.8.xml
+Note: Writing mkinitrd.8
+asciidoc -d manpage -b docbook -o "mkinitrd-suse.8.xml" mkinitrd-suse.8.asc
+xsltproc -o "mkinitrd-suse.8" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl mkinitrd-suse.8.xml
+Note: Writing mkinitrd-suse.8
+asciidoc -d manpage -b docbook -o "modules.d/98dracut-systemd/dracut-cmdline.service.8.xml" modules.d/98dracut-systemd/dracut-cmdline.service.8.asc
+xsltproc -o "modules.d/98dracut-systemd/dracut-cmdline.service.8" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl modules.d/98dracut-systemd/dracut-cmdline.service.8.xml
+Note: Writing dracut-cmdline.service.8
+asciidoc -d manpage -b docbook -o "modules.d/98dracut-systemd/dracut-initqueue.service.8.xml" modules.d/98dracut-systemd/dracut-initqueue.service.8.asc
+xsltproc -o "modules.d/98dracut-systemd/dracut-initqueue.service.8" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl modules.d/98dracut-systemd/dracut-initqueue.service.8.xml
+Note: Writing dracut-initqueue.service.8
+asciidoc -d manpage -b docbook -o "modules.d/98dracut-systemd/dracut-mount.service.8.xml" modules.d/98dracut-systemd/dracut-mount.service.8.asc
+xsltproc -o "modules.d/98dracut-systemd/dracut-mount.service.8" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl modules.d/98dracut-systemd/dracut-mount.service.8.xml
+Note: Writing dracut-mount.service.8
+asciidoc -d manpage -b docbook -o "modules.d/98dracut-systemd/dracut-shutdown.service.8.xml" modules.d/98dracut-systemd/dracut-shutdown.service.8.asc
+xsltproc -o "modules.d/98dracut-systemd/dracut-shutdown.service.8" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl modules.d/98dracut-systemd/dracut-shutdown.service.8.xml
+Note: Writing dracut-shutdown.service.8
+asciidoc -d manpage -b docbook -o "modules.d/98dracut-systemd/dracut-pre-mount.service.8.xml" modules.d/98dracut-systemd/dracut-pre-mount.service.8.asc
+xsltproc -o "modules.d/98dracut-systemd/dracut-pre-mount.service.8" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl modules.d/98dracut-systemd/dracut-pre-mount.service.8.xml
+Note: Writing dracut-pre-mount.service.8
+asciidoc -d manpage -b docbook -o "modules.d/98dracut-systemd/dracut-pre-pivot.service.8.xml" modules.d/98dracut-systemd/dracut-pre-pivot.service.8.asc
+xsltproc -o "modules.d/98dracut-systemd/dracut-pre-pivot.service.8" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl modules.d/98dracut-systemd/dracut-pre-pivot.service.8.xml
+Note: Writing dracut-pre-pivot.service.8
+asciidoc -d manpage -b docbook -o "modules.d/98dracut-systemd/dracut-pre-trigger.service.8.xml" modules.d/98dracut-systemd/dracut-pre-trigger.service.8.asc
+xsltproc -o "modules.d/98dracut-systemd/dracut-pre-trigger.service.8" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl modules.d/98dracut-systemd/dracut-pre-trigger.service.8.xml
+Note: Writing dracut-pre-trigger.service.8
+asciidoc -d manpage -b docbook -o "modules.d/98dracut-systemd/dracut-pre-udev.service.8.xml" modules.d/98dracut-systemd/dracut-pre-udev.service.8.asc
+xsltproc -o "modules.d/98dracut-systemd/dracut-pre-udev.service.8" -nonet http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl modules.d/98dracut-systemd/dracut-pre-udev.service.8.xml
+Note: Writing dracut-pre-udev.service.8
+asciidoc -a numbered -d book -b docbook -o dracut.xml dracut.asc
+asciidoc: WARNING: dracut.cmdline.7.asc: line 988: nested inline passthrough
+xsltproc -o dracut.html --xinclude -nonet \
+	--stringparam custom.css.source dracut.css \
+	--stringparam generate.css.header 1 \
+	http://docbook.sourceforge.net/release/xsl/current/xhtml/docbook.xsl dracut.xml
+Element b in namespace '' encountered in literal, but no template matches.
+rm dracut.8.xml dracut.cmdline.7.xml modules.d/98dracut-systemd/dracut-mount.service.8.xml dracut.bootup.7.xml modules.d/98dracut-systemd/dracut-pre-mount.service.8.xml modules.d/98dracut-systemd/dracut-initqueue.service.8.xml mkinitrd.8.xml modules.d/98dracut-systemd/dracut-pre-pivot.service.8.xml dracut.modules.7.xml dracut.conf.5.xml lsinitrd.1.xml modules.d/98dracut-systemd/dracut-cmdline.service.8.xml dracut-catimages.8.xml modules.d/98dracut-systemd/dracut-pre-udev.service.8.xml modules.d/98dracut-systemd/dracut-pre-trigger.service.8.xml mkinitrd-suse.8.xml modules.d/98dracut-systemd/dracut-shutdown.service.8.xml
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+ fakeroot debian/rules binary-arch
+dh binary-arch
+   dh_testroot -a
+   dh_prep -a
+	rm -f -- debian/dracut-core.substvars
+	rm -fr -- debian/.debhelper/generated/dracut-core/ debian/dracut-core/ debian/tmp/
+   dh_installdirs -a
+	install -d debian/dracut-core
+	install -d debian/dracut-core/usr/lib/dracut debian/dracut-core/usr/lib/dracut/modules.d/00dash debian/dracut-core/usr/lib/dracut/modules.d/01fips debian/dracut-core/usr/lib/dracut/modules.d/90crypt debian/dracut-core/usr/lib/dracut/modules.d/90dm debian/dracut-core/usr/lib/dracut/modules.d/90dmraid debian/dracut-core/usr/lib/dracut/modules.d/90kernel-modules debian/dracut-core/usr/lib/dracut/modules.d/80lvmmerge debian/dracut-core/usr/lib/dracut/modules.d/90lvm debian/dracut-core/usr/lib/dracut/modules.d/90mdraid debian/dracut-core/usr/lib/dracut/modules.d/90multipath debian/dracut-core/usr/lib/dracut/modules.d/95dasd debian/dracut-core/usr/lib/dracut/modules.d/95dasd_mod debian/dracut-core/usr/lib/dracut/modules.d/95debug debian/dracut-core/usr/lib/dracut/modules.d/95resume debian/dracut-core/usr/lib/dracut/modules.d/95lunmask debian/dracut-core/usr/lib/dracut/modules.d/95rootfs-block debian/dracut-core/usr/lib/dracut/modules.d/95terminfo debian/dracut-core/usr/lib/dracut/modules.d/95udev-rules debian/dracut-core/usr/lib/dracut/modules.d/98syslog debian/dracut-core/usr/lib/dracut/modules.d/98usrmount debian/dracut-core/usr/lib/dracut/modules.d/99base debian/dracut-core/usr/share/bash-completion/completions debian/dracut-core/usr/share/pkgconfig debian/dracut-core/var/lib/dracut debian/dracut-core/etc/dracut.conf.d debian/dracut-core/etc/logrotate.d
+   dh_auto_install -a
+	make -j1 install DESTDIR=/<<BUILDDIR>>/dracut-048\+80/debian/tmp AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+mkdir -p /<<PKGBUILDDIR>>/debian/tmp/usr/lib/dracut
+mkdir -p /<<PKGBUILDDIR>>/debian/tmp/usr/bin
+mkdir -p /<<PKGBUILDDIR>>/debian/tmp/etc
+mkdir -p /<<PKGBUILDDIR>>/debian/tmp/usr/lib/dracut/modules.d
+mkdir -p /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man1 /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man5 /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man7 /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man8
+install -m 0755 dracut.sh /<<PKGBUILDDIR>>/debian/tmp/usr/bin/dracut
+install -m 0755 dracut-catimages.sh /<<PKGBUILDDIR>>/debian/tmp/usr/bin/dracut-catimages
+install -m 0755 mkinitrd-dracut.sh /<<PKGBUILDDIR>>/debian/tmp/usr/bin/mkinitrd
+install -m 0755 lsinitrd.sh /<<PKGBUILDDIR>>/debian/tmp/usr/bin/lsinitrd
+install -m 0644 dracut.conf /<<PKGBUILDDIR>>/debian/tmp/etc/dracut.conf
+mkdir -p /<<PKGBUILDDIR>>/debian/tmp/etc/dracut.conf.d
+mkdir -p /<<PKGBUILDDIR>>/debian/tmp/usr/lib/dracut/dracut.conf.d
+install -m 0755 dracut-init.sh /<<PKGBUILDDIR>>/debian/tmp/usr/lib/dracut/dracut-init.sh
+install -m 0755 dracut-functions.sh /<<PKGBUILDDIR>>/debian/tmp/usr/lib/dracut/dracut-functions.sh
+install -m 0755 dracut-version.sh /<<PKGBUILDDIR>>/debian/tmp/usr/lib/dracut/dracut-version.sh
+ln -fs dracut-functions.sh /<<PKGBUILDDIR>>/debian/tmp/usr/lib/dracut/dracut-functions
+install -m 0755 dracut-logger.sh /<<PKGBUILDDIR>>/debian/tmp/usr/lib/dracut/dracut-logger.sh
+install -m 0755 dracut-initramfs-restore.sh /<<PKGBUILDDIR>>/debian/tmp/usr/lib/dracut/dracut-initramfs-restore
+cp -arx modules.d /<<PKGBUILDDIR>>/debian/tmp/usr/lib/dracut
+for i in lsinitrd.1; do install -m 0644 $i /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man1/${i##*/}; done
+for i in dracut.conf.5; do install -m 0644 $i /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man5/${i##*/}; done
+for i in dracut.cmdline.7 dracut.bootup.7 dracut.modules.7; do install -m 0644 $i /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man7/${i##*/}; done
+for i in dracut.8 dracut-catimages.8 mkinitrd.8 mkinitrd-suse.8 modules.d/98dracut-systemd/dracut-cmdline.service.8 modules.d/98dracut-systemd/dracut-initqueue.service.8 modules.d/98dracut-systemd/dracut-mount.service.8 modules.d/98dracut-systemd/dracut-shutdown.service.8 modules.d/98dracut-systemd/dracut-pre-mount.service.8 modules.d/98dracut-systemd/dracut-pre-pivot.service.8 modules.d/98dracut-systemd/dracut-pre-trigger.service.8 modules.d/98dracut-systemd/dracut-pre-udev.service.8; do install -m 0644 $i /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man8/${i##*/}; done
+ln -fs dracut.cmdline.7 /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man7/dracut.kernel.7
+if [ -n "/lib/systemd/system" ]; then \
+	mkdir -p /<<PKGBUILDDIR>>/debian/tmp/lib/systemd/system; \
+	ln -srf /<<PKGBUILDDIR>>/debian/tmp/usr/lib/dracut/modules.d/98dracut-systemd/dracut-shutdown.service /<<PKGBUILDDIR>>/debian/tmp/lib/systemd/system/dracut-shutdown.service; \
+	mkdir -p /<<PKGBUILDDIR>>/debian/tmp/lib/systemd/system/sysinit.target.wants; \
+	ln -s ../dracut-shutdown.service \
+	/<<PKGBUILDDIR>>/debian/tmp/lib/systemd/system/sysinit.target.wants/dracut-shutdown.service; \
+	mkdir -p /<<PKGBUILDDIR>>/debian/tmp/lib/systemd/system/initrd.target.wants; \
+	for i in \
+	    dracut-cmdline.service \
+	    dracut-initqueue.service \
+	    dracut-mount.service \
+	    dracut-pre-mount.service \
+	    dracut-pre-pivot.service \
+	    dracut-pre-trigger.service \
+	    dracut-pre-udev.service \
+	    ; do \
+		ln -srf /<<PKGBUILDDIR>>/debian/tmp/usr/lib/dracut/modules.d/98dracut-systemd/$i /<<PKGBUILDDIR>>/debian/tmp/lib/systemd/system; \
+		ln -s ../$i \
+		/<<PKGBUILDDIR>>/debian/tmp/lib/systemd/system/initrd.target.wants/$i; \
+	done \
+fi
+if [ -f install/dracut-install ]; then \
+	install -m 0755 install/dracut-install /<<PKGBUILDDIR>>/debian/tmp/usr/lib/dracut/dracut-install; \
+fi
+if [ -f skipcpio/skipcpio ]; then \
+	install -m 0755 skipcpio/skipcpio /<<PKGBUILDDIR>>/debian/tmp/usr/lib/dracut/skipcpio; \
+fi
+mkdir -p /<<PKGBUILDDIR>>/debian/tmp/usr/lib/kernel/install.d
+install -m 0755 50-dracut.install /<<PKGBUILDDIR>>/debian/tmp/usr/lib/kernel/install.d/50-dracut.install
+install -m 0755 51-dracut-rescue.install /<<PKGBUILDDIR>>/debian/tmp/usr/lib/kernel/install.d/51-dracut-rescue.install
+mkdir -p /<<PKGBUILDDIR>>/debian/tmp/usr/share/bash-completion/completions
+install -m 0644 dracut-bash-completion.sh /<<PKGBUILDDIR>>/debian/tmp/usr/share/bash-completion/completions/dracut
+install -m 0644 lsinitrd-bash-completion.sh /<<PKGBUILDDIR>>/debian/tmp/usr/share/bash-completion/completions/lsinitrd
+mkdir -p /<<PKGBUILDDIR>>/debian/tmp/usr/share/pkgconfig
+install -m 0644 dracut.pc /<<PKGBUILDDIR>>/debian/tmp/usr/share/pkgconfig/dracut.pc
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_install -a
+	install -d debian/.debhelper/generated/dracut
+	install -d debian/dracut-core//lib/systemd
+	cp --reflink=auto -a debian/tmp/lib/systemd/system debian/dracut-core//lib/systemd/
+	install -d debian/dracut-core//usr/bin
+	cp --reflink=auto -a debian/tmp/usr/bin/dracut debian/tmp/usr/bin/dracut-catimages debian/tmp/usr/bin/lsinitrd debian/dracut-core//usr/bin/
+	cp --reflink=auto -a debian/tmp/usr/lib/dracut/dracut-functions debian/tmp/usr/lib/dracut/dracut-functions.sh debian/tmp/usr/lib/dracut/dracut-init.sh debian/tmp/usr/lib/dracut/dracut-initramfs-restore debian/tmp/usr/lib/dracut/dracut-install debian/tmp/usr/lib/dracut/dracut-logger.sh debian/tmp/usr/lib/dracut/skipcpio debian/dracut-core//usr/lib/dracut/
+	cp --reflink=auto -a debian/tmp/usr/share/bash-completion/completions debian/dracut-core//usr/share/bash-completion/
+	cp --reflink=auto -a debian/tmp/usr/share/pkgconfig/dracut.pc debian/dracut-core//usr/share/pkgconfig/
+	cp --reflink=auto -a debian/tmp/etc/dracut.conf debian/dracut-core/etc/
+	cp --reflink=auto -a ./debian/etc/10-debian.conf debian/dracut-core/etc/dracut.conf.d/
+	cp --reflink=auto -a ./dracut-version.sh debian/dracut-core/usr/lib/dracut/
+	cp --reflink=auto -a ./debian/09console-setup ./debian/90aufs ./debian/90overlay-root ./modules.d/00bash ./modules.d/00bootchart ./modules.d/00dash ./modules.d/00systemd ./modules.d/01fips ./modules.d/01systemd-initrd ./modules.d/02caps ./modules.d/03modsign ./modules.d/03rescue ./modules.d/04watchdog ./modules.d/05busybox ./modules.d/30convertfs ./modules.d/50drm ./modules.d/50gensplash ./modules.d/50plymouth ./modules.d/80lvmmerge ./modules.d/81cio_ignore ./modules.d/90btrfs ./modules.d/90crypt ./modules.d/90dm ./modules.d/90dmraid ./modules.d/90dmsquash-live ./modules.d/90kernel-modules ./modules.d/90lvm ./modules.d/90mdraid ./modules.d/90multipath ./modules.d/90qemu ./modules.d/91crypt-gpg ./modules.d/91crypt-loop ./modules.d/95dasd ./modules.d/95dasd_mod ./modules.d/95dasd_rules ./modules.d/95debug ./modules.d/95fstab-sys ./modules.d/95lunmask ./modules.d/95resume ./modules.d/95rootfs-block ./modules.d/95terminfo ./modules.d/95udev-rules ./modules.d/96securityfs ./modules.d/97biosdevname ./modules.d/97masterkey ./modules.d/98dracut-systemd ./modules.d/98ecryptfs ./modules.d/98integrity ./modules.d/98pollcdrom ./modules.d/98selinux ./modules.d/98syslog ./modules.d/98usrmount ./modules.d/99base ./modules.d/99fs-lib ./modules.d/99img-lib ./modules.d/99shutdown debian/dracut-core/usr/lib/dracut/modules.d/
+	install -d debian/.debhelper/generated/dracut-core
+	install -d debian/.debhelper/generated/dracut-network
+	install -d debian/.debhelper/generated/dracut-config-generic
+	install -d debian/.debhelper/generated/dracut-config-rescue
+   dh_installdocs -a
+	install -d debian/dracut-core/usr/share/doc/dracut-core
+	cp --reflink=auto -a ./AUTHORS debian/dracut-core/usr/share/doc/dracut-core
+	cp --reflink=auto -a ./HACKING debian/dracut-core/usr/share/doc/dracut-core
+	cp --reflink=auto -a ./NEWS debian/dracut-core/usr/share/doc/dracut-core
+	cp --reflink=auto -a ./README debian/dracut-core/usr/share/doc/dracut-core
+	cp --reflink=auto -a ./README.generic debian/dracut-core/usr/share/doc/dracut-core
+	cp --reflink=auto -a ./README.kernel debian/dracut-core/usr/share/doc/dracut-core
+	cp --reflink=auto -a ./README.modules debian/dracut-core/usr/share/doc/dracut-core
+	cp --reflink=auto -a ./TODO debian/dracut-core/usr/share/doc/dracut-core
+	cp --reflink=auto -a ./dracut.html debian/dracut-core/usr/share/doc/dracut-core
+	chown -R 0:0 debian/dracut-core/usr/share/doc
+	chmod -R u\+rw,go=rX debian/dracut-core/usr/share/doc
+	install -p -m0644 debian/dracut-core.README.Debian debian/dracut-core/usr/share/doc/dracut-core/README.Debian
+	install -p -m0644 debian/copyright debian/dracut-core/usr/share/doc/dracut-core/copyright
+   dh_installchangelogs -a
+	install -p -m0644 debian/changelog debian/dracut-core/usr/share/doc/dracut-core/changelog.Debian
+	install -p -m0644 debian/NEWS debian/dracut-core/usr/share/doc/dracut-core/NEWS.Debian
+   dh_installman -a
+	install -d debian/dracut-core/usr/share/man/man8/
+	install -p -m0644 ./dracut.8 debian/dracut-core/usr/share/man/man8/dracut.8
+	install -d debian/dracut-core/usr/share/man/man5/
+	install -p -m0644 ./dracut.conf.5 debian/dracut-core/usr/share/man/man5/dracut.conf.5
+	install -d debian/dracut-core/usr/share/man/man7/
+	install -p -m0644 ./dracut.modules.7 debian/dracut-core/usr/share/man/man7/dracut.modules.7
+	install -p -m0644 ./dracut.bootup.7 debian/dracut-core/usr/share/man/man7/dracut.bootup.7
+	install -p -m0644 ./dracut.cmdline.7 debian/dracut-core/usr/share/man/man7/dracut.cmdline.7
+	install -p -m0644 ./dracut-catimages.8 debian/dracut-core/usr/share/man/man8/dracut-catimages.8
+	install -d debian/dracut-core/usr/share/man/man1/
+	install -p -m0644 ./lsinitrd.1 debian/dracut-core/usr/share/man/man1/lsinitrd.1
+	install -p -m0644 ./mkinitrd.8 debian/dracut-core/usr/share/man/man8/mkinitrd.8
+	install -p -m0644 ./debian/tmp/usr/share/man/man8/dracut-catimages.8 debian/dracut-core/usr/share/man/man8/dracut-catimages.8
+	install -p -m0644 ./debian/tmp/usr/share/man/man8/dracut-cmdline.service.8 debian/dracut-core/usr/share/man/man8/dracut-cmdline.service.8
+	install -p -m0644 ./debian/tmp/usr/share/man/man8/dracut-initqueue.service.8 debian/dracut-core/usr/share/man/man8/dracut-initqueue.service.8
+	install -p -m0644 ./debian/tmp/usr/share/man/man8/dracut-mount.service.8 debian/dracut-core/usr/share/man/man8/dracut-mount.service.8
+	install -p -m0644 ./debian/tmp/usr/share/man/man8/dracut-pre-mount.service.8 debian/dracut-core/usr/share/man/man8/dracut-pre-mount.service.8
+	install -p -m0644 ./debian/tmp/usr/share/man/man8/dracut-pre-pivot.service.8 debian/dracut-core/usr/share/man/man8/dracut-pre-pivot.service.8
+	install -p -m0644 ./debian/tmp/usr/share/man/man8/dracut-pre-trigger.service.8 debian/dracut-core/usr/share/man/man8/dracut-pre-trigger.service.8
+	install -p -m0644 ./debian/tmp/usr/share/man/man8/dracut-pre-udev.service.8 debian/dracut-core/usr/share/man/man8/dracut-pre-udev.service.8
+	install -p -m0644 ./debian/tmp/usr/share/man/man8/dracut-shutdown.service.8 debian/dracut-core/usr/share/man/man8/dracut-shutdown.service.8
+	install -p -m0644 ./debian/tmp/usr/share/man/man8/dracut.8 debian/dracut-core/usr/share/man/man8/dracut.8
+	install -p -m0644 ./debian/tmp/usr/share/man/man8/mkinitrd-suse.8 debian/dracut-core/usr/share/man/man8/mkinitrd-suse.8
+	install -p -m0644 ./debian/tmp/usr/share/man/man8/mkinitrd.8 debian/dracut-core/usr/share/man/man8/mkinitrd.8
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man5/dracut.conf.5 > debian/dracut-core/usr/share/man/man5/dracut.conf.5.dh-new
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man7/dracut.modules.7 > debian/dracut-core/usr/share/man/man7/dracut.modules.7.dh-new
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man7/dracut.cmdline.7 > debian/dracut-core/usr/share/man/man7/dracut.cmdline.7.dh-new
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man8/mkinitrd-suse.8 > debian/dracut-core/usr/share/man/man8/mkinitrd-suse.8.dh-new
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man8/dracut-pre-pivot.service.8 > debian/dracut-core/usr/share/man/man8/dracut-pre-pivot.service.8.dh-new
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man8/dracut.8 > debian/dracut-core/usr/share/man/man8/dracut.8.dh-new
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man8/dracut-pre-trigger.service.8 > debian/dracut-core/usr/share/man/man8/dracut-pre-trigger.service.8.dh-new
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man8/dracut-pre-mount.service.8 > debian/dracut-core/usr/share/man/man8/dracut-pre-mount.service.8.dh-new
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man8/dracut-catimages.8 > debian/dracut-core/usr/share/man/man8/dracut-catimages.8.dh-new
+	mv debian/dracut-core/usr/share/man/man8/dracut-pre-trigger.service.8.dh-new debian/dracut-core/usr/share/man/man8/dracut-pre-trigger.service.8
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man8/dracut-pre-udev.service.8 > debian/dracut-core/usr/share/man/man8/dracut-pre-udev.service.8.dh-new
+	mv debian/dracut-core/usr/share/man/man8/mkinitrd-suse.8.dh-new debian/dracut-core/usr/share/man/man8/mkinitrd-suse.8
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man8/dracut-initqueue.service.8 > debian/dracut-core/usr/share/man/man8/dracut-initqueue.service.8.dh-new
+	mv debian/dracut-core/usr/share/man/man7/dracut.modules.7.dh-new debian/dracut-core/usr/share/man/man7/dracut.modules.7
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man7/dracut.bootup.7 > debian/dracut-core/usr/share/man/man7/dracut.bootup.7.dh-new
+	mv debian/dracut-core/usr/share/man/man5/dracut.conf.5.dh-new debian/dracut-core/usr/share/man/man5/dracut.conf.5
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man1/lsinitrd.1 > debian/dracut-core/usr/share/man/man1/lsinitrd.1.dh-new
+	mv debian/dracut-core/usr/share/man/man7/dracut.cmdline.7.dh-new debian/dracut-core/usr/share/man/man7/dracut.cmdline.7
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man8/dracut-mount.service.8 > debian/dracut-core/usr/share/man/man8/dracut-mount.service.8.dh-new
+	mv debian/dracut-core/usr/share/man/man8/dracut-pre-mount.service.8.dh-new debian/dracut-core/usr/share/man/man8/dracut-pre-mount.service.8
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man8/dracut-shutdown.service.8 > debian/dracut-core/usr/share/man/man8/dracut-shutdown.service.8.dh-new
+	mv debian/dracut-core/usr/share/man/man8/dracut.8.dh-new debian/dracut-core/usr/share/man/man8/dracut.8
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man8/mkinitrd.8 > debian/dracut-core/usr/share/man/man8/mkinitrd.8.dh-new
+	mv debian/dracut-core/usr/share/man/man8/dracut-pre-pivot.service.8.dh-new debian/dracut-core/usr/share/man/man8/dracut-pre-pivot.service.8
+	man -l --recode UTF-8 ./debian/dracut-core/usr/share/man/man8/dracut-cmdline.service.8 > debian/dracut-core/usr/share/man/man8/dracut-cmdline.service.8.dh-new
+	mv debian/dracut-core/usr/share/man/man8/dracut-initqueue.service.8.dh-new debian/dracut-core/usr/share/man/man8/dracut-initqueue.service.8
+	chmod 0644 -- debian/dracut-core/usr/share/man/man8/mkinitrd-suse.8 debian/dracut-core/usr/share/man/man8/dracut-initqueue.service.8
+	mv debian/dracut-core/usr/share/man/man8/dracut-pre-udev.service.8.dh-new debian/dracut-core/usr/share/man/man8/dracut-pre-udev.service.8
+	chmod 0644 -- debian/dracut-core/usr/share/man/man8/dracut-pre-trigger.service.8 debian/dracut-core/usr/share/man/man8/dracut-pre-udev.service.8
+	mv debian/dracut-core/usr/share/man/man8/dracut-catimages.8.dh-new debian/dracut-core/usr/share/man/man8/dracut-catimages.8
+	chmod 0644 -- debian/dracut-core/usr/share/man/man8/dracut-catimages.8
+	mv debian/dracut-core/usr/share/man/man7/dracut.bootup.7.dh-new debian/dracut-core/usr/share/man/man7/dracut.bootup.7
+	chmod 0644 -- debian/dracut-core/usr/share/man/man7/dracut.modules.7 debian/dracut-core/usr/share/man/man7/dracut.bootup.7
+	mv debian/dracut-core/usr/share/man/man1/lsinitrd.1.dh-new debian/dracut-core/usr/share/man/man1/lsinitrd.1
+	chmod 0644 -- debian/dracut-core/usr/share/man/man5/dracut.conf.5 debian/dracut-core/usr/share/man/man1/lsinitrd.1
+	mv debian/dracut-core/usr/share/man/man8/dracut-shutdown.service.8.dh-new debian/dracut-core/usr/share/man/man8/dracut-shutdown.service.8
+	chmod 0644 -- debian/dracut-core/usr/share/man/man8/dracut-pre-mount.service.8 debian/dracut-core/usr/share/man/man8/dracut-shutdown.service.8
+	mv debian/dracut-core/usr/share/man/man8/dracut-cmdline.service.8.dh-new debian/dracut-core/usr/share/man/man8/dracut-cmdline.service.8
+	chmod 0644 -- debian/dracut-core/usr/share/man/man8/dracut-pre-pivot.service.8 debian/dracut-core/usr/share/man/man8/dracut-cmdline.service.8
+	mv debian/dracut-core/usr/share/man/man8/dracut-mount.service.8.dh-new debian/dracut-core/usr/share/man/man8/dracut-mount.service.8
+	chmod 0644 -- debian/dracut-core/usr/share/man/man7/dracut.cmdline.7 debian/dracut-core/usr/share/man/man8/dracut-mount.service.8
+	mv debian/dracut-core/usr/share/man/man8/mkinitrd.8.dh-new debian/dracut-core/usr/share/man/man8/mkinitrd.8
+	chmod 0644 -- debian/dracut-core/usr/share/man/man8/dracut.8 debian/dracut-core/usr/share/man/man8/mkinitrd.8
+   dh_installlogrotate -a
+	install -p -m0644 debian/dracut-core.logrotate debian/dracut-core/etc/logrotate.d/dracut-core
+   dh_perl -a
+   dh_link -a
+	rm -f debian/dracut-core/usr/lib/dracut/dracut-functions
+	ln -s dracut-functions.sh debian/dracut-core/usr/lib/dracut/dracut-functions
+	rm -f debian/dracut-core/lib/systemd/system/sysinit.target.wants/dracut-shutdown.service
+	ln -s ../dracut-shutdown.service debian/dracut-core/lib/systemd/system/sysinit.target.wants/dracut-shutdown.service
+	rm -f debian/dracut-core/lib/systemd/system/initrd.target.wants/dracut-cmdline.service
+	ln -s ../dracut-cmdline.service debian/dracut-core/lib/systemd/system/initrd.target.wants/dracut-cmdline.service
+	rm -f debian/dracut-core/lib/systemd/system/initrd.target.wants/dracut-mount.service
+	ln -s ../dracut-mount.service debian/dracut-core/lib/systemd/system/initrd.target.wants/dracut-mount.service
+	rm -f debian/dracut-core/lib/systemd/system/initrd.target.wants/dracut-pre-mount.service
+	ln -s ../dracut-pre-mount.service debian/dracut-core/lib/systemd/system/initrd.target.wants/dracut-pre-mount.service
+	rm -f debian/dracut-core/lib/systemd/system/initrd.target.wants/dracut-pre-trigger.service
+	ln -s ../dracut-pre-trigger.service debian/dracut-core/lib/systemd/system/initrd.target.wants/dracut-pre-trigger.service
+	rm -f debian/dracut-core/lib/systemd/system/initrd.target.wants/dracut-pre-udev.service
+	ln -s ../dracut-pre-udev.service debian/dracut-core/lib/systemd/system/initrd.target.wants/dracut-pre-udev.service
+	rm -f debian/dracut-core/lib/systemd/system/initrd.target.wants/dracut-pre-pivot.service
+	ln -s ../dracut-pre-pivot.service debian/dracut-core/lib/systemd/system/initrd.target.wants/dracut-pre-pivot.service
+	rm -f debian/dracut-core/lib/systemd/system/initrd.target.wants/dracut-initqueue.service
+	ln -s ../dracut-initqueue.service debian/dracut-core/lib/systemd/system/initrd.target.wants/dracut-initqueue.service
+	rm -f debian/dracut-core/lib/systemd/system/dracut-cmdline.service
+	ln -s /usr/lib/dracut/modules.d/98dracut-systemd/dracut-cmdline.service debian/dracut-core/lib/systemd/system/dracut-cmdline.service
+	rm -f debian/dracut-core/lib/systemd/system/dracut-mount.service
+	ln -s /usr/lib/dracut/modules.d/98dracut-systemd/dracut-mount.service debian/dracut-core/lib/systemd/system/dracut-mount.service
+	rm -f debian/dracut-core/lib/systemd/system/dracut-pre-mount.service
+	ln -s /usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-mount.service debian/dracut-core/lib/systemd/system/dracut-pre-mount.service
+	rm -f debian/dracut-core/lib/systemd/system/dracut-pre-trigger.service
+	ln -s /usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-trigger.service debian/dracut-core/lib/systemd/system/dracut-pre-trigger.service
+	rm -f debian/dracut-core/lib/systemd/system/dracut-pre-udev.service
+	ln -s /usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-udev.service debian/dracut-core/lib/systemd/system/dracut-pre-udev.service
+	rm -f debian/dracut-core/lib/systemd/system/dracut-pre-pivot.service
+	ln -s /usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-pivot.service debian/dracut-core/lib/systemd/system/dracut-pre-pivot.service
+	rm -f debian/dracut-core/lib/systemd/system/dracut-initqueue.service
+	ln -s /usr/lib/dracut/modules.d/98dracut-systemd/dracut-initqueue.service debian/dracut-core/lib/systemd/system/dracut-initqueue.service
+	rm -f debian/dracut-core/lib/systemd/system/dracut-shutdown.service
+	ln -s /usr/lib/dracut/modules.d/98dracut-systemd/dracut-shutdown.service debian/dracut-core/lib/systemd/system/dracut-shutdown.service
+   dh_strip_nondeterminism -a
+   dh_compress -a
+	cd debian/dracut-core
+	chmod a-x usr/share/doc/dracut-core/AUTHORS usr/share/doc/dracut-core/NEWS usr/share/doc/dracut-core/NEWS.Debian usr/share/doc/dracut-core/README.modules usr/share/doc/dracut-core/changelog.Debian usr/share/man/man1/lsinitrd.1 usr/share/man/man5/dracut.conf.5 usr/share/man/man7/dracut.bootup.7 usr/share/man/man7/dracut.cmdline.7 usr/share/man/man7/dracut.modules.7 usr/share/man/man8/dracut-catimages.8 usr/share/man/man8/dracut-cmdline.service.8 usr/share/man/man8/dracut-initqueue.service.8 usr/share/man/man8/dracut-mount.service.8 usr/share/man/man8/dracut-pre-mount.service.8 usr/share/man/man8/dracut-pre-pivot.service.8 usr/share/man/man8/dracut-pre-trigger.service.8 usr/share/man/man8/dracut-pre-udev.service.8 usr/share/man/man8/dracut-shutdown.service.8 usr/share/man/man8/dracut.8 usr/share/man/man8/mkinitrd-suse.8 usr/share/man/man8/mkinitrd.8
+	gzip -9nf usr/share/doc/dracut-core/AUTHORS usr/share/doc/dracut-core/NEWS usr/share/doc/dracut-core/NEWS.Debian usr/share/doc/dracut-core/README.modules usr/share/doc/dracut-core/changelog.Debian usr/share/man/man1/lsinitrd.1 usr/share/man/man5/dracut.conf.5 usr/share/man/man7/dracut.bootup.7 usr/share/man/man7/dracut.cmdline.7 usr/share/man/man7/dracut.modules.7 usr/share/man/man8/dracut-catimages.8 usr/share/man/man8/dracut-cmdline.service.8 usr/share/man/man8/dracut-initqueue.service.8 usr/share/man/man8/dracut-mount.service.8 usr/share/man/man8/dracut-pre-mount.service.8 usr/share/man/man8/dracut-pre-pivot.service.8 usr/share/man/man8/dracut-pre-trigger.service.8 usr/share/man/man8/dracut-pre-udev.service.8 usr/share/man/man8/dracut-shutdown.service.8 usr/share/man/man8/dracut.8 usr/share/man/man8/mkinitrd-suse.8 usr/share/man/man8/mkinitrd.8
+	cd '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_fixperms-arch
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_fixperms
+	find debian/dracut-core -true -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/dracut-core ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/dracut-core/usr/share/doc -type f -a -true -a ! -regex 'debian/dracut-core/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/dracut-core/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/dracut-core/usr/share/man -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/dracut-core -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' -o -name '*.node' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/dracut-core/usr/bin -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod a+x
+	find debian/dracut-core/usr/lib -type f -name '*.ali' -a -true -a -true -print0 2>/dev/null | xargs -0r chmod uga-w
+find debian/ -name "*.sh" | grep modules.d | xargs chmod 755
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_missing -a
+   dh_strip -a
+	install -d debian/.debhelper/dracut-core/dbgsym-root/usr/lib/debug/.build-id/45
+	arm-linux-gnueabihf-objcopy --only-keep-debug --compress-debug-sections debian/dracut-core/usr/lib/dracut/dracut-install debian/.debhelper/dracut-core/dbgsym-root/usr/lib/debug/.build-id/45/ca7fd0a544669f2637c39eb00eea92412d37df.debug
+	chmod 0644 -- debian/.debhelper/dracut-core/dbgsym-root/usr/lib/debug/.build-id/45/ca7fd0a544669f2637c39eb00eea92412d37df.debug
+	chown 0:0 -- debian/.debhelper/dracut-core/dbgsym-root/usr/lib/debug/.build-id/45/ca7fd0a544669f2637c39eb00eea92412d37df.debug
+	arm-linux-gnueabihf-strip --remove-section=.comment --remove-section=.note debian/dracut-core/usr/lib/dracut/dracut-install
+	arm-linux-gnueabihf-objcopy --add-gnu-debuglink debian/.debhelper/dracut-core/dbgsym-root/usr/lib/debug/.build-id/45/ca7fd0a544669f2637c39eb00eea92412d37df.debug debian/dracut-core/usr/lib/dracut/dracut-install
+	install -d debian/.debhelper/dracut-core/dbgsym-root/usr/lib/debug/.build-id/de
+	arm-linux-gnueabihf-objcopy --only-keep-debug --compress-debug-sections debian/dracut-core/usr/lib/dracut/skipcpio debian/.debhelper/dracut-core/dbgsym-root/usr/lib/debug/.build-id/de/65d22284090b8ea0fefea1a26514c0c7f1dfb6.debug
+	chmod 0644 -- debian/.debhelper/dracut-core/dbgsym-root/usr/lib/debug/.build-id/de/65d22284090b8ea0fefea1a26514c0c7f1dfb6.debug
+	chown 0:0 -- debian/.debhelper/dracut-core/dbgsym-root/usr/lib/debug/.build-id/de/65d22284090b8ea0fefea1a26514c0c7f1dfb6.debug
+	arm-linux-gnueabihf-strip --remove-section=.comment --remove-section=.note debian/dracut-core/usr/lib/dracut/skipcpio
+	arm-linux-gnueabihf-objcopy --add-gnu-debuglink debian/.debhelper/dracut-core/dbgsym-root/usr/lib/debug/.build-id/de/65d22284090b8ea0fefea1a26514c0c7f1dfb6.debug debian/dracut-core/usr/lib/dracut/skipcpio
+	install -d debian/.debhelper/dracut-core/dbgsym-root/usr/share/doc
+	ln -s dracut-core debian/.debhelper/dracut-core/dbgsym-root/usr/share/doc/dracut-core-dbgsym
+   dh_makeshlibs -a
+	rm -f debian/dracut-core/DEBIAN/shlibs
+   dh_shlibdeps -a
+	install -d debian/dracut-core/DEBIAN
+	dpkg-shlibdeps -Tdebian/dracut-core.substvars debian/dracut-core/usr/lib/dracut/dracut-install debian/dracut-core/usr/lib/dracut/skipcpio
+   dh_installdeb -a
+	sed s/\#DEBHELPER\#// debian/dracut-core.postrm > debian/dracut-core/DEBIAN/postrm
+	chmod 0755 -- debian/dracut-core/DEBIAN/postrm
+	chown 0:0 -- debian/dracut-core/DEBIAN/postrm
+	find debian/dracut-core/etc -type f -printf '/etc/%P
+' | LC_ALL=C sort >> debian/dracut-core/DEBIAN/conffiles
+	chmod 0644 -- debian/dracut-core/DEBIAN/conffiles
+	chown 0:0 -- debian/dracut-core/DEBIAN/conffiles
+   dh_gencontrol -a
+	echo misc:Depends= >> debian/dracut-core.substvars
+	echo misc:Pre-Depends= >> debian/dracut-core.substvars
+	install -d debian/.debhelper/dracut-core/dbgsym-root/DEBIAN
+	dpkg-gencontrol -pdracut-core -ldebian/changelog -Tdebian/dracut-core.substvars -Pdebian/.debhelper/dracut-core/dbgsym-root -UPre-Depends -URecommends -USuggests -UEnhances -UProvides -UEssential -UConflicts -DPriority=optional -UHomepage -UImportant -DAuto-Built-Package=debug-symbols -DPackage=dracut-core-dbgsym "-DDepends=dracut-core (= \${binary:Version})" "-DDescription=debug symbols for dracut-core" "-DBuild-Ids=45ca7fd0a544669f2637c39eb00eea92412d37df de65d22284090b8ea0fefea1a26514c0c7f1dfb6" -DSection=debug -UMulti-Arch -UReplaces -UBreaks
+	chmod 0644 -- debian/.debhelper/dracut-core/dbgsym-root/DEBIAN/control
+	chown 0:0 -- debian/.debhelper/dracut-core/dbgsym-root/DEBIAN/control
+	dpkg-gencontrol -pdracut-core -ldebian/changelog -Tdebian/dracut-core.substvars -Pdebian/dracut-core
+	chmod 0644 -- debian/dracut-core/DEBIAN/control
+	chown 0:0 -- debian/dracut-core/DEBIAN/control
+   dh_md5sums -a
+	cd debian/dracut-core >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/dracut-core/DEBIAN/md5sums
+	chown 0:0 -- debian/dracut-core/DEBIAN/md5sums
+	cd debian/.debhelper/dracut-core/dbgsym-root >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/.debhelper/dracut-core/dbgsym-root/DEBIAN/md5sums
+	chown 0:0 -- debian/.debhelper/dracut-core/dbgsym-root/DEBIAN/md5sums
+   dh_builddeb -a
+	dpkg-deb --build debian/dracut-core ..
+	dpkg-deb --build debian/.debhelper/dracut-core/dbgsym-root ..
+dpkg-deb: building package 'dracut-core' in '../dracut-core_048+80-2_armhf.deb'.
+dpkg-deb: building package 'dracut-core-dbgsym' in '../dracut-core-dbgsym_048+80-2_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../dracut_048+80-2_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-05-11T08:13:17Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+dracut_048+80-2_armhf.changes:
+------------------------------
+
+Format: 1.8
+Date: Tue, 07 May 2019 13:11:11 +0200
+Source: dracut
+Binary: dracut-core dracut-core-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 048+80-2
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Thomas Lange <lange@debian.org>
+Changed-By: Thomas Lange <lange@debian.org>
+Description:
+ dracut-core - dracut is an event driven initramfs infrastructure (core tools)
+Closes: 772260 920563
+Changes:
+ dracut (048+80-2) unstable; urgency=medium
+ .
+   * fix bashism in several scripts, Closes: #772260
+   * add patch to workaround changes in bash-5 while fsck'ing,
+     Closes: #920563
+Checksums-Sha1:
+ 54853051a31cbdbf147ad14451c3580b29ba5440 76520 dracut-core-dbgsym_048+80-2_armhf.deb
+ e3c65524518193b358ce3e30569133e82090fd7c 250544 dracut-core_048+80-2_armhf.deb
+ 96efa276879a8d10125dd706e73123c223a6b2f0 5406 dracut_048+80-2_armhf.buildinfo
+Checksums-Sha256:
+ b0f26fd8369ad3d1978488b9bdd990d77ca448c67f3288b07d6bc7576fc8fc63 76520 dracut-core-dbgsym_048+80-2_armhf.deb
+ 75d344316ef14e2576d4150b51aeb7b6827c8721c8dfb07df16de205b4f2aed7 250544 dracut-core_048+80-2_armhf.deb
+ f20109c0c341e6a0e99bf65e74a1f20f6860ff0dbbeba6a3579fc45202c66eef 5406 dracut_048+80-2_armhf.buildinfo
+Files:
+ 37afe6bb6b8ba2ce59a696199443bb2e 76520 debug optional dracut-core-dbgsym_048+80-2_armhf.deb
+ 1e255fcd9bdd8118b1c3501bfaac346a 250544 utils optional dracut-core_048+80-2_armhf.deb
+ c93fbf5c4d36eec153f92783e0862580 5406 utils optional dracut_048+80-2_armhf.buildinfo
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: dracut
+Binary: dracut dracut-core dracut-network dracut-config-generic dracut-config-rescue
+Architecture: armhf
+Version: 048+80-2
+Checksums-Md5:
+ 37afe6bb6b8ba2ce59a696199443bb2e 76520 dracut-core-dbgsym_048+80-2_armhf.deb
+ 1e255fcd9bdd8118b1c3501bfaac346a 250544 dracut-core_048+80-2_armhf.deb
+Checksums-Sha1:
+ 54853051a31cbdbf147ad14451c3580b29ba5440 76520 dracut-core-dbgsym_048+80-2_armhf.deb
+ e3c65524518193b358ce3e30569133e82090fd7c 250544 dracut-core_048+80-2_armhf.deb
+Checksums-Sha256:
+ b0f26fd8369ad3d1978488b9bdd990d77ca448c67f3288b07d6bc7576fc8fc63 76520 dracut-core-dbgsym_048+80-2_armhf.deb
+ 75d344316ef14e2576d4150b51aeb7b6827c8721c8dfb07df16de205b4f2aed7 250544 dracut-core_048+80-2_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Sat, 11 May 2019 08:13:17 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ asciidoc-base (= 8.6.10-3),
+ asciidoc-common (= 8.6.10-3),
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.2),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-4),
+ binutils (= 2.31.1-16),
+ binutils-common (= 2.31.1-16),
+ binutils-x86-64-linux-gnu (= 2.31.1-16),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.6),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-3),
+ cpp (= 4:8.3.0-1),
+ cpp-8 (= 8.3.0-7),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.72),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.2-1),
+ diffstat (= 1.62-1),
+ diffutils (= 1:3.7-3),
+ docbook-xml (= 4.5-8),
+ docbook-xsl (= 1.79.1+dfsg-2),
+ dpkg (= 1.19.6),
+ dpkg-dev (= 1.19.6),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-4),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.3.0-1),
+ g++-8 (= 8.3.0-7),
+ gcc (= 4:8.3.0-1),
+ gcc-8 (= 8.3.0-7),
+ gcc-8-base (= 8.3.0-7),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-3),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.53-4),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-7),
+ libatomic1 (= 8.3.0-7),
+ libattr1 (= 1:2.4.48-4),
+ libaudit-common (= 1:2.8.4-3),
+ libaudit1 (= 1:2.8.4-3),
+ libbinutils (= 2.31.1-16),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-10),
+ libc-dev-bin (= 2.28-10),
+ libc6 (= 2.28-10),
+ libc6-dev (= 2.28-10),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-7),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.6),
+ libdebconfclient0 (= 0.249),
+ libdpkg-perl (= 1.19.6),
+ libelf1 (= 0.176-1),
+ libexpat1 (= 2.2.6-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.2-1),
+ libgcc-8-dev (= 8.3.0-7),
+ libgcc1 (= 1:8.3.0-7),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-4),
+ libgdbm6 (= 1.18.1-4),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-7),
+ libgpg-error0 (= 1.35-1),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-7),
+ libkmod-dev (= 26-1),
+ libkmod2 (= 26-1),
+ liblsan0 (= 8.3.0-7),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-4),
+ libmagic1 (= 1:5.35-4),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-7),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-12),
+ libperl5.28 (= 5.28.1-6),
+ libpipeline1 (= 1.5.1-2),
+ libpython-stdlib (= 2.7.16-1),
+ libpython2-stdlib (= 2.7.16-1),
+ libpython2.7-minimal (= 2.7.16-2),
+ libpython2.7-stdlib (= 2.7.16-2),
+ libquadmath0 (= 8.3.0-7),
+ libreadline7 (= 7.0-5),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libsqlite3-0 (= 3.27.2-2),
+ libssl1.1 (= 1.1.1b-2),
+ libstdc++-8-dev (= 8.3.0-7),
+ libstdc++6 (= 8.3.0-7),
+ libsystemd0 (= 241-3),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-7),
+ libubsan1 (= 8.3.0-7),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-3),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ libxml2-utils (= 2.9.4+dfsg1-7+b3),
+ libxslt1.1 (= 1.1.32-2),
+ linux-libc-dev (= 4.19.37-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ mime-support (= 3.62),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-6),
+ perl-base (= 5.28.1-6),
+ perl-modules-5.28 (= 5.28.1-6),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ python (= 2.7.16-1),
+ python-minimal (= 2.7.16-1),
+ python2 (= 2.7.16-1),
+ python2-minimal (= 2.7.16-1),
+ python2.7 (= 2.7.16-2),
+ python2.7-minimal (= 2.7.16-2),
+ quilt (= 0.65-3),
+ readline-common (= 7.0-5),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sgml-base (= 1.29),
+ sgml-data (= 2.0.11),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-6),
+ util-linux (= 2.33.1-0.1),
+ xml-core (= 0.18+nmu1),
+ xsltproc (= 1.1.32-2),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1557227471"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+dracut-core-dbgsym_048+80-2_armhf.deb
+-------------------------------------
+
+ new Debian package, version 2.0.
+ size 76520 bytes: control archive=576 bytes.
+     383 bytes,    12 lines      control              
+     212 bytes,     2 lines      md5sums              
+ Package: dracut-core-dbgsym
+ Source: dracut
+ Version: 048+80-2
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Thomas Lange <lange@debian.org>
+ Installed-Size: 104
+ Depends: dracut-core (= 048+80-2)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for dracut-core
+ Build-Ids: 45ca7fd0a544669f2637c39eb00eea92412d37df de65d22284090b8ea0fefea1a26514c0c7f1dfb6
+
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/debug/.build-id/45/
+-rw-r--r-- root/root     85076 2019-05-07 11:11 ./usr/lib/debug/.build-id/45/ca7fd0a544669f2637c39eb00eea92412d37df.debug
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/debug/.build-id/de/
+-rw-r--r-- root/root      8664 2019-05-07 11:11 ./usr/lib/debug/.build-id/de/65d22284090b8ea0fefea1a26514c0c7f1dfb6.debug
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/share/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./usr/share/doc/dracut-core-dbgsym -> dracut-core
+
+
+dracut-core_048+80-2_armhf.deb
+------------------------------
+
+ new Debian package, version 2.0.
+ size 250544 bytes: control archive=7828 bytes.
+      80 bytes,     3 lines      conffiles            
+    1251 bytes,    24 lines      control              
+   22372 bytes,   261 lines      md5sums              
+      91 bytes,    13 lines   *  postrm               #!/bin/sh
+ Package: dracut-core
+ Source: dracut
+ Version: 048+80-2
+ Architecture: armhf
+ Maintainer: Thomas Lange <lange@debian.org>
+ Installed-Size: 1110
+ Depends: cpio, kmod, udev, kpartx, util-linux (>= 2.20), pkg-config, libkmod2 (>= 22~), e2fsprogs, libc6 (>= 2.8)
+ Recommends: cryptsetup, dmsetup, dmraid, lvm2, mdadm, console-setup, binutils, systemd
+ Breaks: dracut (<< 044+3-2~), dracut-network (<< 043-2)
+ Replaces: dracut (<< 044+3-2~), dracut-network (<< 043-2)
+ Section: utils
+ Priority: optional
+ Multi-Arch: foreign
+ Homepage: http://www.kernel.org/pub/linux/utils/boot/dracut/dracut.html
+ Description: dracut is an event driven initramfs infrastructure (core tools)
+  Unlike existing initramfs's, this is an attempt at having as little as
+  possible hard-coded into the initramfs as possible.  The initramfs has
+  (basically) one purpose in life -- getting the rootfs mounted so that
+  we can transition to the real rootfs.  This is all driven off of
+  device availability.  Therefore, instead of scripts hard-coded to do
+  various things, we depend on udev to create device nodes for us and
+  then when we have the rootfs's device node, we mount and carry on.
+  Having the root on MD, LVM2, LUKS is supported as well as NFS, iSCSI,
+  NBD and FCOE with dracut-network.
+
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./etc/
+-rw-r--r-- root/root       117 2019-05-07 11:11 ./etc/dracut.conf
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./etc/dracut.conf.d/
+-rw-r--r-- root/root        13 2019-05-05 19:37 ./etc/dracut.conf.d/10-debian.conf
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./etc/logrotate.d/
+-rw-r--r-- root/root        82 2019-05-05 19:37 ./etc/logrotate.d/dracut-core
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./lib/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./lib/systemd/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./lib/systemd/system/
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/dracut-cmdline.service -> /usr/lib/dracut/modules.d/98dracut-systemd/dracut-cmdline.service
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/dracut-initqueue.service -> /usr/lib/dracut/modules.d/98dracut-systemd/dracut-initqueue.service
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/dracut-mount.service -> /usr/lib/dracut/modules.d/98dracut-systemd/dracut-mount.service
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/dracut-pre-mount.service -> /usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-mount.service
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/dracut-pre-pivot.service -> /usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-pivot.service
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/dracut-pre-trigger.service -> /usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-trigger.service
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/dracut-pre-udev.service -> /usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-udev.service
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/dracut-shutdown.service -> /usr/lib/dracut/modules.d/98dracut-systemd/dracut-shutdown.service
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./lib/systemd/system/initrd.target.wants/
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/initrd.target.wants/dracut-cmdline.service -> ../dracut-cmdline.service
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/initrd.target.wants/dracut-initqueue.service -> ../dracut-initqueue.service
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/initrd.target.wants/dracut-mount.service -> ../dracut-mount.service
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/initrd.target.wants/dracut-pre-mount.service -> ../dracut-pre-mount.service
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/initrd.target.wants/dracut-pre-pivot.service -> ../dracut-pre-pivot.service
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/initrd.target.wants/dracut-pre-trigger.service -> ../dracut-pre-trigger.service
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/initrd.target.wants/dracut-pre-udev.service -> ../dracut-pre-udev.service
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./lib/systemd/system/sysinit.target.wants/
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./lib/systemd/system/sysinit.target.wants/dracut-shutdown.service -> ../dracut-shutdown.service
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/bin/
+-rwxr-xr-x root/root     66330 2019-05-07 11:11 ./usr/bin/dracut
+-rwxr-xr-x root/root      3412 2019-05-07 11:11 ./usr/bin/dracut-catimages
+-rwxr-xr-x root/root      8232 2019-05-07 11:11 ./usr/bin/lsinitrd
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/dracut/
+lrwxrwxrwx root/root         0 2019-05-07 11:11 ./usr/lib/dracut/dracut-functions -> dracut-functions.sh
+-rwxr-xr-x root/root     20145 2019-05-07 11:11 ./usr/lib/dracut/dracut-functions.sh
+-rwxr-xr-x root/root     34377 2019-05-07 11:11 ./usr/lib/dracut/dracut-init.sh
+-rwxr-xr-x root/root      1274 2019-05-07 11:11 ./usr/lib/dracut/dracut-initramfs-restore
+-rwxr-xr-x root/root     42996 2019-05-07 11:11 ./usr/lib/dracut/dracut-install
+-rwxr-xr-x root/root     13304 2019-05-07 11:11 ./usr/lib/dracut/dracut-logger.sh
+-rw-r--r-- root/root        16 2019-05-07 11:11 ./usr/lib/dracut/dracut-version.sh
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/dracut/modules.d/
+drwxr-xr-x root/root         0 2014-10-22 08:30 ./usr/lib/dracut/modules.d/00bash/
+-rwxr-xr-x root/root       361 2014-10-22 08:30 ./usr/lib/dracut/modules.d/00bash/module-setup.sh
+drwxr-xr-x root/root         0 2014-10-22 08:30 ./usr/lib/dracut/modules.d/00bootchart/
+-rwxr-xr-x root/root       525 2014-10-22 08:30 ./usr/lib/dracut/modules.d/00bootchart/module-setup.sh
+drwxr-xr-x root/root         0 2014-10-22 08:30 ./usr/lib/dracut/modules.d/00dash/
+-rwxr-xr-x root/root       361 2014-10-22 08:30 ./usr/lib/dracut/modules.d/00dash/module-setup.sh
+drwxr-xr-x root/root         0 2018-01-14 19:55 ./usr/lib/dracut/modules.d/00systemd/
+-rwxr-xr-x root/root      9311 2018-01-14 19:55 ./usr/lib/dracut/modules.d/00systemd/module-setup.sh
+drwxr-xr-x root/root         0 2018-08-10 20:28 ./usr/lib/dracut/modules.d/01fips/
+-rwxr-xr-x root/root       265 2014-10-22 08:30 ./usr/lib/dracut/modules.d/01fips/fips-boot.sh
+-rwxr-xr-x root/root       244 2014-10-22 08:30 ./usr/lib/dracut/modules.d/01fips/fips-noboot.sh
+-rwxr-xr-x root/root      4517 2018-01-14 19:55 ./usr/lib/dracut/modules.d/01fips/fips.sh
+-rwxr-xr-x root/root      1963 2018-08-10 20:28 ./usr/lib/dracut/modules.d/01fips/module-setup.sh
+drwxr-xr-x root/root         0 2016-06-25 09:43 ./usr/lib/dracut/modules.d/01systemd-initrd/
+-rwxr-xr-x root/root      1817 2016-06-25 09:43 ./usr/lib/dracut/modules.d/01systemd-initrd/module-setup.sh
+drwxr-xr-x root/root         0 2016-12-14 14:48 ./usr/lib/dracut/modules.d/02caps/
+-rw-r--r-- root/root      1341 2014-03-28 18:17 ./usr/lib/dracut/modules.d/02caps/README
+-rwxr-xr-x root/root      1451 2015-08-11 14:05 ./usr/lib/dracut/modules.d/02caps/caps.sh
+-rwxr-xr-x root/root       480 2016-12-14 14:48 ./usr/lib/dracut/modules.d/02caps/module-setup.sh
+drwxr-xr-x root/root         0 2014-10-22 08:30 ./usr/lib/dracut/modules.d/03modsign/
+-rwxr-xr-x root/root       234 2014-10-22 08:30 ./usr/lib/dracut/modules.d/03modsign/load-modsign-keys.sh
+-rwxr-xr-x root/root       728 2014-10-22 08:30 ./usr/lib/dracut/modules.d/03modsign/module-setup.sh
+drwxr-xr-x root/root         0 2016-12-14 14:48 ./usr/lib/dracut/modules.d/03rescue/
+-rwxr-xr-x root/root       377 2016-12-14 14:48 ./usr/lib/dracut/modules.d/03rescue/module-setup.sh
+drwxr-xr-x root/root         0 2016-06-25 09:43 ./usr/lib/dracut/modules.d/04watchdog/
+-rwxr-xr-x root/root      2876 2016-06-25 09:43 ./usr/lib/dracut/modules.d/04watchdog/module-setup.sh
+-rwxr-xr-x root/root        61 2015-11-28 13:08 ./usr/lib/dracut/modules.d/04watchdog/watchdog-stop.sh
+-rwxr-xr-x root/root       245 2014-03-28 18:17 ./usr/lib/dracut/modules.d/04watchdog/watchdog.sh
+drwxr-xr-x root/root         0 2014-10-22 08:30 ./usr/lib/dracut/modules.d/05busybox/
+-rwxr-xr-x root/root       699 2014-10-22 08:30 ./usr/lib/dracut/modules.d/05busybox/module-setup.sh
+drwxr-xr-x root/root         0 2019-05-05 19:37 ./usr/lib/dracut/modules.d/09console-setup/
+-rw-r--r-- root/root       152 2019-05-05 19:37 ./usr/lib/dracut/modules.d/09console-setup/10-console.rules
+-rwxr-xr-x root/root        20 2019-05-05 19:37 ./usr/lib/dracut/modules.d/09console-setup/console-setup.sh
+-rwxr-xr-x root/root       928 2019-05-05 19:37 ./usr/lib/dracut/modules.d/09console-setup/module-setup.sh
+drwxr-xr-x root/root         0 2015-08-11 14:05 ./usr/lib/dracut/modules.d/30convertfs/
+-rwxr-xr-x root/root      6035 2015-08-11 14:05 ./usr/lib/dracut/modules.d/30convertfs/convertfs.sh
+-rwxr-xr-x root/root       194 2014-10-22 08:30 ./usr/lib/dracut/modules.d/30convertfs/do-convertfs.sh
+-rwxr-xr-x root/root       336 2014-10-22 08:30 ./usr/lib/dracut/modules.d/30convertfs/module-setup.sh
+drwxr-xr-x root/root         0 2018-08-10 20:28 ./usr/lib/dracut/modules.d/50drm/
+-rwxr-xr-x root/root      1322 2018-08-10 20:28 ./usr/lib/dracut/modules.d/50drm/module-setup.sh
+drwxr-xr-x root/root         0 2014-10-22 08:30 ./usr/lib/dracut/modules.d/50gensplash/
+-rw-r--r-- root/root      1290 2014-03-28 18:17 ./usr/lib/dracut/modules.d/50gensplash/README
+-rwxr-xr-x root/root        59 2014-10-22 08:30 ./usr/lib/dracut/modules.d/50gensplash/gensplash-emergency.sh
+-rwxr-xr-x root/root        83 2014-10-22 08:30 ./usr/lib/dracut/modules.d/50gensplash/gensplash-newroot.sh
+-rwxr-xr-x root/root       297 2014-10-22 08:30 ./usr/lib/dracut/modules.d/50gensplash/gensplash-pretrigger.sh
+-rwxr-xr-x root/root      2178 2014-10-22 08:30 ./usr/lib/dracut/modules.d/50gensplash/module-setup.sh
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/dracut/modules.d/50plymouth/
+-rwxr-xr-x root/root      1240 2018-05-17 14:54 ./usr/lib/dracut/modules.d/50plymouth/module-setup.sh
+-rwxr-xr-x root/root        51 2014-10-22 08:30 ./usr/lib/dracut/modules.d/50plymouth/plymouth-emergency.sh
+-rwxr-xr-x root/root       113 2014-10-22 08:30 ./usr/lib/dracut/modules.d/50plymouth/plymouth-newroot.sh
+-rwxr-xr-x root/root      1428 2019-05-07 11:11 ./usr/lib/dracut/modules.d/50plymouth/plymouth-populate-initrd.sh
+-rwxr-xr-x root/root      1177 2016-06-25 09:43 ./usr/lib/dracut/modules.d/50plymouth/plymouth-pretrigger.sh
+drwxr-xr-x root/root         0 2018-05-17 14:54 ./usr/lib/dracut/modules.d/80lvmmerge/
+-rw-r--r-- root/root      2093 2018-05-17 14:54 ./usr/lib/dracut/modules.d/80lvmmerge/README.md
+-rwxr-xr-x root/root      3087 2017-08-01 20:53 ./usr/lib/dracut/modules.d/80lvmmerge/lvmmerge.sh
+-rwxr-xr-x root/root       424 2018-01-14 19:55 ./usr/lib/dracut/modules.d/80lvmmerge/module-setup.sh
+drwxr-xr-x root/root         0 2018-02-20 21:15 ./usr/lib/dracut/modules.d/81cio_ignore/
+-rwxr-xr-x root/root      1071 2018-02-20 21:15 ./usr/lib/dracut/modules.d/81cio_ignore/module-setup.sh
+-rwxr-xr-x root/root       496 2018-02-20 21:15 ./usr/lib/dracut/modules.d/81cio_ignore/parse-cio_accept.sh
+drwxr-xr-x root/root         0 2019-05-05 19:37 ./usr/lib/dracut/modules.d/90aufs/
+-rw-r--r-- root/root       444 2019-05-05 19:37 ./usr/lib/dracut/modules.d/90aufs/README
+-rwxr-xr-x root/root       862 2019-05-05 19:37 ./usr/lib/dracut/modules.d/90aufs/aufs-mount.sh
+-rwxr-xr-x root/root       409 2019-05-05 19:37 ./usr/lib/dracut/modules.d/90aufs/module-setup.sh
+drwxr-xr-x root/root         0 2018-01-14 19:55 ./usr/lib/dracut/modules.d/90btrfs/
+-rw-r--r-- root/root       270 2014-03-28 18:17 ./usr/lib/dracut/modules.d/90btrfs/80-btrfs.rules
+-rwxr-xr-x root/root       467 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90btrfs/btrfs_device_ready.sh
+-rwxr-xr-x root/root       597 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90btrfs/btrfs_finished.sh
+-rwxr-xr-x root/root       142 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90btrfs/btrfs_timeout.sh
+-rwxr-xr-x root/root      1238 2018-01-14 19:55 ./usr/lib/dracut/modules.d/90btrfs/module-setup.sh
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/dracut/modules.d/90crypt/
+-rwxr-xr-x root/root       442 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90crypt/crypt-cleanup.sh
+-rwxr-xr-x root/root      7650 2019-05-07 11:11 ./usr/lib/dracut/modules.d/90crypt/crypt-lib.sh
+-rwxr-xr-x root/root       770 2015-11-28 13:08 ./usr/lib/dracut/modules.d/90crypt/crypt-run-generator.sh
+-rwxr-xr-x root/root      4870 2018-08-10 20:28 ./usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh
+-rwxr-xr-x root/root      4431 2018-05-17 14:54 ./usr/lib/dracut/modules.d/90crypt/module-setup.sh
+-rwxr-xr-x root/root      7137 2018-08-10 20:28 ./usr/lib/dracut/modules.d/90crypt/parse-crypt.sh
+-rwxr-xr-x root/root      1376 2019-05-07 11:11 ./usr/lib/dracut/modules.d/90crypt/parse-keydev.sh
+-rwxr-xr-x root/root       382 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90crypt/probe-keydev.sh
+drwxr-xr-x root/root         0 2018-02-20 21:15 ./usr/lib/dracut/modules.d/90dm/
+-rw-r--r-- root/root       142 2014-03-28 18:17 ./usr/lib/dracut/modules.d/90dm/11-dm.rules
+-rw-r--r-- root/root       670 2014-03-28 18:17 ./usr/lib/dracut/modules.d/90dm/59-persistent-storage-dm.rules
+-rwxr-xr-x root/root       102 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90dm/dm-pre-udev.sh
+-rwxr-xr-x root/root      1237 2018-02-20 21:15 ./usr/lib/dracut/modules.d/90dm/dm-shutdown.sh
+-rwxr-xr-x root/root      1005 2018-01-14 19:55 ./usr/lib/dracut/modules.d/90dm/module-setup.sh
+drwxr-xr-x root/root         0 2018-02-20 21:15 ./usr/lib/dracut/modules.d/90dmraid/
+-rw-r--r-- root/root       922 2018-01-14 19:55 ./usr/lib/dracut/modules.d/90dmraid/61-dmraid-imsm.rules
+-rwxr-xr-x root/root      1206 2018-02-20 21:15 ./usr/lib/dracut/modules.d/90dmraid/dmraid.sh
+-rwxr-xr-x root/root      2123 2018-02-20 21:15 ./usr/lib/dracut/modules.d/90dmraid/module-setup.sh
+-rwxr-xr-x root/root       826 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90dmraid/parse-dm.sh
+drwxr-xr-x root/root         0 2018-08-24 11:15 ./usr/lib/dracut/modules.d/90dmsquash-live/
+-rwxr-xr-x root/root       647 2017-08-01 20:53 ./usr/lib/dracut/modules.d/90dmsquash-live/apply-live-updates.sh
+-rw-r--r-- root/root       268 2015-08-11 14:05 ./usr/lib/dracut/modules.d/90dmsquash-live/checkisomd5@.service
+-rwxr-xr-x root/root      2750 2018-08-24 11:15 ./usr/lib/dracut/modules.d/90dmsquash-live/dmsquash-generator.sh
+-rwxr-xr-x root/root       623 2014-10-24 14:29 ./usr/lib/dracut/modules.d/90dmsquash-live/dmsquash-live-genrules.sh
+-rwxr-xr-x root/root     15962 2018-08-24 11:15 ./usr/lib/dracut/modules.d/90dmsquash-live/dmsquash-live-root.sh
+-rwxr-xr-x root/root       289 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90dmsquash-live/dmsquash-liveiso-genrules.sh
+-rwxr-xr-x root/root       791 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90dmsquash-live/iso-scan.sh
+-rwxr-xr-x root/root      1284 2017-08-01 20:53 ./usr/lib/dracut/modules.d/90dmsquash-live/module-setup.sh
+-rwxr-xr-x root/root      1616 2018-08-24 11:15 ./usr/lib/dracut/modules.d/90dmsquash-live/parse-dmsquash-live.sh
+-rwxr-xr-x root/root       199 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90dmsquash-live/parse-iso-scan.sh
+drwxr-xr-x root/root         0 2018-08-24 11:15 ./usr/lib/dracut/modules.d/90kernel-modules/
+-rwxr-xr-x root/root       193 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90kernel-modules/insmodpost.sh
+-rwxr-xr-x root/root      3463 2018-08-24 11:15 ./usr/lib/dracut/modules.d/90kernel-modules/module-setup.sh
+-rwxr-xr-x root/root       921 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90kernel-modules/parse-kernel.sh
+drwxr-xr-x root/root         0 2018-01-14 19:55 ./usr/lib/dracut/modules.d/90lvm/
+-rw-r--r-- root/root       776 2014-03-28 18:17 ./usr/lib/dracut/modules.d/90lvm/64-lvm.rules
+-rwxr-xr-x root/root      3527 2018-01-14 19:55 ./usr/lib/dracut/modules.d/90lvm/lvm_scan.sh
+-rwxr-xr-x root/root      5307 2017-08-01 20:53 ./usr/lib/dracut/modules.d/90lvm/module-setup.sh
+-rwxr-xr-x root/root       487 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90lvm/parse-lvm.sh
+drwxr-xr-x root/root         0 2018-08-24 11:15 ./usr/lib/dracut/modules.d/90mdraid/
+-rw-r--r-- root/root       843 2014-03-28 18:17 ./usr/lib/dracut/modules.d/90mdraid/59-persistent-storage-md.rules
+-rw-r--r-- root/root      1476 2014-03-28 18:17 ./usr/lib/dracut/modules.d/90mdraid/65-md-incremental-imsm.rules
+-rwxr-xr-x root/root        88 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90mdraid/md-noddf.sh
+-rwxr-xr-x root/root        90 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90mdraid/md-noimsm.sh
+-rwxr-xr-x root/root       563 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90mdraid/md-shutdown.sh
+-rwxr-xr-x root/root       229 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90mdraid/mdmon-pre-shutdown.sh
+-rwxr-xr-x root/root       130 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90mdraid/mdmon-pre-udev.sh
+-rwxr-xr-x root/root       598 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90mdraid/mdraid-cleanup.sh
+-rwxr-xr-x root/root       155 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90mdraid/mdraid-needshutdown.sh
+-rwxr-xr-x root/root       800 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90mdraid/mdraid-waitclean.sh
+-rwxr-xr-x root/root      1993 2018-08-24 11:15 ./usr/lib/dracut/modules.d/90mdraid/mdraid_start.sh
+-rwxr-xr-x root/root      4493 2018-08-10 20:28 ./usr/lib/dracut/modules.d/90mdraid/module-setup.sh
+-rwxr-xr-x root/root      2683 2018-08-24 11:15 ./usr/lib/dracut/modules.d/90mdraid/parse-md.sh
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/dracut/modules.d/90multipath/
+-rwxr-xr-x root/root      3365 2019-05-07 11:11 ./usr/lib/dracut/modules.d/90multipath/module-setup.sh
+-rwxr-xr-x root/root       172 2018-08-24 11:15 ./usr/lib/dracut/modules.d/90multipath/multipath-shutdown.sh
+-rwxr-xr-x root/root       162 2018-01-14 19:55 ./usr/lib/dracut/modules.d/90multipath/multipathd-needshutdown.sh
+-rwxr-xr-x root/root       237 2014-10-22 08:30 ./usr/lib/dracut/modules.d/90multipath/multipathd-stop.sh
+-rw-r--r-- root/root       722 2018-02-20 21:15 ./usr/lib/dracut/modules.d/90multipath/multipathd.service
+-rwxr-xr-x root/root       242 2015-08-11 14:05 ./usr/lib/dracut/modules.d/90multipath/multipathd.sh
+drwxr-xr-x root/root         0 2019-05-05 19:37 ./usr/lib/dracut/modules.d/90overlay-root/
+-rw-r--r-- root/root       469 2019-05-05 19:37 ./usr/lib/dracut/modules.d/90overlay-root/README
+-rwxr-xr-x root/root       373 2019-05-05 19:37 ./usr/lib/dracut/modules.d/90overlay-root/module-setup.sh
+-rwxr-xr-x root/root       946 2019-05-05 19:37 ./usr/lib/dracut/modules.d/90overlay-root/overlay-mount.sh
+drwxr-xr-x root/root         0 2018-01-14 19:55 ./usr/lib/dracut/modules.d/90qemu/
+-rwxr-xr-x root/root      1026 2018-01-14 19:55 ./usr/lib/dracut/modules.d/90qemu/module-setup.sh
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/dracut/modules.d/91crypt-gpg/
+-rw-r--r-- root/root      2595 2017-08-01 20:53 ./usr/lib/dracut/modules.d/91crypt-gpg/README
+-rwxr-xr-x root/root      2617 2019-05-07 11:11 ./usr/lib/dracut/modules.d/91crypt-gpg/crypt-gpg-lib.sh
+-rwxr-xr-x root/root      1509 2017-08-01 20:53 ./usr/lib/dracut/modules.d/91crypt-gpg/module-setup.sh
+drwxr-xr-x root/root         0 2017-08-07 18:38 ./usr/lib/dracut/modules.d/91crypt-loop/
+-rwxr-xr-x root/root      1278 2017-08-07 18:38 ./usr/lib/dracut/modules.d/91crypt-loop/crypt-loop-lib.sh
+-rwxr-xr-x root/root       375 2015-08-11 14:05 ./usr/lib/dracut/modules.d/91crypt-loop/module-setup.sh
+drwxr-xr-x root/root         0 2017-08-01 20:53 ./usr/lib/dracut/modules.d/95dasd/
+-rwxr-xr-x root/root       531 2014-10-22 08:30 ./usr/lib/dracut/modules.d/95dasd/module-setup.sh
+-rwxr-xr-x root/root       233 2017-08-01 20:53 ./usr/lib/dracut/modules.d/95dasd/parse-dasd.sh
+drwxr-xr-x root/root         0 2018-01-14 19:55 ./usr/lib/dracut/modules.d/95dasd_mod/
+-rwxr-xr-x root/root       484 2014-10-22 08:30 ./usr/lib/dracut/modules.d/95dasd_mod/module-setup.sh
+-rwxr-xr-x root/root       419 2018-01-14 19:55 ./usr/lib/dracut/modules.d/95dasd_mod/parse-dasd-mod.sh
+drwxr-xr-x root/root         0 2017-08-01 20:53 ./usr/lib/dracut/modules.d/95dasd_rules/
+-rwxr-xr-x root/root      1466 2017-08-01 20:53 ./usr/lib/dracut/modules.d/95dasd_rules/module-setup.sh
+-rwxr-xr-x root/root      3168 2017-08-01 20:53 ./usr/lib/dracut/modules.d/95dasd_rules/parse-dasd.sh
+drwxr-xr-x root/root         0 2017-08-07 18:38 ./usr/lib/dracut/modules.d/95debug/
+-rwxr-xr-x root/root       550 2017-08-07 18:38 ./usr/lib/dracut/modules.d/95debug/module-setup.sh
+drwxr-xr-x root/root         0 2015-08-11 14:05 ./usr/lib/dracut/modules.d/95fstab-sys/
+-rwxr-xr-x root/root       305 2014-10-22 08:30 ./usr/lib/dracut/modules.d/95fstab-sys/module-setup.sh
+-rwxr-xr-x root/root      1285 2015-08-11 14:05 ./usr/lib/dracut/modules.d/95fstab-sys/mount-sys.sh
+drwxr-xr-x root/root         0 2018-01-14 19:55 ./usr/lib/dracut/modules.d/95lunmask/
+-rwxr-xr-x root/root       562 2018-01-14 19:55 ./usr/lib/dracut/modules.d/95lunmask/fc_transport_scan_lun.sh
+-rwxr-xr-x root/root      2254 2018-01-14 19:55 ./usr/lib/dracut/modules.d/95lunmask/module-setup.sh
+-rwxr-xr-x root/root      1227 2018-01-14 19:55 ./usr/lib/dracut/modules.d/95lunmask/parse-lunmask.sh
+-rwxr-xr-x root/root       568 2018-01-14 19:55 ./usr/lib/dracut/modules.d/95lunmask/sas_transport_scan_lun.sh
+drwxr-xr-x root/root         0 2016-06-25 09:43 ./usr/lib/dracut/modules.d/95resume/
+-rwxr-xr-x root/root      1920 2015-08-11 14:05 ./usr/lib/dracut/modules.d/95resume/module-setup.sh
+-rwxr-xr-x root/root      3623 2016-06-25 09:43 ./usr/lib/dracut/modules.d/95resume/parse-resume.sh
+-rwxr-xr-x root/root       560 2014-10-22 08:30 ./usr/lib/dracut/modules.d/95resume/resume.sh
+drwxr-xr-x root/root         0 2018-01-14 19:55 ./usr/lib/dracut/modules.d/95rootfs-block/
+-rwxr-xr-x root/root       469 2014-10-22 08:30 ./usr/lib/dracut/modules.d/95rootfs-block/block-genrules.sh
+-rwxr-xr-x root/root      2300 2018-01-14 19:55 ./usr/lib/dracut/modules.d/95rootfs-block/module-setup.sh
+-rwxr-xr-x root/root      4422 2015-11-28 13:08 ./usr/lib/dracut/modules.d/95rootfs-block/mount-root.sh
+-rwxr-xr-x root/root       924 2014-10-22 08:30 ./usr/lib/dracut/modules.d/95rootfs-block/parse-block.sh
+-rwxr-xr-x root/root      1242 2014-10-22 08:30 ./usr/lib/dracut/modules.d/95rootfs-block/rootfallback.sh
+drwxr-xr-x root/root         0 2017-01-17 15:40 ./usr/lib/dracut/modules.d/95terminfo/
+-rwxr-xr-x root/root       528 2017-01-17 15:40 ./usr/lib/dracut/modules.d/95terminfo/module-setup.sh
+drwxr-xr-x root/root         0 2016-06-25 09:43 ./usr/lib/dracut/modules.d/95udev-rules/
+-rw-r--r-- root/root       276 2014-03-28 18:17 ./usr/lib/dracut/modules.d/95udev-rules/59-persistent-storage.rules
+-rw-r--r-- root/root      1020 2014-03-28 18:17 ./usr/lib/dracut/modules.d/95udev-rules/61-persistent-storage.rules
+-rwxr-xr-x root/root        78 2014-10-22 08:30 ./usr/lib/dracut/modules.d/95udev-rules/load-modules.sh
+-rwxr-xr-x root/root      3333 2016-06-25 09:43 ./usr/lib/dracut/modules.d/95udev-rules/module-setup.sh
+drwxr-xr-x root/root         0 2015-11-28 13:08 ./usr/lib/dracut/modules.d/96securityfs/
+-rwxr-xr-x root/root       189 2014-10-22 08:30 ./usr/lib/dracut/modules.d/96securityfs/module-setup.sh
+-rwxr-xr-x root/root       217 2015-11-28 13:08 ./usr/lib/dracut/modules.d/96securityfs/securityfs.sh
+drwxr-xr-x root/root         0 2014-10-22 08:30 ./usr/lib/dracut/modules.d/97biosdevname/
+-rwxr-xr-x root/root       287 2014-10-22 08:30 ./usr/lib/dracut/modules.d/97biosdevname/module-setup.sh
+-rwxr-xr-x root/root       309 2014-10-22 08:30 ./usr/lib/dracut/modules.d/97biosdevname/parse-biosdevname.sh
+drwxr-xr-x root/root         0 2014-10-22 08:30 ./usr/lib/dracut/modules.d/97masterkey/
+-rw-r--r-- root/root      3497 2014-03-28 18:17 ./usr/lib/dracut/modules.d/97masterkey/README
+-rwxr-xr-x root/root      2180 2014-10-22 08:30 ./usr/lib/dracut/modules.d/97masterkey/masterkey.sh
+-rwxr-xr-x root/root       374 2014-10-22 08:30 ./usr/lib/dracut/modules.d/97masterkey/module-setup.sh
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/
+-rw-r--r-- root/root       770 2017-08-07 18:38 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-cmdline-ask.service
+-rwxr-xr-x root/root       418 2016-03-20 18:51 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-cmdline-ask.sh
+-rw-r--r-- root/root       904 2017-08-07 18:38 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-cmdline.service
+-rw-r--r-- root/root      1555 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-cmdline.service.8
+-rw-r--r-- root/root       463 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-cmdline.service.8.asc
+-rwxr-xr-x root/root      2662 2017-01-17 15:40 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-cmdline.sh
+-rw-r--r-- root/root       681 2018-01-14 19:55 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-emergency.service
+-rwxr-xr-x root/root      1382 2018-01-14 19:55 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-emergency.sh
+-rw-r--r-- root/root       821 2017-08-07 18:38 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-initqueue.service
+-rw-r--r-- root/root      1550 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-initqueue.service.8
+-rw-r--r-- root/root       460 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-initqueue.service.8.asc
+-rwxr-xr-x root/root      2147 2015-11-28 13:08 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-initqueue.sh
+-rw-r--r-- root/root       793 2017-08-07 18:38 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-mount.service
+-rw-r--r-- root/root      1531 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-mount.service.8
+-rw-r--r-- root/root       437 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-mount.service.8.asc
+-rwxr-xr-x root/root      1052 2015-11-28 13:08 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-mount.sh
+-rw-r--r-- root/root       822 2017-08-07 18:38 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-mount.service
+-rw-r--r-- root/root      1546 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-mount.service.8
+-rw-r--r-- root/root       455 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-mount.service.8.asc
+-rwxr-xr-x root/root       513 2017-01-17 15:40 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-mount.sh
+-rw-r--r-- root/root      1125 2017-08-07 18:38 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-pivot.service
+-rw-r--r-- root/root      1541 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-pivot.service.8
+-rw-r--r-- root/root       450 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-pivot.service.8.asc
+-rwxr-xr-x root/root       924 2017-01-17 15:40 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-pivot.sh
+-rw-r--r-- root/root       914 2017-08-07 18:38 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-trigger.service
+-rw-r--r-- root/root      1550 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-trigger.service.8
+-rw-r--r-- root/root       461 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-trigger.service.8.asc
+-rwxr-xr-x root/root       478 2017-01-17 15:40 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-trigger.sh
+-rw-r--r-- root/root       993 2018-01-14 19:55 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-udev.service
+-rw-r--r-- root/root      1537 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-udev.service.8
+-rw-r--r-- root/root       445 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-udev.service.8.asc
+-rwxr-xr-x root/root      1413 2015-08-11 14:05 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-pre-udev.sh
+-rw-r--r-- root/root       459 2017-08-07 18:38 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-shutdown.service
+-rw-r--r-- root/root      3609 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-shutdown.service.8
+-rw-r--r-- root/root      1710 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-shutdown.service.8.asc
+-rw-r--r-- root/root       135 2015-08-11 14:05 ./usr/lib/dracut/modules.d/98dracut-systemd/dracut-tmpfiles.conf
+-rw-r--r-- root/root       692 2018-01-14 19:55 ./usr/lib/dracut/modules.d/98dracut-systemd/emergency.service
+-rwxr-xr-x root/root      2095 2015-11-28 13:08 ./usr/lib/dracut/modules.d/98dracut-systemd/module-setup.sh
+-rwxr-xr-x root/root      3746 2018-01-14 19:55 ./usr/lib/dracut/modules.d/98dracut-systemd/rootfs-generator.sh
+drwxr-xr-x root/root         0 2014-10-22 08:30 ./usr/lib/dracut/modules.d/98ecryptfs/
+-rw-r--r-- root/root      2343 2014-03-28 18:17 ./usr/lib/dracut/modules.d/98ecryptfs/README
+-rwxr-xr-x root/root      2742 2014-10-22 08:30 ./usr/lib/dracut/modules.d/98ecryptfs/ecryptfs-mount.sh
+-rwxr-xr-x root/root       276 2014-10-22 08:30 ./usr/lib/dracut/modules.d/98ecryptfs/module-setup.sh
+drwxr-xr-x root/root         0 2018-08-10 20:28 ./usr/lib/dracut/modules.d/98integrity/
+-rw-r--r-- root/root      2996 2015-11-28 13:08 ./usr/lib/dracut/modules.d/98integrity/README
+-rwxr-xr-x root/root      3710 2018-08-10 20:28 ./usr/lib/dracut/modules.d/98integrity/evm-enable.sh
+-rwxr-xr-x root/root      1445 2017-08-01 20:53 ./usr/lib/dracut/modules.d/98integrity/ima-keys-load.sh
+-rwxr-xr-x root/root      1017 2016-12-14 14:48 ./usr/lib/dracut/modules.d/98integrity/ima-policy-load.sh
+-rwxr-xr-x root/root       367 2015-11-28 13:08 ./usr/lib/dracut/modules.d/98integrity/module-setup.sh
+drwxr-xr-x root/root         0 2014-10-22 08:30 ./usr/lib/dracut/modules.d/98pollcdrom/
+-rwxr-xr-x root/root       199 2014-10-22 08:30 ./usr/lib/dracut/modules.d/98pollcdrom/module-setup.sh
+-rwxr-xr-x root/root       635 2014-10-22 08:30 ./usr/lib/dracut/modules.d/98pollcdrom/pollcdrom.sh
+drwxr-xr-x root/root         0 2015-11-28 13:08 ./usr/lib/dracut/modules.d/98selinux/
+-rwxr-xr-x root/root       229 2014-10-22 08:30 ./usr/lib/dracut/modules.d/98selinux/module-setup.sh
+-rwxr-xr-x root/root      2242 2015-11-28 13:08 ./usr/lib/dracut/modules.d/98selinux/selinux-loadpolicy.sh
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98syslog/
+-rw-r--r-- root/root       832 2014-03-28 18:17 ./usr/lib/dracut/modules.d/98syslog/README
+-rwxr-xr-x root/root      1157 2016-12-14 14:48 ./usr/lib/dracut/modules.d/98syslog/module-setup.sh
+-rwxr-xr-x root/root      1154 2018-05-17 14:54 ./usr/lib/dracut/modules.d/98syslog/parse-syslog-opts.sh
+-rw-r--r-- root/root       820 2014-03-28 18:17 ./usr/lib/dracut/modules.d/98syslog/rsyslog.conf
+-rwxr-xr-x root/root      1232 2019-05-07 11:11 ./usr/lib/dracut/modules.d/98syslog/rsyslogd-start.sh
+-rwxr-xr-x root/root       286 2016-12-14 14:48 ./usr/lib/dracut/modules.d/98syslog/rsyslogd-stop.sh
+-rwxr-xr-x root/root       407 2014-10-22 08:30 ./usr/lib/dracut/modules.d/98syslog/syslog-cleanup.sh
+drwxr-xr-x root/root         0 2015-11-28 13:08 ./usr/lib/dracut/modules.d/98usrmount/
+-rwxr-xr-x root/root       294 2014-10-22 08:30 ./usr/lib/dracut/modules.d/98usrmount/module-setup.sh
+-rwxr-xr-x root/root      3606 2015-11-28 13:08 ./usr/lib/dracut/modules.d/98usrmount/mount-usr.sh
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/dracut/modules.d/99base/
+-rwxr-xr-x root/root     34159 2018-05-17 14:54 ./usr/lib/dracut/modules.d/99base/dracut-lib.sh
+-rwxr-xr-x root/root     11681 2019-05-07 11:11 ./usr/lib/dracut/modules.d/99base/init.sh
+-rwxr-xr-x root/root      1163 2015-11-28 13:08 ./usr/lib/dracut/modules.d/99base/initqueue.sh
+-rwxr-xr-x root/root       492 2015-08-11 14:05 ./usr/lib/dracut/modules.d/99base/loginit.sh
+-rwxr-xr-x root/root      6052 2017-01-17 15:40 ./usr/lib/dracut/modules.d/99base/memtrace-ko.sh
+-rwxr-xr-x root/root      4116 2018-08-24 11:15 ./usr/lib/dracut/modules.d/99base/module-setup.sh
+-rwxr-xr-x root/root       246 2014-10-22 08:30 ./usr/lib/dracut/modules.d/99base/parse-root-opts.sh
+-rwxr-xr-x root/root      1346 2018-08-10 20:28 ./usr/lib/dracut/modules.d/99base/rdsosreport.sh
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/lib/dracut/modules.d/99fs-lib/
+-rwxr-xr-x root/root      6467 2019-05-07 11:11 ./usr/lib/dracut/modules.d/99fs-lib/fs-lib.sh
+-rwxr-xr-x root/root      1727 2019-05-07 11:11 ./usr/lib/dracut/modules.d/99fs-lib/module-setup.sh
+drwxr-xr-x root/root         0 2018-05-17 14:54 ./usr/lib/dracut/modules.d/99img-lib/
+-rwxr-xr-x root/root      2251 2018-05-17 14:54 ./usr/lib/dracut/modules.d/99img-lib/img-lib.sh
+-rwxr-xr-x root/root       416 2018-01-14 19:55 ./usr/lib/dracut/modules.d/99img-lib/module-setup.sh
+drwxr-xr-x root/root         0 2018-05-17 14:54 ./usr/lib/dracut/modules.d/99shutdown/
+-rwxr-xr-x root/root       585 2018-05-17 14:54 ./usr/lib/dracut/modules.d/99shutdown/module-setup.sh
+-rwxr-xr-x root/root      3126 2018-05-17 14:54 ./usr/lib/dracut/modules.d/99shutdown/shutdown.sh
+-rwxr-xr-x root/root      5640 2019-05-07 11:11 ./usr/lib/dracut/skipcpio
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/share/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/share/bash-completion/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/share/bash-completion/completions/
+-rw-r--r-- root/root      3580 2019-05-07 11:11 ./usr/share/bash-completion/completions/dracut
+-rw-r--r-- root/root      1983 2019-05-07 11:11 ./usr/share/bash-completion/completions/lsinitrd
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/share/doc/dracut-core/
+-rw-r--r-- root/root      3929 2018-08-10 20:28 ./usr/share/doc/dracut-core/AUTHORS.gz
+-rw-r--r-- root/root       912 2014-03-28 18:17 ./usr/share/doc/dracut-core/HACKING
+-rw-r--r-- root/root       315 2019-05-07 08:45 ./usr/share/doc/dracut-core/NEWS.Debian.gz
+-rw-r--r-- root/root     19007 2018-08-10 20:28 ./usr/share/doc/dracut-core/NEWS.gz
+-rw-r--r-- root/root      4001 2016-12-14 14:48 ./usr/share/doc/dracut-core/README
+-rw-r--r-- root/root      1453 2019-05-05 19:37 ./usr/share/doc/dracut-core/README.Debian
+-rw-r--r-- root/root       436 2014-03-28 18:17 ./usr/share/doc/dracut-core/README.generic
+-rw-r--r-- root/root       175 2014-03-28 18:17 ./usr/share/doc/dracut-core/README.kernel
+-rw-r--r-- root/root      1721 2014-03-28 18:17 ./usr/share/doc/dracut-core/README.modules.gz
+-rw-r--r-- root/root      2189 2016-12-14 14:48 ./usr/share/doc/dracut-core/TODO
+-rw-r--r-- root/root      4405 2019-05-07 11:11 ./usr/share/doc/dracut-core/changelog.Debian.gz
+-rw-r--r-- root/root      1583 2019-05-05 19:37 ./usr/share/doc/dracut-core/copyright
+-rw-r--r-- root/root    241189 2019-05-07 11:11 ./usr/share/doc/dracut-core/dracut.html
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/share/man/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/share/man/man1/
+-rw-r--r-- root/root      1119 2019-05-07 11:11 ./usr/share/man/man1/lsinitrd.1.gz
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/share/man/man5/
+-rw-r--r-- root/root      3398 2019-05-07 11:11 ./usr/share/man/man5/dracut.conf.5.gz
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/share/man/man7/
+-rw-r--r-- root/root      1258 2019-05-07 11:11 ./usr/share/man/man7/dracut.bootup.7.gz
+-rw-r--r-- root/root     14217 2019-05-07 11:11 ./usr/share/man/man7/dracut.cmdline.7.gz
+-rw-r--r-- root/root      4175 2019-05-07 11:11 ./usr/share/man/man7/dracut.modules.7.gz
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/share/man/man8/
+-rw-r--r-- root/root      1009 2019-05-07 11:11 ./usr/share/man/man8/dracut-catimages.8.gz
+-rw-r--r-- root/root       620 2019-05-07 11:11 ./usr/share/man/man8/dracut-cmdline.service.8.gz
+-rw-r--r-- root/root       621 2019-05-07 11:11 ./usr/share/man/man8/dracut-initqueue.service.8.gz
+-rw-r--r-- root/root       613 2019-05-07 11:11 ./usr/share/man/man8/dracut-mount.service.8.gz
+-rw-r--r-- root/root       620 2019-05-07 11:11 ./usr/share/man/man8/dracut-pre-mount.service.8.gz
+-rw-r--r-- root/root       625 2019-05-07 11:11 ./usr/share/man/man8/dracut-pre-pivot.service.8.gz
+-rw-r--r-- root/root       619 2019-05-07 11:11 ./usr/share/man/man8/dracut-pre-trigger.service.8.gz
+-rw-r--r-- root/root       619 2019-05-07 11:11 ./usr/share/man/man8/dracut-pre-udev.service.8.gz
+-rw-r--r-- root/root      1201 2019-05-07 11:11 ./usr/share/man/man8/dracut-shutdown.service.8.gz
+-rw-r--r-- root/root     11578 2019-05-07 11:11 ./usr/share/man/man8/dracut.8.gz
+-rw-r--r-- root/root      1897 2019-05-07 11:11 ./usr/share/man/man8/mkinitrd-suse.8.gz
+-rw-r--r-- root/root      1173 2019-05-07 11:11 ./usr/share/man/man8/mkinitrd.8.gz
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./usr/share/pkgconfig/
+-rw-r--r-- root/root       156 2019-05-07 11:11 ./usr/share/pkgconfig/dracut.pc
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./var/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./var/lib/
+drwxr-xr-x root/root         0 2019-05-07 11:11 ./var/lib/dracut/
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [567 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [652 B]
+Fetched 2182 B in 0s (149 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl libclass-accessor-perl
+  libclone-perl libdigest-hmac-perl libemail-valid-perl libexporter-tiny-perl
+  libfile-basedir-perl libfuture-perl libhtml-parser-perl libhtml-tagset-perl
+  libio-async-perl libio-pty-perl libio-socket-ssl-perl libipc-run-perl
+  libipc-system-simple-perl liblist-moreutils-perl libmailtools-perl
+  libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl libnet-smtp-ssl-perl
+  libnet-ssleay-perl libparse-debianchangelog-perl libpath-tiny-perl
+  libstruct-dumb-perl libsub-name-perl libtext-levenshtein-perl
+  libtimedate-perl libtry-tiny-perl liburi-perl libyaml-0-2
+  libyaml-libyaml-perl lintian netbase patchutils perl-openssl-defaults
+  t1utils
+Suggested packages:
+  libdata-dump-perl ca-certificates libhtml-template-perl libwww-perl
+  binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libhttp-message-perl libasync-mergepoint-perl
+  libsereal-perl libtest-fatal-perl libtest-refcount-perl
+  libdigest-bubblebabble-perl libnet-dns-sec-perl libnet-libidn-perl
+  libauthen-sasl-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl libclass-accessor-perl
+  libclone-perl libdigest-hmac-perl libemail-valid-perl libexporter-tiny-perl
+  libfile-basedir-perl libfuture-perl libhtml-parser-perl libhtml-tagset-perl
+  libio-async-perl libio-pty-perl libio-socket-ssl-perl libipc-run-perl
+  libipc-system-simple-perl liblist-moreutils-perl libmailtools-perl
+  libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl libnet-smtp-ssl-perl
+  libnet-ssleay-perl libparse-debianchangelog-perl libpath-tiny-perl
+  libstruct-dumb-perl libsub-name-perl libtext-levenshtein-perl
+  libtimedate-perl libtry-tiny-perl liburi-perl libyaml-0-2
+  libyaml-libyaml-perl lintian netbase patchutils perl-openssl-defaults
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 40 newly installed, 0 to remove and 0 not upgraded.
+Need to get 3908 kB of archives.
+After this operation, 12.3 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [848 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 netbase all 5.6 [19.4 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libhtml-tagset-perl all 3.20-3 [12.7 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 liburi-perl all 1.76-1 [89.9 kB]
+Get:7 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libhtml-parser-perl amd64 3.72-3+b3 [105 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:9 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:10 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:11 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:12 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:13 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libtimedate-perl all 2.3000-2 [42.2 kB]
+Get:14 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 perl-openssl-defaults amd64 3 [6782 B]
+Get:15 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libnet-ssleay-perl amd64 1.85-2+b1 [308 kB]
+Get:16 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libio-socket-ssl-perl all 2.060-3 [207 kB]
+Get:17 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libnet-smtp-ssl-perl all 1.04-1 [6184 B]
+Get:18 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libmailtools-perl all 2.18-1 [88.5 kB]
+Get:19 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:20 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:21 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:22 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:23 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:24 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:25 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:26 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:27 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:28 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:29 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:30 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:31 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:32 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:33 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:34 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:35 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libtry-tiny-perl all 0.30-1 [23.3 kB]
+Get:36 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libyaml-0-2 amd64 0.2.1-1 [47.2 kB]
+Get:37 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libyaml-libyaml-perl amd64 0.76+repack-1 [33.1 kB]
+Get:38 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 patchutils amd64 0.3.4-2 [90.4 kB]
+Get:39 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:40 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 lintian all 2.13.0 [1175 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 3908 kB in 10s (406 kB/s)
+Selecting previously unselected package netbase.
+(Reading database ... 20507 files and directories currently installed.)
+Preparing to unpack .../00-netbase_5.6_all.deb ...
+Unpacking netbase (5.6) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libhtml-tagset-perl.
+Preparing to unpack .../03-libhtml-tagset-perl_3.20-3_all.deb ...
+Unpacking libhtml-tagset-perl (3.20-3) ...
+Selecting previously unselected package liburi-perl.
+Preparing to unpack .../04-liburi-perl_1.76-1_all.deb ...
+Unpacking liburi-perl (1.76-1) ...
+Selecting previously unselected package libhtml-parser-perl.
+Preparing to unpack .../05-libhtml-parser-perl_3.72-3+b3_amd64.deb ...
+Unpacking libhtml-parser-perl (3.72-3+b3) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../06-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../07-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../08-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../09-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../10-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libtimedate-perl.
+Preparing to unpack .../11-libtimedate-perl_2.3000-2_all.deb ...
+Unpacking libtimedate-perl (2.3000-2) ...
+Selecting previously unselected package perl-openssl-defaults:amd64.
+Preparing to unpack .../12-perl-openssl-defaults_3_amd64.deb ...
+Unpacking perl-openssl-defaults:amd64 (3) ...
+Selecting previously unselected package libnet-ssleay-perl.
+Preparing to unpack .../13-libnet-ssleay-perl_1.85-2+b1_amd64.deb ...
+Unpacking libnet-ssleay-perl (1.85-2+b1) ...
+Selecting previously unselected package libio-socket-ssl-perl.
+Preparing to unpack .../14-libio-socket-ssl-perl_2.060-3_all.deb ...
+Unpacking libio-socket-ssl-perl (2.060-3) ...
+Selecting previously unselected package libnet-smtp-ssl-perl.
+Preparing to unpack .../15-libnet-smtp-ssl-perl_1.04-1_all.deb ...
+Unpacking libnet-smtp-ssl-perl (1.04-1) ...
+Selecting previously unselected package libmailtools-perl.
+Preparing to unpack .../16-libmailtools-perl_2.18-1_all.deb ...
+Unpacking libmailtools-perl (2.18-1) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../17-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../18-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../19-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../20-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../21-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../22-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../23-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../24-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../25-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../26-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../27-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../28-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../29-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../30-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../31-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../32-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package libtry-tiny-perl.
+Preparing to unpack .../33-libtry-tiny-perl_0.30-1_all.deb ...
+Unpacking libtry-tiny-perl (0.30-1) ...
+Selecting previously unselected package libyaml-0-2:amd64.
+Preparing to unpack .../34-libyaml-0-2_0.2.1-1_amd64.deb ...
+Unpacking libyaml-0-2:amd64 (0.2.1-1) ...
+Selecting previously unselected package libyaml-libyaml-perl.
+Preparing to unpack .../35-libyaml-libyaml-perl_0.76+repack-1_amd64.deb ...
+Unpacking libyaml-libyaml-perl (0.76+repack-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../36-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../37-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../38-lintian_2.13.0_all.deb ...
+Unpacking lintian (2.13.0) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../39-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libyaml-0-2:amd64 (0.2.1-1) ...
+Setting up libhtml-tagset-perl (3.20-3) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libyaml-libyaml-perl (0.76+repack-1) ...
+Setting up libtry-tiny-perl (0.30-1) ...
+Setting up perl-openssl-defaults:amd64 (3) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libtimedate-perl (2.3000-2) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up netbase (5.6) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up liburi-perl (1.76-1) ...
+Setting up libnet-ssleay-perl (1.85-2+b1) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libhtml-parser-perl (3.72-3+b3) ...
+Setting up libio-socket-ssl-perl (2.060-3) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libnet-smtp-ssl-perl (1.04-1) ...
+Setting up libmailtools-perl (2.18-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.13.0) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Processing triggers for libc-bin (2.28-10) ...
+W: dracut source: debhelper-but-no-misc-depends dracut
+W: dracut source: debhelper-but-no-misc-depends dracut-config-generic
+W: dracut source: debhelper-but-no-misc-depends dracut-config-rescue
+W: dracut-core: manpage-has-errors-from-man usr/share/man/man7/dracut.cmdline.7.gz 292: warning [p 4, 0.3i]: can't break line
+W: dracut-core: manpage-has-errors-from-man usr/share/man/man8/dracut.8.gz 905: warning [p 7, 6.8i]: can't break line
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/dracut-cmdline.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/dracut-initqueue.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/dracut-mount.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/dracut-pre-mount.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/dracut-pre-pivot.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/dracut-pre-trigger.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/dracut-pre-udev.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/dracut-shutdown.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/initrd.target.wants/dracut-cmdline.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/initrd.target.wants/dracut-initqueue.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/initrd.target.wants/dracut-mount.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/initrd.target.wants/dracut-pre-mount.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/initrd.target.wants/dracut-pre-pivot.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/initrd.target.wants/dracut-pre-trigger.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/initrd.target.wants/dracut-pre-udev.service
+E: dracut-core: service-file-is-not-a-file lib/systemd/system/sysinit.target.wants/dracut-shutdown.service
+
+E: Lintian run failed (policy violation)
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages will be REMOVED:
+  asciidoc-base* asciidoc-common* autoconf* automake* autopoint*
+  autotools-dev* binutils-arm-linux-gnueabihf* bsdmainutils*
+  cpp-8-arm-linux-gnueabihf* cpp-arm-linux-gnueabihf* cross-config*
+  crossbuild-essential-armhf* debhelper* dh-autoreconf*
+  dh-strip-nondeterminism* diffstat* docbook-xml* docbook-xsl* dpkg-cross*
+  dwz* file* g++-8-arm-linux-gnueabihf* g++-arm-linux-gnueabihf*
+  gcc-8-arm-linux-gnueabihf* gcc-8-arm-linux-gnueabihf-base* gcc-8-base:armhf*
+  gcc-8-cross-base* gcc-arm-linux-gnueabihf* gettext* gettext-base*
+  groff-base* intltool-debian* libapt-pkg-perl* libarchive-zip-perl*
+  libasan5:armhf* libasan5-armhf-cross* libatomic1:armhf*
+  libatomic1-armhf-cross* libbsd0* libc6:armhf* libc6-armhf-cross*
+  libc6-dev:armhf* libc6-dev-armhf-cross* libcapture-tiny-perl*
+  libcgi-pm-perl* libclass-accessor-perl* libclone-perl* libconfig-auto-perl*
+  libconfig-inifiles-perl* libcroco3* libdebian-dpkgcross-perl*
+  libdigest-hmac-perl* libelf1* libemail-valid-perl* libexpat1*
+  libexporter-tiny-perl* libfile-basedir-perl* libfile-homedir-perl*
+  libfile-stripnondeterminism-perl* libfile-which-perl* libfuture-perl*
+  libgcc-8-dev:armhf* libgcc-8-dev-armhf-cross* libgcc1:armhf*
+  libgcc1-armhf-cross* libglib2.0-0* libgomp1:armhf* libgomp1-armhf-cross*
+  libhtml-parser-perl* libhtml-tagset-perl* libicu63* libio-async-perl*
+  libio-pty-perl* libio-socket-ssl-perl* libio-string-perl* libipc-run-perl*
+  libipc-system-simple-perl* libkmod-dev:armhf* libkmod2:armhf*
+  liblist-moreutils-perl* liblocale-gettext-perl* liblzma5:armhf*
+  libmagic-mgc* libmagic1* libmailtools-perl* libncurses6* libnet-dns-perl*
+  libnet-domain-tld-perl* libnet-ip-perl* libnet-smtp-ssl-perl*
+  libnet-ssleay-perl* libparse-debianchangelog-perl* libpath-tiny-perl*
+  libpipeline1* libpython-stdlib* libpython2-stdlib* libpython2.7-minimal*
+  libpython2.7-stdlib* libsigsegv2* libssl1.1* libssl1.1:armhf*
+  libstdc++-8-dev:armhf* libstdc++-8-dev-armhf-cross* libstdc++6:armhf*
+  libstdc++6-armhf-cross* libstruct-dumb-perl* libsub-name-perl*
+  libtext-levenshtein-perl* libtimedate-perl* libtool* libtry-tiny-perl*
+  libubsan1:armhf* libubsan1-armhf-cross* libuchardet0* liburi-perl*
+  libxml-libxml-perl* libxml-namespacesupport-perl* libxml-sax-base-perl*
+  libxml-sax-perl* libxml-simple-perl* libxml2* libxml2-utils* libxslt1.1*
+  libyaml-0-2* libyaml-libyaml-perl* libyaml-perl* lintian*
+  linux-libc-dev:armhf* linux-libc-dev-armhf-cross* m4* man-db* mime-support*
+  netbase* patchutils* perl-openssl-defaults* pkg-config* po-debconf* python*
+  python-minimal* python2* python2-minimal* python2.7* python2.7-minimal*
+  quilt* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* sensible-utils* sgml-base* sgml-data*
+  t1utils* ucf* xml-core* xsltproc*
+0 upgraded, 0 newly installed, 153 to remove and 0 not upgraded.
+After this operation, 291 MB disk space will be freed.
+(Reading database ... 22199 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing asciidoc-base (8.6.10-3) ...
+Removing asciidoc-common (8.6.10-3) ...
+Removing crossbuild-essential-armhf (12.6) ...
+Removing g++-arm-linux-gnueabihf (4:8.3.0-1) ...
+Removing gcc-arm-linux-gnueabihf (4:8.3.0-1) ...
+Removing g++-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Removing gcc-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Removing binutils-arm-linux-gnueabihf (2.31.1-16) ...
+Removing quilt (0.65-3) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.13.0) ...
+Removing cpp-arm-linux-gnueabihf (4:8.3.0-1) ...
+Removing cpp-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Removing dpkg-cross (2.6.15-2) ...
+Removing cross-config (2.6.15-2) ...
+Removing diffstat (1.62-1) ...
+Removing docbook-xml (4.5-8) ...
+Removing docbook-xsl (1.79.1+dfsg-2) ...
+Removing libdebian-dpkgcross-perl (2.6.15-2) ...
+Removing gcc-8-arm-linux-gnueabihf-base:amd64 (8.3.0-7cross1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-7) ...
+Removing libgcc-8-dev:armhf (8.3.0-7) ...
+Removing libubsan1:armhf (8.3.0-7) ...
+Removing libasan5:armhf (8.3.0-7) ...
+Removing libstdc++6:armhf (8.3.0-7) ...
+Removing libstdc++-8-dev-armhf-cross (8.3.0-7cross1) ...
+Removing libgcc-8-dev-armhf-cross (8.3.0-7cross1) ...
+Removing libubsan1-armhf-cross (8.3.0-7cross1) ...
+Removing libasan5-armhf-cross (8.3.0-7cross1) ...
+Removing libstdc++6-armhf-cross (8.3.0-7cross1) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libatomic1:armhf (8.3.0-7) ...
+Removing libatomic1-armhf-cross (8.3.0-7cross1) ...
+Removing libkmod-dev:armhf (26-1) ...
+Removing libkmod2:armhf (26-1) ...
+Removing liblzma5:armhf (5.2.4-1) ...
+Removing libssl1.1:armhf (1.1.1b-2) ...
+Removing libc6-dev-armhf-cross (2.28-10cross2) ...
+Removing libgomp1-armhf-cross (8.3.0-7cross1) ...
+Removing libc6-dev:armhf (2.28-10) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libconfig-auto-perl (0.44-1) ...
+Removing libconfig-inifiles-perl (3.000001-1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing python (2.7.16-1) ...
+Removing python2 (2.7.16-1) ...
+Removing python2.7 (2.7.16-2) ...
+Removing libpython-stdlib:amd64 (2.7.16-1) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libfile-homedir-perl (1.004-1) ...
+Removing libfile-which-perl (1.23-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libgcc1-armhf-cross (1:8.3.0-7cross1) ...
+Removing pkg-config (0.29-6) ...
+Removing libgomp1:armhf (8.3.0-7) ...
+Removing libhtml-parser-perl (3.72-3+b3) ...
+Removing libhtml-tagset-perl (3.20-3) ...
+Removing xsltproc (1.1.32-2) ...
+Removing libxslt1.1:amd64 (1.1.32-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libmailtools-perl (2.18-1) ...
+Removing libnet-smtp-ssl-perl (1.04-1) ...
+Removing libio-socket-ssl-perl (2.060-3) ...
+Removing libio-string-perl (1.08-3) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing liblocale-gettext-perl (1.07-3+b4) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libnet-ssleay-perl (1.85-2+b1) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libpython2-stdlib:amd64 (2.7.16-1) ...
+Removing python-minimal (2.7.16-1) ...
+Removing python2-minimal (2.7.16-1) ...
+Removing python2.7-minimal (2.7.16-2) ...
+Removing perl-openssl-defaults:amd64 (3) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libtimedate-perl (2.3000-2) ...
+Removing libtry-tiny-perl (0.30-1) ...
+Removing liburi-perl (1.76-1) ...
+Removing libxml-simple-perl (2.25-1) ...
+Removing libxml-libxml-perl (2.0134+dfsg-1) ...
+update-perl-sax-parsers: Unregistering Perl SAX parser XML::LibXML::SAX::Parser with priority 50...
+update-perl-sax-parsers: Unregistering Perl SAX parser XML::LibXML::SAX with priority 50...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+Replacing config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Removing libxml-sax-perl (1.00+dfsg-1) ...
+update-perl-sax-parsers: Unregistering Perl SAX parser XML::SAX::PurePerl with priority 50...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+Removing libxml-namespacesupport-perl (1.12-1) ...
+Removing libxml-sax-base-perl (1.09-1) ...
+Removing libxml2-utils (2.9.4+dfsg1-7+b3) ...
+Removing libyaml-libyaml-perl (0.76+repack-1) ...
+Removing libyaml-0-2:amd64 (0.2.1-1) ...
+Removing libyaml-perl (1.27-1) ...
+Removing linux-libc-dev:armhf (4.19.37-1) ...
+Removing linux-libc-dev-armhf-cross (4.19.28-2cross2) ...
+Removing netbase (5.6) ...
+Removing patchutils (0.3.4-2) ...
+Removing ucf (3.0038+nmu1) ...
+Removing sgml-data (2.0.11) ...
+Removing xml-core (0.18+nmu1) ...
+Removing sgml-base (1.29) ...
+Removing t1utils (1.41-3) ...
+Removing gcc-8-cross-base (8.3.0-7cross1) ...
+Removing libc6-armhf-cross (2.28-10cross2) ...
+Removing libpython2.7-stdlib:amd64 (2.7.16-2) ...
+Removing libexpat1:amd64 (2.2.6-1) ...
+Removing libpython2.7-minimal:amd64 (2.7.16-2) ...
+find: ‘/usr/lib/python2.7’: No such file or directory
+Removing libssl1.1:amd64 (1.1.1b-2) ...
+Removing mime-support (3.62) ...
+Removing libgcc1:armhf (1:8.3.0-7) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.2-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-7) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-3) ...
+Removing libfile-stripnondeterminism-perl (1.1.2-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-10) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libxml2:amd64 (2.9.4+dfsg1-7+b3) ...
+Removing libicu63:amd64 (63.1-6) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing sensible-utils (0.0.12) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing file (1:5.35-4) ...
+Removing libmagic1:amd64 (1:5.35-4) ...
+Removing libmagic-mgc (1:5.35-4) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.7.1-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-10) ...
+(Reading database ... 12448 files and directories currently installed.)
+Purging configuration files for mime-support (3.62) ...
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for libssl1.1:amd64 (1.1.1b-2) ...
+Purging configuration files for libssl1.1:armhf (1.1.1b-2) ...
+Purging configuration files for docbook-xml (4.5-8) ...
+Purging configuration files for libmagic1:amd64 (1:5.35-4) ...
+Purging configuration files for lintian (2.13.0) ...
+Purging configuration files for quilt (0.65-3) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libxml-sax-perl (1.00+dfsg-1) ...
+Purging configuration files for asciidoc-common (8.6.10-3) ...
+Purging configuration files for asciidoc-base (8.6.10-3) ...
+Purging configuration files for cross-config (2.6.15-2) ...
+Purging configuration files for libpython2.7-minimal:amd64 (2.7.16-2) ...
+Purging configuration files for python2.7-minimal (2.7.16-2) ...
+Purging configuration files for docbook-xsl (1.79.1+dfsg-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for ucf (3.0038+nmu1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-10) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+Purging configuration files for xml-core (0.18+nmu1) ...
+dpkg: warning: while removing xml-core, directory '/etc/xml' not empty so not removed
+Purging configuration files for netbase (5.6) ...
+Purging configuration files for sgml-base (1.29) ...
+Purging configuration files for sgml-data (2.0.11) ...
+Purging configuration files for python (2.7.16-1) ...
+Purging configuration files for dpkg-cross (2.6.15-2) ...
+Purging configuration files for libdebian-dpkgcross-perl (2.6.15-2) ...
+Removing foreign architecture armhf
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 22
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 26
+Job: /home/build/sbuild-setup/repo/pool/main/d/dracut/dracut_048+80-2.dsc
+Lintian: fail
+Machine Architecture: amd64
+Package: dracut
+Package-Time: 53
+Source-Version: 048+80-2
+Space: n/a
+Status: successful
+Version: 048+80-2
+--------------------------------------------------------------------------------
+Finished at 2019-05-11T08:13:17Z
+Build needed 00:00:53, no disk space
