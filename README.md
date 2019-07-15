@@ -1,2 +1,2 @@
 # build-log
-Sbuild log for https://dothanhtrung.github.io/sbuild/
+Sbuild log for https://tswcos.github.io/sbuild/
