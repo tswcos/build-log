@@ -1,0 +1,2764 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 4be29f1fdf49
+
++==============================================================================+
+| xdelta 1.1.3-9.3 (armhf)                     Sat, 24 Aug 2019 11:51:23 +0000 |
++==============================================================================+
+
+Package: xdelta
+Version: 1.1.3-9.3
+Source Version: 1.1.3-9.3
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-1bc15b94-7206-4aec-9b93-0185a1a9d108' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/xdelta-eYpjQ1/resolver-k4MNnR' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian unstable InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following package was automatically installed and is no longer required:
+  sensible-utils
+Use 'apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/x/xdelta/xdelta_1.1.3-9.3.dsc exists in /home/build/sbuild-setup/repo/pool/main/x/xdelta; copying to chroot
+I: NOTICE: Log filtering will replace 'build/xdelta-eYpjQ1/xdelta-1.1.3' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/xdelta-eYpjQ1' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 7), libglib2.0-dev, zlib1g-dev, autotools-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 7), libglib2.0-dev, zlib1g-dev, autotools-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [416 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [504 B]
+Fetched 1877 B in 0s (118 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev binutils-arm-linux-gnueabihf
+  bsdmainutils cpp-9-arm-linux-gnueabihf cpp-arm-linux-gnueabihf cross-config
+  crossbuild-essential-armhf debhelper dh-autoreconf dh-strip-nondeterminism
+  dpkg-cross dwz file g++-9-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+  gcc-9-arm-linux-gnueabihf gcc-9-arm-linux-gnueabihf-base gcc-9-base:armhf
+  gcc-9-cross-base gcc-arm-linux-gnueabihf gettext gettext-base groff-base
+  intltool-debian libarchive-zip-perl libasan5:armhf libasan5-armhf-cross
+  libatomic1:armhf libatomic1-armhf-cross libblkid-dev:armhf libblkid1:armhf
+  libbsd0 libc6:armhf libc6-armhf-cross libc6-dev:armhf libc6-dev-armhf-cross
+  libconfig-auto-perl libconfig-inifiles-perl libcroco3
+  libdebian-dpkgcross-perl libexpat1 libffi-dev:armhf libffi6:armhf
+  libfile-homedir-perl libfile-stripnondeterminism-perl libfile-which-perl
+  libgcc-9-dev:armhf libgcc-9-dev-armhf-cross libgcc1:armhf
+  libgcc1-armhf-cross libglib2.0-0 libglib2.0-0:armhf libglib2.0-bin
+  libglib2.0-data libglib2.0-dev:armhf libglib2.0-dev-bin libgomp1:armhf
+  libgomp1-armhf-cross libicu63 libio-string-perl liblocale-gettext-perl
+  libmagic-mgc libmagic1 libmount-dev:armhf libmount1:armhf libmpdec2
+  libncurses6 libpcre16-3:armhf libpcre2-16-0:armhf libpcre2-32-0:armhf
+  libpcre2-8-0:armhf libpcre2-dev:armhf libpcre2-posix0:armhf libpcre3:armhf
+  libpcre3-dev:armhf libpcre32-3:armhf libpcrecpp0v5:armhf libpipeline1
+  libpython3-stdlib libpython3.7-minimal libpython3.7-stdlib libselinux1:armhf
+  libselinux1-dev:armhf libsepol1:armhf libsepol1-dev:armhf libsigsegv2
+  libssl1.1 libstdc++-9-dev:armhf libstdc++-9-dev-armhf-cross libstdc++6:armhf
+  libstdc++6-armhf-cross libsub-override-perl libtool libubsan1:armhf
+  libubsan1-armhf-cross libuchardet0 libuuid1:armhf libxml-libxml-perl
+  libxml-namespacesupport-perl libxml-sax-base-perl libxml-sax-perl
+  libxml-simple-perl libxml2 libyaml-perl linux-libc-dev:armhf
+  linux-libc-dev-armhf-cross m4 man-db mime-support pkg-config po-debconf
+  python3 python3-distutils python3-lib2to3 python3-minimal python3.7
+  python3.7-minimal ucf uuid-dev:armhf zlib1g:armhf zlib1g-dev:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc binutils-doc wamerican
+  | wordlist whois vacation gcc-9-locales cpp-doc dh-make binutils-multiarch
+  gcc-9-doc libstdc++6-9-dbg-armhf-cross libgcc1-dbg-armhf-cross
+  libgomp1-dbg-armhf-cross libitm1-dbg-armhf-cross libatomic1-dbg-armhf-cross
+  libasan5-dbg-armhf-cross liblsan0-dbg-armhf-cross libtsan0-dbg-armhf-cross
+  libubsan1-dbg-armhf-cross libquadmath0-dbg-armhf-cross manpages-dev flex
+  bison gdb-arm-linux-gnueabihf gcc-doc gettext-doc libasprintf-dev
+  libgettextpo-dev groff glibc-doc:armhf libc-l10n:armhf locales:armhf
+  manpages-dev:armhf libglib2.0-doc:armhf libgdk-pixbuf2.0-bin
+  | libgdk-pixbuf2.0-dev libxml2-utils libstdc++-9-doc:armhf libtool-doc
+  gfortran | fortran95-compiler gcj-jdk libyaml-shell-perl m4-doc apparmor
+  less www-browser libmail-box-perl python3-doc python3-tk python3-venv
+  python3.7-venv python3.7-doc binfmt-support
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl shared-mime-info
+  xdg-user-dirs shared-mime-info:armhf xdg-user-dirs:armhf libgpm2 libltdl-dev
+  uuid-runtime:armhf libwww-perl libxml-sax-expat-perl libyaml-libyaml-perl
+  | libyaml-syck-perl libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev binutils-arm-linux-gnueabihf
+  bsdmainutils cpp-9-arm-linux-gnueabihf cpp-arm-linux-gnueabihf cross-config
+  crossbuild-essential-armhf debhelper dh-autoreconf dh-strip-nondeterminism
+  dpkg-cross dwz file g++-9-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+  gcc-9-arm-linux-gnueabihf gcc-9-arm-linux-gnueabihf-base gcc-9-base:armhf
+  gcc-9-cross-base gcc-arm-linux-gnueabihf gettext gettext-base groff-base
+  intltool-debian libarchive-zip-perl libasan5:armhf libasan5-armhf-cross
+  libatomic1:armhf libatomic1-armhf-cross libblkid-dev:armhf libblkid1:armhf
+  libbsd0 libc6:armhf libc6-armhf-cross libc6-dev:armhf libc6-dev-armhf-cross
+  libconfig-auto-perl libconfig-inifiles-perl libcroco3
+  libdebian-dpkgcross-perl libexpat1 libffi-dev:armhf libffi6:armhf
+  libfile-homedir-perl libfile-stripnondeterminism-perl libfile-which-perl
+  libgcc-9-dev:armhf libgcc-9-dev-armhf-cross libgcc1:armhf
+  libgcc1-armhf-cross libglib2.0-0 libglib2.0-0:armhf libglib2.0-bin
+  libglib2.0-data libglib2.0-dev:armhf libglib2.0-dev-bin libgomp1:armhf
+  libgomp1-armhf-cross libicu63 libio-string-perl liblocale-gettext-perl
+  libmagic-mgc libmagic1 libmount-dev:armhf libmount1:armhf libmpdec2
+  libncurses6 libpcre16-3:armhf libpcre2-16-0:armhf libpcre2-32-0:armhf
+  libpcre2-8-0:armhf libpcre2-dev:armhf libpcre2-posix0:armhf libpcre3:armhf
+  libpcre3-dev:armhf libpcre32-3:armhf libpcrecpp0v5:armhf libpipeline1
+  libpython3-stdlib libpython3.7-minimal libpython3.7-stdlib libselinux1:armhf
+  libselinux1-dev:armhf libsepol1:armhf libsepol1-dev:armhf libsigsegv2
+  libssl1.1 libstdc++-9-dev:armhf libstdc++-9-dev-armhf-cross libstdc++6:armhf
+  libstdc++6-armhf-cross libsub-override-perl libtool libubsan1:armhf
+  libubsan1-armhf-cross libuchardet0 libuuid1:armhf libxml-libxml-perl
+  libxml-namespacesupport-perl libxml-sax-base-perl libxml-sax-perl
+  libxml-simple-perl libxml2 libyaml-perl linux-libc-dev:armhf
+  linux-libc-dev-armhf-cross m4 man-db mime-support pkg-config po-debconf
+  python3 python3-distutils python3-lib2to3 python3-minimal python3.7
+  python3.7-minimal sbuild-build-depends-main-dummy:armhf ucf uuid-dev:armhf
+  zlib1g:armhf zlib1g-dev:armhf
+0 upgraded, 125 newly installed, 0 to remove and 0 not upgraded.
+Need to get 924 B/77.2 MB of archives.
+After this operation, 298 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [924 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 924 B in 0s (0 B/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 13569 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.10.0-1_amd64.deb ...
+Unpacking libbsd0:amd64 (0.10.0-1) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.6.1-2_amd64.deb ...
+Unpacking man-db (2.8.6.1-2) ...
+Selecting previously unselected package liblocale-gettext-perl.
+Preparing to unpack .../06-liblocale-gettext-perl_1.07-3+b4_amd64.deb ...
+Unpacking liblocale-gettext-perl (1.07-3+b4) ...
+Selecting previously unselected package libssl1.1:amd64.
+Preparing to unpack .../07-libssl1.1_1.1.1c-1_amd64.deb ...
+Unpacking libssl1.1:amd64 (1.1.1c-1) ...
+Selecting previously unselected package libpython3.7-minimal:amd64.
+Preparing to unpack .../08-libpython3.7-minimal_3.7.4-3_amd64.deb ...
+Unpacking libpython3.7-minimal:amd64 (3.7.4-3) ...
+Selecting previously unselected package libexpat1:amd64.
+Preparing to unpack .../09-libexpat1_2.2.7-1_amd64.deb ...
+Unpacking libexpat1:amd64 (2.2.7-1) ...
+Selecting previously unselected package python3.7-minimal.
+Preparing to unpack .../10-python3.7-minimal_3.7.4-3_amd64.deb ...
+Unpacking python3.7-minimal (3.7.4-3) ...
+Setting up libssl1.1:amd64 (1.1.1c-1) ...
+Setting up libpython3.7-minimal:amd64 (3.7.4-3) ...
+Setting up libexpat1:amd64 (2.2.7-1) ...
+Setting up python3.7-minimal (3.7.4-3) ...
+Selecting previously unselected package python3-minimal.
+(Reading database ... 14479 files and directories currently installed.)
+Preparing to unpack .../0-python3-minimal_3.7.3-1_amd64.deb ...
+Unpacking python3-minimal (3.7.3-1) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../1-mime-support_3.63_all.deb ...
+Unpacking mime-support (3.63) ...
+Selecting previously unselected package libmpdec2:amd64.
+Preparing to unpack .../2-libmpdec2_2.4.2-2_amd64.deb ...
+Unpacking libmpdec2:amd64 (2.4.2-2) ...
+Selecting previously unselected package libpython3.7-stdlib:amd64.
+Preparing to unpack .../3-libpython3.7-stdlib_3.7.4-3_amd64.deb ...
+Unpacking libpython3.7-stdlib:amd64 (3.7.4-3) ...
+Selecting previously unselected package python3.7.
+Preparing to unpack .../4-python3.7_3.7.4-3_amd64.deb ...
+Unpacking python3.7 (3.7.4-3) ...
+Selecting previously unselected package libpython3-stdlib:amd64.
+Preparing to unpack .../5-libpython3-stdlib_3.7.3-1_amd64.deb ...
+Unpacking libpython3-stdlib:amd64 (3.7.3-1) ...
+Setting up python3-minimal (3.7.3-1) ...
+Selecting previously unselected package python3.
+(Reading database ... 14917 files and directories currently installed.)
+Preparing to unpack .../000-python3_3.7.3-1_amd64.deb ...
+Unpacking python3 (3.7.3-1) ...
+Selecting previously unselected package gcc-9-base:armhf.
+Preparing to unpack .../001-gcc-9-base_9.2.1-4_armhf.deb ...
+Unpacking gcc-9-base:armhf (9.2.1-4) ...
+Selecting previously unselected package libmagic-mgc.
+Preparing to unpack .../002-libmagic-mgc_1%3a5.37-5_amd64.deb ...
+Unpacking libmagic-mgc (1:5.37-5) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../003-libmagic1_1%3a5.37-5_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.37-5) ...
+Selecting previously unselected package file.
+Preparing to unpack .../004-file_1%3a5.37-5_amd64.deb ...
+Unpacking file (1:5.37-5) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../005-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package ucf.
+Preparing to unpack .../006-ucf_3.0038+nmu1_all.deb ...
+Moving old data out of the way
+Unpacking ucf (3.0038+nmu1) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../007-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../008-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../009-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../010-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../011-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../012-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package binutils-arm-linux-gnueabihf.
+Preparing to unpack .../013-binutils-arm-linux-gnueabihf_2.32.51.20190821-2_amd64.deb ...
+Unpacking binutils-arm-linux-gnueabihf (2.32.51.20190821-2) ...
+Selecting previously unselected package gcc-9-arm-linux-gnueabihf-base:amd64.
+Preparing to unpack .../014-gcc-9-arm-linux-gnueabihf-base_9.2.1-4cross1_amd64.deb ...
+Unpacking gcc-9-arm-linux-gnueabihf-base:amd64 (9.2.1-4cross1) ...
+Selecting previously unselected package cpp-9-arm-linux-gnueabihf.
+Preparing to unpack .../015-cpp-9-arm-linux-gnueabihf_9.2.1-4cross1_amd64.deb ...
+Unpacking cpp-9-arm-linux-gnueabihf (9.2.1-4cross1) ...
+Selecting previously unselected package cpp-arm-linux-gnueabihf.
+Preparing to unpack .../016-cpp-arm-linux-gnueabihf_4%3a9.2.1-3_amd64.deb ...
+Unpacking cpp-arm-linux-gnueabihf (4:9.2.1-3) ...
+Selecting previously unselected package cross-config.
+Preparing to unpack .../017-cross-config_2.6.15-3_all.deb ...
+Unpacking cross-config (2.6.15-3) ...
+Selecting previously unselected package gcc-9-cross-base.
+Preparing to unpack .../018-gcc-9-cross-base_9.2.1-4cross1_all.deb ...
+Unpacking gcc-9-cross-base (9.2.1-4cross1) ...
+Selecting previously unselected package libc6-armhf-cross.
+Preparing to unpack .../019-libc6-armhf-cross_2.28-10cross6_all.deb ...
+Unpacking libc6-armhf-cross (2.28-10cross6) ...
+Selecting previously unselected package libgcc1-armhf-cross.
+Preparing to unpack .../020-libgcc1-armhf-cross_1%3a9.2.1-4cross1_all.deb ...
+Unpacking libgcc1-armhf-cross (1:9.2.1-4cross1) ...
+Selecting previously unselected package libgomp1-armhf-cross.
+Preparing to unpack .../021-libgomp1-armhf-cross_9.2.1-4cross1_all.deb ...
+Unpacking libgomp1-armhf-cross (9.2.1-4cross1) ...
+Selecting previously unselected package libatomic1-armhf-cross.
+Preparing to unpack .../022-libatomic1-armhf-cross_9.2.1-4cross1_all.deb ...
+Unpacking libatomic1-armhf-cross (9.2.1-4cross1) ...
+Selecting previously unselected package libasan5-armhf-cross.
+Preparing to unpack .../023-libasan5-armhf-cross_9.2.1-4cross1_all.deb ...
+Unpacking libasan5-armhf-cross (9.2.1-4cross1) ...
+Selecting previously unselected package libstdc++6-armhf-cross.
+Preparing to unpack .../024-libstdc++6-armhf-cross_9.2.1-4cross1_all.deb ...
+Unpacking libstdc++6-armhf-cross (9.2.1-4cross1) ...
+Selecting previously unselected package libubsan1-armhf-cross.
+Preparing to unpack .../025-libubsan1-armhf-cross_9.2.1-4cross1_all.deb ...
+Unpacking libubsan1-armhf-cross (9.2.1-4cross1) ...
+Selecting previously unselected package libgcc-9-dev-armhf-cross.
+Preparing to unpack .../026-libgcc-9-dev-armhf-cross_9.2.1-4cross1_all.deb ...
+Unpacking libgcc-9-dev-armhf-cross (9.2.1-4cross1) ...
+Selecting previously unselected package gcc-9-arm-linux-gnueabihf.
+Preparing to unpack .../027-gcc-9-arm-linux-gnueabihf_9.2.1-4cross1_amd64.deb ...
+Unpacking gcc-9-arm-linux-gnueabihf (9.2.1-4cross1) ...
+Selecting previously unselected package gcc-arm-linux-gnueabihf.
+Preparing to unpack .../028-gcc-arm-linux-gnueabihf_4%3a9.2.1-3_amd64.deb ...
+Unpacking gcc-arm-linux-gnueabihf (4:9.2.1-3) ...
+Selecting previously unselected package linux-libc-dev-armhf-cross.
+Preparing to unpack .../029-linux-libc-dev-armhf-cross_5.2.9-2cross6_all.deb ...
+Unpacking linux-libc-dev-armhf-cross (5.2.9-2cross6) ...
+Selecting previously unselected package libc6-dev-armhf-cross.
+Preparing to unpack .../030-libc6-dev-armhf-cross_2.28-10cross6_all.deb ...
+Unpacking libc6-dev-armhf-cross (2.28-10cross6) ...
+Selecting previously unselected package libstdc++-9-dev-armhf-cross.
+Preparing to unpack .../031-libstdc++-9-dev-armhf-cross_9.2.1-4cross1_all.deb ...
+Unpacking libstdc++-9-dev-armhf-cross (9.2.1-4cross1) ...
+Selecting previously unselected package g++-9-arm-linux-gnueabihf.
+Preparing to unpack .../032-g++-9-arm-linux-gnueabihf_9.2.1-4cross1_amd64.deb ...
+Unpacking g++-9-arm-linux-gnueabihf (9.2.1-4cross1) ...
+Selecting previously unselected package g++-arm-linux-gnueabihf.
+Preparing to unpack .../033-g++-arm-linux-gnueabihf_4%3a9.2.1-3_amd64.deb ...
+Unpacking g++-arm-linux-gnueabihf (4:9.2.1-3) ...
+Selecting previously unselected package libconfig-inifiles-perl.
+Preparing to unpack .../034-libconfig-inifiles-perl_3.000001-1_all.deb ...
+Unpacking libconfig-inifiles-perl (3.000001-1) ...
+Selecting previously unselected package libio-string-perl.
+Preparing to unpack .../035-libio-string-perl_1.08-3_all.deb ...
+Unpacking libio-string-perl (1.08-3) ...
+Selecting previously unselected package libicu63:amd64.
+Preparing to unpack .../036-libicu63_63.2-2_amd64.deb ...
+Unpacking libicu63:amd64 (63.2-2) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../037-libxml2_2.9.4+dfsg1-7+b3_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.4+dfsg1-7+b3) ...
+Selecting previously unselected package libxml-namespacesupport-perl.
+Preparing to unpack .../038-libxml-namespacesupport-perl_1.12-1_all.deb ...
+Unpacking libxml-namespacesupport-perl (1.12-1) ...
+Selecting previously unselected package libxml-sax-base-perl.
+Preparing to unpack .../039-libxml-sax-base-perl_1.09-1_all.deb ...
+Unpacking libxml-sax-base-perl (1.09-1) ...
+Selecting previously unselected package libxml-sax-perl.
+Preparing to unpack .../040-libxml-sax-perl_1.02+dfsg-1_all.deb ...
+Unpacking libxml-sax-perl (1.02+dfsg-1) ...
+Selecting previously unselected package libxml-libxml-perl.
+Preparing to unpack .../041-libxml-libxml-perl_2.0134+dfsg-1_amd64.deb ...
+Unpacking libxml-libxml-perl (2.0134+dfsg-1) ...
+Selecting previously unselected package libxml-simple-perl.
+Preparing to unpack .../042-libxml-simple-perl_2.25-1_all.deb ...
+Unpacking libxml-simple-perl (2.25-1) ...
+Selecting previously unselected package libyaml-perl.
+Preparing to unpack .../043-libyaml-perl_1.29-1_all.deb ...
+Unpacking libyaml-perl (1.29-1) ...
+Selecting previously unselected package libconfig-auto-perl.
+Preparing to unpack .../044-libconfig-auto-perl_0.44-1_all.deb ...
+Unpacking libconfig-auto-perl (0.44-1) ...
+Selecting previously unselected package libfile-which-perl.
+Preparing to unpack .../045-libfile-which-perl_1.23-1_all.deb ...
+Unpacking libfile-which-perl (1.23-1) ...
+Selecting previously unselected package libfile-homedir-perl.
+Preparing to unpack .../046-libfile-homedir-perl_1.004-1_all.deb ...
+Unpacking libfile-homedir-perl (1.004-1) ...
+Selecting previously unselected package libdebian-dpkgcross-perl.
+Preparing to unpack .../047-libdebian-dpkgcross-perl_2.6.15-3_all.deb ...
+Unpacking libdebian-dpkgcross-perl (2.6.15-3) ...
+Selecting previously unselected package dpkg-cross.
+Preparing to unpack .../048-dpkg-cross_2.6.15-3_all.deb ...
+Unpacking dpkg-cross (2.6.15-3) ...
+Selecting previously unselected package crossbuild-essential-armhf.
+Preparing to unpack .../049-crossbuild-essential-armhf_12.6_all.deb ...
+Unpacking crossbuild-essential-armhf (12.6) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../050-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../051-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../052-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libsub-override-perl.
+Preparing to unpack .../053-libsub-override-perl_0.09-2_all.deb ...
+Unpacking libsub-override-perl (0.09-2) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../054-libfile-stripnondeterminism-perl_1.5.0-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.5.0-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../055-dh-strip-nondeterminism_1.5.0-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.5.0-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../056-dwz_0.13-1_amd64.deb ...
+Unpacking dwz (0.13-1) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../057-libglib2.0-0_2.60.6-2_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.60.6-2) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../058-libcroco3_0.6.13-1_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.13-1) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../059-libncurses6_6.1+20190803-1_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20190803-1) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../060-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../061-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../062-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../063-debhelper_12.5.3_all.deb ...
+Unpacking debhelper (12.5.3) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../064-libgcc1_1%3a9.2.1-4_armhf.deb ...
+Unpacking libgcc1:armhf (1:9.2.1-4) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../065-libc6_2.28-10_armhf.deb ...
+Unpacking libc6:armhf (2.28-10) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../066-libasan5_9.2.1-4_armhf.deb ...
+Unpacking libasan5:armhf (9.2.1-4) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../067-libatomic1_9.2.1-4_armhf.deb ...
+Unpacking libatomic1:armhf (9.2.1-4) ...
+Selecting previously unselected package libblkid1:armhf.
+Preparing to unpack .../068-libblkid1_2.34-0.1_armhf.deb ...
+Unpacking libblkid1:armhf (2.34-0.1) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../069-linux-libc-dev_5.2.9-2_armhf.deb ...
+Unpacking linux-libc-dev:armhf (5.2.9-2) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../070-libc6-dev_2.28-10_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-10) ...
+Selecting previously unselected package libuuid1:armhf.
+Preparing to unpack .../071-libuuid1_2.34-0.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.34-0.1) ...
+Selecting previously unselected package uuid-dev:armhf.
+Preparing to unpack .../072-uuid-dev_2.34-0.1_armhf.deb ...
+Unpacking uuid-dev:armhf (2.34-0.1) ...
+Selecting previously unselected package libblkid-dev:armhf.
+Preparing to unpack .../073-libblkid-dev_2.34-0.1_armhf.deb ...
+Unpacking libblkid-dev:armhf (2.34-0.1) ...
+Selecting previously unselected package libffi6:armhf.
+Preparing to unpack .../074-libffi6_3.2.1-9_armhf.deb ...
+Unpacking libffi6:armhf (3.2.1-9) ...
+Selecting previously unselected package libffi-dev:armhf.
+Preparing to unpack .../075-libffi-dev_3.2.1-9_armhf.deb ...
+Unpacking libffi-dev:armhf (3.2.1-9) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../076-libgomp1_9.2.1-4_armhf.deb ...
+Unpacking libgomp1:armhf (9.2.1-4) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../077-libstdc++6_9.2.1-4_armhf.deb ...
+Unpacking libstdc++6:armhf (9.2.1-4) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../078-libubsan1_9.2.1-4_armhf.deb ...
+Unpacking libubsan1:armhf (9.2.1-4) ...
+Selecting previously unselected package libgcc-9-dev:armhf.
+Preparing to unpack .../079-libgcc-9-dev_9.2.1-4_armhf.deb ...
+Unpacking libgcc-9-dev:armhf (9.2.1-4) ...
+Selecting previously unselected package libpcre2-8-0:armhf.
+Preparing to unpack .../080-libpcre2-8-0_10.32-5+b1_armhf.deb ...
+Unpacking libpcre2-8-0:armhf (10.32-5+b1) ...
+Selecting previously unselected package libselinux1:armhf.
+Preparing to unpack .../081-libselinux1_2.9-2+b2_armhf.deb ...
+Unpacking libselinux1:armhf (2.9-2+b2) ...
+Selecting previously unselected package libmount1:armhf.
+Preparing to unpack .../082-libmount1_2.34-0.1_armhf.deb ...
+Unpacking libmount1:armhf (2.34-0.1) ...
+Selecting previously unselected package libpcre3:armhf.
+Preparing to unpack .../083-libpcre3_2%3a8.39-12+b1_armhf.deb ...
+Unpacking libpcre3:armhf (2:8.39-12+b1) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../084-zlib1g_1%3a1.2.11.dfsg-1+b1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1+b1) ...
+Selecting previously unselected package libglib2.0-0:armhf.
+Preparing to unpack .../085-libglib2.0-0_2.60.6-2_armhf.deb ...
+Unpacking libglib2.0-0:armhf (2.60.6-2) ...
+Selecting previously unselected package libglib2.0-data.
+Preparing to unpack .../086-libglib2.0-data_2.60.6-2_all.deb ...
+Unpacking libglib2.0-data (2.60.6-2) ...
+Selecting previously unselected package libglib2.0-bin.
+Preparing to unpack .../087-libglib2.0-bin_2.60.6-2_amd64.deb ...
+Unpacking libglib2.0-bin (2.60.6-2) ...
+Selecting previously unselected package python3-lib2to3.
+Preparing to unpack .../088-python3-lib2to3_3.7.4-3_all.deb ...
+Unpacking python3-lib2to3 (3.7.4-3) ...
+Selecting previously unselected package python3-distutils.
+Preparing to unpack .../089-python3-distutils_3.7.4-3_all.deb ...
+Unpacking python3-distutils (3.7.4-3) ...
+Selecting previously unselected package libglib2.0-dev-bin.
+Preparing to unpack .../090-libglib2.0-dev-bin_2.60.6-2_amd64.deb ...
+Unpacking libglib2.0-dev-bin (2.60.6-2) ...
+Selecting previously unselected package libmount-dev:armhf.
+Preparing to unpack .../091-libmount-dev_2.34-0.1_armhf.deb ...
+Unpacking libmount-dev:armhf (2.34-0.1) ...
+Selecting previously unselected package libpcre16-3:armhf.
+Preparing to unpack .../092-libpcre16-3_2%3a8.39-12+b1_armhf.deb ...
+Unpacking libpcre16-3:armhf (2:8.39-12+b1) ...
+Selecting previously unselected package libpcre32-3:armhf.
+Preparing to unpack .../093-libpcre32-3_2%3a8.39-12+b1_armhf.deb ...
+Unpacking libpcre32-3:armhf (2:8.39-12+b1) ...
+Selecting previously unselected package libpcrecpp0v5:armhf.
+Preparing to unpack .../094-libpcrecpp0v5_2%3a8.39-12+b1_armhf.deb ...
+Unpacking libpcrecpp0v5:armhf (2:8.39-12+b1) ...
+Selecting previously unselected package libpcre3-dev:armhf.
+Preparing to unpack .../095-libpcre3-dev_2%3a8.39-12+b1_armhf.deb ...
+Unpacking libpcre3-dev:armhf (2:8.39-12+b1) ...
+Selecting previously unselected package libsepol1:armhf.
+Preparing to unpack .../096-libsepol1_2.9-2+b2_armhf.deb ...
+Unpacking libsepol1:armhf (2.9-2+b2) ...
+Selecting previously unselected package libsepol1-dev:armhf.
+Preparing to unpack .../097-libsepol1-dev_2.9-2+b2_armhf.deb ...
+Unpacking libsepol1-dev:armhf (2.9-2+b2) ...
+Selecting previously unselected package libpcre2-16-0:armhf.
+Preparing to unpack .../098-libpcre2-16-0_10.32-5+b1_armhf.deb ...
+Unpacking libpcre2-16-0:armhf (10.32-5+b1) ...
+Selecting previously unselected package libpcre2-32-0:armhf.
+Preparing to unpack .../099-libpcre2-32-0_10.32-5+b1_armhf.deb ...
+Unpacking libpcre2-32-0:armhf (10.32-5+b1) ...
+Selecting previously unselected package libpcre2-posix0:armhf.
+Preparing to unpack .../100-libpcre2-posix0_10.32-5+b1_armhf.deb ...
+Unpacking libpcre2-posix0:armhf (10.32-5+b1) ...
+Selecting previously unselected package libpcre2-dev:armhf.
+Preparing to unpack .../101-libpcre2-dev_10.32-5+b1_armhf.deb ...
+Unpacking libpcre2-dev:armhf (10.32-5+b1) ...
+Selecting previously unselected package libselinux1-dev:armhf.
+Preparing to unpack .../102-libselinux1-dev_2.9-2+b2_armhf.deb ...
+Unpacking libselinux1-dev:armhf (2.9-2+b2) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../103-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package zlib1g-dev:armhf.
+Preparing to unpack .../104-zlib1g-dev_1%3a1.2.11.dfsg-1+b1_armhf.deb ...
+Unpacking zlib1g-dev:armhf (1:1.2.11.dfsg-1+b1) ...
+Selecting previously unselected package libglib2.0-dev:armhf.
+Preparing to unpack .../105-libglib2.0-dev_2.60.6-2_armhf.deb ...
+Unpacking libglib2.0-dev:armhf (2.60.6-2) ...
+Selecting previously unselected package libstdc++-9-dev:armhf.
+Preparing to unpack .../106-libstdc++-9-dev_9.2.1-4_armhf.deb ...
+Unpacking libstdc++-9-dev:armhf (9.2.1-4) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../107-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libconfig-inifiles-perl (3.000001-1) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libfile-which-perl (1.23-1) ...
+Setting up libc6-armhf-cross (2.28-10cross6) ...
+Setting up mime-support (3.63) ...
+Setting up libmagic-mgc (1:5.37-5) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.60.6-2) ...
+No schema files found: doing nothing.
+Setting up libmagic1:amd64 (1:5.37-5) ...
+Setting up linux-libc-dev:armhf (5.2.9-2) ...
+Setting up libxml-namespacesupport-perl (1.12-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up file (1:5.37-5) ...
+Setting up libyaml-perl (1.29-1) ...
+Setting up libicu63:amd64 (63.2-2) ...
+Setting up gcc-9-arm-linux-gnueabihf-base:amd64 (9.2.1-4cross1) ...
+Setting up libxml-sax-base-perl (1.09-1) ...
+Setting up libio-string-perl (1.08-3) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libglib2.0-data (2.60.6-2) ...
+Setting up cross-config (2.6.15-3) ...
+Setting up libncurses6:amd64 (6.1+20190803-1) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up linux-libc-dev-armhf-cross (5.2.9-2cross6) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up pkg-config (0.29-6) ...
+Setting up ucf (3.0038+nmu1) ...
+Setting up gcc-9-cross-base (9.2.1-4cross1) ...
+Setting up dwz (0.13-1) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libsub-override-perl (0.09-2) ...
+Setting up libmpdec2:amd64 (2.4.2-2) ...
+Setting up libfile-homedir-perl (1.004-1) ...
+Setting up libbsd0:amd64 (0.10.0-1) ...
+Setting up binutils-arm-linux-gnueabihf (2.32.51.20190821-2) ...
+Setting up libxml2:amd64 (2.9.4+dfsg1-7+b3) ...
+Setting up liblocale-gettext-perl (1.07-3+b4) ...
+Setting up gcc-9-base:armhf (9.2.1-4) ...
+Setting up libgomp1-armhf-cross (9.2.1-4cross1) ...
+Setting up libfile-stripnondeterminism-perl (1.5.0-1) ...
+Setting up libpython3.7-stdlib:amd64 (3.7.4-3) ...
+Setting up libtool (2.4.6-10) ...
+Setting up cpp-9-arm-linux-gnueabihf (9.2.1-4cross1) ...
+Setting up libc6-dev-armhf-cross (2.28-10cross6) ...
+Setting up libglib2.0-bin (2.60.6-2) ...
+Setting up m4 (1.4.18-2) ...
+Setting up libatomic1-armhf-cross (9.2.1-4cross1) ...
+Setting up libxml-sax-perl (1.02+dfsg-1) ...
+update-perl-sax-parsers: Registering Perl SAX parser XML::SAX::PurePerl with priority 10...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+
+Creating config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Setting up libgcc1-armhf-cross (1:9.2.1-4cross1) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up libcroco3:amd64 (0.6.13-1) ...
+Setting up autoconf (2.69-11) ...
+Setting up libxml-libxml-perl (2.0134+dfsg-1) ...
+update-perl-sax-parsers: Registering Perl SAX parser XML::LibXML::SAX::Parser with priority 50...
+update-perl-sax-parsers: Registering Perl SAX parser XML::LibXML::SAX with priority 50...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+Replacing config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Setting up groff-base (1.22.4-3) ...
+Setting up cpp-arm-linux-gnueabihf (4:9.2.1-3) ...
+Setting up libpython3-stdlib:amd64 (3.7.3-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up python3.7 (3.7.4-3) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up python3 (3.7.3-1) ...
+Setting up man-db (2.8.6.1-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libasan5-armhf-cross (9.2.1-4cross1) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up libstdc++6-armhf-cross (9.2.1-4cross1) ...
+Setting up libubsan1-armhf-cross (9.2.1-4cross1) ...
+Setting up libxml-simple-perl (2.25-1) ...
+Setting up libgcc-9-dev-armhf-cross (9.2.1-4cross1) ...
+Setting up python3-lib2to3 (3.7.4-3) ...
+Setting up python3-distutils (3.7.4-3) ...
+Setting up libglib2.0-dev-bin (2.60.6-2) ...
+Setting up po-debconf (1.0.21) ...
+Setting up libconfig-auto-perl (0.44-1) ...
+Setting up gcc-9-arm-linux-gnueabihf (9.2.1-4cross1) ...
+Setting up libstdc++-9-dev-armhf-cross (9.2.1-4cross1) ...
+Setting up libdebian-dpkgcross-perl (2.6.15-3) ...
+Setting up gcc-arm-linux-gnueabihf (4:9.2.1-3) ...
+Setting up g++-9-arm-linux-gnueabihf (9.2.1-4cross1) ...
+Setting up dpkg-cross (2.6.15-3) ...
+Setting up g++-arm-linux-gnueabihf (4:9.2.1-3) ...
+Setting up crossbuild-essential-armhf (12.6) ...
+Setting up libc6:armhf (2.28-10) ...
+Setting up libsepol1:armhf (2.9-2+b2) ...
+Setting up libc6-dev:armhf (2.28-10) ...
+Setting up libblkid1:armhf (2.34-0.1) ...
+Setting up libpcre16-3:armhf (2:8.39-12+b1) ...
+Setting up libgcc1:armhf (1:9.2.1-4) ...
+Setting up libsepol1-dev:armhf (2.9-2+b2) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1+b1) ...
+Setting up libffi6:armhf (3.2.1-9) ...
+Setting up libgomp1:armhf (9.2.1-4) ...
+Setting up libffi-dev:armhf (3.2.1-9) ...
+Setting up libpcre2-16-0:armhf (10.32-5+b1) ...
+Setting up dh-autoreconf (19) ...
+Setting up libasan5:armhf (9.2.1-4) ...
+Setting up libpcre3:armhf (2:8.39-12+b1) ...
+Setting up libpcre2-32-0:armhf (10.32-5+b1) ...
+Setting up libpcre32-3:armhf (2:8.39-12+b1) ...
+Setting up libatomic1:armhf (9.2.1-4) ...
+Setting up libuuid1:armhf (2.34-0.1) ...
+Setting up libpcre2-8-0:armhf (10.32-5+b1) ...
+Setting up dh-strip-nondeterminism (1.5.0-1) ...
+Setting up zlib1g-dev:armhf (1:1.2.11.dfsg-1+b1) ...
+Setting up libstdc++6:armhf (9.2.1-4) ...
+Setting up libpcrecpp0v5:armhf (2:8.39-12+b1) ...
+Setting up libpcre3-dev:armhf (2:8.39-12+b1) ...
+Setting up debhelper (12.5.3) ...
+Setting up libselinux1:armhf (2.9-2+b2) ...
+Setting up libpcre2-posix0:armhf (10.32-5+b1) ...
+Setting up uuid-dev:armhf (2.34-0.1) ...
+Setting up libubsan1:armhf (9.2.1-4) ...
+Setting up libmount1:armhf (2.34-0.1) ...
+Setting up libblkid-dev:armhf (2.34-0.1) ...
+Setting up libpcre2-dev:armhf (10.32-5+b1) ...
+Setting up libselinux1-dev:armhf (2.9-2+b2) ...
+Setting up libglib2.0-0:armhf (2.60.6-2) ...
+/var/lib/dpkg/info/libglib2.0-0:armhf.postinst: 47: /usr/lib/arm-linux-gnueabihf/glib-2.0/glib-compile-schemas: Exec format error
+/var/lib/dpkg/info/libglib2.0-0:armhf.postinst: 50: /usr/lib/arm-linux-gnueabihf/glib-2.0/gio-querymodules: Exec format error
+Setting up libgcc-9-dev:armhf (9.2.1-4) ...
+Setting up libmount-dev:armhf (2.34-0.1) ...
+Setting up libstdc++-9-dev:armhf (9.2.1-4) ...
+Setting up libglib2.0-dev:armhf (2.60.6-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-10) ...
+Processing triggers for ccache (3.7.3-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.32.51.20190821-2 dpkg-dev_1.19.7 g++-8_8.3.0-21 g++-9_9.2.1-4 gcc-8_8.3.0-21 gcc-9_9.2.1-4 libc6-dev_2.28-10 libstdc++-8-dev_8.3.0-21 libstdc++-9-dev_9.2.1-4 libstdc++-9-dev-armhf-cross_9.2.1-4cross1 libstdc++6_9.2.1-4 libstdc++6-armhf-cross_9.2.1-4cross1 linux-libc-dev_5.2.9-2
+Package versions: adduser_3.118 apt_1.8.3 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_11 base-passwd_3.5.46 bash_5.0-4 binutils_2.32.51.20190821-2 binutils-arm-linux-gnueabihf_2.32.51.20190821-2 binutils-common_2.32.51.20190821-2 binutils-x86-64-linux-gnu_2.32.51.20190821-2 bsdmainutils_11.1.2+b1 bsdutils_1:2.34-0.1 build-essential_12.6 bzip2_1.0.6-9.2 ccache_3.7.3-1 coreutils_8.30-3+b1 cpp_4:9.2.1-3 cpp-8_8.3.0-21 cpp-9_9.2.1-4 cpp-9-arm-linux-gnueabihf_9.2.1-4cross1 cpp-arm-linux-gnueabihf_4:9.2.1-3 cross-config_2.6.15-3 crossbuild-essential-armhf_12.6 dash_0.5.10.2-6 debconf_1.5.73 debhelper_12.5.3 debian-archive-keyring_2019.1 debianutils_4.8.6.3 dh-autoreconf_19 dh-strip-nondeterminism_1.5.0-1 diffutils_1:3.7-3 dirmngr_2.2.17-3 dose-distcheck_5.0.1-14 dpkg_1.19.7 dpkg-cross_2.6.15-3 dpkg-dev_1.19.7 dwz_0.13-1 e2fsprogs_1.45.3-4 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.34-0.1 file_1:5.37-5 findutils_4.6.0+git+20190510-2 g++_4:9.2.1-3 g++-8_8.3.0-21 g++-9_9.2.1-4 g++-9-arm-linux-gnueabihf_9.2.1-4cross1 g++-arm-linux-gnueabihf_4:9.2.1-3 gcc_4:9.2.1-3 gcc-8_8.3.0-21 gcc-8-base_8.3.0-21 gcc-9_9.2.1-4 gcc-9-arm-linux-gnueabihf_9.2.1-4cross1 gcc-9-arm-linux-gnueabihf-base_9.2.1-4cross1 gcc-9-base_9.2.1-4 gcc-9-cross-base_9.2.1-4cross1 gcc-arm-linux-gnueabihf_4:9.2.1-3 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.17-3 gnupg-l10n_2.2.17-3 gnupg-utils_2.2.17-3 gpg_2.2.17-3 gpg-agent_2.2.17-3 gpg-wks-client_2.2.17-3 gpg-wks-server_2.2.17-3 gpgconf_2.2.17-3 gpgsm_2.2.17-3 gpgv_2.2.17-3 grep_3.3-1 groff-base_1.22.4-3 gzip_1.9-3+b1 hostname_3.21 init-system-helpers_1.57 intltool-debian_0.35.0+20060710.5 libacl1_2.2.53-4 libapt-pkg5.0_1.8.3 libarchive-zip-perl_1.64-1 libasan5_9.2.1-4 libasan5-armhf-cross_9.2.1-4cross1 libassuan0_2.5.3-7 libatomic1_9.2.1-4 libatomic1-armhf-cross_9.2.1-4cross1 libattr1_1:2.4.48-4 libaudit-common_1:2.8.5-2 libaudit1_1:2.8.5-2 libbinutils_2.32.51.20190821-2 libblkid-dev_2.34-0.1 libblkid1_2.34-0.1 libbsd0_0.10.0-1 libbz2-1.0_1.0.6-9.2 libc-bin_2.28-10 libc-dev-bin_2.28-10 libc6_2.28-10 libc6-armhf-cross_2.28-10cross6 libc6-dev_2.28-10 libc6-dev-armhf-cross_2.28-10cross6 libcap-ng0_0.7.9-2+b1 libcap2_1:2.25-2 libcc1-0_9.2.1-4 libcom-err2_1.45.3-4 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.13-1 libdb5.3_5.3.28+dfsg1-0.6 libdebconfclient0_0.249 libdebian-dpkgcross-perl_2.6.15-3 libdpkg-perl_1.19.7 libeatmydata1_105-7 libelf1_0.176-1.1 libexpat1_2.2.7-1 libext2fs2_1.45.3-4 libfakeroot_1.23-1 libfdisk1_2.34-0.1 libffi-dev_3.2.1-9 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-stripnondeterminism-perl_1.5.0-1 libfile-which-perl_1.23-1 libgcc-8-dev_8.3.0-21 libgcc-9-dev_9.2.1-4 libgcc-9-dev-armhf-cross_9.2.1-4cross1 libgcc1_1:9.2.1-4 libgcc1-armhf-cross_1:9.2.1-4cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-5 libgdbm6_1.18.1-5 libglib2.0-0_2.60.6-2 libglib2.0-bin_2.60.6-2 libglib2.0-data_2.60.6-2 libglib2.0-dev_2.60.6-2 libglib2.0-dev-bin_2.60.6-2 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.9-4 libgomp1_9.2.1-4 libgomp1-armhf-cross_9.2.1-4cross1 libgpg-error0_1.36-7 libhogweed4_3.4.1-1+b1 libicu63_63.2-2 libidn2-0_2.2.0-1 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_9.2.1-4 libksba8_1.3.5-2 libldap-2.4-2_2.4.48+dfsg-1 libldap-common_2.4.48+dfsg-1 liblocale-gettext-perl_1.07-3+b4 liblsan0_9.2.1-4 liblua5.2-0_5.2.4-1.1+b3 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.37-5 libmagic1_1:5.37-5 libmount-dev_2.34-0.1 libmount1_2.34-0.1 libmpc3_1.1.0-1 libmpdec2_2.4.2-2 libmpfr6_4.0.2-1 libmpx2_8.3.0-21 libncurses6_6.1+20190803-1 libncursesw6_6.1+20190803-1 libnettle6_3.4.1-1+b1 libnpth0_1.6-1 libnspr4_2:4.21-2 libnss3_2:3.45-1 libp11-kit0_0.23.16.1-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre16-3_2:8.39-12+b1 libpcre2-16-0_10.32-5+b1 libpcre2-32-0_10.32-5+b1 libpcre2-8-0_10.32-5+b1 libpcre2-dev_10.32-5+b1 libpcre2-posix0_10.32-5+b1 libpcre3_2:8.39-12+b1 libpcre3-dev_2:8.39-12+b1 libpcre32-3_2:8.39-12+b1 libpcrecpp0v5_2:8.39-12+b1 libperl5.28_5.28.1-6 libpipeline1_1.5.1-2 libpopt0_1.16-12 libpython3-stdlib_3.7.3-1 libpython3.7-minimal_3.7.4-3 libpython3.7-stdlib_3.7.4-3 libquadmath0_9.2.1-4 libreadline7_7.0-5 libreadline8_8.0-3 librpm8_4.14.2.1+dfsg1-1 librpmio8_4.14.2.1+dfsg1-1 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.4.1-2 libselinux1_2.9-2+b2 libselinux1-dev_2.9-2+b2 libsemanage-common_2.9-3 libsemanage1_2.9-3 libsepol1_2.9-2+b2 libsepol1-dev_2.9-2+b2 libsigsegv2_2.12-2 libsmartcols1_2.34-0.1 libsqlite3-0_3.29.0-2 libss2_1.45.3-4 libssl1.1_1.1.1c-1 libstdc++-8-dev_8.3.0-21 libstdc++-9-dev_9.2.1-4 libstdc++-9-dev-armhf-cross_9.2.1-4cross1 libstdc++6_9.2.1-4 libstdc++6-armhf-cross_9.2.1-4cross1 libsub-override-perl_0.09-2 libsystemd0_242-4 libtasn1-6_4.14-2 libtinfo6_6.1+20190803-1 libtool_2.4.6-10 libtsan0_9.2.1-4 libubsan1_9.2.1-4 libubsan1-armhf-cross_9.2.1-4cross1 libuchardet0_0.0.6-3 libudev1_242-4 libunistring2_0.9.10-2 libuuid1_2.34-0.1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-sax-base-perl_1.09-1 libxml-sax-perl_1.02+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-perl_1.29-1 libzstd1_1.4.3+dfsg-1 linux-libc-dev_5.2.9-2 linux-libc-dev-armhf-cross_5.2.9-2cross6 login_1:4.7-2 logsave_1.45.3-4 lsb-base_11.1.0 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.6.1-2 mawk_1.3.3-17+b3 mime-support_3.63 mount_2.34-0.1 ncurses-base_6.1+20190803-1 ncurses-bin_6.1+20190803-1 passwd_1:4.7-2 patch_2.7.6-6 perl_5.28.1-6 perl-base_5.28.1-6 perl-modules-5.28_5.28.1-6 pinentry-curses_1.1.0-3 pkg-config_0.29-6 po-debconf_1.0.21 python3_3.7.3-1 python3-distutils_3.7.4-3 python3-lib2to3_3.7.4-3 python3-minimal_3.7.3-1 python3.7_3.7.4-3 python3.7-minimal_3.7.4-3 readline-common_8.0-3 sbuild-build-depends-dose3-dummy_0.invalid.0 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.95-6 tar_1.30+dfsg-6+b1 tzdata_2019b-2 ucf_3.0038+nmu1 util-linux_2.34-0.1 uuid-dev_2.34-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1+b1 zlib1g-dev_1:1.2.11.dfsg-1+b1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 1.0
+Source: xdelta
+Binary: xdelta, libxdelta2, libxdelta2-dev
+Architecture: any
+Version: 1.1.3-9.3
+Maintainer: LaMont Jones <lamont@debian.org>
+Standards-Version: 3.7.3
+Vcs-Browser: http://git.debian.org/?p=users/lamont/xdelta.git
+Vcs-Git: git://git.debian.org/~lamont/xdelta.git
+Build-Depends: debhelper (>= 7), libglib2.0-dev, zlib1g-dev, autotools-dev
+Package-List:
+ libxdelta2 deb libs optional arch=any
+ libxdelta2-dev deb libdevel extra arch=any
+ xdelta deb utils optional arch=any
+Checksums-Sha1:
+ fa4bf0f9fb0dc6670a249bc56dc083ad4b9509b0 242101 xdelta_1.1.3.orig.tar.gz
+ ca8940a13690009b0cf4f27f83214445278b61a2 381119 xdelta_1.1.3-9.3.diff.gz
+Checksums-Sha256:
+ f1c9c40afa3101f9cca15ebb91d888d2a1592555e5b66ddd592b0bacff94eddf 242101 xdelta_1.1.3.orig.tar.gz
+ 3b3ab87b3f40d96607ff906f9a26df1dda4e62438b3082de3122918616f7ec3a 381119 xdelta_1.1.3-9.3.diff.gz
+Files:
+ 08e964c28541605b6fe61c0dd6595516 242101 xdelta_1.1.3.orig.tar.gz
+ 1e60566d97998a70d48163527ab18fcb 381119 xdelta_1.1.3-9.3.diff.gz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEkpeKbhleSSGCX3/w808JdE6fXdkFAl1dScoACgkQ808JdE6f
+XdlpuxAArdr+JNMIEtmUJmfSMhIK3TWS4J8WkWna9mjJzs9wNUOXyu3qhbmbTA9Q
+Hwd1NR/2wlaJMhUgoOwByPZAQeiAhAtWWnhUBRBz+VzMvJ0IoTNoL6qoOdMhwlCA
+sQeSuxHzQSGljiGkQ1f1gNTFynhFeX+SKT2KijTA/VhxB9ZTvcBkbB+ea27IONZe
+c5RdLy5OSaIAhANK/13nG0ErTeFUf7r5u2yc1Xn3iqaGZL+j03IJ5xv7seY/Oaxq
+06PJisew46nz079CQk/nHYwTHnyNwqdX7EuOkOV+z3l6dBOTEeE4gCimHRPrl86B
+6ZUOk0GuC0FTuKy/1VS5qLpRGBkjQo/Zx3Qh03GQjnvE0TBtPMiIUmrz8a7agSGf
+utR4cq/r36edxzDHf4R0gbP/t+fVRu0LTRXXxiJIt4+OGkwE0aKiKNTUuSknNrJX
+gTcMNdgdEH1i8ULcKeRDXo4Rc6ETO+iN9KeRHz9h8EMX2+qWAQ9XpH9OF/RGbAN2
+sM+unNvKg0waPHc2J9QlaSFhxA5x3ADR4AK4vToXVmEijSAyWdPgxwfNEMYEZ0Z5
+Kz6UxTeNU+SVs0BIqPz72PyoJVqFBYTJisP/VQHlOtDSz6KwH1eILW/rQ6VJp5VJ
+Z1Lksuna/q6N7riq4jNPwqjaG28c+wzUDnfsJ4bNCRuNtnH3asA=
+=Pzl0
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Wed Aug 21 13:40:26 2019 UTC
+gpgv:                using RSA key 92978A6E195E4921825F7FF0F34F09744E9F5DD9
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./xdelta_1.1.3-9.3.dsc
+dpkg-source: info: extracting xdelta in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking xdelta_1.1.3.orig.tar.gz
+dpkg-source: info: applying xdelta_1.1.3-9.3.diff.gz
+dpkg-source: info: upstream files that have been modified: 
+ /<<PKGBUILDDIR>>/INSTALL
+ /<<PKGBUILDDIR>>/Makefile.in
+ /<<PKGBUILDDIR>>/aclocal.m4
+ /<<PKGBUILDDIR>>/config.guess
+ /<<PKGBUILDDIR>>/config.h.in
+ /<<PKGBUILDDIR>>/config.sub
+ /<<PKGBUILDDIR>>/configure
+ /<<PKGBUILDDIR>>/configure.in
+ /<<PKGBUILDDIR>>/depcomp
+ /<<PKGBUILDDIR>>/djgpp/Makefile.in
+ /<<PKGBUILDDIR>>/doc/Makefile.in
+ /<<PKGBUILDDIR>>/doc/xdelta.1
+ /<<PKGBUILDDIR>>/install-sh
+ /<<PKGBUILDDIR>>/libedsio/Makefile.in
+ /<<PKGBUILDDIR>>/libedsio/edsio.c
+ /<<PKGBUILDDIR>>/libedsio/edsio.h
+ /<<PKGBUILDDIR>>/libedsio/fh.c
+ /<<PKGBUILDDIR>>/ltmain.sh
+ /<<PKGBUILDDIR>>/missing
+ /<<PKGBUILDDIR>>/mkinstalldirs
+ /<<PKGBUILDDIR>>/test/Makefile.in
+ /<<PKGBUILDDIR>>/test/xdeltatest.c
+ /<<PKGBUILDDIR>>/xdelta.m4
+ /<<PKGBUILDDIR>>/xdmain.c
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-1bc15b94-7206-4aec-9b93-0185a1a9d108
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package xdelta
+dpkg-buildpackage: info: source version 1.1.3-9.3
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Helmut Grohne <helmut@subdivi.de>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 5 in use)
+rm -f build-stamp build
+[ ! -f Makefile ] || /usr/bin/make distclean
+dpkg-buildpackage: warning: debian/rules must be updated to support the 'build-arch' and 'build-indep' targets (at least 'build-arch' seems to be missing)
+ debian/rules build
+dh_testdir
+cp -f /usr/share/misc/config.guess config.guess
+cp -f /usr/share/misc/config.sub config.sub
+CPPFLAGS=`glib-config --cflags` CFLAGS="-Wall -g -O2" \
+  dh_auto_configure
+/bin/sh: 1: glib-config: not found
+dh_auto_configure: Compatibility levels before 9 are deprecated (level 5 in use)
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libexecdir=\${prefix}/lib/xdelta --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking for style of include used by make... GNU
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/arm-linux-gnueabihf-nm -B
+checking whether ln -s works... yes
+checking how to recognize dependent libraries... pass_all
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for arm-linux-gnueabihf-g++... arm-linux-gnueabihf-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... yes
+checking dependency style of arm-linux-gnueabihf-g++... none
+checking how to run the C++ preprocessor... arm-linux-gnueabihf-g++ -E
+checking for arm-linux-gnueabihf-g77... no
+checking for arm-linux-gnueabihf-xlf... no
+checking for arm-linux-gnueabihf-f77... no
+checking for arm-linux-gnueabihf-frt... no
+checking for arm-linux-gnueabihf-pgf77... no
+checking for arm-linux-gnueabihf-cf77... no
+checking for arm-linux-gnueabihf-fort77... no
+checking for arm-linux-gnueabihf-fl32... no
+checking for arm-linux-gnueabihf-af77... no
+checking for arm-linux-gnueabihf-xlf90... no
+checking for arm-linux-gnueabihf-f90... no
+checking for arm-linux-gnueabihf-pgf90... no
+checking for arm-linux-gnueabihf-pghpf... no
+checking for arm-linux-gnueabihf-epcf90... no
+checking for arm-linux-gnueabihf-gfortran... no
+checking for arm-linux-gnueabihf-g95... no
+checking for arm-linux-gnueabihf-xlf95... no
+checking for arm-linux-gnueabihf-f95... no
+checking for arm-linux-gnueabihf-fort... no
+checking for arm-linux-gnueabihf-ifort... no
+checking for arm-linux-gnueabihf-ifc... no
+checking for arm-linux-gnueabihf-efc... no
+checking for arm-linux-gnueabihf-pgf95... no
+checking for arm-linux-gnueabihf-lf95... no
+checking for arm-linux-gnueabihf-ftn... no
+checking for g77... no
+checking for xlf... no
+checking for f77... no
+checking for frt... no
+checking for pgf77... no
+checking for cf77... no
+checking for fort77... no
+checking for fl32... no
+checking for af77... no
+checking for xlf90... no
+checking for f90... no
+checking for pgf90... no
+checking for pghpf... no
+checking for epcf90... no
+checking for gfortran... no
+checking for g95... no
+checking for xlf95... no
+checking for f95... no
+checking for fort... no
+checking for ifort... no
+checking for ifc... no
+checking for efc... no
+checking for pgf95... no
+checking for lf95... no
+checking for ftn... no
+checking whether we are using the GNU Fortran 77 compiler... no
+checking whether  accepts -g... no
+checking the maximum length of command line arguments... 1572864
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for objdir... .libs
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+(cached) checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by arm-linux-gnueabihf-g++... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking for arm-linux-gnueabihf-g++ option to produce PIC... -fPIC
+checking if arm-linux-gnueabihf-g++ PIC flag -fPIC works... yes
+checking if arm-linux-gnueabihf-g++ static flag -static works... yes
+checking if arm-linux-gnueabihf-g++ supports -c -o file.o... yes
+checking whether the arm-linux-gnueabihf-g++ linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+(cached) (cached) checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking for ANSI C header files... (cached) yes
+checking whether make sets $(MAKE)... (cached) yes
+checking for gettimeofday... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for emacs... no
+checking for xemacs... no
+checking for arm-linux-gnueabihf-pkg-config... /usr/bin/arm-linux-gnueabihf-pkg-config
+checking pkg-config is at least version 0.16... yes
+checking for GLIB - version >= 2.0.0... cross compiling; assumed OK... 
+yes (version 2.60.6)
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating doc/Makefile
+config.status: creating test/Makefile
+config.status: creating djgpp/Makefile
+config.status: creating xdelta-config
+config.status: creating libedsio/Makefile
+config.status: creating libedsio/edsio-comp
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing default commands
+dh_testdir
+/usr/bin/make
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make  all-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in libedsio
+make[3]: Entering directory '/<<PKGBUILDDIR>>/libedsio'
+/usr/bin/make  all-am
+make[4]: Entering directory '/<<PKGBUILDDIR>>/libedsio'
+/bin/bash ../libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o library.lo library.c
+/bin/bash ../libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o simple.lo simple.c
+/bin/bash ../libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o edsio.lo edsio.c
+/bin/bash ../libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o edsio_edsio.lo edsio_edsio.c
+/bin/bash ../libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o sha.lo sha.c
+/bin/bash ../libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o md5c.lo md5c.c
+/bin/bash ../libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o fh.lo fh.c
+/bin/bash ../libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o generic.lo generic.c
+/bin/bash ../libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o default.lo default.c
+/bin/bash ../libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o base64.lo base64.c
+/bin/bash ../libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o maketime.lo maketime.c
+/bin/bash ../libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o partime.lo partime.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c edsiotest.c
+mkdir .libs
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c generic.c  -fPIC -DPIC -o .libs/generic.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c library.c  -fPIC -DPIC -o .libs/library.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c md5c.c  -fPIC -DPIC -o .libs/md5c.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c fh.c  -fPIC -DPIC -o .libs/fh.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c edsio_edsio.c  -fPIC -DPIC -o .libs/edsio_edsio.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c edsio.c  -fPIC -DPIC -o .libs/edsio.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c base64.c  -fPIC -DPIC -o .libs/base64.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c simple.c  -fPIC -DPIC -o .libs/simple.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c sha.c  -fPIC -DPIC -o .libs/sha.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c partime.c  -fPIC -DPIC -o .libs/partime.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c default.c  -fPIC -DPIC -o .libs/default.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c maketime.c  -fPIC -DPIC -o .libs/maketime.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c generic.c -o generic.o >/dev/null 2>&1
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c maketime.c -o maketime.o >/dev/null 2>&1
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c fh.c -o fh.o >/dev/null 2>&1
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c library.c -o library.o >/dev/null 2>&1
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c simple.c -o simple.o >/dev/null 2>&1
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c md5c.c -o md5c.o >/dev/null 2>&1
+default.c: In function ‘sink_next_string’:
+default.c:87:34: warning: pointer targets in passing argument 2 of ‘sink->next_bytes’ differ in signedness [-Wpointer-sign]
+   87 |   return sink->next_bytes (sink, ptr, strlen (ptr));
+      |                                  ^~~
+      |                                  |
+      |                                  const char *
+default.c:87:34: note: expected ‘const guint8 *’ {aka ‘const unsigned char *’} but argument is of type ‘const char *’
+default.c: In function ‘source_next_string’:
+default.c:254:10: warning: pointer targets in assignment from ‘guint8 *’ {aka ‘unsigned char *’} to ‘const char *’ differ in signedness [-Wpointer-sign]
+  254 |   (*ptr) = buf;
+      |          ^
+default.c: In function ‘serializeio_source_alloc’:
+default.c:297:15: warning: initialization of ‘long int’ from ‘void *’ makes integer from pointer without a cast [-Wint-conversion]
+  297 |    { long x = source->alloc_buf; ALIGN_8 (x); source->alloc_buf = x; }
+      |               ^~~~~~
+default.c:297:65: warning: assignment to ‘void *’ from ‘long int’ makes pointer from integer without a cast [-Wint-conversion]
+  297 |    { long x = source->alloc_buf; ALIGN_8 (x); source->alloc_buf = x; }
+      |                                                                 ^
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c default.c -o default.o >/dev/null 2>&1
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c base64.c -o base64.o >/dev/null 2>&1
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c sha.c -o sha.o >/dev/null 2>&1
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c partime.c -o partime.o >/dev/null 2>&1
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c edsio_edsio.c -o edsio_edsio.o >/dev/null 2>&1
+edsio.c: In function ‘edsio_property_unset’:
+edsio.c:977:27: warning: variable ‘ent’ set but not used [-Wunused-but-set-variable]
+  977 |       EdsioPropertyEntry* ent;
+      |                           ^~~
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c edsio.c -o edsio.o >/dev/null 2>&1
+/bin/bash ../libtool --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -Wall -g -O2   -o libedsio.la -rpath /usr/lib library.lo simple.lo edsio.lo edsio_edsio.lo sha.lo md5c.lo fh.lo generic.lo default.lo base64.lo maketime.lo partime.lo -L/usr/lib/arm-linux-gnueabihf -lglib-2.0 
+arm-linux-gnueabihf-gcc -shared  .libs/library.o .libs/simple.o .libs/edsio.o .libs/edsio_edsio.o .libs/sha.o .libs/md5c.o .libs/fh.o .libs/generic.o .libs/default.o .libs/base64.o .libs/maketime.o .libs/partime.o  -L/usr/lib/arm-linux-gnueabihf -lglib-2.0  -Wl,-soname -Wl,libedsio.so.0 -o .libs/libedsio.so.0.0.0
+(cd .libs && rm -f libedsio.so.0 && ln -s libedsio.so.0.0.0 libedsio.so.0)
+(cd .libs && rm -f libedsio.so && ln -s libedsio.so.0.0.0 libedsio.so)
+arm-linux-gnueabihf-ar cru .libs/libedsio.a  library.o simple.o edsio.o edsio_edsio.o sha.o md5c.o fh.o generic.o default.o base64.o maketime.o partime.o
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib .libs/libedsio.a
+creating libedsio.la
+(cd .libs && rm -f libedsio.la && ln -s ../libedsio.la libedsio.la)
+/bin/bash ../libtool --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -Wall -g -O2   -o edsiotest edsiotest.o libedsio.la -L/usr/lib/arm-linux-gnueabihf -lglib-2.0 
+arm-linux-gnueabihf-gcc -Wall -g -O2 -o .libs/edsiotest edsiotest.o  ./.libs/libedsio.so -L/usr/lib/arm-linux-gnueabihf -lglib-2.0 
+creating edsiotest
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/libedsio'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/libedsio'
+Making all in .
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+/bin/bash ./libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I./libedsio -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o xdelta.lo xdelta.c
+/bin/bash ./libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I./libedsio -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o xdapply.lo xdapply.c
+/bin/bash ./libtool --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I./libedsio -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c -o xd_edsio.lo xd_edsio.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I./libedsio -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c xdmain.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I./libedsio -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c getopt.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I./libedsio -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c getopt1.c
+mkdir .libs
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I./libedsio -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c xd_edsio.c  -fPIC -DPIC -o .libs/xd_edsio.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I./libedsio -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c xdapply.c  -fPIC -DPIC -o .libs/xdapply.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I./libedsio -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c xdelta.c  -fPIC -DPIC -o .libs/xdelta.o
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I./libedsio -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c xdapply.c -o xdapply.o >/dev/null 2>&1
+xdelta.c: In function ‘generate_checksums’:
+xdelta.c:179:23: warning: variable ‘orig_segment_len’ set but not used [-Wunused-but-set-variable]
+  179 |   gint   segment_len, orig_segment_len;
+      |                       ^~~~~~~~~~~~~~~~
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I./libedsio -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c xdelta.c -o xdelta.o >/dev/null 2>&1
+xdmain.c: In function ‘main’:
+xdmain.c:347:3: warning: ‘g_basename’ is deprecated: Use 'g_path_get_basename' instead [-Wdeprecated-declarations]
+  347 |   program_name = g_basename (argv[0]);
+      |   ^~~~~~~~~~~~
+In file included from /usr/include/glib-2.0/glib.h:48,
+                 from ./libedsio/edsio.h:23,
+                 from xd_edsio.h:25,
+                 from xdelta.h:29,
+                 from xdmain.c:65:
+/usr/include/glib-2.0/glib/gfileutils.h:163:14: note: declared here
+  163 | const gchar *g_basename         (const gchar *file_name);
+      |              ^~~~~~~~~~
+xdmain.c:406:6: warning: ‘g_strcasecmp’ is deprecated [-Wdeprecated-declarations]
+  406 |      if (end && g_strcasecmp (end, "M") == 0)
+      |      ^~
+In file included from /usr/include/glib-2.0/glib.h:82,
+                 from ./libedsio/edsio.h:23,
+                 from xd_edsio.h:25,
+                 from xdelta.h:29,
+                 from xdmain.c:65:
+/usr/include/glib-2.0/glib/gstrfuncs.h:201:23: note: declared here
+  201 | gint                  g_strcasecmp     (const gchar *s1,
+      |                       ^~~~~~~~~~~~
+xdmain.c:408:6: warning: ‘g_strcasecmp’ is deprecated [-Wdeprecated-declarations]
+  408 |      else if (end && g_strcasecmp (end, "K") == 0)
+      |      ^~~~
+In file included from /usr/include/glib-2.0/glib.h:82,
+                 from ./libedsio/edsio.h:23,
+                 from xd_edsio.h:25,
+                 from xdelta.h:29,
+                 from xdmain.c:65:
+/usr/include/glib-2.0/glib/gstrfuncs.h:201:23: note: declared here
+  201 | gint                  g_strcasecmp     (const gchar *s1,
+      |                       ^~~~~~~~~~~~
+xdmain.c: In function ‘xd_gzread’:
+xdmain.c:508:20: warning: passing argument 1 of ‘gzread’ from incompatible pointer type [-Wincompatible-pointer-types]
+  508 |   return gzread (fh->in, buf, nbyte) == nbyte;
+      |                  ~~^~~~
+      |                    |
+      |                    FILE * {aka struct _IO_FILE *}
+In file included from /usr/include/zlib.h:34,
+                 from xdmain.c:63:
+/usr/include/zlib.h:1390:28: note: expected ‘gzFile’ {aka ‘struct gzFile_s *’} but argument is of type ‘FILE *’ {aka ‘struct _IO_FILE *’}
+ 1390 | ZEXTERN int ZEXPORT gzread OF((gzFile file, voidp buf, unsigned len));
+      |                            ^~
+xdmain.c: In function ‘xd_gzrclose’:
+xdmain.c:520:21: warning: passing argument 1 of ‘gzclose’ from incompatible pointer type [-Wincompatible-pointer-types]
+  520 |   return gzclose (fh->in) == Z_OK;
+      |                   ~~^~~~
+      |                     |
+      |                     FILE * {aka struct _IO_FILE *}
+In file included from /usr/include/zlib.h:34,
+                 from xdmain.c:63:
+/usr/include/zlib.h:1630:32: note: expected ‘gzFile’ {aka ‘struct gzFile_s *’} but argument is of type ‘FILE *’ {aka ‘struct _IO_FILE *’}
+ 1630 | ZEXTERN int ZEXPORT    gzclose OF((gzFile file));
+      |                                ^~
+xdmain.c: In function ‘init_table’:
+xdmain.c:527:3: warning: ‘g_mem_chunk_new’ is deprecated [-Wdeprecated-declarations]
+  527 |   fh->lru_chunk = g_mem_chunk_create(LRU, 1<<9, G_ALLOC_ONLY);
+      |   ^~
+In file included from /usr/include/glib-2.0/glib.h:106,
+                 from ./libedsio/edsio.h:23,
+                 from xd_edsio.h:25,
+                 from xdelta.h:29,
+                 from xdmain.c:65:
+/usr/include/glib-2.0/glib/deprecated/gallocator.h:43:17: note: declared here
+   43 | GMemChunk *     g_mem_chunk_new         (const gchar  *name,
+      |                 ^~~~~~~~~~~~~~~
+xdmain.c: In function ‘xd_handle_narrow’:
+xdmain.c:1010:14: warning: assignment to ‘FILE *’ {aka ‘struct _IO_FILE *’} from incompatible pointer type ‘gzFile’ {aka ‘struct gzFile_s *’} [-Wincompatible-pointer-types]
+ 1010 |       fh->in = gzdopen (dup (fh->fd), "rb");
+      |              ^
+xdmain.c: In function ‘xd_handle_map_page’:
+xdmain.c:1235:7: warning: ‘g_mem_chunk_alloc0’ is deprecated [-Wdeprecated-declarations]
+ 1235 |       lru = g_chunk_new0 (LRU, fh->lru_chunk);
+      |       ^~~
+In file included from /usr/include/glib-2.0/glib.h:106,
+                 from ./libedsio/edsio.h:23,
+                 from xd_edsio.h:25,
+                 from xdelta.h:29,
+                 from xdmain.c:65:
+/usr/include/glib-2.0/glib/deprecated/gallocator.h:52:17: note: declared here
+   52 | gpointer        g_mem_chunk_alloc0      (GMemChunk    *mem_chunk);
+      |                 ^~~~~~~~~~~~~~~~~~
+xdmain.c: In function ‘delta_command’:
+xdmain.c:1530:3: warning: ‘g_basename’ is deprecated: Use 'g_path_get_basename' instead [-Wdeprecated-declarations]
+ 1530 |   from_name = g_basename (argv[0]);
+      |   ^~~~~~~~~
+In file included from /usr/include/glib-2.0/glib.h:48,
+                 from ./libedsio/edsio.h:23,
+                 from xd_edsio.h:25,
+                 from xdelta.h:29,
+                 from xdmain.c:65:
+/usr/include/glib-2.0/glib/gfileutils.h:163:14: note: declared here
+  163 | const gchar *g_basename         (const gchar *file_name);
+      |              ^~~~~~~~~~
+xdmain.c:1531:3: warning: ‘g_basename’ is deprecated: Use 'g_path_get_basename' instead [-Wdeprecated-declarations]
+ 1531 |   to_name = g_basename (argv[1]);
+      |   ^~~~~~~
+In file included from /usr/include/glib-2.0/glib.h:48,
+                 from ./libedsio/edsio.h:23,
+                 from xd_edsio.h:25,
+                 from xdelta.h:29,
+                 from xdmain.c:65:
+/usr/include/glib-2.0/glib/gfileutils.h:163:14: note: declared here
+  163 | const gchar *g_basename         (const gchar *file_name);
+      |              ^~~~~~~~~~
+xdmain.c:71:27: warning: pointer targets in passing argument 2 of ‘xd_handle_write’ differ in signedness [-Wpointer-sign]
+   71 | #define XDELTA_110_PREFIX "%XDZ004%"
+      |                           ^~~~~~~~~~
+      |                           |
+      |                           char *
+xdmain.c:77:27: note: in expansion of macro ‘XDELTA_110_PREFIX’
+   77 | #define XDELTA_PREFIX     XDELTA_110_PREFIX
+      |                           ^~~~~~~~~~~~~~~~~
+xdmain.c:1544:31: note: in expansion of macro ‘XDELTA_PREFIX’
+ 1544 |   if (! xd_handle_write (out, XDELTA_PREFIX, XDELTA_PREFIX_LEN))
+      |                               ^~~~~~~~~~~~~
+xdmain.c:1064:50: note: expected ‘const guint8 *’ {aka ‘const unsigned char *’} but argument is of type ‘char *’
+ 1064 | xd_handle_write (XdFileHandle *fh, const guint8 *buf, gsize nbyte)
+      |                                    ~~~~~~~~~~~~~~^~~
+xdmain.c:1563:31: warning: pointer targets in passing argument 2 of ‘xd_handle_write’ differ in signedness [-Wpointer-sign]
+ 1563 |   if (! xd_handle_write (out, from_name, strlen (from_name)))
+      |                               ^~~~~~~~~
+      |                               |
+      |                               const char *
+xdmain.c:1064:50: note: expected ‘const guint8 *’ {aka ‘const unsigned char *’} but argument is of type ‘const char *’
+ 1064 | xd_handle_write (XdFileHandle *fh, const guint8 *buf, gsize nbyte)
+      |                                    ~~~~~~~~~~~~~~^~~
+xdmain.c:1566:31: warning: pointer targets in passing argument 2 of ‘xd_handle_write’ differ in signedness [-Wpointer-sign]
+ 1566 |   if (! xd_handle_write (out, to_name, strlen (to_name)))
+      |                               ^~~~~~~
+      |                               |
+      |                               const char *
+xdmain.c:1064:50: note: expected ‘const guint8 *’ {aka ‘const unsigned char *’} but argument is of type ‘const char *’
+ 1064 | xd_handle_write (XdFileHandle *fh, const guint8 *buf, gsize nbyte)
+      |                                    ~~~~~~~~~~~~~~^~~
+xdmain.c:71:27: warning: pointer targets in passing argument 2 of ‘xd_handle_write’ differ in signedness [-Wpointer-sign]
+   71 | #define XDELTA_110_PREFIX "%XDZ004%"
+      |                           ^~~~~~~~~~
+      |                           |
+      |                           char *
+xdmain.c:77:27: note: in expansion of macro ‘XDELTA_110_PREFIX’
+   77 | #define XDELTA_PREFIX     XDELTA_110_PREFIX
+      |                           ^~~~~~~~~~~~~~~~~
+xdmain.c:1603:31: note: in expansion of macro ‘XDELTA_PREFIX’
+ 1603 |   if (! xd_handle_write (out, XDELTA_PREFIX, XDELTA_PREFIX_LEN))
+      |                               ^~~~~~~~~~~~~
+xdmain.c:1064:50: note: expected ‘const guint8 *’ {aka ‘const unsigned char *’} but argument is of type ‘char *’
+ 1064 | xd_handle_write (XdFileHandle *fh, const guint8 *buf, gsize nbyte)
+      |                                    ~~~~~~~~~~~~~~^~~
+xdmain.c: In function ‘process_patch’:
+xdmain.c:1640:21: warning: pointer targets in passing argument 1 of ‘strncmp’ differ in signedness [-Wpointer-sign]
+ 1640 |   if (strncmp (patch->magic_buf, XDELTA_110_PREFIX, XDELTA_PREFIX_LEN) == 0)
+      |                ~~~~~^~~~~~~~~~~
+      |                     |
+      |                     guint8 * {aka unsigned char *}
+In file included from xdmain.c:28:
+/usr/arm-linux-gnueabihf/include/string.h:139:33: note: expected ‘const char *’ but argument is of type ‘guint8 *’ {aka ‘unsigned char *’}
+  139 | extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+      |                     ~~~~~~~~~~~~^~~~
+xdmain.c:1645:26: warning: pointer targets in passing argument 1 of ‘strncmp’ differ in signedness [-Wpointer-sign]
+ 1645 |   else if (strncmp (patch->magic_buf, XDELTA_104_PREFIX, XDELTA_PREFIX_LEN) == 0)
+      |                     ~~~~~^~~~~~~~~~~
+      |                          |
+      |                          guint8 * {aka unsigned char *}
+In file included from xdmain.c:28:
+/usr/arm-linux-gnueabihf/include/string.h:139:33: note: expected ‘const char *’ but argument is of type ‘guint8 *’ {aka ‘unsigned char *’}
+  139 | extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+      |                     ~~~~~~~~~~~~^~~~
+xdmain.c:1650:26: warning: pointer targets in passing argument 1 of ‘strncmp’ differ in signedness [-Wpointer-sign]
+ 1650 |   else if (strncmp (patch->magic_buf, XDELTA_100_PREFIX, XDELTA_PREFIX_LEN) == 0)
+      |                     ~~~~~^~~~~~~~~~~
+      |                          |
+      |                          guint8 * {aka unsigned char *}
+In file included from xdmain.c:28:
+/usr/arm-linux-gnueabihf/include/string.h:139:33: note: expected ‘const char *’ but argument is of type ‘guint8 *’ {aka ‘unsigned char *’}
+  139 | extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+      |                     ~~~~~~~~~~~~^~~~
+xdmain.c:1654:26: warning: pointer targets in passing argument 1 of ‘strncmp’ differ in signedness [-Wpointer-sign]
+ 1654 |   else if (strncmp (patch->magic_buf, XDELTA_020_PREFIX, XDELTA_PREFIX_LEN) == 0)
+      |                     ~~~~~^~~~~~~~~~~
+      |                          |
+      |                          guint8 * {aka unsigned char *}
+In file included from xdmain.c:28:
+/usr/arm-linux-gnueabihf/include/string.h:139:33: note: expected ‘const char *’ but argument is of type ‘guint8 *’ {aka ‘unsigned char *’}
+  139 | extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+      |                     ~~~~~~~~~~~~^~~~
+xdmain.c:1656:26: warning: pointer targets in passing argument 1 of ‘strncmp’ differ in signedness [-Wpointer-sign]
+ 1656 |   else if (strncmp (patch->magic_buf, XDELTA_018_PREFIX, XDELTA_PREFIX_LEN) == 0)
+      |                     ~~~~~^~~~~~~~~~~
+      |                          |
+      |                          guint8 * {aka unsigned char *}
+In file included from xdmain.c:28:
+/usr/arm-linux-gnueabihf/include/string.h:139:33: note: expected ‘const char *’ but argument is of type ‘guint8 *’ {aka ‘unsigned char *’}
+  139 | extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+      |                     ~~~~~~~~~~~~^~~~
+xdmain.c:1658:26: warning: pointer targets in passing argument 1 of ‘strncmp’ differ in signedness [-Wpointer-sign]
+ 1658 |   else if (strncmp (patch->magic_buf, XDELTA_014_PREFIX, XDELTA_PREFIX_LEN) == 0)
+      |                     ~~~~~^~~~~~~~~~~
+      |                          |
+      |                          guint8 * {aka unsigned char *}
+In file included from xdmain.c:28:
+/usr/arm-linux-gnueabihf/include/string.h:139:33: note: expected ‘const char *’ but argument is of type ‘guint8 *’ {aka ‘unsigned char *’}
+  139 | extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+      |                     ~~~~~~~~~~~~^~~~
+xdmain.c:1685:45: warning: pointer targets in passing argument 2 of ‘xd_handle_read’ differ in signedness [-Wpointer-sign]
+ 1685 |   if (xd_handle_read (patch->patch_in, patch->from_name, patch->from_name_len) != patch->from_name_len)
+      |                                        ~~~~~^~~~~~~~~~~
+      |                                             |
+      |                                             gchar * {aka char *}
+xdmain.c:1044:43: note: expected ‘guint8 *’ {aka ‘unsigned char *’} but argument is of type ‘gchar *’ {aka ‘char *’}
+ 1044 | xd_handle_read (XdFileHandle *fh, guint8 *buf, gsize nbyte)
+      |                                   ~~~~~~~~^~~
+xdmain.c:1688:45: warning: pointer targets in passing argument 2 of ‘xd_handle_read’ differ in signedness [-Wpointer-sign]
+ 1688 |   if (xd_handle_read (patch->patch_in, patch->to_name, patch->to_name_len) != patch->to_name_len)
+      |                                        ~~~~~^~~~~~~~~
+      |                                             |
+      |                                             gchar * {aka char *}
+xdmain.c:1044:43: note: expected ‘guint8 *’ {aka ‘unsigned char *’} but argument is of type ‘gchar *’ {aka ‘char *’}
+ 1044 | xd_handle_read (XdFileHandle *fh, guint8 *buf, gsize nbyte)
+      |                                   ~~~~~~~~^~~
+xdmain.c:1708:20: warning: pointer targets in passing argument 1 of ‘strncmp’ differ in signedness [-Wpointer-sign]
+ 1708 |       if (strncmp (trailer_buf, patch->magic_buf, XDELTA_PREFIX_LEN) != 0)
+      |                    ^~~~~~~~~~~
+      |                    |
+      |                    guint8 * {aka unsigned char *}
+In file included from xdmain.c:28:
+/usr/arm-linux-gnueabihf/include/string.h:139:33: note: expected ‘const char *’ but argument is of type ‘guint8 *’ {aka ‘unsigned char *’}
+  139 | extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+      |                     ~~~~~~~~~~~~^~~~
+xdmain.c:1708:38: warning: pointer targets in passing argument 2 of ‘strncmp’ differ in signedness [-Wpointer-sign]
+ 1708 |       if (strncmp (trailer_buf, patch->magic_buf, XDELTA_PREFIX_LEN) != 0)
+      |                                 ~~~~~^~~~~~~~~~~
+      |                                      |
+      |                                      guint8 * {aka unsigned char *}
+In file included from xdmain.c:28:
+/usr/arm-linux-gnueabihf/include/string.h:139:51: note: expected ‘const char *’ but argument is of type ‘guint8 *’ {aka ‘unsigned char *’}
+  139 | extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+      |                                       ~~~~~~~~~~~~^~~~
+ arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I./libedsio -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include -Wall -g -O2 -c xd_edsio.c -o xd_edsio.o >/dev/null 2>&1
+/bin/bash ./libtool --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -Wall -g -O2 -version-info 2:0:0  -o libxdelta.la -rpath /usr/lib xdelta.lo xdapply.lo xd_edsio.lo -L/usr/lib/arm-linux-gnueabihf -lglib-2.0 
+arm-linux-gnueabihf-gcc -shared  .libs/xdelta.o .libs/xdapply.o .libs/xd_edsio.o  -L/usr/lib/arm-linux-gnueabihf -lglib-2.0  -Wl,-soname -Wl,libxdelta.so.2 -o .libs/libxdelta.so.2.0.0
+(cd .libs && rm -f libxdelta.so.2 && ln -s libxdelta.so.2.0.0 libxdelta.so.2)
+(cd .libs && rm -f libxdelta.so && ln -s libxdelta.so.2.0.0 libxdelta.so)
+arm-linux-gnueabihf-ar cru .libs/libxdelta.a  xdelta.o xdapply.o xd_edsio.o
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+arm-linux-gnueabihf-ranlib .libs/libxdelta.a
+creating libxdelta.la
+(cd .libs && rm -f libxdelta.la && ln -s ../libxdelta.la libxdelta.la)
+/bin/bash ./libtool --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -Wall -g -O2   -o xdelta xdmain.o getopt.o getopt1.o libxdelta.la ./libedsio/libedsio.la -L/usr/lib/arm-linux-gnueabihf -lglib-2.0 -lz 
+arm-linux-gnueabihf-gcc -Wall -g -O2 -o .libs/xdelta xdmain.o getopt.o getopt1.o  ./.libs/libxdelta.so ./libedsio/.libs/libedsio.so -L/usr/lib/arm-linux-gnueabihf -lglib-2.0 -lz 
+creating xdelta
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+Making all in test
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../libedsio -I/usr/include/glib-2.0 -I/usr/lib/arm-linux-gnueabihf/glib-2.0/include    -Wall -g -O2 -c xdeltatest.c
+xdeltatest.c: In function ‘run_command’:
+xdeltatest.c:519:25: warning: initialization of ‘struct gzFile_s **’ from incompatible pointer type ‘gzFile’ {aka ‘struct gzFile_s *’} [-Wincompatible-pointer-types]
+  519 |       gzFile *rewrite = gzopen (out->name, diff_gzargs);
+      |                         ^~~~~~
+xdeltatest.c:523:20: warning: passing argument 1 of ‘gzwrite’ from incompatible pointer type [-Wincompatible-pointer-types]
+  523 |       if (gzwrite (rewrite, patch->data, patch->length) == 0) { perror ("gzwrite"); fail (); }
+      |                    ^~~~~~~
+      |                    |
+      |                    struct gzFile_s **
+In file included from /usr/include/zlib.h:34,
+                 from xdeltatest.c:47:
+/usr/include/zlib.h:1446:29: note: expected ‘gzFile’ {aka ‘struct gzFile_s *’} but argument is of type ‘struct gzFile_s **’
+ 1446 | ZEXTERN int ZEXPORT gzwrite OF((gzFile file,
+      |                             ^~
+xdeltatest.c:524:20: warning: passing argument 1 of ‘gzclose’ from incompatible pointer type [-Wincompatible-pointer-types]
+  524 |       if (gzclose (rewrite) != Z_OK)                          { perror ("gzclose"); fail (); }
+      |                    ^~~~~~~
+      |                    |
+      |                    struct gzFile_s **
+In file included from /usr/include/zlib.h:34,
+                 from xdeltatest.c:47:
+/usr/include/zlib.h:1630:32: note: expected ‘gzFile’ {aka ‘struct gzFile_s *’} but argument is of type ‘struct gzFile_s **’
+ 1630 | ZEXTERN int ZEXPORT    gzclose OF((gzFile file));
+      |                                ^~
+/bin/bash ../libtool --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -Wall -g -O2   -o xdeltatest xdeltatest.o ../libxdelta.la ../libedsio/libedsio.la -lz -L/usr/lib/arm-linux-gnueabihf -lglib-2.0 
+mkdir .libs
+arm-linux-gnueabihf-gcc -Wall -g -O2 -o .libs/xdeltatest xdeltatest.o  ../.libs/libxdelta.so ../libedsio/.libs/libedsio.so -lz -L/usr/lib/arm-linux-gnueabihf -lglib-2.0 
+creating xdeltatest
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test'
+Making all in doc
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+Making all in djgpp
+make[3]: Entering directory '/<<PKGBUILDDIR>>/djgpp'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/djgpp'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+touch build-stamp
+ fakeroot debian/rules binary-arch
+dh_testdir
+dh_testroot
+dh_clean -k
+dh_clean: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_clean: dh_clean -k is deprecated; use dh_prep instead
+dh_clean: This feature will be removed in compat 12.
+dh_installdirs
+dh_installdirs: Compatibility levels before 9 are deprecated (level 5 in use)
+/usr/bin/make install DESTDIR=/<<PKGBUILDDIR>>/debian/tmp
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make  install-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making install in libedsio
+make[3]: Entering directory '/<<PKGBUILDDIR>>/libedsio'
+/usr/bin/make  install-am
+make[4]: Entering directory '/<<PKGBUILDDIR>>/libedsio'
+make[5]: Entering directory '/<<PKGBUILDDIR>>/libedsio'
+test -z "/usr/lib" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/lib"
+test -z "/usr/include" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/include"
+ /usr/bin/install -c -m 644 'edsio.h' '/<<PKGBUILDDIR>>/debian/tmp/usr/include/edsio.h'
+ /bin/bash ../libtool   --mode=install /usr/bin/install -c  'libedsio.la' '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/libedsio.la'
+ /usr/bin/install -c -m 644 'edsio_edsio.h' '/<<PKGBUILDDIR>>/debian/tmp/usr/include/edsio_edsio.h'
+/usr/bin/install -c .libs/libedsio.so.0.0.0 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/libedsio.so.0.0.0
+(cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib && { ln -s -f libedsio.so.0.0.0 libedsio.so.0 || { rm -f libedsio.so.0 && ln -s libedsio.so.0.0.0 libedsio.so.0; }; })
+(cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib && { ln -s -f libedsio.so.0.0.0 libedsio.so || { rm -f libedsio.so && ln -s libedsio.so.0.0.0 libedsio.so; }; })
+/usr/bin/install -c .libs/libedsio.lai /<<PKGBUILDDIR>>/debian/tmp/usr/lib/libedsio.la
+/usr/bin/install -c .libs/libedsio.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/libedsio.a
+chmod 644 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/libedsio.a
+arm-linux-gnueabihf-ranlib /<<PKGBUILDDIR>>/debian/tmp/usr/lib/libedsio.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib'
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/libedsio'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/libedsio'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/libedsio'
+Making install in .
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[4]: Entering directory '/<<PKGBUILDDIR>>'
+test -z "/usr/lib" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/lib"
+test -z "/usr/bin" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/bin"
+test -z "/usr/include" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/include"
+test -z "/usr/share/aclocal" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/share/aclocal"
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c  'libxdelta.la' '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/libxdelta.la'
+ /usr/bin/install -c -m 644 'xdelta.h' '/<<PKGBUILDDIR>>/debian/tmp/usr/include/xdelta.h'
+ /usr/bin/install -c 'xdelta-config' '/<<PKGBUILDDIR>>/debian/tmp/usr/bin/xdelta-config'
+ /usr/bin/install -c -m 644 'xdelta.m4' '/<<PKGBUILDDIR>>/debian/tmp/usr/share/aclocal/xdelta.m4'
+ /usr/bin/install -c -m 644 'xd_edsio.h' '/<<PKGBUILDDIR>>/debian/tmp/usr/include/xd_edsio.h'
+/usr/bin/install -c .libs/libxdelta.so.2.0.0 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/libxdelta.so.2.0.0
+(cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib && { ln -s -f libxdelta.so.2.0.0 libxdelta.so.2 || { rm -f libxdelta.so.2 && ln -s libxdelta.so.2.0.0 libxdelta.so.2; }; })
+(cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib && { ln -s -f libxdelta.so.2.0.0 libxdelta.so || { rm -f libxdelta.so && ln -s libxdelta.so.2.0.0 libxdelta.so; }; })
+/usr/bin/install -c .libs/libxdelta.lai /<<PKGBUILDDIR>>/debian/tmp/usr/lib/libxdelta.la
+/usr/bin/install -c .libs/libxdelta.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/libxdelta.a
+chmod 644 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/libxdelta.a
+arm-linux-gnueabihf-ranlib /<<PKGBUILDDIR>>/debian/tmp/usr/lib/libxdelta.a
+libtool: install: warning: remember to run `libtool --finish /usr/lib'
+test -z "/usr/bin" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/bin"
+  /bin/bash ./libtool   --mode=install /usr/bin/install -c 'xdelta' '/<<PKGBUILDDIR>>/debian/tmp/usr/bin/xdelta'
+libtool: install: warning: `libxdelta.la' has not been installed in `/usr/lib'
+libtool: install: warning: `./libedsio/libedsio.la' has not been installed in `/usr/lib'
+/usr/bin/install -c .libs/xdelta /<<PKGBUILDDIR>>/debian/tmp/usr/bin/xdelta
+make[4]: Leaving directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+Making install in test
+make[3]: Entering directory '/<<PKGBUILDDIR>>/test'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/test'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/test'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/test'
+Making install in doc
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[4]: Nothing to be done for 'install-exec-am'.
+test -z "/usr/share/man/man1" || /bin/mkdir -p "/<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man1"
+ /usr/bin/install -c -m 644 './xdelta.1' '/<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man1/xdelta.1'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+Making install in djgpp
+make[3]: Entering directory '/<<PKGBUILDDIR>>/djgpp'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/djgpp'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/djgpp'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/djgpp'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+dh_install --sourcedir=debian/tmp --list-missing
+dh_install: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_install: Please use dh_missing --list-missing/--fail-missing instead
+dh_install: This feature will be removed in compat 12.
+dh_missing: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_missing: usr/share/man/man1/xdelta.1 exists in debian/tmp but is not installed to anywhere
+dh_missing: usr/share/aclocal/xdelta.m4 exists in debian/tmp but is not installed to anywhere
+	The following debhelper tools have reported what they installed (with files per package)
+	 * dh_install: libxdelta2 (4), libxdelta2-dev (11), xdelta (1)
+	If the missing files are installed by another tool, please file a bug against it.
+	When filing the report, if the tool is not part of debhelper itself, please reference the
+	"Logging helpers and dh_missing" section from the "PROGRAMMING" guide for debhelper (10.6.3+).
+	  (in the debhelper package: /usr/share/doc/debhelper/PROGRAMMING.gz)
+	Be sure to test with dpkg-buildpackage -A/-B as the results may vary when only a subset is built
+	For a short-term work-around: Add the files to debian/not-installed
+dh_testdir -a
+dh_testroot -a
+dh_installchangelogs -a
+dh_installchangelogs: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_installdocs -a
+dh_installdocs: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_installmenu -a
+dh_installman -a
+dh_installman: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_link -a
+dh_makeshlibs -a -V
+dh_makeshlibs: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_makeshlibs: The provided debian/libxdelta2.shlibs file overwrites -V
+dh_strip -a
+dh_strip: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_strip: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_strip: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_compress -a
+dh_compress: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_compress: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_compress: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_fixperms -a
+dh_installdeb -a
+dh_installdeb: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_shlibdeps -a
+dh_shlibdeps: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_shlibdeps: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_shlibdeps: Compatibility levels before 9 are deprecated (level 5 in use)
+dpkg-shlibdeps: warning: symbol serializeio_print_bytes used by debian/libxdelta2/usr/lib/libxdelta.so.2.0.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol eventdelivery_initialize_event_def used by debian/libxdelta2/usr/lib/libxdelta.so.2.0.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol edsio_library_register used by debian/libxdelta2/usr/lib/libxdelta.so.2.0.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol eventdelivery_event_deliver used by debian/libxdelta2/usr/lib/libxdelta.so.2.0.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol eventdelivery_int_to_string used by debian/libxdelta2/usr/lib/libxdelta.so.2.0.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol handle_sink used by debian/libxdelta2/usr/lib/libxdelta.so.2.0.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol serializeio_initialize_type used by debian/libxdelta2/usr/lib/libxdelta.so.2.0.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol eventdelivery_string_to_string used by debian/libxdelta2/usr/lib/libxdelta.so.2.0.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol serializeio_unserialize_generic_acceptable used by debian/libxdelta2/usr/lib/libxdelta.so.2.0.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol serializeio_source_object_received used by debian/libxdelta2/usr/lib/libxdelta.so.2.0.0 found in none of the libraries
+dpkg-shlibdeps: warning: 4 other similar warnings have been skipped (use -v to see them all)
+dh_gencontrol -a
+dh_md5sums -a
+dh_builddeb -a
+dpkg-deb: building package 'xdelta-dbgsym' in '../xdelta-dbgsym_1.1.3-9.3_armhf.deb'.
+dpkg-deb: building package 'xdelta' in '../xdelta_1.1.3-9.3_armhf.deb'.
+dpkg-deb: building package 'libxdelta2-dbgsym' in '../libxdelta2-dbgsym_1.1.3-9.3_armhf.deb'.
+dpkg-deb: building package 'libxdelta2' in '../libxdelta2_1.1.3-9.3_armhf.deb'.
+dpkg-deb: building package 'libxdelta2-dev' in '../libxdelta2-dev_1.1.3-9.3_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../xdelta_1.1.3-9.3_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-08-24T11:52:02Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+xdelta_1.1.3-9.3_armhf.changes:
+-------------------------------
+
+Format: 1.8
+Date: Sun, 10 Jun 2018 11:32:30 +0200
+Source: xdelta
+Binary: libxdelta2 libxdelta2-dbgsym libxdelta2-dev xdelta xdelta-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 1.1.3-9.3
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: LaMont Jones <lamont@debian.org>
+Changed-By: Helmut Grohne <helmut@subdivi.de>
+Description:
+ libxdelta2 - Xdelta runtime library
+ libxdelta2-dev - Xdelta development files
+ xdelta     - A diff utility which works with binary files
+Closes: 901227
+Changes:
+ xdelta (1.1.3-9.3) unstable; urgency=medium
+ .
+   * Non-maintainer upload.
+   * Move xdelta-config libxdelta2-dev. (Closes: #901227)
+Checksums-Sha1:
+ 2511e01a4a56ca45385987f59e39fe7ad397976d 152956 libxdelta2-dbgsym_1.1.3-9.3_armhf.deb
+ 83f4ae36f85fbe5813655038eb15646fd918951f 52316 libxdelta2-dev_1.1.3-9.3_armhf.deb
+ 2be8ac7d286d954971517629fd6b0701be606d62 40384 libxdelta2_1.1.3-9.3_armhf.deb
+ 5de862d39490eeea8fa2a8026395563e69f3666c 32176 xdelta-dbgsym_1.1.3-9.3_armhf.deb
+ 0dcbf97a52df4497896514614aa34590cf226a4a 6591 xdelta_1.1.3-9.3_armhf.buildinfo
+ 28ad71797d1063fee850750e4c602c6ee264bf62 24248 xdelta_1.1.3-9.3_armhf.deb
+Checksums-Sha256:
+ c6bbbad9f84c259bf4f89aec7f495f2e03a24fd648ddc97c84c2722180184ac1 152956 libxdelta2-dbgsym_1.1.3-9.3_armhf.deb
+ 4dc26aafd9442405db8bd832554af33d4f1a5fdb6bf21afa5283e43fc2fc31a7 52316 libxdelta2-dev_1.1.3-9.3_armhf.deb
+ 3d9e8b845dd52b64e0174beeb7c82768ce1bc95c941897a668c75e6d7060f832 40384 libxdelta2_1.1.3-9.3_armhf.deb
+ f8eb1958f2e18708a0aceebda0ecdf26af05f12a5a366b0f3bfe39f2c36e3f7c 32176 xdelta-dbgsym_1.1.3-9.3_armhf.deb
+ f88d0e97c989a8b5ae5f6d3b2f564526f7390c904982f3bb72668b2a0b422039 6591 xdelta_1.1.3-9.3_armhf.buildinfo
+ 5286f4b6f373d7b484debff0c262a7996320f717c48c3c4d36057a298d576445 24248 xdelta_1.1.3-9.3_armhf.deb
+Files:
+ aa189102deacde35a88a00d1afc68040 152956 debug optional libxdelta2-dbgsym_1.1.3-9.3_armhf.deb
+ 3622661add86e0bfae074235b034aa03 52316 libdevel extra libxdelta2-dev_1.1.3-9.3_armhf.deb
+ 551b26726c32a0951db3ea3c619a62b9 40384 libs optional libxdelta2_1.1.3-9.3_armhf.deb
+ ea75ec20abf8575e4966508f122a3ccb 32176 debug optional xdelta-dbgsym_1.1.3-9.3_armhf.deb
+ b6aefed1be0179210e85f85079eadedb 6591 utils optional xdelta_1.1.3-9.3_armhf.buildinfo
+ f75ebbc1166b46739d6ec38e58ad92a9 24248 utils optional xdelta_1.1.3-9.3_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: xdelta
+Binary: xdelta libxdelta2 libxdelta2-dev
+Architecture: armhf
+Version: 1.1.3-9.3
+Checksums-Md5:
+ aa189102deacde35a88a00d1afc68040 152956 libxdelta2-dbgsym_1.1.3-9.3_armhf.deb
+ 3622661add86e0bfae074235b034aa03 52316 libxdelta2-dev_1.1.3-9.3_armhf.deb
+ 551b26726c32a0951db3ea3c619a62b9 40384 libxdelta2_1.1.3-9.3_armhf.deb
+ ea75ec20abf8575e4966508f122a3ccb 32176 xdelta-dbgsym_1.1.3-9.3_armhf.deb
+ f75ebbc1166b46739d6ec38e58ad92a9 24248 xdelta_1.1.3-9.3_armhf.deb
+Checksums-Sha1:
+ 2511e01a4a56ca45385987f59e39fe7ad397976d 152956 libxdelta2-dbgsym_1.1.3-9.3_armhf.deb
+ 83f4ae36f85fbe5813655038eb15646fd918951f 52316 libxdelta2-dev_1.1.3-9.3_armhf.deb
+ 2be8ac7d286d954971517629fd6b0701be606d62 40384 libxdelta2_1.1.3-9.3_armhf.deb
+ 5de862d39490eeea8fa2a8026395563e69f3666c 32176 xdelta-dbgsym_1.1.3-9.3_armhf.deb
+ 28ad71797d1063fee850750e4c602c6ee264bf62 24248 xdelta_1.1.3-9.3_armhf.deb
+Checksums-Sha256:
+ c6bbbad9f84c259bf4f89aec7f495f2e03a24fd648ddc97c84c2722180184ac1 152956 libxdelta2-dbgsym_1.1.3-9.3_armhf.deb
+ 4dc26aafd9442405db8bd832554af33d4f1a5fdb6bf21afa5283e43fc2fc31a7 52316 libxdelta2-dev_1.1.3-9.3_armhf.deb
+ 3d9e8b845dd52b64e0174beeb7c82768ce1bc95c941897a668c75e6d7060f832 40384 libxdelta2_1.1.3-9.3_armhf.deb
+ f8eb1958f2e18708a0aceebda0ecdf26af05f12a5a366b0f3bfe39f2c36e3f7c 32176 xdelta-dbgsym_1.1.3-9.3_armhf.deb
+ 5286f4b6f373d7b484debff0c262a7996320f717c48c3c4d36057a298d576445 24248 xdelta_1.1.3-9.3_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Sat, 24 Aug 2019 11:52:01 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 11),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-4),
+ binutils (= 2.32.51.20190821-2),
+ binutils-common (= 2.32.51.20190821-2),
+ binutils-x86-64-linux-gnu (= 2.32.51.20190821-2),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.34-0.1),
+ build-essential (= 12.6),
+ bzip2 (= 1.0.6-9.2),
+ coreutils (= 8.30-3+b1),
+ cpp (= 4:9.2.1-3),
+ cpp-8 (= 8.3.0-21),
+ cpp-9 (= 9.2.1-4),
+ dash (= 0.5.10.2-6),
+ debconf (= 1.5.73),
+ debhelper (= 12.5.3),
+ debianutils (= 4.8.6.3),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.5.0-1),
+ diffutils (= 1:3.7-3),
+ dpkg (= 1.19.7),
+ dpkg-dev (= 1.19.7),
+ dwz (= 0.13-1),
+ fdisk (= 2.34-0.1),
+ file (= 1:5.37-5),
+ findutils (= 4.6.0+git+20190510-2),
+ g++ (= 4:9.2.1-3),
+ g++-9 (= 9.2.1-4),
+ gcc (= 4:9.2.1-3),
+ gcc-8 (= 8.3.0-21),
+ gcc-8-base (= 8.3.0-21),
+ gcc-9 (= 9.2.1-4),
+ gcc-9-base (= 9.2.1-4),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-3),
+ gzip (= 1.9-3+b1),
+ hostname (= 3.21),
+ init-system-helpers (= 1.57),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.53-4),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 9.2.1-4),
+ libatomic1 (= 9.2.1-4),
+ libattr1 (= 1:2.4.48-4),
+ libaudit-common (= 1:2.8.5-2),
+ libaudit1 (= 1:2.8.5-2),
+ libbinutils (= 2.32.51.20190821-2),
+ libblkid-dev (= 2.34-0.1),
+ libblkid1 (= 2.34-0.1),
+ libbsd0 (= 0.10.0-1),
+ libbz2-1.0 (= 1.0.6-9.2),
+ libc-bin (= 2.28-10),
+ libc-dev-bin (= 2.28-10),
+ libc6 (= 2.28-10),
+ libc6-dev (= 2.28-10),
+ libcap-ng0 (= 0.7.9-2+b1),
+ libcc1-0 (= 9.2.1-4),
+ libcroco3 (= 0.6.13-1),
+ libdb5.3 (= 5.3.28+dfsg1-0.6),
+ libdebconfclient0 (= 0.249),
+ libdpkg-perl (= 1.19.7),
+ libelf1 (= 0.176-1.1),
+ libexpat1 (= 2.2.7-1),
+ libfdisk1 (= 2.34-0.1),
+ libffi-dev (= 3.2.1-9),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.5.0-1),
+ libgcc-8-dev (= 8.3.0-21),
+ libgcc-9-dev (= 9.2.1-4),
+ libgcc1 (= 1:9.2.1-4),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-5),
+ libgdbm6 (= 1.18.1-5),
+ libglib2.0-0 (= 2.60.6-2),
+ libglib2.0-bin (= 2.60.6-2),
+ libglib2.0-data (= 2.60.6-2),
+ libglib2.0-dev (= 2.60.6-2),
+ libglib2.0-dev-bin (= 2.60.6-2),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 9.2.1-4),
+ libgpg-error0 (= 1.36-7),
+ libicu63 (= 63.2-2),
+ libisl19 (= 0.20-2),
+ libitm1 (= 9.2.1-4),
+ liblsan0 (= 9.2.1-4),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.37-5),
+ libmagic1 (= 1:5.37-5),
+ libmount-dev (= 2.34-0.1),
+ libmount1 (= 2.34-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpdec2 (= 2.4.2-2),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-21),
+ libncurses6 (= 6.1+20190803-1),
+ libncursesw6 (= 6.1+20190803-1),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre16-3 (= 2:8.39-12+b1),
+ libpcre2-16-0 (= 10.32-5+b1),
+ libpcre2-32-0 (= 10.32-5+b1),
+ libpcre2-8-0 (= 10.32-5+b1),
+ libpcre2-dev (= 10.32-5+b1),
+ libpcre2-posix0 (= 10.32-5+b1),
+ libpcre3 (= 2:8.39-12+b1),
+ libpcre3-dev (= 2:8.39-12+b1),
+ libpcre32-3 (= 2:8.39-12+b1),
+ libpcrecpp0v5 (= 2:8.39-12+b1),
+ libperl5.28 (= 5.28.1-6),
+ libpipeline1 (= 1.5.1-2),
+ libpython3-stdlib (= 3.7.3-1),
+ libpython3.7-minimal (= 3.7.4-3),
+ libpython3.7-stdlib (= 3.7.4-3),
+ libquadmath0 (= 9.2.1-4),
+ libreadline8 (= 8.0-3),
+ libseccomp2 (= 2.4.1-2),
+ libselinux1 (= 2.9-2+b2),
+ libselinux1-dev (= 2.9-2+b2),
+ libsepol1 (= 2.9-2+b2),
+ libsepol1-dev (= 2.9-2+b2),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.34-0.1),
+ libsqlite3-0 (= 3.29.0-2),
+ libssl1.1 (= 1.1.1c-1),
+ libstdc++-9-dev (= 9.2.1-4),
+ libstdc++6 (= 9.2.1-4),
+ libsub-override-perl (= 0.09-2),
+ libsystemd0 (= 242-4),
+ libtinfo6 (= 6.1+20190803-1),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 9.2.1-4),
+ libubsan1 (= 9.2.1-4),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 242-4),
+ libunistring2 (= 0.9.10-2),
+ libuuid1 (= 2.34-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 5.2.9-2),
+ login (= 1:4.7-2),
+ lsb-base (= 11.1.0),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.6.1-2),
+ mawk (= 1.3.3-17+b3),
+ mime-support (= 3.63),
+ ncurses-base (= 6.1+20190803-1),
+ ncurses-bin (= 6.1+20190803-1),
+ patch (= 2.7.6-6),
+ perl (= 5.28.1-6),
+ perl-base (= 5.28.1-6),
+ perl-modules-5.28 (= 5.28.1-6),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ python3 (= 3.7.3-1),
+ python3-distutils (= 3.7.4-3),
+ python3-lib2to3 (= 3.7.4-3),
+ python3-minimal (= 3.7.3-1),
+ python3.7 (= 3.7.4-3),
+ python3.7-minimal (= 3.7.4-3),
+ readline-common (= 8.0-3),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.95-6),
+ tar (= 1.30+dfsg-6+b1),
+ util-linux (= 2.34-0.1),
+ uuid-dev (= 2.34-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1+b1),
+ zlib1g-dev (= 1:1.2.11.dfsg-1+b1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1528623150"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+libxdelta2-dbgsym_1.1.3-9.3_armhf.deb
+-------------------------------------
+
+ new Debian package, version 2.0.
+ size 152956 bytes: control archive=584 bytes.
+     383 bytes,    12 lines      control              
+     212 bytes,     2 lines      md5sums              
+ Package: libxdelta2-dbgsym
+ Source: xdelta
+ Version: 1.1.3-9.3
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: LaMont Jones <lamont@debian.org>
+ Installed-Size: 188
+ Depends: libxdelta2 (= 1.1.3-9.3)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for libxdelta2
+ Build-Ids: 28533151e5a96cc4c317a51b723eb5ae60136d78 ee252650482c48750c07bc958c13941fd3bde8f7
+
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/lib/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/lib/debug/.build-id/28/
+-rw-r--r-- root/root    113040 2018-06-10 09:32 ./usr/lib/debug/.build-id/28/533151e5a96cc4c317a51b723eb5ae60136d78.debug
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/lib/debug/.build-id/ee/
+-rw-r--r-- root/root     67492 2018-06-10 09:32 ./usr/lib/debug/.build-id/ee/252650482c48750c07bc958c13941fd3bde8f7.debug
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2018-06-10 09:32 ./usr/share/doc/libxdelta2-dbgsym -> libxdelta2
+
+
+libxdelta2-dev_1.1.3-9.3_armhf.deb
+----------------------------------
+
+ new Debian package, version 2.0.
+ size 52316 bytes: control archive=1100 bytes.
+     907 bytes,    22 lines      control              
+     654 bytes,    11 lines      md5sums              
+ Package: libxdelta2-dev
+ Source: xdelta
+ Version: 1.1.3-9.3
+ Architecture: armhf
+ Maintainer: LaMont Jones <lamont@debian.org>
+ Installed-Size: 201
+ Depends: libxdelta2 (= 1.1.3-9.3)
+ Conflicts: libxdelta0-dev, libxdelta1-dev
+ Breaks: xdelta (<< 1.1.3-9.3~)
+ Replaces: xdelta (<< 1.1.3-9.3~), xdelta-dev
+ Section: libdevel
+ Priority: extra
+ Description: Xdelta development files
+  Xdelta is an application program designed to compute changes between
+  files.  These changes (deltas) are similar to the output of the
+  "diff" program in that they may be used to store and transmit only the
+  changes between files.  However, unlike diff, the output of Xdelta is
+  not expressed in a human-readable format--Xdelta can also apply
+  these deltas to a copy of the original file.  Xdelta uses a fast,
+  linear algorithm and performs well on both binary and text files.
+  .
+  This is are the development files for the runtime library.
+
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/bin/
+-rwxr-xr-x root/root      1976 2018-06-10 09:32 ./usr/bin/xdelta-config
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/include/
+-rw-r--r-- root/root     18670 2018-06-10 09:32 ./usr/include/edsio.h
+-rw-r--r-- root/root     17007 2018-06-10 09:32 ./usr/include/edsio_edsio.h
+-rw-r--r-- root/root     20347 2018-06-10 09:32 ./usr/include/xd_edsio.h
+-rw-r--r-- root/root      7113 2018-06-10 09:32 ./usr/include/xdelta.h
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/lib/
+-rw-r--r-- root/root     77932 2018-06-10 09:32 ./usr/lib/libedsio.a
+-rw-r--r-- root/root       858 2018-06-10 09:32 ./usr/lib/libedsio.la
+lrwxrwxrwx root/root         0 2018-06-10 09:32 ./usr/lib/libedsio.so -> libedsio.so.0.0.0
+-rw-r--r-- root/root     41598 2018-06-10 09:32 ./usr/lib/libxdelta.a
+-rw-r--r-- root/root       865 2018-06-10 09:32 ./usr/lib/libxdelta.la
+lrwxrwxrwx root/root         0 2018-06-10 09:32 ./usr/lib/libxdelta.so -> libxdelta.so.2.0.0
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/doc/libxdelta2-dev/
+-rw-r--r-- root/root      2607 2018-06-10 09:32 ./usr/share/doc/libxdelta2-dev/changelog.Debian.gz
+-rw-r--r-- root/root      1199 2018-06-10 09:32 ./usr/share/doc/libxdelta2-dev/copyright
+
+
+libxdelta2_1.1.3-9.3_armhf.deb
+------------------------------
+
+ new Debian package, version 2.0.
+ size 40384 bytes: control archive=1016 bytes.
+     768 bytes,    19 lines      control              
+     269 bytes,     4 lines      md5sums              
+      20 bytes,     5 lines   *  postinst             #!/bin/sh
+      67 bytes,     2 lines      shlibs               
+      67 bytes,     2 lines      triggers             
+ Package: libxdelta2
+ Source: xdelta
+ Version: 1.1.3-9.3
+ Architecture: armhf
+ Maintainer: LaMont Jones <lamont@debian.org>
+ Installed-Size: 102
+ Depends: libc6 (>= 2.4), libglib2.0-0 (>= 2.24.0)
+ Section: libs
+ Priority: optional
+ Description: Xdelta runtime library
+  Xdelta is an application program designed to compute changes between
+  files.  These changes (deltas) are similar to the output of the
+  "diff" program in that they may be used to store and transmit only the
+  changes between files.  However, unlike diff, the output of Xdelta is
+  not expressed in a human-readable format--Xdelta can also apply
+  these deltas to a copy of the original file.  Xdelta uses a fast,
+  linear algorithm and performs well on both binary and text files.
+  .
+  This is the runtime library.
+
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/lib/
+lrwxrwxrwx root/root         0 2018-06-10 09:32 ./usr/lib/libedsio.so.0 -> libedsio.so.0.0.0
+-rw-r--r-- root/root     51448 2018-06-10 09:32 ./usr/lib/libedsio.so.0.0.0
+lrwxrwxrwx root/root         0 2018-06-10 09:32 ./usr/lib/libxdelta.so.2 -> libxdelta.so.2.0.0
+-rw-r--r-- root/root     34728 2018-06-10 09:32 ./usr/lib/libxdelta.so.2.0.0
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/doc/libxdelta2/
+-rw-r--r-- root/root      2607 2018-06-10 09:32 ./usr/share/doc/libxdelta2/changelog.Debian.gz
+-rw-r--r-- root/root      1199 2018-06-10 09:32 ./usr/share/doc/libxdelta2/copyright
+
+
+xdelta-dbgsym_1.1.3-9.3_armhf.deb
+---------------------------------
+
+ new Debian package, version 2.0.
+ size 32176 bytes: control archive=516 bytes.
+     329 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: xdelta-dbgsym
+ Source: xdelta
+ Version: 1.1.3-9.3
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: LaMont Jones <lamont@debian.org>
+ Installed-Size: 48
+ Depends: xdelta (= 1.1.3-9.3)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for xdelta
+ Build-Ids: 4a9eb19900e6fd8f6bebf601c1f6ce6a6ea6369b
+
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/lib/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/lib/debug/.build-id/4a/
+-rw-r--r-- root/root     38440 2018-06-10 09:32 ./usr/lib/debug/.build-id/4a/9eb19900e6fd8f6bebf601c1f6ce6a6ea6369b.debug
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2018-06-10 09:32 ./usr/share/doc/xdelta-dbgsym -> xdelta
+
+
+xdelta_1.1.3-9.3_armhf.deb
+--------------------------
+
+ new Debian package, version 2.0.
+ size 24248 bytes: control archive=988 bytes.
+     782 bytes,    16 lines      control              
+     517 bytes,     8 lines      md5sums              
+ Package: xdelta
+ Version: 1.1.3-9.3
+ Architecture: armhf
+ Maintainer: LaMont Jones <lamont@debian.org>
+ Installed-Size: 48
+ Depends: libc6 (>= 2.4), libglib2.0-0 (>= 2.16.0), libxdelta2 (>= 1.1.3), zlib1g (>= 1:1.1.4)
+ Section: utils
+ Priority: optional
+ Description: A diff utility which works with binary files
+  Xdelta is an application program designed to compute changes between
+  files.  These changes (deltas) are similar to the output of the
+  "diff" program in that they may be used to store and transmit only the
+  changes between files.  However, unlike diff, the output of Xdelta is
+  not expressed in a human-readable format--Xdelta can also apply
+  these deltas to a copy of the original file.  Xdelta uses a fast,
+  linear algorithm and performs well on both binary and text files.
+
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/bin/
+-rwxr-xr-x root/root     22380 2018-06-10 09:32 ./usr/bin/xdelta
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/doc/xdelta/
+-rw-r--r-- root/root       166 2001-06-24 07:27 ./usr/share/doc/xdelta/AUTHORS
+-rw-r--r-- root/root      3652 2001-09-24 07:03 ./usr/share/doc/xdelta/NEWS.gz
+-rw-r--r-- root/root      2834 2001-06-29 11:49 ./usr/share/doc/xdelta/README.gz
+-rw-r--r-- root/root      2607 2018-06-10 09:32 ./usr/share/doc/xdelta/changelog.Debian.gz
+-rw-r--r-- root/root      1199 2018-06-10 09:32 ./usr/share/doc/xdelta/copyright
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-06-10 09:32 ./usr/share/man/man1/
+-rw-r--r-- root/root       906 2018-06-10 09:32 ./usr/share/man/man1/xdelta-config.1.gz
+-rw-r--r-- root/root      2280 2018-06-10 09:32 ./usr/share/man/man1/xdelta.1.gz
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [545 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [632 B]
+Fetched 2140 B in 0s (138 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libb-hooks-op-check-perl libcapture-tiny-perl
+  libcgi-pm-perl libclass-accessor-perl libclass-method-modifiers-perl
+  libclone-perl libdevel-callchecker-perl libdevel-globaldestruction-perl
+  libdigest-hmac-perl libdynaloader-functions-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfile-find-rule-perl
+  libfuture-perl libhtml-parser-perl libhtml-tagset-perl libimport-into-perl
+  libio-async-loop-epoll-perl libio-async-perl libio-pty-perl
+  libio-socket-ssl-perl libipc-run-perl libipc-system-simple-perl
+  liblinux-epoll-perl liblist-compare-perl liblist-moreutils-perl
+  libmailtools-perl libmodule-runtime-perl libmoo-perl libnet-dns-perl
+  libnet-domain-tld-perl libnet-ip-perl libnet-smtp-ssl-perl
+  libnet-ssleay-perl libnumber-compare-perl libparams-classify-perl
+  libpath-tiny-perl librole-tiny-perl libstrictures-perl libstruct-dumb-perl
+  libsub-exporter-progressive-perl libsub-name-perl libsub-quote-perl
+  libtext-glob-perl libtext-levenshtein-perl libtimedate-perl libtry-tiny-perl
+  libtype-tiny-perl liburi-perl libyaml-0-2 libyaml-libyaml-perl lintian
+  netbase patchutils perl-openssl-defaults t1utils
+Suggested packages:
+  libdata-dump-perl ca-certificates libscalar-number-perl
+  libbareword-filehandles-perl libindirect-perl libmultidimensional-perl
+  libdevel-lexalias-perl libdevel-stacktrace-perl libwww-perl
+  binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libhttp-message-perl libasync-mergepoint-perl
+  libsereal-perl libtest-fatal-perl libtest-refcount-perl
+  libclass-xsaccessor-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libauthen-sasl-perl libunicode-utf8-perl libref-util-perl
+  libtype-tiny-xs-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libb-hooks-op-check-perl libcapture-tiny-perl
+  libcgi-pm-perl libclass-accessor-perl libclass-method-modifiers-perl
+  libclone-perl libdevel-callchecker-perl libdevel-globaldestruction-perl
+  libdigest-hmac-perl libdynaloader-functions-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfile-find-rule-perl
+  libfuture-perl libhtml-parser-perl libhtml-tagset-perl libimport-into-perl
+  libio-async-loop-epoll-perl libio-async-perl libio-pty-perl
+  libio-socket-ssl-perl libipc-run-perl libipc-system-simple-perl
+  liblinux-epoll-perl liblist-compare-perl liblist-moreutils-perl
+  libmailtools-perl libmodule-runtime-perl libmoo-perl libnet-dns-perl
+  libnet-domain-tld-perl libnet-ip-perl libnet-smtp-ssl-perl
+  libnet-ssleay-perl libnumber-compare-perl libparams-classify-perl
+  libpath-tiny-perl librole-tiny-perl libstrictures-perl libstruct-dumb-perl
+  libsub-exporter-progressive-perl libsub-name-perl libsub-quote-perl
+  libtext-glob-perl libtext-levenshtein-perl libtimedate-perl libtry-tiny-perl
+  libtype-tiny-perl liburi-perl libyaml-0-2 libyaml-libyaml-perl lintian
+  netbase patchutils perl-openssl-defaults
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 60 newly installed, 0 to remove and 0 not upgraded.
+Need to get 4352 kB/4651 kB of archives.
+After this operation, 15.3 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 diffstat amd64 1.62-1+b1 [33.6 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libapt-pkg-perl amd64 0.1.36+b1 [71.2 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libb-hooks-op-check-perl amd64 0.22-1+b1 [11.4 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libcgi-pm-perl all 4.44-1 [223 kB]
+Get:7 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:9 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libclass-method-modifiers-perl all 2.13-1 [19.2 kB]
+Get:10 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:11 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libdynaloader-functions-perl all 0.003-1 [12.6 kB]
+Get:12 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libdevel-callchecker-perl amd64 0.008-1 [15.7 kB]
+Get:13 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libsub-exporter-progressive-perl all 0.001013-1 [7588 B]
+Get:14 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libdevel-globaldestruction-perl all 0.14-1 [8084 B]
+Get:15 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:16 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libnet-ssleay-perl amd64 1.88-1 [320 kB]
+Get:17 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libio-socket-ssl-perl all 2.066-1 [210 kB]
+Get:18 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libnet-smtp-ssl-perl all 1.04-1 [6184 B]
+Get:19 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libmailtools-perl all 2.21-1 [95.5 kB]
+Get:20 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:21 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libnet-dns-perl all 1.20-1 [367 kB]
+Get:22 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:23 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:24 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:25 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:26 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:27 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libnumber-compare-perl all 0.03-1 [7642 B]
+Get:28 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libtext-glob-perl all 0.10-1 [8362 B]
+Get:29 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libfile-find-rule-perl all 0.34-1 [30.6 kB]
+Get:30 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libfuture-perl all 0.41-1 [79.0 kB]
+Get:31 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libparams-classify-perl amd64 0.015-1+b1 [25.5 kB]
+Get:32 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libmodule-runtime-perl all 0.016-1 [19.4 kB]
+Get:33 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libimport-into-perl all 1.002005-1 [11.6 kB]
+Get:34 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:35 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libio-async-perl all 0.74-1 [268 kB]
+Get:36 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 liblinux-epoll-perl amd64 0.016-1+b1 [17.0 kB]
+Get:37 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libio-async-loop-epoll-perl all 0.20-1 [11.9 kB]
+Get:38 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:39 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:40 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 liblist-compare-perl all 0.53-1 [68.9 kB]
+Get:41 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:42 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 librole-tiny-perl all 2.000006-1 [19.4 kB]
+Get:43 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libstrictures-perl all 2.000006-1 [18.6 kB]
+Get:44 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libsub-quote-perl all 2.006003-1 [19.7 kB]
+Get:45 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libmoo-perl all 2.003004-2 [57.4 kB]
+Get:46 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:47 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:48 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libtype-tiny-perl all 1.004004-1 [266 kB]
+Get:49 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libyaml-0-2 amd64 0.2.1-1 [47.2 kB]
+Get:50 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libyaml-libyaml-perl amd64 0.79+repack-2 [34.0 kB]
+Get:51 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 patchutils amd64 0.3.4-2+b1 [91.4 kB]
+Get:52 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:53 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 lintian all 2.19.0 [1256 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 4352 kB in 10s (443 kB/s)
+Selecting previously unselected package netbase.
+(Reading database ... 21594 files and directories currently installed.)
+Preparing to unpack .../00-netbase_5.6_all.deb ...
+Unpacking netbase (5.6) ...
+Selecting previously unselected package diffstat.
+Preparing to unpack .../01-diffstat_1.62-1+b1_amd64.deb ...
+Unpacking diffstat (1.62-1+b1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../02-libapt-pkg-perl_0.1.36+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.36+b1) ...
+Selecting previously unselected package libb-hooks-op-check-perl.
+Preparing to unpack .../03-libb-hooks-op-check-perl_0.22-1+b1_amd64.deb ...
+Unpacking libb-hooks-op-check-perl (0.22-1+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../04-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libhtml-tagset-perl.
+Preparing to unpack .../05-libhtml-tagset-perl_3.20-3_all.deb ...
+Unpacking libhtml-tagset-perl (3.20-3) ...
+Selecting previously unselected package liburi-perl.
+Preparing to unpack .../06-liburi-perl_1.76-1_all.deb ...
+Unpacking liburi-perl (1.76-1) ...
+Selecting previously unselected package libhtml-parser-perl.
+Preparing to unpack .../07-libhtml-parser-perl_3.72-3+b3_amd64.deb ...
+Unpacking libhtml-parser-perl (3.72-3+b3) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../08-libcgi-pm-perl_4.44-1_all.deb ...
+Unpacking libcgi-pm-perl (4.44-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../09-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../10-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclass-method-modifiers-perl.
+Preparing to unpack .../11-libclass-method-modifiers-perl_2.13-1_all.deb ...
+Unpacking libclass-method-modifiers-perl (2.13-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../12-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdynaloader-functions-perl.
+Preparing to unpack .../13-libdynaloader-functions-perl_0.003-1_all.deb ...
+Unpacking libdynaloader-functions-perl (0.003-1) ...
+Selecting previously unselected package libdevel-callchecker-perl.
+Preparing to unpack .../14-libdevel-callchecker-perl_0.008-1_amd64.deb ...
+Unpacking libdevel-callchecker-perl (0.008-1) ...
+Selecting previously unselected package libsub-exporter-progressive-perl.
+Preparing to unpack .../15-libsub-exporter-progressive-perl_0.001013-1_all.deb ...
+Unpacking libsub-exporter-progressive-perl (0.001013-1) ...
+Selecting previously unselected package libdevel-globaldestruction-perl.
+Preparing to unpack .../16-libdevel-globaldestruction-perl_0.14-1_all.deb ...
+Unpacking libdevel-globaldestruction-perl (0.14-1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../17-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package perl-openssl-defaults:amd64.
+Preparing to unpack .../18-perl-openssl-defaults_3_amd64.deb ...
+Unpacking perl-openssl-defaults:amd64 (3) ...
+Selecting previously unselected package libnet-ssleay-perl.
+Preparing to unpack .../19-libnet-ssleay-perl_1.88-1_amd64.deb ...
+Unpacking libnet-ssleay-perl (1.88-1) ...
+Selecting previously unselected package libio-socket-ssl-perl.
+Preparing to unpack .../20-libio-socket-ssl-perl_2.066-1_all.deb ...
+Unpacking libio-socket-ssl-perl (2.066-1) ...
+Selecting previously unselected package libnet-smtp-ssl-perl.
+Preparing to unpack .../21-libnet-smtp-ssl-perl_1.04-1_all.deb ...
+Unpacking libnet-smtp-ssl-perl (1.04-1) ...
+Selecting previously unselected package libtimedate-perl.
+Preparing to unpack .../22-libtimedate-perl_2.3000-2_all.deb ...
+Unpacking libtimedate-perl (2.3000-2) ...
+Selecting previously unselected package libmailtools-perl.
+Preparing to unpack .../23-libmailtools-perl_2.21-1_all.deb ...
+Unpacking libmailtools-perl (2.21-1) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../24-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../25-libnet-dns-perl_1.20-1_all.deb ...
+Unpacking libnet-dns-perl (1.20-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../26-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../27-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../28-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../29-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../30-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libnumber-compare-perl.
+Preparing to unpack .../31-libnumber-compare-perl_0.03-1_all.deb ...
+Unpacking libnumber-compare-perl (0.03-1) ...
+Selecting previously unselected package libtext-glob-perl.
+Preparing to unpack .../32-libtext-glob-perl_0.10-1_all.deb ...
+Unpacking libtext-glob-perl (0.10-1) ...
+Selecting previously unselected package libfile-find-rule-perl.
+Preparing to unpack .../33-libfile-find-rule-perl_0.34-1_all.deb ...
+Unpacking libfile-find-rule-perl (0.34-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../34-libfuture-perl_0.41-1_all.deb ...
+Unpacking libfuture-perl (0.41-1) ...
+Selecting previously unselected package libparams-classify-perl.
+Preparing to unpack .../35-libparams-classify-perl_0.015-1+b1_amd64.deb ...
+Unpacking libparams-classify-perl (0.015-1+b1) ...
+Selecting previously unselected package libmodule-runtime-perl.
+Preparing to unpack .../36-libmodule-runtime-perl_0.016-1_all.deb ...
+Unpacking libmodule-runtime-perl (0.016-1) ...
+Selecting previously unselected package libimport-into-perl.
+Preparing to unpack .../37-libimport-into-perl_1.002005-1_all.deb ...
+Unpacking libimport-into-perl (1.002005-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../38-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../39-libio-async-perl_0.74-1_all.deb ...
+Unpacking libio-async-perl (0.74-1) ...
+Selecting previously unselected package liblinux-epoll-perl.
+Preparing to unpack .../40-liblinux-epoll-perl_0.016-1+b1_amd64.deb ...
+Unpacking liblinux-epoll-perl (0.016-1+b1) ...
+Selecting previously unselected package libio-async-loop-epoll-perl.
+Preparing to unpack .../41-libio-async-loop-epoll-perl_0.20-1_all.deb ...
+Unpacking libio-async-loop-epoll-perl (0.20-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../42-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../43-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-compare-perl.
+Preparing to unpack .../44-liblist-compare-perl_0.53-1_all.deb ...
+Unpacking liblist-compare-perl (0.53-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../45-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package librole-tiny-perl.
+Preparing to unpack .../46-librole-tiny-perl_2.000006-1_all.deb ...
+Unpacking librole-tiny-perl (2.000006-1) ...
+Selecting previously unselected package libstrictures-perl.
+Preparing to unpack .../47-libstrictures-perl_2.000006-1_all.deb ...
+Unpacking libstrictures-perl (2.000006-1) ...
+Selecting previously unselected package libsub-quote-perl.
+Preparing to unpack .../48-libsub-quote-perl_2.006003-1_all.deb ...
+Unpacking libsub-quote-perl (2.006003-1) ...
+Selecting previously unselected package libmoo-perl.
+Preparing to unpack .../49-libmoo-perl_2.003004-2_all.deb ...
+Unpacking libmoo-perl (2.003004-2) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../50-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../51-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package libtry-tiny-perl.
+Preparing to unpack .../52-libtry-tiny-perl_0.30-1_all.deb ...
+Unpacking libtry-tiny-perl (0.30-1) ...
+Selecting previously unselected package libtype-tiny-perl.
+Preparing to unpack .../53-libtype-tiny-perl_1.004004-1_all.deb ...
+Unpacking libtype-tiny-perl (1.004004-1) ...
+Selecting previously unselected package libyaml-0-2:amd64.
+Preparing to unpack .../54-libyaml-0-2_0.2.1-1_amd64.deb ...
+Unpacking libyaml-0-2:amd64 (0.2.1-1) ...
+Selecting previously unselected package libyaml-libyaml-perl.
+Preparing to unpack .../55-libyaml-libyaml-perl_0.79+repack-2_amd64.deb ...
+Unpacking libyaml-libyaml-perl (0.79+repack-2) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../56-patchutils_0.3.4-2+b1_amd64.deb ...
+Unpacking patchutils (0.3.4-2+b1) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../57-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../58-lintian_2.19.0_all.deb ...
+Unpacking lintian (2.19.0) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../59-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.36+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libdynaloader-functions-perl (0.003-1) ...
+Setting up libtext-glob-perl (0.10-1) ...
+Setting up libclass-method-modifiers-perl (2.13-1) ...
+Setting up liblist-compare-perl (0.53-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libyaml-0-2:amd64 (0.2.1-1) ...
+Setting up libhtml-tagset-perl (3.20-3) ...
+Setting up libfuture-perl (0.41-1) ...
+Setting up libyaml-libyaml-perl (0.79+repack-2) ...
+Setting up libtry-tiny-perl (0.30-1) ...
+Setting up perl-openssl-defaults:amd64 (3) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libnumber-compare-perl (0.03-1) ...
+Setting up libio-async-perl (0.74-1) ...
+Setting up patchutils (0.3.4-2+b1) ...
+Setting up libfile-find-rule-perl (0.34-1) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up liblinux-epoll-perl (0.016-1+b1) ...
+Setting up diffstat (1.62-1+b1) ...
+Setting up libb-hooks-op-check-perl (0.22-1+b1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libsub-exporter-progressive-perl (0.001013-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libtimedate-perl (2.3000-2) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up librole-tiny-perl (2.000006-1) ...
+Setting up libdevel-globaldestruction-perl (0.14-1) ...
+Setting up netbase (5.6) ...
+Setting up libstrictures-perl (2.000006-1) ...
+Setting up libsub-quote-perl (2.006003-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up liburi-perl (1.76-1) ...
+Setting up libnet-ssleay-perl (1.88-1) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libtype-tiny-perl (1.004004-1) ...
+Setting up libnet-dns-perl (1.20-1) ...
+Setting up libdevel-callchecker-perl (0.008-1) ...
+Setting up libio-async-loop-epoll-perl (0.20-1) ...
+Setting up libhtml-parser-perl (3.72-3+b3) ...
+Setting up libio-socket-ssl-perl (2.066-1) ...
+Setting up libparams-classify-perl (0.015-1+b1) ...
+Setting up libcgi-pm-perl (4.44-1) ...
+Setting up libnet-smtp-ssl-perl (1.04-1) ...
+Setting up libmodule-runtime-perl (0.016-1) ...
+Setting up libmailtools-perl (2.21-1) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up libimport-into-perl (1.002005-1) ...
+Setting up libmoo-perl (2.003004-2) ...
+Setting up lintian (2.19.0) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.6.1-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Processing triggers for libc-bin (2.28-10) ...
+W: xdelta source: ancient-libtool ltconfig
+W: xdelta source: package-uses-deprecated-debhelper-compat-version 5
+W: xdelta source: dh-clean-k-is-deprecated
+W: xdelta source: missing-debian-source-format
+W: xdelta source: vcs-obsolete-in-debian-infrastructure vcs-browser http://git.debian.org/?p=users/lamont/xdelta.git
+W: xdelta source: vcs-git-uses-invalid-user-uri git://git.debian.org/~lamont/xdelta.git https://anonscm.debian.org/git/users/lamont/xdelta.git
+W: xdelta source: vcs-obsolete-in-debian-infrastructure vcs-git git://git.debian.org/~lamont/xdelta.git
+W: xdelta source: debian-rules-missing-recommended-target build-arch
+W: xdelta source: debian-rules-missing-recommended-target build-indep
+W: xdelta source: debian-rules-should-not-set-CFLAGS-from-noopt
+W: xdelta source: ancient-standards-version 3.7.3 (released 2007-12-03) (current is 4.4.0)
+W: libxdelta2: maintainer-script-empty postinst
+W: xdelta: description-synopsis-starts-with-article
+W: xdelta: manpage-has-errors-from-man usr/share/man/man1/xdelta-config.1.gz 14: warning: macro 'l' not defined
+W: libxdelta2-dev: priority-extra-is-replaced-by-priority-optional
+W: libxdelta2-dev: binary-without-manpage usr/bin/xdelta-config
+E: libxdelta2-dev: non-empty-dependency_libs-in-la-file usr/lib/libedsio.la
+E: libxdelta2-dev: non-empty-dependency_libs-in-la-file usr/lib/libxdelta.la
+
+E: Lintian run failed (policy violation)
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following package was automatically installed and is no longer required:
+  sensible-utils
+Use 'apt autoremove' to remove it.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* binutils-arm-linux-gnueabihf*
+  bsdmainutils* cpp-9-arm-linux-gnueabihf* cpp-arm-linux-gnueabihf*
+  cross-config* crossbuild-essential-armhf* debhelper* dh-autoreconf*
+  dh-strip-nondeterminism* diffstat* dpkg-cross* dwz* file*
+  g++-9-arm-linux-gnueabihf* g++-arm-linux-gnueabihf*
+  gcc-9-arm-linux-gnueabihf* gcc-9-arm-linux-gnueabihf-base* gcc-9-base:armhf*
+  gcc-9-cross-base* gcc-arm-linux-gnueabihf* gettext* gettext-base*
+  groff-base* intltool-debian* libapt-pkg-perl* libarchive-zip-perl*
+  libasan5:armhf* libasan5-armhf-cross* libatomic1:armhf*
+  libatomic1-armhf-cross* libb-hooks-op-check-perl* libblkid-dev:armhf*
+  libblkid1:armhf* libbsd0* libc6:armhf* libc6-armhf-cross* libc6-dev:armhf*
+  libc6-dev-armhf-cross* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclass-method-modifiers-perl* libclone-perl*
+  libconfig-auto-perl* libconfig-inifiles-perl* libcroco3*
+  libdebian-dpkgcross-perl* libdevel-callchecker-perl*
+  libdevel-globaldestruction-perl* libdigest-hmac-perl*
+  libdynaloader-functions-perl* libemail-valid-perl* libexpat1*
+  libexporter-tiny-perl* libffi-dev:armhf* libffi6:armhf*
+  libfile-basedir-perl* libfile-find-rule-perl* libfile-homedir-perl*
+  libfile-stripnondeterminism-perl* libfile-which-perl* libfuture-perl*
+  libgcc-9-dev:armhf* libgcc-9-dev-armhf-cross* libgcc1:armhf*
+  libgcc1-armhf-cross* libglib2.0-0* libglib2.0-0:armhf* libglib2.0-bin*
+  libglib2.0-data* libglib2.0-dev:armhf* libglib2.0-dev-bin* libgomp1:armhf*
+  libgomp1-armhf-cross* libhtml-parser-perl* libhtml-tagset-perl* libicu63*
+  libimport-into-perl* libio-async-loop-epoll-perl* libio-async-perl*
+  libio-pty-perl* libio-socket-ssl-perl* libio-string-perl* libipc-run-perl*
+  libipc-system-simple-perl* liblinux-epoll-perl* liblist-compare-perl*
+  liblist-moreutils-perl* liblocale-gettext-perl* libmagic-mgc* libmagic1*
+  libmailtools-perl* libmodule-runtime-perl* libmoo-perl* libmount-dev:armhf*
+  libmount1:armhf* libmpdec2* libncurses6* libnet-dns-perl*
+  libnet-domain-tld-perl* libnet-ip-perl* libnet-smtp-ssl-perl*
+  libnet-ssleay-perl* libnumber-compare-perl* libparams-classify-perl*
+  libpath-tiny-perl* libpcre16-3:armhf* libpcre2-16-0:armhf*
+  libpcre2-32-0:armhf* libpcre2-8-0:armhf* libpcre2-dev:armhf*
+  libpcre2-posix0:armhf* libpcre3:armhf* libpcre3-dev:armhf*
+  libpcre32-3:armhf* libpcrecpp0v5:armhf* libpipeline1* libpython3-stdlib*
+  libpython3.7-minimal* libpython3.7-stdlib* librole-tiny-perl*
+  libselinux1:armhf* libselinux1-dev:armhf* libsepol1:armhf*
+  libsepol1-dev:armhf* libsigsegv2* libssl1.1* libstdc++-9-dev:armhf*
+  libstdc++-9-dev-armhf-cross* libstdc++6:armhf* libstdc++6-armhf-cross*
+  libstrictures-perl* libstruct-dumb-perl* libsub-exporter-progressive-perl*
+  libsub-name-perl* libsub-override-perl* libsub-quote-perl*
+  libtext-glob-perl* libtext-levenshtein-perl* libtimedate-perl* libtool*
+  libtry-tiny-perl* libtype-tiny-perl* libubsan1:armhf* libubsan1-armhf-cross*
+  libuchardet0* liburi-perl* libuuid1:armhf* libxml-libxml-perl*
+  libxml-namespacesupport-perl* libxml-sax-base-perl* libxml-sax-perl*
+  libxml-simple-perl* libxml2* libyaml-0-2* libyaml-libyaml-perl*
+  libyaml-perl* lintian* linux-libc-dev:armhf* linux-libc-dev-armhf-cross* m4*
+  man-db* mime-support* netbase* patchutils* perl-openssl-defaults*
+  pkg-config* po-debconf* python3* python3-distutils* python3-lib2to3*
+  python3-minimal* python3.7* python3.7-minimal*
+  sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* ucf* uuid-dev:armhf*
+  zlib1g:armhf* zlib1g-dev:armhf*
+0 upgraded, 0 newly installed, 185 to remove and 0 not upgraded.
+After this operation, 314 MB disk space will be freed.
+(Reading database ... 25022 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing crossbuild-essential-armhf (12.6) ...
+Removing g++-arm-linux-gnueabihf (4:9.2.1-3) ...
+Removing gcc-arm-linux-gnueabihf (4:9.2.1-3) ...
+Removing g++-9-arm-linux-gnueabihf (9.2.1-4cross1) ...
+Removing gcc-9-arm-linux-gnueabihf (9.2.1-4cross1) ...
+Removing binutils-arm-linux-gnueabihf (2.32.51.20190821-2) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.19.0) ...
+Removing cpp-arm-linux-gnueabihf (4:9.2.1-3) ...
+Removing cpp-9-arm-linux-gnueabihf (9.2.1-4cross1) ...
+Removing dpkg-cross (2.6.15-3) ...
+Removing cross-config (2.6.15-3) ...
+Removing diffstat (1.62-1+b1) ...
+Removing libdebian-dpkgcross-perl (2.6.15-3) ...
+Removing gcc-9-arm-linux-gnueabihf-base:amd64 (9.2.1-4cross1) ...
+Removing libstdc++-9-dev:armhf (9.2.1-4) ...
+Removing libgcc-9-dev:armhf (9.2.1-4) ...
+Removing libubsan1:armhf (9.2.1-4) ...
+Removing libglib2.0-dev:armhf (2.60.6-2) ...
+Removing libpcre3-dev:armhf (2:8.39-12+b1) ...
+Removing libpcrecpp0v5:armhf (2:8.39-12+b1) ...
+Removing libstdc++6:armhf (9.2.1-4) ...
+Removing libstdc++-9-dev-armhf-cross (9.2.1-4cross1) ...
+Removing libgcc-9-dev-armhf-cross (9.2.1-4cross1) ...
+Removing libubsan1-armhf-cross (9.2.1-4cross1) ...
+Removing libstdc++6-armhf-cross (9.2.1-4cross1) ...
+Removing libapt-pkg-perl (0.1.36+b1) ...
+Removing libasan5:armhf (9.2.1-4) ...
+Removing libasan5-armhf-cross (9.2.1-4cross1) ...
+Removing libatomic1:armhf (9.2.1-4) ...
+Removing libatomic1-armhf-cross (9.2.1-4cross1) ...
+Removing libmoo-perl (2.003004-2) ...
+Removing libimport-into-perl (1.002005-1) ...
+Removing libmodule-runtime-perl (0.016-1) ...
+Removing libparams-classify-perl (0.015-1+b1) ...
+Removing libdevel-callchecker-perl (0.008-1) ...
+Removing libb-hooks-op-check-perl (0.22-1+b1) ...
+Removing libmount-dev:armhf (2.34-0.1) ...
+Removing libblkid-dev:armhf (2.34-0.1) ...
+Removing libglib2.0-0:armhf (2.60.6-2) ...
+Removing libmount1:armhf (2.34-0.1) ...
+Removing libblkid1:armhf (2.34-0.1) ...
+Removing zlib1g-dev:armhf (1:1.2.11.dfsg-1+b1) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1+b1) ...
+Removing uuid-dev:armhf (2.34-0.1) ...
+Removing libuuid1:armhf (2.34-0.1) ...
+Removing libc6-dev-armhf-cross (2.28-10cross6) ...
+Removing libgomp1-armhf-cross (9.2.1-4cross1) ...
+Removing libselinux1-dev:armhf (2.9-2+b2) ...
+Removing libpcre2-dev:armhf (10.32-5+b1) ...
+Removing libc6-dev:armhf (2.28-10) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libcgi-pm-perl (4.44-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing librole-tiny-perl (2.000006-1) ...
+Removing libclass-method-modifiers-perl (2.13-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libconfig-auto-perl (0.44-1) ...
+Removing libconfig-inifiles-perl (3.000001-1) ...
+Removing libdevel-globaldestruction-perl (0.14-1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.20-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing libdynaloader-functions-perl (0.003-1) ...
+Removing libglib2.0-dev-bin (2.60.6-2) ...
+Removing python3-distutils (3.7.4-3) ...
+Removing python3-lib2to3 (3.7.4-3) ...
+dpkg: warning: while removing python3-lib2to3, directory '/usr/lib/python3.8' not empty so not removed
+Removing python3 (3.7.3-1) ...
+Removing python3-minimal (3.7.3-1) ...
+Removing python3.7 (3.7.4-3) ...
+Removing python3.7-minimal (3.7.4-3) ...
+Removing libexpat1:amd64 (2.2.7-1) ...
+Removing libtype-tiny-perl (1.004004-1) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libffi-dev:armhf (3.2.1-9) ...
+Removing libffi6:armhf (3.2.1-9) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libfile-find-rule-perl (0.34-1) ...
+Removing libfile-homedir-perl (1.004-1) ...
+Removing libfile-which-perl (1.23-1) ...
+Removing libio-async-loop-epoll-perl (0.20-1) ...
+Removing libio-async-perl (0.74-1) ...
+Removing libfuture-perl (0.41-1) ...
+Removing libgcc1-armhf-cross (1:9.2.1-4cross1) ...
+Removing pkg-config (0.29-6) ...
+Removing libglib2.0-bin (2.60.6-2) ...
+Removing libglib2.0-data (2.60.6-2) ...
+Removing libgomp1:armhf (9.2.1-4) ...
+Removing libhtml-parser-perl (3.72-3+b3) ...
+Removing libhtml-tagset-perl (3.20-3) ...
+Removing libxml-simple-perl (2.25-1) ...
+Removing libxml-libxml-perl (2.0134+dfsg-1) ...
+update-perl-sax-parsers: Unregistering Perl SAX parser XML::LibXML::SAX::Parser with priority 50...
+update-perl-sax-parsers: Unregistering Perl SAX parser XML::LibXML::SAX with priority 50...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+Replacing config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libmailtools-perl (2.21-1) ...
+Removing libnet-smtp-ssl-perl (1.04-1) ...
+Removing libio-socket-ssl-perl (2.066-1) ...
+Removing libio-string-perl (1.08-3) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing liblinux-epoll-perl (0.016-1+b1) ...
+Removing liblist-compare-perl (0.53-1) ...
+Removing liblocale-gettext-perl (1.07-3+b4) ...
+Removing libpython3-stdlib:amd64 (3.7.3-1) ...
+Removing libpython3.7-stdlib:amd64 (3.7.4-3) ...
+find: ‘/usr/lib/python3’: No such file or directory
+Removing libmpdec2:amd64 (2.4.2-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libnet-ssleay-perl (1.88-1) ...
+Removing libnumber-compare-perl (0.03-1) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libpcre16-3:armhf (2:8.39-12+b1) ...
+Removing libpcre2-16-0:armhf (10.32-5+b1) ...
+Removing libpcre2-32-0:armhf (10.32-5+b1) ...
+Removing libpcre2-posix0:armhf (10.32-5+b1) ...
+Removing libselinux1:armhf (2.9-2+b2) ...
+Removing libpcre2-8-0:armhf (10.32-5+b1) ...
+Removing libpcre3:armhf (2:8.39-12+b1) ...
+Removing libpcre32-3:armhf (2:8.39-12+b1) ...
+Removing libpython3.7-minimal:amd64 (3.7.4-3) ...
+find: ‘/usr/lib/python3’: No such file or directory
+Removing libsepol1-dev:armhf (2.9-2+b2) ...
+Removing libsepol1:armhf (2.9-2+b2) ...
+Removing perl-openssl-defaults:amd64 (3) ...
+Removing libssl1.1:amd64 (1.1.1c-1) ...
+Removing libstrictures-perl (2.000006-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-exporter-progressive-perl (0.001013-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libsub-quote-perl (2.006003-1) ...
+Removing libtext-glob-perl (0.10-1) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libtimedate-perl (2.3000-2) ...
+Removing libtry-tiny-perl (0.30-1) ...
+Removing liburi-perl (1.76-1) ...
+Removing libxml-sax-perl (1.02+dfsg-1) ...
+update-perl-sax-parsers: Unregistering Perl SAX parser XML::SAX::PurePerl with priority 50...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+Removing libxml-namespacesupport-perl (1.12-1) ...
+Removing libxml-sax-base-perl (1.09-1) ...
+Removing libyaml-libyaml-perl (0.79+repack-2) ...
+Removing libyaml-0-2:amd64 (0.2.1-1) ...
+Removing libyaml-perl (1.29-1) ...
+Removing linux-libc-dev:armhf (5.2.9-2) ...
+Removing linux-libc-dev-armhf-cross (5.2.9-2cross6) ...
+Removing mime-support (3.63) ...
+Removing netbase (5.6) ...
+Removing patchutils (0.3.4-2+b1) ...
+Removing t1utils (1.41-3) ...
+Removing ucf (3.0038+nmu1) ...
+Removing gcc-9-cross-base (9.2.1-4cross1) ...
+Removing libc6-armhf-cross (2.28-10cross6) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.5.3) ...
+Removing dh-strip-nondeterminism (1.5.0-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.6.1-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.13-1) ...
+Removing file (1:5.37-5) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-3) ...
+Removing libfile-stripnondeterminism-perl (1.5.0-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.10.0-1) ...
+Removing libc6:armhf (2.28-10) ...
+Removing libcroco3:amd64 (0.6.13-1) ...
+Removing libgcc1:armhf (1:9.2.1-4) ...
+Removing libglib2.0-0:amd64 (2.60.6-2) ...
+Removing libxml2:amd64 (2.9.4+dfsg1-7+b3) ...
+Removing libicu63:amd64 (63.2-2) ...
+Removing libmagic1:amd64 (1:5.37-5) ...
+Removing libmagic-mgc (1:5.37-5) ...
+Removing libncurses6:amd64 (6.1+20190803-1) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libsub-override-perl (0.09-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing gcc-9-base:armhf (9.2.1-4) ...
+Processing triggers for ccache (3.7.3-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-10) ...
+(Reading database ... 13635 files and directories currently installed.)
+Purging configuration files for libblkid-dev:armhf (2.34-0.1) ...
+Purging configuration files for mime-support (3.63) ...
+Purging configuration files for libglib2.0-0:amd64 (2.60.6-2) ...
+Purging configuration files for libglib2.0-0:armhf (2.60.6-2) ...
+Purging configuration files for libssl1.1:amd64 (1.1.1c-1) ...
+Purging configuration files for libmagic1:amd64 (1:5.37-5) ...
+Purging configuration files for lintian (2.19.0) ...
+Purging configuration files for python3 (3.7.3-1) ...
+Purging configuration files for man-db (2.8.6.1-2) ...
+Purging configuration files for libpython3.7-minimal:amd64 (3.7.4-3) ...
+dpkg: warning: while removing libpython3.7-minimal:amd64, directory '/usr/lib/python3.7' not empty so not removed
+Purging configuration files for libxml-sax-perl (1.02+dfsg-1) ...
+Purging configuration files for cross-config (2.6.15-3) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for ucf (3.0038+nmu1) ...
+Purging configuration files for python3.7-minimal (3.7.4-3) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-10) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+Purging configuration files for netbase (5.6) ...
+Purging configuration files for dpkg-cross (2.6.15-3) ...
+Purging configuration files for libdebian-dpkgcross-perl (2.6.15-3) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 15
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 19
+Job: /home/build/sbuild-setup/repo/pool/main/x/xdelta/xdelta_1.1.3-9.3.dsc
+Lintian: fail
+Machine Architecture: amd64
+Package: xdelta
+Package-Time: 39
+Source-Version: 1.1.3-9.3
+Space: n/a
+Status: successful
+Version: 1.1.3-9.3
+--------------------------------------------------------------------------------
+Finished at 2019-08-24T11:52:02Z
+Build needed 00:00:39, no disk space
