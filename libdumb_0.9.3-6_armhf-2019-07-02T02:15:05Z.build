@@ -1,0 +1,1759 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 4be29f1fdf49
+
++==============================================================================+
+| libdumb 1:0.9.3-6 (armhf)                    Tue, 02 Jul 2019 02:15:05 +0000 |
++==============================================================================+
+
+Package: libdumb
+Version: 1:0.9.3-6
+Source Version: 1:0.9.3-6
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-428d2fa1-c030-4424-99c5-368c46a0ce3b' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/libdumb-hptdTT/resolver-Pyte3o' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian unstable InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following package was automatically installed and is no longer required:
+  sensible-utils
+Use 'apt autoremove' to remove it.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/libd/libdumb/libdumb_0.9.3-6.dsc exists in /home/build/sbuild-setup/repo/pool/main/libd/libdumb; copying to chroot
+I: NOTICE: Log filtering will replace 'build/libdumb-hptdTT/libdumb-0.9.3' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/libdumb-hptdTT' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 9), liballegro4-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 9), liballegro4-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [404 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [491 B]
+Fetched 1852 B in 0s (125 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev binutils-arm-linux-gnueabihf
+  bsdmainutils cpp-8-arm-linux-gnueabihf cpp-arm-linux-gnueabihf cross-config
+  crossbuild-essential-armhf debhelper dh-autoreconf dh-strip-nondeterminism
+  dpkg-cross dwz file g++-8-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+  gcc-8-arm-linux-gnueabihf gcc-8-arm-linux-gnueabihf-base gcc-8-base:armhf
+  gcc-8-cross-base gcc-arm-linux-gnueabihf gettext gettext-base groff-base
+  intltool-debian liballegro4-dev:armhf liballegro4.4:armhf
+  libarchive-zip-perl libasan5:armhf libasan5-armhf-cross libasound2:armhf
+  libasound2-data libatomic1:armhf libatomic1-armhf-cross libbsd0
+  libbsd0:armhf libc6:armhf libc6-armhf-cross libc6-dev:armhf
+  libc6-dev-armhf-cross libconfig-auto-perl libconfig-inifiles-perl libcroco3
+  libdebian-dpkgcross-perl libfile-homedir-perl
+  libfile-stripnondeterminism-perl libfile-which-perl libgcc-8-dev:armhf
+  libgcc-8-dev-armhf-cross libgcc1:armhf libgcc1-armhf-cross libglib2.0-0
+  libgomp1:armhf libgomp1-armhf-cross libicu63 libio-string-perl
+  libjpgalleg4.4:armhf liblocale-gettext-perl libmagic-mgc libmagic1
+  libncurses6 libpipeline1 libpthread-stubs0-dev:armhf libsigsegv2
+  libstdc++-8-dev:armhf libstdc++-8-dev-armhf-cross libstdc++6:armhf
+  libstdc++6-armhf-cross libtool libubsan1:armhf libubsan1-armhf-cross
+  libuchardet0 libx11-6:armhf libx11-data libx11-dev:armhf libxau-dev:armhf
+  libxau6:armhf libxcb1:armhf libxcb1-dev:armhf libxcursor-dev:armhf
+  libxcursor1:armhf libxdmcp-dev:armhf libxdmcp6:armhf libxext-dev:armhf
+  libxext6:armhf libxfixes-dev:armhf libxfixes3:armhf libxml-libxml-perl
+  libxml-namespacesupport-perl libxml-sax-base-perl libxml-sax-perl
+  libxml-simple-perl libxml2 libxpm-dev:armhf libxpm4:armhf
+  libxrender-dev:armhf libxrender1:armhf libxxf86dga1:armhf
+  libxxf86vm-dev:armhf libxxf86vm1:armhf libyaml-perl linux-libc-dev:armhf
+  linux-libc-dev-armhf-cross m4 man-db po-debconf ucf x11proto-core-dev
+  x11proto-dev x11proto-fixes-dev x11proto-xext-dev x11proto-xf86vidmode-dev
+  xorg-sgml-doctools xtrans-dev
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc binutils-doc wamerican
+  | wordlist whois vacation gcc-8-locales cpp-doc dh-make binutils-multiarch
+  gcc-8-doc libstdc++6-8-dbg-armhf-cross libgcc1-dbg-armhf-cross
+  libgomp1-dbg-armhf-cross libitm1-dbg-armhf-cross libatomic1-dbg-armhf-cross
+  libasan5-dbg-armhf-cross liblsan0-dbg-armhf-cross libtsan0-dbg-armhf-cross
+  libubsan1-dbg-armhf-cross libmpx2-dbg-armhf-cross
+  libquadmath0-dbg-armhf-cross manpages-dev flex bison gdb-arm-linux-gnueabihf
+  gcc-doc gettext-doc libasprintf-dev libgettextpo-dev groff
+  libasound2-plugins:armhf alsa-utils glibc-doc:armhf libc-l10n:armhf
+  locales:armhf manpages-dev:armhf libstdc++-8-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk libx11-doc:armhf libxcb-doc:armhf
+  libxext-doc:armhf libyaml-shell-perl m4-doc apparmor less www-browser
+  libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpm2 libltdl-dev libwww-perl
+  libxml-sax-expat-perl libyaml-libyaml-perl | libyaml-syck-perl
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev binutils-arm-linux-gnueabihf
+  bsdmainutils cpp-8-arm-linux-gnueabihf cpp-arm-linux-gnueabihf cross-config
+  crossbuild-essential-armhf debhelper dh-autoreconf dh-strip-nondeterminism
+  dpkg-cross dwz file g++-8-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+  gcc-8-arm-linux-gnueabihf gcc-8-arm-linux-gnueabihf-base gcc-8-base:armhf
+  gcc-8-cross-base gcc-arm-linux-gnueabihf gettext gettext-base groff-base
+  intltool-debian liballegro4-dev:armhf liballegro4.4:armhf
+  libarchive-zip-perl libasan5:armhf libasan5-armhf-cross libasound2:armhf
+  libasound2-data libatomic1:armhf libatomic1-armhf-cross libbsd0
+  libbsd0:armhf libc6:armhf libc6-armhf-cross libc6-dev:armhf
+  libc6-dev-armhf-cross libconfig-auto-perl libconfig-inifiles-perl libcroco3
+  libdebian-dpkgcross-perl libfile-homedir-perl
+  libfile-stripnondeterminism-perl libfile-which-perl libgcc-8-dev:armhf
+  libgcc-8-dev-armhf-cross libgcc1:armhf libgcc1-armhf-cross libglib2.0-0
+  libgomp1:armhf libgomp1-armhf-cross libicu63 libio-string-perl
+  libjpgalleg4.4:armhf liblocale-gettext-perl libmagic-mgc libmagic1
+  libncurses6 libpipeline1 libpthread-stubs0-dev:armhf libsigsegv2
+  libstdc++-8-dev:armhf libstdc++-8-dev-armhf-cross libstdc++6:armhf
+  libstdc++6-armhf-cross libtool libubsan1:armhf libubsan1-armhf-cross
+  libuchardet0 libx11-6:armhf libx11-data libx11-dev:armhf libxau-dev:armhf
+  libxau6:armhf libxcb1:armhf libxcb1-dev:armhf libxcursor-dev:armhf
+  libxcursor1:armhf libxdmcp-dev:armhf libxdmcp6:armhf libxext-dev:armhf
+  libxext6:armhf libxfixes-dev:armhf libxfixes3:armhf libxml-libxml-perl
+  libxml-namespacesupport-perl libxml-sax-base-perl libxml-sax-perl
+  libxml-simple-perl libxml2 libxpm-dev:armhf libxpm4:armhf
+  libxrender-dev:armhf libxrender1:armhf libxxf86dga1:armhf
+  libxxf86vm-dev:armhf libxxf86vm1:armhf libyaml-perl linux-libc-dev:armhf
+  linux-libc-dev-armhf-cross m4 man-db po-debconf
+  sbuild-build-depends-main-dummy:armhf ucf x11proto-core-dev x11proto-dev
+  x11proto-fixes-dev x11proto-xext-dev x11proto-xf86vidmode-dev
+  xorg-sgml-doctools xtrans-dev
+0 upgraded, 117 newly installed, 0 to remove and 0 not upgraded.
+Need to get 769 kB/64.5 MB of archives.
+After this operation, 243 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [912 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libxxf86dga1 armhf 2:1.1.4-1+b3 [20.9 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian unstable/main armhf liballegro4.4 armhf 2:4.4.2-13 [376 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libjpgalleg4.4 armhf 2:4.4.2-13 [101 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian unstable/main armhf liballegro4-dev armhf 2:4.4.2-13 [271 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 769 kB in 1s (527 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 12449 files and directories currently installed.)
+Preparing to unpack .../000-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../001-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../002-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../003-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../004-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../005-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package liblocale-gettext-perl.
+Preparing to unpack .../006-liblocale-gettext-perl_1.07-3+b4_amd64.deb ...
+Unpacking liblocale-gettext-perl (1.07-3+b4) ...
+Selecting previously unselected package libmagic-mgc.
+Preparing to unpack .../007-libmagic-mgc_1%3a5.35-4_amd64.deb ...
+Unpacking libmagic-mgc (1:5.35-4) ...
+Selecting previously unselected package libmagic1:amd64.
+Preparing to unpack .../008-libmagic1_1%3a5.35-4_amd64.deb ...
+Unpacking libmagic1:amd64 (1:5.35-4) ...
+Selecting previously unselected package file.
+Preparing to unpack .../009-file_1%3a5.35-4_amd64.deb ...
+Unpacking file (1:5.35-4) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../010-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package ucf.
+Preparing to unpack .../011-ucf_3.0038+nmu1_all.deb ...
+Moving old data out of the way
+Unpacking ucf (3.0038+nmu1) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../012-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../013-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../014-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../015-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../016-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../017-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package binutils-arm-linux-gnueabihf.
+Preparing to unpack .../018-binutils-arm-linux-gnueabihf_2.31.1-16_amd64.deb ...
+Unpacking binutils-arm-linux-gnueabihf (2.31.1-16) ...
+Selecting previously unselected package gcc-8-arm-linux-gnueabihf-base:amd64.
+Preparing to unpack .../019-gcc-8-arm-linux-gnueabihf-base_8.3.0-7cross1_amd64.deb ...
+Unpacking gcc-8-arm-linux-gnueabihf-base:amd64 (8.3.0-7cross1) ...
+Selecting previously unselected package cpp-8-arm-linux-gnueabihf.
+Preparing to unpack .../020-cpp-8-arm-linux-gnueabihf_8.3.0-7cross1_amd64.deb ...
+Unpacking cpp-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Selecting previously unselected package cpp-arm-linux-gnueabihf.
+Preparing to unpack .../021-cpp-arm-linux-gnueabihf_4%3a8.3.0-1_amd64.deb ...
+Unpacking cpp-arm-linux-gnueabihf (4:8.3.0-1) ...
+Selecting previously unselected package cross-config.
+Preparing to unpack .../022-cross-config_2.6.15-3_all.deb ...
+Unpacking cross-config (2.6.15-3) ...
+Selecting previously unselected package gcc-8-cross-base.
+Preparing to unpack .../023-gcc-8-cross-base_8.3.0-7cross1_all.deb ...
+Unpacking gcc-8-cross-base (8.3.0-7cross1) ...
+Selecting previously unselected package libc6-armhf-cross.
+Preparing to unpack .../024-libc6-armhf-cross_2.28-10cross2_all.deb ...
+Unpacking libc6-armhf-cross (2.28-10cross2) ...
+Selecting previously unselected package libgcc1-armhf-cross.
+Preparing to unpack .../025-libgcc1-armhf-cross_1%3a8.3.0-7cross1_all.deb ...
+Unpacking libgcc1-armhf-cross (1:8.3.0-7cross1) ...
+Selecting previously unselected package libgomp1-armhf-cross.
+Preparing to unpack .../026-libgomp1-armhf-cross_8.3.0-7cross1_all.deb ...
+Unpacking libgomp1-armhf-cross (8.3.0-7cross1) ...
+Selecting previously unselected package libatomic1-armhf-cross.
+Preparing to unpack .../027-libatomic1-armhf-cross_8.3.0-7cross1_all.deb ...
+Unpacking libatomic1-armhf-cross (8.3.0-7cross1) ...
+Selecting previously unselected package libstdc++6-armhf-cross.
+Preparing to unpack .../028-libstdc++6-armhf-cross_8.3.0-7cross1_all.deb ...
+Unpacking libstdc++6-armhf-cross (8.3.0-7cross1) ...
+Selecting previously unselected package libasan5-armhf-cross.
+Preparing to unpack .../029-libasan5-armhf-cross_8.3.0-7cross1_all.deb ...
+Unpacking libasan5-armhf-cross (8.3.0-7cross1) ...
+Selecting previously unselected package libubsan1-armhf-cross.
+Preparing to unpack .../030-libubsan1-armhf-cross_8.3.0-7cross1_all.deb ...
+Unpacking libubsan1-armhf-cross (8.3.0-7cross1) ...
+Selecting previously unselected package libgcc-8-dev-armhf-cross.
+Preparing to unpack .../031-libgcc-8-dev-armhf-cross_8.3.0-7cross1_all.deb ...
+Unpacking libgcc-8-dev-armhf-cross (8.3.0-7cross1) ...
+Selecting previously unselected package gcc-8-arm-linux-gnueabihf.
+Preparing to unpack .../032-gcc-8-arm-linux-gnueabihf_8.3.0-7cross1_amd64.deb ...
+Unpacking gcc-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Selecting previously unselected package gcc-arm-linux-gnueabihf.
+Preparing to unpack .../033-gcc-arm-linux-gnueabihf_4%3a8.3.0-1_amd64.deb ...
+Unpacking gcc-arm-linux-gnueabihf (4:8.3.0-1) ...
+Selecting previously unselected package linux-libc-dev-armhf-cross.
+Preparing to unpack .../034-linux-libc-dev-armhf-cross_4.19.28-2cross2_all.deb ...
+Unpacking linux-libc-dev-armhf-cross (4.19.28-2cross2) ...
+Selecting previously unselected package libc6-dev-armhf-cross.
+Preparing to unpack .../035-libc6-dev-armhf-cross_2.28-10cross2_all.deb ...
+Unpacking libc6-dev-armhf-cross (2.28-10cross2) ...
+Selecting previously unselected package libstdc++-8-dev-armhf-cross.
+Preparing to unpack .../036-libstdc++-8-dev-armhf-cross_8.3.0-7cross1_all.deb ...
+Unpacking libstdc++-8-dev-armhf-cross (8.3.0-7cross1) ...
+Selecting previously unselected package g++-8-arm-linux-gnueabihf.
+Preparing to unpack .../037-g++-8-arm-linux-gnueabihf_8.3.0-7cross1_amd64.deb ...
+Unpacking g++-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Selecting previously unselected package g++-arm-linux-gnueabihf.
+Preparing to unpack .../038-g++-arm-linux-gnueabihf_4%3a8.3.0-1_amd64.deb ...
+Unpacking g++-arm-linux-gnueabihf (4:8.3.0-1) ...
+Selecting previously unselected package libconfig-inifiles-perl.
+Preparing to unpack .../039-libconfig-inifiles-perl_3.000001-1_all.deb ...
+Unpacking libconfig-inifiles-perl (3.000001-1) ...
+Selecting previously unselected package libio-string-perl.
+Preparing to unpack .../040-libio-string-perl_1.08-3_all.deb ...
+Unpacking libio-string-perl (1.08-3) ...
+Selecting previously unselected package libicu63:amd64.
+Preparing to unpack .../041-libicu63_63.2-2_amd64.deb ...
+Unpacking libicu63:amd64 (63.2-2) ...
+Selecting previously unselected package libxml2:amd64.
+Preparing to unpack .../042-libxml2_2.9.4+dfsg1-7+b3_amd64.deb ...
+Unpacking libxml2:amd64 (2.9.4+dfsg1-7+b3) ...
+Selecting previously unselected package libxml-namespacesupport-perl.
+Preparing to unpack .../043-libxml-namespacesupport-perl_1.12-1_all.deb ...
+Unpacking libxml-namespacesupport-perl (1.12-1) ...
+Selecting previously unselected package libxml-sax-base-perl.
+Preparing to unpack .../044-libxml-sax-base-perl_1.09-1_all.deb ...
+Unpacking libxml-sax-base-perl (1.09-1) ...
+Selecting previously unselected package libxml-sax-perl.
+Preparing to unpack .../045-libxml-sax-perl_1.00+dfsg-1_all.deb ...
+Unpacking libxml-sax-perl (1.00+dfsg-1) ...
+Selecting previously unselected package libxml-libxml-perl.
+Preparing to unpack .../046-libxml-libxml-perl_2.0134+dfsg-1_amd64.deb ...
+Unpacking libxml-libxml-perl (2.0134+dfsg-1) ...
+Selecting previously unselected package libxml-simple-perl.
+Preparing to unpack .../047-libxml-simple-perl_2.25-1_all.deb ...
+Unpacking libxml-simple-perl (2.25-1) ...
+Selecting previously unselected package libyaml-perl.
+Preparing to unpack .../048-libyaml-perl_1.27-1_all.deb ...
+Unpacking libyaml-perl (1.27-1) ...
+Selecting previously unselected package libconfig-auto-perl.
+Preparing to unpack .../049-libconfig-auto-perl_0.44-1_all.deb ...
+Unpacking libconfig-auto-perl (0.44-1) ...
+Selecting previously unselected package libfile-which-perl.
+Preparing to unpack .../050-libfile-which-perl_1.23-1_all.deb ...
+Unpacking libfile-which-perl (1.23-1) ...
+Selecting previously unselected package libfile-homedir-perl.
+Preparing to unpack .../051-libfile-homedir-perl_1.004-1_all.deb ...
+Unpacking libfile-homedir-perl (1.004-1) ...
+Selecting previously unselected package libdebian-dpkgcross-perl.
+Preparing to unpack .../052-libdebian-dpkgcross-perl_2.6.15-3_all.deb ...
+Unpacking libdebian-dpkgcross-perl (2.6.15-3) ...
+Selecting previously unselected package dpkg-cross.
+Preparing to unpack .../053-dpkg-cross_2.6.15-3_all.deb ...
+Unpacking dpkg-cross (2.6.15-3) ...
+Selecting previously unselected package crossbuild-essential-armhf.
+Preparing to unpack .../054-crossbuild-essential-armhf_12.6_all.deb ...
+Unpacking crossbuild-essential-armhf (12.6) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../055-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../056-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../057-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../058-libfile-stripnondeterminism-perl_1.1.2-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.2-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../059-dh-strip-nondeterminism_1.1.2-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.2-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../060-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../061-libglib2.0-0_2.58.3-2_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-2) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../062-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../063-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../064-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../065-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../066-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../067-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../068-gcc-8-base_8.3.0-7_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-7) ...
+Selecting previously unselected package libasound2-data.
+Preparing to unpack .../069-libasound2-data_1.1.8-1_all.deb ...
+Unpacking libasound2-data (1.1.8-1) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../070-libgcc1_1%3a8.3.0-7_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-7) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../071-libc6_2.28-10_armhf.deb ...
+Unpacking libc6:armhf (2.28-10) ...
+Selecting previously unselected package libasound2:armhf.
+Preparing to unpack .../072-libasound2_1.1.8-1_armhf.deb ...
+Unpacking libasound2:armhf (1.1.8-1) ...
+Selecting previously unselected package libxau6:armhf.
+Preparing to unpack .../073-libxau6_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau6:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libbsd0:armhf.
+Preparing to unpack .../074-libbsd0_0.9.1-2_armhf.deb ...
+Unpacking libbsd0:armhf (0.9.1-2) ...
+Selecting previously unselected package libxdmcp6:armhf.
+Preparing to unpack .../075-libxdmcp6_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp6:armhf (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:armhf.
+Preparing to unpack .../076-libxcb1_1.13.1-2_armhf.deb ...
+Unpacking libxcb1:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-data.
+Preparing to unpack .../077-libx11-data_2%3a1.6.7-1_all.deb ...
+Unpacking libx11-data (2:1.6.7-1) ...
+Selecting previously unselected package libx11-6:armhf.
+Preparing to unpack .../078-libx11-6_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-6:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxfixes3:armhf.
+Preparing to unpack .../079-libxfixes3_1%3a5.0.3-1_armhf.deb ...
+Unpacking libxfixes3:armhf (1:5.0.3-1) ...
+Selecting previously unselected package libxrender1:armhf.
+Preparing to unpack .../080-libxrender1_1%3a0.9.10-1_armhf.deb ...
+Unpacking libxrender1:armhf (1:0.9.10-1) ...
+Selecting previously unselected package libxcursor1:armhf.
+Preparing to unpack .../081-libxcursor1_1%3a1.1.15-2_armhf.deb ...
+Unpacking libxcursor1:armhf (1:1.1.15-2) ...
+Selecting previously unselected package libxext6:armhf.
+Preparing to unpack .../082-libxext6_2%3a1.3.3-1+b2_armhf.deb ...
+Unpacking libxext6:armhf (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxpm4:armhf.
+Preparing to unpack .../083-libxpm4_1%3a3.5.12-1_armhf.deb ...
+Unpacking libxpm4:armhf (1:3.5.12-1) ...
+Selecting previously unselected package libxxf86dga1:armhf.
+Preparing to unpack .../084-libxxf86dga1_2%3a1.1.4-1+b3_armhf.deb ...
+Unpacking libxxf86dga1:armhf (2:1.1.4-1+b3) ...
+Selecting previously unselected package libxxf86vm1:armhf.
+Preparing to unpack .../085-libxxf86vm1_1%3a1.1.4-1+b2_armhf.deb ...
+Unpacking libxxf86vm1:armhf (1:1.1.4-1+b2) ...
+Selecting previously unselected package liballegro4.4:armhf.
+Preparing to unpack .../086-liballegro4.4_2%3a4.4.2-13_armhf.deb ...
+Unpacking liballegro4.4:armhf (2:4.4.2-13) ...
+Selecting previously unselected package libjpgalleg4.4:armhf.
+Preparing to unpack .../087-libjpgalleg4.4_2%3a4.4.2-13_armhf.deb ...
+Unpacking libjpgalleg4.4:armhf (2:4.4.2-13) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Preparing to unpack .../088-xorg-sgml-doctools_1%3a1.11-1_all.deb ...
+Unpacking xorg-sgml-doctools (1:1.11-1) ...
+Selecting previously unselected package x11proto-dev.
+Preparing to unpack .../089-x11proto-dev_2018.4-4_all.deb ...
+Unpacking x11proto-dev (2018.4-4) ...
+Selecting previously unselected package x11proto-core-dev.
+Preparing to unpack .../090-x11proto-core-dev_2018.4-4_all.deb ...
+Unpacking x11proto-core-dev (2018.4-4) ...
+Selecting previously unselected package x11proto-xext-dev.
+Preparing to unpack .../091-x11proto-xext-dev_2018.4-4_all.deb ...
+Unpacking x11proto-xext-dev (2018.4-4) ...
+Selecting previously unselected package libxau-dev:armhf.
+Preparing to unpack .../092-libxau-dev_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau-dev:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp-dev:armhf.
+Preparing to unpack .../093-libxdmcp-dev_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp-dev:armhf (1:1.1.2-3) ...
+Selecting previously unselected package xtrans-dev.
+Preparing to unpack .../094-xtrans-dev_1.3.5-1_all.deb ...
+Unpacking xtrans-dev (1.3.5-1) ...
+Selecting previously unselected package libpthread-stubs0-dev:armhf.
+Preparing to unpack .../095-libpthread-stubs0-dev_0.4-1_armhf.deb ...
+Unpacking libpthread-stubs0-dev:armhf (0.4-1) ...
+Selecting previously unselected package libxcb1-dev:armhf.
+Preparing to unpack .../096-libxcb1-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb1-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-dev:armhf.
+Preparing to unpack .../097-libx11-dev_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-dev:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxext-dev:armhf.
+Preparing to unpack .../098-libxext-dev_2%3a1.3.3-1+b2_armhf.deb ...
+Unpacking libxext-dev:armhf (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxpm-dev:armhf.
+Preparing to unpack .../099-libxpm-dev_1%3a3.5.12-1_armhf.deb ...
+Unpacking libxpm-dev:armhf (1:3.5.12-1) ...
+Selecting previously unselected package x11proto-xf86vidmode-dev.
+Preparing to unpack .../100-x11proto-xf86vidmode-dev_2018.4-4_all.deb ...
+Unpacking x11proto-xf86vidmode-dev (2018.4-4) ...
+Selecting previously unselected package libxxf86vm-dev:armhf.
+Preparing to unpack .../101-libxxf86vm-dev_1%3a1.1.4-1+b2_armhf.deb ...
+Unpacking libxxf86vm-dev:armhf (1:1.1.4-1+b2) ...
+Selecting previously unselected package libxrender-dev:armhf.
+Preparing to unpack .../102-libxrender-dev_1%3a0.9.10-1_armhf.deb ...
+Unpacking libxrender-dev:armhf (1:0.9.10-1) ...
+Selecting previously unselected package x11proto-fixes-dev.
+Preparing to unpack .../103-x11proto-fixes-dev_1%3a2018.4-4_all.deb ...
+Unpacking x11proto-fixes-dev (1:2018.4-4) ...
+Selecting previously unselected package libxfixes-dev:armhf.
+Preparing to unpack .../104-libxfixes-dev_1%3a5.0.3-1_armhf.deb ...
+Unpacking libxfixes-dev:armhf (1:5.0.3-1) ...
+Selecting previously unselected package libxcursor-dev:armhf.
+Preparing to unpack .../105-libxcursor-dev_1%3a1.1.15-2_armhf.deb ...
+Unpacking libxcursor-dev:armhf (1:1.1.15-2) ...
+Selecting previously unselected package liballegro4-dev:armhf.
+Preparing to unpack .../106-liballegro4-dev_2%3a4.4.2-13_armhf.deb ...
+Unpacking liballegro4-dev:armhf (2:4.4.2-13) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../107-libstdc++6_8.3.0-7_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-7) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../108-libasan5_8.3.0-7_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-7) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../109-libatomic1_8.3.0-7_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-7) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../110-linux-libc-dev_4.19.37-5_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.37-5) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../111-libc6-dev_2.28-10_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-10) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../112-libgomp1_8.3.0-7_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-7) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../113-libubsan1_8.3.0-7_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-7) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../114-libgcc-8-dev_8.3.0-7_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-7) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../115-libstdc++-8-dev_8.3.0-7_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-7) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../116-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libconfig-inifiles-perl (3.000001-1) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libfile-which-perl (1.23-1) ...
+Setting up libc6-armhf-cross (2.28-10cross2) ...
+Setting up libmagic-mgc (1:5.35-4) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-2) ...
+No schema files found: doing nothing.
+Setting up gcc-8-cross-base (8.3.0-7cross1) ...
+Setting up libmagic1:amd64 (1:5.35-4) ...
+Setting up linux-libc-dev:armhf (4.19.37-5) ...
+Setting up libxml-namespacesupport-perl (1.12-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up file (1:5.35-4) ...
+Setting up libatomic1-armhf-cross (8.3.0-7cross1) ...
+Setting up libyaml-perl (1.27-1) ...
+Setting up libpthread-stubs0-dev:armhf (0.4-1) ...
+Setting up libicu63:amd64 (63.2-2) ...
+Setting up libasound2-data (1.1.8-1) ...
+Setting up libxml-sax-base-perl (1.09-1) ...
+Setting up libio-string-perl (1.08-3) ...
+Setting up xtrans-dev (1.3.5-1) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up cross-config (2.6.15-3) ...
+Setting up libgcc1-armhf-cross (1:8.3.0-7cross1) ...
+Setting up libx11-data (2:1.6.7-1) ...
+Setting up gcc-8-arm-linux-gnueabihf-base:amd64 (8.3.0-7cross1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-7) ...
+Setting up linux-libc-dev-armhf-cross (4.19.28-2cross2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up ucf (3.0038+nmu1) ...
+Setting up dwz (0.12-3) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up xorg-sgml-doctools (1:1.11-1) ...
+Setting up libfile-homedir-perl (1.004-1) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up binutils-arm-linux-gnueabihf (2.31.1-16) ...
+Setting up libxml2:amd64 (2.9.4+dfsg1-7+b3) ...
+Setting up liblocale-gettext-perl (1.07-3+b4) ...
+Setting up cpp-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Setting up libgomp1-armhf-cross (8.3.0-7cross1) ...
+Setting up x11proto-dev (2018.4-4) ...
+Setting up libfile-stripnondeterminism-perl (1.1.2-1) ...
+Setting up libtool (2.4.6-10) ...
+Setting up libc6-dev-armhf-cross (2.28-10cross2) ...
+Setting up m4 (1.4.18-2) ...
+Setting up libxml-sax-perl (1.00+dfsg-1) ...
+update-perl-sax-parsers: Registering Perl SAX parser XML::SAX::PurePerl with priority 10...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+
+Creating config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Setting up libstdc++6-armhf-cross (8.3.0-7cross1) ...
+Setting up x11proto-core-dev (2018.4-4) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libubsan1-armhf-cross (8.3.0-7cross1) ...
+Setting up autoconf (2.69-11) ...
+Setting up libxml-libxml-perl (2.0134+dfsg-1) ...
+update-perl-sax-parsers: Registering Perl SAX parser XML::LibXML::SAX::Parser with priority 50...
+update-perl-sax-parsers: Registering Perl SAX parser XML::LibXML::SAX with priority 50...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+Replacing config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Setting up x11proto-xf86vidmode-dev (2018.4-4) ...
+Setting up x11proto-xext-dev (2018.4-4) ...
+Setting up groff-base (1.22.4-3) ...
+Setting up x11proto-fixes-dev (1:2018.4-4) ...
+Setting up cpp-arm-linux-gnueabihf (4:8.3.0-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up gettext (0.19.8.1-9) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libasan5-armhf-cross (8.3.0-7cross1) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up libxml-simple-perl (2.25-1) ...
+Setting up libgcc-8-dev-armhf-cross (8.3.0-7cross1) ...
+Setting up libstdc++-8-dev-armhf-cross (8.3.0-7cross1) ...
+Setting up gcc-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Setting up gcc-arm-linux-gnueabihf (4:8.3.0-1) ...
+Setting up po-debconf (1.0.21) ...
+Setting up libconfig-auto-perl (0.44-1) ...
+Setting up g++-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Setting up libdebian-dpkgcross-perl (2.6.15-3) ...
+Setting up g++-arm-linux-gnueabihf (4:8.3.0-1) ...
+Setting up dpkg-cross (2.6.15-3) ...
+Setting up crossbuild-essential-armhf (12.6) ...
+Setting up libc6:armhf (2.28-10) ...
+Setting up libasound2:armhf (1.1.8-1) ...
+Setting up libc6-dev:armhf (2.28-10) ...
+Setting up libbsd0:armhf (0.9.1-2) ...
+Setting up libxau6:armhf (1:1.0.8-1+b2) ...
+Setting up libxdmcp6:armhf (1:1.1.2-3) ...
+Setting up libxcb1:armhf (1.13.1-2) ...
+Setting up libxau-dev:armhf (1:1.0.8-1+b2) ...
+Setting up libgcc1:armhf (1:8.3.0-7) ...
+Setting up libgomp1:armhf (8.3.0-7) ...
+Setting up dh-autoreconf (19) ...
+Setting up libxdmcp-dev:armhf (1:1.1.2-3) ...
+Setting up libatomic1:armhf (8.3.0-7) ...
+Setting up dh-strip-nondeterminism (1.1.2-1) ...
+Setting up libx11-6:armhf (2:1.6.7-1) ...
+Setting up libstdc++6:armhf (8.3.0-7) ...
+Setting up libxcb1-dev:armhf (1.13.1-2) ...
+Setting up libxpm4:armhf (1:3.5.12-1) ...
+Setting up libxrender1:armhf (1:0.9.10-1) ...
+Setting up libx11-dev:armhf (2:1.6.7-1) ...
+Setting up libxext6:armhf (2:1.3.3-1+b2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libxxf86vm1:armhf (1:1.1.4-1+b2) ...
+Setting up libasan5:armhf (8.3.0-7) ...
+Setting up libxfixes3:armhf (1:5.0.3-1) ...
+Setting up libxpm-dev:armhf (1:3.5.12-1) ...
+Setting up libxext-dev:armhf (2:1.3.3-1+b2) ...
+Setting up libubsan1:armhf (8.3.0-7) ...
+Setting up libxrender-dev:armhf (1:0.9.10-1) ...
+Setting up libxxf86vm-dev:armhf (1:1.1.4-1+b2) ...
+Setting up libxcursor1:armhf (1:1.1.15-2) ...
+Setting up libxxf86dga1:armhf (2:1.1.4-1+b3) ...
+Setting up libxfixes-dev:armhf (1:5.0.3-1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-7) ...
+Setting up liballegro4.4:armhf (2:4.4.2-13) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-7) ...
+Setting up libxcursor-dev:armhf (1:1.1.15-2) ...
+Setting up libjpgalleg4.4:armhf (2:4.4.2-13) ...
+Setting up liballegro4-dev:armhf (2:4.4.2-13) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-10) ...
+Processing triggers for ccache (3.7.1-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-16 dpkg-dev_1.19.7 g++-8_8.3.0-7 gcc-8_8.3.0-7 libc6-dev_2.28-10 libstdc++-8-dev_8.3.0-7 libstdc++-8-dev-armhf-cross_8.3.0-7cross1 libstdc++6_8.3.0-7 libstdc++6-armhf-cross_8.3.0-7cross1 linux-libc-dev_4.19.37-5
+Package versions: adduser_3.118 apt_1.8.2 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.3 base-passwd_3.5.46 bash_5.0-4 binutils_2.31.1-16 binutils-arm-linux-gnueabihf_2.31.1-16 binutils-common_2.31.1-16 binutils-x86-64-linux-gnu_2.31.1-16 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.6 bzip2_1.0.6-9.1 ccache_3.7.1-1 coreutils_8.30-3 cpp_4:8.3.0-1 cpp-8_8.3.0-7 cpp-8-arm-linux-gnueabihf_8.3.0-7cross1 cpp-arm-linux-gnueabihf_4:8.3.0-1 cross-config_2.6.15-3 crossbuild-essential-armhf_12.6 dash_0.5.10.2-5 debconf_1.5.72 debhelper_12.1.1 debian-archive-keyring_2019.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.2-1 diffutils_1:3.7-3 dirmngr_2.2.13-2 dose-distcheck_5.0.1-12 dpkg_1.19.7 dpkg-cross_2.6.15-3 dpkg-dev_1.19.7 dwz_0.12-3 e2fsprogs_1.45.2-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-4 findutils_4.6.0+git+20190209-2 g++_4:8.3.0-1 g++-8_8.3.0-7 g++-8-arm-linux-gnueabihf_8.3.0-7cross1 g++-arm-linux-gnueabihf_4:8.3.0-1 gcc_4:8.3.0-1 gcc-8_8.3.0-7 gcc-8-arm-linux-gnueabihf_8.3.0-7cross1 gcc-8-arm-linux-gnueabihf-base_8.3.0-7cross1 gcc-8-base_8.3.0-7 gcc-8-cross-base_8.3.0-7cross1 gcc-arm-linux-gnueabihf_4:8.3.0-1 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.13-2 gnupg-l10n_2.2.13-2 gnupg-utils_2.2.13-2 gpg_2.2.13-2 gpg-agent_2.2.13-2 gpg-wks-client_2.2.13-2 gpg-wks-server_2.2.13-2 gpgconf_2.2.13-2 gpgsm_2.2.13-2 gpgv_2.2.13-2 grep_3.3-1 groff-base_1.22.4-3 gzip_1.9-3 hostname_3.21 init-system-helpers_1.57 intltool-debian_0.35.0+20060710.5 libacl1_2.2.53-4 liballegro4-dev_2:4.4.2-13 liballegro4.4_2:4.4.2-13 libapt-pkg5.0_1.8.2 libarchive-zip-perl_1.64-1 libasan5_8.3.0-7 libasan5-armhf-cross_8.3.0-7cross1 libasound2_1.1.8-1 libasound2-data_1.1.8-1 libassuan0_2.5.2-1 libatomic1_8.3.0-7 libatomic1-armhf-cross_8.3.0-7cross1 libattr1_1:2.4.48-4 libaudit-common_1:2.8.4-3 libaudit1_1:2.8.4-3 libbinutils_2.31.1-16 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9.1 libc-bin_2.28-10 libc-dev-bin_2.28-10 libc6_2.28-10 libc6-armhf-cross_2.28-10cross2 libc6-dev_2.28-10 libc6-dev-armhf-cross_2.28-10cross2 libcap-ng0_0.7.9-2 libcap2_1:2.25-2 libcc1-0_8.3.0-7 libcom-err2_1.45.2-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdb5.3_5.3.28+dfsg1-0.6 libdebconfclient0_0.249 libdebian-dpkgcross-perl_2.6.15-3 libdpkg-perl_1.19.7 libeatmydata1_105-7 libelf1_0.176-1.1 libext2fs2_1.45.2-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-stripnondeterminism-perl_1.1.2-1 libfile-which-perl_1.23-1 libgcc-8-dev_8.3.0-7 libgcc-8-dev-armhf-cross_8.3.0-7cross1 libgcc1_1:8.3.0-7 libgcc1-armhf-cross_1:8.3.0-7cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-4 libgdbm6_1.18.1-4 libglib2.0-0_2.58.3-2 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.7-4 libgomp1_8.3.0-7 libgomp1-armhf-cross_8.3.0-7cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libicu63_63.2-2 libidn2-0_2.0.5-1 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-7 libjpgalleg4.4_2:4.4.2-13 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-7 liblua5.2-0_5.2.4-1.1+b2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-4 libmagic1_1:5.35-4 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-7 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnettle6_3.4.1-1 libnpth0_1.6-1 libnspr4_2:4.21-1 libnss3_2:3.44+really3.42.1-2 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-12 libperl5.28_5.28.1-6 libpipeline1_1.5.1-2 libpopt0_1.16-12 libpthread-stubs0-dev_0.4-1 libquadmath0_8.3.0-7 libreadline7_7.0-5 librpm8_4.14.2.1+dfsg1-1 librpmio8_4.14.2.1+dfsg1-1 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-3 libss2_1.45.2-1 libstdc++-8-dev_8.3.0-7 libstdc++-8-dev-armhf-cross_8.3.0-7cross1 libstdc++6_8.3.0-7 libstdc++6-armhf-cross_8.3.0-7cross1 libsystemd0_241-5 libtasn1-6_4.13-3 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtsan0_8.3.0-7 libubsan1_8.3.0-7 libubsan1-armhf-cross_8.3.0-7cross1 libuchardet0_0.0.6-3 libudev1_241-5 libunistring2_0.9.10-1 libuuid1_2.33.1-0.1 libx11-6_2:1.6.7-1 libx11-data_2:1.6.7-1 libx11-dev_2:1.6.7-1 libxau-dev_1:1.0.8-1+b2 libxau6_1:1.0.8-1+b2 libxcb1_1.13.1-2 libxcb1-dev_1.13.1-2 libxcursor-dev_1:1.1.15-2 libxcursor1_1:1.1.15-2 libxdmcp-dev_1:1.1.2-3 libxdmcp6_1:1.1.2-3 libxext-dev_2:1.3.3-1+b2 libxext6_2:1.3.3-1+b2 libxfixes-dev_1:5.0.3-1 libxfixes3_1:5.0.3-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-sax-base-perl_1.09-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libxpm-dev_1:3.5.12-1 libxpm4_1:3.5.12-1 libxrender-dev_1:0.9.10-1 libxrender1_1:0.9.10-1 libxxf86dga1_2:1.1.4-1+b3 libxxf86vm-dev_1:1.1.4-1+b2 libxxf86vm1_1:1.1.4-1+b2 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.37-5 linux-libc-dev-armhf-cross_4.19.28-2cross2 login_1:4.5-1.1 lsb-base_10.2019051400 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 passwd_1:4.5-1.1 patch_2.7.6-4 perl_5.28.1-6 perl-base_5.28.1-6 perl-modules-5.28_5.28.1-6 pinentry-curses_1.1.0-2 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-dose3-dummy_0.invalid.0 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-6 tzdata_2019a-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 x11proto-core-dev_2018.4-4 x11proto-dev_2018.4-4 x11proto-fixes-dev_1:2018.4-4 x11proto-xext-dev_2018.4-4 x11proto-xf86vidmode-dev_2018.4-4 xorg-sgml-doctools_1:1.11-1 xtrans-dev_1.3.5-1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: libdumb
+Binary: libdumb1, libdumb1-dev, libaldmb1, libaldmb1-dev
+Architecture: any
+Version: 1:0.9.3-6
+Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+Uploaders: Tobias Hansen <thansen@debian.org>
+Homepage: http://dumb.sourceforge.net/
+Standards-Version: 3.9.4
+Vcs-Browser: http://git.debian.org/?p=pkg-games/libdumb.git;a=summary
+Vcs-Git: git://git.debian.org/pkg-games/libdumb.git
+Build-Depends: debhelper (>= 9), liballegro4-dev
+Package-List: 
+ libaldmb1 deb libs optional
+ libaldmb1-dev deb libdevel optional
+ libdumb1 deb libs optional
+ libdumb1-dev deb libdevel optional
+Checksums-Sha1: 
+ 4764bd59f5895eb5035a5139454cef7a53a76bb8 167379 libdumb_0.9.3.orig.tar.gz
+ 0d1091e6cd0c4cafe9076f5d64b8767a0ddbe95f 7010 libdumb_0.9.3-6.debian.tar.gz
+Checksums-Sha256: 
+ 8d44fbc9e57f3bac9f761c3b12ce102d47d717f0dd846657fb988e0bb5d1ea33 167379 libdumb_0.9.3.orig.tar.gz
+ 8998a574918b5e9d8d1c498ac484adab4e42b9aba532b530a0c8779ffab3f246 7010 libdumb_0.9.3-6.debian.tar.gz
+Files: 
+ f48da5b990aa8aa822d3b6a951baf5c2 167379 libdumb_0.9.3.orig.tar.gz
+ f41704d6c97b0d724fafdd287d43cb1f 7010 libdumb_0.9.3-6.debian.tar.gz
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+
+iQIcBAEBCAAGBQJRsk1/AAoJEIyCFp2Ozs0qF7wP/06vyyNFpzDOhTZ3545P7LVB
+1DpbCqjiApV4hzWv8TMqNSMhpRUtVwgu5KIpan0TwYWIm2bJ/a8JAIsMPIWb4wlY
+nUCTMfc27bpsL+M2WRZQ9a2VMAnie0NVWE2TL4eTvgVSiIk6kh78xuAyo4v6lskv
+UBgBtbEe4lIdu+BkgElujB/DvD+eObJc880C2AANDitKvEKrdC3ccA+x3n3bn2Ss
+YlJeDyYUQgkxGydTDVVi11tPDbSa9l/MMpUpAH9p1WEtfGcZOamFBFndzqq/qdfC
+UlRqyWh2y1f4cLcW9rFT+G/einWlSq5GaPMFo5xxs7aJ5xypSl84rNwI1gRMEEEO
+QdWZuA5zoTVyV8LZz22Tt9d8nX9aSGrwTiOLQvaWlFTEfFcRIuApeksjcbAjo6OA
+Zf2awuzHLgSE/jSTXdlkYOsdNVQrAsIwf5cGa2A03/arxc7HRNuyhcL5Q4sGWvRo
+0ZFl9mZh0OVbHwx5mgbKxV+mJB2wRzf+cnTlfrd2Z3HffDmwQiHJmuuXarTCHm/l
+tm54BG2fqRqkOonuKEj+eUSjxcQdhr5g5SWXvZOND1E3ep/WJOIYiDUOkIHtSwIW
+PVHS7UTWzoAap+vyeT+kUKyOQhhdCcd5hWjOzx8wsNhskCR3nM2df3pMhOAMx+dC
+DX3mYqP0CVRKtXw6+hxk
+=pzRL
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Fri Jun  7 21:15:43 2013 UTC
+gpgv:                using RSA key 8C82169D8ECECD2A
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./libdumb_0.9.3-6.dsc
+dpkg-source: info: extracting libdumb in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking libdumb_0.9.3.orig.tar.gz
+dpkg-source: info: unpacking libdumb_0.9.3-6.debian.tar.gz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 010_extra_flags.diff
+dpkg-source: info: applying 100_CVE-2006-3668.diff
+dpkg-source: info: applying 110-hardening.diff
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-428d2fa1-c030-4424-99c5-368c46a0ce3b
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package libdumb
+dpkg-buildpackage: info: source version 1:0.9.3-6
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Tobias Hansen <thansen@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean --parallel
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make veryclean
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[2]: Nothing to be done for 'veryclean'.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+rm -f `find -name '*.a'` make/dumbask make/config.txt
+rm -Rf obj/unix/release/ lib/unix/
+rm -f libdumb.so.1.0.0 libaldmb.so.1.0.0 libdumb.a libaldmb.a
+dh_auto_clean
+	make -j16 distclean
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[2]: Nothing to be done for 'distclean'.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_clean -O--parallel
+ debian/rules build-arch
+dh build-arch --parallel
+   dh_update_autotools_config -a -O--parallel
+   dh_auto_configure -a -O--parallel
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+echo 'include make/unix.inc' > make/config.txt
+echo 'ALL_TARGETS := core core-examples core-headers' >> make/config.txt
+echo 'ALL_TARGETS += allegro allegro-examples allegro-headers' >> make/config.txt
+echo 'PREFIX := /usr' >> make/config.txt
+mkdir -p obj/unix/release/
+mkdir -p lib/unix/
+/usr/bin/make lib/unix/libdumb.a
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/atexit.o src/core/atexit.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/duhlen.o src/core/duhlen.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/duhtag.o src/core/duhtag.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/dumbfile.o src/core/dumbfile.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/loadduh.o src/core/loadduh.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/makeduh.o src/core/makeduh.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/rawsig.o src/core/rawsig.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/readduh.o src/core/readduh.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/register.o src/core/register.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/rendduh.o src/core/rendduh.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/rendsig.o src/core/rendsig.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/unload.o src/core/unload.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/clickrem.o src/helpers/clickrem.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/memfile.o src/helpers/memfile.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/resample.o src/helpers/resample.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/sampbuf.o src/helpers/sampbuf.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/silence.o src/helpers/silence.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/stdfile.o src/helpers/stdfile.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itload.o src/it/itload.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itread.o src/it/itread.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itload2.o src/it/itload2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itread2.o src/it/itread2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itrender.o src/it/itrender.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itunload.o src/it/itunload.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/loads3m.o src/it/loads3m.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/reads3m.o src/it/reads3m.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/loadxm.o src/it/loadxm.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/readxm.o src/it/readxm.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/loadmod.o src/it/loadmod.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/readmod.o src/it/readmod.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/loads3m2.o src/it/loads3m2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/reads3m2.o src/it/reads3m2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/loadxm2.o src/it/loadxm2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/readxm2.o src/it/readxm2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/loadmod2.o src/it/loadmod2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/readmod2.o src/it/readmod2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/xmeffect.o src/it/xmeffect.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itorder.o src/it/itorder.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itmisc.o src/it/itmisc.c
+src/it/reads3m.c: In function ‘it_s3m_read_sample_header’:
+src/it/reads3m.c:57:23: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sample->filename, 13, f);
+                 ~~~~~~^~~~~~~~~~
+In file included from src/it/reads3m.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/reads3m.c:83:23: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sample->name, 28, f);
+                 ~~~~~~^~~~~~
+In file included from src/it/reads3m.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/reads3m.c: In function ‘it_s3m_read_pattern’:
+src/it/reads3m.c:235:26: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+    dumbfile_getnc(buffer + buflen, used[b], f);
+                   ~~~~~~~^~~~~~~~
+In file included from src/it/reads3m.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/reads3m.c: In function ‘it_s3m_load_sigdata’:
+src/it/reads3m.c:389:24: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sigdata->name, 28, f);
+                 ~~~~~~~^~~~~~
+In file included from src/it/reads3m.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/reads3m.c:498:24: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sigdata->order, sigdata->n_orders, f);
+                 ~~~~~~~^~~~~~~
+In file included from src/it/reads3m.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/reads3m.c:376:6: warning: variable ‘flags’ set but not used [-Wunused-but-set-variable]
+  int flags, cwtv, ffi;
+      ^~~~~
+src/it/reads3m.c: In function ‘dumb_read_s3m_quick’:
+src/it/reads3m.c:667:13: warning: pointer targets in assignment from ‘unsigned char *’ to ‘const char *’ differ in signedness [-Wpointer-sign]
+   tag[0][1] = ((DUMB_IT_SIGDATA *)sigdata)->name;
+             ^
+src/it/readmod.c: In function ‘it_mod_read_pattern’:
+src/it/readmod.c:41:26: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+    dumbfile_getnc(buffer + pos, 4*4, f);
+                   ~~~~~~~^~~~~
+In file included from src/it/readmod.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readmod.c:44:26: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+    dumbfile_getnc(buffer + pos, 4*4, f);
+                   ~~~~~~~^~~~~
+In file included from src/it/readmod.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readmod.c:48:18: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+   dumbfile_getnc(buffer, 64 * n_channels * 4, f);
+                  ^~~~~~
+In file included from src/it/readmod.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readmod.c: In function ‘it_mod_read_sample_header’:
+src/it/readmod.c:134:23: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sample->name, 22, f);
+                 ~~~~~~^~~~~~
+In file included from src/it/readmod.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readmod.c: In function ‘dumbfile_buffer_mod’:
+src/it/readmod.c:318:29: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  bm->len = dumbfile_getnc(bm->buffered, MOD_FFT_OFFSET + 4, f);
+                           ~~^~~~~~~~~~
+In file included from src/it/readmod.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readmod.c: In function ‘it_mod_load_sigdata’:
+src/it/readmod.c:363:28: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  if (dumbfile_getnc(sigdata->name, 20, f) < 20) {
+                     ~~~~~~~^~~~~~
+In file included from src/it/readmod.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readmod.c:491:28: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  if (dumbfile_getnc(sigdata->order, 128, f) < 128) {
+                     ~~~~~~~^~~~~~~
+In file included from src/it/readmod.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readmod.c: In function ‘dumb_read_mod_quick’:
+src/it/readmod.c:601:13: warning: pointer targets in assignment from ‘unsigned char *’ to ‘const char *’ differ in signedness [-Wpointer-sign]
+   tag[0][1] = ((DUMB_IT_SIGDATA *)sigdata)->name;
+             ^
+src/it/readmod.c:430:23: warning: ‘fft’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     n_channels = (fft & 0x000000FFL) - '0';
+                  ~~~~~^~~~~~~~~~~~~~
+src/it/readmod.c:346:16: note: ‘fft’ was declared here
+  unsigned long fft;
+                ^~~
+src/it/readxm.c: In function ‘it_xm_read_pattern’:
+src/it/readxm.c:212:21: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  if (dumbfile_getnc(buffer, size, f) < size)
+                     ^~~~~~
+In file included from src/it/readxm.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readxm.c: In function ‘it_xm_read_instrument’:
+src/it/readxm.c:339:27: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(instrument->name, 22, f);
+                 ~~~~~~~~~~^~~~~~
+In file included from src/it/readxm.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readxm.c: In function ‘it_xm_read_sample_header’:
+src/it/readxm.c:493:23: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sample->name, 22, f);
+                 ~~~~~~^~~~~~
+In file included from src/it/readxm.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readxm.c: In function ‘it_xm_load_sigdata’:
+src/it/readxm.c:634:28: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  if (dumbfile_getnc(sigdata->name, 20, f) < 20) {
+                     ~~~~~~~^~~~~~
+In file included from src/it/readxm.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readxm.c:706:24: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sigdata->order, sigdata->n_orders, f);
+                 ~~~~~~~^~~~~~~
+In file included from src/it/readxm.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readxm.c: In function ‘dumb_read_xm_quick’:
+src/it/readxm.c:1004:13: warning: pointer targets in assignment from ‘unsigned char *’ to ‘const char *’ differ in signedness [-Wpointer-sign]
+   tag[0][1] = ((DUMB_IT_SIGDATA *)sigdata)->name;
+             ^
+src/it/readxm.c:804:27: warning: ‘extra.vibrato_speed’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     sample->vibrato_speed = extra.vibrato_speed;
+     ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+src/it/readxm.c:771:23: note: ‘extra.vibrato_speed’ was declared here
+   XM_INSTRUMENT_EXTRA extra;
+                       ^~~~~
+src/it/readxm.c:805:27: warning: ‘extra.vibrato_depth’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     sample->vibrato_depth = extra.vibrato_depth;
+     ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+src/it/readxm.c:771:23: note: ‘extra.vibrato_depth’ was declared here
+   XM_INSTRUMENT_EXTRA extra;
+                       ^~~~~
+src/it/readxm.c:806:26: warning: ‘extra.vibrato_sweep’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     sample->vibrato_rate = extra.vibrato_sweep;
+     ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+src/it/readxm.c:771:23: note: ‘extra.vibrato_sweep’ was declared here
+   XM_INSTRUMENT_EXTRA extra;
+                       ^~~~~
+src/it/readxm.c:810:50: warning: ‘extra.vibrato_type’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     sample->vibrato_waveform = xm_convert_vibrato[extra.vibrato_type];
+                                ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+src/it/readxm.c:771:23: note: ‘extra.vibrato_type’ was declared here
+   XM_INSTRUMENT_EXTRA extra;
+                       ^~~~~
+src/it/itread.c: In function ‘it_read_old_instrument’:
+src/it/itread.c:329:27: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(instrument->filename, 13, f);
+                 ~~~~~~~~~~^~~~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:358:27: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(instrument->name, 26, f);
+                 ~~~~~~~~~~^~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c: In function ‘it_read_instrument’:
+src/it/itread.c:439:27: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(instrument->filename, 13, f);
+                 ~~~~~~~~~~^~~~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:458:27: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(instrument->name, 26, f);
+                 ~~~~~~~~~~^~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c: In function ‘it_read_sample_header’:
+src/it/itread.c:489:23: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sample->filename, 13, f);
+                 ~~~~~~^~~~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:496:23: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sample->name, 26, f);
+                 ~~~~~~^~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c: In function ‘it_read_pattern’:
+src/it/itread.c:667:17: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(buffer, buflen, f);
+                 ^~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c: In function ‘it_load_sigdata’:
+src/it/itread.c:852:24: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sigdata->name, 26, f);
+                 ~~~~~~~^~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:885:24: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sigdata->channel_pan, DUMB_IT_N_CHANNELS, f);
+                 ~~~~~~~^~~~~~~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:886:24: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sigdata->channel_volume, DUMB_IT_N_CHANNELS, f);
+                 ~~~~~~~^~~~~~~~~~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:927:24: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sigdata->order, sigdata->n_orders, f);
+                 ~~~~~~~^~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:1015:23: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+    if (dumbfile_getnc(mididata, 32, f) < 32) {
+                       ^~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:1047:19: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+    dumbfile_getnc(mididata, 32, f);
+                   ^~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:1098:32: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+      if (dumbfile_getnc(sigdata->song_message, message_length, f) < message_length) {
+                         ~~~~~~~^~~~~~~~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:823:6: warning: variable ‘cwt’ set but not used [-Wunused-but-set-variable]
+  int cwt, cmwt;
+      ^~~
+src/it/itread.c: In function ‘dumb_read_it_quick’:
+src/it/itread.c:1204:13: warning: pointer targets in assignment from ‘unsigned char *’ to ‘const char *’ differ in signedness [-Wpointer-sign]
+   tag[0][1] = ((DUMB_IT_SIGDATA *)sigdata)->name;
+             ^
+src/it/itrender.c: In function ‘process_effects’:
+src/it/itrender.c:1521:8: warning: this statement may fall through [-Wimplicit-fallthrough=]
+     if (channel->playing) {
+        ^
+src/it/itrender.c:1527:4: note: here
+    case IT_VOLUME_SLIDE:
+    ^~~~
+ar rs lib/unix/libdumb.a obj/unix/release/atexit.o obj/unix/release/duhlen.o obj/unix/release/duhtag.o obj/unix/release/dumbfile.o obj/unix/release/loadduh.o obj/unix/release/makeduh.o obj/unix/release/rawsig.o obj/unix/release/readduh.o obj/unix/release/register.o obj/unix/release/rendduh.o obj/unix/release/rendsig.o obj/unix/release/unload.o obj/unix/release/clickrem.o obj/unix/release/memfile.o obj/unix/release/resample.o obj/unix/release/sampbuf.o obj/unix/release/silence.o obj/unix/release/stdfile.o obj/unix/release/itload.o obj/unix/release/itread.o obj/unix/release/itload2.o obj/unix/release/itread2.o obj/unix/release/itrender.o obj/unix/release/itunload.o obj/unix/release/loads3m.o obj/unix/release/reads3m.o obj/unix/release/loadxm.o obj/unix/release/readxm.o obj/unix/release/loadmod.o obj/unix/release/readmod.o obj/unix/release/loads3m2.o obj/unix/release/reads3m2.o obj/unix/release/loadxm2.o obj/unix/release/readxm2.o obj/unix/release/loadmod2.o obj/unix/release/readmod2.o obj/unix/release/xmeffect.o obj/unix/release/itorder.o obj/unix/release/itmisc.o
+ar: creating lib/unix/libdumb.a
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+/usr/bin/make lib/unix/libaldmb.a
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/alplay.o src/allegro/alplay.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datduh.o src/allegro/datduh.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datit.o src/allegro/datit.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datxm.o src/allegro/datxm.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/dats3m.o src/allegro/dats3m.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datmod.o src/allegro/datmod.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datitq.o src/allegro/datitq.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datxmq.o src/allegro/datxmq.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/dats3mq.o src/allegro/dats3mq.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datmodq.o src/allegro/datmodq.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datunld.o src/allegro/datunld.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer  `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/packfile.o src/allegro/packfile.c
+ar rs lib/unix/libaldmb.a obj/unix/release/alplay.o obj/unix/release/datduh.o obj/unix/release/datit.o obj/unix/release/datxm.o obj/unix/release/dats3m.o obj/unix/release/datmod.o obj/unix/release/datitq.o obj/unix/release/datxmq.o obj/unix/release/dats3mq.o obj/unix/release/datmodq.o obj/unix/release/datunld.o obj/unix/release/packfile.o
+ar: creating lib/unix/libaldmb.a
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+cp lib/unix/libdumb.a .
+cp lib/unix/libaldmb.a .
+/usr/bin/make clean
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+rm -f obj/unix/release/*.o
+rm -f obj/unix/debug/*.o
+rm -f examples/*.o
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+/usr/bin/make lib/unix/libdumb.a CFLAGS_EXTRA=-fPIC
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/atexit.o src/core/atexit.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/duhlen.o src/core/duhlen.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/duhtag.o src/core/duhtag.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/dumbfile.o src/core/dumbfile.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/loadduh.o src/core/loadduh.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/makeduh.o src/core/makeduh.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/rawsig.o src/core/rawsig.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/readduh.o src/core/readduh.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/register.o src/core/register.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/rendduh.o src/core/rendduh.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/rendsig.o src/core/rendsig.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/unload.o src/core/unload.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/clickrem.o src/helpers/clickrem.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/memfile.o src/helpers/memfile.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/resample.o src/helpers/resample.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/sampbuf.o src/helpers/sampbuf.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/silence.o src/helpers/silence.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/stdfile.o src/helpers/stdfile.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itload.o src/it/itload.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itread.o src/it/itread.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itload2.o src/it/itload2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itread2.o src/it/itread2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itrender.o src/it/itrender.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itunload.o src/it/itunload.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/loads3m.o src/it/loads3m.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/reads3m.o src/it/reads3m.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/loadxm.o src/it/loadxm.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/readxm.o src/it/readxm.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/loadmod.o src/it/loadmod.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/readmod.o src/it/readmod.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/loads3m2.o src/it/loads3m2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/reads3m2.o src/it/reads3m2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/loadxm2.o src/it/loadxm2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/readxm2.o src/it/readxm2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/loadmod2.o src/it/loadmod2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/readmod2.o src/it/readmod2.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/xmeffect.o src/it/xmeffect.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itorder.o src/it/itorder.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -c -o obj/unix/release/itmisc.o src/it/itmisc.c
+src/it/reads3m.c: In function ‘it_s3m_read_sample_header’:
+src/it/reads3m.c:57:23: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sample->filename, 13, f);
+                 ~~~~~~^~~~~~~~~~
+In file included from src/it/reads3m.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/reads3m.c:83:23: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sample->name, 28, f);
+                 ~~~~~~^~~~~~
+In file included from src/it/reads3m.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/reads3m.c: In function ‘it_s3m_read_pattern’:
+src/it/reads3m.c:235:26: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+    dumbfile_getnc(buffer + buflen, used[b], f);
+                   ~~~~~~~^~~~~~~~
+In file included from src/it/reads3m.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/reads3m.c: In function ‘it_s3m_load_sigdata’:
+src/it/reads3m.c:389:24: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sigdata->name, 28, f);
+                 ~~~~~~~^~~~~~
+In file included from src/it/reads3m.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/reads3m.c:498:24: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sigdata->order, sigdata->n_orders, f);
+                 ~~~~~~~^~~~~~~
+In file included from src/it/reads3m.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/reads3m.c:376:6: warning: variable ‘flags’ set but not used [-Wunused-but-set-variable]
+  int flags, cwtv, ffi;
+      ^~~~~
+src/it/reads3m.c: In function ‘dumb_read_s3m_quick’:
+src/it/reads3m.c:667:13: warning: pointer targets in assignment from ‘unsigned char *’ to ‘const char *’ differ in signedness [-Wpointer-sign]
+   tag[0][1] = ((DUMB_IT_SIGDATA *)sigdata)->name;
+             ^
+src/it/readmod.c: In function ‘it_mod_read_pattern’:
+src/it/readmod.c:41:26: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+    dumbfile_getnc(buffer + pos, 4*4, f);
+                   ~~~~~~~^~~~~
+In file included from src/it/readmod.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readmod.c:44:26: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+    dumbfile_getnc(buffer + pos, 4*4, f);
+                   ~~~~~~~^~~~~
+In file included from src/it/readmod.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readmod.c:48:18: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+   dumbfile_getnc(buffer, 64 * n_channels * 4, f);
+                  ^~~~~~
+In file included from src/it/readmod.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readmod.c: In function ‘it_mod_read_sample_header’:
+src/it/readmod.c:134:23: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sample->name, 22, f);
+                 ~~~~~~^~~~~~
+In file included from src/it/readmod.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readmod.c: In function ‘dumbfile_buffer_mod’:
+src/it/readmod.c:318:29: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  bm->len = dumbfile_getnc(bm->buffered, MOD_FFT_OFFSET + 4, f);
+                           ~~^~~~~~~~~~
+In file included from src/it/readmod.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readmod.c: In function ‘it_mod_load_sigdata’:
+src/it/readmod.c:363:28: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  if (dumbfile_getnc(sigdata->name, 20, f) < 20) {
+                     ~~~~~~~^~~~~~
+In file included from src/it/readmod.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readmod.c:491:28: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  if (dumbfile_getnc(sigdata->order, 128, f) < 128) {
+                     ~~~~~~~^~~~~~~
+In file included from src/it/readmod.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readmod.c: In function ‘dumb_read_mod_quick’:
+src/it/readmod.c:601:13: warning: pointer targets in assignment from ‘unsigned char *’ to ‘const char *’ differ in signedness [-Wpointer-sign]
+   tag[0][1] = ((DUMB_IT_SIGDATA *)sigdata)->name;
+             ^
+src/it/readmod.c:430:23: warning: ‘fft’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     n_channels = (fft & 0x000000FFL) - '0';
+                  ~~~~~^~~~~~~~~~~~~~
+src/it/readmod.c:346:16: note: ‘fft’ was declared here
+  unsigned long fft;
+                ^~~
+src/it/readxm.c: In function ‘it_xm_read_pattern’:
+src/it/readxm.c:212:21: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  if (dumbfile_getnc(buffer, size, f) < size)
+                     ^~~~~~
+In file included from src/it/readxm.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readxm.c: In function ‘it_xm_read_instrument’:
+src/it/readxm.c:339:27: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(instrument->name, 22, f);
+                 ~~~~~~~~~~^~~~~~
+In file included from src/it/readxm.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readxm.c: In function ‘it_xm_read_sample_header’:
+src/it/readxm.c:493:23: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sample->name, 22, f);
+                 ~~~~~~^~~~~~
+In file included from src/it/readxm.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readxm.c: In function ‘it_xm_load_sigdata’:
+src/it/readxm.c:634:28: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  if (dumbfile_getnc(sigdata->name, 20, f) < 20) {
+                     ~~~~~~~^~~~~~
+In file included from src/it/readxm.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readxm.c:706:24: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sigdata->order, sigdata->n_orders, f);
+                 ~~~~~~~^~~~~~~
+In file included from src/it/readxm.c:24:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/readxm.c: In function ‘dumb_read_xm_quick’:
+src/it/readxm.c:1004:13: warning: pointer targets in assignment from ‘unsigned char *’ to ‘const char *’ differ in signedness [-Wpointer-sign]
+   tag[0][1] = ((DUMB_IT_SIGDATA *)sigdata)->name;
+             ^
+src/it/readxm.c:804:27: warning: ‘extra.vibrato_speed’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     sample->vibrato_speed = extra.vibrato_speed;
+     ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+src/it/readxm.c:771:23: note: ‘extra.vibrato_speed’ was declared here
+   XM_INSTRUMENT_EXTRA extra;
+                       ^~~~~
+src/it/readxm.c:805:27: warning: ‘extra.vibrato_depth’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     sample->vibrato_depth = extra.vibrato_depth;
+     ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+src/it/readxm.c:771:23: note: ‘extra.vibrato_depth’ was declared here
+   XM_INSTRUMENT_EXTRA extra;
+                       ^~~~~
+src/it/readxm.c:806:26: warning: ‘extra.vibrato_sweep’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     sample->vibrato_rate = extra.vibrato_sweep;
+     ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+src/it/readxm.c:771:23: note: ‘extra.vibrato_sweep’ was declared here
+   XM_INSTRUMENT_EXTRA extra;
+                       ^~~~~
+src/it/readxm.c:810:50: warning: ‘extra.vibrato_type’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+     sample->vibrato_waveform = xm_convert_vibrato[extra.vibrato_type];
+                                ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+src/it/readxm.c:771:23: note: ‘extra.vibrato_type’ was declared here
+   XM_INSTRUMENT_EXTRA extra;
+                       ^~~~~
+src/it/itread.c: In function ‘it_read_old_instrument’:
+src/it/itread.c:329:27: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(instrument->filename, 13, f);
+                 ~~~~~~~~~~^~~~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:358:27: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(instrument->name, 26, f);
+                 ~~~~~~~~~~^~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c: In function ‘it_read_instrument’:
+src/it/itread.c:439:27: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(instrument->filename, 13, f);
+                 ~~~~~~~~~~^~~~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:458:27: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(instrument->name, 26, f);
+                 ~~~~~~~~~~^~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c: In function ‘it_read_sample_header’:
+src/it/itread.c:489:23: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sample->filename, 13, f);
+                 ~~~~~~^~~~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:496:23: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sample->name, 26, f);
+                 ~~~~~~^~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c: In function ‘it_read_pattern’:
+src/it/itread.c:667:17: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(buffer, buflen, f);
+                 ^~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c: In function ‘it_load_sigdata’:
+src/it/itread.c:852:24: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sigdata->name, 26, f);
+                 ~~~~~~~^~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:885:24: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sigdata->channel_pan, DUMB_IT_N_CHANNELS, f);
+                 ~~~~~~~^~~~~~~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:886:24: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sigdata->channel_volume, DUMB_IT_N_CHANNELS, f);
+                 ~~~~~~~^~~~~~~~~~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:927:24: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+  dumbfile_getnc(sigdata->order, sigdata->n_orders, f);
+                 ~~~~~~~^~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:1015:23: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+    if (dumbfile_getnc(mididata, 32, f) < 32) {
+                       ^~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:1047:19: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+    dumbfile_getnc(mididata, 32, f);
+                   ^~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:1098:32: warning: pointer targets in passing argument 1 of ‘dumbfile_getnc’ differ in signedness [-Wpointer-sign]
+      if (dumbfile_getnc(sigdata->song_message, message_length, f) < message_length) {
+                         ~~~~~~~^~~~~~~~~~~~~~
+In file included from src/it/itread.c:23:
+include/dumb.h:183:6: note: expected ‘char *’ but argument is of type ‘unsigned char *’
+ long dumbfile_getnc(char *ptr, long n, DUMBFILE *f);
+      ^~~~~~~~~~~~~~
+src/it/itread.c:823:6: warning: variable ‘cwt’ set but not used [-Wunused-but-set-variable]
+  int cwt, cmwt;
+      ^~~
+src/it/itread.c: In function ‘dumb_read_it_quick’:
+src/it/itread.c:1204:13: warning: pointer targets in assignment from ‘unsigned char *’ to ‘const char *’ differ in signedness [-Wpointer-sign]
+   tag[0][1] = ((DUMB_IT_SIGDATA *)sigdata)->name;
+             ^
+src/it/itrender.c: In function ‘process_effects’:
+src/it/itrender.c:1521:8: warning: this statement may fall through [-Wimplicit-fallthrough=]
+     if (channel->playing) {
+        ^
+src/it/itrender.c:1527:4: note: here
+    case IT_VOLUME_SLIDE:
+    ^~~~
+ar rs lib/unix/libdumb.a obj/unix/release/atexit.o obj/unix/release/duhlen.o obj/unix/release/duhtag.o obj/unix/release/dumbfile.o obj/unix/release/loadduh.o obj/unix/release/makeduh.o obj/unix/release/rawsig.o obj/unix/release/readduh.o obj/unix/release/register.o obj/unix/release/rendduh.o obj/unix/release/rendsig.o obj/unix/release/unload.o obj/unix/release/clickrem.o obj/unix/release/memfile.o obj/unix/release/resample.o obj/unix/release/sampbuf.o obj/unix/release/silence.o obj/unix/release/stdfile.o obj/unix/release/itload.o obj/unix/release/itread.o obj/unix/release/itload2.o obj/unix/release/itread2.o obj/unix/release/itrender.o obj/unix/release/itunload.o obj/unix/release/loads3m.o obj/unix/release/reads3m.o obj/unix/release/loadxm.o obj/unix/release/readxm.o obj/unix/release/loadmod.o obj/unix/release/readmod.o obj/unix/release/loads3m2.o obj/unix/release/reads3m2.o obj/unix/release/loadxm2.o obj/unix/release/readxm2.o obj/unix/release/loadmod2.o obj/unix/release/readmod2.o obj/unix/release/xmeffect.o obj/unix/release/itorder.o obj/unix/release/itmisc.o
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+/usr/bin/make lib/unix/libaldmb.a CFLAGS_EXTRA=-fPIC
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/alplay.o src/allegro/alplay.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datduh.o src/allegro/datduh.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datit.o src/allegro/datit.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datxm.o src/allegro/datxm.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/dats3m.o src/allegro/dats3m.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datmod.o src/allegro/datmod.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datitq.o src/allegro/datitq.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datxmq.o src/allegro/datxmq.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/dats3mq.o src/allegro/dats3mq.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datmodq.o src/allegro/datmodq.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/datunld.o src/allegro/datunld.c
+gcc -Iinclude -Wall -W -Wwrite-strings -Wstrict-prototypes -Wmissing-declarations -DDUMB_DECLARE_DEPRECATED -O2 -ffast-math -fomit-frame-pointer -fPIC `dpkg-buildflags --get CFLAGS` `dpkg-buildflags --get CPPFLAGS` -Wno-missing-declarations -c -o obj/unix/release/packfile.o src/allegro/packfile.c
+ar rs lib/unix/libaldmb.a obj/unix/release/alplay.o obj/unix/release/datduh.o obj/unix/release/datit.o obj/unix/release/datxm.o obj/unix/release/dats3m.o obj/unix/release/datmod.o obj/unix/release/datitq.o obj/unix/release/datxmq.o obj/unix/release/dats3mq.o obj/unix/release/datmodq.o obj/unix/release/datunld.o obj/unix/release/packfile.o
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+cc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z,relro -Wl,-soname,libdumb.so.1 -shared `sed -ne '/^CORE_MODULES :=/,/c$/p' < Makefile | sed -e 's,\\\\,,' -e 's,.*/\\(.*\\)\\.c,obj/unix/release/\\1.o,' | tail -n +2` -o libdumb.so.1.0.0 -lm -lc
+ln -s libdumb.so.1.0.0 libdumb.so
+cc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z,relro -Wl,-soname,libaldmb.so.1 -shared `sed -ne '/^ALLEGRO_MODULES :=/,/c$/p' < Makefile | sed -e 's,\\\\,,' -e 's,.*/\\(.*\\)\\.c,obj/unix/release/\\1.o,' | tail -n +2` -o libaldmb.so.1.0.0 -L. -ldumb `allegro-config --libs` -lm -lc
+/usr/bin/ld: skipping incompatible /usr/lib/arm-linux-gnueabihf/liballeg.so when searching for -lalleg
+/usr/bin/ld: cannot find -lalleg
+/usr/bin/ld: skipping incompatible /usr/lib/arm-linux-gnueabihf/libm.so when searching for -lm
+/usr/bin/ld: skipping incompatible /usr/lib/arm-linux-gnueabihf/libm.a when searching for -lm
+collect2: error: ld returned 1 exit status
+make[1]: *** [debian/rules:41: override_dh_auto_build] Error 1
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make: *** [debian/rules:16: build-arch] Error 2
+dpkg-buildpackage: error: debian/rules build-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-07-02T02:15:40Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following package was automatically installed and is no longer required:
+  sensible-utils
+Use 'apt autoremove' to remove it.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* binutils-arm-linux-gnueabihf*
+  bsdmainutils* cpp-8-arm-linux-gnueabihf* cpp-arm-linux-gnueabihf*
+  cross-config* crossbuild-essential-armhf* debhelper* dh-autoreconf*
+  dh-strip-nondeterminism* dpkg-cross* dwz* file* g++-8-arm-linux-gnueabihf*
+  g++-arm-linux-gnueabihf* gcc-8-arm-linux-gnueabihf*
+  gcc-8-arm-linux-gnueabihf-base* gcc-8-base:armhf* gcc-8-cross-base*
+  gcc-arm-linux-gnueabihf* gettext* gettext-base* groff-base* intltool-debian*
+  liballegro4-dev:armhf* liballegro4.4:armhf* libarchive-zip-perl*
+  libasan5:armhf* libasan5-armhf-cross* libasound2:armhf* libasound2-data*
+  libatomic1:armhf* libatomic1-armhf-cross* libbsd0* libbsd0:armhf*
+  libc6:armhf* libc6-armhf-cross* libc6-dev:armhf* libc6-dev-armhf-cross*
+  libconfig-auto-perl* libconfig-inifiles-perl* libcroco3*
+  libdebian-dpkgcross-perl* libfile-homedir-perl*
+  libfile-stripnondeterminism-perl* libfile-which-perl* libgcc-8-dev:armhf*
+  libgcc-8-dev-armhf-cross* libgcc1:armhf* libgcc1-armhf-cross* libglib2.0-0*
+  libgomp1:armhf* libgomp1-armhf-cross* libicu63* libio-string-perl*
+  libjpgalleg4.4:armhf* liblocale-gettext-perl* libmagic-mgc* libmagic1*
+  libncurses6* libpipeline1* libpthread-stubs0-dev:armhf* libsigsegv2*
+  libstdc++-8-dev:armhf* libstdc++-8-dev-armhf-cross* libstdc++6:armhf*
+  libstdc++6-armhf-cross* libtool* libubsan1:armhf* libubsan1-armhf-cross*
+  libuchardet0* libx11-6:armhf* libx11-data* libx11-dev:armhf*
+  libxau-dev:armhf* libxau6:armhf* libxcb1:armhf* libxcb1-dev:armhf*
+  libxcursor-dev:armhf* libxcursor1:armhf* libxdmcp-dev:armhf*
+  libxdmcp6:armhf* libxext-dev:armhf* libxext6:armhf* libxfixes-dev:armhf*
+  libxfixes3:armhf* libxml-libxml-perl* libxml-namespacesupport-perl*
+  libxml-sax-base-perl* libxml-sax-perl* libxml-simple-perl* libxml2*
+  libxpm-dev:armhf* libxpm4:armhf* libxrender-dev:armhf* libxrender1:armhf*
+  libxxf86dga1:armhf* libxxf86vm-dev:armhf* libxxf86vm1:armhf* libyaml-perl*
+  linux-libc-dev:armhf* linux-libc-dev-armhf-cross* m4* man-db* po-debconf*
+  sbuild-build-depends-main-dummy:armhf* ucf* x11proto-core-dev* x11proto-dev*
+  x11proto-fixes-dev* x11proto-xext-dev* x11proto-xf86vidmode-dev*
+  xorg-sgml-doctools* xtrans-dev*
+0 upgraded, 0 newly installed, 117 to remove and 0 not upgraded.
+After this operation, 243 MB disk space will be freed.
+(Reading database ... 19445 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing crossbuild-essential-armhf (12.6) ...
+Removing g++-arm-linux-gnueabihf (4:8.3.0-1) ...
+Removing gcc-arm-linux-gnueabihf (4:8.3.0-1) ...
+Removing g++-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Removing gcc-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Removing binutils-arm-linux-gnueabihf (2.31.1-16) ...
+Removing cpp-arm-linux-gnueabihf (4:8.3.0-1) ...
+Removing cpp-8-arm-linux-gnueabihf (8.3.0-7cross1) ...
+Removing dpkg-cross (2.6.15-3) ...
+Removing cross-config (2.6.15-3) ...
+Removing libdebian-dpkgcross-perl (2.6.15-3) ...
+Removing gcc-8-arm-linux-gnueabihf-base:amd64 (8.3.0-7cross1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-7) ...
+Removing libgcc-8-dev:armhf (8.3.0-7) ...
+Removing libubsan1:armhf (8.3.0-7) ...
+Removing libasan5:armhf (8.3.0-7) ...
+Removing libstdc++6:armhf (8.3.0-7) ...
+Removing libstdc++-8-dev-armhf-cross (8.3.0-7cross1) ...
+Removing libgcc-8-dev-armhf-cross (8.3.0-7cross1) ...
+Removing libubsan1-armhf-cross (8.3.0-7cross1) ...
+Removing libasan5-armhf-cross (8.3.0-7cross1) ...
+Removing libstdc++6-armhf-cross (8.3.0-7cross1) ...
+Removing liballegro4-dev:armhf (2:4.4.2-13) ...
+Removing libjpgalleg4.4:armhf (2:4.4.2-13) ...
+Removing liballegro4.4:armhf (2:4.4.2-13) ...
+Removing libasound2:armhf (1.1.8-1) ...
+Removing libasound2-data (1.1.8-1) ...
+Removing libatomic1:armhf (8.3.0-7) ...
+Removing libatomic1-armhf-cross (8.3.0-7cross1) ...
+Removing libxxf86vm-dev:armhf (1:1.1.4-1+b2) ...
+Removing libxcursor-dev:armhf (1:1.1.15-2) ...
+Removing libxrender-dev:armhf (1:0.9.10-1) ...
+Removing libxxf86vm1:armhf (1:1.1.4-1+b2) ...
+Removing libxxf86dga1:armhf (2:1.1.4-1+b3) ...
+Removing libc6-dev-armhf-cross (2.28-10cross2) ...
+Removing libgomp1-armhf-cross (8.3.0-7cross1) ...
+Removing libc6-dev:armhf (2.28-10) ...
+Removing libconfig-auto-perl (0.44-1) ...
+Removing libconfig-inifiles-perl (3.000001-1) ...
+Removing libfile-homedir-perl (1.004-1) ...
+Removing libfile-which-perl (1.23-1) ...
+Removing libgcc1-armhf-cross (1:8.3.0-7cross1) ...
+Removing libgomp1:armhf (8.3.0-7) ...
+Removing libxml-simple-perl (2.25-1) ...
+Removing libxml-libxml-perl (2.0134+dfsg-1) ...
+update-perl-sax-parsers: Unregistering Perl SAX parser XML::LibXML::SAX::Parser with priority 50...
+update-perl-sax-parsers: Unregistering Perl SAX parser XML::LibXML::SAX with priority 50...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+Replacing config file /etc/perl/XML/SAX/ParserDetails.ini with new version
+Removing libio-string-perl (1.08-3) ...
+Removing liblocale-gettext-perl (1.07-3+b4) ...
+Removing libxcursor1:armhf (1:1.1.15-2) ...
+Removing libxext-dev:armhf (2:1.3.3-1+b2) ...
+Removing libxext6:armhf (2:1.3.3-1+b2) ...
+Removing libxfixes-dev:armhf (1:5.0.3-1) ...
+Removing libxfixes3:armhf (1:5.0.3-1) ...
+Removing libxml-sax-perl (1.00+dfsg-1) ...
+update-perl-sax-parsers: Unregistering Perl SAX parser XML::SAX::PurePerl with priority 50...
+update-perl-sax-parsers: Updating overall Perl SAX parser modules info file...
+Removing libxml-namespacesupport-perl (1.12-1) ...
+Removing libxml-sax-base-perl (1.09-1) ...
+Removing libxpm-dev:armhf (1:3.5.12-1) ...
+Removing libxpm4:armhf (1:3.5.12-1) ...
+Removing libxrender1:armhf (1:0.9.10-1) ...
+Removing libyaml-perl (1.27-1) ...
+Removing linux-libc-dev:armhf (4.19.37-5) ...
+Removing linux-libc-dev-armhf-cross (4.19.28-2cross2) ...
+Removing ucf (3.0038+nmu1) ...
+Removing x11proto-xf86vidmode-dev (2018.4-4) ...
+Removing x11proto-xext-dev (2018.4-4) ...
+Removing x11proto-fixes-dev (1:2018.4-4) ...
+Removing gcc-8-cross-base (8.3.0-7cross1) ...
+Removing libx11-dev:armhf (2:1.6.7-1) ...
+Removing libxcb1-dev:armhf (1.13.1-2) ...
+Removing libxdmcp-dev:armhf (1:1.1.2-3) ...
+Removing libx11-6:armhf (2:1.6.7-1) ...
+Removing libxcb1:armhf (1.13.1-2) ...
+Removing libxdmcp6:armhf (1:1.1.2-3) ...
+Removing libbsd0:armhf (0.9.1-2) ...
+Removing libc6-armhf-cross (2.28-10cross2) ...
+Removing libpthread-stubs0-dev:armhf (0.4-1) ...
+Removing libx11-data (2:1.6.7-1) ...
+Removing libxau-dev:armhf (1:1.0.8-1+b2) ...
+Removing libxau6:armhf (1:1.0.8-1+b2) ...
+Removing x11proto-core-dev (2018.4-4) ...
+Removing x11proto-dev (2018.4-4) ...
+Removing xorg-sgml-doctools (1:1.11-1) ...
+Removing xtrans-dev (1.3.5-1) ...
+Removing libgcc1:armhf (1:8.3.0-7) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.2-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-7) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-3) ...
+Removing libfile-stripnondeterminism-perl (1.1.2-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-10) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libglib2.0-0:amd64 (2.58.3-2) ...
+Removing libxml2:amd64 (2.9.4+dfsg1-7+b3) ...
+Removing libicu63:amd64 (63.2-2) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing file (1:5.35-4) ...
+Removing libmagic1:amd64 (1:5.35-4) ...
+Removing libmagic-mgc (1:5.35-4) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.7.1-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-10) ...
+(Reading database ... 12505 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-2) ...
+Purging configuration files for libmagic1:amd64 (1:5.35-4) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libxml-sax-perl (1.00+dfsg-1) ...
+Purging configuration files for cross-config (2.6.15-3) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for ucf (3.0038+nmu1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-10) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+Purging configuration files for dpkg-cross (2.6.15-3) ...
+Purging configuration files for libdebian-dpkgcross-perl (2.6.15-3) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 14
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 16
+Job: /home/build/sbuild-setup/repo/pool/main/libd/libdumb/libdumb_0.9.3-6.dsc
+Machine Architecture: amd64
+Package: libdumb
+Package-Time: 35
+Source-Version: 1:0.9.3-6
+Space: n/a
+Status: attempted
+Version: 1:0.9.3-6
+--------------------------------------------------------------------------------
+Finished at 2019-07-02T02:15:40Z
+Build needed 00:00:35, no disk space

@@ -1,0 +1,1639 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| sqlcipher 3.4.1-1 (armhf)                    Thu, 07 Mar 2019 01:51:36 +0000 |
++==============================================================================+
+
+Package: sqlcipher
+Version: 3.4.1-1
+Source Version: 3.4.1-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-24bd7c5c-a4c7-4114-8d1d-1283092d7a3a' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/sqlcipher-VISIlz/resolver-dK1etO' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/s/sqlcipher/sqlcipher_3.4.1-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/s/sqlcipher; copying to chroot
+I: NOTICE: Log filtering will replace 'build/sqlcipher-VISIlz/sqlcipher-3.4.1' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/sqlcipher-VISIlz' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: dpkg-dev (>= 1.16.1~), debhelper (>= 10), autoconf (>= 2.59), libtool (>= 1.5.2), automake, libreadline-dev, tcl8.6-dev, libssl-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Merged Build-Conflicts: tcl8.4, tcl8.4-dev, tcl8.5, tcl8.5-dev
+Filtered Build-Depends: dpkg-dev (>= 1.16.1~), debhelper (>= 10), autoconf (>= 2.59), libtool (>= 1.5.2), automake, libreadline-dev, tcl8.6-dev, libssl-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Conflicts: tcl8.4, tcl8.4-dev, tcl8.5, tcl8.5-dev
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [473 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [562 B]
+Fetched 1992 B in 0s (147 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libncurses-dev:armhf libncurses6
+  libncurses6:armhf libncursesw6:armhf libpipeline1 libreadline-dev:armhf
+  libreadline7:armhf libsigsegv2 libssl-dev:armhf libssl1.1:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libtcl8.6 libtcl8.6:armhf
+  libtinfo6:armhf libtool libubsan1:armhf libuchardet0 linux-libc-dev:armhf m4
+  man-db po-debconf tcl8.6 tcl8.6-dev:armhf zlib1g:armhf zlib1g-dev:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  ncurses-doc:armhf readline-doc:armhf libssl-doc:armhf libstdc++-8-doc:armhf
+  libtool-doc gfortran | fortran95-compiler gcj-jdk m4-doc apparmor less
+  www-browser libmail-box-perl tcl-tclreadline tcl8.6-doc:armhf
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpm2 libgpm2:armhf libltdl-dev
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libncurses-dev:armhf libncurses6
+  libncurses6:armhf libncursesw6:armhf libpipeline1 libreadline-dev:armhf
+  libreadline7:armhf libsigsegv2 libssl-dev:armhf libssl1.1:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libtcl8.6 libtcl8.6:armhf
+  libtinfo6:armhf libtool libubsan1:armhf libuchardet0 linux-libc-dev:armhf m4
+  man-db po-debconf sbuild-build-depends-main-dummy:armhf tcl8.6
+  tcl8.6-dev:armhf zlib1g:armhf zlib1g-dev:armhf
+0 upgraded, 54 newly installed, 0 to remove and 0 not upgraded.
+Need to get 984 B/25.7 MB of archives.
+After this operation, 102 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [984 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 984 B in 0s (0 B/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16441 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../07-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../08-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../09-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../10-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../11-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../12-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../13-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../14-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../15-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../16-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../17-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../18-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../19-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../20-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../21-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../22-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../23-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../24-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../25-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../26-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../27-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../28-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../29-libc6_2.28-8_armhf.deb ...
+Unpacking libc6:armhf (2.28-8) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../30-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../31-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../32-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../33-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../34-libc6-dev_2.28-8_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-8) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../35-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../36-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../37-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../38-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../39-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../40-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../41-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libreadline7:armhf.
+Preparing to unpack .../42-libreadline7_7.0-5_armhf.deb ...
+Unpacking libreadline7:armhf (7.0-5) ...
+Selecting previously unselected package libreadline-dev:armhf.
+Preparing to unpack .../43-libreadline-dev_7.0-5_armhf.deb ...
+Unpacking libreadline-dev:armhf (7.0-5) ...
+Selecting previously unselected package libssl1.1:armhf.
+Preparing to unpack .../44-libssl1.1_1.1.1b-1_armhf.deb ...
+Unpacking libssl1.1:armhf (1.1.1b-1) ...
+Selecting previously unselected package libssl-dev:armhf.
+Preparing to unpack .../45-libssl-dev_1.1.1b-1_armhf.deb ...
+Unpacking libssl-dev:armhf (1.1.1b-1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../46-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libtcl8.6:amd64.
+Preparing to unpack .../47-libtcl8.6_8.6.9+dfsg-2_amd64.deb ...
+Unpacking libtcl8.6:amd64 (8.6.9+dfsg-2) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../48-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libtcl8.6:armhf.
+Preparing to unpack .../49-libtcl8.6_8.6.9+dfsg-2_armhf.deb ...
+Unpacking libtcl8.6:armhf (8.6.9+dfsg-2) ...
+Selecting previously unselected package tcl8.6.
+Preparing to unpack .../50-tcl8.6_8.6.9+dfsg-2_amd64.deb ...
+Unpacking tcl8.6 (8.6.9+dfsg-2) ...
+Selecting previously unselected package zlib1g-dev:armhf.
+Preparing to unpack .../51-zlib1g-dev_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package tcl8.6-dev:armhf.
+Preparing to unpack .../52-tcl8.6-dev_8.6.9+dfsg-2_armhf.deb ...
+Unpacking tcl8.6-dev:armhf (8.6.9+dfsg-2) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../53-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up libtcl8.6:amd64 (8.6.9+dfsg-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up tcl8.6 (8.6.9+dfsg-2) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-3) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-8) ...
+Setting up libc6-dev:armhf (2.28-8) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libssl1.1:armhf (1.1.1b-1) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up libssl-dev:armhf (1.1.1b-1) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libtcl8.6:armhf (8.6.9+dfsg-2) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libreadline7:armhf (7.0-5) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up tcl8.6-dev:armhf (8.6.9+dfsg-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libreadline-dev:armhf (7.0-5) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-8) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-15 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-8 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-15 binutils-arm-linux-gnueabihf_2.31.1-15 binutils-common_2.31.1-15 binutils-x86-64-linux-gnu_2.31.1-15 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.6 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-3 cpp_4:8.3.0-1 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.3.0-2cross1 cpp-arm-linux-gnueabihf_4:8.3.0-1 cross-config_2.6.15-2 crossbuild-essential-armhf_12.6 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.13-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.6-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-4 findutils_4.6.0+git+20190209-2 g++_4:8.3.0-1 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.3.0-2cross1 g++-arm-linux-gnueabihf_4:8.3.0-1 gcc_4:8.3.0-1 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.3.0-2cross1 gcc-8-arm-linux-gnueabihf-base_8.3.0-2cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.3.0-2cross1 gcc-arm-linux-gnueabihf_4:8.3.0-1 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.13-1 gnupg-l10n_2.2.13-1 gnupg-utils_2.2.13-1 gpg_2.2.13-1 gpg-agent_2.2.13-1 gpg-wks-client_2.2.13-1 gpg-wks-server_2.2.13-1 gpgconf_2.2.13-1 gpgsm_2.2.13-1 gpgv_2.2.13-1 grep_3.3-1 groff-base_1.22.4-3 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.53-4 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.3.0-2cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.3.0-2cross1 libattr1_1:2.4.48-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-15 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-8 libc-dev-bin_2.28-8 libc6_2.28-8 libc6-armhf-cross_2.28-7cross1 libc6-dev_2.28-8 libc6-dev-armhf-cross_2.28-7cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.6-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.248 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.6-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.3.0-2cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.3.0-2cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.3.0-2cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-3 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-4 libmagic1_1:5.35-4 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libquadmath0_8.3.0-2 libreadline-dev_7.0-5 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.6-1 libssl-dev_1.1.1b-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtcl8.6_8.6.9+dfsg-2 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.3.0-2cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-4 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.20-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tcl8.6_8.6.9+dfsg-2 tcl8.6-dev_8.6.9+dfsg-2 tzdata_2018i-2 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1 zlib1g-dev_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: sqlcipher
+Binary: sqlcipher, libsqlcipher0, libsqlcipher-dev
+Architecture: any
+Version: 3.4.1-1
+Maintainer: Hans-Christoph Steiner <hans@eds.org>
+Uploaders: Micah Anderson <micah@debian.org>
+Homepage: http://sqlcipher.net/
+Standards-Version: 4.0.1
+Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/sqlcipher.git
+Vcs-Git: https://alioth.debian.org/anonscm/git/collab-maint/sqlcipher.git
+Build-Depends: dpkg-dev (>= 1.16.1~), debhelper (>= 10), autoconf (>= 2.59), libtool (>= 1.5.2), automake, libreadline-dev, tcl8.6-dev, libssl-dev
+Build-Conflicts: tcl8.4, tcl8.4-dev, tcl8.5, tcl8.5-dev
+Package-List:
+ libsqlcipher-dev deb libdevel optional arch=any
+ libsqlcipher0 deb libs optional arch=any
+ sqlcipher deb database optional arch=any
+Checksums-Sha1:
+ 969b996b3c7249778c353d02362bb08ebe5a993e 13873645 sqlcipher_3.4.1.orig.tar.gz
+ a170473ee9c5782c9aff9e4f9ffaa0f9adf64d81 14408 sqlcipher_3.4.1-1.debian.tar.xz
+Checksums-Sha256:
+ 4172cc6e5a79d36e178d36bd5cc467a938e08368952659bcd95eccbaf0fa4ad4 13873645 sqlcipher_3.4.1.orig.tar.gz
+ 4e931aeade93d8211217fa2ca9d69fcf217103307a3b70f8a8ad152419b75f98 14408 sqlcipher_3.4.1-1.debian.tar.xz
+Files:
+ edd1c57129c21a22ab2c2fd7f47d4ccd 13873645 sqlcipher_3.4.1.orig.tar.gz
+ fad3b12e4c647d60f437e11156e7258c 14408 sqlcipher_3.4.1-1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQKTBAEBCgB9FiEER3dTX+VHFWJiYHe1jL+aMihhp5AFAlmPj8NfFIAAAAAALgAo
+aXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5maWZ0aGhvcnNlbWFuLm5ldDQ3
+Nzc1MzVGRTU0NzE1NjI2MjYwNzdCNThDQkY5QTMyMjg2MUE3OTAACgkQjL+aMihh
+p5Czmw/8DWuCNHwWfkMndecYuJnWoHXpZHg/9EnjY42comS89WLd5BOSm2LhfrhV
+3iH2Owd26osA3gZ/4UKCLp8PZtUcgMtwXf+kgy07hgn2iKwa9T6cagyTx0h5EqOY
+prBkO09/G3ZI9UAQIUk/73UdRcLxoSD3SuZIPDK1rXn2bunpQYDIMZ4edNzyahU9
+yBa0zM8JUW8KriQtjgCgJL1gUF3or4wFXc1eI4X7nKl5dtuLY8bRR0aMGNEu965v
+I0s4SOS5GOEdJCIEAtyvLJp3TGnfcrwHSlBa2vmc41j1SQcQmz1pxUiCnet/CVjm
+O8nKqgq7WhcrJ9JborZPGkX+jb02xiy62+n5kWIzqdlQZFNicWZ6+SogF+D/vA/G
+HkSuz4BPPPE1egSBbPhv0nEzG8fY5cTjGBsNIxQZfVhl1eawUbKrWHdVefkLtOjJ
+vqrr7dOiaG2vNWqwLzynJ4aHxCbqcj2KqoEsnEEgXfSfFD/2POv+lC/OPmw6J/Me
+GPa5gYVexKxA6EtP/yJXyMjyMJVRnhB/chqzep0HTisORU+WAAas7jNoDj8d/8ys
+iPDcVtd0h+moU40fFpahZvS4wWP02u0E+ZtSCguIRCsVeh+6vSBziSXJkCkjZ9zk
+Xt+f7DIVRObhrxNLcS+KNtBV5EeOnS4byul3lP0pDRmHFNrE0kc=
+=AVab
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sat Aug 12 23:31:15 2017 UTC
+gpgv:                using RSA key 4777535FE5471562626077B58CBF9A322861A790
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./sqlcipher_3.4.1-1.dsc
+dpkg-source: info: extracting sqlcipher in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking sqlcipher_3.4.1.orig.tar.gz
+dpkg-source: info: unpacking sqlcipher_3.4.1-1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 10-520466-libsqlite3-depends-on-libdl.patch
+dpkg-source: info: applying 10-520478-squash-bad-deps.patch
+dpkg-source: info: applying 10-665363-disable-malloc-usable-size.patch
+dpkg-source: info: applying 20-change-name-to-sqlcipher.patch
+dpkg-source: info: applying 20-hurd-locking-style.patch
+dpkg-source: info: applying 31-increase_SQLITE_MAX_DEFAULT_PAGE_SIZE_to_32k.patch
+dpkg-source: info: applying 33-add-have-usleep.patch
+dpkg-source: info: applying avoid-setting-rpath-in-sqlcipher-binary
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-24bd7c5c-a4c7-4114-8d1d-1283092d7a3a
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package sqlcipher
+dpkg-buildpackage: info: source version 3.4.1-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Micah Anderson <micah@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_configure --  \
+  --enable-threadsafe \
+  --enable-load-extension \
+  --enable-tempstore \
+  --disable-tcl
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --enable-threadsafe --enable-load-extension --enable-tempstore --disable-tcl
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode, --disable-dependency-tracking
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking how to print strings... printf
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/arm-linux-gnueabihf-nm -B
+checking the name lister (/usr/bin/arm-linux-gnueabihf-nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for arm-linux-gnueabihf-objdump... arm-linux-gnueabihf-objdump
+checking how to recognize dependent libraries... pass_all
+checking for arm-linux-gnueabihf-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for archiver @FILE support... @
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for gawk... no
+checking for mawk... mawk
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for arm-linux-gnueabihf-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC -DPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking for int8_t... yes
+checking for int16_t... yes
+checking for int32_t... yes
+checking for int64_t... yes
+checking for intptr_t... yes
+checking for uint8_t... yes
+checking for uint16_t... yes
+checking for uint32_t... yes
+checking for uint64_t... yes
+checking for uintptr_t... yes
+checking for sys/types.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking for fdatasync... yes
+checking for gmtime_r... yes
+checking for isnan... yes
+checking for localtime_r... yes
+checking for localtime_s... no
+checking for strchrnul... yes
+checking for usleep... yes
+checking for utime... yes
+checking for pread... yes
+checking for pread64... yes
+checking for pwrite... yes
+checking for pwrite64... yes
+checking for tclsh8.6... tclsh8.6
+configure: Version set to 3.15
+configure: Release set to 3.15.2
+configure: Version number set to 3015002
+configure: SQLCipher Version set to 3.4
+checking for gcc... gcc
+checking for library containing dlopen... -ldl
+checking whether to support threadsafe operation... yes
+checking for library containing pthread_create... -lpthread
+checking for library containing pthread_mutexattr_init... none required
+checking for crypto library to use... openssl
+checking for HMAC_Init_ex in -lcrypto... yes
+checking whether to allow connections to be shared across threads... no
+checking whether to support shared library linked as release mode or not... no
+checking whether to use an in-ram database for temporary tables... yes
+checking if executables have the .exe suffix... unknown
+checking for library containing readline... no
+checking for library containing tgetent... -lncurses
+checking for readline in -lreadline... yes
+checking readline.h usability... no
+checking readline.h presence... no
+checking for readline.h... no
+checking for library containing fdatasync... none required
+checking for library containing dlopen... (cached) -ldl
+checking whether to support MEMSYS5... no
+checking whether to support MEMSYS3... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating sqlcipher.pc
+config.status: creating config.h
+config.status: executing libtool commands
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode, --disable-dependency-tracking
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_build -a
+	make -j16
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+tclsh8.6 /<<PKGBUILDDIR>>/tool/mksqlite3h.tcl /<<PKGBUILDDIR>> >sqlite3.h
+gcc  -g -DSQLCIPHER_CRYPTO_OPENSSL -o mkkeywordhash -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_OMIT_LOOKASIDE=1 -DSQLITE_ENABLE_UPDATE_DELETE_LIMIT=1  /<<PKGBUILDDIR>>/tool/mkkeywordhash.c
+gcc  -g -DSQLCIPHER_CRYPTO_OPENSSL -o lemon /<<PKGBUILDDIR>>/tool/lemon.c
+./mkkeywordhash >keywordhash.h
+cp /<<PKGBUILDDIR>>/tool/lempar.c .
+cp /<<PKGBUILDDIR>>/src/parse.y .
+cp /<<PKGBUILDDIR>>/ext/fts5/fts5parse.y .
+rm -f fts5parse.h
+rm -f parse.h
+./lemon  fts5parse.y
+./lemon -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_OMIT_LOOKASIDE=1 -DSQLITE_ENABLE_UPDATE_DELETE_LIMIT=1  parse.y
+tclsh8.6 /<<PKGBUILDDIR>>/ext/fts5/tool/mkfts5c.tcl
+mv parse.h parse.h.temp
+tclsh8.6 /<<PKGBUILDDIR>>/tool/addopcodes.tcl parse.h.temp >parse.h
+cat parse.h /<<PKGBUILDDIR>>/src/vdbe.c | tclsh8.6 /<<PKGBUILDDIR>>/tool/mkopcodeh.tcl >opcodes.h
+cp /<<PKGBUILDDIR>>/ext/fts5/fts5.h .
+tclsh8.6 /<<PKGBUILDDIR>>/tool/mkopcodec.tcl opcodes.h >opcodes.c
+rm -rf tsrc
+mkdir tsrc
+cp -f /<<PKGBUILDDIR>>/src/crypto.h /<<PKGBUILDDIR>>/src/sqlcipher.h /<<PKGBUILDDIR>>/src/crypto.c /<<PKGBUILDDIR>>/src/crypto_impl.c /<<PKGBUILDDIR>>/src/crypto_libtomcrypt.c /<<PKGBUILDDIR>>/src/crypto_openssl.c /<<PKGBUILDDIR>>/src/crypto_cc.c /<<PKGBUILDDIR>>/src/alter.c /<<PKGBUILDDIR>>/src/analyze.c /<<PKGBUILDDIR>>/src/attach.c /<<PKGBUILDDIR>>/src/auth.c /<<PKGBUILDDIR>>/src/backup.c /<<PKGBUILDDIR>>/src/bitvec.c /<<PKGBUILDDIR>>/src/btmutex.c /<<PKGBUILDDIR>>/src/btree.c /<<PKGBUILDDIR>>/src/btree.h /<<PKGBUILDDIR>>/src/btreeInt.h /<<PKGBUILDDIR>>/src/build.c /<<PKGBUILDDIR>>/src/callback.c /<<PKGBUILDDIR>>/src/complete.c /<<PKGBUILDDIR>>/src/ctime.c /<<PKGBUILDDIR>>/src/date.c /<<PKGBUILDDIR>>/src/dbstat.c /<<PKGBUILDDIR>>/src/delete.c /<<PKGBUILDDIR>>/src/expr.c /<<PKGBUILDDIR>>/src/fault.c /<<PKGBUILDDIR>>/src/fkey.c /<<PKGBUILDDIR>>/src/func.c /<<PKGBUILDDIR>>/src/global.c /<<PKGBUILDDIR>>/src/hash.c /<<PKGBUILDDIR>>/src/hash.h /<<PKGBUILDDIR>>/src/hwtime.h /<<PKGBUILDDIR>>/src/insert.c /<<PKGBUILDDIR>>/src/legacy.c /<<PKGBUILDDIR>>/src/loadext.c /<<PKGBUILDDIR>>/src/main.c /<<PKGBUILDDIR>>/src/malloc.c /<<PKGBUILDDIR>>/src/mem0.c /<<PKGBUILDDIR>>/src/mem1.c /<<PKGBUILDDIR>>/src/mem2.c /<<PKGBUILDDIR>>/src/mem3.c /<<PKGBUILDDIR>>/src/mem5.c /<<PKGBUILDDIR>>/src/memjournal.c /<<PKGBUILDDIR>>/src/msvc.h /<<PKGBUILDDIR>>/src/mutex.c /<<PKGBUILDDIR>>/src/mutex.h /<<PKGBUILDDIR>>/src/mutex_noop.c /<<PKGBUILDDIR>>/src/mutex_unix.c /<<PKGBUILDDIR>>/src/mutex_w32.c /<<PKGBUILDDIR>>/src/notify.c /<<PKGBUILDDIR>>/src/os.c /<<PKGBUILDDIR>>/src/os.h /<<PKGBUILDDIR>>/src/os_common.h /<<PKGBUILDDIR>>/src/os_setup.h /<<PKGBUILDDIR>>/src/os_unix.c /<<PKGBUILDDIR>>/src/os_win.c /<<PKGBUILDDIR>>/src/os_win.h /<<PKGBUILDDIR>>/src/pager.c /<<PKGBUILDDIR>>/src/pager.h /<<PKGBUILDDIR>>/src/parse.y /<<PKGBUILDDIR>>/src/pcache.c /<<PKGBUILDDIR>>/src/pcache.h /<<PKGBUILDDIR>>/src/pcache1.c /<<PKGBUILDDIR>>/src/pragma.c /<<PKGBUILDDIR>>/src/pragma.h /<<PKGBUILDDIR>>/src/prepare.c /<<PKGBUILDDIR>>/src/printf.c /<<PKGBUILDDIR>>/src/random.c /<<PKGBUILDDIR>>/src/resolve.c /<<PKGBUILDDIR>>/src/rowset.c /<<PKGBUILDDIR>>/src/select.c /<<PKGBUILDDIR>>/src/status.c /<<PKGBUILDDIR>>/src/shell.c /<<PKGBUILDDIR>>/src/sqlite.h.in /<<PKGBUILDDIR>>/src/sqlite3ext.h /<<PKGBUILDDIR>>/src/sqliteInt.h /<<PKGBUILDDIR>>/src/sqliteLimit.h /<<PKGBUILDDIR>>/src/table.c /<<PKGBUILDDIR>>/src/tclsqlite.c /<<PKGBUILDDIR>>/src/threads.c /<<PKGBUILDDIR>>/src/tokenize.c /<<PKGBUILDDIR>>/src/treeview.c /<<PKGBUILDDIR>>/src/trigger.c /<<PKGBUILDDIR>>/src/utf.c /<<PKGBUILDDIR>>/src/update.c /<<PKGBUILDDIR>>/src/util.c /<<PKGBUILDDIR>>/src/vacuum.c /<<PKGBUILDDIR>>/src/vdbe.c /<<PKGBUILDDIR>>/src/vdbe.h /<<PKGBUILDDIR>>/src/vdbeapi.c /<<PKGBUILDDIR>>/src/vdbeaux.c /<<PKGBUILDDIR>>/src/vdbeblob.c /<<PKGBUILDDIR>>/src/vdbemem.c /<<PKGBUILDDIR>>/src/vdbesort.c /<<PKGBUILDDIR>>/src/vdbetrace.c /<<PKGBUILDDIR>>/src/vdbeInt.h /<<PKGBUILDDIR>>/src/vtab.c /<<PKGBUILDDIR>>/src/vxworks.h /<<PKGBUILDDIR>>/src/wal.c /<<PKGBUILDDIR>>/src/wal.h /<<PKGBUILDDIR>>/src/walker.c /<<PKGBUILDDIR>>/src/where.c /<<PKGBUILDDIR>>/src/wherecode.c /<<PKGBUILDDIR>>/src/whereexpr.c /<<PKGBUILDDIR>>/src/whereInt.h /<<PKGBUILDDIR>>/ext/fts1/fts1.c /<<PKGBUILDDIR>>/ext/fts1/fts1.h /<<PKGBUILDDIR>>/ext/fts1/fts1_hash.c /<<PKGBUILDDIR>>/ext/fts1/fts1_hash.h /<<PKGBUILDDIR>>/ext/fts1/fts1_porter.c /<<PKGBUILDDIR>>/ext/fts1/fts1_tokenizer.h /<<PKGBUILDDIR>>/ext/fts1/fts1_tokenizer1.c /<<PKGBUILDDIR>>/ext/fts2/fts2.c /<<PKGBUILDDIR>>/ext/fts2/fts2.h /<<PKGBUILDDIR>>/ext/fts2/fts2_hash.c /<<PKGBUILDDIR>>/ext/fts2/fts2_hash.h /<<PKGBUILDDIR>>/ext/fts2/fts2_icu.c /<<PKGBUILDDIR>>/ext/fts2/fts2_porter.c /<<PKGBUILDDIR>>/ext/fts2/fts2_tokenizer.h /<<PKGBUILDDIR>>/ext/fts2/fts2_tokenizer.c /<<PKGBUILDDIR>>/ext/fts2/fts2_tokenizer1.c /<<PKGBUILDDIR>>/ext/fts3/fts3.c /<<PKGBUILDDIR>>/ext/fts3/fts3.h /<<PKGBUILDDIR>>/ext/fts3/fts3Int.h /<<PKGBUILDDIR>>/ext/fts3/fts3_aux.c /<<PKGBUILDDIR>>/ext/fts3/fts3_expr.c /<<PKGBUILDDIR>>/ext/fts3/fts3_hash.c /<<PKGBUILDDIR>>/ext/fts3/fts3_hash.h /<<PKGBUILDDIR>>/ext/fts3/fts3_icu.c /<<PKGBUILDDIR>>/ext/fts3/fts3_porter.c /<<PKGBUILDDIR>>/ext/fts3/fts3_snippet.c /<<PKGBUILDDIR>>/ext/fts3/fts3_tokenizer.h /<<PKGBUILDDIR>>/ext/fts3/fts3_tokenizer.c /<<PKGBUILDDIR>>/ext/fts3/fts3_tokenizer1.c /<<PKGBUILDDIR>>/ext/fts3/fts3_tokenize_vtab.c /<<PKGBUILDDIR>>/ext/fts3/fts3_unicode.c /<<PKGBUILDDIR>>/ext/fts3/fts3_unicode2.c /<<PKGBUILDDIR>>/ext/fts3/fts3_write.c /<<PKGBUILDDIR>>/ext/icu/sqliteicu.h /<<PKGBUILDDIR>>/ext/icu/icu.c /<<PKGBUILDDIR>>/ext/rtree/rtree.h /<<PKGBUILDDIR>>/ext/rtree/rtree.c /<<PKGBUILDDIR>>/ext/session/sqlite3session.c /<<PKGBUILDDIR>>/ext/session/sqlite3session.h /<<PKGBUILDDIR>>/ext/rbu/sqlite3rbu.h /<<PKGBUILDDIR>>/ext/rbu/sqlite3rbu.c /<<PKGBUILDDIR>>/ext/misc/json1.c keywordhash.h opcodes.c opcodes.h parse.c parse.h config.h sqlite3.h tsrc
+rm tsrc/sqlite.h.in tsrc/parse.y
+tclsh8.6 /<<PKGBUILDDIR>>/tool/vdbe-compress.tcl  <tsrc/vdbe.c >vdbe.new
+mv vdbe.new tsrc/vdbe.c
+cp fts5.c fts5.h tsrc
+touch .target_source
+tclsh8.6 /<<PKGBUILDDIR>>/tool/mksqlite3c.tcl
+cp tsrc/shell.c tsrc/sqlite3ext.h .
+cp /<<PKGBUILDDIR>>/ext/session/sqlite3session.h .
+./libtool --mode=compile --tag=CC arm-linux-gnueabihf-gcc -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -fno-strict-aliasing -DSQLITE_SECURE_DELETE -DSQLITE_SOUNDEX=1 -DSQLITE_MAX_SCHEMA_RETRY=25 -DSQLITE_HAS_CODEC -DSQLCIPHER_CRYPTO_OPENSSL -DSQLITE_OS_UNIX=1 -I. -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/ext/rtree -I/<<PKGBUILDDIR>>/ext/icu -I/<<PKGBUILDDIR>>/ext/fts3 -I/<<PKGBUILDDIR>>/ext/async -I/<<PKGBUILDDIR>>/ext/session -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -DNDEBUG  -DSQLITE_THREADSAFE=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_OMIT_LOOKASIDE=1 -DSQLITE_ENABLE_UPDATE_DELETE_LIMIT=1   -DSQLITE_TEMP_STORE=2 -c sqlite3.c
+libtool: compile:  arm-linux-gnueabihf-gcc -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -fno-strict-aliasing -DSQLITE_SECURE_DELETE -DSQLITE_SOUNDEX=1 -DSQLITE_MAX_SCHEMA_RETRY=25 -DSQLITE_HAS_CODEC -DSQLCIPHER_CRYPTO_OPENSSL -DSQLITE_OS_UNIX=1 -I. -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/ext/rtree -I/<<PKGBUILDDIR>>/ext/icu -I/<<PKGBUILDDIR>>/ext/fts3 -I/<<PKGBUILDDIR>>/ext/async -I/<<PKGBUILDDIR>>/ext/session -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -DNDEBUG -DSQLITE_THREADSAFE=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_OMIT_LOOKASIDE=1 -DSQLITE_ENABLE_UPDATE_DELETE_LIMIT=1 -DSQLITE_TEMP_STORE=2 -c sqlite3.c  -fPIC -DPIC -o .libs/sqlite3.o
+libtool: compile:  arm-linux-gnueabihf-gcc -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -fno-strict-aliasing -DSQLITE_SECURE_DELETE -DSQLITE_SOUNDEX=1 -DSQLITE_MAX_SCHEMA_RETRY=25 -DSQLITE_HAS_CODEC -DSQLCIPHER_CRYPTO_OPENSSL -DSQLITE_OS_UNIX=1 -I. -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/ext/rtree -I/<<PKGBUILDDIR>>/ext/icu -I/<<PKGBUILDDIR>>/ext/fts3 -I/<<PKGBUILDDIR>>/ext/async -I/<<PKGBUILDDIR>>/ext/session -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -DNDEBUG -DSQLITE_THREADSAFE=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_OMIT_LOOKASIDE=1 -DSQLITE_ENABLE_UPDATE_DELETE_LIMIT=1 -DSQLITE_TEMP_STORE=2 -c sqlite3.c -o sqlite3.o >/dev/null 2>&1
+./libtool --mode=link arm-linux-gnueabihf-gcc -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -fno-strict-aliasing -DSQLITE_SECURE_DELETE -DSQLITE_SOUNDEX=1 -DSQLITE_MAX_SCHEMA_RETRY=25 -DSQLITE_HAS_CODEC -DSQLCIPHER_CRYPTO_OPENSSL -DSQLITE_OS_UNIX=1 -I. -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/ext/rtree -I/<<PKGBUILDDIR>>/ext/icu -I/<<PKGBUILDDIR>>/ext/fts3 -I/<<PKGBUILDDIR>>/ext/async -I/<<PKGBUILDDIR>>/ext/session -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -DNDEBUG  -DSQLITE_THREADSAFE=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_OMIT_LOOKASIDE=1 -DSQLITE_ENABLE_UPDATE_DELETE_LIMIT=1   -Wl,-z,relro -Wl,-z,now  -no-undefined -o libsqlcipher.la sqlite3.lo -ldl -lcrypto -lpthread -ldl   \
+	 -rpath "/usr/lib/arm-linux-gnueabihf" -version-info "8:6:8"
+libtool: link: arm-linux-gnueabihf-gcc -shared  -fPIC -DPIC  .libs/sqlite3.o   -lcrypto -lpthread -ldl  -g -O2 -fstack-protector-strong -O2 -Wl,-z -Wl,relro -Wl,-z -Wl,now   -Wl,-soname -Wl,libsqlcipher.so.0 -o .libs/libsqlcipher.so.0.8.6
+libtool: link: (cd ".libs" && rm -f "libsqlcipher.so.0" && ln -s "libsqlcipher.so.0.8.6" "libsqlcipher.so.0")
+libtool: link: (cd ".libs" && rm -f "libsqlcipher.so" && ln -s "libsqlcipher.so.0.8.6" "libsqlcipher.so")
+libtool: link: arm-linux-gnueabihf-ar cru .libs/libsqlcipher.a  sqlite3.o
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: arm-linux-gnueabihf-ranlib .libs/libsqlcipher.a
+libtool: link: ( cd ".libs" && rm -f "libsqlcipher.la" && ln -s "../libsqlcipher.la" "libsqlcipher.la" )
+sed -i "/dependency_libs/s/'.*'/''/" libsqlcipher.la
+./libtool --mode=link arm-linux-gnueabihf-gcc -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -fno-strict-aliasing -DSQLITE_SECURE_DELETE -DSQLITE_SOUNDEX=1 -DSQLITE_MAX_SCHEMA_RETRY=25 -DSQLITE_HAS_CODEC -DSQLCIPHER_CRYPTO_OPENSSL -DSQLITE_OS_UNIX=1 -I. -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/ext/rtree -I/<<PKGBUILDDIR>>/ext/icu -I/<<PKGBUILDDIR>>/ext/fts3 -I/<<PKGBUILDDIR>>/ext/async -I/<<PKGBUILDDIR>>/ext/session -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -DNDEBUG  -DSQLITE_THREADSAFE=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_OMIT_LOOKASIDE=1 -DSQLITE_ENABLE_UPDATE_DELETE_LIMIT=1   -Wl,-z,relro -Wl,-z,now  -DHAVE_READLINE=0  -DHAVE_EDITLINE=0 -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_EXPLAIN_COMMENTS -DSQLITE_ENABLE_UNKNOWN_SQL_FUNCTION \
+	-o sqlcipher /<<PKGBUILDDIR>>/src/shell.c libsqlcipher.la \
+	
+libtool: link: arm-linux-gnueabihf-gcc -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -O2 -fno-strict-aliasing -DSQLITE_SECURE_DELETE -DSQLITE_SOUNDEX=1 -DSQLITE_MAX_SCHEMA_RETRY=25 -DSQLITE_HAS_CODEC -DSQLCIPHER_CRYPTO_OPENSSL -DSQLITE_OS_UNIX=1 -I. -I/<<PKGBUILDDIR>>/src -I/<<PKGBUILDDIR>>/ext/rtree -I/<<PKGBUILDDIR>>/ext/icu -I/<<PKGBUILDDIR>>/ext/fts3 -I/<<PKGBUILDDIR>>/ext/async -I/<<PKGBUILDDIR>>/ext/session -D_HAVE_SQLITE_CONFIG_H -DBUILD_sqlite -DNDEBUG -DSQLITE_THREADSAFE=1 -DSQLITE_ENABLE_COLUMN_METADATA -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_RTREE=1 -DSQLITE_ENABLE_UNLOCK_NOTIFY -DSQLITE_OMIT_LOOKASIDE=1 -DSQLITE_ENABLE_UPDATE_DELETE_LIMIT=1 -Wl,-z -Wl,relro -Wl,-z -Wl,now -DHAVE_READLINE=0 -DHAVE_EDITLINE=0 -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS4 -DSQLITE_ENABLE_EXPLAIN_COMMENTS -DSQLITE_ENABLE_UNKNOWN_SQL_FUNCTION -o .libs/sqlcipher /<<PKGBUILDDIR>>/src/shell.c  ./.libs/libsqlcipher.so
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary-arch
+dh binary-arch
+   dh_testroot -a
+   dh_prep -a
+   dh_installdirs -a
+   dh_auto_install -a
+	make -j1 install DESTDIR=/<<PKGBUILDDIR>>/debian/tmp AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/install -c -d /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf
+./libtool --mode=install /usr/bin/install -c libsqlcipher.la /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf
+libtool: install: /usr/bin/install -c .libs/libsqlcipher.so.0.8.6 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libsqlcipher.so.0.8.6
+libtool: install: (cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf && { ln -s -f libsqlcipher.so.0.8.6 libsqlcipher.so.0 || { rm -f libsqlcipher.so.0 && ln -s libsqlcipher.so.0.8.6 libsqlcipher.so.0; }; })
+libtool: install: (cd /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf && { ln -s -f libsqlcipher.so.0.8.6 libsqlcipher.so || { rm -f libsqlcipher.so && ln -s libsqlcipher.so.0.8.6 libsqlcipher.so; }; })
+libtool: install: /usr/bin/install -c .libs/libsqlcipher.lai /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libsqlcipher.la
+libtool: install: /usr/bin/install -c .libs/libsqlcipher.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libsqlcipher.a
+libtool: install: chmod 644 /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libsqlcipher.a
+libtool: install: arm-linux-gnueabihf-ranlib /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libsqlcipher.a
+libtool: warning: remember to run 'libtool --finish /usr/lib/arm-linux-gnueabihf'
+/usr/bin/install -c -d /<<PKGBUILDDIR>>/debian/tmp/usr/bin
+./libtool --mode=install /usr/bin/install -c sqlcipher /<<PKGBUILDDIR>>/debian/tmp/usr/bin
+libtool: warning: 'libsqlcipher.la' has not been installed in '/usr/lib/arm-linux-gnueabihf'
+libtool: install: /usr/bin/install -c .libs/sqlcipher /<<PKGBUILDDIR>>/debian/tmp/usr/bin/sqlcipher
+/usr/bin/install -c -d /<<PKGBUILDDIR>>/debian/tmp/usr/include/sqlcipher
+/usr/bin/install -c -m 0644 sqlite3.h /<<PKGBUILDDIR>>/debian/tmp/usr/include/sqlcipher
+/usr/bin/install -c -m 0644 /<<PKGBUILDDIR>>/src/sqlite3ext.h /<<PKGBUILDDIR>>/debian/tmp/usr/include/sqlcipher
+/usr/bin/install -c -d /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/pkgconfig
+/usr/bin/install -c -m 0644 sqlcipher.pc /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/pkgconfig
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_install
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_install -Xlibsqlcipher.la --fail-missing
+dh_install: Please use dh_missing --list-missing/--fail-missing instead
+dh_install: This feature will be removed in compat 12.
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installdocs -a
+   dh_installchangelogs -a
+   dh_installman -a
+   dh_lintian -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   dh_missing -a
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+   dh_installdeb -a
+   dh_gencontrol -a
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'libsqlcipher0' in '../libsqlcipher0_3.4.1-1_armhf.deb'.
+dpkg-deb: building package 'sqlcipher' in '../sqlcipher_3.4.1-1_armhf.deb'.
+dpkg-deb: building package 'sqlcipher-dbgsym' in '../sqlcipher-dbgsym_3.4.1-1_armhf.deb'.
+dpkg-deb: building package 'libsqlcipher0-dbgsym' in '../libsqlcipher0-dbgsym_3.4.1-1_armhf.deb'.
+dpkg-deb: building package 'libsqlcipher-dev' in '../libsqlcipher-dev_3.4.1-1_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../sqlcipher_3.4.1-1_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-07T01:53:18Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+sqlcipher_3.4.1-1_armhf.changes:
+--------------------------------
+
+Format: 1.8
+Date: Sat, 12 Aug 2017 15:43:34 -0400
+Source: sqlcipher
+Binary: libsqlcipher-dev libsqlcipher0 libsqlcipher0-dbgsym sqlcipher sqlcipher-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 3.4.1-1
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Hans-Christoph Steiner <hans@eds.org>
+Changed-By: Micah Anderson <micah@debian.org>
+Description:
+ libsqlcipher-dev - SQLCipher development files
+ libsqlcipher0 - SQLCipher shared library
+ sqlcipher  - Command line interface for SQLCipher
+Closes: 850421 859685
+Changes:
+ sqlcipher (3.4.1-1) unstable; urgency=medium
+ .
+   [ Andre Bianchi ]
+   * cleanup debian/rules. Thanks Joost van Baal-Ilić, Thomas Goirand and Micah
+     Anderson for teaching me a lot of stuff.
+   * use debhelper 10
+   * use latest debian policy version (4.0.1)
+   * remove redundant and empty configure options
+ .
+   [ Simon Fondrie-Teitler ]
+   * update to latest upstream: v3.4.1 (Closes: #850421)
+   * update Standards-Version to 3.9.8 - no changes required
+ .
+   [ Ben Carillo ]
+   * add -DHAVE_USLEEP=1 to build options (Closes: #859685)
+Checksums-Sha1:
+ ab698ef0a040e4619956e55c4798cbacd96410b9 483412 libsqlcipher-dev_3.4.1-1_armhf.deb
+ b1338008c5885a5238c5b294ceb48f97e3d434bf 1388272 libsqlcipher0-dbgsym_3.4.1-1_armhf.deb
+ ea2e00d73a24abe58c7fabcd7304e8815e3cc7e8 348616 libsqlcipher0_3.4.1-1_armhf.deb
+ 466d59010711420e5491c63da43267db4cb548c8 86472 sqlcipher-dbgsym_3.4.1-1_armhf.deb
+ 19346f907f2705b411841cb91705f2b7abfe9192 5635 sqlcipher_3.4.1-1_armhf.buildinfo
+ 500bd8734b9a30e41aaebbf3508d1cf5001d873f 40180 sqlcipher_3.4.1-1_armhf.deb
+Checksums-Sha256:
+ 4db264590adfab738c32a19964dfbc037925c8b26fa61db07a80f4c4ac9853e4 483412 libsqlcipher-dev_3.4.1-1_armhf.deb
+ 9655638fe207ee9ae97052292e029e48437867a39f079372567766d2a00b1e1c 1388272 libsqlcipher0-dbgsym_3.4.1-1_armhf.deb
+ 91431d80cc11322a1d2dc2e7ea78cca2fe52c71afa8ed78dcb081c87e4e37bfa 348616 libsqlcipher0_3.4.1-1_armhf.deb
+ 7e306609f1d7e93d5d83b395cea15c96b94a888a6fac1cc6e1f1edb4c845a8a8 86472 sqlcipher-dbgsym_3.4.1-1_armhf.deb
+ 3ebb43e4ef7856d29bf9ced7082488abac5b570fabde9da8c4f2ce632486d8f4 5635 sqlcipher_3.4.1-1_armhf.buildinfo
+ f04ef49c43d028e7fdc9fcd40f71ca2d86c0140ddfd563854d5e71b2e1b0a87b 40180 sqlcipher_3.4.1-1_armhf.deb
+Files:
+ 3c7249d46bdce0978e728cf4a19ab2bc 483412 libdevel optional libsqlcipher-dev_3.4.1-1_armhf.deb
+ d7af022ea5fdd8a7da922e1cab7ae355 1388272 debug optional libsqlcipher0-dbgsym_3.4.1-1_armhf.deb
+ c8fc19f5d8ef6b3befc6177a0e713f57 348616 libs optional libsqlcipher0_3.4.1-1_armhf.deb
+ 363189b96206d669574a6562114a61e6 86472 debug optional sqlcipher-dbgsym_3.4.1-1_armhf.deb
+ d481cb144055a95058fa16d9bdac2b29 5635 devel optional sqlcipher_3.4.1-1_armhf.buildinfo
+ a57e84fddea89972f53b856acc9c2c59 40180 database optional sqlcipher_3.4.1-1_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: sqlcipher
+Binary: sqlcipher libsqlcipher0 libsqlcipher-dev
+Architecture: armhf
+Version: 3.4.1-1
+Checksums-Md5:
+ 3c7249d46bdce0978e728cf4a19ab2bc 483412 libsqlcipher-dev_3.4.1-1_armhf.deb
+ d7af022ea5fdd8a7da922e1cab7ae355 1388272 libsqlcipher0-dbgsym_3.4.1-1_armhf.deb
+ c8fc19f5d8ef6b3befc6177a0e713f57 348616 libsqlcipher0_3.4.1-1_armhf.deb
+ 363189b96206d669574a6562114a61e6 86472 sqlcipher-dbgsym_3.4.1-1_armhf.deb
+ a57e84fddea89972f53b856acc9c2c59 40180 sqlcipher_3.4.1-1_armhf.deb
+Checksums-Sha1:
+ ab698ef0a040e4619956e55c4798cbacd96410b9 483412 libsqlcipher-dev_3.4.1-1_armhf.deb
+ b1338008c5885a5238c5b294ceb48f97e3d434bf 1388272 libsqlcipher0-dbgsym_3.4.1-1_armhf.deb
+ ea2e00d73a24abe58c7fabcd7304e8815e3cc7e8 348616 libsqlcipher0_3.4.1-1_armhf.deb
+ 466d59010711420e5491c63da43267db4cb548c8 86472 sqlcipher-dbgsym_3.4.1-1_armhf.deb
+ 500bd8734b9a30e41aaebbf3508d1cf5001d873f 40180 sqlcipher_3.4.1-1_armhf.deb
+Checksums-Sha256:
+ 4db264590adfab738c32a19964dfbc037925c8b26fa61db07a80f4c4ac9853e4 483412 libsqlcipher-dev_3.4.1-1_armhf.deb
+ 9655638fe207ee9ae97052292e029e48437867a39f079372567766d2a00b1e1c 1388272 libsqlcipher0-dbgsym_3.4.1-1_armhf.deb
+ 91431d80cc11322a1d2dc2e7ea78cca2fe52c71afa8ed78dcb081c87e4e37bfa 348616 libsqlcipher0_3.4.1-1_armhf.deb
+ 7e306609f1d7e93d5d83b395cea15c96b94a888a6fac1cc6e1f1edb4c845a8a8 86472 sqlcipher-dbgsym_3.4.1-1_armhf.deb
+ f04ef49c43d028e7fdc9fcd40f71ca2d86c0140ddfd563854d5e71b2e1b0a87b 40180 sqlcipher_3.4.1-1_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Thu, 07 Mar 2019 01:53:17 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-15),
+ binutils-common (= 2.31.1-15),
+ binutils-x86-64-linux-gnu (= 2.31.1-15),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.6),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-3),
+ cpp (= 4:8.3.0-1),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-4),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.3.0-1),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.3.0-1),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-3),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.53-4),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.48-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-15),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-8),
+ libc-dev-bin (= 2.28-8),
+ libc6 (= 2.28-8),
+ libc6-dev (= 2.28-8),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.248),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-4),
+ libmagic1 (= 1:5.35-4),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses-dev (= 6.1+20181013-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libquadmath0 (= 8.3.0-2),
+ libreadline-dev (= 7.0-5),
+ libreadline7 (= 7.0-5),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libssl-dev (= 1.1.1b-1),
+ libssl1.1 (= 1.1.1b-1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtcl8.6 (= 8.6.9+dfsg-2),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ po-debconf (= 1.0.21),
+ readline-common (= 7.0-5),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ tcl8.6 (= 8.6.9+dfsg-2),
+ tcl8.6-dev (= 8.6.9+dfsg-2),
+ tzdata (= 2018i-2),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1),
+ zlib1g-dev (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1502567014"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+libsqlcipher-dev_3.4.1-1_armhf.deb
+----------------------------------
+
+ new Debian package, version 2.0.
+ size 483412 bytes: control archive=1308 bytes.
+    1389 bytes,    34 lines      control              
+     535 bytes,     7 lines      md5sums              
+ Package: libsqlcipher-dev
+ Source: sqlcipher
+ Version: 3.4.1-1
+ Architecture: armhf
+ Maintainer: Hans-Christoph Steiner <hans@eds.org>
+ Installed-Size: 1205
+ Depends: libsqlcipher0 (= 3.4.1-1), libc6-dev
+ Suggests: sqlite3-doc
+ Section: libdevel
+ Priority: optional
+ Homepage: http://sqlcipher.net/
+ Description: SQLCipher development files
+  SQLCipher is a C library that implements an encryption in the SQLite 3
+  database engine.  Programs that link with the SQLCipher library can have SQL
+  database access without running a separate RDBMS process.  It allows one to
+  have per-database or page-by-page encryption using AES-256 from OpenSSL.
+  .
+  SQLCipher has a small footprint and great performance so it’s ideal for
+  protecting embedded application databases and is well suited for mobile
+  development.
+  .
+   * as little as 5-15% overhead for encryption
+   * 100% of data in the database file is encrypted
+   * Uses good security practices (CBC mode, key derivation)
+   * Zero-configuration and application level cryptography
+   * Algorithms provided by the peer reviewed OpenSSL crypto library.
+  .
+  SQLCipher has broad platform support for with C/C++, Obj-C, QT,
+  Win32/.NET/Mono, Java, Python, Ruby, Linux, Mac OS X, iPhone/iOS, Android,
+  Xamarin.iOS, and Xamarin.Android.
+  .
+  This package contains the development files (headers, static libraries)
+  .
+  SQLCipher v3.4.1 is based on SQLite3 v3.15.2.
+
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/include/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/include/sqlcipher/
+-rw-r--r-- root/root    491251 2017-08-12 19:43 ./usr/include/sqlcipher/sqlite3.h
+-rw-r--r-- root/root     30004 2017-08-12 19:43 ./usr/include/sqlcipher/sqlite3ext.h
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/lib/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/lib/arm-linux-gnueabihf/
+-rw-r--r-- root/root    692950 2017-08-12 19:43 ./usr/lib/arm-linux-gnueabihf/libsqlcipher.a
+lrwxrwxrwx root/root         0 2017-08-12 19:43 ./usr/lib/arm-linux-gnueabihf/libsqlcipher.so -> libsqlcipher.so.0.8.6
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/lib/arm-linux-gnueabihf/pkgconfig/
+-rw-r--r-- root/root       313 2017-08-12 19:43 ./usr/lib/arm-linux-gnueabihf/pkgconfig/sqlcipher.pc
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/doc/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/doc/libsqlcipher-dev/
+-rw-r--r-- root/root       967 2017-08-12 19:43 ./usr/share/doc/libsqlcipher-dev/changelog.Debian.gz
+-rw-r--r-- root/root      1066 2016-12-28 17:39 ./usr/share/doc/libsqlcipher-dev/changelog.gz
+-rw-r--r-- root/root      1251 2017-08-12 19:43 ./usr/share/doc/libsqlcipher-dev/copyright
+
+
+libsqlcipher0-dbgsym_3.4.1-1_armhf.deb
+--------------------------------------
+
+ new Debian package, version 2.0.
+ size 1388272 bytes: control archive=536 bytes.
+     373 bytes,    13 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: libsqlcipher0-dbgsym
+ Source: sqlcipher
+ Version: 3.4.1-1
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Hans-Christoph Steiner <hans@eds.org>
+ Installed-Size: 1436
+ Depends: libsqlcipher0 (= 3.4.1-1)
+ Section: debug
+ Priority: optional
+ Multi-Arch: same
+ Description: debug symbols for libsqlcipher0
+ Build-Ids: fc72ea3ac9ce108ff0226ad011a137ac7fa8251e
+
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/lib/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/lib/debug/.build-id/fc/
+-rw-r--r-- root/root   1459656 2017-08-12 19:43 ./usr/lib/debug/.build-id/fc/72ea3ac9ce108ff0226ad011a137ac7fa8251e.debug
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2017-08-12 19:43 ./usr/share/doc/libsqlcipher0-dbgsym -> libsqlcipher0
+
+
+libsqlcipher0_3.4.1-1_armhf.deb
+-------------------------------
+
+ new Debian package, version 2.0.
+ size 348616 bytes: control archive=2996 bytes.
+    1298 bytes,    32 lines      control              
+     465 bytes,     6 lines      md5sums              
+      29 bytes,     1 lines      shlibs               
+    9878 bytes,   289 lines      symbols              
+      67 bytes,     2 lines      triggers             
+ Package: libsqlcipher0
+ Source: sqlcipher
+ Version: 3.4.1-1
+ Architecture: armhf
+ Maintainer: Hans-Christoph Steiner <hans@eds.org>
+ Installed-Size: 556
+ Depends: libc6 (>= 2.28), libssl1.1 (>= 1.1.0)
+ Section: libs
+ Priority: optional
+ Multi-Arch: same
+ Homepage: http://sqlcipher.net/
+ Description: SQLCipher shared library
+  SQLCipher is a C library that implements an encryption in the SQLite 3
+  database engine.  Programs that link with the SQLCipher library can have SQL
+  database access without running a separate RDBMS process.  It allows one to
+  have per-database or page-by-page encryption using AES-256 from OpenSSL.
+  .
+  SQLCipher has a small footprint and great performance so it’s ideal for
+  protecting embedded application databases and is well suited for mobile
+  development.
+  .
+   * as little as 5-15% overhead for encryption
+   * 100% of data in the database file is encrypted
+   * Uses good security practices (CBC mode, key derivation)
+   * Zero-configuration and application level cryptography
+   * Algorithms provided by the peer reviewed OpenSSL crypto library.
+  .
+  SQLCipher has broad platform support for with C/C++, Obj-C, QT,
+  Win32/.NET/Mono, Java, Python, Ruby, Linux, Mac OS X, iPhone/iOS, Android,
+  Xamarin.iOS, and Xamarin.Android.
+  .
+  SQLCipher v3.4.1 is based on SQLite3 v3.15.2.
+
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/lib/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/lib/arm-linux-gnueabihf/
+lrwxrwxrwx root/root         0 2017-08-12 19:43 ./usr/lib/arm-linux-gnueabihf/libsqlcipher.so.0 -> libsqlcipher.so.0.8.6
+-rw-r--r-- root/root    537496 2017-08-12 19:43 ./usr/lib/arm-linux-gnueabihf/libsqlcipher.so.0.8.6
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/doc/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/doc/libsqlcipher0/
+-rw-r--r-- root/root       333 2017-08-12 19:43 ./usr/share/doc/libsqlcipher0/README.Debian
+-rw-r--r-- root/root       967 2017-08-12 19:43 ./usr/share/doc/libsqlcipher0/changelog.Debian.gz
+-rw-r--r-- root/root      1066 2016-12-28 17:39 ./usr/share/doc/libsqlcipher0/changelog.gz
+-rw-r--r-- root/root      1251 2017-08-12 19:43 ./usr/share/doc/libsqlcipher0/copyright
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/lintian/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/lintian/overrides/
+-rw-r--r-- root/root      1098 2017-08-12 19:43 ./usr/share/lintian/overrides/libsqlcipher0
+
+
+sqlcipher-dbgsym_3.4.1-1_armhf.deb
+----------------------------------
+
+ new Debian package, version 2.0.
+ size 86472 bytes: control archive=520 bytes.
+     343 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: sqlcipher-dbgsym
+ Source: sqlcipher
+ Version: 3.4.1-1
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Hans-Christoph Steiner <hans@eds.org>
+ Installed-Size: 103
+ Depends: sqlcipher (= 3.4.1-1)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for sqlcipher
+ Build-Ids: 797dffd27b60c49a4adb58d9d5ba30a939d4c00f
+
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/lib/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/lib/debug/.build-id/79/
+-rw-r--r-- root/root     94972 2017-08-12 19:43 ./usr/lib/debug/.build-id/79/7dffd27b60c49a4adb58d9d5ba30a939d4c00f.debug
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2017-08-12 19:43 ./usr/share/doc/sqlcipher-dbgsym -> sqlcipher
+
+
+sqlcipher_3.4.1-1_armhf.deb
+---------------------------
+
+ new Debian package, version 2.0.
+ size 40180 bytes: control archive=1240 bytes.
+    1315 bytes,    32 lines      control              
+     409 bytes,     6 lines      md5sums              
+ Package: sqlcipher
+ Version: 3.4.1-1
+ Architecture: armhf
+ Maintainer: Hans-Christoph Steiner <hans@eds.org>
+ Installed-Size: 85
+ Depends: libc6 (>= 2.4), libsqlcipher0 (= 3.4.1-1)
+ Suggests: sqlite3-doc
+ Section: database
+ Priority: optional
+ Multi-Arch: foreign
+ Homepage: http://sqlcipher.net/
+ Description: Command line interface for SQLCipher
+  SQLCipher is a C library that implements an encryption in the SQLite 3
+  database engine.  Programs that link with the SQLCipher library can have SQL
+  database access without running a separate RDBMS process.  It allows one to
+  have per-database or page-by-page encryption using AES-256 from OpenSSL.
+  .
+  SQLCipher has a small footprint and great performance so it’s ideal for
+  protecting embedded application databases and is well suited for mobile
+  development.
+  .
+   * as little as 5-15% overhead for encryption
+   * 100% of data in the database file is encrypted
+   * Uses good security practices (CBC mode, key derivation)
+   * Zero-configuration and application level cryptography
+   * Algorithms provided by the peer reviewed OpenSSL crypto library.
+  .
+  SQLCipher has broad platform support for with C/C++, Obj-C, QT, Win32/.NET,
+  Java, Python, Ruby, Linux, Mac OS X, iPhone/iOS, Android, Xamarin.iOS, and
+  Xamarin.Android.
+  .
+  SQLCipher v3.4.1 is based on SQLite3 v3.15.2.
+
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/bin/
+-rwxr-xr-x root/root     67088 2017-08-12 19:43 ./usr/bin/sqlcipher
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/doc/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/doc/sqlcipher/
+-rw-r--r-- root/root       333 2017-08-12 19:43 ./usr/share/doc/sqlcipher/README.Debian
+-rw-r--r-- root/root       967 2017-08-12 19:43 ./usr/share/doc/sqlcipher/changelog.Debian.gz
+-rw-r--r-- root/root      1066 2016-12-28 17:39 ./usr/share/doc/sqlcipher/changelog.gz
+-rw-r--r-- root/root      1251 2017-08-12 19:43 ./usr/share/doc/sqlcipher/copyright
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/man/
+drwxr-xr-x root/root         0 2017-08-12 19:43 ./usr/share/man/man1/
+-rw-r--r-- root/root      3613 2017-08-12 19:43 ./usr/share/man/man1/sqlcipher.1.gz
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [605 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [690 B]
+Fetched 2258 B in 0s (195 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://cdn-fastly.deb.debian.org/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://cdn-fastly.deb.debian.org/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://cdn-fastly.deb.debian.org/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 7s (433 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 19752 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+W: sqlcipher source: orig-tarball-missing-upstream-signature sqlcipher_3.4.1.orig.tar.gz
+W: sqlcipher source: vcs-obsolete-in-debian-infrastructure vcs-browser https://anonscm.debian.org/cgit/collab-maint/sqlcipher.git
+W: sqlcipher source: vcs-obsolete-in-debian-infrastructure vcs-git https://alioth.debian.org/anonscm/git/collab-maint/sqlcipher.git
+W: sqlcipher source: debian-watch-could-verify-download debian/upstream/signing-key.asc
+N: 0 tags overridden; 1 unused override
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* dwz* gcc-8-base:armhf*
+  gettext* gettext-base* groff-base* intltool-debian* libapt-pkg-perl*
+  libarchive-zip-perl* libasan5:armhf* libatomic1:armhf* libbsd0* libc6:armhf*
+  libc6-dev:armhf* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclone-perl* libcroco3* libdigest-hmac-perl*
+  libelf1* libemail-valid-perl* libexporter-tiny-perl* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfuture-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libglib2.0-0* libgomp1:armhf* libio-async-perl*
+  libio-pty-perl* libipc-run-perl* libipc-system-simple-perl*
+  liblist-moreutils-perl* libncurses-dev:armhf* libncurses6*
+  libncurses6:armhf* libncursesw6:armhf* libnet-dns-perl*
+  libnet-domain-tld-perl* libnet-ip-perl* libparse-debianchangelog-perl*
+  libpath-tiny-perl* libpipeline1* libreadline-dev:armhf* libreadline7:armhf*
+  libsigsegv2* libssl-dev:armhf* libssl1.1:armhf* libstdc++-8-dev:armhf*
+  libstdc++6:armhf* libstruct-dumb-perl* libsub-name-perl* libtcl8.6*
+  libtcl8.6:armhf* libtext-levenshtein-perl* libtinfo6:armhf* libtool*
+  libubsan1:armhf* libuchardet0* lintian* linux-libc-dev:armhf* m4* man-db*
+  patchutils* po-debconf* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* tcl8.6* tcl8.6-dev:armhf*
+  zlib1g:armhf* zlib1g-dev:armhf*
+0 upgraded, 0 newly installed, 82 to remove and 0 not upgraded.
+After this operation, 111 MB disk space will be freed.
+(Reading database ... 21030 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing tcl8.6-dev:armhf (8.6.9+dfsg-2) ...
+Removing zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Removing libtcl8.6:armhf (8.6.9+dfsg-2) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing libreadline-dev:armhf (7.0-5) ...
+Removing libreadline7:armhf (7.0-5) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-8) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libssl-dev:armhf (1.1.1b-1) ...
+Removing libssl1.1:armhf (1.1.1b-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing tcl8.6 (8.6.9+dfsg-2) ...
+Removing libtcl8.6:amd64 (8.6.9+dfsg-2) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-3) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-8) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-8) ...
+(Reading database ... 16459 files and directories currently installed.)
+Purging configuration files for tcl8.6 (8.6.9+dfsg-2) ...
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for libssl1.1:armhf (1.1.1b-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-8) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 89
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 8
+Job: /home/build/sbuild-setup/repo/pool/main/s/sqlcipher/sqlcipher_3.4.1-1.dsc
+Lintian: warn
+Machine Architecture: amd64
+Package: sqlcipher
+Package-Time: 102
+Source-Version: 3.4.1-1
+Space: n/a
+Status: successful
+Version: 3.4.1-1
+--------------------------------------------------------------------------------
+Finished at 2019-03-07T01:53:18Z
+Build needed 00:01:42, no disk space

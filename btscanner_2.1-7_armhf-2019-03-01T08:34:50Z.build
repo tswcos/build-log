@@ -1,0 +1,1652 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| btscanner 2.1-7 (armhf)                      Fri, 01 Mar 2019 08:34:50 +0000 |
++==============================================================================+
+
+Package: btscanner
+Version: 2.1-7
+Source Version: 2.1-7
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-07b22027-e780-40ba-a4d4-b20a3a0d3aef' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/btscanner-zatiFm/resolver-zb3TKp' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/b/btscanner/btscanner_2.1-7.dsc exists in /home/build/sbuild-setup/repo/pool/main/b/btscanner; copying to chroot
+I: NOTICE: Log filtering will replace 'build/btscanner-zatiFm/btscanner-2.1' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/btscanner-zatiFm' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 11), libncurses5-dev, libbluetooth-dev, libxml2-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 11), libncurses5-dev, libbluetooth-dev, libxml2-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [416 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [504 B]
+Fetched 1877 B in 0s (154 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base icu-devtools intltool-debian libarchive-zip-perl
+  libasan5:armhf libatomic1:armhf libbluetooth-dev:armhf libbluetooth3:armhf
+  libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libicu-dev:armhf libicu63:armhf liblzma5:armhf
+  libncurses-dev:armhf libncurses5-dev:armhf libncurses6 libncurses6:armhf
+  libncursesw6:armhf libpipeline1 libsigsegv2 libstdc++-8-dev:armhf
+  libstdc++6:armhf libtinfo6:armhf libtool libubsan1:armhf libuchardet0
+  libudev1:armhf libxml2:armhf libxml2-dev:armhf linux-libc-dev:armhf m4
+  man-db po-debconf zlib1g:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  pkg-config:armhf glibc-doc:armhf libc-l10n:armhf locales:armhf
+  manpages-dev:armhf icu-doc:armhf ncurses-doc:armhf libstdc++-8-doc:armhf
+  libtool-doc gfortran | fortran95-compiler gcj-jdk m4-doc apparmor less
+  www-browser libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpm2 libgpm2:armhf libltdl-dev
+  libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base icu-devtools intltool-debian libarchive-zip-perl
+  libasan5:armhf libatomic1:armhf libbluetooth-dev:armhf libbluetooth3:armhf
+  libbsd0 libc6:armhf libc6-dev:armhf libcroco3 libelf1
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf libicu-dev:armhf libicu63:armhf liblzma5:armhf
+  libncurses-dev:armhf libncurses5-dev:armhf libncurses6 libncurses6:armhf
+  libncursesw6:armhf libpipeline1 libsigsegv2 libstdc++-8-dev:armhf
+  libstdc++6:armhf libtinfo6:armhf libtool libubsan1:armhf libuchardet0
+  libudev1:armhf libxml2:armhf libxml2-dev:armhf linux-libc-dev:armhf m4
+  man-db po-debconf sbuild-build-depends-main-dummy:armhf zlib1g:armhf
+0 upgraded, 55 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1868 B/38.4 MB of archives.
+After this operation, 157 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [928 B]
+Get:2 http://10.116.41.102/debian sid/main armhf libncurses5-dev armhf 6.1+20181013-2 [940 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 1868 B in 0s (0 B/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../07-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../08-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../09-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../10-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../11-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../12-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../13-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../14-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../15-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../16-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../17-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../18-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../19-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../20-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../21-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../22-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../23-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../24-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../25-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../26-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../27-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package icu-devtools.
+Preparing to unpack .../28-icu-devtools_63.1-6_amd64.deb ...
+Unpacking icu-devtools (63.1-6) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../29-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../30-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../31-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../32-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../33-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libudev1:armhf.
+Preparing to unpack .../34-libudev1_241-1_armhf.deb ...
+Unpacking libudev1:armhf (241-1) ...
+Selecting previously unselected package libbluetooth3:armhf.
+Preparing to unpack .../35-libbluetooth3_5.50-1_armhf.deb ...
+Unpacking libbluetooth3:armhf (5.50-1) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../36-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../37-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libbluetooth-dev:armhf.
+Preparing to unpack .../38-libbluetooth-dev_5.50-1_armhf.deb ...
+Unpacking libbluetooth-dev:armhf (5.50-1) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../39-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../40-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../41-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libicu63:armhf.
+Preparing to unpack .../42-libicu63_63.1-6_armhf.deb ...
+Unpacking libicu63:armhf (63.1-6) ...
+Selecting previously unselected package libicu-dev:armhf.
+Preparing to unpack .../43-libicu-dev_63.1-6_armhf.deb ...
+Unpacking libicu-dev:armhf (63.1-6) ...
+Selecting previously unselected package liblzma5:armhf.
+Preparing to unpack .../44-liblzma5_5.2.4-1_armhf.deb ...
+Unpacking liblzma5:armhf (5.2.4-1) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../45-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../46-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../47-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../48-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses5-dev:armhf.
+Preparing to unpack .../49-libncurses5-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses5-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../50-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../51-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libxml2:armhf.
+Preparing to unpack .../52-libxml2_2.9.4+dfsg1-7+b3_armhf.deb ...
+Unpacking libxml2:armhf (2.9.4+dfsg1-7+b3) ...
+Selecting previously unselected package libxml2-dev:armhf.
+Preparing to unpack .../53-libxml2-dev_2.9.4+dfsg1-7+b3_armhf.deb ...
+Unpacking libxml2-dev:armhf (2.9.4+dfsg1-7+b3) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../54-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up icu-devtools (63.1-6) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-7) ...
+Setting up libudev1:armhf (241-1) ...
+Setting up libbluetooth3:armhf (5.50-1) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up liblzma5:armhf (5.2.4-1) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libbluetooth-dev:armhf (5.50-1) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libicu63:armhf (63.1-6) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libncurses5-dev:armhf (6.1+20181013-2) ...
+Setting up libicu-dev:armhf (63.1-6) ...
+Setting up libxml2:armhf (2.9.4+dfsg1-7+b3) ...
+Setting up libxml2-dev:armhf (2.9.4+dfsg1-7+b3) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 icu-devtools_63.1-6 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbluetooth-dev_5.50-1 libbluetooth3_5.50-1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu-dev_63.1-6 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses5-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libxml2-dev_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: btscanner
+Binary: btscanner
+Architecture: any
+Version: 2.1-7
+Maintainer: Debian Security Tools <team+pkg-security@tracker.debian.org>
+Uploaders: Sophie Brun <sophie@freexian.com>
+Homepage: https://www.pentest.co.uk/downloads.html
+Standards-Version: 4.2.1
+Vcs-Browser: https://salsa.debian.org/pkg-security-team/btscanner
+Vcs-Git: https://salsa.debian.org/pkg-security-team/btscanner.git
+Build-Depends: debhelper (>= 11), libncurses5-dev, libbluetooth-dev, libxml2-dev
+Package-List:
+ btscanner deb net optional arch=any
+Checksums-Sha1:
+ 2bacb7e88d2575fa26468eb40bb8016b93707c5e 553371 btscanner_2.1.orig.tar.gz
+ 01c9f5f880b473cb8522767b0e44ee12ddcf33fd 4864 btscanner_2.1-7.debian.tar.xz
+Checksums-Sha256:
+ 2feb8facecfeef41f54e9839017cdeec0089f1c130ad09573c109ec328e21320 553371 btscanner_2.1.orig.tar.gz
+ 6fdc8c71920493a2b7d57946840c7716be3f84823c0a0677c01240ede44e09c4 4864 btscanner_2.1-7.debian.tar.xz
+Files:
+ 93f66a8d0b1be8f1059c52759407cd7f 553371 btscanner_2.1.orig.tar.gz
+ 027ab5eab449104096271949faba9f11 4864 btscanner_2.1-7.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+Comment: Signed by Raphael Hertzog
+
+iQEzBAEBCgAdFiEE1823g1EQnhJ1LsbSA4gdq+vCmrkFAluNk60ACgkQA4gdq+vC
+mrny+gf7BqXaFakdGZ+hXWSyRJLFWwpokW0W6ox5WYJipmyTgNvMXVHvnLxaVK0w
+yDxxSOMlO7ihB3nGzr4/mG76KkE7x6gDvbB/mMN2OLGUf/5Qa6b19LUo5PGO/8Fu
+TfWtq5EOf7sFJeTa+HjwC0V5wj0qurh/MH2KhkKNpXdJC1oUkmFcMRDcBQ/Hcevl
+VErP+NU7qlxBoxDrwB1uyr31bwN+E6tX33BVipIjMYSjq7iSfgCCB5oshbbGDA4i
+WjrzEZ8Nqqh+PqUH8vB4JdK3pcr3MMN3hbiwMLWBbN+Z4bdzSjhGYAjMLu5yVL+4
+sDybriEpJLcRIl2ywE+46GxFmVFjYw==
+=2XIF
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Mon Sep  3 20:03:57 2018 UTC
+gpgv:                using RSA key D7CDB78351109E12752EC6D203881DABEBC29AB9
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./btscanner_2.1-7.dsc
+dpkg-source: info: extracting btscanner in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking btscanner_2.1.orig.tar.gz
+dpkg-source: info: unpacking btscanner_2.1-7.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 00_fix_cflags.patch
+dpkg-source: info: applying 01_config_file.patch
+dpkg-source: info: applying fix-typo-config.patch
+dpkg-source: info: applying fix-buffer-overflow.patch
+dpkg-source: info: applying drop-installation-oui.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-07b22027-e780-40ba-a4d4-b20a3a0d3aef
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package btscanner
+dpkg-buildpackage: info: source version 2.1-7
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Raphaël Hertzog <hertzog@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+aclocal: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+automake: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+configure.in:4: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.  For more info, see:
+configure.in:4: https://www.gnu.org/software/automake/manual/automake.html#Modernize-AM_005fINIT_005fAUTOMAKE-invocation
+configure.in:8: installing './compile'
+Makefile.am:26: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+automake: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+   dh_auto_configure -a
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking for perl... /usr/bin/perl
+checking for library containing strerror... none required
+checking for main in -lncurses... yes
+checking for main in -lmenu... yes
+checking for main in -lform... yes
+checking for main in -lbluetooth... yes
+checking for main in -lpthread... yes
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking netinet/in.h usability... yes
+checking netinet/in.h presence... yes
+checking for netinet/in.h... yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking sys/ioctl.h usability... yes
+checking sys/ioctl.h presence... yes
+checking for sys/ioctl.h... yes
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking for unistd.h... (cached) yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking syslog.h usability... yes
+checking syslog.h presence... yes
+checking for syslog.h... yes
+checking bluetooth/bluetooth.h usability... yes
+checking bluetooth/bluetooth.h presence... yes
+checking for bluetooth/bluetooth.h... yes
+checking bluetooth/sdp.h usability... yes
+checking bluetooth/sdp.h presence... yes
+checking for bluetooth/sdp.h... yes
+checking for an ANSI C-conforming const... yes
+checking for size_t... yes
+checking whether arm-linux-gnueabihf-gcc needs -traditional... no
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... (cached) yes
+checking return type of signal handlers... void
+checking for memset... yes
+checking for strerror... yes
+checking for xml2-config... /usr/bin/xml2-config
+checking libxml/parser.h usability... yes
+checking libxml/parser.h presence... yes
+checking for libxml/parser.h... yes
+checking libxml/tree.h usability... yes
+checking libxml/tree.h presence... yes
+checking for libxml/tree.h... yes
+checking for main in -lxml2... yes
+checking the location of the config file... /etc/btscanner.xml
+checking the location of the config DTD... file:///etc/btscanner.dtd
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+   dh_auto_build -a
+	make -j16
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+make  all-am
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.  -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/libxml2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -I/usr/include/libxml2 -Wall -pthread -Wshadow -Wbad-function-cast   -Wformat -Wparentheses -Wsign-compare   -Wstrict-prototypes -Wtrigraphs -Wundef -Wuninitialized   -W -Wunused -Wformat-security -Wmissing-braces -Wbad-function-cast   -Wcast-qual -falign-functions -falign-labels -falign-loops  -pedantic -fstrict-aliasing -D_GNU_SOURCE -std=gnu99 -DCFG_FILE=\"/etc/btscanner.xml\" -DCFG_DTD=\"file:///etc/btscanner.dtd\" -c -o main.o main.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.  -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/libxml2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -I/usr/include/libxml2 -Wall -pthread -Wshadow -Wbad-function-cast   -Wformat -Wparentheses -Wsign-compare   -Wstrict-prototypes -Wtrigraphs -Wundef -Wuninitialized   -W -Wunused -Wformat-security -Wmissing-braces -Wbad-function-cast   -Wcast-qual -falign-functions -falign-labels -falign-loops  -pedantic -fstrict-aliasing -D_GNU_SOURCE -std=gnu99 -DCFG_FILE=\"/etc/btscanner.xml\" -DCFG_DTD=\"file:///etc/btscanner.dtd\" -c -o threader.o threader.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.  -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/libxml2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -I/usr/include/libxml2 -Wall -pthread -Wshadow -Wbad-function-cast   -Wformat -Wparentheses -Wsign-compare   -Wstrict-prototypes -Wtrigraphs -Wundef -Wuninitialized   -W -Wunused -Wformat-security -Wmissing-braces -Wbad-function-cast   -Wcast-qual -falign-functions -falign-labels -falign-loops  -pedantic -fstrict-aliasing -D_GNU_SOURCE -std=gnu99 -DCFG_FILE=\"/etc/btscanner.xml\" -DCFG_DTD=\"file:///etc/btscanner.dtd\" -c -o cfg.o cfg.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.  -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/libxml2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -I/usr/include/libxml2 -Wall -pthread -Wshadow -Wbad-function-cast   -Wformat -Wparentheses -Wsign-compare   -Wstrict-prototypes -Wtrigraphs -Wundef -Wuninitialized   -W -Wunused -Wformat-security -Wmissing-braces -Wbad-function-cast   -Wcast-qual -falign-functions -falign-labels -falign-loops  -pedantic -fstrict-aliasing -D_GNU_SOURCE -std=gnu99 -DCFG_FILE=\"/etc/btscanner.xml\" -DCFG_DTD=\"file:///etc/btscanner.dtd\" -c -o store.o store.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.  -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/libxml2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -I/usr/include/libxml2 -Wall -pthread -Wshadow -Wbad-function-cast   -Wformat -Wparentheses -Wsign-compare   -Wstrict-prototypes -Wtrigraphs -Wundef -Wuninitialized   -W -Wunused -Wformat-security -Wmissing-braces -Wbad-function-cast   -Wcast-qual -falign-functions -falign-labels -falign-loops  -pedantic -fstrict-aliasing -D_GNU_SOURCE -std=gnu99 -DCFG_FILE=\"/etc/btscanner.xml\" -DCFG_DTD=\"file:///etc/btscanner.dtd\" -c -o misc.o misc.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.  -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/libxml2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -I/usr/include/libxml2 -Wall -pthread -Wshadow -Wbad-function-cast   -Wformat -Wparentheses -Wsign-compare   -Wstrict-prototypes -Wtrigraphs -Wundef -Wuninitialized   -W -Wunused -Wformat-security -Wmissing-braces -Wbad-function-cast   -Wcast-qual -falign-functions -falign-labels -falign-loops  -pedantic -fstrict-aliasing -D_GNU_SOURCE -std=gnu99 -DCFG_FILE=\"/etc/btscanner.xml\" -DCFG_DTD=\"file:///etc/btscanner.dtd\" -c -o oui.o oui.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.  -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/libxml2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -I/usr/include/libxml2 -Wall -pthread -Wshadow -Wbad-function-cast   -Wformat -Wparentheses -Wsign-compare   -Wstrict-prototypes -Wtrigraphs -Wundef -Wuninitialized   -W -Wunused -Wformat-security -Wmissing-braces -Wbad-function-cast   -Wcast-qual -falign-functions -falign-labels -falign-loops  -pedantic -fstrict-aliasing -D_GNU_SOURCE -std=gnu99 -DCFG_FILE=\"/etc/btscanner.xml\" -DCFG_DTD=\"file:///etc/btscanner.dtd\" -c -o screen.o screen.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.  -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/libxml2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -I/usr/include/libxml2 -Wall -pthread -Wshadow -Wbad-function-cast   -Wformat -Wparentheses -Wsign-compare   -Wstrict-prototypes -Wtrigraphs -Wundef -Wuninitialized   -W -Wunused -Wformat-security -Wmissing-braces -Wbad-function-cast   -Wcast-qual -falign-functions -falign-labels -falign-loops  -pedantic -fstrict-aliasing -D_GNU_SOURCE -std=gnu99 -DCFG_FILE=\"/etc/btscanner.xml\" -DCFG_DTD=\"file:///etc/btscanner.dtd\" -c -o ll.o ll.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.  -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/libxml2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -I/usr/include/libxml2 -Wall -pthread -Wshadow -Wbad-function-cast   -Wformat -Wparentheses -Wsign-compare   -Wstrict-prototypes -Wtrigraphs -Wundef -Wuninitialized   -W -Wunused -Wformat-security -Wmissing-braces -Wbad-function-cast   -Wcast-qual -falign-functions -falign-labels -falign-loops  -pedantic -fstrict-aliasing -D_GNU_SOURCE -std=gnu99 -DCFG_FILE=\"/etc/btscanner.xml\" -DCFG_DTD=\"file:///etc/btscanner.dtd\" -c -o sdp.o sdp.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.  -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/libxml2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -I/usr/include/libxml2 -Wall -pthread -Wshadow -Wbad-function-cast   -Wformat -Wparentheses -Wsign-compare   -Wstrict-prototypes -Wtrigraphs -Wundef -Wuninitialized   -W -Wunused -Wformat-security -Wmissing-braces -Wbad-function-cast   -Wcast-qual -falign-functions -falign-labels -falign-loops  -pedantic -fstrict-aliasing -D_GNU_SOURCE -std=gnu99 -DCFG_FILE=\"/etc/btscanner.xml\" -DCFG_DTD=\"file:///etc/btscanner.dtd\" -c -o scan.o scan.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.  -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include/libxml2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -I/usr/include/libxml2 -Wall -pthread -Wshadow -Wbad-function-cast   -Wformat -Wparentheses -Wsign-compare   -Wstrict-prototypes -Wtrigraphs -Wundef -Wuninitialized   -W -Wunused -Wformat-security -Wmissing-braces -Wbad-function-cast   -Wcast-qual -falign-functions -falign-labels -falign-loops  -pedantic -fstrict-aliasing -D_GNU_SOURCE -std=gnu99 -DCFG_FILE=\"/etc/btscanner.xml\" -DCFG_DTD=\"file:///etc/btscanner.dtd\" -c -o log.o log.c
+log.c: In function ‘log_init’:
+log.c:94:43: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   fprintf(stderr, "%s(): NULL logfile\n", __FUNCTION__);
+                                           ^~~~~~~~~~~~
+log.c:101:39: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   fprintf(stderr, "%s::open(): %s\n", __FUNCTION__, strerror(errno));
+                                       ^~~~~~~~~~~~
+log.c:108:39: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   fprintf(stderr, "%s::open(): %s\n", __FUNCTION__, strerror(errno));
+                                       ^~~~~~~~~~~~
+oui.c: In function ‘ouidb_init’:
+oui.c:136:6: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+      __FUNCTION__, strerror(errno));
+      ^~~~~~~~~~~~
+oui.c:146:6: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+      __FUNCTION__, strerror(errno));
+      ^~~~~~~~~~~~
+threader.c: In function ‘threader_start’:
+threader.c:126:35: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       "%s::pthread_create(): %s", __FUNCTION__, strerror(errno));
+                                   ^~~~~~~~~~~~
+threader.c:133:7: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       __FUNCTION__, h->tid);
+       ^~~~~~~~~~~~
+threader.c: In function ‘threader_reap’:
+threader.c:165:7: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       __FUNCTION__, strerror(errno));
+       ^~~~~~~~~~~~
+threader.c:168:7: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       __FUNCTION__, h->tid);
+       ^~~~~~~~~~~~
+main.c: In function ‘get_max_devices’:
+main.c:159:25: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     "%s::malloc(): %s", __FUNCTION__, strerror(errno));
+                         ^~~~~~~~~~~~
+main.c:169:24: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     "%s::ioctl(): %s", __FUNCTION__, strerror(errno));
+                        ^~~~~~~~~~~~
+main.c:187:26: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+      "%s::malloc(): %s", __FUNCTION__, strerror(errno));
+                          ^~~~~~~~~~~~
+main.c:208:46: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     "%s(): no valid HCI devices were found", __FUNCTION__);
+                                              ^~~~~~~~~~~~
+main.c: In function ‘main’:
+main.c:272:30: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     "%s::sigprocmask(): %s", __FUNCTION__, strerror(errno));
+                              ^~~~~~~~~~~~
+main.c:277:30: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     "%s::sigprocmask(): %s", __FUNCTION__, strerror(errno));
+                              ^~~~~~~~~~~~
+main.c:289:28: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     "%s::sigaction(): %s", __FUNCTION__, strerror(errno));
+                            ^~~~~~~~~~~~
+main.c:294:28: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     "%s::sigaction(): %s", __FUNCTION__, strerror(errno));
+                            ^~~~~~~~~~~~
+main.c:300:28: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     "%s::sigaction(): %s", __FUNCTION__, strerror(errno));
+                            ^~~~~~~~~~~~
+main.c:314:25: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     "%s::socket(): %s", __FUNCTION__, strerror(errno));
+                         ^~~~~~~~~~~~
+store.c: In function ‘store_mkdir_recursive’:
+store.c:95:39: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_ERR, "%s::strdup(): %s", __FUNCTION__, strerror(errno));
+                                       ^~~~~~~~~~~~
+store.c:107:8: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+        __FUNCTION__,strerror(errno));
+        ^~~~~~~~~~~~
+store.c:118:7: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       __FUNCTION__, strerror(errno));
+       ^~~~~~~~~~~~
+store.c:133:40: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_WARNING,"%s::stat(): %s", __FUNCTION__,strerror(errno));
+                                        ^~~~~~~~~~~~
+store.c: In function ‘store_writefile’:
+store.c:172:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+store.c:178:41: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_WARNING, "%s::open(): %s", __FUNCTION__, strerror(errno));
+                                         ^~~~~~~~~~~~
+store.c:184:42: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_WARNING, "%s::write(): %s", __FUNCTION__, strerror(errno));
+                                          ^~~~~~~~~~~~
+store.c:187:61: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_WARNING, "%s::write(): not all bytes written", __FUNCTION__);
+                                                             ^~~~~~~~~~~~
+store.c: In function ‘store_appendfile’:
+store.c:211:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+store.c:217:41: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_WARNING, "%s::open(): %s", __FUNCTION__, strerror(errno));
+                                         ^~~~~~~~~~~~
+store.c:223:42: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_WARNING, "%s::write(): %s", __FUNCTION__, strerror(errno));
+                                          ^~~~~~~~~~~~
+store.c:226:61: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_WARNING, "%s::write(): not all bytes written", __FUNCTION__);
+                                                             ^~~~~~~~~~~~
+store.c: In function ‘store_device’:
+store.c:256:53: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_WARNING, "%s(): Null store directory", __FUNCTION__);
+                                                     ^~~~~~~~~~~~
+store.c:267:41: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+    applog(LOG_WARNING,"%s::stat(): %s", __FUNCTION__,strerror(errno));
+                                         ^~~~~~~~~~~~
+store.c:275:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+store.c:301:6: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+      __FUNCTION__, strerror(errno));
+      ^~~~~~~~~~~~
+store.c: In function ‘store_timestamp’:
+store.c:336:53: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_WARNING, "%s(): Null store directory", __FUNCTION__);
+                                                     ^~~~~~~~~~~~
+store.c:347:41: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+    applog(LOG_WARNING,"%s::stat(): %s", __FUNCTION__,strerror(errno));
+                                         ^~~~~~~~~~~~
+store.c:355:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+store.c:380:6: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+      __FUNCTION__, strerror(errno));
+      ^~~~~~~~~~~~
+cfg.c: In function ‘cfg_copy_content’:
+cfg.c:104:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+cfg.c:113:6: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+      __FUNCTION__);
+      ^~~~~~~~~~~~
+cfg.c:122:42: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+    fprintf(stderr, "%s::malloc(): %s\n", __FUNCTION__,
+                                          ^~~~~~~~~~~~
+cfg.c:134:6: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+      __FUNCTION__, strerror(errno));
+      ^~~~~~~~~~~~
+cfg.c: In function ‘cfg_parse_files’:
+cfg.c:163:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+cfg.c: In function ‘cfg_parse_rangedef’:
+cfg.c:187:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+cfg.c:197:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+cfg.c:208:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+cfg.c:221:8: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+        __FUNCTION__, strerror(errno));
+        ^~~~~~~~~~~~
+cfg.c: In function ‘cfg_parse_root’:
+cfg.c:263:44: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     fprintf(stderr, "%s::realloc(): %s\n", __FUNCTION__,
+                                            ^~~~~~~~~~~~
+cfg.c: In function ‘cfg_parse_xml’:
+cfg.c:308:39: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   fprintf(stderr, "%s::stat(): %s\n", __FUNCTION__, strerror(errno));
+                                       ^~~~~~~~~~~~
+cfg.c:314:50: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     "%s::stat(): config file is not readable\n", __FUNCTION__);
+                                                  ^~~~~~~~~~~~
+cfg.c:322:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+cfg.c:331:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+cfg.c:338:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+cfg.c:345:60: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   fprintf(stderr, "%s(): could not locate root element\n", __FUNCTION__);
+                                                            ^~~~~~~~~~~~
+cfg.c: In function ‘cfg_parsefile’:
+cfg.c:380:58: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   fprintf(stderr, "%s::cfg_parse_xml(): parse failed\n", __FUNCTION__);
+                                                          ^~~~~~~~~~~~
+cfg.c:391:59: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   fprintf(stderr, "%s(): No global rangedef was found\n", __FUNCTION__);
+                                                           ^~~~~~~~~~~~
+ll.c: In function ‘ll_lock_device’:
+ll.c:161:6: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+      __FUNCTION__, strerror(errno));
+      ^~~~~~~~~~~~
+ll.c: In function ‘ll_print_timestamp’:
+ll.c:282:28: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       "%s::realloc(): %s", __FUNCTION__, strerror(errno));
+                            ^~~~~~~~~~~~
+ll.c: In function ‘ll_print_dev_info’:
+ll.c:385:28: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       "%s::realloc(): %s", __FUNCTION__, strerror(errno));
+                            ^~~~~~~~~~~~
+scan.c: In function ‘scan_reset_device’:
+scan.c:102:39: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_ERR, "%s::socket(): %s", __FUNCTION__, strerror(errno));
+                                       ^~~~~~~~~~~~
+scan.c:109:6: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+      __FUNCTION__, devid, strerror(errno));
+      ^~~~~~~~~~~~
+scan.c:117:6: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+      __FUNCTION__, devid, strerror(errno));
+      ^~~~~~~~~~~~
+scan.c: In function ‘find_conn’:
+scan.c:139:43: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_WARNING, "%s::socket(): %s", __FUNCTION__, strerror(errno));
+                                           ^~~~~~~~~~~~
+scan.c:144:43: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_WARNING, "%s::malloc(): %s", __FUNCTION__, strerror(errno));
+                                           ^~~~~~~~~~~~
+scan.c:153:42: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_WARNING, "%s::ioctl(): %s", __FUNCTION__, strerror(errno));
+                                          ^~~~~~~~~~~~
+scan.c: In function ‘scan_sdp’:
+scan.c:186:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__, str);
+     ^~~~~~~~~~~~
+scan.c:198:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__, str, strerror(errno));
+     ^~~~~~~~~~~~
+scan.c:210:40: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_ERR, "%s::realloc(): %s", __FUNCTION__, strerror(errno));
+                                        ^~~~~~~~~~~~
+scan.c:227:7: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       __FUNCTION__, strerror(errno));
+       ^~~~~~~~~~~~
+scan.c:239:7: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       __FUNCTION__, strerror(errno));
+       ^~~~~~~~~~~~
+scan.c:177:45: warning: variable ‘first’ set but not used [-Wunused-but-set-variable]
+  sdp_list_t *attrid, *search, *seq, *next, *first;
+                                             ^~~~~
+scan.c: In function ‘scan_inquiry’:
+scan.c:366:7: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       __FUNCTION__, strerror(errno));
+       ^~~~~~~~~~~~
+scan.c:398:7: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       __FUNCTION__, strerror(errno));
+       ^~~~~~~~~~~~
+scan.c:413:7: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       __FUNCTION__, strerror(errno));
+       ^~~~~~~~~~~~
+scan.c:428:7: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       __FUNCTION__, strerror(errno));
+       ^~~~~~~~~~~~
+scan.c: In function ‘scan_probe_bf’:
+scan.c:563:7: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       __FUNCTION__, strerror(errno));
+       ^~~~~~~~~~~~
+scan.c:597:7: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       __FUNCTION__, strerror(errno));
+       ^~~~~~~~~~~~
+scan.c:612:7: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       __FUNCTION__, strerror(errno));
+       ^~~~~~~~~~~~
+scan.c:627:7: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+       __FUNCTION__, strerror(errno));
+       ^~~~~~~~~~~~
+screen.c: In function ‘screen_log’:
+screen.c:193:8: warning: variable ‘x’ set but not used [-Wunused-but-set-variable]
+  int y,x;
+        ^
+screen.c: In function ‘screen_main_get_content’:
+screen.c:377:39: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_ERR, "%s::malloc(): %s", __FUNCTION__, strerror(errno));
+                                       ^~~~~~~~~~~~
+screen.c:385:39: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+   applog(LOG_ERR, "%s::malloc(): %s", __FUNCTION__, strerror(errno));
+                                       ^~~~~~~~~~~~
+screen.c:400:6: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+      __FUNCTION__, strerror(errno));
+      ^~~~~~~~~~~~
+screen.c: In function ‘screen_create’:
+screen.c:573:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+screen.c: In function ‘screen_redraw’:
+screen.c:694:6: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+      __FUNCTION__, strerror(errno));
+      ^~~~~~~~~~~~
+screen.c:745:6: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+      __FUNCTION__, strerror(errno));
+      ^~~~~~~~~~~~
+screen.c: In function ‘screen_textbox’:
+screen.c:958:6: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+      __FUNCTION__, strerror(errno));
+      ^~~~~~~~~~~~
+screen.c: In function ‘screen_make_windows’:
+screen.c:1123:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+screen.c:1132:5: warning: ISO C does not support ‘__FUNCTION__’ predefined identifier [-Wpedantic]
+     __FUNCTION__);
+     ^~~~~~~~~~~~
+screen.c: In function ‘screen_textbox’:
+screen.c:906:9: warning: this statement may fall through [-Wimplicit-fallthrough=]
+     ret = 1;
+     ~~~~^~~
+screen.c:907:4: note: here
+    case KEY_ENTER:
+    ^~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -I/usr/include/libxml2 -Wall -pthread -Wshadow -Wbad-function-cast   -Wformat -Wparentheses -Wsign-compare   -Wstrict-prototypes -Wtrigraphs -Wundef -Wuninitialized   -W -Wunused -Wformat-security -Wmissing-braces -Wbad-function-cast   -Wcast-qual -falign-functions -falign-labels -falign-loops  -pedantic -fstrict-aliasing -D_GNU_SOURCE -std=gnu99 -DCFG_FILE=\"/etc/btscanner.xml\" -DCFG_DTD=\"file:///etc/btscanner.dtd\"  -Wl,-z,relro -Wl,-z,now -lxml2 -o btscanner main.o threader.o cfg.o store.o misc.o oui.o screen.o ll.o sdp.o scan.o log.o  -lxml2 -lpthread -lbluetooth -lform -lmenu -lncurses 
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_test -a
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary-arch
+dh binary-arch
+   dh_testroot -a
+   dh_prep -a
+   dh_installdirs -a
+   dh_auto_install -a
+	make -j16 install DESTDIR=/<<PKGBUILDDIR>>/debian/btscanner AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[2]: Nothing to be done for 'install-data-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/btscanner/etc'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/btscanner/usr/bin'
+ /usr/bin/install -c -m 644 btscanner.xml btscanner.dtd '/<<PKGBUILDDIR>>/debian/btscanner/etc'
+  /usr/bin/install -c btscanner '/<<PKGBUILDDIR>>/debian/btscanner/usr/bin'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_install -a
+   dh_installdocs -a
+   dh_installchangelogs -a
+   dh_installman -a
+   dh_installmenu -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   dh_missing -a
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+   dh_installdeb -a
+   dh_gencontrol -a
+dpkg-gencontrol: warning: package btscanner: substitution variable ${perl:Depends} unused, but is defined
+dpkg-gencontrol: warning: package btscanner: substitution variable ${perl:Depends} unused, but is defined
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'btscanner' in '../btscanner_2.1-7_armhf.deb'.
+dpkg-deb: building package 'btscanner-dbgsym' in '../btscanner-dbgsym_2.1-7_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../btscanner_2.1-7_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T08:35:15Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+btscanner_2.1-7_armhf.changes:
+------------------------------
+
+Format: 1.8
+Date: Mon, 03 Sep 2018 22:02:26 +0200
+Source: btscanner
+Binary: btscanner btscanner-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 2.1-7
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Debian Security Tools <team+pkg-security@tracker.debian.org>
+Changed-By: Raphaël Hertzog <hertzog@debian.org>
+Description:
+ btscanner  - ncurses-based scanner for Bluetooth devices
+Changes:
+ btscanner (2.1-7) unstable; urgency=medium
+ .
+   * Team upload.
+   * Update team maintainer address to Debian Security Tools
+     <team+pkg-security@tracker.debian.org>
+   * Bump Standards-Version to 4.2.1
+   * Switch to debhelper compat level 11
+Checksums-Sha1:
+ b5fe8f8a4a29b93519eca358e1f0315b4dbf4422 93952 btscanner-dbgsym_2.1-7_armhf.deb
+ 139c0042667e38d61b2a7c5996845d921b2723fa 4686 btscanner_2.1-7_armhf.buildinfo
+ 95d79eed66f2908e3514f1732c5ab59cace5703b 29664 btscanner_2.1-7_armhf.deb
+Checksums-Sha256:
+ 6d86cac202af7c30e6f7bc197341aa5af49e31b57c27fac5c7e98eece6d9855f 93952 btscanner-dbgsym_2.1-7_armhf.deb
+ e6ebacb7fef69c7cab18ce8504fb865d6f0f03c5c96e56790236aca4db90e734 4686 btscanner_2.1-7_armhf.buildinfo
+ 6a7b51ed6712dff27834283cda3b30f4a40491a39e983de96a0a957d4f99fb7e 29664 btscanner_2.1-7_armhf.deb
+Files:
+ f19e767246bab7793b23470bfe8fc004 93952 debug optional btscanner-dbgsym_2.1-7_armhf.deb
+ 567c70e181c21f696cf387124ec8d257 4686 net optional btscanner_2.1-7_armhf.buildinfo
+ 40679f1714c1f94ff72d5f9a3fc311f4 29664 net optional btscanner_2.1-7_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: btscanner
+Binary: btscanner
+Architecture: armhf
+Version: 2.1-7
+Checksums-Md5:
+ f19e767246bab7793b23470bfe8fc004 93952 btscanner-dbgsym_2.1-7_armhf.deb
+ 40679f1714c1f94ff72d5f9a3fc311f4 29664 btscanner_2.1-7_armhf.deb
+Checksums-Sha1:
+ b5fe8f8a4a29b93519eca358e1f0315b4dbf4422 93952 btscanner-dbgsym_2.1-7_armhf.deb
+ 95d79eed66f2908e3514f1732c5ab59cace5703b 29664 btscanner_2.1-7_armhf.deb
+Checksums-Sha256:
+ 6d86cac202af7c30e6f7bc197341aa5af49e31b57c27fac5c7e98eece6d9855f 93952 btscanner-dbgsym_2.1-7_armhf.deb
+ 6a7b51ed6712dff27834283cda3b30f4a40491a39e983de96a0a957d4f99fb7e 29664 btscanner_2.1-7_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Fri, 01 Mar 2019 08:35:14 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ icu-devtools (= 63.1-6),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.52-5),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libblkid1 (= 2.33.1-0.1),
+ libbluetooth-dev (= 5.50-1),
+ libbluetooth3 (= 5.50-1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libicu-dev (= 63.1-6),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses-dev (= 6.1+20181013-2),
+ libncurses5-dev (= 6.1+20181013-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libquadmath0 (= 8.3.0-2),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ libxml2-dev (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ po-debconf (= 1.0.21),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1536004946"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+btscanner-dbgsym_2.1-7_armhf.deb
+--------------------------------
+
+ new Debian package, version 2.0.
+ size 93952 bytes: control archive=532 bytes.
+     362 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: btscanner-dbgsym
+ Source: btscanner
+ Version: 2.1-7
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian Security Tools <team+pkg-security@tracker.debian.org>
+ Installed-Size: 117
+ Depends: btscanner (= 2.1-7)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for btscanner
+ Build-Ids: a7a8ca70d705de9624350ad87072ec81a51322cb
+
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/lib/
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/lib/debug/.build-id/a7/
+-rw-r--r-- root/root    109376 2018-09-03 20:02 ./usr/lib/debug/.build-id/a7/a8ca70d705de9624350ad87072ec81a51322cb.debug
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2018-09-03 20:02 ./usr/share/doc/btscanner-dbgsym -> btscanner
+
+
+btscanner_2.1-7_armhf.deb
+-------------------------
+
+ new Debian package, version 2.0.
+ size 29664 bytes: control archive=1504 bytes.
+      38 bytes,     2 lines      conffiles            
+    1023 bytes,    19 lines      control              
+     593 bytes,     9 lines      md5sums              
+     553 bytes,    25 lines   *  postinst             #!/bin/sh
+     234 bytes,    12 lines   *  postrm               #!/bin/sh
+      46 bytes,     1 lines      triggers             
+ Package: btscanner
+ Version: 2.1-7
+ Architecture: armhf
+ Maintainer: Debian Security Tools <team+pkg-security@tracker.debian.org>
+ Installed-Size: 80
+ Depends: libbluetooth3 (>= 4.91), libc6 (>= 2.4), libncurses6 (>= 6), libtinfo6 (>= 6), libxml2 (>= 2.7.4), ieee-data, perl
+ Section: net
+ Priority: optional
+ Homepage: https://www.pentest.co.uk/downloads.html
+ Description: ncurses-based scanner for Bluetooth devices
+  btscanner is a tool designed specifically to extract as much information
+  as possible from a Bluetooth device without the requirement to pair. A
+  detailed information screen extracts HCI and SDP information, and
+  maintains an open connection to monitor the RSSI and link quality.
+  btscanner is based on the BlueZ Bluetooth stack, which is included with
+  recent Linux kernels, and the BlueZ toolset. btscanner also contains a
+  complete listing of the IEEE OUI numbers and class lookup tables. Using
+  the information gathered from these sources it is possible to make
+  educated guesses as to the host device type.
+
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./etc/
+-rw-r--r-- root/root       860 2018-09-03 20:02 ./etc/btscanner.dtd
+-rw-r--r-- root/root      1559 2018-09-03 20:02 ./etc/btscanner.xml
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/bin/
+-rwxr-xr-x root/root     47636 2018-09-03 20:02 ./usr/bin/btscanner
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/share/
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/share/btscanner/
+-rwxr-xr-x root/root       624 2004-08-04 11:35 ./usr/share/btscanner/mk_oui_list.pl
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/share/doc/btscanner/
+-rw-r--r-- root/root      2195 2004-11-08 14:46 ./usr/share/doc/btscanner/README
+-rw-r--r-- root/root        83 2004-12-03 16:51 ./usr/share/doc/btscanner/TODO
+-rw-r--r-- root/root      1295 2018-09-03 20:02 ./usr/share/doc/btscanner/changelog.Debian.gz
+-rw-r--r-- root/root       101 2004-08-04 11:40 ./usr/share/doc/btscanner/changelog.gz
+-rw-r--r-- root/root       789 2018-09-03 20:02 ./usr/share/doc/btscanner/copyright
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/share/man/man1/
+-rw-r--r-- root/root       818 2018-09-03 20:02 ./usr/share/man/man1/btscanner.1.gz
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./usr/share/menu/
+-rw-r--r-- root/root       126 2018-09-03 20:02 ./usr/share/menu/btscanner
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./var/
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./var/lib/
+drwxr-xr-x root/root         0 2018-09-03 20:02 ./var/lib/btscanner/
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [546 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [636 B]
+Fetched 2145 B in 0s (177 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 1s (5266 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 19655 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* dwz* gcc-8-base:armhf*
+  gettext* gettext-base* groff-base* icu-devtools* intltool-debian*
+  libapt-pkg-perl* libarchive-zip-perl* libasan5:armhf* libatomic1:armhf*
+  libbluetooth-dev:armhf* libbluetooth3:armhf* libbsd0* libc6:armhf*
+  libc6-dev:armhf* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclone-perl* libcroco3* libdigest-hmac-perl*
+  libelf1* libemail-valid-perl* libexporter-tiny-perl* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfuture-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libglib2.0-0* libgomp1:armhf* libicu-dev:armhf*
+  libicu63:armhf* libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* liblist-moreutils-perl* liblzma5:armhf*
+  libncurses-dev:armhf* libncurses5-dev:armhf* libncurses6* libncurses6:armhf*
+  libncursesw6:armhf* libnet-dns-perl* libnet-domain-tld-perl* libnet-ip-perl*
+  libparse-debianchangelog-perl* libpath-tiny-perl* libpipeline1* libsigsegv2*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libstruct-dumb-perl*
+  libsub-name-perl* libtext-levenshtein-perl* libtinfo6:armhf* libtool*
+  libubsan1:armhf* libuchardet0* libudev1:armhf* libxml2:armhf*
+  libxml2-dev:armhf* lintian* linux-libc-dev:armhf* m4* man-db* patchutils*
+  po-debconf* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* zlib1g:armhf*
+0 upgraded, 0 newly installed, 83 to remove and 0 not upgraded.
+After this operation, 166 MB disk space will be freed.
+(Reading database ... 20933 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libxml2-dev:armhf (2.9.4+dfsg1-7+b3) ...
+Removing libicu-dev:armhf (63.1-6) ...
+Removing icu-devtools (63.1-6) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libbluetooth-dev:armhf (5.50-1) ...
+Removing libbluetooth3:armhf (5.50-1) ...
+Removing libxml2:armhf (2.9.4+dfsg1-7+b3) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing liblzma5:armhf (5.2.4-1) ...
+Removing libncurses5-dev:armhf (6.1+20181013-2) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libudev1:armhf (241-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libicu63:armhf (63.1-6) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16458 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 12
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 9
+Job: /home/build/sbuild-setup/repo/pool/main/b/btscanner/btscanner_2.1-7.dsc
+Lintian: pass
+Machine Architecture: amd64
+Package: btscanner
+Package-Time: 25
+Source-Version: 2.1-7
+Space: n/a
+Status: successful
+Version: 2.1-7
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T08:35:15Z
+Build needed 00:00:25, no disk space

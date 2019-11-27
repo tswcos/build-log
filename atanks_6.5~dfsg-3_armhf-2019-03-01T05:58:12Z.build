@@ -1,0 +1,2056 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| atanks 6.5~dfsg-3 (armhf)                    Fri, 01 Mar 2019 05:58:12 +0000 |
++==============================================================================+
+
+Package: atanks
+Version: 6.5~dfsg-3
+Source Version: 6.5~dfsg-3
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-b49d50f2-729f-44c2-8d93-5210becee862' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/atanks-iLNOwU/resolver-5IAMYD' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/a/atanks/atanks_6.5~dfsg-3.dsc exists in /home/build/sbuild-setup/repo/pool/main/a/atanks; copying to chroot
+I: NOTICE: Log filtering will replace 'build/atanks-iLNOwU/atanks-6.5~dfsg' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/atanks-iLNOwU' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 11), liballegro-dev | liballegro4.2-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 11), liballegro-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [410 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [492 B]
+Fetched 1859 B in 0s (143 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian liballegro4-dev:armhf
+  liballegro4.4:armhf libarchive-zip-perl libasan5:armhf libasound2:armhf
+  libasound2-data libatomic1:armhf libbsd0 libbsd0:armhf libc6:armhf
+  libc6-dev:armhf libcroco3 libelf1 libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgomp1:armhf
+  libjpgalleg4.4:armhf libncurses6 libpipeline1 libpthread-stubs0-dev:armhf
+  libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf libtool libubsan1:armhf
+  libuchardet0 libx11-6:armhf libx11-data libx11-dev:armhf libxau-dev:armhf
+  libxau6:armhf libxcb1:armhf libxcb1-dev:armhf libxcursor-dev:armhf
+  libxcursor1:armhf libxdmcp-dev:armhf libxdmcp6:armhf libxext-dev:armhf
+  libxext6:armhf libxfixes-dev:armhf libxfixes3:armhf libxpm-dev:armhf
+  libxpm4:armhf libxrender-dev:armhf libxrender1:armhf libxxf86dga1:armhf
+  libxxf86vm-dev:armhf libxxf86vm1:armhf linux-libc-dev:armhf m4 man-db
+  po-debconf x11proto-core-dev x11proto-dev x11proto-fixes-dev
+  x11proto-xext-dev x11proto-xf86vidmode-dev xorg-sgml-doctools xtrans-dev
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  libasound2-plugins:armhf alsa-utils glibc-doc:armhf libc-l10n:armhf
+  locales:armhf manpages-dev:armhf libstdc++-8-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk libx11-doc:armhf libxcb-doc:armhf
+  libxext-doc:armhf m4-doc apparmor less www-browser libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpm2 libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian liballegro4-dev:armhf
+  liballegro4.4:armhf libarchive-zip-perl libasan5:armhf libasound2:armhf
+  libasound2-data libatomic1:armhf libbsd0 libbsd0:armhf libc6:armhf
+  libc6-dev:armhf libcroco3 libelf1 libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgomp1:armhf
+  libjpgalleg4.4:armhf libncurses6 libpipeline1 libpthread-stubs0-dev:armhf
+  libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf libtool libubsan1:armhf
+  libuchardet0 libx11-6:armhf libx11-data libx11-dev:armhf libxau-dev:armhf
+  libxau6:armhf libxcb1:armhf libxcb1-dev:armhf libxcursor-dev:armhf
+  libxcursor1:armhf libxdmcp-dev:armhf libxdmcp6:armhf libxext-dev:armhf
+  libxext6:armhf libxfixes-dev:armhf libxfixes3:armhf libxpm-dev:armhf
+  libxpm4:armhf libxrender-dev:armhf libxrender1:armhf libxxf86dga1:armhf
+  libxxf86vm-dev:armhf libxxf86vm1:armhf linux-libc-dev:armhf m4 man-db
+  po-debconf sbuild-build-depends-main-dummy:armhf x11proto-core-dev
+  x11proto-dev x11proto-fixes-dev x11proto-xext-dev x11proto-xf86vidmode-dev
+  xorg-sgml-doctools xtrans-dev
+0 upgraded, 76 newly installed, 0 to remove and 0 not upgraded.
+Need to get 6600 kB/22.9 MB of archives.
+After this operation, 91.8 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [912 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libbsd0 amd64 0.9.1-2 [99.5 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libtool all 2.4.6-10 [547 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 debhelper all 12.1.1 [1016 kB]
+Get:5 http://10.116.41.102/debian sid/main armhf libxxf86dga1 armhf 2:1.1.4-1+b3 [20.9 kB]
+Get:6 http://10.116.41.102/debian sid/main armhf liballegro4.4 armhf 2:4.4.2-13 [376 kB]
+Get:7 http://10.116.41.102/debian sid/main armhf libjpgalleg4.4 armhf 2:4.4.2-13 [101 kB]
+Get:8 http://10.116.41.102/debian sid/main armhf liballegro4-dev armhf 2:4.4.2-13 [271 kB]
+Get:9 http://10.116.41.102/debian sid/main armhf libstdc++6 armhf 8.3.0-2 [337 kB]
+Get:10 http://10.116.41.102/debian sid/main armhf libasan5 armhf 8.3.0-2 [335 kB]
+Get:11 http://10.116.41.102/debian sid/main armhf libatomic1 armhf 8.3.0-2 [6752 B]
+Get:12 http://10.116.41.102/debian sid/main armhf linux-libc-dev armhf 4.19.20-1 [1124 kB]
+Get:13 http://10.116.41.102/debian sid/main armhf libgomp1 armhf 8.3.0-2 [64.7 kB]
+Get:14 http://10.116.41.102/debian sid/main armhf libubsan1 armhf 8.3.0-2 [103 kB]
+Get:15 http://10.116.41.102/debian sid/main armhf libgcc-8-dev armhf 8.3.0-2 [613 kB]
+Get:16 http://10.116.41.102/debian sid/main armhf libstdc++-8-dev armhf 8.3.0-2 [1584 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 6600 kB in 2s (3782 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../07-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../08-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../09-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../10-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../11-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../12-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../13-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../14-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../15-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../16-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../17-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../18-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../19-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../20-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../21-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../22-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../23-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../24-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../25-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../26-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../27-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libasound2-data.
+Preparing to unpack .../28-libasound2-data_1.1.8-1_all.deb ...
+Unpacking libasound2-data (1.1.8-1) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../29-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../30-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libasound2:armhf.
+Preparing to unpack .../31-libasound2_1.1.8-1_armhf.deb ...
+Unpacking libasound2:armhf (1.1.8-1) ...
+Selecting previously unselected package libxau6:armhf.
+Preparing to unpack .../32-libxau6_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau6:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libbsd0:armhf.
+Preparing to unpack .../33-libbsd0_0.9.1-2_armhf.deb ...
+Unpacking libbsd0:armhf (0.9.1-2) ...
+Selecting previously unselected package libxdmcp6:armhf.
+Preparing to unpack .../34-libxdmcp6_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp6:armhf (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:armhf.
+Preparing to unpack .../35-libxcb1_1.13.1-2_armhf.deb ...
+Unpacking libxcb1:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-data.
+Preparing to unpack .../36-libx11-data_2%3a1.6.7-1_all.deb ...
+Unpacking libx11-data (2:1.6.7-1) ...
+Selecting previously unselected package libx11-6:armhf.
+Preparing to unpack .../37-libx11-6_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-6:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxfixes3:armhf.
+Preparing to unpack .../38-libxfixes3_1%3a5.0.3-1_armhf.deb ...
+Unpacking libxfixes3:armhf (1:5.0.3-1) ...
+Selecting previously unselected package libxrender1:armhf.
+Preparing to unpack .../39-libxrender1_1%3a0.9.10-1_armhf.deb ...
+Unpacking libxrender1:armhf (1:0.9.10-1) ...
+Selecting previously unselected package libxcursor1:armhf.
+Preparing to unpack .../40-libxcursor1_1%3a1.1.15-2_armhf.deb ...
+Unpacking libxcursor1:armhf (1:1.1.15-2) ...
+Selecting previously unselected package libxext6:armhf.
+Preparing to unpack .../41-libxext6_2%3a1.3.3-1+b2_armhf.deb ...
+Unpacking libxext6:armhf (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxpm4:armhf.
+Preparing to unpack .../42-libxpm4_1%3a3.5.12-1_armhf.deb ...
+Unpacking libxpm4:armhf (1:3.5.12-1) ...
+Selecting previously unselected package libxxf86dga1:armhf.
+Preparing to unpack .../43-libxxf86dga1_2%3a1.1.4-1+b3_armhf.deb ...
+Unpacking libxxf86dga1:armhf (2:1.1.4-1+b3) ...
+Selecting previously unselected package libxxf86vm1:armhf.
+Preparing to unpack .../44-libxxf86vm1_1%3a1.1.4-1+b2_armhf.deb ...
+Unpacking libxxf86vm1:armhf (1:1.1.4-1+b2) ...
+Selecting previously unselected package liballegro4.4:armhf.
+Preparing to unpack .../45-liballegro4.4_2%3a4.4.2-13_armhf.deb ...
+Unpacking liballegro4.4:armhf (2:4.4.2-13) ...
+Selecting previously unselected package libjpgalleg4.4:armhf.
+Preparing to unpack .../46-libjpgalleg4.4_2%3a4.4.2-13_armhf.deb ...
+Unpacking libjpgalleg4.4:armhf (2:4.4.2-13) ...
+Selecting previously unselected package xorg-sgml-doctools.
+Preparing to unpack .../47-xorg-sgml-doctools_1%3a1.11-1_all.deb ...
+Unpacking xorg-sgml-doctools (1:1.11-1) ...
+Selecting previously unselected package x11proto-dev.
+Preparing to unpack .../48-x11proto-dev_2018.4-4_all.deb ...
+Unpacking x11proto-dev (2018.4-4) ...
+Selecting previously unselected package x11proto-core-dev.
+Preparing to unpack .../49-x11proto-core-dev_2018.4-4_all.deb ...
+Unpacking x11proto-core-dev (2018.4-4) ...
+Selecting previously unselected package x11proto-xext-dev.
+Preparing to unpack .../50-x11proto-xext-dev_2018.4-4_all.deb ...
+Unpacking x11proto-xext-dev (2018.4-4) ...
+Selecting previously unselected package libxau-dev:armhf.
+Preparing to unpack .../51-libxau-dev_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau-dev:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp-dev:armhf.
+Preparing to unpack .../52-libxdmcp-dev_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp-dev:armhf (1:1.1.2-3) ...
+Selecting previously unselected package xtrans-dev.
+Preparing to unpack .../53-xtrans-dev_1.3.5-1_all.deb ...
+Unpacking xtrans-dev (1.3.5-1) ...
+Selecting previously unselected package libpthread-stubs0-dev:armhf.
+Preparing to unpack .../54-libpthread-stubs0-dev_0.4-1_armhf.deb ...
+Unpacking libpthread-stubs0-dev:armhf (0.4-1) ...
+Selecting previously unselected package libxcb1-dev:armhf.
+Preparing to unpack .../55-libxcb1-dev_1.13.1-2_armhf.deb ...
+Unpacking libxcb1-dev:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-dev:armhf.
+Preparing to unpack .../56-libx11-dev_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-dev:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxext-dev:armhf.
+Preparing to unpack .../57-libxext-dev_2%3a1.3.3-1+b2_armhf.deb ...
+Unpacking libxext-dev:armhf (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxpm-dev:armhf.
+Preparing to unpack .../58-libxpm-dev_1%3a3.5.12-1_armhf.deb ...
+Unpacking libxpm-dev:armhf (1:3.5.12-1) ...
+Selecting previously unselected package x11proto-xf86vidmode-dev.
+Preparing to unpack .../59-x11proto-xf86vidmode-dev_2018.4-4_all.deb ...
+Unpacking x11proto-xf86vidmode-dev (2018.4-4) ...
+Selecting previously unselected package libxxf86vm-dev:armhf.
+Preparing to unpack .../60-libxxf86vm-dev_1%3a1.1.4-1+b2_armhf.deb ...
+Unpacking libxxf86vm-dev:armhf (1:1.1.4-1+b2) ...
+Selecting previously unselected package libxrender-dev:armhf.
+Preparing to unpack .../61-libxrender-dev_1%3a0.9.10-1_armhf.deb ...
+Unpacking libxrender-dev:armhf (1:0.9.10-1) ...
+Selecting previously unselected package x11proto-fixes-dev.
+Preparing to unpack .../62-x11proto-fixes-dev_1%3a2018.4-4_all.deb ...
+Unpacking x11proto-fixes-dev (1:2018.4-4) ...
+Selecting previously unselected package libxfixes-dev:armhf.
+Preparing to unpack .../63-libxfixes-dev_1%3a5.0.3-1_armhf.deb ...
+Unpacking libxfixes-dev:armhf (1:5.0.3-1) ...
+Selecting previously unselected package libxcursor-dev:armhf.
+Preparing to unpack .../64-libxcursor-dev_1%3a1.1.15-2_armhf.deb ...
+Unpacking libxcursor-dev:armhf (1:1.1.15-2) ...
+Selecting previously unselected package liballegro4-dev:armhf.
+Preparing to unpack .../65-liballegro4-dev_2%3a4.4.2-13_armhf.deb ...
+Unpacking liballegro4-dev:armhf (2:4.4.2-13) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../66-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../67-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../68-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../69-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../70-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../71-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../72-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../73-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../74-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../75-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up libpthread-stubs0-dev:armhf (0.4-1) ...
+Setting up libasound2-data (1.1.8-1) ...
+Setting up xtrans-dev (1.3.5-1) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libx11-data (2:1.6.7-1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up xorg-sgml-doctools (1:1.11-1) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up x11proto-dev (2018.4-4) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up x11proto-core-dev (2018.4-4) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up x11proto-xf86vidmode-dev (2018.4-4) ...
+Setting up x11proto-xext-dev (2018.4-4) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up x11proto-fixes-dev (1:2018.4-4) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-7) ...
+Setting up libasound2:armhf (1.1.8-1) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libbsd0:armhf (0.9.1-2) ...
+Setting up libxau6:armhf (1:1.0.8-1+b2) ...
+Setting up libxdmcp6:armhf (1:1.1.2-3) ...
+Setting up libxcb1:armhf (1.13.1-2) ...
+Setting up libxau-dev:armhf (1:1.0.8-1+b2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libxdmcp-dev:armhf (1:1.1.2-3) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libx11-6:armhf (2:1.6.7-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libxcb1-dev:armhf (1.13.1-2) ...
+Setting up libxpm4:armhf (1:3.5.12-1) ...
+Setting up libxrender1:armhf (1:0.9.10-1) ...
+Setting up libx11-dev:armhf (2:1.6.7-1) ...
+Setting up libxext6:armhf (2:1.3.3-1+b2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libxxf86vm1:armhf (1:1.1.4-1+b2) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libxfixes3:armhf (1:5.0.3-1) ...
+Setting up libxpm-dev:armhf (1:3.5.12-1) ...
+Setting up libxext-dev:armhf (2:1.3.3-1+b2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libxrender-dev:armhf (1:0.9.10-1) ...
+Setting up libxxf86vm-dev:armhf (1:1.1.4-1+b2) ...
+Setting up libxcursor1:armhf (1:1.1.15-2) ...
+Setting up libxxf86dga1:armhf (2:1.1.4-1+b3) ...
+Setting up libxfixes-dev:armhf (1:5.0.3-1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up liballegro4.4:armhf (2:4.4.2-13) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libxcursor-dev:armhf (1:1.1.15-2) ...
+Setting up libjpgalleg4.4:armhf (2:4.4.2-13) ...
+Setting up liballegro4-dev:armhf (2:4.4.2-13) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 liballegro4-dev_2:4.4.2-13 liballegro4.4_2:4.4.2-13 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libasound2_1.1.8-1 libasound2-data_1.1.8-1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libjpgalleg4.4_2:4.4.2-13 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpthread-stubs0-dev_0.4-1 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libx11-6_2:1.6.7-1 libx11-data_2:1.6.7-1 libx11-dev_2:1.6.7-1 libxau-dev_1:1.0.8-1+b2 libxau6_1:1.0.8-1+b2 libxcb1_1.13.1-2 libxcb1-dev_1.13.1-2 libxcursor-dev_1:1.1.15-2 libxcursor1_1:1.1.15-2 libxdmcp-dev_1:1.1.2-3 libxdmcp6_1:1.1.2-3 libxext-dev_2:1.3.3-1+b2 libxext6_2:1.3.3-1+b2 libxfixes-dev_1:5.0.3-1 libxfixes3_1:5.0.3-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libxpm-dev_1:3.5.12-1 libxpm4_1:3.5.12-1 libxrender-dev_1:0.9.10-1 libxrender1_1:0.9.10-1 libxxf86dga1_2:1.1.4-1+b3 libxxf86vm-dev_1:1.1.4-1+b2 libxxf86vm1_1:1.1.4-1+b2 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 x11proto-core-dev_2018.4-4 x11proto-dev_2018.4-4 x11proto-fixes-dev_1:2018.4-4 x11proto-xext-dev_2018.4-4 x11proto-xf86vidmode-dev_2018.4-4 xorg-sgml-doctools_1:1.11-1 xtrans-dev_1.3.5-1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: atanks
+Binary: atanks, atanks-data
+Architecture: any all
+Version: 6.5~dfsg-3
+Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+Uploaders:  Markus Koschany <apo@debian.org>
+Homepage: http://atanks.sourceforge.net/
+Standards-Version: 4.2.1
+Vcs-Browser: https://salsa.debian.org/games-team/atanks
+Vcs-Git: https://salsa.debian.org/games-team/atanks.git
+Build-Depends: debhelper (>= 11), liballegro-dev | liballegro4.2-dev
+Package-List:
+ atanks deb games optional arch=any
+ atanks-data deb games optional arch=all
+Checksums-Sha1:
+ 016932014b49631d68088e46d4158cf1bdad33bd 5351103 atanks_6.5~dfsg.orig.tar.gz
+ be262384de9430c5882a98e7b07ed07ed802a512 8248 atanks_6.5~dfsg-3.debian.tar.xz
+Checksums-Sha256:
+ 5f4321e7edf2c11d6cbbeb6c67e127f97712b993279f189e26155b0ece198ebc 5351103 atanks_6.5~dfsg.orig.tar.gz
+ acc390c1949162ecc3dec90296d38e41829dd2cd399054664ffc2bd7ed00b430 8248 atanks_6.5~dfsg-3.debian.tar.xz
+Files:
+ 8e909d244e983591be8a9b71beff29fe 5351103 atanks_6.5~dfsg.orig.tar.gz
+ 06217025f3fb62f37a1f73bb81f0e9d1 8248 atanks_6.5~dfsg-3.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQKjBAEBCgCNFiEErPPQiO8y7e9qGoNf2a0UuVE7UeQFAlwNRWxfFIAAAAAALgAo
+aXNzdWVyLWZwckBub3RhdGlvbnMub3BlbnBncC5maWZ0aGhvcnNlbWFuLm5ldEFD
+RjNEMDg4RUYzMkVERUY2QTFBODM1RkQ5QUQxNEI5NTEzQjUxRTQPHGFwb0BkZWJp
+YW4ub3JnAAoJENmtFLlRO1HkPZIQAM2Yjx1RqyhDL1ENYnjGpHjyICdOEoqSdXIb
+hM+p3krZSfQ5JM3/awUCGo+Vd8TDgoEUiSfQcybPfkrz5oh5oxKeU+m19277Wn+e
+bSRiOUFc8HKEr4eVmoedx9BfQraPg2KYOCoJsE+QcZR5zjsrZr2BcxSGhTtmIeBm
+s3GGH06q+Ft6GELyTi5W0KsKV1LAGXkDB4QxYtHkDMoADAFLnXBUzCxkl/OEkQEi
+LXlhfEvsxU1WFlhyyGscTjMApbMByIF72SmfbPwHqElj/1gAnShs+yuPmLXjEHLI
+xzZ35DxM7YylfqnW9L3XQsB3Msa+WyVTYvmn9U8uEBCwCK8M/s9C/gyoWFm2rkN0
+Mm+25VjcQFEu2EtJmn59hv5LuAawPmLmvLRKjsWD1nI3Z3glwgsQ9nPq1e0Y8ldl
+NwoDwoj+Ukd1v9vdIsuPl6qUNFWBCwbnLAT6Qi/jpYIOnBvP2vJ1TA9iIF0VyfF8
+Vw0NIW92zNJSHtp4oOyeyVAbtTs1QygPtqtq4IvSUOq8JoaR/75dkjKCMHYs+L15
+mXwYlok+j7GzG5JY+B2fprB1x6W00p0qA8wHpUDx5VzU64Jz+1OO52PG8x6phwiz
+r1eoD5ZtLod3Sb1/PFKj6hxC0y7QJ2lPHBC3vr4+VQa4Z49H0oyZnmgRODowv8en
++UVW7OH3
+=A8Z4
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sun Dec  9 16:40:12 2018 UTC
+gpgv:                using RSA key ACF3D088EF32EDEF6A1A835FD9AD14B9513B51E4
+gpgv:                issuer "apo@debian.org"
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./atanks_6.5~dfsg-3.dsc
+dpkg-source: info: extracting atanks in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking atanks_6.5~dfsg.orig.tar.gz
+dpkg-source: info: unpacking atanks_6.5~dfsg-3.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying freebsd-hurd.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-b49d50f2-729f-44c2-8d93-5210becee862
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package atanks
+dpkg-buildpackage: info: source version 6.5~dfsg-3
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Markus Koschany <apo@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean
+   dh_auto_clean
+	make -j16 clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/bin/rm -f obj/* atanks
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+   dh_auto_configure -a
+   dh_auto_build -a
+	make -j16 "INSTALL=install --strip-program=true" PKG_CONFIG=arm-linux-gnueabihf-pkg-config CXX=arm-linux-gnueabihf-g\+\+ CC=arm-linux-gnueabihf-gcc
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+Compiling obj/aicore.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/aicore.o -c src/aicore.cpp
+Compiling obj/atanks.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/atanks.o -c src/atanks.cpp
+Compiling obj/beam.o
+Compiling obj/button.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/beam.o -c src/beam.cpp
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/button.o -c src/button.cpp
+Compiling obj/client.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/client.o -c src/client.cpp
+Compiling obj/clock.o
+Compiling obj/debris_pool.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/clock.o -c src/clock.cpp
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/debris_pool.o -c src/debris_pool.cpp
+Compiling obj/debug.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/debug.o -c src/debug.cpp
+Compiling obj/decor.o
+Compiling obj/explosion.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/decor.o -c src/decor.cpp
+Compiling obj/files.o
+Compiling obj/environment.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/environment.o -c src/environment.cpp
+Compiling obj/floattext.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/explosion.o -c src/explosion.cpp
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/files.o -c src/files.cpp
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/floattext.o -c src/floattext.cpp
+Compiling obj/gameloop.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/gameloop.o -c src/gameloop.cpp
+Compiling obj/gfxData.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/gfxData.o -c src/gfxData.cpp
+Compiling obj/globaldata.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/globaldata.o -c src/globaldata.cpp
+Compiling obj/globaltypes.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/globaltypes.o -c src/globaltypes.cpp
+Compiling obj/land.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/land.o -c src/land.cpp
+In file included from src/menu.h:24,
+                 from src/optionscreens.h:28,
+                 from src/atanks.cpp:24:
+src/optionitem.h: In constructor ‘OptionItem<tgt_T, opt_T>::OptionItem(int32_t, tgt_T*, int32_t (*)(tgt_T*, int32_t), const char*, int32_t, BUTTON*, int32_t, int32_t, int32_t, int32_t, int32_t)’:
+src/optionitem.h:304:16: warning: invalid use of incomplete type ‘class BUTTON’
+    this->button->getLocation(this->left, this->top, this->width, this->height);
+                ^~
+In file included from src/optionitem.h:24,
+                 from src/menu.h:24,
+                 from src/optionscreens.h:28,
+                 from src/atanks.cpp:24:
+src/optionitembase.h:40:7: note: forward declaration of ‘class BUTTON’
+ class BUTTON;
+       ^~~~~~
+src/atanks.cpp: In function ‘void credits()’:
+src/atanks.cpp:152:32: warning: ‘/credits.txt’ directive output may be truncated writing 12 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf (path_buf, PATH_MAX, "%s/credits.txt", env.dataDir);
+                                ^~~~~~~~~~~~~~~~
+src/atanks.cpp:152:11: note: ‘snprintf’ output between 13 and 4109 bytes into a destination of size 4096
+  snprintf (path_buf, PATH_MAX, "%s/credits.txt", env.dataDir);
+  ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/atanks.cpp: In function ‘const char* do_winner()’:
+src/atanks.cpp:293:24: warning: ‘snprintf’ output truncated before the last format character [-Wformat-truncation=]
+   snprintf(valTxt, 15, " %14s", Add_Comma(pl_money[z]));
+                        ^~~~~~~
+src/atanks.cpp:293:11: note: ‘snprintf’ output 16 or more bytes into a destination of size 15
+   snprintf(valTxt, 15, " %14s", Add_Comma(pl_money[z]));
+   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/atanks.cpp: In function ‘bool loadConfig()’:
+src/atanks.cpp:737:32: warning: ‘/atanks-config.txt’ directive output may be truncated writing 18 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+   snprintf(fullPath, PATH_MAX, "%s/atanks-config.txt", env.configDir);
+                                ^~~~~~~~~~~~~~~~~~~~~~
+src/atanks.cpp:737:11: note: ‘snprintf’ output between 19 and 4115 bytes into a destination of size 4096
+   snprintf(fullPath, PATH_MAX, "%s/atanks-config.txt", env.configDir);
+   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling obj/main.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/main.o -c src/main.cpp
+Compiling obj/menu.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/menu.o -c src/menu.cpp
+Compiling obj/missile.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/missile.o -c src/missile.cpp
+Compiling obj/network.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/network.o -c src/network.cpp
+Compiling obj/optionitembase.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/optionitembase.o -c src/optionitembase.cpp
+Compiling obj/optionitemcolour.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/optionitemcolour.o -c src/optionitemcolour.cpp
+Compiling obj/optionitemmenu.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/optionitemmenu.o -c src/optionitemmenu.cpp
+src/explosion.cpp: In member function ‘virtual void EXPLOSION::applyPhysics()’:
+src/explosion.cpp:181:18: warning: catching polymorphic type ‘class std::exception’ by value [-Wcatch-value=]
+    } catch (std::exception) { /* No reason to fuss, its just smoke. */ }
+                  ^~~~~~~~~
+Compiling obj/optionitemplayer.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/optionitemplayer.o -c src/optionitemplayer.cpp
+src/gameloop.cpp: In function ‘void init_new_round()’:
+src/gameloop.cpp:1399:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+     for (int32_t i = 0; i < env.numGamePlayers; ++i)
+     ^~~
+src/gameloop.cpp:1403:2: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+  global.newRound();
+  ^~~~~~
+src/environment.cpp: In member function ‘void ENVIRONMENT::load_text_files()’:
+src/environment.cpp:942:33: warning: ‘/text/war_quotes_it.txt’ directive output may be truncated writing 23 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes_it.txt", dataDir);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:942:12: note: ‘snprintf’ output between 24 and 4120 bytes into a destination of size 4096
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes_it.txt", dataDir);
+    ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:958:33: warning: ‘/text/war_quotes_ES.txt’ directive output may be truncated writing 23 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes_ES.txt", dataDir);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:958:12: note: ‘snprintf’ output between 24 and 4120 bytes into a destination of size 4096
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes_ES.txt", dataDir);
+    ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:950:33: warning: ‘/text/war_quotes_ru.txt’ directive output may be truncated writing 23 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes_ru.txt", dataDir);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:950:12: note: ‘snprintf’ output between 24 and 4120 bytes into a destination of size 4096
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes_ru.txt", dataDir);
+    ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:954:33: warning: ‘/text/war_quotes.txt’ directive output may be truncated writing 20 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes.txt", dataDir);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:954:12: note: ‘snprintf’ output between 21 and 4117 bytes into a destination of size 4096
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes.txt", dataDir);
+    ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:938:33: warning: ‘/text/war_quotes.txt’ directive output may be truncated writing 20 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes.txt", dataDir);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:938:12: note: ‘snprintf’ output between 21 and 4117 bytes into a destination of size 4096
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes.txt", dataDir);
+    ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:934:33: warning: ‘/text/war_quotes.txt’ directive output may be truncated writing 20 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes.txt", dataDir);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:934:12: note: ‘snprintf’ output between 21 and 4117 bytes into a destination of size 4096
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes.txt", dataDir);
+    ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:946:33: warning: ‘/text/war_quotes.txt’ directive output may be truncated writing 20 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes.txt", dataDir);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:946:12: note: ‘snprintf’ output between 21 and 4117 bytes into a destination of size 4096
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes.txt", dataDir);
+    ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:963:33: warning: ‘/text/war_quotes.txt’ directive output may be truncated writing 20 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes.txt", dataDir);
+                                 ^~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:963:12: note: ‘snprintf’ output between 21 and 4117 bytes into a destination of size 4096
+    snprintf(path_buf, PATH_MAX, "%s/text/war_quotes.txt", dataDir);
+    ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:915:31: warning: ‘/text/’ directive output may be truncated writing 6 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+                               ^~~~~~~~~~~~~~
+src/environment.cpp:975:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(gloat, "gloat")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:10: note: ‘snprintf’ output between 12 and 4119 bytes into a destination of size 4096
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:975:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(gloat, "gloat")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:31: warning: ‘/text/’ directive output may be truncated writing 6 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+                               ^~~~~~~~~~~~~~
+src/environment.cpp:976:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(ingame, "ingame")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:10: note: ‘snprintf’ output between 13 and 4120 bytes into a destination of size 4096
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:976:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(ingame, "ingame")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:31: warning: ‘/text/’ directive output may be truncated writing 6 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+                               ^~~~~~~~~~~~~~
+src/environment.cpp:977:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(instructions, "instr")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:10: note: ‘snprintf’ output between 12 and 4119 bytes into a destination of size 4096
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:977:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(instructions, "instr")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:31: warning: ‘/text/’ directive output may be truncated writing 6 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+                               ^~~~~~~~~~~~~~
+src/environment.cpp:978:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(panic, "panic")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:10: note: ‘snprintf’ output between 12 and 4119 bytes into a destination of size 4096
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:978:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(panic, "panic")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:31: warning: ‘/text/’ directive output may be truncated writing 6 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+                               ^~~~~~~~~~~~~~
+src/environment.cpp:979:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(kamikaze, "kamikaze")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:10: note: ‘snprintf’ output between 15 and 4122 bytes into a destination of size 4096
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:979:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(kamikaze, "kamikaze")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:31: warning: ‘/text/’ directive output may be truncated writing 6 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+                               ^~~~~~~~~~~~~~
+src/environment.cpp:980:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(retaliation, "retaliation")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:10: note: ‘snprintf’ output between 18 and 4125 bytes into a destination of size 4096
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:980:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(retaliation, "retaliation")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:31: warning: ‘/text/’ directive output may be truncated writing 6 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+                               ^~~~~~~~~~~~~~
+src/environment.cpp:981:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(revenge, "revenge")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:10: note: ‘snprintf’ output between 14 and 4121 bytes into a destination of size 4096
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:981:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(revenge, "revenge")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:31: warning: ‘/text/’ directive output may be truncated writing 6 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+                               ^~~~~~~~~~~~~~
+src/environment.cpp:982:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(suicide, "suicide")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp:915:10: note: ‘snprintf’ output between 14 and 4121 bytes into a destination of size 4096
+  snprintf(path_buf, PATH_MAX, "%s/text/%s%s", dataDir, file, suffix); \
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:982:2: note: in expansion of macro ‘LOAD_TEXT_BLOCK’
+  LOAD_TEXT_BLOCK(suicide, "suicide")
+  ^~~~~~~~~~~~~~~
+src/environment.cpp: In member function ‘bool ENVIRONMENT::loadBackgroundMusic()’:
+src/environment.cpp:1007:32: warning: ‘/music’ directive output may be truncated writing 6 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+   snprintf(path_buf, PATH_MAX, "%s/music", configDir);
+                                ^~~~~~~~~~
+src/environment.cpp:1007:11: note: ‘snprintf’ output between 7 and 4103 bytes into a destination of size 4096
+   snprintf(path_buf, PATH_MAX, "%s/music", configDir);
+   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:1021:33: warning: ‘/music/’ directive output may be truncated writing 7 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+    snprintf(path_buf, PATH_MAX, "%s/music/%s",
+                                 ^~~~~~~~~~~~~
+src/environment.cpp:1021:12: note: ‘snprintf’ output between 8 and 4359 bytes into a destination of size 4096
+    snprintf(path_buf, PATH_MAX, "%s/music/%s",
+    ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       configDir, folder_entry->d_name);
+       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp: In member function ‘bool ENVIRONMENT::loadBitmaps()’:
+src/environment.cpp:1097:32: warning: ‘/’ directive output may be truncated writing 1 byte into a region of size between 0 and 4096 [-Wformat-truncation=]
+   snprintf(path_buf, PATH_MAX, "%s/%s/%d.bmp", dataDir,
+                                ^~~~~~~~~~~~~~
+src/environment.cpp:1097:11: note: ‘snprintf’ output between 8 and 4122 bytes into a destination of size 4096
+   snprintf(path_buf, PATH_MAX, "%s/%s/%d.bmp", dataDir,
+   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     sub_folder, file_count);
+     ~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp:1185:33: warning: ‘/’ directive output may be truncated writing 1 byte into a region of size between 0 and 4096 [-Wformat-truncation=]
+    snprintf(path_buf, PATH_MAX, "%s/%s/%d.bmp", dataDir,
+                                 ^~~~~~~~~~~~~~
+src/environment.cpp:1185:12: note: ‘snprintf’ output between 8 and 4122 bytes into a destination of size 4096
+    snprintf(path_buf, PATH_MAX, "%s/%s/%d.bmp", dataDir,
+    ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       sub_folder, file_count);
+       ~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp: In member function ‘bool ENVIRONMENT::loadFonts()’:
+src/environment.cpp:1213:31: warning: ‘/unicode.dat’ directive output may be truncated writing 12 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(path_buf, PATH_MAX, "%s/unicode.dat", dataDir);
+                               ^~~~~~~~~~~~~~~~
+src/environment.cpp:1213:10: note: ‘snprintf’ output between 13 and 4109 bytes into a destination of size 4096
+  snprintf(path_buf, PATH_MAX, "%s/unicode.dat", dataDir);
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/environment.cpp: In member function ‘bool ENVIRONMENT::loadSounds()’:
+src/environment.cpp:1288:32: warning: ‘/sound/’ directive output may be truncated writing 7 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+   snprintf(path_buf, PATH_MAX, "%s/sound/%02d.wav", dataDir, i);
+                                ^~~~~~~~~~~~~~~~~~~
+src/environment.cpp:1288:11: note: ‘snprintf’ output between 14 and 4119 bytes into a destination of size 4096
+   snprintf(path_buf, PATH_MAX, "%s/sound/%02d.wav", dataDir, i);
+   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compiling obj/optionscreens.o
+Compiling obj/optiontypes.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/optionscreens.o -c src/optionscreens.cpp
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/optiontypes.o -c src/optiontypes.cpp
+src/main.cpp: In member function ‘void WEAPON::setDesc(const char*)’:
+src/main.cpp:103:19: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 5 has type ‘size_t’ {aka ‘unsigned int’} [-Wformat=]
+   fprintf(stderr, "Weapon description for \"%s\" truncated! (%d/%lu characters)\n",
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           name, MAX_ITEM_DESC_LEN, strlen(desc_));
+                                    ~~~~~~~~~~~~~
+src/main.cpp: In member function ‘void WEAPON::setName(const char*)’:
+src/main.cpp:113:19: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 5 has type ‘size_t’ {aka ‘unsigned int’} [-Wformat=]
+   fprintf(stderr, "Weapon name for \"%s\" truncated! (%d/%lu characters)\n",
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           name_, MAX_ITEM_NAME_LEN, strlen(name_));
+                                     ~~~~~~~~~~~~~
+src/main.cpp: In member function ‘void ITEM::setDesc(const char*)’:
+src/main.cpp:144:19: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 5 has type ‘size_t’ {aka ‘unsigned int’} [-Wformat=]
+   fprintf(stderr, "Item description for \"%s\" truncated! (%d/%lu characters)\n",
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     name, MAX_ITEM_DESC_LEN, strlen(desc_));
+                              ~~~~~~~~~~~~~
+src/main.cpp: In member function ‘void ITEM::setName(const char*)’:
+src/main.cpp:153:19: warning: format ‘%lu’ expects argument of type ‘long unsigned int’, but argument 5 has type ‘size_t’ {aka ‘unsigned int’} [-Wformat=]
+   fprintf(stderr, "Item name for \"%s\" truncated! (%d/%lu characters)\n",
+                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           name_, MAX_ITEM_NAME_LEN, strlen(name_));
+                                     ~~~~~~~~~~~~~
+src/files.cpp: In function ‘bool Save_Game()’:
+src/files.cpp:44:31: warning: ‘/’ directive output may be truncated writing 1 byte into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(path_buf, PATH_MAX, "%s/%s.sav", env.configDir, env.game_name);
+                               ^~~~~~~~~~~
+src/files.cpp:44:10: note: ‘snprintf’ output between 6 and 4166 bytes into a destination of size 4096
+  snprintf(path_buf, PATH_MAX, "%s/%s.sav", env.configDir, env.game_name);
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:95:31: warning: ‘/’ directive output may be truncated writing 1 byte into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(path_buf, PATH_MAX, "%s/%s.txt",
+                               ^~~~~~~~~~~
+src/files.cpp:95:10: note: ‘snprintf’ output between 6 and 4166 bytes into a destination of size 4096
+  snprintf(path_buf, PATH_MAX, "%s/%s.txt",
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           env.configDir, env.game_name);
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp: In function ‘bool Load_Game()’:
+src/files.cpp:131:31: warning: ‘/’ directive output may be truncated writing 1 byte into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(path_buf, PATH_MAX, "%s/%s.sav", env.configDir, env.game_name);
+                               ^~~~~~~~~~~
+src/files.cpp:131:10: note: ‘snprintf’ output between 6 and 4166 bytes into a destination of size 4096
+  snprintf(path_buf, PATH_MAX, "%s/%s.sav", env.configDir, env.game_name);
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp: In function ‘bool Check_For_Saved_Game()’:
+src/files.cpp:295:31: warning: ‘/’ directive output may be truncated writing 1 byte into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(path_buf, PATH_MAX, "%s/%s.sav", env.configDir, env.game_name);
+                               ^~~~~~~~~~~
+src/files.cpp:295:10: note: ‘snprintf’ output between 6 and 4166 bytes into a destination of size 4096
+  snprintf(path_buf, PATH_MAX, "%s/%s.sav", env.configDir, env.game_name);
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp: In function ‘bool Copy_Config_File()’:
+src/files.cpp:323:32: warning: ‘/atanks-config.txt’ directive output may be truncated writing 18 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(dest_path, PATH_MAX, "%s/atanks-config.txt", env.configDir);
+                                ^~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:323:10: note: ‘snprintf’ output between 19 and 4115 bytes into a destination of size 4096
+  snprintf(dest_path, PATH_MAX, "%s/atanks-config.txt", env.configDir);
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp: In function ‘bool Create_Music_Folder()’:
+src/files.cpp:381:31: warning: ‘/music’ directive output may be truncated writing 6 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+  snprintf(path_buf, PATH_MAX, "%s/music", env.configDir);
+                               ^~~~~~~~~~
+src/files.cpp:381:10: note: ‘snprintf’ output between 7 and 4103 bytes into a destination of size 4096
+  snprintf(path_buf, PATH_MAX, "%s/music", env.configDir);
+  ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp: In function ‘bool Load_Weapons_Text()’:
+src/files.cpp:511:32: warning: ‘/text/weapons_it.txt’ directive output may be truncated writing 20 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons_it.txt", env.dataDir);
+                                ^~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:511:11: note: ‘snprintf’ output between 21 and 4117 bytes into a destination of size 4096
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons_it.txt", env.dataDir);
+   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:509:32: warning: ‘/text/weapons_ES.txt’ directive output may be truncated writing 20 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons_ES.txt", env.dataDir);
+                                ^~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:509:11: note: ‘snprintf’ output between 21 and 4117 bytes into a destination of size 4096
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons_ES.txt", env.dataDir);
+   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:507:32: warning: ‘/text/weapons_ru.txt’ directive output may be truncated writing 20 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons_ru.txt", env.dataDir);
+                                ^~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:507:11: note: ‘snprintf’ output between 21 and 4117 bytes into a destination of size 4096
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons_ru.txt", env.dataDir);
+   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:505:32: warning: ‘/text/weapons_sk.txt’ directive output may be truncated writing 20 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons_sk.txt", env.dataDir);
+                                ^~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:505:11: note: ‘snprintf’ output between 21 and 4117 bytes into a destination of size 4096
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons_sk.txt", env.dataDir);
+   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:503:32: warning: ‘/text/weapons_de.txt’ directive output may be truncated writing 20 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons_de.txt", env.dataDir);
+                                ^~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:503:11: note: ‘snprintf’ output between 21 and 4117 bytes into a destination of size 4096
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons_de.txt", env.dataDir);
+   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:501:32: warning: ‘/text/weapons_fr.txt’ directive output may be truncated writing 20 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons_fr.txt", env.dataDir);
+                                ^~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:501:11: note: ‘snprintf’ output between 21 and 4117 bytes into a destination of size 4096
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons_fr.txt", env.dataDir);
+   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:499:32: warning: ‘/text/weapons.pt_BR.txt’ directive output may be truncated writing 23 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons.pt_BR.txt", env.dataDir);
+                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:499:11: note: ‘snprintf’ output between 24 and 4120 bytes into a destination of size 4096
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons.pt_BR.txt", env.dataDir);
+   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:497:32: warning: ‘/text/weapons.txt’ directive output may be truncated writing 17 bytes into a region of size between 0 and 4096 [-Wformat-truncation=]
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons.txt", env.dataDir);
+                                ^~~~~~~~~~~~~~~~~~~~~
+src/files.cpp:497:11: note: ‘snprintf’ output between 18 and 4114 bytes into a destination of size 4096
+   snprintf(path_buf, PATH_MAX, "%s/text/weapons.txt", env.dataDir);
+   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/globaldata.cpp: In member function ‘void GLOBALDATA::destroy()’:
+src/globaldata.cpp:226:2: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  if (canvas)  destroy_bitmap(canvas);     canvas       = nullptr;
+  ^~
+src/globaldata.cpp:226:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  if (canvas)  destroy_bitmap(canvas);     canvas       = nullptr;
+                                           ^~~~~~
+src/globaldata.cpp:227:2: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  if (terrain) destroy_bitmap(terrain);    terrain      = nullptr;
+  ^~
+src/globaldata.cpp:227:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  if (terrain) destroy_bitmap(terrain);    terrain      = nullptr;
+                                           ^~~~~~~
+src/globaldata.cpp:228:2: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  if (done)         delete [] done;        done         = nullptr;
+  ^~
+src/globaldata.cpp:228:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  if (done)         delete [] done;        done         = nullptr;
+                                           ^~~~
+src/globaldata.cpp:229:2: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  if (fp)           delete [] fp;          fp           = nullptr;
+  ^~
+src/globaldata.cpp:229:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  if (fp)           delete [] fp;          fp           = nullptr;
+                                           ^~
+src/globaldata.cpp:230:2: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  if (surface)      delete [] surface;     surface      = nullptr;
+  ^~
+src/globaldata.cpp:230:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  if (surface)      delete [] surface;     surface      = nullptr;
+                                           ^~~~~~~
+src/globaldata.cpp:231:2: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  if (dropTo)       delete [] dropTo;      dropTo       = nullptr;
+  ^~
+src/globaldata.cpp:231:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  if (dropTo)       delete [] dropTo;      dropTo       = nullptr;
+                                           ^~~~~~
+src/globaldata.cpp:232:2: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  if (velocity)     delete [] velocity;    velocity     = nullptr;
+  ^~
+src/globaldata.cpp:232:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  if (velocity)     delete [] velocity;    velocity     = nullptr;
+                                           ^~~~~~~~
+src/globaldata.cpp:233:2: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  if (dropIncr)     delete [] dropIncr;    dropIncr     = nullptr;
+  ^~
+src/globaldata.cpp:233:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  if (dropIncr)     delete [] dropIncr;    dropIncr     = nullptr;
+                                           ^~~~~~~~
+src/globaldata.cpp:234:2: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  if (updates)      delete [] updates;     updates      = nullptr;
+  ^~
+src/globaldata.cpp:234:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  if (updates)      delete [] updates;     updates      = nullptr;
+                                           ^~~~~~~
+src/globaldata.cpp:235:2: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  if (lastUpdates)  delete [] lastUpdates; lastUpdates  = nullptr;
+  ^~
+src/globaldata.cpp:235:43: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  if (lastUpdates)  delete [] lastUpdates; lastUpdates  = nullptr;
+                                           ^~~~~~~~~~~
+src/globaldata.cpp: In member function ‘void GLOBALDATA::do_updates()’:
+src/globaldata.cpp:256:59: warning: ‘void* memcpy(void*, const void*, size_t)’ writing to an object of type ‘struct BOX’ with no trivial copy-assignment; use copy-assignment instead [-Wclass-memaccess]
+   memcpy (lastUpdates, updates, sizeof (BOX) * updateCount);
+                                                           ^
+In file included from src/player_types.h:9,
+                 from src/player.h:25,
+                 from src/globaldata.cpp:22:
+src/main.h:280:8: note: ‘struct BOX’ declared here
+ struct BOX
+        ^~~
+Compiling obj/perlin.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/perlin.o -c src/perlin.cpp
+Compiling obj/physobj.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/physobj.o -c src/physobj.cpp
+Compiling obj/player.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/player.o -c src/player.cpp
+Compiling obj/player_types.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/player_types.o -c src/player_types.cpp
+Compiling obj/satellite.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/satellite.o -c src/satellite.cpp
+Compiling obj/shop.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/shop.o -c src/shop.cpp
+Compiling obj/sky.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/sky.o -c src/sky.cpp
+In file included from src/menu.h:24,
+                 from src/optionscreens.h:28,
+                 from src/optionscreens.cpp:1:
+src/optionitem.h: In constructor ‘OptionItem<tgt_T, opt_T>::OptionItem(int32_t, tgt_T*, int32_t (*)(tgt_T*, int32_t), const char*, int32_t, BUTTON*, int32_t, int32_t, int32_t, int32_t, int32_t)’:
+src/optionitem.h:304:16: warning: invalid use of incomplete type ‘class BUTTON’
+    this->button->getLocation(this->left, this->top, this->width, this->height);
+                ^~
+In file included from src/optionitem.h:24,
+                 from src/menu.h:24,
+                 from src/optionscreens.h:28,
+                 from src/optionscreens.cpp:1:
+src/optionitembase.h:40:7: note: forward declaration of ‘class BUTTON’
+ class BUTTON;
+       ^~~~~~
+In file included from src/menu.h:24,
+                 from src/optionscreens.h:28,
+                 from src/optionscreens.cpp:1:
+src/optionitem.h: In instantiation of ‘void OptionItem<tgt_T, opt_T>::activateValue(int32_t) [with tgt_T = bool; opt_T = int; int32_t = int]’:
+src/optionitem.h:382:12:   required from ‘int32_t OptionItem<tgt_T, opt_T>::activate(int32_t, int32_t, int32_t, int32_t) [with tgt_T = bool; opt_T = int; int32_t = int]’
+src/optionitem.h:340:10:   required from here
+src/optionitem.h:507:40: warning: ‘*’ in boolean context, suggest ‘&&’ instead [-Wint-in-bool-context]
+   tgt_T t_val = static_cast<tgt_T>(val * decinc);
+                                    ~~~~^~~~~~~~
+Compiling obj/sound.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/sound.o -c src/sound.cpp
+Compiling obj/tank.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/tank.o -c src/tank.cpp
+In file included from src/menu.h:24,
+                 from src/optionitemmenu.cpp:2:
+src/optionitem.h: In constructor ‘OptionItem<tgt_T, opt_T>::OptionItem(int32_t, tgt_T*, int32_t (*)(tgt_T*, int32_t), const char*, int32_t, BUTTON*, int32_t, int32_t, int32_t, int32_t, int32_t)’:
+src/optionitem.h:304:16: warning: invalid use of incomplete type ‘class BUTTON’
+    this->button->getLocation(this->left, this->top, this->width, this->height);
+                ^~
+In file included from src/optionitemmenu.h:24,
+                 from src/optionitemmenu.cpp:1:
+src/optionitembase.h:40:7: note: forward declaration of ‘class BUTTON’
+ class BUTTON;
+       ^~~~~~
+Compiling obj/teleport.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/teleport.o -c src/teleport.cpp
+Compiling obj/text.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/text.o -c src/text.cpp
+Compiling obj/update.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/update.o -c src/update.cpp
+Compiling obj/virtobj.o
+arm-linux-gnueabihf-g++ -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused -o obj/virtobj.o -c src/virtobj.cpp
+In file included from src/menu.h:24,
+                 from src/player.cpp:25:
+src/optionitem.h: In constructor ‘OptionItem<tgt_T, opt_T>::OptionItem(int32_t, tgt_T*, int32_t (*)(tgt_T*, int32_t), const char*, int32_t, BUTTON*, int32_t, int32_t, int32_t, int32_t, int32_t)’:
+src/optionitem.h:304:16: warning: invalid use of incomplete type ‘class BUTTON’
+    this->button->getLocation(this->left, this->top, this->width, this->height);
+                ^~
+In file included from src/optionitem.h:24,
+                 from src/menu.h:24,
+                 from src/player.cpp:25:
+src/optionitembase.h:40:7: note: forward declaration of ‘class BUTTON’
+ class BUTTON;
+       ^~~~~~
+In file included from src/environment.h:25,
+                 from src/player.cpp:21:
+src/player.cpp: In member function ‘eControl PLAYER::executeNetCmd(bool, AICore*)’:
+src/player.cpp:1173:30: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘std::__atomic_base<int>::__int_type’ {aka ‘int’} [-Wformat=]
+    SAFE_WRITE(server_socket, "SURFACE %d %ld", x,
+                              ^~~~~~~~~~~~~~~~
+               global.surface[x].load())
+               ~~~~~~~~~~~~~~~~~~~~~~~~
+src/network.h:78:18: note: in definition of macro ‘SAFE_WRITE’
+  sprintf(buffer, fmt_, __VA_ARGS__); \
+                  ^~~~
+src/shop.cpp: In function ‘bool shop(LevelCreator*)’:
+src/shop.cpp:284:16: warning: ‘%s’ directive output may be truncated writing up to 64 bytes into a region of size 62 [-Wformat-truncation=]
+                "%s \"%s\".",
+                ^~~~~~~~~~~~
+src/shop.cpp:286:16:
+                env.game_name);
+                ~~~~~~~~~~~~~
+src/shop.cpp:283:15: note: ‘snprintf’ output 5 or more bytes (assuming 69) into a destination of size 64
+       snprintf(description, 64,
+       ~~~~~~~~^~~~~~~~~~~~~~~~~
+                "%s \"%s\".",
+                ~~~~~~~~~~~~~
+                env.ingame->Get_Line(17),
+                ~~~~~~~~~~~~~~~~~~~~~~~~~
+                env.game_name);
+                ~~~~~~~~~~~~~~
+In file included from src/menu.h:24,
+                 from src/menu.cpp:5:
+src/optionitem.h: In instantiation of ‘void OptionItem<tgt_T, opt_T>::activateValue(int32_t) [with tgt_T = bool; opt_T = unsigned int; int32_t = int]’:
+src/optionitem.h:382:12:   required from ‘int32_t OptionItem<tgt_T, opt_T>::activate(int32_t, int32_t, int32_t, int32_t) [with tgt_T = bool; opt_T = unsigned int; int32_t = int]’
+src/optionitem.h:340:10:   required from here
+src/optionitem.h:507:40: warning: ‘*’ in boolean context, suggest ‘&&’ instead [-Wint-in-bool-context]
+   tgt_T t_val = static_cast<tgt_T>(val * decinc);
+                                    ~~~~^~~~~~~~
+src/missile.cpp: In member function ‘virtual void MISSILE::applyPhysics()’:
+src/missile.cpp:237:18: warning: catching polymorphic type ‘class std::exception’ by value [-Wcatch-value=]
+    } catch (std::exception) {
+                  ^~~~~~~~~
+src/beam.cpp: In member function ‘virtual void BEAM::applyPhysics()’:
+src/beam.cpp:201:18: warning: catching polymorphic type ‘class std::exception’ by value [-Wcatch-value=]
+    } catch (std::exception) {
+                  ^~~~~~~~~
+src/beam.cpp:211:17: warning: catching polymorphic type ‘class std::exception’ by value [-Wcatch-value=]
+   } catch (std::exception) {
+                 ^~~~~~~~~
+src/beam.cpp: In member function ‘void BEAM::createBeamPath()’:
+src/beam.cpp:271:17: warning: catching polymorphic type ‘class std::exception’ by value [-Wcatch-value=]
+   } catch (std::exception) {
+                 ^~~~~~~~~
+arm-linux-gnueabihf-g++ -o atanks obj/aicore.o obj/atanks.o obj/beam.o obj/button.o obj/client.o obj/clock.o obj/debris_pool.o obj/debug.o obj/decor.o obj/environment.o obj/explosion.o obj/files.o obj/floattext.o obj/gameloop.o obj/gfxData.o obj/globaldata.o obj/globaltypes.o obj/land.o obj/main.o obj/menu.o obj/missile.o obj/network.o obj/optionitembase.o obj/optionitemcolour.o obj/optionitemmenu.o obj/optionitemplayer.o obj/optionscreens.o obj/optiontypes.o obj/perlin.o obj/physobj.o obj/player.o obj/player_types.o obj/satellite.o obj/shop.o obj/sky.o obj/sound.o obj/tank.o obj/teleport.o obj/text.o obj/update.o obj/virtobj.o -Wdate-time -D_FORTIFY_SOURCE=2 -DDATA_DIR=\"/usr/share/games/atanks\" -DLINUX -DVERSION=\"6.5\" -DNETWORK -I/usr/include -DATANKS_DEBUG -Wl,-z,relro  -L/usr/lib/arm-linux-gnueabihf -lalleg -lm -lpthread -ggdb -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -Wextra -pedantic -std=c++0x -pthread -O0  -Wunused
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_test -a
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary-arch
+dh binary-arch
+   dh_testroot -a
+   dh_prep -a
+   dh_auto_install -a
+	make -j16 install DESTDIR=/<<BUILDDIR>>/atanks-6.5\~dfsg/debian/tmp AM_UPDATE_INFO_DIR=no "INSTALL=install --strip-program=true"
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+install --strip-program=true -d /<<PKGBUILDDIR>>/debian/tmp/usr/bin
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -m 755 atanks /<<PKGBUILDDIR>>/debian/tmp/usr/bin
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/applications
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -m 644 atanks.desktop /<<PKGBUILDDIR>>/debian/tmp/usr/share/applications
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/icons/hicolor/48x48/apps
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -m 644 atanks.png /<<PKGBUILDDIR>>/debian/tmp/usr/share/icons/hicolor/48x48/apps
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/button
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/misc
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/missile
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/sound
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/stock
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/tank
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/tankgun
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/title
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -d /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/text
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -m 644 COPYING README TODO Changelog *.txt unicode.dat /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -m 644 button/* /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/button
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -m 644 misc/* /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/misc
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -m 644 missile/* /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/missile
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -m 644 sound/* /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/sound
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -m 644 stock/* /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/stock
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -m 644 tank/* /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/tank
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -m 644 tankgun/* /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/tankgun
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -m 644 title/* /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/title
+install: WARNING: ignoring --strip-program option as -s option was not specified
+install --strip-program=true -m 644 text/* /<<PKGBUILDDIR>>/debian/tmp/usr/share/games/atanks/text
+install: WARNING: ignoring --strip-program option as -s option was not specified
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_install
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_install -XCOPYING
+rm -fR /<<PKGBUILDDIR>>/debian/atanks-data/usr/share/applications/
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installdocs -a
+   dh_installchangelogs -a
+   dh_installman -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   debian/rules override_dh_missing
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_missing --fail-missing
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+dpkg-shlibdeps: warning: debian/atanks/usr/games/atanks contains an unresolvable reference to symbol __aeabi_atexit@CXXABI_ARM_1.3.3: it's probably a plugin
+   dh_installdeb -a
+   dh_gencontrol -a
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'atanks' in '../atanks_6.5~dfsg-3_armhf.deb'.
+dpkg-deb: building package 'atanks-dbgsym' in '../atanks-dbgsym_6.5~dfsg-3_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../atanks_6.5~dfsg-3_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T05:58:34Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+atanks_6.5~dfsg-3_armhf.changes:
+--------------------------------
+
+Format: 1.8
+Date: Sun, 09 Dec 2018 17:27:58 +0100
+Source: atanks
+Binary: atanks atanks-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 6.5~dfsg-3
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+Changed-By: Markus Koschany <apo@debian.org>
+Description:
+ atanks     - tank-battling game
+Closes: 845924
+Changes:
+ atanks (6.5~dfsg-3) unstable; urgency=medium
+ .
+   * Switch to compat level 11.
+   * Declare compliance with Debian Policy 4.2.1.
+   * Use dh_missing --fail-missing instead of dh_install.
+   * Drop deprecated menu file.
+   * Remove obsolete README.source file.
+   * Use https for Format field.
+   * Use https for watch file URI.
+   * Improve freebsd-hurd.patch and build atanks on GNU/Hurd and kFreeBSD.
+     (Closes: #845924)
+   * Use canonical VCS-URI.
+Checksums-Sha1:
+ 2bef8286f88d8275e8a97a654dc49999cd1130d5 1488784 atanks-dbgsym_6.5~dfsg-3_armhf.deb
+ 60c42c293210e0dea6cd5e87519bb72cabfff076 5546 atanks_6.5~dfsg-3_armhf.buildinfo
+ a84f91270aefc1e118888297def29732f06460b6 234736 atanks_6.5~dfsg-3_armhf.deb
+Checksums-Sha256:
+ c4b1ba9e8945d26cca9c6ef8f49f333baeed11f9e7cb627948bf5cb03fdca21b 1488784 atanks-dbgsym_6.5~dfsg-3_armhf.deb
+ a31f2b56fd022e24d5b9af437ac6b58a86529148cab9ab038f3f3ce90d31c868 5546 atanks_6.5~dfsg-3_armhf.buildinfo
+ 00391f280431d479b1cfce93ba55ee2252a0857cb28df19150cd85acf61b0c22 234736 atanks_6.5~dfsg-3_armhf.deb
+Files:
+ 7ce4a350b454d5c8d1912c947da2fa4e 1488784 debug optional atanks-dbgsym_6.5~dfsg-3_armhf.deb
+ ad7e1eb9410e95f369f389ef6ebd8aeb 5546 games optional atanks_6.5~dfsg-3_armhf.buildinfo
+ ccf8d653765304d64d67a63020a9db14 234736 games optional atanks_6.5~dfsg-3_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: atanks
+Binary: atanks atanks-data
+Architecture: armhf
+Version: 6.5~dfsg-3
+Checksums-Md5:
+ 7ce4a350b454d5c8d1912c947da2fa4e 1488784 atanks-dbgsym_6.5~dfsg-3_armhf.deb
+ ccf8d653765304d64d67a63020a9db14 234736 atanks_6.5~dfsg-3_armhf.deb
+Checksums-Sha1:
+ 2bef8286f88d8275e8a97a654dc49999cd1130d5 1488784 atanks-dbgsym_6.5~dfsg-3_armhf.deb
+ a84f91270aefc1e118888297def29732f06460b6 234736 atanks_6.5~dfsg-3_armhf.deb
+Checksums-Sha256:
+ c4b1ba9e8945d26cca9c6ef8f49f333baeed11f9e7cb627948bf5cb03fdca21b 1488784 atanks-dbgsym_6.5~dfsg-3_armhf.deb
+ 00391f280431d479b1cfce93ba55ee2252a0857cb28df19150cd85acf61b0c22 234736 atanks_6.5~dfsg-3_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Fri, 01 Mar 2019 05:58:34 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.52-5),
+ liballegro4-dev (= 2:4.4.2-13),
+ liballegro4.4 (= 2:4.4.2-13),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libasound2 (= 1.1.8-1),
+ libasound2-data (= 1.1.8-1),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ libjpgalleg4.4 (= 2:4.4.2-13),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libpthread-stubs0-dev (= 0.4-1),
+ libquadmath0 (= 8.3.0-2),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libx11-6 (= 2:1.6.7-1),
+ libx11-data (= 2:1.6.7-1),
+ libx11-dev (= 2:1.6.7-1),
+ libxau-dev (= 1:1.0.8-1+b2),
+ libxau6 (= 1:1.0.8-1+b2),
+ libxcb1 (= 1.13.1-2),
+ libxcb1-dev (= 1.13.1-2),
+ libxcursor-dev (= 1:1.1.15-2),
+ libxcursor1 (= 1:1.1.15-2),
+ libxdmcp-dev (= 1:1.1.2-3),
+ libxdmcp6 (= 1:1.1.2-3),
+ libxext-dev (= 2:1.3.3-1+b2),
+ libxext6 (= 2:1.3.3-1+b2),
+ libxfixes-dev (= 1:5.0.3-1),
+ libxfixes3 (= 1:5.0.3-1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ libxpm-dev (= 1:3.5.12-1),
+ libxpm4 (= 1:3.5.12-1),
+ libxrender-dev (= 1:0.9.10-1),
+ libxrender1 (= 1:0.9.10-1),
+ libxxf86dga1 (= 2:1.1.4-1+b3),
+ libxxf86vm-dev (= 1:1.1.4-1+b2),
+ libxxf86vm1 (= 1:1.1.4-1+b2),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ po-debconf (= 1.0.21),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ x11proto-core-dev (= 2018.4-4),
+ x11proto-dev (= 2018.4-4),
+ x11proto-fixes-dev (= 1:2018.4-4),
+ x11proto-xext-dev (= 2018.4-4),
+ x11proto-xf86vidmode-dev (= 2018.4-4),
+ xorg-sgml-doctools (= 1:1.11-1),
+ xtrans-dev (= 1.3.5-1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1544372878"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+atanks-dbgsym_6.5~dfsg-3_armhf.deb
+----------------------------------
+
+ new Debian package, version 2.0.
+ size 1488784 bytes: control archive=536 bytes.
+     360 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: atanks-dbgsym
+ Source: atanks
+ Version: 6.5~dfsg-3
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+ Installed-Size: 1602
+ Depends: atanks (= 6.5~dfsg-3)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for atanks
+ Build-Ids: 83d7a081c6ad864f8c98a05bd7f65a378af3a280
+
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/lib/
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/lib/debug/.build-id/83/
+-rw-r--r-- root/root   1629396 2018-12-09 16:27 ./usr/lib/debug/.build-id/83/d7a081c6ad864f8c98a05bd7f65a378af3a280.debug
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2018-12-09 16:27 ./usr/share/doc/atanks-dbgsym -> atanks
+
+
+atanks_6.5~dfsg-3_armhf.deb
+---------------------------
+
+ new Debian package, version 2.0.
+ size 234736 bytes: control archive=1216 bytes.
+     737 bytes,    18 lines      control              
+    1146 bytes,    17 lines      md5sums              
+ Package: atanks
+ Version: 6.5~dfsg-3
+ Architecture: armhf
+ Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+ Installed-Size: 611
+ Depends: atanks-data (= 6.5~dfsg-3), liballegro4.4, libc6 (>= 2.4), libgcc1 (>= 1:3.5), libstdc++6 (>= 6)
+ Breaks: atanks-data (<< 5.7~dfsg-1)
+ Replaces: atanks-data (<< 5.7~dfsg-1)
+ Section: games
+ Priority: optional
+ Homepage: http://atanks.sourceforge.net/
+ Description: tank-battling game
+  Atomic tanks is a multi-player game in which you attempt to destroy
+  other tanks while trying to protect your own. You earn money for
+  destroying other tanks; with this money you can buy upgrades and better
+  weapons for your tank.
+  .
+  This game is similar Scorched Earth or the Worms series of games.
+
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/games/
+-rwxr-xr-x root/root    532064 2018-12-09 16:27 ./usr/games/atanks
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/share/
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/share/applications/
+-rw-r--r-- root/root       209 2018-12-09 16:27 ./usr/share/applications/atanks.desktop
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/share/doc/atanks/
+-rw-r--r-- root/root      2591 2015-12-21 16:00 ./usr/share/doc/atanks/Help.pt_BR.txt.gz
+-rw-r--r-- root/root      2329 2015-12-21 16:00 ./usr/share/doc/atanks/Help.txt.gz
+-rw-r--r-- root/root      2584 2015-12-21 16:00 ./usr/share/doc/atanks/Help_ES.txt.gz
+-rw-r--r-- root/root      2651 2015-12-21 16:00 ./usr/share/doc/atanks/Help_fr.txt.gz
+-rw-r--r-- root/root      2735 2015-12-21 16:00 ./usr/share/doc/atanks/Help_it.txt.gz
+-rw-r--r-- root/root      4351 2015-12-21 16:00 ./usr/share/doc/atanks/Help_ru.txt.gz
+-rw-r--r-- root/root      2799 2015-12-21 16:00 ./usr/share/doc/atanks/Help_sk.txt.gz
+-rw-r--r-- root/root      4127 2015-12-21 16:00 ./usr/share/doc/atanks/README.gz
+-rw-r--r-- root/root      3419 2015-12-21 16:00 ./usr/share/doc/atanks/TODO
+-rw-r--r-- root/root      3577 2018-12-09 16:27 ./usr/share/doc/atanks/changelog.Debian.gz
+-rw-r--r-- root/root     33371 2016-11-02 14:45 ./usr/share/doc/atanks/changelog.gz
+-rw-r--r-- root/root      2729 2018-12-09 16:27 ./usr/share/doc/atanks/copyright
+-rw-r--r-- root/root      1623 2015-12-21 16:00 ./usr/share/doc/atanks/credits.txt
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/share/man/man6/
+-rw-r--r-- root/root      1261 2018-12-09 16:27 ./usr/share/man/man6/atanks.6.gz
+drwxr-xr-x root/root         0 2018-12-09 16:27 ./usr/share/pixmaps/
+-rw-r--r-- root/root      2178 2018-12-09 16:27 ./usr/share/pixmaps/atanks-icon.xpm
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [542 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [621 B]
+Fetched 2126 B in 0s (151 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [848 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 1s (3924 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 20423 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* dwz* gcc-8-base:armhf*
+  gettext* gettext-base* groff-base* intltool-debian* liballegro4-dev:armhf*
+  liballegro4.4:armhf* libapt-pkg-perl* libarchive-zip-perl* libasan5:armhf*
+  libasound2:armhf* libasound2-data* libatomic1:armhf* libbsd0* libbsd0:armhf*
+  libc6:armhf* libc6-dev:armhf* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclone-perl* libcroco3* libdigest-hmac-perl*
+  libelf1* libemail-valid-perl* libexporter-tiny-perl* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfuture-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libglib2.0-0* libgomp1:armhf* libio-async-perl*
+  libio-pty-perl* libipc-run-perl* libipc-system-simple-perl*
+  libjpgalleg4.4:armhf* liblist-moreutils-perl* libncurses6* libnet-dns-perl*
+  libnet-domain-tld-perl* libnet-ip-perl* libparse-debianchangelog-perl*
+  libpath-tiny-perl* libpipeline1* libpthread-stubs0-dev:armhf* libsigsegv2*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libstruct-dumb-perl*
+  libsub-name-perl* libtext-levenshtein-perl* libtool* libubsan1:armhf*
+  libuchardet0* libx11-6:armhf* libx11-data* libx11-dev:armhf*
+  libxau-dev:armhf* libxau6:armhf* libxcb1:armhf* libxcb1-dev:armhf*
+  libxcursor-dev:armhf* libxcursor1:armhf* libxdmcp-dev:armhf*
+  libxdmcp6:armhf* libxext-dev:armhf* libxext6:armhf* libxfixes-dev:armhf*
+  libxfixes3:armhf* libxpm-dev:armhf* libxpm4:armhf* libxrender-dev:armhf*
+  libxrender1:armhf* libxxf86dga1:armhf* libxxf86vm-dev:armhf*
+  libxxf86vm1:armhf* lintian* linux-libc-dev:armhf* m4* man-db* patchutils*
+  po-debconf* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* x11proto-core-dev*
+  x11proto-dev* x11proto-fixes-dev* x11proto-xext-dev*
+  x11proto-xf86vidmode-dev* xorg-sgml-doctools* xtrans-dev*
+0 upgraded, 0 newly installed, 104 to remove and 0 not upgraded.
+After this operation, 101 MB disk space will be freed.
+(Reading database ... 21701 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing liballegro4-dev:armhf (2:4.4.2-13) ...
+Removing libjpgalleg4.4:armhf (2:4.4.2-13) ...
+Removing liballegro4.4:armhf (2:4.4.2-13) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libasound2:armhf (1.1.8-1) ...
+Removing libasound2-data (1.1.8-1) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libxxf86vm-dev:armhf (1:1.1.4-1+b2) ...
+Removing libxcursor-dev:armhf (1:1.1.15-2) ...
+Removing libxrender-dev:armhf (1:0.9.10-1) ...
+Removing libxxf86vm1:armhf (1:1.1.4-1+b2) ...
+Removing libxxf86dga1:armhf (2:1.1.4-1+b3) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libxcursor1:armhf (1:1.1.15-2) ...
+Removing libxext-dev:armhf (2:1.3.3-1+b2) ...
+Removing libxext6:armhf (2:1.3.3-1+b2) ...
+Removing libxfixes-dev:armhf (1:5.0.3-1) ...
+Removing libxfixes3:armhf (1:5.0.3-1) ...
+Removing libxpm-dev:armhf (1:3.5.12-1) ...
+Removing libxpm4:armhf (1:3.5.12-1) ...
+Removing libxrender1:armhf (1:0.9.10-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing x11proto-xf86vidmode-dev (2018.4-4) ...
+Removing x11proto-xext-dev (2018.4-4) ...
+Removing x11proto-fixes-dev (1:2018.4-4) ...
+Removing libx11-dev:armhf (2:1.6.7-1) ...
+Removing libxcb1-dev:armhf (1.13.1-2) ...
+Removing libxdmcp-dev:armhf (1:1.1.2-3) ...
+Removing libx11-6:armhf (2:1.6.7-1) ...
+Removing libxcb1:armhf (1.13.1-2) ...
+Removing libxdmcp6:armhf (1:1.1.2-3) ...
+Removing libbsd0:armhf (0.9.1-2) ...
+Removing libpthread-stubs0-dev:armhf (0.4-1) ...
+Removing libx11-data (2:1.6.7-1) ...
+Removing libxau-dev:armhf (1:1.0.8-1+b2) ...
+Removing libxau6:armhf (1:1.0.8-1+b2) ...
+Removing x11proto-core-dev (2018.4-4) ...
+Removing x11proto-dev (2018.4-4) ...
+Removing xorg-sgml-doctools (1:1.11-1) ...
+Removing xtrans-dev (1.3.5-1) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16458 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 8
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 10
+Job: /home/build/sbuild-setup/repo/pool/main/a/atanks/atanks_6.5~dfsg-3.dsc
+Lintian: pass
+Machine Architecture: amd64
+Package: atanks
+Package-Time: 22
+Source-Version: 6.5~dfsg-3
+Space: n/a
+Status: successful
+Version: 6.5~dfsg-3
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T05:58:34Z
+Build needed 00:00:22, no disk space

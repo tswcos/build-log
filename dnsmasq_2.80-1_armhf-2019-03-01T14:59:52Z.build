@@ -1,0 +1,1797 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| dnsmasq 2.80-1 (armhf)                       Fri, 01 Mar 2019 14:59:52 +0000 |
++==============================================================================+
+
+Package: dnsmasq
+Version: 2.80-1
+Source Version: 2.80-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-04270b86-10b6-47bc-9517-0693564839a2' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/dnsmasq-afCLth/resolver-B4ZK3v' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/d/dnsmasq/dnsmasq_2.80-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/d/dnsmasq; copying to chroot
+I: NOTICE: Log filtering will replace 'build/dnsmasq-afCLth/dnsmasq-2.80' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/dnsmasq-afCLth' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: gettext, libnetfilter-conntrack-dev, libidn11-dev, libdbus-1-dev (>= 0.61), libgmp-dev, nettle-dev (>= 2.4-3), liblua5.2-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: gettext, libnetfilter-conntrack-dev, libidn11-dev, libdbus-1-dev (>= 0.61), libgmp-dev, nettle-dev (>= 2.4-3), liblua5.2-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [467 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [532 B]
+Fetched 1956 B in 0s (164 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  gcc-8-base:armhf gettext gettext-base libasan5:armhf libatomic1:armhf
+  libc6:armhf libc6-dev:armhf libcroco3 libdbus-1-3:armhf libdbus-1-dev:armhf
+  libgcc-8-dev:armhf libgcc1:armhf libgcrypt20:armhf libglib2.0-0
+  libgmp-dev:armhf libgmp10:armhf libgmpxx4ldbl:armhf libgomp1:armhf
+  libgpg-error0:armhf libhogweed4:armhf libidn11:armhf libidn11-dev:armhf
+  liblua5.2-0:armhf liblua5.2-dev:armhf liblz4-1:armhf liblzma5:armhf
+  libmnl0:armhf libncurses-dev:armhf libncurses6 libncurses6:armhf
+  libncursesw6:armhf libnetfilter-conntrack-dev:armhf
+  libnetfilter-conntrack3:armhf libnettle6:armhf libnfnetlink-dev:armhf
+  libnfnetlink0:armhf libreadline-dev:armhf libreadline7:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libsystemd0:armhf libtinfo6:armhf
+  libubsan1:armhf linux-libc-dev:armhf nettle-dev:armhf pkg-config
+Suggested packages:
+  gettext-doc autopoint libasprintf-dev libgettextpo-dev glibc-doc:armhf
+  libc-l10n:armhf locales:armhf manpages-dev:armhf rng-tools:armhf
+  gmp-doc:armhf libgmp10-doc:armhf libmpfr-dev:armhf ncurses-doc:armhf
+  readline-doc:armhf libstdc++-8-doc:armhf
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf dbus:armhf libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpg-error-l10n:armhf libtool-bin:armhf
+  libgpm2 libgpm2:armhf
+The following NEW packages will be installed:
+  gcc-8-base:armhf gettext gettext-base libasan5:armhf libatomic1:armhf
+  libc6:armhf libc6-dev:armhf libcroco3 libdbus-1-3:armhf libdbus-1-dev:armhf
+  libgcc-8-dev:armhf libgcc1:armhf libgcrypt20:armhf libglib2.0-0
+  libgmp-dev:armhf libgmp10:armhf libgmpxx4ldbl:armhf libgomp1:armhf
+  libgpg-error0:armhf libhogweed4:armhf libidn11:armhf libidn11-dev:armhf
+  liblua5.2-0:armhf liblua5.2-dev:armhf liblz4-1:armhf liblzma5:armhf
+  libmnl0:armhf libncurses-dev:armhf libncurses6 libncurses6:armhf
+  libncursesw6:armhf libnetfilter-conntrack-dev:armhf
+  libnetfilter-conntrack3:armhf libnettle6:armhf libnfnetlink-dev:armhf
+  libnfnetlink0:armhf libreadline-dev:armhf libreadline7:armhf
+  libstdc++-8-dev:armhf libstdc++6:armhf libsystemd0:armhf libtinfo6:armhf
+  libubsan1:armhf linux-libc-dev:armhf nettle-dev:armhf pkg-config
+  sbuild-build-depends-main-dummy:armhf
+0 upgraded, 47 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2562 kB/17.7 MB of archives.
+After this operation, 75.1 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [956 B]
+Get:2 http://10.116.41.102/debian sid/main armhf libgmpxx4ldbl armhf 2:6.1.2+dfsg-4 [21.7 kB]
+Get:3 http://10.116.41.102/debian sid/main armhf libgmp-dev armhf 2:6.1.2+dfsg-4 [581 kB]
+Get:4 http://10.116.41.102/debian sid/main armhf libidn11-dev armhf 1.33-2.2 [591 kB]
+Get:5 http://10.116.41.102/debian sid/main armhf liblua5.2-0 armhf 5.2.4-1.1+b2 [86.3 kB]
+Get:6 http://10.116.41.102/debian sid/main armhf liblua5.2-dev armhf 5.2.4-1.1+b2 [125 kB]
+Get:7 http://10.116.41.102/debian sid/main armhf libmnl0 armhf 1.0.4-2 [11.2 kB]
+Get:8 http://10.116.41.102/debian sid/main armhf libnfnetlink0 armhf 1.0.1-3+b1 [12.1 kB]
+Get:9 http://10.116.41.102/debian sid/main armhf libnetfilter-conntrack3 armhf 1.0.7-1 [34.1 kB]
+Get:10 http://10.116.41.102/debian sid/main armhf libnfnetlink-dev armhf 1.0.1-3+b1 [8180 B]
+Get:11 http://10.116.41.102/debian sid/main armhf libnetfilter-conntrack-dev armhf 1.0.7-1 [9196 B]
+Get:12 http://10.116.41.102/debian sid/main armhf nettle-dev armhf 3.4.1-1 [1081 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2562 kB in 0s (5600 kB/s)
+Selecting previously unselected package gcc-8-base:armhf.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../0-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../1-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../2-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libgpg-error0:armhf.
+Preparing to unpack .../3-libgpg-error0_1.35-1_armhf.deb ...
+Unpacking libgpg-error0:armhf (1.35-1) ...
+Selecting previously unselected package libgcrypt20:armhf.
+Preparing to unpack .../4-libgcrypt20_1.8.4-5_armhf.deb ...
+Unpacking libgcrypt20:armhf (1.8.4-5) ...
+Selecting previously unselected package liblz4-1:armhf.
+Preparing to unpack .../5-liblz4-1_1.8.3-1_armhf.deb ...
+Unpacking liblz4-1:armhf (1.8.3-1) ...
+Selecting previously unselected package liblzma5:armhf.
+Preparing to unpack .../6-liblzma5_5.2.4-1_armhf.deb ...
+Unpacking liblzma5:armhf (5.2.4-1) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up libgpg-error0:armhf (1.35-1) ...
+Setting up libgcrypt20:armhf (1.8.4-5) ...
+Setting up liblz4-1:armhf (1.8.3-1) ...
+Setting up liblzma5:armhf (5.2.4-1) ...
+Selecting previously unselected package libsystemd0:armhf.
+(Reading database ... 16755 files and directories currently installed.)
+Preparing to unpack .../00-libsystemd0_241-1_armhf.deb ...
+Unpacking libsystemd0:armhf (241-1) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../01-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../02-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../03-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../04-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../05-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../06-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../07-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../08-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../09-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../10-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libdbus-1-3:armhf.
+Preparing to unpack .../11-libdbus-1-3_1.12.12-1_armhf.deb ...
+Unpacking libdbus-1-3:armhf (1.12.12-1) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../12-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package libdbus-1-dev:armhf.
+Preparing to unpack .../13-libdbus-1-dev_1.12.12-1_armhf.deb ...
+Unpacking libdbus-1-dev:armhf (1.12.12-1) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../14-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../15-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../16-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libgmp10:armhf.
+Preparing to unpack .../17-libgmp10_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libgmpxx4ldbl:armhf.
+Preparing to unpack .../18-libgmpxx4ldbl_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libgmp-dev:armhf.
+Preparing to unpack .../19-libgmp-dev_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libnettle6:armhf.
+Preparing to unpack .../20-libnettle6_3.4.1-1_armhf.deb ...
+Unpacking libnettle6:armhf (3.4.1-1) ...
+Selecting previously unselected package libhogweed4:armhf.
+Preparing to unpack .../21-libhogweed4_3.4.1-1_armhf.deb ...
+Unpacking libhogweed4:armhf (3.4.1-1) ...
+Selecting previously unselected package libidn11:armhf.
+Preparing to unpack .../22-libidn11_1.33-2.2_armhf.deb ...
+Unpacking libidn11:armhf (1.33-2.2) ...
+Selecting previously unselected package libidn11-dev:armhf.
+Preparing to unpack .../23-libidn11-dev_1.33-2.2_armhf.deb ...
+Unpacking libidn11-dev:armhf (1.33-2.2) ...
+Selecting previously unselected package liblua5.2-0:armhf.
+Preparing to unpack .../24-liblua5.2-0_5.2.4-1.1+b2_armhf.deb ...
+Unpacking liblua5.2-0:armhf (5.2.4-1.1+b2) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../25-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libreadline7:armhf.
+Preparing to unpack .../26-libreadline7_7.0-5_armhf.deb ...
+Unpacking libreadline7:armhf (7.0-5) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../27-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../28-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../29-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libreadline-dev:armhf.
+Preparing to unpack .../30-libreadline-dev_7.0-5_armhf.deb ...
+Unpacking libreadline-dev:armhf (7.0-5) ...
+Selecting previously unselected package liblua5.2-dev:armhf.
+Preparing to unpack .../31-liblua5.2-dev_5.2.4-1.1+b2_armhf.deb ...
+Unpacking liblua5.2-dev:armhf (5.2.4-1.1+b2) ...
+Selecting previously unselected package libmnl0:armhf.
+Preparing to unpack .../32-libmnl0_1.0.4-2_armhf.deb ...
+Unpacking libmnl0:armhf (1.0.4-2) ...
+Selecting previously unselected package libnfnetlink0:armhf.
+Preparing to unpack .../33-libnfnetlink0_1.0.1-3+b1_armhf.deb ...
+Unpacking libnfnetlink0:armhf (1.0.1-3+b1) ...
+Selecting previously unselected package libnetfilter-conntrack3:armhf.
+Preparing to unpack .../34-libnetfilter-conntrack3_1.0.7-1_armhf.deb ...
+Unpacking libnetfilter-conntrack3:armhf (1.0.7-1) ...
+Selecting previously unselected package libnfnetlink-dev:armhf.
+Preparing to unpack .../35-libnfnetlink-dev_1.0.1-3+b1_armhf.deb ...
+Unpacking libnfnetlink-dev:armhf (1.0.1-3+b1) ...
+Selecting previously unselected package libnetfilter-conntrack-dev:armhf.
+Preparing to unpack .../36-libnetfilter-conntrack-dev_1.0.7-1_armhf.deb ...
+Unpacking libnetfilter-conntrack-dev:armhf (1.0.7-1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../37-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package nettle-dev:armhf.
+Preparing to unpack .../38-nettle-dev_3.4.1-1_armhf.deb ...
+Unpacking nettle-dev:armhf (3.4.1-1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../39-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libsystemd0:armhf (241-1) ...
+Setting up libidn11:armhf (1.33-2.2) ...
+Setting up libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libdbus-1-3:armhf (1.12.12-1) ...
+Setting up libmnl0:armhf (1.0.4-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libnettle6:armhf (3.4.1-1) ...
+Setting up libnfnetlink0:armhf (1.0.1-3+b1) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libnfnetlink-dev:armhf (1.0.1-3+b1) ...
+Setting up libidn11-dev:armhf (1.33-2.2) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libhogweed4:armhf (3.4.1-1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Setting up libdbus-1-dev:armhf (1.12.12-1) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up liblua5.2-0:armhf (5.2.4-1.1+b2) ...
+Setting up libnetfilter-conntrack3:armhf (1.0.7-1) ...
+Setting up libreadline7:armhf (7.0-5) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Setting up nettle-dev:armhf (3.4.1-1) ...
+Setting up libnetfilter-conntrack-dev:armhf (1.0.7-1) ...
+Setting up libreadline-dev:armhf (7.0-5) ...
+Setting up liblua5.2-dev:armhf (5.2.4-1.1+b2) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debian-archive-keyring_2018.1 debianutils_4.8.6.1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdbus-1-3_1.12.12-1 libdbus-1-dev_1.12.12-1 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp-dev_2:6.1.2+dfsg-4 libgmp10_2:6.1.2+dfsg-4 libgmpxx4ldbl_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn11_1.33-2.2 libidn11-dev_1.33-2.2 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblua5.2-0_5.2.4-1.1+b2 liblua5.2-dev_5.2.4-1.1+b2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmnl0_1.0.4-2 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnetfilter-conntrack-dev_1.0.7-1 libnetfilter-conntrack3_1.0.7-1 libnettle6_3.4.1-1 libnfnetlink-dev_1.0.1-3+b1 libnfnetlink0_1.0.1-3+b1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libquadmath0_8.3.0-2 libreadline-dev_7.0-5 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 make_4.2.1-1.2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 nettle-dev_3.4.1-1 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 1.0
+Source: dnsmasq
+Binary: dnsmasq, dnsmasq-base, dnsmasq-base-lua, dnsmasq-utils
+Architecture: any all
+Version: 2.80-1
+Maintainer: Simon Kelley <simon@thekelleys.org.uk>
+Homepage: http://www.thekelleys.org.uk/dnsmasq/doc.html
+Standards-Version: 3.9.8
+Build-Depends: gettext, libnetfilter-conntrack-dev [linux-any], libidn11-dev, libdbus-1-dev (>= 0.61), libgmp-dev, nettle-dev (>= 2.4-3), libbsd-dev [!linux-any], liblua5.2-dev
+Package-List:
+ dnsmasq deb net optional arch=all
+ dnsmasq-base deb net optional arch=any
+ dnsmasq-base-lua deb net optional arch=any
+ dnsmasq-utils deb net optional arch=linux-any
+Checksums-Sha1:
+ 78600db2dfea315766e9d08bb259724b3a7a7410 716712 dnsmasq_2.80.orig.tar.gz
+ 0422581cb803545a0621c3725e858f25411cf6f8 23928 dnsmasq_2.80-1.diff.gz
+Checksums-Sha256:
+ c62cf8b6a06bfe3e0df1e90a212a263276bac26ce5f7e5976ec630d8700cd97a 716712 dnsmasq_2.80.orig.tar.gz
+ 6c23ad68f88043c0df49826c0274697b7c75f67fded0f989a29ab657b88564c0 23928 dnsmasq_2.80-1.diff.gz
+Files:
+ 1878ce051745866a7c1a996d1fceb7c0 716712 dnsmasq_2.80.orig.tar.gz
+ 2ab7e966fbfb47b37152ce718893d61b 23928 dnsmasq_2.80-1.diff.gz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEE1urL1u5GuDQkjRESFc3aauGRNaIFAlvIz9AACgkQFc3aauGR
+NaJl1Q/+JWsDhnM7RhmE5+A2LSZUfdCsk/YTx2uEUvUeAxXOWQv5IL0/JP6GnQMr
+8ZQY3rE86YOk90TssFC6IELtHfJubfzOWpLwEWMJ2BxCc7YsCBFc/qZ9i5oZdj3/
+NFkKi/GofVehxvwjZJ4JlG4oQszu4LVodrf0GTnuOHabyv4sNOnX+TTP3Crtq4pT
+f3Yyxaen4/EckU+FscT++RpqgDK0qlnb4mr2WZKGoiw8KMPJgiLebaZiQYNhYONX
+uEuXYGgGKLHCZFxfrhb6xSkmicCffe9pmd4lteMKBuRVWZz2ECnXBQkxqVU5DhVy
+zThJI7hsKgJXwH7lDW8YdtJN6blqsvUnh7pTU0NyHhLNTnAedmpfAZ5wjbquXBcd
+9tQ6iQ8u0SsBPWfYXuQC5OBoMVwm1ObS4wRt/yeQY2pb5255atgPnqTSFKdojngh
+0W8IsQDuKPXWGWx1sa7GHocZADLLtO9/l36+PcjRIEf3KmYPP9jOv+lSaiuNNTZO
+nCvLdoTwjB+qQJ6aOQx3dYVrJgYR16xd/TU0MUf3DU0nxlNUqFxJVoWboBAD8nxa
+HnMiCCXVoiR5R1SXjhnZPvX6Tguj5jVqQ6VF+No14YQcPfktzaYsP8g5pO+H07BJ
+hfXZJjg/mrmgtgql2SbDambh//zeE8Y1iC7j2atxowVzOQt1z/8=
+=Nu2B
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Thu Oct 18 18:24:16 2018 UTC
+gpgv:                using RSA key D6EACBD6EE46B834248D111215CDDA6AE19135A2
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./dnsmasq_2.80-1.dsc
+dpkg-source: info: extracting dnsmasq in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking dnsmasq_2.80.orig.tar.gz
+dpkg-source: info: applying dnsmasq_2.80-1.diff.gz
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-04270b86-10b6-47bc-9517-0693564839a2
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package dnsmasq
+dpkg-buildpackage: info: source version 2.80-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Simon Kelley <simon@thekelleys.org.uk>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+test -f Makefile -a -f debian/rules
+make BUILDDIR=debian/build/no-lua clean
+make[1]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+rm -f debian/build/no-lua/*.mo debian/build/no-lua/*.pot 
+rm -f debian/build/no-lua/.copts_* debian/build/no-lua/*.o debian/build/no-lua/dnsmasq.a debian/build/no-lua/dnsmasq
+rm -f debian/build/no-lua/dnsmasq_baseline
+rm -f core */core
+rm -f *~ contrib/*/*~ */*~
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make BUILDDIR=debian/build/lua clean
+make[1]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+rm -f debian/build/lua/*.mo debian/build/lua/*.pot 
+rm -f debian/build/lua/.copts_* debian/build/lua/*.o debian/build/lua/dnsmasq.a debian/build/lua/dnsmasq
+rm -f debian/build/lua/dnsmasq_baseline
+rm -f core */core
+rm -f *~ contrib/*/*~ */*~
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make -C contrib/lease-tools clean
+make[1]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+make[1]: Entering directory '/<<PKGBUILDDIR>>/contrib/lease-tools'
+rm -f *~ *.o core dhcp_release dhcp_release6 dhcp_lease_time
+make[1]: Leaving directory '/<<PKGBUILDDIR>>/contrib/lease-tools'
+rm -rf debian/build debian/trees debian/*~ debian/files debian/substvars debian/utils-substvars
+ debian/rules build-arch
+make: Nothing to be done for 'build-arch'.
+ fakeroot debian/rules binary-arch
+test root = "`whoami`"
+rm -rf debian/trees/base
+install -m 755 -d debian/trees/base/DEBIAN -d debian/trees/base/etc/dbus-1/system.d -d debian/trees/base/usr/share/doc/dnsmasq-base -d debian/trees/base/usr/share/doc/dnsmasq-base/examples -d debian/trees/base/usr/share/dnsmasq-base -d debian/trees/base/var/lib/misc
+make install-i18n BUILDDIR=debian/build/no-lua PREFIX=/usr DESTDIR=`pwd`/debian/trees/base CFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W" LDFLAGS="-Wl,-z,relro -Wl,-z,now" COPTS=" -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC" CC=arm-linux-gnueabihf-gcc PKG_CONFIG=arm-linux-gnueabihf-pkg-config	
+make[1]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+mkdir -p debian/build/no-lua
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+ln -s /<<PKGBUILDDIR>>/src/cache.c .
+ln -s /<<PKGBUILDDIR>>/src/dnsmasq.h .
+ln -s /<<PKGBUILDDIR>>/src/config.h .
+ln -s /<<PKGBUILDDIR>>/src/dhcp-protocol.h .
+ln -s /<<PKGBUILDDIR>>/src/dhcp6-protocol.h .
+ln -s /<<PKGBUILDDIR>>/src/dns-protocol.h .
+ln -s /<<PKGBUILDDIR>>/src/radv-protocol.h .
+ln -s /<<PKGBUILDDIR>>/src/ip6addr.h .
+ln -s /<<PKGBUILDDIR>>/src/metrics.h .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c cache.c	
+ln -s /<<PKGBUILDDIR>>/src/rfc1035.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c rfc1035.c	
+ln -s /<<PKGBUILDDIR>>/src/util.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c util.c	
+ln -s /<<PKGBUILDDIR>>/src/option.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c option.c	
+ln -s /<<PKGBUILDDIR>>/src/forward.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c forward.c	
+ln -s /<<PKGBUILDDIR>>/src/network.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c network.c	
+ln -s /<<PKGBUILDDIR>>/src/dnsmasq.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c dnsmasq.c	
+ln -s /<<PKGBUILDDIR>>/src/dhcp.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c dhcp.c	
+ln -s /<<PKGBUILDDIR>>/src/lease.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c lease.c	
+ln -s /<<PKGBUILDDIR>>/src/rfc2131.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c rfc2131.c	
+ln -s /<<PKGBUILDDIR>>/src/netlink.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c netlink.c	
+ln -s /<<PKGBUILDDIR>>/src/dbus.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c dbus.c	
+ln -s /<<PKGBUILDDIR>>/src/bpf.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c bpf.c	
+ln -s /<<PKGBUILDDIR>>/src/helper.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c helper.c	
+ln -s /<<PKGBUILDDIR>>/src/tftp.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c tftp.c	
+ln -s /<<PKGBUILDDIR>>/src/log.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c log.c	
+ln -s /<<PKGBUILDDIR>>/src/conntrack.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c conntrack.c	
+ln -s /<<PKGBUILDDIR>>/src/dhcp6.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c dhcp6.c	
+ln -s /<<PKGBUILDDIR>>/src/rfc3315.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c rfc3315.c	
+ln -s /<<PKGBUILDDIR>>/src/dhcp-common.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c dhcp-common.c	
+ln -s /<<PKGBUILDDIR>>/src/outpacket.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c outpacket.c	
+ln -s /<<PKGBUILDDIR>>/src/radv.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c radv.c	
+ln -s /<<PKGBUILDDIR>>/src/slaac.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c slaac.c	
+ln -s /<<PKGBUILDDIR>>/src/auth.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c auth.c	
+ln -s /<<PKGBUILDDIR>>/src/ipset.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c ipset.c	
+ln -s /<<PKGBUILDDIR>>/src/domain.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c domain.c	
+ln -s /<<PKGBUILDDIR>>/src/dnssec.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c dnssec.c	
+ln -s /<<PKGBUILDDIR>>/src/blockdata.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c blockdata.c	
+ln -s /<<PKGBUILDDIR>>/src/tables.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c tables.c	
+ln -s /<<PKGBUILDDIR>>/src/loop.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c loop.c	
+ln -s /<<PKGBUILDDIR>>/src/inotify.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c inotify.c	
+ln -s /<<PKGBUILDDIR>>/src/poll.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c poll.c	
+ln -s /<<PKGBUILDDIR>>/src/rrfilter.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c rrfilter.c	
+ln -s /<<PKGBUILDDIR>>/src/edns0.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c edns0.c	
+ln -s /<<PKGBUILDDIR>>/src/arp.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c arp.c	
+ln -s /<<PKGBUILDDIR>>/src/crypto.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c crypto.c	
+ln -s /<<PKGBUILDDIR>>/src/dump.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c dump.c	
+ln -s /<<PKGBUILDDIR>>/src/ubus.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c ubus.c	
+ln -s /<<PKGBUILDDIR>>/src/metrics.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include          -c metrics.c	
+arm-linux-gnueabihf-gcc -Wl,-z,relro -Wl,-z,now -o dnsmasq cache.o rfc1035.o util.o option.o forward.o network.o dnsmasq.o dhcp.o lease.o rfc2131.o netlink.o dbus.o bpf.o helper.o tftp.o log.o conntrack.o dhcp6.o rfc3315.o dhcp-common.o outpacket.o radv.o slaac.o auth.o ipset.o domain.o dnssec.o blockdata.o tables.o loop.o inotify.o poll.o rrfilter.o edns0.o arp.o crypto.o dump.o ubus.o metrics.o -L/usr/lib/arm-linux-gnueabihf -ldbus-1   -L/usr/lib/arm-linux-gnueabihf -lidn  -L/usr/lib/arm-linux-gnueabihf -lnetfilter_conntrack -lnfnetlink    -L/usr/lib/arm-linux-gnueabihf -lnettle -lhogweed -lgmp  
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+for f in `cd po; echo *.po`; do \
+	cd /<<PKGBUILDDIR>> && cd debian/build/no-lua && make top="/<<PKGBUILDDIR>>" -f /<<PKGBUILDDIR>>/Makefile ${f%.po}.mo; \
+done
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+xgettext -d dnsmasq --foreign-user --omit-header --keyword=_ -o dnsmasq.pot -i cache.c rfc1035.c util.c option.c forward.c network.c dnsmasq.c dhcp.c lease.c rfc2131.c netlink.c dbus.c bpf.c helper.c tftp.c log.c conntrack.c dhcp6.c rfc3315.c dhcp-common.c outpacket.c radv.c slaac.c auth.c ipset.c domain.c dnssec.c blockdata.c tables.c loop.c inotify.c poll.c rrfilter.c edns0.c arp.c crypto.c dump.c ubus.c metrics.c
+msgmerge -o - /<<PKGBUILDDIR>>/po/de.po dnsmasq.pot | msgfmt -o de.mo -
+...................................................................................... done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/es.po dnsmasq.pot | msgfmt -o es.mo -
+................................................................................... done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/fi.po dnsmasq.pot | msgfmt -o fi.mo -
+............................................................................................ done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/fr.po dnsmasq.pot | msgfmt -o fr.mo -
+................................................................................... done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/id.po dnsmasq.pot | msgfmt -o id.mo -
+.............................................................................. done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/it.po dnsmasq.pot | msgfmt -o it.mo -
+.................................................................................................. done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/no.po dnsmasq.pot | msgfmt -o no.mo -
+................................................................................ done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/pl.po dnsmasq.pot | msgfmt -o pl.mo -
+.................................................................................. done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/pt_BR.po dnsmasq.pot | msgfmt -o pt_BR.mo -
+....................................................................................... done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/ro.po dnsmasq.pot | msgfmt -o ro.mo -
+....................................................................................... done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/no-lua'
+install -d /<<PKGBUILDDIR>>/debian/trees/base/usr/sbin
+install -d /<<PKGBUILDDIR>>/debian/trees/base/usr/share/man/man8
+install -m 644 man/dnsmasq.8 /<<PKGBUILDDIR>>/debian/trees/base/usr/share/man/man8 
+install -m 755 debian/build/no-lua/dnsmasq /<<PKGBUILDDIR>>/debian/trees/base/usr/sbin
+cd debian/build/no-lua; /<<PKGBUILDDIR>>/bld/install-mo /<<PKGBUILDDIR>>/debian/trees/base/usr/share/locale install
+installing de/LC_MESSAGES/dnsmasq.mo
+installing es/LC_MESSAGES/dnsmasq.mo
+installing fi/LC_MESSAGES/dnsmasq.mo
+installing fr/LC_MESSAGES/dnsmasq.mo
+installing id/LC_MESSAGES/dnsmasq.mo
+installing it/LC_MESSAGES/dnsmasq.mo
+installing no/LC_MESSAGES/dnsmasq.mo
+installing pl/LC_MESSAGES/dnsmasq.mo
+installing pt_BR/LC_MESSAGES/dnsmasq.mo
+installing ro/LC_MESSAGES/dnsmasq.mo
+cd man; ../bld/install-man /<<PKGBUILDDIR>>/debian/trees/base/usr/share/man install
+installing es/man8/dnsmasq.8
+installing fr/man8/dnsmasq.8
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+# Need to remove paypal links in Debian Package for policy reasons.
+sed -e /\<H2\>Donations/Q -e /icon.png/d doc.html -e /favicon.ico/d >debian/trees/base/usr/share/doc/dnsmasq-base/doc.html
+echo "</BODY>" >>debian/trees/base/usr/share/doc/dnsmasq-base/doc.html 
+install -m 644 setup.html debian/trees/base/usr/share/doc/dnsmasq-base/.
+install -m 644 dnsmasq.conf.example debian/trees/base/usr/share/doc/dnsmasq-base/examples/.
+install -m 644 FAQ debian/trees/base/usr/share/doc/dnsmasq-base/.
+gzip -9n debian/trees/base/usr/share/doc/dnsmasq-base/FAQ
+install -m 644 CHANGELOG debian/trees/base/usr/share/doc/dnsmasq-base/changelog
+gzip -9n debian/trees/base/usr/share/doc/dnsmasq-base/changelog
+install -m 644 CHANGELOG.archive debian/trees/base/usr/share/doc/dnsmasq-base/changelog.archive
+gzip -9n debian/trees/base/usr/share/doc/dnsmasq-base/changelog.archive
+install -m 644 dbus/DBus-interface debian/trees/base/usr/share/doc/dnsmasq-base/.
+gzip -9n debian/trees/base/usr/share/doc/dnsmasq-base/DBus-interface	
+gzip -9n debian/trees/base/usr/share/man/man8/dnsmasq.8
+for f in debian/trees/base/usr/share/man/*; do if [ -f $f/man8/dnsmasq.8 ]; then gzip -9n $f/man8/dnsmasq.8 ; fi done
+install -m 644 trust-anchors.conf debian/trees/base/usr/share/dnsmasq-base/.
+install -m 644 debian/dnsmasq-base.conffiles debian/trees/base/DEBIAN/conffiles
+install -m 755 debian/dnsmasq-base.postinst debian/trees/base/DEBIAN/postinst
+install -m 755 debian/dnsmasq-base.postrm  debian/trees/base/DEBIAN/postrm
+install -m 644 debian/changelog debian/trees/base/usr/share/doc/dnsmasq-base/changelog.Debian
+gzip -9n debian/trees/base/usr/share/doc/dnsmasq-base/changelog.Debian
+install -m 644 debian/readme debian/trees/base/usr/share/doc/dnsmasq-base/README.Debian
+install -m 644 debian/copyright debian/trees/base/usr/share/doc/dnsmasq-base/copyright
+install -m 644 debian/dbus.conf debian/trees/base/etc/dbus-1/system.d/dnsmasq.conf
+arm-linux-gnueabihf-strip -R .note -R .comment debian/trees/base/usr/sbin/dnsmasq
+cd debian/trees/base && find . -type f ! -regex '.*DEBIAN/.*' -printf '%P\0' | LC_ALL=C sort -z | xargs -r0 md5sum > DEBIAN/md5sums
+dpkg-shlibdeps --warnings=1 debian/trees/base/usr/sbin/dnsmasq
+dpkg-gencontrol  -pdnsmasq-base -Pdebian/trees/base
+find debian/trees/base -depth -newermt 'Mon, 17 Sep 2018 23:11:25 +0000' -print0 | xargs -0r touch --no-dereference --date='Mon, 17 Sep 2018 23:11:25 +0000'
+chown -R root.root debian/trees/base
+chmod -R g-ws debian/trees/base 
+dpkg --build debian/trees/base ..
+dpkg-deb: building package 'dnsmasq-base' in '../dnsmasq-base_2.80-1_armhf.deb'.
+rm -rf debian/trees/lua-base
+install -m 755 -d debian/trees/lua-base/DEBIAN -d debian/trees/lua-base/etc/dbus-1/system.d -d debian/trees/lua-base/usr/share/doc/dnsmasq-base -d debian/trees/lua-base/usr/share/doc/dnsmasq-base/examples -d debian/trees/lua-base/usr/share/dnsmasq-base -d debian/trees/lua-base/var/lib/misc
+make install-i18n BUILDDIR=debian/build/lua PREFIX=/usr DESTDIR=`pwd`/debian/trees/lua-base CFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W" LDFLAGS="-Wl,-z,relro -Wl,-z,now" COPTS="-DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC" CC=arm-linux-gnueabihf-gcc PKG_CONFIG=arm-linux-gnueabihf-pkg-config	
+make[1]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+mkdir -p debian/build/lua
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/lua'
+ln -s /<<PKGBUILDDIR>>/src/cache.c .
+ln -s /<<PKGBUILDDIR>>/src/dnsmasq.h .
+ln -s /<<PKGBUILDDIR>>/src/config.h .
+ln -s /<<PKGBUILDDIR>>/src/dhcp-protocol.h .
+ln -s /<<PKGBUILDDIR>>/src/dhcp6-protocol.h .
+ln -s /<<PKGBUILDDIR>>/src/dns-protocol.h .
+ln -s /<<PKGBUILDDIR>>/src/radv-protocol.h .
+ln -s /<<PKGBUILDDIR>>/src/ip6addr.h .
+ln -s /<<PKGBUILDDIR>>/src/metrics.h .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c cache.c	
+ln -s /<<PKGBUILDDIR>>/src/rfc1035.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c rfc1035.c	
+ln -s /<<PKGBUILDDIR>>/src/util.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c util.c	
+ln -s /<<PKGBUILDDIR>>/src/option.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c option.c	
+ln -s /<<PKGBUILDDIR>>/src/forward.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c forward.c	
+ln -s /<<PKGBUILDDIR>>/src/network.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c network.c	
+ln -s /<<PKGBUILDDIR>>/src/dnsmasq.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c dnsmasq.c	
+ln -s /<<PKGBUILDDIR>>/src/dhcp.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c dhcp.c	
+ln -s /<<PKGBUILDDIR>>/src/lease.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c lease.c	
+ln -s /<<PKGBUILDDIR>>/src/rfc2131.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c rfc2131.c	
+ln -s /<<PKGBUILDDIR>>/src/netlink.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c netlink.c	
+ln -s /<<PKGBUILDDIR>>/src/dbus.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c dbus.c	
+ln -s /<<PKGBUILDDIR>>/src/bpf.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c bpf.c	
+ln -s /<<PKGBUILDDIR>>/src/helper.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c helper.c	
+ln -s /<<PKGBUILDDIR>>/src/tftp.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c tftp.c	
+ln -s /<<PKGBUILDDIR>>/src/log.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c log.c	
+ln -s /<<PKGBUILDDIR>>/src/conntrack.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c conntrack.c	
+ln -s /<<PKGBUILDDIR>>/src/dhcp6.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c dhcp6.c	
+ln -s /<<PKGBUILDDIR>>/src/rfc3315.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c rfc3315.c	
+ln -s /<<PKGBUILDDIR>>/src/dhcp-common.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c dhcp-common.c	
+ln -s /<<PKGBUILDDIR>>/src/outpacket.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c outpacket.c	
+ln -s /<<PKGBUILDDIR>>/src/radv.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c radv.c	
+ln -s /<<PKGBUILDDIR>>/src/slaac.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c slaac.c	
+ln -s /<<PKGBUILDDIR>>/src/auth.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c auth.c	
+ln -s /<<PKGBUILDDIR>>/src/ipset.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c ipset.c	
+ln -s /<<PKGBUILDDIR>>/src/domain.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c domain.c	
+ln -s /<<PKGBUILDDIR>>/src/dnssec.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c dnssec.c	
+ln -s /<<PKGBUILDDIR>>/src/blockdata.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c blockdata.c	
+ln -s /<<PKGBUILDDIR>>/src/tables.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c tables.c	
+ln -s /<<PKGBUILDDIR>>/src/loop.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c loop.c	
+ln -s /<<PKGBUILDDIR>>/src/inotify.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c inotify.c	
+ln -s /<<PKGBUILDDIR>>/src/poll.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c poll.c	
+ln -s /<<PKGBUILDDIR>>/src/rrfilter.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c rrfilter.c	
+ln -s /<<PKGBUILDDIR>>/src/edns0.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c edns0.c	
+ln -s /<<PKGBUILDDIR>>/src/arp.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c arp.c	
+ln -s /<<PKGBUILDDIR>>/src/crypto.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c crypto.c	
+ln -s /<<PKGBUILDDIR>>/src/dump.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c dump.c	
+ln -s /<<PKGBUILDDIR>>/src/ubus.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c ubus.c	
+ln -s /<<PKGBUILDDIR>>/src/metrics.c .
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W -DHAVE_LUASCRIPT  -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC -DLOCALEDIR='"/usr/share/locale"' -DVERSION='"2.80"' -I/usr/include/dbus-1.0 -I/usr/lib/arm-linux-gnueabihf/dbus-1.0/include      -I/usr/include/lua5.2    -c metrics.c	
+arm-linux-gnueabihf-gcc -Wl,-z,relro -Wl,-z,now -o dnsmasq cache.o rfc1035.o util.o option.o forward.o network.o dnsmasq.o dhcp.o lease.o rfc2131.o netlink.o dbus.o bpf.o helper.o tftp.o log.o conntrack.o dhcp6.o rfc3315.o dhcp-common.o outpacket.o radv.o slaac.o auth.o ipset.o domain.o dnssec.o blockdata.o tables.o loop.o inotify.o poll.o rrfilter.o edns0.o arp.o crypto.o dump.o ubus.o metrics.o -L/usr/lib/arm-linux-gnueabihf -ldbus-1   -L/usr/lib/arm-linux-gnueabihf -lidn  -L/usr/lib/arm-linux-gnueabihf -lnetfilter_conntrack -lnfnetlink -L/usr/lib/arm-linux-gnueabihf -llua5.2   -L/usr/lib/arm-linux-gnueabihf -lnettle -lhogweed -lgmp  
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/lua'
+for f in `cd po; echo *.po`; do \
+	cd /<<PKGBUILDDIR>> && cd debian/build/lua && make top="/<<PKGBUILDDIR>>" -f /<<PKGBUILDDIR>>/Makefile ${f%.po}.mo; \
+done
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/lua'
+xgettext -d dnsmasq --foreign-user --omit-header --keyword=_ -o dnsmasq.pot -i cache.c rfc1035.c util.c option.c forward.c network.c dnsmasq.c dhcp.c lease.c rfc2131.c netlink.c dbus.c bpf.c helper.c tftp.c log.c conntrack.c dhcp6.c rfc3315.c dhcp-common.c outpacket.c radv.c slaac.c auth.c ipset.c domain.c dnssec.c blockdata.c tables.c loop.c inotify.c poll.c rrfilter.c edns0.c arp.c crypto.c dump.c ubus.c metrics.c
+msgmerge -o - /<<PKGBUILDDIR>>/po/de.po dnsmasq.pot | msgfmt -o de.mo -
+........................................................................... done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/es.po dnsmasq.pot | msgfmt -o es.mo -
+............................................................................ done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/fi.po dnsmasq.pot | msgfmt -o fi.mo -
+................................................................................................. done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/fr.po dnsmasq.pot | msgfmt -o fr.mo -
+............................................................................... done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/id.po dnsmasq.pot | msgfmt -o id.mo -
+...................................................................................... done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/it.po dnsmasq.pot | msgfmt -o it.mo -
+................................................................................................ done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/no.po dnsmasq.pot | msgfmt -o no.mo -
+.......................................................................................... done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/pl.po dnsmasq.pot | msgfmt -o pl.mo -
+..................................................................................... done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/pt_BR.po dnsmasq.pot | msgfmt -o pt_BR.mo -
+.................................................................................................. done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/lua'
+make[2]: Entering directory '/<<PKGBUILDDIR>>/debian/build/lua'
+msgmerge -o - /<<PKGBUILDDIR>>/po/ro.po dnsmasq.pot | msgfmt -o ro.mo -
+................................................................................... done.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/debian/build/lua'
+install -d /<<PKGBUILDDIR>>/debian/trees/lua-base/usr/sbin
+install -d /<<PKGBUILDDIR>>/debian/trees/lua-base/usr/share/man/man8
+install -m 644 man/dnsmasq.8 /<<PKGBUILDDIR>>/debian/trees/lua-base/usr/share/man/man8 
+install -m 755 debian/build/lua/dnsmasq /<<PKGBUILDDIR>>/debian/trees/lua-base/usr/sbin
+cd debian/build/lua; /<<PKGBUILDDIR>>/bld/install-mo /<<PKGBUILDDIR>>/debian/trees/lua-base/usr/share/locale install
+installing de/LC_MESSAGES/dnsmasq.mo
+installing es/LC_MESSAGES/dnsmasq.mo
+installing fi/LC_MESSAGES/dnsmasq.mo
+installing fr/LC_MESSAGES/dnsmasq.mo
+installing id/LC_MESSAGES/dnsmasq.mo
+installing it/LC_MESSAGES/dnsmasq.mo
+installing no/LC_MESSAGES/dnsmasq.mo
+installing pl/LC_MESSAGES/dnsmasq.mo
+installing pt_BR/LC_MESSAGES/dnsmasq.mo
+installing ro/LC_MESSAGES/dnsmasq.mo
+cd man; ../bld/install-man /<<PKGBUILDDIR>>/debian/trees/lua-base/usr/share/man install
+installing es/man8/dnsmasq.8
+installing fr/man8/dnsmasq.8
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+# Need to remove paypal links in Debian Package for policy reasons.
+sed -e /\<H2\>Donations/Q -e /icon.png/d doc.html -e /favicon.ico/d >debian/trees/lua-base/usr/share/doc/dnsmasq-base/doc.html
+echo "</BODY>" >>debian/trees/lua-base/usr/share/doc/dnsmasq-base/doc.html 
+install -m 644 setup.html debian/trees/lua-base/usr/share/doc/dnsmasq-base/.
+install -m 644 dnsmasq.conf.example debian/trees/lua-base/usr/share/doc/dnsmasq-base/examples/.
+install -m 644 FAQ debian/trees/lua-base/usr/share/doc/dnsmasq-base/.
+gzip -9n debian/trees/lua-base/usr/share/doc/dnsmasq-base/FAQ
+install -m 644 CHANGELOG debian/trees/lua-base/usr/share/doc/dnsmasq-base/changelog
+gzip -9n debian/trees/lua-base/usr/share/doc/dnsmasq-base/changelog
+install -m 644 CHANGELOG.archive debian/trees/lua-base/usr/share/doc/dnsmasq-base/changelog.archive
+gzip -9n debian/trees/lua-base/usr/share/doc/dnsmasq-base/changelog.archive
+install -m 644 dbus/DBus-interface debian/trees/lua-base/usr/share/doc/dnsmasq-base/.
+gzip -9n debian/trees/lua-base/usr/share/doc/dnsmasq-base/DBus-interface	
+gzip -9n debian/trees/lua-base/usr/share/man/man8/dnsmasq.8
+for f in debian/trees/lua-base/usr/share/man/*; do if [ -f $f/man8/dnsmasq.8 ]; then gzip -9n $f/man8/dnsmasq.8 ; fi done
+install -m 644 trust-anchors.conf debian/trees/lua-base/usr/share/dnsmasq-base/.
+install -m 644 debian/dnsmasq-base.conffiles debian/trees/lua-base/DEBIAN/conffiles
+install -m 755 debian/dnsmasq-base.postinst debian/trees/lua-base/DEBIAN/postinst
+install -m 755 debian/dnsmasq-base.postrm  debian/trees/lua-base/DEBIAN/postrm
+install -m 644 debian/changelog debian/trees/lua-base/usr/share/doc/dnsmasq-base/changelog.Debian
+gzip -9n debian/trees/lua-base/usr/share/doc/dnsmasq-base/changelog.Debian
+install -m 644 debian/readme debian/trees/lua-base/usr/share/doc/dnsmasq-base/README.Debian
+install -m 644 debian/copyright debian/trees/lua-base/usr/share/doc/dnsmasq-base/copyright
+install -m 644 debian/dbus.conf debian/trees/lua-base/etc/dbus-1/system.d/dnsmasq.conf
+install -m 755 -d debian/trees/lua-base/usr/share/lintian/overrides
+install -m 644 debian/lintian-override debian/trees/lua-base/usr/share/lintian/overrides/dnsmasq-base-lua
+arm-linux-gnueabihf-strip -R .note -R .comment debian/trees/lua-base/usr/sbin/dnsmasq
+ln -s dnsmasq-base debian/trees/lua-base/usr/share/doc/dnsmasq-base-lua
+cd debian/trees/lua-base && find . -type f ! -regex '.*DEBIAN/.*' -printf '%P\0' | LC_ALL=C sort -z | xargs -r0 md5sum > DEBIAN/md5sums
+dpkg-shlibdeps --warnings=1 debian/trees/lua-base/usr/sbin/dnsmasq
+dpkg-gencontrol  -pdnsmasq-base-lua -Pdebian/trees/lua-base
+find debian/trees/lua-base -depth -newermt 'Mon, 17 Sep 2018 23:11:25 +0000' -print0 | xargs -0r touch --no-dereference --date='Mon, 17 Sep 2018 23:11:25 +0000'
+chown -R root.root debian/trees/lua-base
+chmod -R g-ws debian/trees/lua-base 
+dpkg --build debian/trees/lua-base ..
+dpkg-deb: building package 'dnsmasq-base-lua' in '../dnsmasq-base-lua_2.80-1_armhf.deb'.
+rm -rf debian/trees/utils
+install -m 755 -d debian/trees/utils/DEBIAN \
+               -d debian/trees/utils/usr/bin \
+                       -d debian/trees/utils/usr/share/doc/dnsmasq-utils
+install -m 755 -d debian/trees/utils/usr/share/man/man1
+make -C contrib/lease-tools PREFIX=/usr DESTDIR=`pwd`/debian/trees/utils CFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W" LDFLAGS="-Wl,-z,relro -Wl,-z,now" COPTS=" -DHAVE_DBUS -DHAVE_IDN -DHAVE_CONNTRACK -DHAVE_DNSSEC" CC=arm-linux-gnueabihf-gcc PKG_CONFIG=arm-linux-gnueabihf-pkg-config	
+make[1]: warning: jobserver unavailable: using -j1.  Add '+' to parent make rule.
+make[1]: Entering directory '/<<PKGBUILDDIR>>/contrib/lease-tools'
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W  -Wl,-z,relro -Wl,-z,now  dhcp_release.c   -o dhcp_release
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W  -Wl,-z,relro -Wl,-z,now  dhcp_release6.c   -o dhcp_release6
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -W  -Wl,-z,relro -Wl,-z,now  dhcp_lease_time.c   -o dhcp_lease_time
+make[1]: Leaving directory '/<<PKGBUILDDIR>>/contrib/lease-tools'
+install -m 755 contrib/lease-tools/dhcp_release debian/trees/utils/usr/bin/dhcp_release
+install -m 755 contrib/lease-tools/dhcp_release6 debian/trees/utils/usr/bin/dhcp_release6
+install -m 755 contrib/lease-tools/dhcp_lease_time debian/trees/utils/usr/bin/dhcp_lease_time
+install -m 644 contrib/lease-tools/dhcp_release.1 debian/trees/utils/usr/share/man/man1/dhcp_release.1
+gzip -9n debian/trees/utils/usr/share/man/man1/dhcp_release.1
+install -m 644 contrib/lease-tools/dhcp_release6.1 debian/trees/utils/usr/share/man/man1/dhcp_release6.1
+gzip -9n debian/trees/utils/usr/share/man/man1/dhcp_release6.1
+install -m 644 contrib/lease-tools/dhcp_lease_time.1 debian/trees/utils/usr/share/man/man1/dhcp_lease_time.1
+gzip -9n debian/trees/utils/usr/share/man/man1/dhcp_lease_time.1
+install -m 644 debian/copyright debian/trees/utils/usr/share/doc/dnsmasq-utils/copyright
+install -m 644 debian/changelog debian/trees/utils/usr/share/doc/dnsmasq-utils/changelog.Debian
+gzip -9n debian/trees/utils/usr/share/doc/dnsmasq-utils/changelog.Debian
+arm-linux-gnueabihf-strip -R .note -R .comment debian/trees/utils/usr/bin/dhcp_release
+arm-linux-gnueabihf-strip -R .note -R .comment debian/trees/utils/usr/bin/dhcp_release6
+arm-linux-gnueabihf-strip -R .note -R .comment debian/trees/utils/usr/bin/dhcp_lease_time
+cd debian/trees/utils && find . -type f ! -regex '.*DEBIAN/.*' -printf '%P\0' | LC_ALL=C sort -z | xargs -r0 md5sum > DEBIAN/md5sums
+dpkg-shlibdeps -Tdebian/utils-substvars debian/trees/utils/usr/bin/dhcp_release debian/trees/utils/usr/bin/dhcp_release6 debian/trees/utils/usr/bin/dhcp_lease_time 
+dpkg-gencontrol  -Tdebian/utils-substvars -pdnsmasq-utils -Pdebian/trees/utils
+find debian/trees/utils -depth -newermt 'Mon, 17 Sep 2018 23:11:25 +0000' -print0 | xargs -0r touch --no-dereference --date='Mon, 17 Sep 2018 23:11:25 +0000'
+chown -R root.root debian/trees/utils
+chmod -R g-ws debian/trees/utils 
+dpkg --build debian/trees/utils ..
+dpkg-deb: building package 'dnsmasq-utils' in '../dnsmasq-utils_2.80-1_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../dnsmasq_2.80-1_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T15:00:58Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+dnsmasq_2.80-1_armhf.changes:
+-----------------------------
+
+Format: 1.8
+Date: Mon, 17 Sep 2018 23:11:25 +0000
+Source: dnsmasq
+Binary: dnsmasq-base dnsmasq-base-lua dnsmasq-utils
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 2.80-1
+Distribution: unstable-amd64-sbuild
+Urgency: low
+Maintainer: Simon Kelley <simon@thekelleys.org.uk>
+Changed-By: Simon Kelley <simon@thekelleys.org.uk>
+Description:
+ dnsmasq-base - Small caching DNS proxy and DHCP/TFTP server
+ dnsmasq-base-lua - Small caching DNS proxy and DHCP/TFTP server
+ dnsmasq-utils - Utilities for manipulating DHCP leases
+Closes: 754299 794636 794640 802845 837602 872396 872397
+Changes:
+ dnsmasq (2.80-1) unstable; urgency=low
+ .
+    * New upstream. (closes: #837602) (closes: #794640) (closes: #794636)
+    * Close old bugs, long agp fixed. (closes: #802845) (closes: #754299)
+    * Provide usr/lib/tmpfiles.d/dnsmasq.conf. (closes: #872396)
+    * Run restorecon on /run/dnsmasq for SE Linux. (closes: #872397)
+Checksums-Sha1:
+ 331d1c4b54d6ac64b68769fe0090e18bd973d31e 411596 dnsmasq-base-lua_2.80-1_armhf.deb
+ 8e63d82d113c676de0621da7a8cf07f116af4a29 409580 dnsmasq-base_2.80-1_armhf.deb
+ 0f4b0e376d874ede176127b2450e8ad7da07fd2e 23444 dnsmasq-utils_2.80-1_armhf.deb
+ 3e1ab46b152d31a26665f8930e8ca05b005f19cf 4688 dnsmasq_2.80-1_armhf.buildinfo
+Checksums-Sha256:
+ 4e9b29a57f80b479846ce7ef084e3f09b98c80c6fc45b957e05120b0a638b653 411596 dnsmasq-base-lua_2.80-1_armhf.deb
+ 59f714c2abdc2e4bb3381dd08a04d40d28d8fd95a19f0fe9dacb002dd27985f8 409580 dnsmasq-base_2.80-1_armhf.deb
+ 52dc34ec9a49907dcb8bee795c4a47fc94aeb54ceb7bc04ee7d3a1a0ef3b5ace 23444 dnsmasq-utils_2.80-1_armhf.deb
+ 051819095e08e69073edaf25183f9c97b00c2d704d3894fb9960cd823316f916 4688 dnsmasq_2.80-1_armhf.buildinfo
+Files:
+ 52648e1a03b4ae03a0e29eed94ebaa07 411596 net optional dnsmasq-base-lua_2.80-1_armhf.deb
+ 76c04083f7475223aa67dff6fb95c85a 409580 net optional dnsmasq-base_2.80-1_armhf.deb
+ 3a36aa80887832d64e444722feee3824 23444 net optional dnsmasq-utils_2.80-1_armhf.deb
+ 97a888464dd4028ec7c1170780d5e9c5 4688 net optional dnsmasq_2.80-1_armhf.buildinfo
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: dnsmasq
+Binary: dnsmasq dnsmasq-base dnsmasq-base-lua dnsmasq-utils
+Architecture: armhf
+Version: 2.80-1
+Checksums-Md5:
+ 52648e1a03b4ae03a0e29eed94ebaa07 411596 dnsmasq-base-lua_2.80-1_armhf.deb
+ 76c04083f7475223aa67dff6fb95c85a 409580 dnsmasq-base_2.80-1_armhf.deb
+ 3a36aa80887832d64e444722feee3824 23444 dnsmasq-utils_2.80-1_armhf.deb
+Checksums-Sha1:
+ 331d1c4b54d6ac64b68769fe0090e18bd973d31e 411596 dnsmasq-base-lua_2.80-1_armhf.deb
+ 8e63d82d113c676de0621da7a8cf07f116af4a29 409580 dnsmasq-base_2.80-1_armhf.deb
+ 0f4b0e376d874ede176127b2450e8ad7da07fd2e 23444 dnsmasq-utils_2.80-1_armhf.deb
+Checksums-Sha256:
+ 4e9b29a57f80b479846ce7ef084e3f09b98c80c6fc45b957e05120b0a638b653 411596 dnsmasq-base-lua_2.80-1_armhf.deb
+ 59f714c2abdc2e4bb3381dd08a04d40d28d8fd95a19f0fe9dacb002dd27985f8 409580 dnsmasq-base_2.80-1_armhf.deb
+ 52dc34ec9a49907dcb8bee795c4a47fc94aeb54ceb7bc04ee7d3a1a0ef3b5ace 23444 dnsmasq-utils_2.80-1_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Fri, 01 Mar 2019 15:00:57 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debianutils (= 4.8.6.1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ fdisk (= 2.33.1-0.1),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ libacl1 (= 2.2.52-5),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libblkid1 (= 2.33.1-0.1),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdbus-1-3 (= 1.12.12-1),
+ libdbus-1-dev (= 1.12.12-1),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp-dev (= 2:6.1.2+dfsg-4),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgmpxx4ldbl (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libhogweed4 (= 3.4.1-1),
+ libicu63 (= 63.1-6),
+ libidn11 (= 1.33-2.2),
+ libidn11-dev (= 1.33-2.2),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ liblsan0 (= 8.3.0-2),
+ liblua5.2-0 (= 5.2.4-1.1+b2),
+ liblua5.2-dev (= 5.2.4-1.1+b2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmnl0 (= 1.0.4-2),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses-dev (= 6.1+20181013-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libnetfilter-conntrack-dev (= 1.0.7-1),
+ libnetfilter-conntrack3 (= 1.0.7-1),
+ libnettle6 (= 3.4.1-1),
+ libnfnetlink-dev (= 1.0.1-3+b1),
+ libnfnetlink0 (= 1.0.1-3+b1),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libquadmath0 (= 8.3.0-2),
+ libreadline-dev (= 7.0-5),
+ libreadline7 (= 7.0-5),
+ libselinux1 (= 2.8-1+b1),
+ libsmartcols1 (= 2.33.1-0.1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtinfo6 (= 6.1+20181013-2),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ make (= 4.2.1-1.2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ nettle-dev (= 3.4.1-1),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ pkg-config (= 0.29-6),
+ readline-common (= 7.0-5),
+ sed (= 4.7-1),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1537225885"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+dnsmasq-base-lua_2.80-1_armhf.deb
+---------------------------------
+
+ new Debian package, version 2.0.
+ size 411596 bytes: control archive=2160 bytes.
+      34 bytes,     1 lines      conffiles            
+     875 bytes,    20 lines      control              
+    2013 bytes,    27 lines      md5sums              
+     839 bytes,    24 lines   *  postinst             #!/bin/sh
+     272 bytes,    11 lines   *  postrm               #!/bin/sh
+ Package: dnsmasq-base-lua
+ Source: dnsmasq
+ Version: 2.80-1
+ Architecture: armhf
+ Maintainer: Simon Kelley <simon@thekelleys.org.uk>
+ Installed-Size: 757
+ Depends: adduser, libc6 (>= 2.28), libdbus-1-3 (>= 1.9.14), libgmp10, libhogweed4, libidn11 (>= 1.13), liblua5.2-0, libnetfilter-conntrack3, libnettle6 (>= 3.4~), libnfnetlink0
+ Recommends: dns-root-data
+ Conflicts: dnsmasq-base
+ Breaks: dnsmasq (<< 2.63-1~)
+ Replaces: dnsmasq (<< 2.63-1~), dnsmasq-base
+ Provides: dnsmasq-base
+ Section: net
+ Priority: optional
+ Homepage: http://www.thekelleys.org.uk/dnsmasq/doc.html
+ Description: Small caching DNS proxy and DHCP/TFTP server
+  This package contains the dnsmasq executable and documentation, but
+  not the infrastructure required to run it as a system daemon. For
+  that, install the dnsmasq package. This package is an alternative
+  to dnsmasq-base which includes the LUA interpreter.
+
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./etc/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./etc/dbus-1/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./etc/dbus-1/system.d/
+-rw-r--r-- root/root       652 2018-09-17 23:11 ./etc/dbus-1/system.d/dnsmasq.conf
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/sbin/
+-rwxr-xr-x root/root    246884 2018-09-17 23:11 ./usr/sbin/dnsmasq
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/dnsmasq-base/
+-rw-r--r-- root/root       391 2018-09-17 23:11 ./usr/share/dnsmasq-base/trust-anchors.conf
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base-lua -> dnsmasq-base
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/
+-rw-r--r-- root/root      2893 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/DBus-interface.gz
+-rw-r--r-- root/root     10569 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/FAQ.gz
+-rw-r--r-- root/root      4178 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/README.Debian
+-rw-r--r-- root/root     12556 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/changelog.Debian.gz
+-rw-r--r-- root/root     36193 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/changelog.archive.gz
+-rw-r--r-- root/root     33911 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/changelog.gz
+-rw-r--r-- root/root       883 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/copyright
+-rw-r--r-- root/root      4578 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/doc.html
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/examples/
+-rw-r--r-- root/root     27381 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/examples/dnsmasq.conf.example
+-rw-r--r-- root/root     12023 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/setup.html
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/lintian/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/lintian/overrides/
+-rw-r--r-- root/root       185 2018-09-17 23:11 ./usr/share/lintian/overrides/dnsmasq-base-lua
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/de/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/de/LC_MESSAGES/
+-rw-r--r-- root/root     51827 2018-09-17 23:11 ./usr/share/locale/de/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/es/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/es/LC_MESSAGES/
+-rw-r--r-- root/root     25629 2018-09-17 23:11 ./usr/share/locale/es/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/fi/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/fi/LC_MESSAGES/
+-rw-r--r-- root/root       423 2018-09-17 23:11 ./usr/share/locale/fi/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/fr/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/fr/LC_MESSAGES/
+-rw-r--r-- root/root     42041 2018-09-17 23:11 ./usr/share/locale/fr/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/id/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/id/LC_MESSAGES/
+-rw-r--r-- root/root     12947 2018-09-17 23:11 ./usr/share/locale/id/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/it/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/it/LC_MESSAGES/
+-rw-r--r-- root/root       399 2018-09-17 23:11 ./usr/share/locale/it/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/no/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/no/LC_MESSAGES/
+-rw-r--r-- root/root     12799 2018-09-17 23:11 ./usr/share/locale/no/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/pl/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/pl/LC_MESSAGES/
+-rw-r--r-- root/root     52570 2018-09-17 23:11 ./usr/share/locale/pl/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/pt_BR/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/pt_BR/LC_MESSAGES/
+-rw-r--r-- root/root       413 2018-09-17 23:11 ./usr/share/locale/pt_BR/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/ro/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/ro/LC_MESSAGES/
+-rw-r--r-- root/root     13306 2018-09-17 23:11 ./usr/share/locale/ro/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/man/es/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/man/es/man8/
+-rw-r--r-- root/root     24989 2018-09-17 23:11 ./usr/share/man/es/man8/dnsmasq.8.gz
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/man/fr/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/man/fr/man8/
+-rw-r--r-- root/root     38777 2018-09-17 23:11 ./usr/share/man/fr/man8/dnsmasq.8.gz
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/man/man8/
+-rw-r--r-- root/root     38964 2018-09-17 23:11 ./usr/share/man/man8/dnsmasq.8.gz
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./var/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./var/lib/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./var/lib/misc/
+
+
+dnsmasq-base_2.80-1_armhf.deb
+-----------------------------
+
+ new Debian package, version 2.0.
+ size 409580 bytes: control archive=2076 bytes.
+      34 bytes,     1 lines      conffiles            
+     778 bytes,    19 lines      control              
+    1934 bytes,    26 lines      md5sums              
+     839 bytes,    24 lines   *  postinst             #!/bin/sh
+     272 bytes,    11 lines   *  postrm               #!/bin/sh
+ Package: dnsmasq-base
+ Source: dnsmasq
+ Version: 2.80-1
+ Architecture: armhf
+ Maintainer: Simon Kelley <simon@thekelleys.org.uk>
+ Installed-Size: 753
+ Depends: adduser, libc6 (>= 2.28), libdbus-1-3 (>= 1.9.14), libgmp10, libhogweed4, libidn11 (>= 1.13), libnetfilter-conntrack3, libnettle6 (>= 3.4~), libnfnetlink0
+ Recommends: dns-root-data
+ Conflicts: dnsmasq-base-lua
+ Breaks: dnsmasq (<< 2.63-1~)
+ Replaces: dnsmasq (<< 2.63-1~), dnsmasq-base
+ Provides: dnsmasq-base
+ Section: net
+ Priority: optional
+ Homepage: http://www.thekelleys.org.uk/dnsmasq/doc.html
+ Description: Small caching DNS proxy and DHCP/TFTP server
+  This package contains the dnsmasq executable and documentation, but
+  not the infrastructure required to run it as a system daemon. For
+  that, install the dnsmasq package.
+
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./etc/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./etc/dbus-1/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./etc/dbus-1/system.d/
+-rw-r--r-- root/root       652 2018-09-17 23:11 ./etc/dbus-1/system.d/dnsmasq.conf
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/sbin/
+-rwxr-xr-x root/root    246884 2018-09-17 23:11 ./usr/sbin/dnsmasq
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/dnsmasq-base/
+-rw-r--r-- root/root       391 2018-09-17 23:11 ./usr/share/dnsmasq-base/trust-anchors.conf
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/
+-rw-r--r-- root/root      2893 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/DBus-interface.gz
+-rw-r--r-- root/root     10569 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/FAQ.gz
+-rw-r--r-- root/root      4178 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/README.Debian
+-rw-r--r-- root/root     12556 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/changelog.Debian.gz
+-rw-r--r-- root/root     36193 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/changelog.archive.gz
+-rw-r--r-- root/root     33911 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/changelog.gz
+-rw-r--r-- root/root       883 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/copyright
+-rw-r--r-- root/root      4578 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/doc.html
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/examples/
+-rw-r--r-- root/root     27381 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/examples/dnsmasq.conf.example
+-rw-r--r-- root/root     12023 2018-09-17 23:11 ./usr/share/doc/dnsmasq-base/setup.html
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/de/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/de/LC_MESSAGES/
+-rw-r--r-- root/root     51827 2018-09-17 23:11 ./usr/share/locale/de/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/es/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/es/LC_MESSAGES/
+-rw-r--r-- root/root     25629 2018-09-17 23:11 ./usr/share/locale/es/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/fi/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/fi/LC_MESSAGES/
+-rw-r--r-- root/root       423 2018-09-17 23:11 ./usr/share/locale/fi/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/fr/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/fr/LC_MESSAGES/
+-rw-r--r-- root/root     42041 2018-09-17 23:11 ./usr/share/locale/fr/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/id/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/id/LC_MESSAGES/
+-rw-r--r-- root/root     12947 2018-09-17 23:11 ./usr/share/locale/id/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/it/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/it/LC_MESSAGES/
+-rw-r--r-- root/root       399 2018-09-17 23:11 ./usr/share/locale/it/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/no/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/no/LC_MESSAGES/
+-rw-r--r-- root/root     12799 2018-09-17 23:11 ./usr/share/locale/no/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/pl/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/pl/LC_MESSAGES/
+-rw-r--r-- root/root     52570 2018-09-17 23:11 ./usr/share/locale/pl/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/pt_BR/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/pt_BR/LC_MESSAGES/
+-rw-r--r-- root/root       413 2018-09-17 23:11 ./usr/share/locale/pt_BR/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/ro/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/locale/ro/LC_MESSAGES/
+-rw-r--r-- root/root     13306 2018-09-17 23:11 ./usr/share/locale/ro/LC_MESSAGES/dnsmasq.mo
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/man/es/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/man/es/man8/
+-rw-r--r-- root/root     24989 2018-09-17 23:11 ./usr/share/man/es/man8/dnsmasq.8.gz
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/man/fr/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/man/fr/man8/
+-rw-r--r-- root/root     38777 2018-09-17 23:11 ./usr/share/man/fr/man8/dnsmasq.8.gz
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/man/man8/
+-rw-r--r-- root/root     38964 2018-09-17 23:11 ./usr/share/man/man8/dnsmasq.8.gz
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./var/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./var/lib/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./var/lib/misc/
+
+
+dnsmasq-utils_2.80-1_armhf.deb
+------------------------------
+
+ new Debian package, version 2.0.
+ size 23444 bytes: control archive=852 bytes.
+     520 bytes,    15 lines      control              
+     540 bytes,     8 lines      md5sums              
+ Package: dnsmasq-utils
+ Source: dnsmasq
+ Version: 2.80-1
+ Architecture: armhf
+ Maintainer: Simon Kelley <simon@thekelleys.org.uk>
+ Installed-Size: 53
+ Depends: libc6 (>= 2.4)
+ Conflicts: dnsmasq (<< 2.40)
+ Section: net
+ Priority: optional
+ Homepage: http://www.thekelleys.org.uk/dnsmasq/doc.html
+ Description: Utilities for manipulating DHCP leases
+  Small utilities to query a DHCP server's lease database and
+  remove leases from it. These programs are distributed with dnsmasq
+  and may not work correctly with other DHCP servers.
+
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/bin/
+-rwxr-xr-x root/root      9528 2018-09-17 23:11 ./usr/bin/dhcp_lease_time
+-rwxr-xr-x root/root      5432 2018-09-17 23:11 ./usr/bin/dhcp_release
+-rwxr-xr-x root/root      9660 2018-09-17 23:11 ./usr/bin/dhcp_release6
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/doc/dnsmasq-utils/
+-rw-r--r-- root/root     12556 2018-09-17 23:11 ./usr/share/doc/dnsmasq-utils/changelog.Debian.gz
+-rw-r--r-- root/root       883 2018-09-17 23:11 ./usr/share/doc/dnsmasq-utils/copyright
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-09-17 23:11 ./usr/share/man/man1/
+-rw-r--r-- root/root       500 2018-09-17 23:11 ./usr/share/man/man1/dhcp_lease_time.1.gz
+-rw-r--r-- root/root       691 2018-09-17 23:11 ./usr/share/man/man1/dhcp_release.1.gz
+-rw-r--r-- root/root       624 2018-09-17 23:11 ./usr/share/man/man1/dhcp_release6.1.gz
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [598 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [661 B]
+Fetched 2222 B in 0s (162 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  bsdmainutils diffstat groff-base intltool-debian libapt-pkg-perl
+  libarchive-zip-perl libbsd0 libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libpipeline1
+  libstruct-dumb-perl libsub-name-perl libtext-levenshtein-perl libuchardet0
+  lintian man-db patchutils t1utils
+Suggested packages:
+  wamerican | wordlist whois vacation groff libhtml-template-perl
+  binutils-multiarch libtext-template-perl apparmor less www-browser
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  bsdmainutils diffstat groff-base intltool-debian libapt-pkg-perl
+  libarchive-zip-perl libbsd0 libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libpipeline1
+  libstruct-dumb-perl libsub-name-perl libtext-levenshtein-perl libuchardet0
+  lintian man-db patchutils sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 36 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/5671 kB of archives.
+After this operation, 17.3 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 0s (8634 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 18035 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package diffstat.
+Preparing to unpack .../06-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../07-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../08-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../09-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../10-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../11-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../12-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../13-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../14-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../15-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../16-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../17-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../18-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../19-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../20-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../21-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../22-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../23-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../24-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../25-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../26-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../27-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../28-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../29-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../30-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../31-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../32-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../33-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../34-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../35-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up groff-base (1.22.4-2) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+W: dnsmasq source: debian-rules-sets-dpkg-architecture-variable DEB_HOST_ARCH_OS (line 26)
+W: dnsmasq source: debian-rules-sets-dpkg-architecture-variable DEB_HOST_GNU_TYPE (line 27)
+W: dnsmasq source: debian-rules-sets-dpkg-architecture-variable DEB_BUILD_GNU_TYPE (line 28)
+W: dnsmasq-base: manpage-has-errors-from-man usr/share/man/es/man8/dnsmasq.8.gz 457: warning [p 7, 9.2i, div 'an-div', 0.0i]: cannot adjust line
+W: dnsmasq-base: manpage-has-errors-from-man usr/share/man/fr/man8/dnsmasq.8.gz 602: warning [p 9, 10.5i, div 'an-div', 0.0i]: cannot adjust line
+W: dnsmasq-base: manpage-has-errors-from-man usr/share/man/man8/dnsmasq.8.gz 487: warning [p 8, 3.3i, div 'an-div', 0.0i]: cannot adjust line
+W: dnsmasq-base-lua: manpage-has-errors-from-man usr/share/man/es/man8/dnsmasq.8.gz 457: warning [p 7, 9.2i, div 'an-div', 0.0i]: cannot adjust line
+W: dnsmasq-base-lua: manpage-has-errors-from-man usr/share/man/fr/man8/dnsmasq.8.gz 602: warning [p 9, 10.5i, div 'an-div', 0.0i]: cannot adjust line
+W: dnsmasq-base-lua: manpage-has-errors-from-man usr/share/man/man8/dnsmasq.8.gz 487: warning [p 8, 3.3i, div 'an-div', 0.0i]: cannot adjust line
+N: 1 tag overridden (1 error)
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  bsdmainutils* diffstat* gcc-8-base:armhf* gettext* gettext-base* groff-base*
+  intltool-debian* libapt-pkg-perl* libarchive-zip-perl* libasan5:armhf*
+  libatomic1:armhf* libbsd0* libc6:armhf* libc6-dev:armhf*
+  libcapture-tiny-perl* libcgi-pm-perl* libclass-accessor-perl* libclone-perl*
+  libcroco3* libdbus-1-3:armhf* libdbus-1-dev:armhf* libdigest-hmac-perl*
+  libemail-valid-perl* libexporter-tiny-perl* libfile-basedir-perl*
+  libfuture-perl* libgcc-8-dev:armhf* libgcc1:armhf* libgcrypt20:armhf*
+  libglib2.0-0* libgmp-dev:armhf* libgmp10:armhf* libgmpxx4ldbl:armhf*
+  libgomp1:armhf* libgpg-error0:armhf* libhogweed4:armhf* libidn11:armhf*
+  libidn11-dev:armhf* libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* liblist-moreutils-perl* liblua5.2-0:armhf*
+  liblua5.2-dev:armhf* liblz4-1:armhf* liblzma5:armhf* libmnl0:armhf*
+  libncurses-dev:armhf* libncurses6* libncurses6:armhf* libncursesw6:armhf*
+  libnet-dns-perl* libnet-domain-tld-perl* libnet-ip-perl*
+  libnetfilter-conntrack-dev:armhf* libnetfilter-conntrack3:armhf*
+  libnettle6:armhf* libnfnetlink-dev:armhf* libnfnetlink0:armhf*
+  libparse-debianchangelog-perl* libpath-tiny-perl* libpipeline1*
+  libreadline-dev:armhf* libreadline7:armhf* libstdc++-8-dev:armhf*
+  libstdc++6:armhf* libstruct-dumb-perl* libsub-name-perl* libsystemd0:armhf*
+  libtext-levenshtein-perl* libtinfo6:armhf* libubsan1:armhf* libuchardet0*
+  lintian* linux-libc-dev:armhf* man-db* nettle-dev:armhf* patchutils*
+  pkg-config* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils*
+0 upgraded, 0 newly installed, 83 to remove and 0 not upgraded.
+After this operation, 92.3 MB disk space will be freed.
+(Reading database ... 20001 files and directories currently installed.)
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing diffstat (1.62-1) ...
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing liblua5.2-dev:armhf (5.2.4-1.1+b2) ...
+Removing liblua5.2-0:armhf (5.2.4-1.1+b2) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libdbus-1-dev:armhf (1.12.12-1) ...
+Removing libdbus-1-3:armhf (1.12.12-1) ...
+Removing libsystemd0:armhf (241-1) ...
+Removing liblzma5:armhf (5.2.4-1) ...
+Removing libreadline-dev:armhf (7.0-5) ...
+Removing libreadline7:armhf (7.0-5) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing nettle-dev:armhf (3.4.1-1) ...
+Removing libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Removing libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Removing libgcrypt20:armhf (1.8.4-5) ...
+Removing libnetfilter-conntrack-dev:armhf (1.0.7-1) ...
+Removing libnfnetlink-dev:armhf (1.0.1-3+b1) ...
+Removing libidn11-dev:armhf (1.33-2.2) ...
+Removing pkg-config (0.29-6) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libhogweed4:armhf (3.4.1-1) ...
+Removing libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libgpg-error0:armhf (1.35-1) ...
+Removing libidn11:armhf (1.33-2.2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing liblz4-1:armhf (1.8.3-1) ...
+Removing libnetfilter-conntrack3:armhf (1.0.7-1) ...
+Removing libmnl0:armhf (1.0.4-2) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libnettle6:armhf (3.4.1-1) ...
+Removing libnfnetlink0:armhf (1.0.1-3+b1) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing libc6:armhf (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16456 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 54
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 7
+Job: /home/build/sbuild-setup/repo/pool/main/d/dnsmasq/dnsmasq_2.80-1.dsc
+Lintian: warn
+Machine Architecture: amd64
+Package: dnsmasq
+Package-Time: 66
+Source-Version: 2.80-1
+Space: n/a
+Status: successful
+Version: 2.80-1
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T15:00:58Z
+Build needed 00:01:06, no disk space

@@ -1,0 +1,1607 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| pgtop 3.7.0-18-gbbf1f12-3 (armhf)            Thu, 07 Mar 2019 19:54:03 +0000 |
++==============================================================================+
+
+Package: pgtop
+Version: 3.7.0-18-gbbf1f12-3
+Source Version: 3.7.0-18-gbbf1f12-3
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-efd85bf0-a67d-4c69-a002-03c11fe76998' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/pgtop-0MOt7y/resolver-hoolBV' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/p/pgtop/pgtop_3.7.0-18-gbbf1f12-3.dsc exists in /home/build/sbuild-setup/repo/pool/main/p/pgtop; copying to chroot
+I: NOTICE: Log filtering will replace 'build/pgtop-0MOt7y/pgtop-3.7.0-18-gbbf1f12' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/pgtop-0MOt7y' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 10), libpq-dev, libncurses5-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 10), libpq-dev, libncurses5-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [408 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [498 B]
+Fetched 1863 B in 0s (133 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcom-err2:armhf
+  libcroco3 libdb5.3:armhf libelf1 libffi6:armhf
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgmp10:armhf libgnutls30:armhf libgomp1:armhf
+  libgssapi-krb5-2:armhf libhogweed4:armhf libidn2-0:armhf libk5crypto3:armhf
+  libkeyutils1:armhf libkrb5-3:armhf libkrb5support0:armhf libldap-2.4-2:armhf
+  libncurses-dev:armhf libncurses5-dev:armhf libncurses6 libncurses6:armhf
+  libncursesw6:armhf libnettle6:armhf libp11-kit0:armhf libpipeline1
+  libpq-dev:armhf libpq5:armhf libsasl2-2:armhf libsasl2-modules-db:armhf
+  libsigsegv2 libssl1.1:armhf libstdc++-8-dev:armhf libstdc++6:armhf
+  libtasn1-6:armhf libtinfo6:armhf libtool libubsan1:armhf libuchardet0
+  libunistring2:armhf linux-libc-dev:armhf m4 man-db po-debconf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  gnutls-bin:armhf krb5-doc:armhf krb5-user:armhf ncurses-doc:armhf
+  postgresql-doc-11:armhf libstdc++-8-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk m4-doc apparmor less www-browser
+  libmail-box-perl
+Recommended packages:
+  curl | wget | lynx libarchive-cpio-perl libglib2.0-data shared-mime-info
+  xdg-user-dirs krb5-locales:armhf libgpm2 libgpm2:armhf
+  libsasl2-modules:armhf libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libc6:armhf libc6-dev:armhf libcom-err2:armhf
+  libcroco3 libdb5.3:armhf libelf1 libffi6:armhf
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgmp10:armhf libgnutls30:armhf libgomp1:armhf
+  libgssapi-krb5-2:armhf libhogweed4:armhf libidn2-0:armhf libk5crypto3:armhf
+  libkeyutils1:armhf libkrb5-3:armhf libkrb5support0:armhf libldap-2.4-2:armhf
+  libncurses-dev:armhf libncurses5-dev:armhf libncurses6 libncurses6:armhf
+  libncursesw6:armhf libnettle6:armhf libp11-kit0:armhf libpipeline1
+  libpq-dev:armhf libpq5:armhf libsasl2-2:armhf libsasl2-modules-db:armhf
+  libsigsegv2 libssl1.1:armhf libstdc++-8-dev:armhf libstdc++6:armhf
+  libtasn1-6:armhf libtinfo6:armhf libtool libubsan1:armhf libuchardet0
+  libunistring2:armhf linux-libc-dev:armhf m4 man-db po-debconf
+  sbuild-build-depends-main-dummy:armhf
+0 upgraded, 67 newly installed, 0 to remove and 0 not upgraded.
+Need to get 299 kB/25.0 MB of archives.
+After this operation, 94.7 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [916 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main armhf libpq5 armhf 11.2-2 [151 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main armhf libpq-dev armhf 11.2-2 [148 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 299 kB in 1s (586 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16452 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../07-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../08-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../09-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../10-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../11-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../12-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../13-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../14-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../15-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../16-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../17-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../18-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../19-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../20-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../21-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../22-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../23-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../24-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../25-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../26-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../27-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../28-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../29-libc6_2.28-8_armhf.deb ...
+Unpacking libc6:armhf (2.28-8) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../30-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../31-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../32-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../33-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../34-libc6-dev_2.28-8_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-8) ...
+Selecting previously unselected package libcom-err2:armhf.
+Preparing to unpack .../35-libcom-err2_1.45.0-1_armhf.deb ...
+Unpacking libcom-err2:armhf (1.45.0-1) ...
+Selecting previously unselected package libdb5.3:armhf.
+Preparing to unpack .../36-libdb5.3_5.3.28+dfsg1-0.5_armhf.deb ...
+Unpacking libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Selecting previously unselected package libffi6:armhf.
+Preparing to unpack .../37-libffi6_3.2.1-9_armhf.deb ...
+Unpacking libffi6:armhf (3.2.1-9) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../38-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../39-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../40-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libgmp10:armhf.
+Preparing to unpack .../41-libgmp10_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libnettle6:armhf.
+Preparing to unpack .../42-libnettle6_3.4.1-1_armhf.deb ...
+Unpacking libnettle6:armhf (3.4.1-1) ...
+Selecting previously unselected package libhogweed4:armhf.
+Preparing to unpack .../43-libhogweed4_3.4.1-1_armhf.deb ...
+Unpacking libhogweed4:armhf (3.4.1-1) ...
+Selecting previously unselected package libunistring2:armhf.
+Preparing to unpack .../44-libunistring2_0.9.10-1_armhf.deb ...
+Unpacking libunistring2:armhf (0.9.10-1) ...
+Selecting previously unselected package libidn2-0:armhf.
+Preparing to unpack .../45-libidn2-0_2.0.5-1_armhf.deb ...
+Unpacking libidn2-0:armhf (2.0.5-1) ...
+Selecting previously unselected package libp11-kit0:armhf.
+Preparing to unpack .../46-libp11-kit0_0.23.15-2_armhf.deb ...
+Unpacking libp11-kit0:armhf (0.23.15-2) ...
+Selecting previously unselected package libtasn1-6:armhf.
+Preparing to unpack .../47-libtasn1-6_4.13-3_armhf.deb ...
+Unpacking libtasn1-6:armhf (4.13-3) ...
+Selecting previously unselected package libgnutls30:armhf.
+Preparing to unpack .../48-libgnutls30_3.6.6-2_armhf.deb ...
+Unpacking libgnutls30:armhf (3.6.6-2) ...
+Selecting previously unselected package libkeyutils1:armhf.
+Preparing to unpack .../49-libkeyutils1_1.6-6_armhf.deb ...
+Unpacking libkeyutils1:armhf (1.6-6) ...
+Selecting previously unselected package libkrb5support0:armhf.
+Preparing to unpack .../50-libkrb5support0_1.17-2_armhf.deb ...
+Unpacking libkrb5support0:armhf (1.17-2) ...
+Selecting previously unselected package libk5crypto3:armhf.
+Preparing to unpack .../51-libk5crypto3_1.17-2_armhf.deb ...
+Unpacking libk5crypto3:armhf (1.17-2) ...
+Selecting previously unselected package libssl1.1:armhf.
+Preparing to unpack .../52-libssl1.1_1.1.1b-1_armhf.deb ...
+Unpacking libssl1.1:armhf (1.1.1b-1) ...
+Selecting previously unselected package libkrb5-3:armhf.
+Preparing to unpack .../53-libkrb5-3_1.17-2_armhf.deb ...
+Unpacking libkrb5-3:armhf (1.17-2) ...
+Selecting previously unselected package libgssapi-krb5-2:armhf.
+Preparing to unpack .../54-libgssapi-krb5-2_1.17-2_armhf.deb ...
+Unpacking libgssapi-krb5-2:armhf (1.17-2) ...
+Selecting previously unselected package libsasl2-modules-db:armhf.
+Preparing to unpack .../55-libsasl2-modules-db_2.1.27+dfsg-1_armhf.deb ...
+Unpacking libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Selecting previously unselected package libsasl2-2:armhf.
+Preparing to unpack .../56-libsasl2-2_2.1.27+dfsg-1_armhf.deb ...
+Unpacking libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Selecting previously unselected package libldap-2.4-2:armhf.
+Preparing to unpack .../57-libldap-2.4-2_2.4.47+dfsg-3_armhf.deb ...
+Unpacking libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../58-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../59-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../60-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../61-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses5-dev:armhf.
+Preparing to unpack .../62-libncurses5-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses5-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libpq5:armhf.
+Preparing to unpack .../63-libpq5_11.2-2_armhf.deb ...
+Unpacking libpq5:armhf (11.2-2) ...
+Selecting previously unselected package libpq-dev:armhf.
+Preparing to unpack .../64-libpq-dev_11.2-2_armhf.deb ...
+Unpacking libpq-dev:armhf (11.2-2) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../65-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../66-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-3) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-8) ...
+Setting up libtasn1-6:armhf (4.13-3) ...
+Setting up libc6-dev:armhf (2.28-8) ...
+Setting up libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libkeyutils1:armhf (1.6-6) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libssl1.1:armhf (1.1.1b-1) ...
+Setting up libunistring2:armhf (0.9.10-1) ...
+Setting up libffi6:armhf (3.2.1-9) ...
+Setting up libidn2-0:armhf (2.0.5-1) ...
+Setting up libcom-err2:armhf (1.45.0-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libkrb5support0:armhf (1.17-2) ...
+Setting up libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Setting up dh-autoreconf (19) ...
+Setting up libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up libp11-kit0:armhf (0.23.15-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up libk5crypto3:armhf (1.17-2) ...
+Setting up libnettle6:armhf (3.4.1-1) ...
+Setting up libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libkrb5-3:armhf (1.17-2) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up libhogweed4:armhf (3.4.1-1) ...
+Setting up debhelper (12.1.1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libgnutls30:armhf (3.6.6-2) ...
+Setting up libgssapi-krb5-2:armhf (1.17-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libncurses5-dev:armhf (6.1+20181013-2) ...
+Setting up libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libpq5:armhf (11.2-2) ...
+Setting up libpq-dev:armhf (11.2-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-8) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in linux-any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-15 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-8 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-15 binutils-arm-linux-gnueabihf_2.31.1-15 binutils-common_2.31.1-15 binutils-x86-64-linux-gnu_2.31.1-15 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.6 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-3 cpp_4:8.3.0-1 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.3.0-2cross1 cpp-arm-linux-gnueabihf_4:8.3.0-1 cross-config_2.6.15-2 crossbuild-essential-armhf_12.6 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.13-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.45.0-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-4 findutils_4.6.0+git+20190209-2 g++_4:8.3.0-1 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.3.0-2cross1 g++-arm-linux-gnueabihf_4:8.3.0-1 gcc_4:8.3.0-1 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.3.0-2cross1 gcc-8-arm-linux-gnueabihf-base_8.3.0-2cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.3.0-2cross1 gcc-arm-linux-gnueabihf_4:8.3.0-1 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.13-1 gnupg-l10n_2.2.13-1 gnupg-utils_2.2.13-1 gpg_2.2.13-1 gpg-agent_2.2.13-1 gpg-wks-client_2.2.13-1 gpg-wks-server_2.2.13-1 gpgconf_2.2.13-1 gpgsm_2.2.13-1 gpgv_2.2.13-1 grep_3.3-1 groff-base_1.22.4-3 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.53-4 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.3.0-2cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.3.0-2cross1 libattr1_1:2.4.48-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-15 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-8 libc-dev-bin_2.28-8 libc6_2.28-8 libc6-armhf-cross_2.28-7cross1 libc6-dev_2.28-8 libc6-dev-armhf-cross_2.28-7cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.45.0-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.248 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.45.0-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.3.0-2cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.3.0-2cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.3.0-2cross1 libgpg-error0_1.35-1 libgssapi-krb5-2_1.17-2 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-3 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libk5crypto3_1.17-2 libkeyutils1_1.6-6 libkrb5-3_1.17-2 libkrb5support0_1.17-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-4 libmagic1_1:5.35-4 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses5-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpq-dev_11.2-2 libpq5_11.2-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.45.0-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.3.0-2cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-4 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.20-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-2 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: pgtop
+Binary: pgtop
+Architecture: linux-any
+Version: 3.7.0-18-gbbf1f12-3
+Maintainer: Debian PostgreSQL Maintainers <team+postgresql@tracker.debian.org>
+Uploaders: Christoph Berg <myon@debian.org>
+Homepage: https://git.postgresql.org/gitweb/?p=pg_top.git
+Standards-Version: 4.3.0
+Vcs-Browser: https://salsa.debian.org/postgresql/pgtop
+Vcs-Git: https://salsa.debian.org/postgresql/pgtop.git
+Build-Depends: debhelper (>= 10), libpq-dev, libncurses5-dev
+Package-List:
+ pgtop deb database optional arch=linux-any
+Checksums-Sha1:
+ a1f6dac772fae8767c5ed8d3f5d7c32b73b2c48b 212159 pgtop_3.7.0-18-gbbf1f12.orig.tar.gz
+ bb236af034ce354872d9b257974eab699a5769b5 3924 pgtop_3.7.0-18-gbbf1f12-3.debian.tar.xz
+Checksums-Sha256:
+ 43a8d2e4ef9ec7d25c6b2e1ccad47e37e92e567b18ded5e940b017342950ac17 212159 pgtop_3.7.0-18-gbbf1f12.orig.tar.gz
+ 6520b49d5f0e5328d795a058e2f19d3cdc674887b0ffd1c26b7ea4692a90a11a 3924 pgtop_3.7.0-18-gbbf1f12-3.debian.tar.xz
+Files:
+ 3287a0f91dabcbdbe63763c3e2863710 212159 pgtop_3.7.0-18-gbbf1f12.orig.tar.gz
+ 3f0359818186e8209ce14d76c4e9f2ab 3924 pgtop_3.7.0-18-gbbf1f12-3.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEXEj+YVf0kXlZcIfGTFprqxLSp64FAlxcCzgACgkQTFprqxLS
+p66PZRAArk1xzR7lt22FhCr0RT2A0MWEkCHct8+voJLNBQ2qz8xVAgBUKI25Pka2
+J3y3NqZFPbJl2eikX+XSgxhO45Tt44CsQQARnkgu93RymtToQ+9jzksDn/pQSB76
+xIR0XlK+WhqWxJAefNYGWRQMnzQjLjXnigrVlEkc+klR4Ct7g3ngcyuo8E7ZO46D
+Q7YQ27FTJtnHzZqUvD16iwMkY3qebkDXfGRljbyylF1glWNUOYA5ZwYRJlXlm3fx
+xiolkps5JxZg3cRggt6KGPY8mZbcqSeU+/ptT1cFr72VbR/PD5KbWUKZR2zmmMVO
+42dk42I5664S3nFG2J7JyQRWlCmdbY9qPCm5b2Yk0kfvymuuq9tWCCLw+92dOfKO
+QrmQ5M1sYapRhdZ2OpNxNsh0eia4M5CxVZxNio8LdXaeg4K6cHogWkofBEyShVQC
+wlzqj2ofAfXBGiD1cEBZG/WxRI2Yn/MZEHsz52+KJuKHuhWNFCfSzhcnZEOZnrfK
+y9jFzNG4p4uMa/TEqI/gl1qmMx26/ueI1rsjCp68bouUz5m5kzQXqo23//Pd1X9K
+h+3ACIk//TENO5HmXRtKoaDRzXeUUFyzMvIRk4BMTgr2rdKES40TlK7hJbU72A8f
+7kHVfY3ixOSQauBdbDcD/B6wFzz5jCk9WKSD/nEvkP5SR9aYB9Y=
+=bGpv
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Thu Feb  7 10:40:56 2019 UTC
+gpgv:                using RSA key 5C48FE6157F49179597087C64C5A6BAB12D2A7AE
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./pgtop_3.7.0-18-gbbf1f12-3.dsc
+dpkg-source: info: extracting pgtop in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking pgtop_3.7.0-18-gbbf1f12.orig.tar.gz
+dpkg-source: info: unpacking pgtop_3.7.0-18-gbbf1f12-3.debian.tar.xz
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-efd85bf0-a67d-4c69-a002-03c11fe76998
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package pgtop
+dpkg-buildpackage: info: source version 3.7.0-18-gbbf1f12-3
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Christoph Berg <myon@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+configure.ac:57: installing './compile'
+configure.ac:11: installing './install-sh'
+configure.ac:11: installing './missing'
+Makefile.am: installing './depcomp'
+   dh_auto_configure -a
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+Configuring pg_top 4.0.0devel
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking target system type... arm-unknown-linux-gnueabihf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for make... make
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking for gawk... (cached) mawk
+checking OS revision number... 31604amd64
+checking for pg_config... /usr/bin/pg_config
+checking for PostgreSQL libraries... checking for library containing PQexec... -lpq
+checking for library containing kstat_open... no
+checking for library containing kvm_open... no
+checking for library containing elf32_getphdr... no
+checking for library containing vm_statistics... no
+checking for library containing tgetent... -ltermcap
+checking for library containing exp... -lm
+checking for library containing libintl_gettext... no
+checking for library containing dlerror... -ldl
+checking for library containing inet_aton... none required
+checking for library containing PQexec... (cached) -lpq
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking sys/resource.h usability... yes
+checking sys/resource.h presence... yes
+checking for sys/resource.h... yes
+checking sys/time.h usability... yes
+checking sys/time.h presence... yes
+checking for sys/time.h... yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for a good signal.h... no
+checking whether sys_errlist is declared... yes
+checking return type of signal handlers... void
+checking for time_t... yes
+checking for getopt... yes
+checking for memcpy... yes
+checking for setpriority... yes
+checking for strchr... yes
+checking for strerror... yes
+checking for snprintf... yes
+checking for sighold... yes
+checking for sigrelse... yes
+checking for sigaction... yes
+checking for sigprocmask... yes
+checking for correct ls options... ls -l
+checking for a platform module... linux
+checking for installation settings... mode=755
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating pg_top.1
+config.status: creating config.h
+config.status: executing depfiles commands
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+   dh_auto_build -a
+	make -j16
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+mawk -f ./sigconv.awk /dev/null > sigdesc.h 
+make  all-am
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -I/usr/include/postgresql -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o color.o color.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -I/usr/include/postgresql -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o commands.o commands.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -I/usr/include/postgresql -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o display.o display.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -I/usr/include/postgresql -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o getopt.o getopt.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -I/usr/include/postgresql -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o screen.o screen.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -I/usr/include/postgresql -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o sprompt.o sprompt.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -I/usr/include/postgresql -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pg.o pg.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -I/usr/include/postgresql -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o pg_top.o pg_top.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -I/usr/include/postgresql -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o username.o username.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -I/usr/include/postgresql -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o utils.o utils.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -I/usr/include/postgresql -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o version.o version.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -I/usr/include/postgresql -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o machine/m_remote.o machine/m_remote.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -I/usr/include/postgresql -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o machine/m_common.o machine/m_common.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I.  -I/usr/include/postgresql -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o machine/m_linux.o machine/m_linux.c
+utils.c: In function ‘format_b’:
+utils.c:596:46: warning: ‘%lld’ directive output may be truncated writing between 1 and 20 bytes into a region of size 15 [-Wformat-truncation=]
+  snprintf(ret, sizeof(retarray[index]) - 1, "%lld%c", amt, tag);
+                                              ^~~~
+utils.c:596:45: note: directive argument in the range [-9223372036854775808, 9007199254740991]
+  snprintf(ret, sizeof(retarray[index]) - 1, "%lld%c", amt, tag);
+                                             ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from os.h:8,
+                 from utils.c:16:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 3 and 22 bytes into a destination of size 15
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+pg_top.c: In function ‘process_arguments’:
+pg_top.c:498:12: warning: ignoring return value of ‘nice’, declared with attribute warn_unused_result [-Wunused-result]
+     (void) nice(-20);
+            ^~~~~~~~~
+commands.c: In function ‘cmd_errors’:
+commands.c:262:10: warning: ignoring return value of ‘read’, declared with attribute warn_unused_result [-Wunused-result]
+   (void) read(0, &ch, 1);
+          ^~~~~~~~~~~~~~~
+display.c: In function ‘u_db’:
+display.c:1242:24: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘int64_t’ {aka ‘long long int’} [-Wformat=]
+  snprintf(buf, 80, "%3ld tps, %2ld rollbs/s, %3ld buffer r/s, %2ld hit%%, %6ld row r/s, %4ld row w/s ",
+                     ~~~^
+                     %3lld
+     db_info->numXact, db_info->numRollback,
+     ~~~~~~~~~~~~~~~~    
+display.c:1242:34: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 5 has type ‘int64_t’ {aka ‘long long int’} [-Wformat=]
+  snprintf(buf, 80, "%3ld tps, %2ld rollbs/s, %3ld buffer r/s, %2ld hit%%, %6ld row r/s, %4ld row w/s ",
+                               ~~~^
+                               %2lld
+     db_info->numXact, db_info->numRollback,
+                       ~~~~~~~~~~~~~~~~~~~~
+display.c:1242:49: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 6 has type ‘int64_t’ {aka ‘long long int’} [-Wformat=]
+  snprintf(buf, 80, "%3ld tps, %2ld rollbs/s, %3ld buffer r/s, %2ld hit%%, %6ld row r/s, %4ld row w/s ",
+                                              ~~~^
+                                              %3lld
+display.c:1244:5:
+     db_info->numBlockRead,
+     ~~~~~~~~~~~~~~~~~~~~~                        
+display.c:1242:66: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 7 has type ‘long long int’ [-Wformat=]
+  snprintf(buf, 80, "%3ld tps, %2ld rollbs/s, %3ld buffer r/s, %2ld hit%%, %6ld row r/s, %4ld row w/s ",
+                                                               ~~~^
+                                                               %2lld
+display.c:1245:5:
+     db_info->numBlockRead + db_info->numBlockHit > 0 ?
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~            
+     ((int64_t)(db_info->numBlockHit * 100 /
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                       
+      (db_info->numBlockRead + db_info->numBlockHit))) : 0,
+      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~         
+display.c:1242:78: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 8 has type ‘int64_t’ {aka ‘long long int’} [-Wformat=]
+  snprintf(buf, 80, "%3ld tps, %2ld rollbs/s, %3ld buffer r/s, %2ld hit%%, %6ld row r/s, %4ld row w/s ",
+                                                                           ~~~^
+                                                                           %6lld
+display.c:1248:5:
+     db_info->numTupleFetched,
+     ~~~~~~~~~~~~~~~~~~~~~~~~                                                  
+display.c:1242:92: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 9 has type ‘int64_t’ {aka ‘long long int’} [-Wformat=]
+  snprintf(buf, 80, "%3ld tps, %2ld rollbs/s, %3ld buffer r/s, %2ld hit%%, %6ld row r/s, %4ld row w/s ",
+                                                                                         ~~~^
+                                                                                         %4lld
+display.c:1249:5:
+     db_info->numTupleAltered);
+     ~~~~~~~~~~~~~~~~~~~~~~~~                                                                
+display.c: In function ‘i_io’:
+display.c:1262:24: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 4 has type ‘int64_t’ {aka ‘long long int’} [-Wformat=]
+  snprintf(buf, 80, "%5ld reads/s, %5ld KB/s, %5ld writes/s, %5ld KB/s  ",
+                     ~~~^
+                     %5lld
+     io_info->reads,
+     ~~~~~~~~~~~~~~      
+display.c:1262:38: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 5 has type ‘int64_t’ {aka ‘long long int’} [-Wformat=]
+  snprintf(buf, 80, "%5ld reads/s, %5ld KB/s, %5ld writes/s, %5ld KB/s  ",
+                                   ~~~^
+                                   %5lld
+display.c:1264:5:
+     io_info->readsectors / 2,
+     ~~~~~~~~~~~~~~~~~~~~~~~~          
+display.c:1262:49: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 6 has type ‘int64_t’ {aka ‘long long int’} [-Wformat=]
+  snprintf(buf, 80, "%5ld reads/s, %5ld KB/s, %5ld writes/s, %5ld KB/s  ",
+                                              ~~~^
+                                              %5lld
+display.c:1265:5:
+     io_info->writes,
+     ~~~~~~~~~~~~~~~                              
+display.c:1262:64: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 7 has type ‘int64_t’ {aka ‘long long int’} [-Wformat=]
+  snprintf(buf, 80, "%5ld reads/s, %5ld KB/s, %5ld writes/s, %5ld KB/s  ",
+                                                             ~~~^
+                                                             %5lld
+display.c:1266:5:
+     io_info->writesectors / 2);
+     ~~~~~~~~~~~~~~~~~~~~~~~~~                                   
+display.c: In function ‘i_disk’:
+display.c:1286:54: warning: format ‘%ld’ expects argument of type ‘long int’, but argument 6 has type ‘int64_t’ {aka ‘long long int’} [-Wformat=]
+  snprintf(buf, 80, "%2.1f GB total, %2.1f GB free (%ld%% used)",
+                                                    ~~^
+                                                    %lld
+display.c:1289:5:
+     disk_info->size == 0 ? 100 : (disk_info->size - disk_info->avail) * 100 / disk_info->size);
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+display.c: In function ‘display_pagerend’:
+display.c:1615:9: warning: ignoring return value of ‘read’, declared with attribute warn_unused_result [-Wunused-result]
+  (void) read(0, &ch, 1);
+         ^~~~~~~~~~~~~~~
+display.c: In function ‘display_pager’:
+display.c:1634:12: warning: ignoring return value of ‘read’, declared with attribute warn_unused_result [-Wunused-result]
+     (void) read(0, &readch, 1);
+            ^~~~~~~~~~~~~~~~~~~
+machine/m_linux.c: In function ‘get_io_info’:
+machine/m_linux.c:1702:34: warning: format ‘%ld’ expects argument of type ‘long int *’, but argument 6 has type ‘int64_t *’ {aka ‘long long int *’} [-Wformat=]
+   i = sscanf(line, "%d %d %31s %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld",
+                                ~~^
+                                %lld
+machine/m_linux.c:1704:8:
+        &reads, &skip, &readsectors, &skip,
+        ~~~~~~                     
+machine/m_linux.c:1702:38: warning: format ‘%ld’ expects argument of type ‘long int *’, but argument 7 has type ‘int64_t *’ {aka ‘long long int *’} [-Wformat=]
+   i = sscanf(line, "%d %d %31s %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld",
+                                    ~~^
+                                    %lld
+machine/m_linux.c:1704:16:
+        &reads, &skip, &readsectors, &skip,
+                ~~~~~                  
+machine/m_linux.c:1702:42: warning: format ‘%ld’ expects argument of type ‘long int *’, but argument 8 has type ‘int64_t *’ {aka ‘long long int *’} [-Wformat=]
+   i = sscanf(line, "%d %d %31s %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld",
+                                        ~~^
+                                        %lld
+machine/m_linux.c:1704:23:
+        &reads, &skip, &readsectors, &skip,
+                       ~~~~~~~~~~~~        
+machine/m_linux.c:1702:46: warning: format ‘%ld’ expects argument of type ‘long int *’, but argument 9 has type ‘int64_t *’ {aka ‘long long int *’} [-Wformat=]
+   i = sscanf(line, "%d %d %31s %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld",
+                                            ~~^
+                                            %lld
+machine/m_linux.c:1704:37:
+        &reads, &skip, &readsectors, &skip,
+                                     ~~~~~     
+machine/m_linux.c:1702:50: warning: format ‘%ld’ expects argument of type ‘long int *’, but argument 10 has type ‘int64_t *’ {aka ‘long long int *’} [-Wformat=]
+   i = sscanf(line, "%d %d %31s %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld",
+                                                ~~^
+                                                %lld
+machine/m_linux.c:1705:8:
+        &writes, &skip, &writesectors, &skip,
+        ~~~~~~~                                    
+machine/m_linux.c:1702:54: warning: format ‘%ld’ expects argument of type ‘long int *’, but argument 11 has type ‘int64_t *’ {aka ‘long long int *’} [-Wformat=]
+   i = sscanf(line, "%d %d %31s %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld",
+                                                    ~~^
+                                                    %lld
+machine/m_linux.c:1705:17:
+        &writes, &skip, &writesectors, &skip,
+                 ~~~~~                                 
+machine/m_linux.c:1702:58: warning: format ‘%ld’ expects argument of type ‘long int *’, but argument 12 has type ‘int64_t *’ {aka ‘long long int *’} [-Wformat=]
+   i = sscanf(line, "%d %d %31s %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld",
+                                                        ~~^
+                                                        %lld
+machine/m_linux.c:1705:24:
+        &writes, &skip, &writesectors, &skip,
+                        ~~~~~~~~~~~~~                      
+machine/m_linux.c:1702:62: warning: format ‘%ld’ expects argument of type ‘long int *’, but argument 13 has type ‘int64_t *’ {aka ‘long long int *’} [-Wformat=]
+   i = sscanf(line, "%d %d %31s %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld",
+                                                            ~~^
+                                                            %lld
+machine/m_linux.c:1705:39:
+        &writes, &skip, &writesectors, &skip,
+                                       ~~~~~                   
+machine/m_linux.c:1702:66: warning: format ‘%ld’ expects argument of type ‘long int *’, but argument 14 has type ‘int64_t *’ {aka ‘long long int *’} [-Wformat=]
+   i = sscanf(line, "%d %d %31s %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld",
+                                                                ~~^
+                                                                %lld
+machine/m_linux.c:1706:8:
+        &skip, &skip, &skip);
+        ~~~~~                                                      
+machine/m_linux.c:1702:70: warning: format ‘%ld’ expects argument of type ‘long int *’, but argument 15 has type ‘int64_t *’ {aka ‘long long int *’} [-Wformat=]
+   i = sscanf(line, "%d %d %31s %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld",
+                                                                    ~~^
+                                                                    %lld
+machine/m_linux.c:1706:15:
+        &skip, &skip, &skip);
+               ~~~~~                                                   
+machine/m_linux.c:1702:74: warning: format ‘%ld’ expects argument of type ‘long int *’, but argument 16 has type ‘int64_t *’ {aka ‘long long int *’} [-Wformat=]
+   i = sscanf(line, "%d %d %31s %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld",
+                                                                        ~~^
+                                                                        %lld
+machine/m_linux.c:1706:22:
+        &skip, &skip, &skip);
+                      ~~~~~                                                
+machine/m_linux.c: In function ‘machine_init’:
+machine/m_linux.c:393:2: warning: ignoring return value of ‘chdir’, declared with attribute warn_unused_result [-Wunused-result]
+  chdir(PROCFS);
+  ^~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -L/usr/lib/arm-linux-gnueabihf -Wl,-z,relro -L/usr/lib/arm-linux-gnueabihf -o pg_top color.o commands.o display.o getopt.o screen.o sprompt.o pg.o pg_top.o username.o utils.o version.o machine/m_remote.o machine/m_common.o machine/m_linux.o -lpq -ldl -lm -ltermcap -lpq 
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_test -a
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary-arch
+dh binary-arch
+   dh_testroot -a
+   dh_prep -a
+   dh_auto_install -a
+	make -j16 install DESTDIR=/<<PKGBUILDDIR>>/debian/pgtop AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+make  install-am
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/pgtop/usr/bin'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/pgtop/usr/share/man/man1'
+  /usr/bin/install -c pg_top '/<<PKGBUILDDIR>>/debian/pgtop/usr/bin'
+ /usr/bin/install -c -m 644 pg_top.1 '/<<PKGBUILDDIR>>/debian/pgtop/usr/share/man/man1'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_install -a
+   dh_installdocs -a
+   dh_installchangelogs -a
+   dh_installman -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   dh_missing -a
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/pgtop/usr/bin/pg_top was not linked against libdl.so.2 (it uses none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/pgtop/usr/bin/pg_top was not linked against libm.so.6 (it uses none of the library's symbols)
+   dh_installdeb -a
+   dh_gencontrol -a
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'pgtop' in '../pgtop_3.7.0-18-gbbf1f12-3_armhf.deb'.
+dpkg-deb: building package 'pgtop-dbgsym' in '../pgtop-dbgsym_3.7.0-18-gbbf1f12-3_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../pgtop_3.7.0-18-gbbf1f12-3_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-07T19:54:31Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+pgtop_3.7.0-18-gbbf1f12-3_armhf.changes:
+----------------------------------------
+
+Format: 1.8
+Date: Thu, 07 Feb 2019 11:35:29 +0100
+Source: pgtop
+Binary: pgtop pgtop-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 3.7.0-18-gbbf1f12-3
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Debian PostgreSQL Maintainers <team+postgresql@tracker.debian.org>
+Changed-By: Christoph Berg <myon@debian.org>
+Description:
+ pgtop      - PostgreSQL performance monitoring tool akin to top
+Changes:
+ pgtop (3.7.0-18-gbbf1f12-3) unstable; urgency=medium
+ .
+   * Move back to Architecture: linux-any, pgtop needs actual porting to other
+     platforms.
+   * Update PostgreSQL Maintainers address.
+Checksums-Sha1:
+ 6cd8a1034b73aab85e965debdc194164e32ee2d9 124360 pgtop-dbgsym_3.7.0-18-gbbf1f12-3_armhf.deb
+ 839f409c098660323b55c05e0ad7c1381e886ccc 5140 pgtop_3.7.0-18-gbbf1f12-3_armhf.buildinfo
+ 6231b51f8b5cec70be466e64e7fbc06ccdaa87a5 49216 pgtop_3.7.0-18-gbbf1f12-3_armhf.deb
+Checksums-Sha256:
+ a76b5c05145ee56ae96756eb3df544676ec8432bda129e48acd4387e66a46aaa 124360 pgtop-dbgsym_3.7.0-18-gbbf1f12-3_armhf.deb
+ 796c371ed5c9e15b46aebd6568c6b8317786b07d8c1f2c3d3fa93080e9f94fa7 5140 pgtop_3.7.0-18-gbbf1f12-3_armhf.buildinfo
+ e419c047a2f40b61c6b03e1f7617bf3f7529c573d12687b5dbffdeca583c0780 49216 pgtop_3.7.0-18-gbbf1f12-3_armhf.deb
+Files:
+ f326b30abe2d1cebbed0edc4a81e57a7 124360 debug optional pgtop-dbgsym_3.7.0-18-gbbf1f12-3_armhf.deb
+ 81a993340acfd66e698b270502e4bbe3 5140 database optional pgtop_3.7.0-18-gbbf1f12-3_armhf.buildinfo
+ 09e5b84771dcce339c92cb7829d86fa5 49216 database optional pgtop_3.7.0-18-gbbf1f12-3_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: pgtop
+Binary: pgtop
+Architecture: armhf
+Version: 3.7.0-18-gbbf1f12-3
+Checksums-Md5:
+ f326b30abe2d1cebbed0edc4a81e57a7 124360 pgtop-dbgsym_3.7.0-18-gbbf1f12-3_armhf.deb
+ 09e5b84771dcce339c92cb7829d86fa5 49216 pgtop_3.7.0-18-gbbf1f12-3_armhf.deb
+Checksums-Sha1:
+ 6cd8a1034b73aab85e965debdc194164e32ee2d9 124360 pgtop-dbgsym_3.7.0-18-gbbf1f12-3_armhf.deb
+ 6231b51f8b5cec70be466e64e7fbc06ccdaa87a5 49216 pgtop_3.7.0-18-gbbf1f12-3_armhf.deb
+Checksums-Sha256:
+ a76b5c05145ee56ae96756eb3df544676ec8432bda129e48acd4387e66a46aaa 124360 pgtop-dbgsym_3.7.0-18-gbbf1f12-3_armhf.deb
+ e419c047a2f40b61c6b03e1f7617bf3f7529c573d12687b5dbffdeca583c0780 49216 pgtop_3.7.0-18-gbbf1f12-3_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Thu, 07 Mar 2019 19:54:30 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-15),
+ binutils-common (= 2.31.1-15),
+ binutils-x86-64-linux-gnu (= 2.31.1-15),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.6),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-3),
+ cpp (= 4:8.3.0-1),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-4),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.3.0-1),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.3.0-1),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-3),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.53-4),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.48-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-15),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-8),
+ libc-dev-bin (= 2.28-8),
+ libc6 (= 2.28-8),
+ libc6-dev (= 2.28-8),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcom-err2 (= 1.45.0-1),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.248),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgnutls30 (= 3.6.6-2),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libgssapi-krb5-2 (= 1.17-2),
+ libhogweed4 (= 3.4.1-1),
+ libicu63 (= 63.1-6),
+ libidn2-0 (= 2.0.5-1),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ libk5crypto3 (= 1.17-2),
+ libkeyutils1 (= 1.6-6),
+ libkrb5-3 (= 1.17-2),
+ libkrb5support0 (= 1.17-2),
+ libldap-2.4-2 (= 2.4.47+dfsg-3),
+ libldap-common (= 2.4.47+dfsg-3),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-4),
+ libmagic1 (= 1:5.35-4),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses-dev (= 6.1+20181013-2),
+ libncurses5-dev (= 6.1+20181013-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libnettle6 (= 3.4.1-1),
+ libp11-kit0 (= 0.23.15-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libpq-dev (= 11.2-2),
+ libpq5 (= 11.2-2),
+ libquadmath0 (= 8.3.0-2),
+ libsasl2-2 (= 2.1.27+dfsg-1),
+ libsasl2-modules-db (= 2.1.27+dfsg-1),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libssl1.1 (= 1.1.1b-1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtasn1-6 (= 4.13-3),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ po-debconf (= 1.0.21),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1549535729"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+pgtop-dbgsym_3.7.0-18-gbbf1f12-3_armhf.deb
+------------------------------------------
+
+ new Debian package, version 2.0.
+ size 124360 bytes: control archive=540 bytes.
+     380 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: pgtop-dbgsym
+ Source: pgtop
+ Version: 3.7.0-18-gbbf1f12-3
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian PostgreSQL Maintainers <team+postgresql@tracker.debian.org>
+ Installed-Size: 151
+ Depends: pgtop (= 3.7.0-18-gbbf1f12-3)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for pgtop
+ Build-Ids: bbbf192f576681eb75b7f5e2a7ee5d131da25c3b
+
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./usr/
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./usr/lib/
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./usr/lib/debug/.build-id/bb/
+-rw-r--r-- root/root    143480 2019-02-07 10:35 ./usr/lib/debug/.build-id/bb/bf192f576681eb75b7f5e2a7ee5d131da25c3b.debug
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./usr/share/
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2019-02-07 10:35 ./usr/share/doc/pgtop-dbgsym -> pgtop
+
+
+pgtop_3.7.0-18-gbbf1f12-3_armhf.deb
+-----------------------------------
+
+ new Debian package, version 2.0.
+ size 49216 bytes: control archive=932 bytes.
+     758 bytes,    21 lines      control              
+     497 bytes,     8 lines      md5sums              
+ Package: pgtop
+ Version: 3.7.0-18-gbbf1f12-3
+ Architecture: armhf
+ Maintainer: Debian PostgreSQL Maintainers <team+postgresql@tracker.debian.org>
+ Installed-Size: 99
+ Depends: libc6 (>= 2.11), libpq5, libtinfo6 (>= 6)
+ Enhances: postgresql
+ Breaks: ptop (<< 3.7.0-1~)
+ Replaces: ptop (<< 3.7.0-1~)
+ Section: database
+ Priority: optional
+ Homepage: https://git.postgresql.org/gitweb/?p=pg_top.git
+ Description: PostgreSQL performance monitoring tool akin to top
+  pg_top is a console-based tool for monitoring a PostgreSQL database.
+  .
+  With pg_top you can:
+    * View currently running SQL statement of a process
+    * View query plan of a currently running SELECT statement
+    * View locks held by a process
+    * View user table statistics
+    * View user index statistics
+
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./usr/
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./usr/bin/
+-rwxr-xr-x root/root     69316 2019-02-07 10:35 ./usr/bin/pg_top
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./usr/share/
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./usr/share/doc/pgtop/
+-rw-r--r-- root/root      3253 2016-04-28 19:51 ./usr/share/doc/pgtop/FAQ
+-rw-r--r-- root/root      2237 2016-04-28 19:51 ./usr/share/doc/pgtop/README
+-rw-r--r-- root/root      1708 2016-04-28 19:51 ./usr/share/doc/pgtop/TODO
+-rw-r--r-- root/root      2099 2019-02-07 10:35 ./usr/share/doc/pgtop/changelog.Debian.gz
+-rw-r--r-- root/root       940 2016-04-28 19:51 ./usr/share/doc/pgtop/changelog.gz
+-rw-r--r-- root/root      2229 2019-02-07 10:34 ./usr/share/doc/pgtop/copyright
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./usr/share/man/
+drwxr-xr-x root/root         0 2019-02-07 10:35 ./usr/share/man/man1/
+-rw-r--r-- root/root      5825 2019-02-07 10:35 ./usr/share/man/man1/pg_top.1.gz
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [537 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [626 B]
+Fetched 2126 B in 0s (194 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [840 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://cdn-fastly.deb.debian.org/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://cdn-fastly.deb.debian.org/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://cdn-fastly.deb.debian.org/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 10s (294 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 19400 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* dwz* gcc-8-base:armhf*
+  gettext* gettext-base* groff-base* intltool-debian* libapt-pkg-perl*
+  libarchive-zip-perl* libasan5:armhf* libatomic1:armhf* libbsd0* libc6:armhf*
+  libc6-dev:armhf* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclone-perl* libcom-err2:armhf* libcroco3*
+  libdb5.3:armhf* libdigest-hmac-perl* libelf1* libemail-valid-perl*
+  libexporter-tiny-perl* libffi6:armhf* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfuture-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libglib2.0-0* libgmp10:armhf* libgnutls30:armhf*
+  libgomp1:armhf* libgssapi-krb5-2:armhf* libhogweed4:armhf* libidn2-0:armhf*
+  libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* libk5crypto3:armhf* libkeyutils1:armhf*
+  libkrb5-3:armhf* libkrb5support0:armhf* libldap-2.4-2:armhf*
+  liblist-moreutils-perl* libncurses-dev:armhf* libncurses5-dev:armhf*
+  libncurses6* libncurses6:armhf* libncursesw6:armhf* libnet-dns-perl*
+  libnet-domain-tld-perl* libnet-ip-perl* libnettle6:armhf* libp11-kit0:armhf*
+  libparse-debianchangelog-perl* libpath-tiny-perl* libpipeline1*
+  libpq-dev:armhf* libpq5:armhf* libsasl2-2:armhf* libsasl2-modules-db:armhf*
+  libsigsegv2* libssl1.1:armhf* libstdc++-8-dev:armhf* libstdc++6:armhf*
+  libstruct-dumb-perl* libsub-name-perl* libtasn1-6:armhf*
+  libtext-levenshtein-perl* libtinfo6:armhf* libtool* libubsan1:armhf*
+  libuchardet0* libunistring2:armhf* lintian* linux-libc-dev:armhf* m4*
+  man-db* patchutils* po-debconf* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils*
+0 upgraded, 0 newly installed, 95 to remove and 0 not upgraded.
+After this operation, 104 MB disk space will be freed.
+(Reading database ... 20678 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libpq-dev:armhf (11.2-2) ...
+Removing libpq5:armhf (11.2-2) ...
+Removing libldap-2.4-2:armhf (2.4.47+dfsg-3) ...
+Removing libgnutls30:armhf (3.6.6-2) ...
+Removing libp11-kit0:armhf (0.23.15-2) ...
+Removing libncurses5-dev:armhf (6.1+20181013-2) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-8) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libgssapi-krb5-2:armhf (1.17-2) ...
+Removing libkrb5-3:armhf (1.17-2) ...
+Removing libcom-err2:armhf (1.45.0-1) ...
+Removing libsasl2-2:armhf (2.1.27+dfsg-1) ...
+Removing libsasl2-modules-db:armhf (2.1.27+dfsg-1) ...
+Removing libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libffi6:armhf (3.2.1-9) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libhogweed4:armhf (3.4.1-1) ...
+Removing libgmp10:armhf (2:6.1.2+dfsg-4) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libidn2-0:armhf (2.0.5-1) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libk5crypto3:armhf (1.17-2) ...
+Removing libkrb5support0:armhf (1.17-2) ...
+Removing libkeyutils1:armhf (1.6-6) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libnettle6:armhf (3.4.1-1) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libssl1.1:armhf (1.1.1b-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtasn1-6:armhf (4.13-3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libunistring2:armhf (0.9.10-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-3) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-8) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-8) ...
+(Reading database ... 16470 files and directories currently installed.)
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for libssl1.1:armhf (1.1.1b-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for libgssapi-krb5-2:armhf (1.17-2) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-8) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 15
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 9
+Job: /home/build/sbuild-setup/repo/pool/main/p/pgtop/pgtop_3.7.0-18-gbbf1f12-3.dsc
+Lintian: pass
+Machine Architecture: amd64
+Package: pgtop
+Package-Time: 28
+Source-Version: 3.7.0-18-gbbf1f12-3
+Space: n/a
+Status: successful
+Version: 3.7.0-18-gbbf1f12-3
+--------------------------------------------------------------------------------
+Finished at 2019-03-07T19:54:31Z
+Build needed 00:00:28, no disk space

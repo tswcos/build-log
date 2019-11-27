@@ -1,0 +1,2035 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| readline5 5.2+dfsg-3 (armhf)                 Wed, 06 Mar 2019 20:41:57 +0000 |
++==============================================================================+
+
+Package: readline5
+Version: 5.2+dfsg-3
+Source Version: 5.2+dfsg-3
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-d9f23d8f-05da-442b-b34f-347909225db7' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/readline5-OWCwvq/resolver-jbHJBL' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/r/readline5/readline5_5.2+dfsg-3.dsc exists in /home/build/sbuild-setup/repo/pool/main/r/readline5; copying to chroot
+I: NOTICE: Log filtering will replace 'build/readline5-OWCwvq/readline5-5.2+dfsg' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/readline5-OWCwvq' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 8.1.3), dpatch, lsb-release, libtinfo-dev, libncurses5-dev (>= 5.6), mawk | awk, texinfo, autotools-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 8.1.3), dpatch, lsb-release, libtinfo-dev, libncurses5-dev (>= 5.6), mawk, texinfo, autotools-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [450 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [535 B]
+Fetched 1942 B in 0s (138 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism distro-info-data dpatch dwz
+  gcc-8-base:armhf gettext gettext-base groff-base intltool-debian
+  libarchive-zip-perl libasan5:armhf libatomic1:armhf libbsd0 libc6:armhf
+  libc6-dev:armhf libcroco3 libelf1 libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgomp1:armhf libmpdec2
+  libncurses-dev:armhf libncurses5-dev:armhf libncurses6 libncurses6:armhf
+  libncursesw6:armhf libpipeline1 libpython3-stdlib libpython3.7-minimal
+  libpython3.7-stdlib libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf
+  libtext-unidecode-perl libtinfo-dev:armhf libtinfo6:armhf libtool
+  libubsan1:armhf libuchardet0 linux-libc-dev:armhf lsb-release m4 man-db
+  mime-support po-debconf python3 python3-minimal python3.7 python3.7-minimal
+  tex-common texinfo
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make curl gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  ncurses-doc:armhf libstdc++-8-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk lsb m4-doc apparmor less www-browser
+  libmail-box-perl python3-doc python3-tk python3-venv python3.7-venv
+  python3.7-doc binfmt-support texlive-base texlive-latex-base
+  texlive-generic-recommended texinfo-doc-nonfree texlive-fonts-recommended
+Recommended packages:
+  patchutils curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl
+  libglib2.0-data shared-mime-info xdg-user-dirs libgpm2 libgpm2:armhf
+  libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism distro-info-data dpatch dwz
+  gcc-8-base:armhf gettext gettext-base groff-base intltool-debian
+  libarchive-zip-perl libasan5:armhf libatomic1:armhf libbsd0 libc6:armhf
+  libc6-dev:armhf libcroco3 libelf1 libfile-stripnondeterminism-perl
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgomp1:armhf libmpdec2
+  libncurses-dev:armhf libncurses5-dev:armhf libncurses6 libncurses6:armhf
+  libncursesw6:armhf libpipeline1 libpython3-stdlib libpython3.7-minimal
+  libpython3.7-stdlib libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf
+  libtext-unidecode-perl libtinfo-dev:armhf libtinfo6:armhf libtool
+  libubsan1:armhf libuchardet0 linux-libc-dev:armhf lsb-release m4 man-db
+  mime-support po-debconf python3 python3-minimal python3.7 python3.7-minimal
+  sbuild-build-depends-main-dummy:armhf tex-common texinfo
+0 upgraded, 61 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1607 kB/25.6 MB of archives.
+After this operation, 115 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [960 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main amd64 tex-common all 6.11 [53.1 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main amd64 distro-info-data all 0.39 [6272 B]
+Get:4 http://cdn-fastly.deb.debian.org/debian sid/main amd64 dpatch all 2.0.38+nmu1 [89.7 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian sid/main amd64 lsb-release all 10.2018112800 [27.4 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian sid/main amd64 texinfo amd64 6.5.0.dfsg.1-5 [1429 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 1607 kB in 1s (1104 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16441 files and directories currently installed.)
+Preparing to unpack .../0-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../1-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../2-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../3-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../4-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../5-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package libpython3.7-minimal:amd64.
+Preparing to unpack .../6-libpython3.7-minimal_3.7.2-3_amd64.deb ...
+Unpacking libpython3.7-minimal:amd64 (3.7.2-3) ...
+Selecting previously unselected package python3.7-minimal.
+Preparing to unpack .../7-python3.7-minimal_3.7.2-3_amd64.deb ...
+Unpacking python3.7-minimal (3.7.2-3) ...
+Setting up libpython3.7-minimal:amd64 (3.7.2-3) ...
+Setting up python3.7-minimal (3.7.2-3) ...
+Selecting previously unselected package python3-minimal.
+(Reading database ... 17316 files and directories currently installed.)
+Preparing to unpack .../0-python3-minimal_3.7.2-1_amd64.deb ...
+Unpacking python3-minimal (3.7.2-1) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../1-mime-support_3.62_all.deb ...
+Unpacking mime-support (3.62) ...
+Selecting previously unselected package libmpdec2:amd64.
+Preparing to unpack .../2-libmpdec2_2.4.2-2_amd64.deb ...
+Unpacking libmpdec2:amd64 (2.4.2-2) ...
+Selecting previously unselected package libpython3.7-stdlib:amd64.
+Preparing to unpack .../3-libpython3.7-stdlib_3.7.2-3_amd64.deb ...
+Unpacking libpython3.7-stdlib:amd64 (3.7.2-3) ...
+Selecting previously unselected package python3.7.
+Preparing to unpack .../4-python3.7_3.7.2-3_amd64.deb ...
+Unpacking python3.7 (3.7.2-3) ...
+Selecting previously unselected package libpython3-stdlib:amd64.
+Preparing to unpack .../5-libpython3-stdlib_3.7.2-1_amd64.deb ...
+Unpacking libpython3-stdlib:amd64 (3.7.2-1) ...
+Setting up python3-minimal (3.7.2-1) ...
+Selecting previously unselected package python3.
+(Reading database ... 17753 files and directories currently installed.)
+Preparing to unpack .../00-python3_3.7.2-1_amd64.deb ...
+Unpacking python3 (3.7.2-1) ...
+Selecting previously unselected package tex-common.
+Preparing to unpack .../01-tex-common_6.11_all.deb ...
+Unpacking tex-common (6.11) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../02-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../03-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../04-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../05-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../06-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../07-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../08-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../09-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../10-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../11-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../12-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../13-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../14-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../15-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../16-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../17-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../18-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../19-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../20-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../21-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../22-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package distro-info-data.
+Preparing to unpack .../23-distro-info-data_0.39_all.deb ...
+Unpacking distro-info-data (0.39) ...
+Selecting previously unselected package dpatch.
+Preparing to unpack .../24-dpatch_2.0.38+nmu1_all.deb ...
+Unpacking dpatch (2.0.38+nmu1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../25-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../26-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../27-libc6_2.28-8_armhf.deb ...
+Unpacking libc6:armhf (2.28-8) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../28-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../29-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../30-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../31-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../32-libc6-dev_2.28-8_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-8) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../33-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../34-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../35-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../36-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../37-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../38-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../39-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses5-dev:armhf.
+Preparing to unpack .../40-libncurses5-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses5-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../41-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libtext-unidecode-perl.
+Preparing to unpack .../42-libtext-unidecode-perl_1.30-1_all.deb ...
+Unpacking libtext-unidecode-perl (1.30-1) ...
+Selecting previously unselected package libtinfo-dev:armhf.
+Preparing to unpack .../43-libtinfo-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package lsb-release.
+Preparing to unpack .../44-lsb-release_10.2018112800_all.deb ...
+Unpacking lsb-release (10.2018112800) ...
+Selecting previously unselected package texinfo.
+Preparing to unpack .../45-texinfo_6.5.0.dfsg.1-5_amd64.deb ...
+Unpacking texinfo (6.5.0.dfsg.1-5) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../46-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up mime-support (3.62) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up distro-info-data (0.39) ...
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up tex-common (6.11) ...
+update-language: texlive-base not installed and configured, doing nothing!
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up dpatch (2.0.38+nmu1) ...
+Setting up libmpdec2:amd64 (2.4.2-2) ...
+Setting up libtext-unidecode-perl (1.30-1) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up libpython3.7-stdlib:amd64 (3.7.2-3) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up texinfo (6.5.0.dfsg.1-5) ...
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-3) ...
+Setting up libpython3-stdlib:amd64 (3.7.2-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up python3.7 (3.7.2-3) ...
+Setting up po-debconf (1.0.21) ...
+Setting up python3 (3.7.2-1) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up lsb-release (10.2018112800) ...
+Setting up dh-autoreconf (19) ...
+Setting up libc6:armhf (2.28-8) ...
+Setting up libc6-dev:armhf (2.28-8) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libncurses5-dev:armhf (6.1+20181013-2) ...
+Setting up libtinfo-dev:armhf (6.1+20181013-2) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-8) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-15 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-8 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-15 binutils-arm-linux-gnueabihf_2.31.1-15 binutils-common_2.31.1-15 binutils-x86-64-linux-gnu_2.31.1-15 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.6 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-3 cpp_4:8.3.0-1 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.3.0-2cross1 cpp-arm-linux-gnueabihf_4:8.3.0-1 cross-config_2.6.15-2 crossbuild-essential-armhf_12.6 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.13-1 distro-info-data_0.39 dpatch_2.0.38+nmu1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.6-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-4 findutils_4.6.0+git+20190209-2 g++_4:8.3.0-1 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.3.0-2cross1 g++-arm-linux-gnueabihf_4:8.3.0-1 gcc_4:8.3.0-1 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.3.0-2cross1 gcc-8-arm-linux-gnueabihf-base_8.3.0-2cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.3.0-2cross1 gcc-arm-linux-gnueabihf_4:8.3.0-1 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.13-1 gnupg-l10n_2.2.13-1 gnupg-utils_2.2.13-1 gpg_2.2.13-1 gpg-agent_2.2.13-1 gpg-wks-client_2.2.13-1 gpg-wks-server_2.2.13-1 gpgconf_2.2.13-1 gpgsm_2.2.13-1 gpgv_2.2.13-1 grep_3.3-1 groff-base_1.22.4-3 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.53-4 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.3.0-2cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.3.0-2cross1 libattr1_1:2.4.48-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-15 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-8 libc-dev-bin_2.28-8 libc6_2.28-8 libc6-armhf-cross_2.28-7cross1 libc6-dev_2.28-8 libc6-dev-armhf-cross_2.28-7cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.6-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.248 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.6-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.3.0-2cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.3.0-2cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.3.0-2cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-3 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-4 libmagic1_1:5.35-4 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpdec2_2.4.2-2 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses5-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpython3-stdlib_3.7.2-1 libpython3.7-minimal_3.7.2-3 libpython3.7-stdlib_3.7.2-3 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.6-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.3.0-2cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.3.0-2cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtext-unidecode-perl_1.30-1 libtimedate-perl_2.3000-2 libtinfo-dev_6.1+20181013-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.3.0-2cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-4 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.20-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 lsb-release_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mime-support_3.62 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 python3_3.7.2-1 python3-minimal_3.7.2-1 python3.7_3.7.2-3 python3.7-minimal_3.7.2-3 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tex-common_6.11 texinfo_6.5.0.dfsg.1-5 tzdata_2018i-2 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.0
+Source: readline5
+Binary: libreadline5, libreadline-gplv2-dev, libreadline5-dbg
+Architecture: any
+Version: 5.2+dfsg-3
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Standards-Version: 3.9.6
+Build-Depends: debhelper (>= 8.1.3), dpatch, lsb-release, libtinfo-dev, libncurses5-dev (>= 5.6), mawk | awk, texinfo, autotools-dev
+Package-List:
+ libreadline-gplv2-dev deb libdevel extra arch=any
+ libreadline5 deb libs extra arch=any
+ libreadline5-dbg deb debug extra arch=any
+Checksums-Sha1:
+ 4ab5a12eab1d4d0905f2303b8cdeeb3b3a209d4c 664477 readline5_5.2+dfsg.orig.tar.gz
+ 871876f2230e566c0f8d3585fb379d4ca4701ec6 26095 readline5_5.2+dfsg-3.diff.gz
+Checksums-Sha256:
+ 3d509d6aab49853899bcd8c04603ee3cc25e96f51dddb7e81662c2ee67e0944c 664477 readline5_5.2+dfsg.orig.tar.gz
+ 7e86a9a1c4a00b954f490e0bd1507a6d8a6b2a85a404a4b049e98602bff5d4dd 26095 readline5_5.2+dfsg-3.diff.gz
+Files:
+ cb4f190fdffad9e38428df9962cd4f64 664477 readline5_5.2+dfsg.orig.tar.gz
+ e49dc2521624ef30234947635197ae0f 26095 readline5_5.2+dfsg-3.diff.gz
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+iQIcBAEBCgAGBQJVZiagAAoJEC0aqs8kRERCh1cP/3Fj3vKV2hLQZNyCQaKnLldq
+GuRUDtP3OiPmqiPCtq4k1/Tou69+3iU+EuI3OkPbD67r5J7pTlVn0NIv6L/IzMPs
+yjUGZw1dfURxNzlmExbo3wqopXLX638UQMxH/YX57gYxuFVy31XlN7A454sk36Yh
+AhkRWbpAjkvFyFgk8AhzYNRgotMR54ay8j7AuuKJ9AglgPtcq8St70TmA4Ze5HhT
+gyfyzINCKgF5Ny3eVGOT4W/pArlulZiqT2Wil6VyD4AhG/X5dfCW72YPwFs83enx
+3FOzRxW+uhTX1Q55GTlCZ3/uIeCdjfxGXMlHlAku7W0d/Dt4pjh91HvofHk5QvEj
+c9Qo9dE0Zq2c+Dl0fNmSx+tWJQ+5Nw97bqJib6WYLvUuw7Hm6V+CCi+f5Exz3jmB
+vhqysu212agEZj/uj2snttlyt/87pZfL3APuaPu6uoamXnFdALzkDVYLANtypKfB
+vCrKYQPmKYZSMm5JQgxleKkXLRMN4XSj9gB8lGxk7gOILhRY51nNpwGBhB7qI8dZ
+NjFgQmljuvFNxB3cA4jUP62Xg+2AUjaiUHtHTZ1nhAoTEi6cOdpztrk1iuDmDghh
+4i3tVm6b8rO93siPdV0ncLCcog/LLjZOIQRD4QbO6RFLaoU0Ew8gGFXShqk2udaU
+KHnI/xaRi4866ehB65bD
+=FREA
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Wed May 27 20:18:40 2015 UTC
+gpgv:                using RSA key 2D1AAACF24444442
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./readline5_5.2+dfsg-3.dsc
+dpkg-source: info: extracting readline5 in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking readline5_5.2+dfsg.orig.tar.gz
+dpkg-source: info: applying readline5_5.2+dfsg-3.diff.gz
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-d9f23d8f-05da-442b-b34f-347909225db7
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package readline5
+dpkg-buildpackage: info: source version 5.2+dfsg-3
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Helmut Grohne <helmut@subdivi.de>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dpatch  deapply-all  
+rl-no-non-DFSG-doc not applied to ./ .
+rl-no-rpath not applied to ./ .
+rl-no-cross-check not applied to ./ .
+rl-header not applied to ./ .
+rl-attribute not applied to ./ .
+rl-013 not applied to ./ .
+rl-012 not applied to ./ .
+rl-011 not applied to ./ .
+rl-010 not applied to ./ .
+rl-009 not applied to ./ .
+rl-008 not applied to ./ .
+rl-007 not applied to ./ .
+rl-006 not applied to ./ .
+rl-005 not applied to ./ .
+rl-004 not applied to ./ .
+rl-004 not applied to ./ .
+rl-003 not applied to ./ .
+rl-002 not applied to ./ .
+rl-001 not applied to ./ .
+rm -rf patch-stamp patch-stampT debian/patched
+dh_testdir
+dh_testroot
+rm -f configure*-stamp build*-stamp install-stamp
+rm -rf autom4te.cache
+rm -rf /<<PKGBUILDDIR>>/build
+rm -f doc/*.dvi
+rm -f debian/shlibs.local
+/usr/bin/make -f debian/rules unpatch
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dpatch  deapply-all  
+rl-no-non-DFSG-doc not applied to ./ .
+rl-no-rpath not applied to ./ .
+rl-no-cross-check not applied to ./ .
+rl-header not applied to ./ .
+rl-attribute not applied to ./ .
+rl-013 not applied to ./ .
+rl-012 not applied to ./ .
+rl-011 not applied to ./ .
+rl-010 not applied to ./ .
+rl-009 not applied to ./ .
+rl-008 not applied to ./ .
+rl-007 not applied to ./ .
+rl-006 not applied to ./ .
+rl-005 not applied to ./ .
+rl-004 not applied to ./ .
+rl-004 not applied to ./ .
+rl-003 not applied to ./ .
+rl-002 not applied to ./ .
+rl-001 not applied to ./ .
+rm -rf patch-stamp patch-stampT debian/patched
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+rm -f patch-stamp*
+find . -type d | xargs chmod g-s
+rm -f support/config.guess support/config.sub
+dh_clean
+dh_clean: Compatibility levels before 9 are deprecated (level 5 in use)
+ debian/rules build-arch
+test -d debian/patched || install -d debian/patched
+dpatch  apply-all  
+applying patch rl-001 to ./ ... ok.
+applying patch rl-002 to ./ ... ok.
+applying patch rl-003 to ./ ... ok.
+applying patch rl-004 to ./ ... ok.
+rl-004 already applied to ./ .
+applying patch rl-005 to ./ ... ok.
+applying patch rl-006 to ./ ... ok.
+applying patch rl-007 to ./ ... ok.
+applying patch rl-008 to ./ ... ok.
+applying patch rl-009 to ./ ... ok.
+applying patch rl-010 to ./ ... ok.
+applying patch rl-011 to ./ ... ok.
+applying patch rl-012 to ./ ... ok.
+applying patch rl-013 to ./ ... ok.
+applying patch rl-attribute to ./ ... ok.
+applying patch rl-header to ./ ... ok.
+applying patch rl-no-cross-check to ./ ... ok.
+applying patch rl-no-rpath to ./ ... ok.
+applying patch rl-no-non-DFSG-doc to ./ ... ok.
+dpatch  cat-all  >>patch-stampT
+mv -f patch-stampT patch-stamp
+dh_testdir
+cp -p /usr/share/misc/config.* ./support/
+rm -rf /<<PKGBUILDDIR>>/build
+mkdir /<<PKGBUILDDIR>>/build
+find . -type d | xargs chmod g-s
+cd /<<PKGBUILDDIR>>/build && \
+  CC=arm-linux-gnueabihf-gcc /<<PKGBUILDDIR>>/configure \
+	--with-curses --prefix=/usr\
+	--host=arm-linux-gnueabihf \
+	--libdir=/usr/lib/arm-linux-gnueabihf
+configure: WARNING: If you wanted to set the --build type, don't use --host.
+    If a cross compiler is detected then cross compile mode will be used.
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+
+Beginning configuration for readline-5.2 for arm-unknown-linux-gnueabihf
+
+checking whether make sets $(MAKE)... yes
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... maybe
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ANSI C... none needed
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for egrep... grep -E
+checking for ANSI C header files... no
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether arm-linux-gnueabihf-gcc needs -traditional... no
+checking for a BSD-compatible install... /usr/bin/install -c
+checking for ar... ar
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking for an ANSI C-conforming const... yes
+checking for function prototypes... yes
+checking whether char is unsigned... (cached) yes
+checking return type of signal handlers... void
+checking for size_t... yes
+checking for ssize_t... yes
+checking for ANSI C header files... (cached) no
+checking whether stat file-mode macros are broken... no
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for fcntl... yes
+checking for kill... yes
+checking for lstat... yes
+checking for memmove... yes
+checking for putenv... yes
+checking for select... yes
+checking for setenv... yes
+checking for setlocale... yes
+checking for strcasecmp... yes
+checking for strpbrk... yes
+checking for tcgetattr... yes
+checking for vsnprintf... yes
+checking for isascii... yes
+checking for isxdigit... yes
+checking for getpwent... yes
+checking for getpwnam... yes
+checking for getpwuid... yes
+checking for working strcoll... no
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking for unistd.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking varargs.h usability... no
+checking varargs.h presence... no
+checking for varargs.h... no
+checking stdarg.h usability... yes
+checking stdarg.h presence... yes
+checking for stdarg.h... yes
+checking for string.h... (cached) yes
+checking for strings.h... (cached) yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking locale.h usability... yes
+checking locale.h presence... yes
+checking for locale.h... yes
+checking pwd.h usability... yes
+checking pwd.h presence... yes
+checking for pwd.h... yes
+checking for memory.h... (cached) yes
+checking termcap.h usability... yes
+checking termcap.h presence... yes
+checking for termcap.h... yes
+checking termios.h usability... yes
+checking termios.h presence... yes
+checking for termios.h... yes
+checking termio.h usability... yes
+checking termio.h presence... yes
+checking for termio.h... yes
+checking sys/pte.h usability... no
+checking sys/pte.h presence... no
+checking for sys/pte.h... no
+checking sys/stream.h usability... no
+checking sys/stream.h presence... no
+checking for sys/stream.h... no
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/file.h usability... yes
+checking sys/file.h presence... yes
+checking for sys/file.h... yes
+checking for sys/ptem.h... no
+checking for type of signal functions... posix
+checking if signal handlers must be reinstalled when invoked... yes
+checking for presence of POSIX-style sigsetjmp/siglongjmp... missing
+checking for lstat... yes
+checking whether or not strcoll and strcmp differ... no
+checking whether the ctype macros accept non-ascii characters... no
+checking whether getpw functions are declared in pwd.h... yes
+checking whether termios.h defines TIOCGWINSZ... no
+checking whether sys/ioctl.h defines TIOCGWINSZ... yes
+checking whether signal handlers are of type void... yes
+checking for TIOCSTAT in sys/ioctl.h... no
+checking for FIONREAD in sys/ioctl.h... yes
+checking for speed_t in sys/types.h... no
+checking for struct winsize in sys/ioctl.h and termios.h... sys/ioctl.h
+checking for struct dirent.d_ino... yes
+checking for struct dirent.d_fileno... yes
+checking for tgetent... no
+checking for tgetent in -ltermcap... yes
+checking which library has the termcap functions... using libtermcap
+checking wctype.h usability... yes
+checking wctype.h presence... yes
+checking for wctype.h... yes
+checking wchar.h usability... yes
+checking wchar.h presence... yes
+checking for wchar.h... yes
+checking langinfo.h usability... yes
+checking langinfo.h presence... yes
+checking for langinfo.h... yes
+checking for mbsrtowcs... yes
+checking for mbrlen... yes
+checking for wcrtomb... yes
+checking for wcscoll... yes
+checking for wcsdup... yes
+checking for wcwidth... yes
+checking for wctype... yes
+checking whether mbrtowc and mbstate_t are properly declared... yes
+checking for iswlower... yes
+checking for iswupper... yes
+checking for towlower... yes
+checking for towupper... yes
+checking for iswctype... yes
+checking for nl_langinfo and CODESET... yes
+checking for wchar_t in wchar.h... yes
+checking for wctype_t in wctype.h... yes
+checking for wint_t in wctype.h... yes
+checking configuration for building shared libraries... supported
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating doc/Makefile
+config.status: creating examples/Makefile
+config.status: creating shlib/Makefile
+config.status: creating config.h
+config.status: executing default commands
+touch configure-stamp
+dh_testdir
+/usr/bin/make -C /<<PKGBUILDDIR>>/build \
+    SHOBJ_CFLAGS="-fPIC -D_REENTRANT" \
+    SHLIB_LIBS="-ltinfo"
+make[1]: Entering directory '/<<PKGBUILDDIR>>/build'
+rm -f readline.o
+rm -f vi_mode.o
+rm -f funmap.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/readline.c
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/vi_mode.c
+rm -f keymaps.o
+rm -f parens.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/funmap.c
+rm -f search.o
+rm -f rltty.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/keymaps.c
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/parens.c
+rm -f complete.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/search.c
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/rltty.c
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/complete.c
+rm -f bind.o
+rm -f isearch.o
+rm -f display.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/bind.c
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/isearch.c
+rm -f signals.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/display.c
+rm -f util.o
+rm -f kill.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/signals.c
+rm -f undo.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/util.c
+rm -f macro.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/kill.c
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/undo.c
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/macro.c
+rm -f input.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/input.c
+rm -f callback.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/callback.c
+rm -f terminal.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/terminal.c
+rm -f text.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/text.c
+rm -f nls.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/nls.c
+rm -f misc.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/misc.c
+rm -f compat.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/compat.c
+rm -f xmalloc.o
+/<<PKGBUILDDIR>>/search.c: In function ‘_rl_nsearch_init’:
+/<<PKGBUILDDIR>>/search.c:214:15: warning: too many arguments for format [-Wformat-extra-args]
+   rl_message ("%s", p, 0);
+               ^~~~
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/xmalloc.c
+rm -f history.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/history.c
+rm -f histexpand.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/histexpand.c
+rm -f histfile.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/histfile.c
+rm -f histsearch.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/histsearch.c
+rm -f shell.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/shell.c
+rm -f mbutil.o
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 /<<PKGBUILDDIR>>/mbutil.c
+rm -f tilde.o
+test -d shlib || mkdir shlib
+( cd shlib ; /usr/bin/make -w -j16 --jobserver-auth=3,4 all )
+make[2]: Entering directory '/<<PKGBUILDDIR>>/build/shlib'
+make[2]: warning: -j16 forced in submake: resetting jobserver mode.
+rm -f readline.so
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -DREADLINE_LIBRARY -c /<<PKGBUILDDIR>>/tilde.c
+rm -f vi_mode.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o readline.o /<<PKGBUILDDIR>>/readline.c 
+rm -f funmap.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o vi_mode.o /<<PKGBUILDDIR>>/vi_mode.c 
+rm -f keymaps.so
+rm -f parens.so
+rm -f search.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o keymaps.o /<<PKGBUILDDIR>>/keymaps.c 
+rm -f rltty.so
+rm -f complete.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o search.o /<<PKGBUILDDIR>>/search.c 
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o rltty.o /<<PKGBUILDDIR>>/rltty.c 
+rm -f bind.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o complete.o /<<PKGBUILDDIR>>/complete.c 
+rm -f isearch.so
+rm -f display.so
+rm -f signals.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o isearch.o /<<PKGBUILDDIR>>/isearch.c 
+rm -f util.so
+rm -f kill.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o signals.o /<<PKGBUILDDIR>>/signals.c 
+rm -f undo.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o util.o /<<PKGBUILDDIR>>/util.c 
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o kill.o /<<PKGBUILDDIR>>/kill.c 
+rm -f macro.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o undo.o /<<PKGBUILDDIR>>/undo.c 
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o macro.o /<<PKGBUILDDIR>>/macro.c 
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o parens.o /<<PKGBUILDDIR>>/parens.c 
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o funmap.o /<<PKGBUILDDIR>>/funmap.c 
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o bind.o /<<PKGBUILDDIR>>/bind.c 
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o display.o /<<PKGBUILDDIR>>/display.c 
+/<<PKGBUILDDIR>>/complete.c: In function ‘fnwidth’:
+/<<PKGBUILDDIR>>/complete.c:604:12: warning: implicit declaration of function ‘wcwidth’; did you mean ‘fnwidth’? [-Wimplicit-function-declaration]
+        w = wcwidth (wc);
+            ^~~~~~~
+            fnwidth
+/<<PKGBUILDDIR>>/histfile.c: In function ‘history_truncate_file’:
+/<<PKGBUILDDIR>>/histfile.c:401:7: warning: ignoring return value of ‘write’, declared with attribute warn_unused_result [-Wunused-result]
+       write (file, bp, chars_read - (bp - buffer));
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mv funmap.o funmap.so
+rm -f input.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o input.o /<<PKGBUILDDIR>>/input.c 
+mv keymaps.o keymaps.so
+rm -f callback.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o callback.o /<<PKGBUILDDIR>>/callback.c 
+mv parens.o parens.so
+rm -f terminal.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o terminal.o /<<PKGBUILDDIR>>/terminal.c 
+mv macro.o macro.so
+rm -f text.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o text.o /<<PKGBUILDDIR>>/text.c 
+mv undo.o undo.so
+rm -f nls.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o nls.o /<<PKGBUILDDIR>>/nls.c 
+/<<PKGBUILDDIR>>/display.c: In function ‘rl_redisplay’:
+/<<PKGBUILDDIR>>/display.c:726:15: warning: implicit declaration of function ‘wcwidth’ [-Wimplicit-function-declaration]
+        temp = wcwidth (wc);
+               ^~~~~~~
+/<<PKGBUILDDIR>>/mbutil.c: In function ‘_rl_find_next_mbchar_internal’:
+/<<PKGBUILDDIR>>/mbutil.c:118:12: warning: implicit declaration of function ‘wcwidth’ [-Wimplicit-function-declaration]
+        if (wcwidth (wc) == 0)
+            ^~~~~~~
+mv util.o util.so
+mv kill.o kill.so
+rm -f misc.so
+rm -f xmalloc.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o misc.o /<<PKGBUILDDIR>>/misc.c 
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o xmalloc.o /<<PKGBUILDDIR>>/xmalloc.c 
+/<<PKGBUILDDIR>>/search.c: In function ‘_rl_nsearch_init’:
+/<<PKGBUILDDIR>>/search.c:214:15: warning: too many arguments for format [-Wformat-extra-args]
+   rl_message ("%s", p, 0);
+               ^~~~
+mv search.o search.so
+rm -f history.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o history.o /<<PKGBUILDDIR>>/history.c 
+mv signals.o signals.so
+rm -f histexpand.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o histexpand.o /<<PKGBUILDDIR>>/histexpand.c 
+mv isearch.o isearch.so
+rm -f histfile.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o histfile.o /<<PKGBUILDDIR>>/histfile.c 
+mv rltty.o rltty.so
+rm -f histsearch.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o histsearch.o /<<PKGBUILDDIR>>/histsearch.c 
+rm -f libreadline.a
+rm -f libhistory.a
+ar cr libreadline.a readline.o vi_mode.o funmap.o keymaps.o parens.o search.o rltty.o complete.o bind.o isearch.o display.o signals.o util.o kill.o undo.o macro.o input.o callback.o terminal.o text.o nls.o misc.o compat.o xmalloc.o history.o histexpand.o histfile.o histsearch.o shell.o mbutil.o tilde.o
+ar cr libhistory.a history.o histexpand.o histfile.o histsearch.o shell.o mbutil.o xmalloc.o
+test -n "arm-linux-gnueabihf-ranlib" && arm-linux-gnueabihf-ranlib libhistory.a
+test -n "arm-linux-gnueabihf-ranlib" && arm-linux-gnueabihf-ranlib libreadline.a
+mv callback.o callback.so
+rm -f shell.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o shell.o /<<PKGBUILDDIR>>/shell.c 
+mv xmalloc.o xmalloc.so
+rm -f mbutil.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o mbutil.o /<<PKGBUILDDIR>>/mbutil.c 
+mv nls.o nls.so
+rm -f tilde.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -DREADLINE_LIBRARY -c -o tilde.o /<<PKGBUILDDIR>>/tilde.c
+mv readline.o readline.so
+rm -f compat.so
+arm-linux-gnueabihf-gcc -c -DHAVE_CONFIG_H   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I.. -I/<<PKGBUILDDIR>> -DRL_LIBRARY_VERSION='"5.2"' -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -g -O2 -fPIC -D_REENTRANT -o compat.o /<<PKGBUILDDIR>>/compat.c 
+mv compat.o compat.so
+mv input.o input.so
+mv vi_mode.o vi_mode.so
+mv histsearch.o histsearch.so
+mv shell.o shell.so
+mv terminal.o terminal.so
+mv misc.o misc.so
+/<<PKGBUILDDIR>>/histfile.c: In function ‘history_truncate_file’:
+/<<PKGBUILDDIR>>/histfile.c:401:7: warning: ignoring return value of ‘write’, declared with attribute warn_unused_result [-Wunused-result]
+       write (file, bp, chars_read - (bp - buffer));
+       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mv histfile.o histfile.so
+mv tilde.o tilde.so
+mv history.o history.so
+/<<PKGBUILDDIR>>/mbutil.c: In function ‘_rl_find_next_mbchar_internal’:
+/<<PKGBUILDDIR>>/mbutil.c:118:12: warning: implicit declaration of function ‘wcwidth’ [-Wimplicit-function-declaration]
+        if (wcwidth (wc) == 0)
+            ^~~~~~~
+mv mbutil.o mbutil.so
+/<<PKGBUILDDIR>>/complete.c: In function ‘fnwidth’:
+/<<PKGBUILDDIR>>/complete.c:604:12: warning: implicit declaration of function ‘wcwidth’; did you mean ‘fnwidth’? [-Wimplicit-function-declaration]
+        w = wcwidth (wc);
+            ^~~~~~~
+            fnwidth
+mv complete.o complete.so
+mv bind.o bind.so
+mv text.o text.so
+mv histexpand.o histexpand.so
+rm -f libhistory.so.5.2
+arm-linux-gnueabihf-gcc -shared -Wl,-soname,libhistory.so.5.2 -Wl,-z,relro -Wl,-soname,`basename libhistory.so.5.2 .2` -o libhistory.so.5.2 history.so histexpand.so histfile.so histsearch.so shell.so mbutil.so xmalloc.so -ltinfo
+/<<PKGBUILDDIR>>/display.c: In function ‘rl_redisplay’:
+/<<PKGBUILDDIR>>/display.c:726:15: warning: implicit declaration of function ‘wcwidth’ [-Wimplicit-function-declaration]
+        temp = wcwidth (wc);
+               ^~~~~~~
+mv display.o display.so
+rm -f libreadline.so.5.2
+arm-linux-gnueabihf-gcc -shared -Wl,-soname,libreadline.so.5.2 -Wl,-z,relro -Wl,-soname,`basename libreadline.so.5.2 .2` -o libreadline.so.5.2 readline.so vi_mode.so funmap.so keymaps.so parens.so search.so rltty.so complete.so bind.so isearch.so display.so signals.so util.so kill.so undo.so macro.so input.so callback.so terminal.so text.so nls.so misc.so xmalloc.so history.so histexpand.so histfile.so histsearch.so shell.so mbutil.so tilde.so compat.so -ltinfo
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/build/shlib'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>/build'
+/usr/bin/make -C /<<PKGBUILDDIR>>/build/doc info
+make[1]: Entering directory '/<<PKGBUILDDIR>>/build/doc'
+make[1]: Nothing to be done for 'info'.
+make[1]: Leaving directory '/<<PKGBUILDDIR>>/build/doc'
+touch build-stamp
+ fakeroot debian/rules binary-arch
+dh_testdir
+dh_testroot
+dh_clean -k
+dh_clean: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_clean: dh_clean -k is deprecated; use dh_prep instead
+dh_clean: This feature will be removed in compat 12.
+rm -rf debian/tmp
+mkdir -p debian/tmp/usr/bin
+/usr/bin/make -C /<<PKGBUILDDIR>>/build install \
+    CFLAGS="-g -O2 -D_REENTRANT" \
+    DESTDIR=/<<PKGBUILDDIR>>/debian/tmp \
+    mandir=/usr/share/man \
+    infodir=/usr/share/info
+make[1]: Entering directory '/<<PKGBUILDDIR>>/build'
+/bin/sh /<<PKGBUILDDIR>>/support/mkinstalldirs /<<PKGBUILDDIR>>/debian/tmp/usr/include \
+	/<<PKGBUILDDIR>>/debian/tmp/usr/include/readline /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf \
+	/<<PKGBUILDDIR>>/debian/tmp/usr/share/info /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man3
+mkdir -p -- /<<PKGBUILDDIR>>/debian/tmp/usr/include /<<PKGBUILDDIR>>/debian/tmp/usr/include/readline /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf /<<PKGBUILDDIR>>/debian/tmp/usr/share/info /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man3
+test -d shlib || mkdir shlib
+for f in readline.h chardefs.h keymaps.h history.h tilde.h rlstdc.h rlconf.h rltypedefs.h; do \
+	/usr/bin/install -c -m 644 /<<PKGBUILDDIR>>/$f /<<PKGBUILDDIR>>/debian/tmp/usr/include/readline ; \
+done
+( if test -d doc ; then \
+	cd doc && \
+	/usr/bin/make -w -j16 --jobserver-auth=3,4 infodir=/usr/share/info DESTDIR=/<<PKGBUILDDIR>>/debian/tmp install; \
+  fi )
+( cd shlib ; /usr/bin/make -w -j16 --jobserver-auth=3,4 all )
+make[2]: Entering directory '/<<PKGBUILDDIR>>/build/shlib'
+make[2]: warning: -j16 forced in submake: resetting jobserver mode.
+make[2]: Entering directory '/<<PKGBUILDDIR>>/build/doc'
+make[2]: warning: -j16 forced in submake: resetting jobserver mode.
+/bin/sh /<<PKGBUILDDIR>>/support/mkdirs /<<PKGBUILDDIR>>/debian/tmp/usr/share/info /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man3
+if test -n "" ; then \
+	/bin/sh /<<PKGBUILDDIR>>/support/mkdirs /<<PKGBUILDDIR>>/debian/tmp ; \
+fi
+if test -f readline.info; then \
+	/usr/bin/install -c -m 644 readline.info /<<PKGBUILDDIR>>/debian/tmp/usr/share/info/readline.info; \
+fi
+if test -f rluserman.info; then \
+	/usr/bin/install -c -m 644 rluserman.info /<<PKGBUILDDIR>>/debian/tmp/usr/share/info/rluserman.info; \
+fi
+if test -f history.info; then \
+	/usr/bin/install -c -m 644 history.info /<<PKGBUILDDIR>>/debian/tmp/usr/share/info/history.info; \
+fi
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/build/shlib'
+if /bin/sh -c 'install-info --version' >/dev/null 2>&1; then \
+	install-info --dir-file=/<<PKGBUILDDIR>>/debian/tmp/usr/share/info/dir \
+		/<<PKGBUILDDIR>>/debian/tmp/usr/share/info/readline.info ; \
+	install-info --dir-file=/<<PKGBUILDDIR>>/debian/tmp/usr/share/info/dir \
+		/<<PKGBUILDDIR>>/debian/tmp/usr/share/info/history.info ; \
+	install-info --dir-file=/<<PKGBUILDDIR>>/debian/tmp/usr/share/info/dir \
+		/<<PKGBUILDDIR>>/debian/tmp/usr/share/info/rluserman.info ; \
+else true; fi
+/usr/bin/install -c -m 644 /<<PKGBUILDDIR>>/doc/readline.3 /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man3/readline.3
+/usr/bin/install -c -m 644 /<<PKGBUILDDIR>>/doc/history.3 /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man3/history.3
+if test -n "" ; then \
+	if test -f readline.html; then \
+		/usr/bin/install -c -m 644 readline.html /<<PKGBUILDDIR>>/debian/tmp/readline.html; \
+	else \
+		/usr/bin/install -c -m 644 /<<PKGBUILDDIR>>/doc/readline.html /<<PKGBUILDDIR>>/debian/tmp/readline.html; \
+	fi ; \
+	if test -f history.html; then \
+		/usr/bin/install -c -m 644 history.html /<<PKGBUILDDIR>>/debian/tmp/history.html; \
+	else \
+		/usr/bin/install -c -m 644 /<<PKGBUILDDIR>>/doc/history.html /<<PKGBUILDDIR>>/debian/tmp/history.html; \
+	fi ; \
+	if test -f rluserman.html; then \
+		/usr/bin/install -c -m 644 rluserman.html /<<PKGBUILDDIR>>/debian/tmp/rluserman.html; \
+	else \
+		/usr/bin/install -c -m 644 /<<PKGBUILDDIR>>/doc/rluserman.html /<<PKGBUILDDIR>>/debian/tmp/rluserman.html; \
+	fi ; \
+fi
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/build/doc'
+mv /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libreadline.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libreadline.old
+( cd shlib ; /usr/bin/make -w -j16 --jobserver-auth=3,4 DESTDIR=/<<PKGBUILDDIR>>/debian/tmp install )
+mv: cannot stat '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libreadline.a': No such file or directory
+make[1]: [Makefile:223: install-static] Error 1 (ignored)
+/usr/bin/install -c -m 644 libreadline.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libreadline.a
+make[2]: Entering directory '/<<PKGBUILDDIR>>/build/shlib'
+make[2]: warning: -j16 forced in submake: resetting jobserver mode.
+test -n "arm-linux-gnueabihf-ranlib" && arm-linux-gnueabihf-ranlib /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libreadline.a
+/bin/sh /<<PKGBUILDDIR>>/support/mkdirs /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf
+/bin/sh /<<PKGBUILDDIR>>/support/shlib-install -O linux-gnueabihf -d /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf -b /<<PKGBUILDDIR>>/debian/tmp/usr/bin -i "/usr/bin/install -c -m 644" libhistory.so.5.2
+mv /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libhistory.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libhistory.old
+mv: cannot stat '/<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libhistory.a': No such file or directory
+make[1]: [Makefile:226: install-static] Error 1 (ignored)
+/usr/bin/install -c -m 644 libhistory.a /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libhistory.a
+test -n "arm-linux-gnueabihf-ranlib" && arm-linux-gnueabihf-ranlib /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libhistory.a
+/bin/sh /<<PKGBUILDDIR>>/support/shlib-install -O linux-gnueabihf -d /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf -b /<<PKGBUILDDIR>>/debian/tmp/usr/bin -i "/usr/bin/install -c -m 644" libreadline.so.5.2
+install: you may need to run ldconfig
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/build/shlib'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>/build'
+: # move libreadline5
+dh_installdirs -plibreadline5 \
+	etc \
+	lib/arm-linux-gnueabihf \
+	usr/share/doc
+dh_installdirs: Compatibility levels before 9 are deprecated (level 5 in use)
+cp -a debian/tmp/usr/lib/arm-linux-gnueabihf/lib{history,readline}.so.* debian/libreadline5/lib/arm-linux-gnueabihf
+: # move readline-common
+: # move libreadline5-dbg
+dh_installdirs -plibreadline5-dbg \
+	usr/lib/debug \
+	usr/share/doc
+dh_installdirs: Compatibility levels before 9 are deprecated (level 5 in use)
+mv debian/tmp/usr/lib/arm-linux-gnueabihf/lib{history,readline}.so.5.2 \
+	debian/libreadline5-dbg/usr/lib/debug/.
+ln -s libhistory.so.5.2 \
+	debian/libreadline5-dbg/usr/lib/debug/libhistory.so.5
+ln -s libreadline.so.5.2 \
+	debian/libreadline5-dbg/usr/lib/debug/libreadline.so.5
+: # move libreadline-gplv2-dev
+dh_installdirs -plibreadline-gplv2-dev \
+	usr/lib/arm-linux-gnueabihf \
+	usr/share/doc
+dh_installdirs: Compatibility levels before 9 are deprecated (level 5 in use)
+ln -s /lib/arm-linux-gnueabihf/libhistory.so.5 debian/libreadline-gplv2-dev/usr/lib/arm-linux-gnueabihf/libhistory.so
+ln -s /lib/arm-linux-gnueabihf/libreadline.so.5 debian/libreadline-gplv2-dev/usr/lib/arm-linux-gnueabihf/libreadline.so
+mv debian/tmp/usr/lib/arm-linux-gnueabihf/lib{history,readline}.a	debian/libreadline-gplv2-dev/usr/lib/arm-linux-gnueabihf/.
+mv debian/tmp/usr/include debian/libreadline-gplv2-dev/usr/.
+: # remove HAVE_CONFIG_H from installed headers
+awk '/^#if defined \(HAVE_CONFIG_H\)/, /^#endif/ \
+     {if ($0 == "#else") print "#include <string.h>"; next} {print}' \
+  debian/libreadline-gplv2-dev/usr/include/readline/chardefs.h \
+  > debian/libreadline-gplv2-dev/usr/include/readline/chardefs.h.new
+if diff -u debian/libreadline-gplv2-dev/usr/include/readline/chardefs.h \
+	debian/libreadline-gplv2-dev/usr/include/readline/chardefs.h.new; \
+then \
+  rm -f debian/libreadline-gplv2-dev/usr/include/readline/chardefs.h.new; \
+else \
+  mv -f debian/libreadline-gplv2-dev/usr/include/readline/chardefs.h.new \
+    debian/libreadline-gplv2-dev/usr/include/readline/chardefs.h; \
+fi
+--- debian/libreadline-gplv2-dev/usr/include/readline/chardefs.h	2019-03-06 20:42:30.353930649 +0000
++++ debian/libreadline-gplv2-dev/usr/include/readline/chardefs.h.new	2019-03-06 20:42:30.653930645 +0000
+@@ -25,19 +25,7 @@
+ 
+ #include <ctype.h>
+ 
+-#if defined (HAVE_CONFIG_H)
+-#  if defined (HAVE_STRING_H)
+-#    if ! defined (STDC_HEADERS) && defined (HAVE_MEMORY_H)
+-#      include <memory.h>
+-#    endif
+-#    include <string.h>
+-#  endif /* HAVE_STRING_H */
+-#  if defined (HAVE_STRINGS_H)
+-#    include <strings.h>
+-#  endif /* HAVE_STRINGS_H */
+-#else
+-#  include <string.h>
+-#endif /* !HAVE_CONFIG_H */
++#include <string.h>
+ 
+ #ifndef whitespace
+ #define whitespace(c) (((c) == ' ') || ((c) == '\t'))
+touch install-stamp
+dh_testdir
+dh_testroot
+dh_installdocs -plibreadline5 \
+	USAGE debian/inputrc.arrows
+dh_installdocs: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_installchangelogs -plibreadline5 CHANGES
+dh_installexamples -plibreadline5 \
+	examples/Inputrc
+dh_installexamples: Compatibility levels before 9 are deprecated (level 5 in use)
+mkdir -p debian/libreadline-gplv2-dev/usr/share/doc/libreadline5/examples
+cp -p /<<PKGBUILDDIR>>/build/examples/Makefile examples/*.c \
+	debian/libreadline-gplv2-dev/usr/share/doc/libreadline5/examples/
+sed -i -e's,srcdir = .*/readline5-5.*/examples,srcdir = /usr/share/doc/libreadline5/examples,' \
+    -e's,VPATH = .:.*/readline5-5.*/examples,VPATH = .:/usr/share/doc/libreadline5/examples,' \
+    -e's,top_srcdir = .*/readline5-5.*,top_srcdir = /usr/include/readline/,' \
+    debian/libreadline-gplv2-dev/usr/share/doc/libreadline5/examples/Makefile
+ln -sf libreadline5 debian/libreadline-gplv2-dev/usr/share/doc/libreadline-gplv2-dev
+ln -sf libreadline5 debian/libreadline5-dbg/usr/share/doc/libreadline5-dbg
+dh_installdeb -s
+dh_installdeb: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_installdeb: -s/--same-arch is deprecated; please use -a/--arch instead
+dh_installdeb: This feature will be removed in compat 12.
+dh_gencontrol -s 
+dh_gencontrol: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_gencontrol: -s/--same-arch is deprecated; please use -a/--arch instead
+dh_gencontrol: This feature will be removed in compat 12.
+dpkg-gencontrol: warning: Depends field of package libreadline5: substitution variable ${shlibs:Depends} used, but is not defined
+dpkg-gencontrol: warning: Depends field of package libreadline5-dbg: substitution variable ${shlibs:Depends} used, but is not defined
+dpkg-gencontrol: warning: Depends field of package libreadline-gplv2-dev: substitution variable ${shlibs:Depends} used, but is not defined
+dh_md5sums -s
+dh_md5sums: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_md5sums: -s/--same-arch is deprecated; please use -a/--arch instead
+dh_md5sums: This feature will be removed in compat 12.
+dh_builddeb -s
+dh_builddeb: Compatibility levels before 9 are deprecated (level 5 in use)
+dh_builddeb: -s/--same-arch is deprecated; please use -a/--arch instead
+dh_builddeb: This feature will be removed in compat 12.
+dpkg-deb: building package 'libreadline5' in '../libreadline5_5.2+dfsg-3_armhf.deb'.
+dpkg-deb: building package 'libreadline-gplv2-dev' in '../libreadline-gplv2-dev_5.2+dfsg-3_armhf.deb'.
+dpkg-deb: building package 'libreadline5-dbg' in '../libreadline5-dbg_5.2+dfsg-3_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../readline5_5.2+dfsg-3_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-06T20:42:32Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+readline5_5.2+dfsg-3_armhf.changes:
+-----------------------------------
+
+Format: 1.8
+Date: Wed, 27 May 2015 22:15:17 +0200
+Source: readline5
+Binary: libreadline-gplv2-dev libreadline5 libreadline5-dbg
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 5.2+dfsg-3
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Changed-By: Helmut Grohne <helmut@subdivi.de>
+Description:
+ libreadline-gplv2-dev - GNU readline and history libraries, development files
+ libreadline5 - GNU readline and history libraries, run-time libraries
+ libreadline5-dbg - GNU readline and history libraries, debugging libraries
+Closes: 784669
+Changes:
+ readline5 (5.2+dfsg-3) unstable; urgency=medium
+ .
+   * QA upload.
+   * Enable hardening build flags.
+   * Remove unused multilib packages.
+   * Use architecture qualified compiler. Closes: #784669.
+   * Refer to GPL-2 instead of GPL{-3,} in copyright as the sole purpose of
+     this package is being licensed under GPL-2.
+   * Declare source format 1.0.
+   * Remove install-info from obsolete maintscripts and install-info
+     dependency to comply with Debian policy 12.2.
+   * Verified compliance with Debian policy 3.9.6.
+Checksums-Sha1:
+ 3d022af8fe1916d4d0001e65f3866edc4a564786 364624 libreadline-gplv2-dev_5.2+dfsg-3_armhf.deb
+ d7afe2de5f2089596277d3eba84ecae8c492df4b 279696 libreadline5-dbg_5.2+dfsg-3_armhf.deb
+ acd15b494cbbe5631c3fd6c96560c0a3c9dc9e5b 299964 libreadline5_5.2+dfsg-3_armhf.deb
+ 92ce996fae9f13ecc776b14079d39f07d7926670 5697 readline5_5.2+dfsg-3_armhf.buildinfo
+Checksums-Sha256:
+ 91586747eb67d9c790684888a3cc640811521c80aa80196a52197169e336b456 364624 libreadline-gplv2-dev_5.2+dfsg-3_armhf.deb
+ 6860894392ff6bf033b0e72ad416c3018730e4e50c9a6672493654a96d201e2c 279696 libreadline5-dbg_5.2+dfsg-3_armhf.deb
+ 25b4d3a5154cb20c173dcdc44f0ef2a4612660fdd66f21af9da7a1e57b31c8b6 299964 libreadline5_5.2+dfsg-3_armhf.deb
+ e4fdff85cf907f22943805b0f9f35889ec243805073e942f65ae1b897714502d 5697 readline5_5.2+dfsg-3_armhf.buildinfo
+Files:
+ 3c300de835e2828b7a1ffc5158865097 364624 libdevel extra libreadline-gplv2-dev_5.2+dfsg-3_armhf.deb
+ e0cd7bf367304ec8cc3aa1f7e216c6c7 279696 debug extra libreadline5-dbg_5.2+dfsg-3_armhf.deb
+ 66da8805e59582e7c9ac237578b74ea8 299964 libs extra libreadline5_5.2+dfsg-3_armhf.deb
+ 482d3b2d8c10485bcdb4997375a0c9e2 5697 libs extra readline5_5.2+dfsg-3_armhf.buildinfo
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: readline5
+Binary: libreadline5 libreadline-gplv2-dev libreadline5-dbg
+Architecture: armhf
+Version: 5.2+dfsg-3
+Checksums-Md5:
+ 3c300de835e2828b7a1ffc5158865097 364624 libreadline-gplv2-dev_5.2+dfsg-3_armhf.deb
+ e0cd7bf367304ec8cc3aa1f7e216c6c7 279696 libreadline5-dbg_5.2+dfsg-3_armhf.deb
+ 66da8805e59582e7c9ac237578b74ea8 299964 libreadline5_5.2+dfsg-3_armhf.deb
+Checksums-Sha1:
+ 3d022af8fe1916d4d0001e65f3866edc4a564786 364624 libreadline-gplv2-dev_5.2+dfsg-3_armhf.deb
+ d7afe2de5f2089596277d3eba84ecae8c492df4b 279696 libreadline5-dbg_5.2+dfsg-3_armhf.deb
+ acd15b494cbbe5631c3fd6c96560c0a3c9dc9e5b 299964 libreadline5_5.2+dfsg-3_armhf.deb
+Checksums-Sha256:
+ 91586747eb67d9c790684888a3cc640811521c80aa80196a52197169e336b456 364624 libreadline-gplv2-dev_5.2+dfsg-3_armhf.deb
+ 6860894392ff6bf033b0e72ad416c3018730e4e50c9a6672493654a96d201e2c 279696 libreadline5-dbg_5.2+dfsg-3_armhf.deb
+ 25b4d3a5154cb20c173dcdc44f0ef2a4612660fdd66f21af9da7a1e57b31c8b6 299964 libreadline5_5.2+dfsg-3_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Wed, 06 Mar 2019 20:42:32 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-15),
+ binutils-common (= 2.31.1-15),
+ binutils-x86-64-linux-gnu (= 2.31.1-15),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.6),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-3),
+ cpp (= 4:8.3.0-1),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ distro-info-data (= 0.39),
+ dpatch (= 2.0.38+nmu1),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-4),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.3.0-1),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.3.0-1),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-3),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.53-4),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.48-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-15),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-8),
+ libc-dev-bin (= 2.28-8),
+ libc6 (= 2.28-8),
+ libc6-dev (= 2.28-8),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.248),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libexpat1 (= 2.2.6-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-4),
+ libmagic1 (= 1:5.35-4),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpdec2 (= 2.4.2-2),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses-dev (= 6.1+20181013-2),
+ libncurses5-dev (= 6.1+20181013-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libpython3-stdlib (= 3.7.2-1),
+ libpython3.7-minimal (= 3.7.2-3),
+ libpython3.7-stdlib (= 3.7.2-3),
+ libquadmath0 (= 8.3.0-2),
+ libreadline7 (= 7.0-5),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libsqlite3-0 (= 3.27.2-1),
+ libssl1.1 (= 1.1.1b-1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtext-unidecode-perl (= 1.30-1),
+ libtinfo-dev (= 6.1+20181013-2),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml-libxml-perl (= 2.0134+dfsg-1),
+ libxml-namespacesupport-perl (= 1.12-1),
+ libxml-sax-base-perl (= 1.09-1),
+ libxml-sax-perl (= 1.00+dfsg-1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ lsb-release (= 10.2018112800),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ mime-support (= 3.62),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ po-debconf (= 1.0.21),
+ python3 (= 3.7.2-1),
+ python3-minimal (= 3.7.2-1),
+ python3.7 (= 3.7.2-3),
+ python3.7-minimal (= 3.7.2-3),
+ readline-common (= 7.0-5),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ tex-common (= 6.11),
+ texinfo (= 6.5.0.dfsg.1-5),
+ ucf (= 3.0038+nmu1),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1432757717"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+libreadline-gplv2-dev_5.2+dfsg-3_armhf.deb
+------------------------------------------
+
+ new Debian package, version 2.0.
+ size 364624 bytes: control archive=1288 bytes.
+     754 bytes,    21 lines      control              
+    1554 bytes,    21 lines      md5sums              
+ Package: libreadline-gplv2-dev
+ Source: readline5
+ Version: 5.2+dfsg-3
+ Architecture: armhf
+ Maintainer: Debian QA Group <packages@qa.debian.org>
+ Installed-Size: 1472
+ Depends: libreadline5 (= 5.2+dfsg-3), libtinfo-dev
+ Conflicts: libreadline-dev, libreadline5-dev, libreadline6-dev
+ Replaces: libreadline5-dev
+ Section: libdevel
+ Priority: extra
+ Multi-Arch: same
+ Description: GNU readline and history libraries, development files
+  The GNU readline library aids in the consistency of user interface
+  across discrete programs that need to provide a command line
+  interface.
+  .
+  The GNU history library provides a consistent user interface for
+  recalling lines of previously typed input.
+  .
+  This package contains as well the readline documentation in info format.
+
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/
+drwxrwxr-x root/root         0 2015-05-27 20:15 ./usr/include/
+drwxrwxr-x root/root         0 2015-05-27 20:15 ./usr/include/readline/
+-rw-rw-r-- root/root      4354 2015-05-27 20:15 ./usr/include/readline/chardefs.h
+-rw-r--r-- root/root     10228 2015-05-27 20:15 ./usr/include/readline/history.h
+-rw-r--r-- root/root      3529 2015-05-27 20:15 ./usr/include/readline/keymaps.h
+-rw-r--r-- root/root     34539 2015-05-27 20:15 ./usr/include/readline/readline.h
+-rw-r--r-- root/root      2305 2015-05-27 20:15 ./usr/include/readline/rlconf.h
+-rw-r--r-- root/root      1505 2015-05-27 20:15 ./usr/include/readline/rlstdc.h
+-rw-r--r-- root/root      2977 2015-05-27 20:15 ./usr/include/readline/rltypedefs.h
+-rw-r--r-- root/root      3167 2015-05-27 20:15 ./usr/include/readline/tilde.h
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/lib/
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/lib/arm-linux-gnueabihf/
+-rw-r--r-- root/root    170878 2015-05-27 20:15 ./usr/lib/arm-linux-gnueabihf/libhistory.a
+lrwxrwxrwx root/root         0 2015-05-27 20:15 ./usr/lib/arm-linux-gnueabihf/libhistory.so -> /lib/arm-linux-gnueabihf/libhistory.so.5
+-rw-r--r-- root/root   1193804 2015-05-27 20:15 ./usr/lib/arm-linux-gnueabihf/libreadline.a
+lrwxrwxrwx root/root         0 2015-05-27 20:15 ./usr/lib/arm-linux-gnueabihf/libreadline.so -> /lib/arm-linux-gnueabihf/libreadline.so.5
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/share/
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2015-05-27 20:15 ./usr/share/doc/libreadline-gplv2-dev -> libreadline5
+drwxrwxr-x root/root         0 2015-05-27 20:15 ./usr/share/doc/libreadline5/
+drwxrwxr-x root/root         0 2015-05-27 20:15 ./usr/share/doc/libreadline5/examples/
+-rw-rw-r-- root/root      3160 2015-05-27 20:15 ./usr/share/doc/libreadline5/examples/Makefile
+-rw-r--r-- root/root      5734 2006-03-21 15:07 ./usr/share/doc/libreadline5/examples/excallback.c
+-rw-r--r-- root/root     11469 2002-04-16 20:50 ./usr/share/doc/libreadline5/examples/fileman.c
+-rw-r--r-- root/root      2973 2005-08-02 20:21 ./usr/share/doc/libreadline5/examples/histexamp.c
+-rw-r--r-- root/root      3438 2002-04-16 20:53 ./usr/share/doc/libreadline5/examples/manexamp.c
+-rw-r--r-- root/root     11147 2004-04-22 20:52 ./usr/share/doc/libreadline5/examples/rl-fgets.c
+-rw-r--r-- root/root      3317 2005-08-02 20:23 ./usr/share/doc/libreadline5/examples/rl.c
+-rw-r--r-- root/root      3437 2005-08-02 20:24 ./usr/share/doc/libreadline5/examples/rlcat.c
+-rw-r--r-- root/root      6531 2005-09-29 13:45 ./usr/share/doc/libreadline5/examples/rlptytest.c
+-rw-r--r-- root/root      2284 2005-08-02 20:25 ./usr/share/doc/libreadline5/examples/rltest.c
+-rw-r--r-- root/root      1425 2005-08-02 20:23 ./usr/share/doc/libreadline5/examples/rlversion.c
+
+
+libreadline5-dbg_5.2+dfsg-3_armhf.deb
+-------------------------------------
+
+ new Debian package, version 2.0.
+ size 279696 bytes: control archive=680 bytes.
+     634 bytes,    19 lines      control              
+     133 bytes,     2 lines      md5sums              
+ Package: libreadline5-dbg
+ Source: readline5
+ Version: 5.2+dfsg-3
+ Architecture: armhf
+ Maintainer: Debian QA Group <packages@qa.debian.org>
+ Installed-Size: 907
+ Depends: libreadline5 (= 5.2+dfsg-3)
+ Suggests: libreadline-gplv2-dev
+ Conflicts: libreadline-dbg
+ Provides: libreadline-dbg
+ Section: debug
+ Priority: extra
+ Description: GNU readline and history libraries, debugging libraries
+  The GNU readline library aids in the consistency of user interface
+  across discrete programs that need to provide a command line
+  interface.
+  .
+  The GNU history library provides a consistent user interface for
+  recalling lines of previously typed input.
+
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/lib/
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/lib/debug/
+lrwxrwxrwx root/root         0 2015-05-27 20:15 ./usr/lib/debug/libhistory.so.5 -> libhistory.so.5.2
+-r-xr-xr-x root/root    132232 2015-05-27 20:15 ./usr/lib/debug/libhistory.so.5.2
+lrwxrwxrwx root/root         0 2015-05-27 20:15 ./usr/lib/debug/libreadline.so.5 -> libreadline.so.5.2
+-r-xr-xr-x root/root    785144 2015-05-27 20:15 ./usr/lib/debug/libreadline.so.5.2
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/share/
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2015-05-27 20:15 ./usr/share/doc/libreadline5-dbg -> libreadline5
+
+
+libreadline5_5.2+dfsg-3_armhf.deb
+---------------------------------
+
+ new Debian package, version 2.0.
+ size 299964 bytes: control archive=944 bytes.
+     548 bytes,    17 lines      control              
+     669 bytes,     9 lines      md5sums              
+      71 bytes,     2 lines      shlibs               
+ Package: libreadline5
+ Source: readline5
+ Version: 5.2+dfsg-3
+ Architecture: armhf
+ Maintainer: Debian QA Group <packages@qa.debian.org>
+ Installed-Size: 982
+ Depends: readline-common
+ Section: libs
+ Priority: extra
+ Multi-Arch: same
+ Description: GNU readline and history libraries, run-time libraries
+  The GNU readline library aids in the consistency of user interface
+  across discrete programs that need to provide a command line
+  interface.
+  .
+  The GNU history library provides a consistent user interface for
+  recalling lines of previously typed input.
+
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./etc/
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./lib/
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./lib/arm-linux-gnueabihf/
+lrwxrwxrwx root/root         0 2015-05-27 20:15 ./lib/arm-linux-gnueabihf/libhistory.so.5 -> libhistory.so.5.2
+-r-xr-xr-x root/root    132232 2015-05-27 20:15 ./lib/arm-linux-gnueabihf/libhistory.so.5.2
+lrwxrwxrwx root/root         0 2015-05-27 20:15 ./lib/arm-linux-gnueabihf/libreadline.so.5 -> libreadline.so.5.2
+-r-xr-xr-x root/root    785144 2015-05-27 20:15 ./lib/arm-linux-gnueabihf/libreadline.so.5.2
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/share/
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/share/doc/
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/share/doc/libreadline5/
+-rw-r--r-- root/root      2027 2015-05-27 20:15 ./usr/share/doc/libreadline5/README.Debian
+-rw-r--r-- root/root      2025 1999-07-23 14:09 ./usr/share/doc/libreadline5/USAGE
+-rw-r--r-- root/root     41471 2006-09-26 17:24 ./usr/share/doc/libreadline5/changelog
+-rw-r--r-- root/root     20440 2015-05-27 20:15 ./usr/share/doc/libreadline5/changelog.Debian
+-rw-r--r-- root/root      2203 2015-05-27 20:15 ./usr/share/doc/libreadline5/copyright
+drwxr-xr-x root/root         0 2015-05-27 20:15 ./usr/share/doc/libreadline5/examples/
+-rw-r--r-- root/root      2383 2002-04-16 20:56 ./usr/share/doc/libreadline5/examples/Inputrc
+-rw-r--r-- root/root       727 2015-05-27 20:15 ./usr/share/doc/libreadline5/inputrc.arrows
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [584 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [666 B]
+Fetched 2213 B in 0s (199 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://cdn-fastly.deb.debian.org/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://cdn-fastly.deb.debian.org/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://cdn-fastly.deb.debian.org/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://cdn-fastly.deb.debian.org/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 7s (414 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 20685 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+W: readline5 source: package-uses-deprecated-debhelper-compat-version 5
+W: readline5 source: dh-clean-k-is-deprecated
+W: readline5 source: build-depends-on-obsolete-package build-depends: dpatch
+W: readline5 source: patch-file-present-but-not-mentioned-in-series rl-attribute.dpatch
+W: readline5 source: patch-file-present-but-not-mentioned-in-series rl-header.dpatch
+W: readline5 source: patch-file-present-but-not-mentioned-in-series rl-no-cross-check.dpatch
+W: readline5 source: patch-file-present-but-not-mentioned-in-series rl-no-rpath.dpatch
+W: readline5 source: ancient-standards-version 3.9.6 (released 2014-09-17) (current is 4.3.0)
+W: readline5 source: debian-watch-file-should-mangle-version line 2
+E: libreadline5: unstripped-binary-or-object lib/arm-linux-gnueabihf/libhistory.so.5.2
+E: libreadline5: unstripped-binary-or-object lib/arm-linux-gnueabihf/libreadline.so.5.2
+E: libreadline5: missing-dependency-on-libc needed by lib/arm-linux-gnueabihf/libhistory.so.5.2 and 1 others
+E: libreadline5: changelog-file-not-compressed changelog
+E: libreadline5: changelog-file-not-compressed changelog.Debian
+W: libreadline5: priority-extra-is-replaced-by-priority-optional
+W: libreadline5: non-standard-executable-perm lib/arm-linux-gnueabihf/libhistory.so.5.2 0555 != 0755
+W: libreadline5: non-standard-executable-perm lib/arm-linux-gnueabihf/libreadline.so.5.2 0555 != 0755
+E: libreadline5: shlib-with-executable-bit lib/arm-linux-gnueabihf/libhistory.so.5.2 0555
+E: libreadline5: shlib-with-executable-bit lib/arm-linux-gnueabihf/libreadline.so.5.2 0555
+E: libreadline5: package-must-activate-ldconfig-trigger lib/arm-linux-gnueabihf/libreadline.so.5.2
+E: libreadline5-dbg: missing-dependency-on-libc needed by usr/lib/debug/libhistory.so.5.2 and 1 others
+W: libreadline5-dbg: priority-extra-is-replaced-by-priority-optional
+W: libreadline5-dbg: non-standard-executable-perm usr/lib/debug/libhistory.so.5.2 0555 != 0755
+W: libreadline5-dbg: non-standard-executable-perm usr/lib/debug/libreadline.so.5.2 0555 != 0755
+E: libreadline5-dbg: shlib-with-executable-bit usr/lib/debug/libhistory.so.5.2 0555
+E: libreadline5-dbg: shlib-with-executable-bit usr/lib/debug/libreadline.so.5.2 0555
+W: libreadline-gplv2-dev: priority-extra-is-replaced-by-priority-optional
+W: libreadline-gplv2-dev: non-standard-dir-perm usr/include/ 0775 != 0755
+W: libreadline-gplv2-dev: non-standard-dir-perm usr/include/readline/ 0775 != 0755
+W: libreadline-gplv2-dev: non-standard-file-perm usr/include/readline/chardefs.h 0664 != 0644
+W: libreadline-gplv2-dev: non-standard-dir-perm usr/share/doc/libreadline5/ 0775 != 0755
+W: libreadline-gplv2-dev: non-standard-dir-perm usr/share/doc/libreadline5/examples/ 0775 != 0755
+W: libreadline-gplv2-dev: non-standard-file-perm usr/share/doc/libreadline5/examples/Makefile 0664 != 0644
+
+E: Lintian run failed (policy violation)
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* distro-info-data* dpatch*
+  dwz* gcc-8-base:armhf* gettext* gettext-base* groff-base* intltool-debian*
+  libapt-pkg-perl* libarchive-zip-perl* libasan5:armhf* libatomic1:armhf*
+  libbsd0* libc6:armhf* libc6-dev:armhf* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclone-perl* libcroco3* libdigest-hmac-perl*
+  libelf1* libemail-valid-perl* libexporter-tiny-perl* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfuture-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libglib2.0-0* libgomp1:armhf* libio-async-perl*
+  libio-pty-perl* libipc-run-perl* libipc-system-simple-perl*
+  liblist-moreutils-perl* libmpdec2* libncurses-dev:armhf*
+  libncurses5-dev:armhf* libncurses6* libncurses6:armhf* libncursesw6:armhf*
+  libnet-dns-perl* libnet-domain-tld-perl* libnet-ip-perl*
+  libparse-debianchangelog-perl* libpath-tiny-perl* libpipeline1*
+  libpython3-stdlib* libpython3.7-minimal* libpython3.7-stdlib* libsigsegv2*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libstruct-dumb-perl*
+  libsub-name-perl* libtext-levenshtein-perl* libtext-unidecode-perl*
+  libtinfo-dev:armhf* libtinfo6:armhf* libtool* libubsan1:armhf* libuchardet0*
+  lintian* linux-libc-dev:armhf* lsb-release* m4* man-db* mime-support*
+  patchutils* po-debconf* python3* python3-minimal* python3.7*
+  python3.7-minimal* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* tex-common* texinfo*
+0 upgraded, 0 newly installed, 89 to remove and 0 not upgraded.
+After this operation, 125 MB disk space will be freed.
+(Reading database ... 21962 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing lsb-release (10.2018112800) ...
+Removing distro-info-data (0.39) ...
+Removing dpatch (2.0.38+nmu1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libtinfo-dev:armhf (6.1+20181013-2) ...
+Removing libncurses5-dev:armhf (6.1+20181013-2) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-8) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing python3 (3.7.2-1) ...
+Removing python3.7 (3.7.2-3) ...
+Removing libpython3-stdlib:amd64 (3.7.2-1) ...
+Removing libpython3.7-stdlib:amd64 (3.7.2-3) ...
+find: ‘/usr/lib/python3’: No such file or directory
+Removing libmpdec2:amd64 (2.4.2-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing python3-minimal (3.7.2-1) ...
+Removing python3.7-minimal (3.7.2-3) ...
+Removing libpython3.7-minimal:amd64 (3.7.2-3) ...
+find: ‘/usr/lib/python3’: No such file or directory
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing texinfo (6.5.0.dfsg.1-5) ...
+Running update-fmtutil. This may take some time. ... done.
+Removing libtext-unidecode-perl (1.30-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing mime-support (3.62) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing tex-common (6.11) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-3) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-8) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-8) ...
+(Reading database ... 16470 files and directories currently installed.)
+Purging configuration files for mime-support (3.62) ...
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for python3 (3.7.2-1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libpython3.7-minimal:amd64 (3.7.2-3) ...
+Purging configuration files for tex-common (6.11) ...
+dpkg: warning: while removing tex-common, directory '/usr/share/texmf' not empty so not removed
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for texinfo (6.5.0.dfsg.1-5) ...
+Purging configuration files for python3.7-minimal (3.7.2-3) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-8) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+Purging configuration files for dpatch (2.0.38+nmu1) ...
+Purging configuration files for lsb-release (10.2018112800) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 19
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 12
+Job: /home/build/sbuild-setup/repo/pool/main/r/readline5/readline5_5.2+dfsg-3.dsc
+Lintian: fail
+Machine Architecture: amd64
+Package: readline5
+Package-Time: 35
+Source-Version: 5.2+dfsg-3
+Space: n/a
+Status: successful
+Version: 5.2+dfsg-3
+--------------------------------------------------------------------------------
+Finished at 2019-03-06T20:42:32Z
+Build needed 00:00:35, no disk space

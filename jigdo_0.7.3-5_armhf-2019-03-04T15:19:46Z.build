@@ -1,0 +1,2085 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| jigdo 0.7.3-5 (armhf)                        Mon, 04 Mar 2019 15:19:46 +0000 |
++==============================================================================+
+
+Package: jigdo
+Version: 0.7.3-5
+Source Version: 0.7.3-5
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-f0ed0a92-796b-4a5c-a7b6-4c3e4c3fe41a' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/jigdo-gIU7jl/resolver-eWxkke' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Get:2 http://cdn-fastly.deb.debian.org/debian sid InRelease [242 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian sid/main Sources.diff/Index [27.9 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian sid/main Sources 2019-03-04-1413.48.pdiff [10.6 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian sid/main Sources 2019-03-04-1413.48.pdiff [10.6 kB]
+Fetched 281 kB in 3s (98.0 kB/s)
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/j/jigdo/jigdo_0.7.3-5.dsc exists in /home/build/sbuild-setup/repo/pool/main/j/jigdo; copying to chroot
+I: NOTICE: Log filtering will replace 'build/jigdo-gIU7jl/jigdo-0.7.3' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/jigdo-gIU7jl' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 9), zlib1g-dev, libbz2-dev, libdb-dev (>= 4.8), libglib2.0-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 9), zlib1g-dev, libbz2-dev, libdb-dev (>= 4.8), libglib2.0-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [423 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [511 B]
+Fetched 1891 B in 0s (158 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libblkid-dev:armhf libblkid1:armhf libbsd0 libbz2-1.0:armhf
+  libbz2-dev:armhf libc6:armhf libc6-dev:armhf libcroco3 libdb-dev:armhf
+  libdb5.3:armhf libdb5.3-dev:armhf libelf1 libffi-dev:armhf libffi6:armhf
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libglib2.0-0:armhf libglib2.0-bin libglib2.0-data
+  libglib2.0-dev:armhf libglib2.0-dev-bin libgomp1:armhf libmount-dev:armhf
+  libmount1:armhf libmpdec2 libncurses6 libpcre16-3:armhf libpcre3:armhf
+  libpcre3-dev:armhf libpcre32-3:armhf libpcrecpp0v5:armhf libpipeline1
+  libpython3-stdlib libpython3.7-minimal libpython3.7-stdlib libselinux1:armhf
+  libselinux1-dev:armhf libsepol1:armhf libsepol1-dev:armhf libsigsegv2
+  libstdc++-8-dev:armhf libstdc++6:armhf libtool libubsan1:armhf libuchardet0
+  libuuid1:armhf linux-libc-dev:armhf m4 man-db mime-support pkg-config
+  po-debconf python3 python3-distutils python3-lib2to3 python3-minimal
+  python3.7 python3.7-minimal uuid-dev:armhf zlib1g:armhf zlib1g-dev:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev groff
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  db5.3-doc:armhf libglib2.0-doc:armhf libgdk-pixbuf2.0-bin
+  | libgdk-pixbuf2.0-dev libxml2-utils libstdc++-8-doc:armhf libtool-doc
+  gfortran | fortran95-compiler gcj-jdk m4-doc apparmor less www-browser
+  libmail-box-perl python3-doc python3-tk python3-venv python3.7-venv
+  python3.7-doc binfmt-support
+Recommended packages:
+  curl | wget | lynx bzip2-doc:armhf libidn2-0:armhf libarchive-cpio-perl
+  shared-mime-info xdg-user-dirs shared-mime-info:armhf xdg-user-dirs:armhf
+  libgpm2 libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libblkid-dev:armhf libblkid1:armhf libbsd0 libbz2-1.0:armhf
+  libbz2-dev:armhf libc6:armhf libc6-dev:armhf libcroco3 libdb-dev:armhf
+  libdb5.3:armhf libdb5.3-dev:armhf libelf1 libffi-dev:armhf libffi6:armhf
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libglib2.0-0:armhf libglib2.0-bin libglib2.0-data
+  libglib2.0-dev:armhf libglib2.0-dev-bin libgomp1:armhf libmount-dev:armhf
+  libmount1:armhf libmpdec2 libncurses6 libpcre16-3:armhf libpcre3:armhf
+  libpcre3-dev:armhf libpcre32-3:armhf libpcrecpp0v5:armhf libpipeline1
+  libpython3-stdlib libpython3.7-minimal libpython3.7-stdlib libselinux1:armhf
+  libselinux1-dev:armhf libsepol1:armhf libsepol1-dev:armhf libsigsegv2
+  libstdc++-8-dev:armhf libstdc++6:armhf libtool libubsan1:armhf libuchardet0
+  libuuid1:armhf linux-libc-dev:armhf m4 man-db mime-support pkg-config
+  po-debconf python3 python3-distutils python3-lib2to3 python3-minimal
+  python3.7 python3.7-minimal sbuild-build-depends-main-dummy:armhf
+  uuid-dev:armhf zlib1g:armhf zlib1g-dev:armhf
+0 upgraded, 81 newly installed, 0 to remove and 0 not upgraded.
+Need to get 697 kB/32.4 MB of archives.
+After this operation, 135 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [932 B]
+Get:2 http://10.116.41.102/debian sid/main armhf libdb5.3-dev armhf 5.3.28+dfsg1-0.5 [694 kB]
+Get:3 http://10.116.41.102/debian sid/main armhf libdb-dev armhf 5.3.1+nmu1 [2500 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 697 kB in 0s (10.9 MB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../0-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../1-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../2-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../3-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../4-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../5-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package libpython3.7-minimal:amd64.
+Preparing to unpack .../6-libpython3.7-minimal_3.7.2-2_amd64.deb ...
+Unpacking libpython3.7-minimal:amd64 (3.7.2-2) ...
+Selecting previously unselected package python3.7-minimal.
+Preparing to unpack .../7-python3.7-minimal_3.7.2-2_amd64.deb ...
+Unpacking python3.7-minimal (3.7.2-2) ...
+Setting up libpython3.7-minimal:amd64 (3.7.2-2) ...
+Setting up python3.7-minimal (3.7.2-2) ...
+Selecting previously unselected package python3-minimal.
+(Reading database ... 17315 files and directories currently installed.)
+Preparing to unpack .../0-python3-minimal_3.7.2-1_amd64.deb ...
+Unpacking python3-minimal (3.7.2-1) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../1-mime-support_3.62_all.deb ...
+Unpacking mime-support (3.62) ...
+Selecting previously unselected package libmpdec2:amd64.
+Preparing to unpack .../2-libmpdec2_2.4.2-2_amd64.deb ...
+Unpacking libmpdec2:amd64 (2.4.2-2) ...
+Selecting previously unselected package libpython3.7-stdlib:amd64.
+Preparing to unpack .../3-libpython3.7-stdlib_3.7.2-2_amd64.deb ...
+Unpacking libpython3.7-stdlib:amd64 (3.7.2-2) ...
+Selecting previously unselected package python3.7.
+Preparing to unpack .../4-python3.7_3.7.2-2_amd64.deb ...
+Unpacking python3.7 (3.7.2-2) ...
+Selecting previously unselected package libpython3-stdlib:amd64.
+Preparing to unpack .../5-libpython3-stdlib_3.7.2-1_amd64.deb ...
+Unpacking libpython3-stdlib:amd64 (3.7.2-1) ...
+Setting up python3-minimal (3.7.2-1) ...
+Selecting previously unselected package python3.
+(Reading database ... 17749 files and directories currently installed.)
+Preparing to unpack .../00-python3_3.7.2-1_amd64.deb ...
+Unpacking python3 (3.7.2-1) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../01-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../02-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../03-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../04-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../05-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../06-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../07-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../08-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../09-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../10-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../11-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../12-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../13-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../14-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../15-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../16-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../17-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../18-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../19-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../20-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../21-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../22-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../23-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../24-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../25-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../26-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../27-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libuuid1:armhf.
+Preparing to unpack .../28-libuuid1_2.33.1-0.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libblkid1:armhf.
+Preparing to unpack .../29-libblkid1_2.33.1-0.1_armhf.deb ...
+Unpacking libblkid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../30-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../31-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package uuid-dev:armhf.
+Preparing to unpack .../32-uuid-dev_2.33.1-0.1_armhf.deb ...
+Unpacking uuid-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libblkid-dev:armhf.
+Preparing to unpack .../33-libblkid-dev_2.33.1-0.1_armhf.deb ...
+Unpacking libblkid-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libbz2-1.0:armhf.
+Preparing to unpack .../34-libbz2-1.0_1.0.6-9_armhf.deb ...
+Unpacking libbz2-1.0:armhf (1.0.6-9) ...
+Selecting previously unselected package libbz2-dev:armhf.
+Preparing to unpack .../35-libbz2-dev_1.0.6-9_armhf.deb ...
+Unpacking libbz2-dev:armhf (1.0.6-9) ...
+Selecting previously unselected package libdb5.3:armhf.
+Preparing to unpack .../36-libdb5.3_5.3.28+dfsg1-0.5_armhf.deb ...
+Unpacking libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Selecting previously unselected package libdb5.3-dev:armhf.
+Preparing to unpack .../37-libdb5.3-dev_5.3.28+dfsg1-0.5_armhf.deb ...
+Unpacking libdb5.3-dev:armhf (5.3.28+dfsg1-0.5) ...
+Selecting previously unselected package libdb-dev:armhf.
+Preparing to unpack .../38-libdb-dev_5.3.1+nmu1_armhf.deb ...
+Unpacking libdb-dev:armhf (5.3.1+nmu1) ...
+Selecting previously unselected package libffi6:armhf.
+Preparing to unpack .../39-libffi6_3.2.1-9_armhf.deb ...
+Unpacking libffi6:armhf (3.2.1-9) ...
+Selecting previously unselected package libffi-dev:armhf.
+Preparing to unpack .../40-libffi-dev_3.2.1-9_armhf.deb ...
+Unpacking libffi-dev:armhf (3.2.1-9) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../41-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../42-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../43-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libpcre3:armhf.
+Preparing to unpack .../44-libpcre3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre3:armhf (2:8.39-11) ...
+Selecting previously unselected package libselinux1:armhf.
+Preparing to unpack .../45-libselinux1_2.8-1+b1_armhf.deb ...
+Unpacking libselinux1:armhf (2.8-1+b1) ...
+Selecting previously unselected package libmount1:armhf.
+Preparing to unpack .../46-libmount1_2.33.1-0.1_armhf.deb ...
+Unpacking libmount1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../47-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libglib2.0-0:armhf.
+Preparing to unpack .../48-libglib2.0-0_2.58.3-1_armhf.deb ...
+Unpacking libglib2.0-0:armhf (2.58.3-1) ...
+Selecting previously unselected package libglib2.0-data.
+Preparing to unpack .../49-libglib2.0-data_2.58.3-1_all.deb ...
+Unpacking libglib2.0-data (2.58.3-1) ...
+Selecting previously unselected package libglib2.0-bin.
+Preparing to unpack .../50-libglib2.0-bin_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-bin (2.58.3-1) ...
+Selecting previously unselected package python3-lib2to3.
+Preparing to unpack .../51-python3-lib2to3_3.7.2-3_all.deb ...
+Unpacking python3-lib2to3 (3.7.2-3) ...
+Selecting previously unselected package python3-distutils.
+Preparing to unpack .../52-python3-distutils_3.7.2-3_all.deb ...
+Unpacking python3-distutils (3.7.2-3) ...
+Selecting previously unselected package libglib2.0-dev-bin.
+Preparing to unpack .../53-libglib2.0-dev-bin_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-dev-bin (2.58.3-1) ...
+Selecting previously unselected package libmount-dev:armhf.
+Preparing to unpack .../54-libmount-dev_2.33.1-0.1_armhf.deb ...
+Unpacking libmount-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libpcre16-3:armhf.
+Preparing to unpack .../55-libpcre16-3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre16-3:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcre32-3:armhf.
+Preparing to unpack .../56-libpcre32-3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre32-3:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcrecpp0v5:armhf.
+Preparing to unpack .../57-libpcrecpp0v5_2%3a8.39-11_armhf.deb ...
+Unpacking libpcrecpp0v5:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcre3-dev:armhf.
+Preparing to unpack .../58-libpcre3-dev_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre3-dev:armhf (2:8.39-11) ...
+Selecting previously unselected package libsepol1:armhf.
+Preparing to unpack .../59-libsepol1_2.8-1_armhf.deb ...
+Unpacking libsepol1:armhf (2.8-1) ...
+Selecting previously unselected package libsepol1-dev:armhf.
+Preparing to unpack .../60-libsepol1-dev_2.8-1_armhf.deb ...
+Unpacking libsepol1-dev:armhf (2.8-1) ...
+Selecting previously unselected package libselinux1-dev:armhf.
+Preparing to unpack .../61-libselinux1-dev_2.8-1+b1_armhf.deb ...
+Unpacking libselinux1-dev:armhf (2.8-1+b1) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../62-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package zlib1g-dev:armhf.
+Preparing to unpack .../63-zlib1g-dev_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libglib2.0-dev:armhf.
+Preparing to unpack .../64-libglib2.0-dev_2.58.3-1_armhf.deb ...
+Unpacking libglib2.0-dev:armhf (2.58.3-1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../65-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../66-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up mime-support (3.62) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libglib2.0-data (2.58.3-1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libmpdec2:amd64 (2.4.2-2) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up libpython3.7-stdlib:amd64 (3.7.2-2) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up libglib2.0-bin (2.58.3-1) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up libpython3-stdlib:amd64 (3.7.2-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up python3.7 (3.7.2-2) ...
+Setting up po-debconf (1.0.21) ...
+Setting up python3 (3.7.2-1) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up python3-lib2to3 (3.7.2-3) ...
+Setting up python3-distutils (3.7.2-3) ...
+Setting up libglib2.0-dev-bin (2.58.3-1) ...
+Setting up dh-autoreconf (19) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up libsepol1:armhf (2.8-1) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libbz2-1.0:armhf (1.0.6-9) ...
+Setting up libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Setting up libbz2-dev:armhf (1.0.6-9) ...
+Setting up libpcre16-3:armhf (2:8.39-11) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libsepol1-dev:armhf (2.8-1) ...
+Setting up debhelper (12.1.1) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libffi6:armhf (3.2.1-9) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libffi-dev:armhf (3.2.1-9) ...
+Setting up libpcre3:armhf (2:8.39-11) ...
+Setting up libpcre32-3:armhf (2:8.39-11) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libuuid1:armhf (2.33.1-0.1) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Setting up libdb5.3-dev:armhf (5.3.28+dfsg1-0.5) ...
+Setting up libblkid1:armhf (2.33.1-0.1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libpcrecpp0v5:armhf (2:8.39-11) ...
+Setting up libpcre3-dev:armhf (2:8.39-11) ...
+Setting up libselinux1:armhf (2.8-1+b1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up uuid-dev:armhf (2.33.1-0.1) ...
+Setting up libdb-dev:armhf (5.3.1+nmu1) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libmount1:armhf (2.33.1-0.1) ...
+Setting up libblkid-dev:armhf (2.33.1-0.1) ...
+Setting up libselinux1-dev:armhf (2.8-1+b1) ...
+Setting up libglib2.0-0:armhf (2.58.3-1) ...
+/var/lib/dpkg/info/libglib2.0-0:armhf.postinst: 47: /var/lib/dpkg/info/libglib2.0-0:armhf.postinst: /usr/lib/arm-linux-gnueabihf/glib-2.0/glib-compile-schemas: Exec format error
+/var/lib/dpkg/info/libglib2.0-0:armhf.postinst: 50: /var/lib/dpkg/info/libglib2.0-0:armhf.postinst: /usr/lib/arm-linux-gnueabihf/glib-2.0/gio-querymodules: Exec format error
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libmount-dev:armhf (2.33.1-0.1) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libglib2.0-dev:armhf (2.58.3-1) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid-dev_2.33.1-0.1 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libbz2-dev_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb-dev_5.3.1+nmu1 libdb5.3_5.3.28+dfsg1-0.5 libdb5.3-dev_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi-dev_3.2.1-9 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libglib2.0-bin_2.58.3-1 libglib2.0-data_2.58.3-1 libglib2.0-dev_2.58.3-1 libglib2.0-dev-bin_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount-dev_2.33.1-0.1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpdec2_2.4.2-2 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre16-3_2:8.39-11 libpcre3_2:8.39-11 libpcre3-dev_2:8.39-11 libpcre32-3_2:8.39-11 libpcrecpp0v5_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpython3-stdlib_3.7.2-1 libpython3.7-minimal_3.7.2-2 libpython3.7-stdlib_3.7.2-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libselinux1-dev_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsepol1-dev_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mime-support_3.62 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 python3_3.7.2-1 python3-distutils_3.7.2-3 python3-lib2to3_3.7.2-3 python3-minimal_3.7.2-1 python3.7_3.7.2-2 python3.7-minimal_3.7.2-2 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-dev_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1 zlib1g-dev_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: jigdo
+Binary: jigdo-file
+Architecture: any
+Version: 0.7.3-5
+Maintainer: Steve McIntyre <93sam@debian.org>
+Standards-Version: 4.1.1
+Build-Depends: debhelper (>= 9), zlib1g-dev, libbz2-dev, libdb-dev (>= 4.8), libglib2.0-dev
+Package-List:
+ jigdo-file deb utils optional arch=any
+Checksums-Sha1:
+ 77e9df0f6ca3612252a1cf55a2d1f8b3e2150d97 759157 jigdo_0.7.3.orig.tar.gz
+ 21c0102fe9cd84f6074815e0c8aab6f67907931b 26460 jigdo_0.7.3-5.debian.tar.xz
+Checksums-Sha256:
+ bb0705edf3d356e0c394747267a5caa518193d34dab9a09c40f837b0fefb78e3 759157 jigdo_0.7.3.orig.tar.gz
+ c4f231998741f9d269e53c3fe05441b3da85432ebe60b8d88160e119c12a6e27 26460 jigdo_0.7.3-5.debian.tar.xz
+Files:
+ c8debeb3c24e7ef2cecaec637eadf9f1 759157 jigdo_0.7.3.orig.tar.gz
+ 7e48ead3a5cec675c320b628d2f773b9 26460 jigdo_0.7.3-5.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEzrtSMB1hfpEDkP4WWHl5VzRCaE4FAlopdrwACgkQWHl5VzRC
+aE57Vw//az6t1IiAa4u90eSwbx29NHZJmwdQiA8qzDrI2N9WftjQWYwMvqe4rcKI
+OaP/6V9SD+vj7/lZqLHd5AdtDkefaxxOJk98iM5U/mL6dnu6PkWCj8BTtCCilt+q
++Psu/IKVvpnXteBhRO7vrIKQOTJJEuhbiubSUHNdRpObOlYdFWdWdRa93ABmfLrd
+faKAR5etOYPVBp51zH5IZT+Ve3Ucd5qCJhavJrRZapsYKXZRASfxTX1mNrarAyhz
+zvgXy6Gtc399QC45isxF2FlRZI008e9Ngd/XcONpDwtPhwi9IUBSlt/LrdLlrnRp
+L8Q1rt2axWgrss7uKk2kL0DLc6OsBxt0D67x9NFjsqt3U7ha8zM11EsKTxpvWQWh
+AtQtQV5qmwmOcMjDcnp64GIiddSvpkC1IgLfXPM7zBK/jtKehhi9NST+gTyafCwX
+5OBzX5S7zdYH7OOPXVfEAqy5y11qgNbSapki/KTWTEk/FCDKLQfT9FH/LXOlzeBn
+vj5Ryj7ZIv39MaJihV9D/Ueci3DEDrGgsaVK2Ap4i43/ng2ta8w5DnSDP9vf9WSv
+o3KP1X7HxaJxaoSg+yE9VXpHwtHPxsqxxbQd9i5aBr7qFrJzNGT4SELUGuUH+cha
+0hnQymVVZ3P8Yn4q5L4Ykm7vurhIRwgELxDSqmyO7CVKle/OjBw=
+=M0Ks
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Thu Dec  7 17:13:32 2017 UTC
+gpgv:                using RSA key CEBB52301D617E910390FE16587979573442684E
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./jigdo_0.7.3-5.dsc
+dpkg-source: info: extracting jigdo in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking jigdo_0.7.3.orig.tar.gz
+dpkg-source: info: unpacking jigdo_0.7.3-5.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 00.richard_fixes.patch
+dpkg-source: info: applying 01.hardening.patch
+dpkg-source: info: applying 02.address_change.patch
+dpkg-source: info: applying 03.jigdo-lite-https.patch
+dpkg-source: info: applying 04.jigdo-lite-tmpdir.patch
+dpkg-source: info: applying 05.jigdo-lite-grep-options.patch
+dpkg-source: info: applying 06.jigdo-lite-store-filesPerFetch.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-f0ed0a92-796b-4a5c-a7b6-4c3e4c3fe41a
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package jigdo
+dpkg-buildpackage: info: source version 0.7.3-5
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Steve McIntyre <93sam@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+rm -f build-stamp configure-stamp config.log
+[ ! -f Makefile ] || /usr/bin/make distclean
+dh_clean
+ debian/rules build-arch
+dh_testdir
+dh_auto_configure -- --without-gui --enable-nls
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --without-gui --enable-nls
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for gawk... no
+checking for mawk... mawk
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... yes
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ANSI C... none needed
+checking for arm-linux-gnueabihf-g++... arm-linux-gnueabihf-g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether arm-linux-gnueabihf-g++ accepts -g... yes
+checking for GCC version... 8
+checking for a BSD-compatible install... /usr/bin/install -c
+checking how to run the C++ preprocessor... arm-linux-gnueabihf-g++ -E
+checking for egrep... grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for size_t... yes
+checking whether byte ordering is bigendian... (cached) no
+checking whether we are compiling for Windows... no
+checking whether the C++ compiler is recent enough... yes
+checking whether the C++ preprocessor supports variable-arg macros... yes
+checking for wget... no
+   * wget was not found on your system. Please install
+   * it, it is needed by jigdo-lite.
+checking for value of --enable-debug... "no"
+checking for value of --with-pkg-config-prefix... not set
+checking for ANSI C header files... (cached) yes
+checking stddef.h usability... yes
+checking stddef.h presence... yes
+checking for stddef.h... yes
+checking for unistd.h... (cached) yes
+checking limits.h usability... yes
+checking limits.h presence... yes
+checking for limits.h... yes
+checking for string.h... (cached) yes
+checking for zlibVersion in -lz... yes
+checking zlib.h usability... yes
+checking zlib.h presence... yes
+checking for zlib.h... yes
+checking for BZ2_bzCompressInit in -lbz2... yes
+checking bzlib.h usability... yes
+checking bzlib.h presence... yes
+checking for bzlib.h... yes
+checking for value of --with-libdb... "yes"
+checking db.h usability... yes
+checking db.h presence... yes
+checking for db.h... yes
+checking for libdb version in db.h... 5.3
+   * Warning: jigdo is only known to work with libdb
+   * version 3 or 4 - maybe you should up/downgrade.
+   * (Your system appears to be Debian-based; try
+   * installing the `libdb4.2-dev' package.)
+checking for db_create in libdb-5.3... yes
+checking for value of --with-gui... "no"
+checking for value of --with-libcurl... "auto"
+checking for value of --with-uint64... "auto"
+checking for unsigned long long... yes
+checking for unsigned long... yes
+checking size of unsigned long... (cached) 4
+checking for unsigned long long... yes
+checking size of unsigned long long... (cached) 8
+checking for 64 bit unsigned integer type... unsigned long long
+checking for operator<<(uint64)... yes
+checking for string::compare(size_t,size_t,string,size_t,size_t)... yes
+checking for string::compare(size_t,size_t,const char*,size_t)... yes
+checking for lstat... yes
+checking for truncate... yes
+checking for ftruncate... yes
+checking for mmap... yes
+checking for memcpy... yes
+checking for fileno... yes
+checking for snprintf... yes
+checking for _snprintf... no
+checking for setenv... yes
+checking for TIOCGWINSZ ioctl... yes
+checking for getopt_long in <getopt.h>... yes
+checking for uname in <sys/utsname.h>... yes
+checking for _stati64... no
+checking for value of --enable-nls... "yes"
+checking for dgettext in <libintl.h> and libc... yes
+checking for catalogs to be installed... de  
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating doc/Makefile
+config.status: creating src/Makefile
+config.status: creating po/Makefile
+config.status: creating src/config.h
+touch configure-stamp
+dh_testdir
+/usr/bin/make \
+             EXTRA_CFLAGS="-Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security" \
+             EXTRA_CXXFLAGS="-Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security" \
+             EXTRA_LDFLAGS="-Wl,-z,relro"
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+test -h gfx -o -d gfx || ln -s "./gfx" gfx
+cd src && /usr/bin/make all EXTRA_CFLAGS="-Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security" EXTRA_CXXFLAGS="-Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security" EXTRA_LDFLAGS="-Wl,-z,relro"
+make[2]: Entering directory '/<<PKGBUILDDIR>>/src'
+export cpp='-Wdate-time -D_FORTIFY_SOURCE=2 -I. -I. -I./glibcurl -I./gtk -I./job -I./net -I./util -D_FILE_OFFSET_BITS=64 -DHAVE_CONFIG_H -DPACKAGE_DATA_DIR="/usr/share/jigdo/" -DPACKAGE_LOCALE_DIR="/usr/share/locale"   '
+export cxx="$cpp -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -W -Wpointer-arith -Wconversion -Woverloaded-virtual  -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security"
+export c="$cpp -Wall  -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -W  -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security"
+arm-linux-gnueabihf-g++ $cxx -c cachefile.cc -o cachefile.o
+arm-linux-gnueabihf-g++ $cxx -c compat.cc -o compat.o
+arm-linux-gnueabihf-g++ $cxx -c jigdo-file.cc -o jigdo-file.o
+arm-linux-gnueabihf-g++ $cxx -c jigdo-file-cmd.cc -o jigdo-file-cmd.o
+arm-linux-gnueabihf-g++ $cxx -c jigdoconfig.cc -o jigdoconfig.o
+arm-linux-gnueabihf-g++ $cxx -c mkimage.cc -o mkimage.o
+arm-linux-gnueabihf-g++ $cxx -c mkjigdo.cc -o mkjigdo.o
+arm-linux-gnueabihf-g++ $cxx -c mktemplate.cc -o mktemplate.o
+arm-linux-gnueabihf-g++ $cxx -c partialmatch.cc -o partialmatch.o
+arm-linux-gnueabihf-g++ $cxx -c recursedir.cc -o recursedir.o
+arm-linux-gnueabihf-g++ $cxx -c scan.cc -o scan.o
+arm-linux-gnueabihf-g++ $cxx -c util/bstream.cc -o util/bstream.o
+arm-linux-gnueabihf-g++ $cxx -c util/configfile.cc -o util/configfile.o
+arm-linux-gnueabihf-gcc $c   -c util/glibc-getopt1.c -o util/glibc-getopt1.o
+arm-linux-gnueabihf-gcc $c   -c util/glibc-getopt.c -o util/glibc-getopt.o
+arm-linux-gnueabihf-g++ $cxx -c util/glibc-md5.cc -o util/glibc-md5.o
+arm-linux-gnueabihf-g++ $cxx -c util/log.cc -o util/log.o
+arm-linux-gnueabihf-g++ $cxx -c util/md5sum.cc -o util/md5sum.o
+arm-linux-gnueabihf-g++ $cxx -c util/rsyncsum.cc -o util/rsyncsum.o
+arm-linux-gnueabihf-g++ $cxx -c util/string.cc -o util/string.o
+util/log.cc: In constructor ‘Logger::Logger(const char*, bool)’:
+util/log.cc:30:48: warning: conversion from ‘size_t’ {aka ‘unsigned int’} to ‘unsigned char’ may change value [-Wconversion]
+     : unitNameVal(unitName), unitNameLen(strlen(unitName)),
+                                          ~~~~~~^~~~~~~~~~
+arm-linux-gnueabihf-g++ $cxx -c zstream.cc -o zstream.o
+arm-linux-gnueabihf-g++ $cxx -c zstream-bz.cc -o zstream-bz.o
+In file included from cachefile.cc:28:
+./serialize.hh: In instantiation of ‘Iterator serialize4(NumType, Iterator) [with NumType = long int; Iterator = unsigned char*]’:
+cachefile.cc:117:29:   required from here
+./serialize.hh:156:10: warning: conversion from ‘long int’ to ‘unsigned char’ may change value [-Wconversion]
+   *i = x & 0xff; ++i;
+        ~~^~~~~~
+./serialize.hh:157:17: warning: conversion from ‘long int’ to ‘unsigned char’ may change value [-Wconversion]
+   *i = (x >> 8) & 0xff; ++i;
+        ~~~~~~~~~^~~~~~
+./serialize.hh:158:18: warning: conversion from ‘long int’ to ‘unsigned char’ may change value [-Wconversion]
+   *i = (x >> 16) & 0xff; ++i;
+        ~~~~~~~~~~^~~~~~
+./serialize.hh:159:18: warning: conversion from ‘long int’ to ‘unsigned char’ may change value [-Wconversion]
+   *i = (x >> 24) & 0xff; ++i;
+        ~~~~~~~~~~^~~~~~
+arm-linux-gnueabihf-g++ $cxx -c zstream-gz.cc -o zstream-gz.o
+arm-linux-gnueabihf-g++ $cxx -c util/debug.cc -o util/debug.o
+util/md5sum.cc: In member function ‘uint64 MD5Sum::updateFromStream(bistream&, uint64, size_t, MD5Sum::ProgressReporter&)’:
+util/md5sum.cc:116:34: warning: conversion from ‘long long unsigned int’ to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+     size_t n = (toRead < bufSize ? toRead : bufSize);
+                ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+util/string.cc: In static member function ‘static std::__cxx11::string Subst::subst(const char*, int, const Subst*)’:
+util/string.cc:85:18: warning: conversion from ‘int’ to ‘char’ may change value [-Wconversion]
+   char max = '1' + args;
+              ~~~~^~~~~~
+recursedir.cc:235:5: warning: #warning TODO hackish [-Wcpp]
+ #   warning TODO hackish
+     ^~~~~~~
+In file included from recursedir.cc:32:
+./recursedir.hh:79:7: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+       throw(RecurseError, bad_alloc);
+       ^~~~~
+./recursedir.hh:105:5: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+     throw(RecurseError);
+     ^~~~~
+recursedir.cc:68:52: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ bool RecurseDir::getNextObjectName(string& result) throw(RecurseError) {
+                                                    ^~~~~
+recursedir.cc:140:5: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+     throw(RecurseError, bad_alloc) {
+     ^~~~~
+scan.cc: In member function ‘const MD5* FilePart::getSumsRead(JigdoCache*, size_t)’:
+scan.cc:229:48: warning: conversion from ‘uint64’ {aka ‘long long unsigned int’} to ‘std::vector<MD5>::size_type’ {aka ‘unsigned int’} may change value [-Wconversion]
+   sums.resize((size() + c->md5BlockLength - 1) / c->md5BlockLength);
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+scan.cc: In member function ‘const MD5Sum* FilePart::getMD5SumRead(JigdoCache*)’:
+scan.cc:419:74: warning: conversion from ‘uint64’ {aka ‘long long unsigned int’} to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+                   (fileSize + c->md5BlockLength - 1) / c->md5BlockLength - 1)
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+In file included from ./util/rsyncsum.hh:31,
+                 from ./scan.hh:31,
+                 from scan.cc:30:
+./serialize.hh: In instantiation of ‘Iterator serialize4(NumType, Iterator) [with NumType = unsigned int; Iterator = unsigned char*]’:
+scan.cc:137:40:   required from here
+./serialize.hh:159:18: warning: conversion from ‘unsigned int’ to ‘unsigned char’ may change value [-Wconversion]
+   *i = (x >> 24) & 0xff; ++i;
+        ~~~~~~~~~~^~~~~~
+zstream-gz.cc: In function ‘void {anonymous}::throwZerrorGz(int, const char*)’:
+zstream-gz.cc:51:7: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       if (m.empty()) m = "zlib Z_STREAM_ERROR";
+       ^~
+zstream-gz.cc:52:5: note: here
+     case Z_DATA_ERROR:
+     ^~~~
+zstream-gz.cc:53:7: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       if (m.empty()) m = "zlib Z_DATA_ERROR";
+       ^~
+zstream-gz.cc:54:5: note: here
+     case Z_BUF_ERROR:
+     ^~~~
+zstream-gz.cc:55:7: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       if (m.empty()) m = "zlib Z_BUF_ERROR";
+       ^~
+zstream-gz.cc:56:5: note: here
+     case Z_VERSION_ERROR:
+     ^~~~
+zstream-gz.cc:57:7: warning: this statement may fall through [-Wimplicit-fallthrough=]
+       if (m.empty()) m = "zlib Z_VERSION_ERROR";
+       ^~
+zstream-gz.cc:58:5: note: here
+     default:
+     ^~~~~~~
+zstream.cc: In member function ‘Zibstream& Zibstream::read(byte*, unsigned int)’:
+zstream.cc:266:42: warning: conversion from ‘long long unsigned int’ to ‘unsigned int’ may change value [-Wconversion]
+     unsigned toRead = (dataLen < bufSize ? dataLen : bufSize);
+                       ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~
+In file included from zstream.cc:26:
+./serialize.hh: In instantiation of ‘Iterator serialize4(NumType, Iterator) [with NumType = unsigned int; Iterator = unsigned char*]’:
+zstream.cc:78:23:   required from here
+./serialize.hh:159:18: warning: conversion from ‘unsigned int’ to ‘unsigned char’ may change value [-Wconversion]
+   *i = (x >> 24) & 0xff; ++i;
+        ~~~~~~~~~~^~~~~~
+In file included from ./jigdo-file-cmd.hh:28,
+                 from jigdo-file.cc:32:
+./mkimage.hh:75:43: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   static void seekFromEnd(bistream& file) throw(JigdoDescError);
+                                           ^~~~~
+./mkimage.hh:233:33: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   bistream& get(bistream& file) throw(JigdoDescError, bad_alloc);
+                                 ^~~~~
+./mkimage.hh:295:5: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+     throw(JigdoDescError, bad_alloc) {
+     ^~~~~
+In file included from jigdo-file.cc:37:
+./recursedir.hh:79:7: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+       throw(RecurseError, bad_alloc);
+       ^~~~~
+./recursedir.hh:105:5: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+     throw(RecurseError);
+     ^~~~~
+jigdo-file.cc: In static member function ‘static JigdoFileCmd::Command JigdoFileCmd::cmdOptions(int, char**)’:
+jigdo-file.cc:557:35: warning: conversion from ‘int’ to ‘char’ may change value [-Wconversion]
+     case 'h': case 'H': optHelp = c; break;
+                                   ^
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+     };
+     ^
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc:672:5: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+jigdo-file.cc: In function ‘int main(int, char**)’:
+jigdo-file.cc:777:10: warning: catching polymorphic type ‘class std::bad_alloc’ by value [-Wcatch-value=]
+   catch (bad_alloc) { outOfMemory(); }
+          ^~~~~~~~~
+jigdo-file.cc: In function ‘size_t {anonymous}::scanMemSize(const char*)’:
+jigdo-file.cc:420:7: warning: this statement may fall through [-Wimplicit-fallthrough=]
+     x = x * 1024;
+     ~~^~~~~~~~~~
+jigdo-file.cc:421:3: note: here
+   case 'm': case 'M':
+   ^~~~
+jigdo-file.cc:422:7: warning: this statement may fall through [-Wimplicit-fallthrough=]
+     x = x * 1024;
+     ~~^~~~~~~~~~
+jigdo-file.cc:423:3: note: here
+   case 'k': case 'K':
+   ^~~~
+jigdo-file.cc:425:5: warning: this statement may fall through [-Wimplicit-fallthrough=]
+     if (*++s == '\0') return x;
+     ^~
+jigdo-file.cc:426:3: note: here
+   default:
+   ^~~~~~~
+In file included from mkimage.cc:30:
+./mkimage.hh:75:43: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   static void seekFromEnd(bistream& file) throw(JigdoDescError);
+                                           ^~~~~
+./mkimage.hh:233:33: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   bistream& get(bistream& file) throw(JigdoDescError, bad_alloc);
+                                 ^~~~~
+./mkimage.hh:295:5: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+     throw(JigdoDescError, bad_alloc) {
+     ^~~~~
+mkimage.cc:76:45: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ void JigdoDesc::seekFromEnd(bistream& file) throw(JigdoDescError) {
+                                             ^~~~~
+mkimage.cc:114:5: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+     throw(JigdoDescError, bad_alloc) {
+     ^~~~~
+mkimage.cc: In member function ‘bistream& JigdoDescVec::get(bistream&)’:
+mkimage.cc:118:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<JigdoDesc> desc;
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/bits/locale_conv.h:41,
+                 from /usr/arm-linux-gnueabihf/include/c++/8/locale:43,
+                 from /usr/arm-linux-gnueabihf/include/c++/8/iomanip:43,
+                 from mkimage.cc:23:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+mkimage.cc: In function ‘int {anonymous}::fileToImage(bostream*, FilePart&, const JigdoDesc::MatchedFile&, bool, size_t, {anonymous}::ProgressReporter&, byte*, size_t, uint64&, uint64&, uint64)’:
+mkimage.cc:363:42: warning: conversion from ‘long long unsigned int’ to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+         size_t n = (toWrite < readAmount ? toWrite : readAmount);
+                    ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+mkimage.cc:382:40: warning: conversion from ‘long long unsigned int’ to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+       size_t n = (toWrite < readAmount ? toWrite : readAmount);
+                  ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+mkimage.cc:399:42: warning: conversion from ‘long long unsigned int’ to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+         size_t n = (toWrite < readAmount ? toWrite : readAmount);
+                    ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+mkimage.cc: In function ‘int {anonymous}::writeAll(const {anonymous}::Task&, JigdoDescVec&, std::queue<FilePart*>&, bistream*, size_t, bostream*, const char*, bool, {anonymous}::ProgressReporter&, JigdoCache*, uint64)’:
+mkimage.cc:454:5: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+     auto_ptr<Zibstream> data(new Zibstream(*templ, readAmount + 8*1024));
+     ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/bits/locale_conv.h:41,
+                 from /usr/arm-linux-gnueabihf/include/c++/8/locale:43,
+                 from /usr/arm-linux-gnueabihf/include/c++/8/iomanip:43,
+                 from mkimage.cc:23:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+mkimage.cc:488:53: warning: conversion from ‘long long unsigned int’ to ‘unsigned int’ may change value [-Wconversion]
+               data->read(buf, (toWrite < readAmount ? toWrite : readAmount));
+                               ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+mkimage.cc:489:38: warning: conversion from ‘Zibstream::streamsize’ {aka ‘long long unsigned int’} to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+               size_t n = data->gcount();
+                          ~~~~~~~~~~~~^~
+mkimage.cc:512:50: warning: conversion from ‘long long unsigned int’ to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+                 size_t n = (toWrite < readAmount ? toWrite : readAmount);
+                            ~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+mkimage.cc: In static member function ‘static int JigdoDesc::makeImage(JigdoCache*, const string&, const string&, const string&, bistream*, bool, JigdoDesc::ProgressReporter&, size_t, bool)’:
+mkimage.cc:748:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<bfstream> imgDel(img);
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/bits/locale_conv.h:41,
+                 from /usr/arm-linux-gnueabihf/include/c++/8/locale:43,
+                 from /usr/arm-linux-gnueabihf/include/c++/8/iomanip:43,
+                 from mkimage.cc:23:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+In file included from ./util/rsyncsum.hh:31,
+                 from ./scan.hh:31,
+                 from ./mkimage.hh:29,
+                 from mkimage.cc:30:
+./serialize.hh: In instantiation of ‘Iterator serialize4(NumType, Iterator) [with NumType = int; Iterator = unsigned char*]’:
+mkimage.cc:256:33:   required from here
+./serialize.hh:156:10: warning: conversion from ‘int’ to ‘unsigned char’ may change value [-Wconversion]
+   *i = x & 0xff; ++i;
+        ~~^~~~~~
+./serialize.hh:157:17: warning: conversion from ‘int’ to ‘unsigned char’ may change value [-Wconversion]
+   *i = (x >> 8) & 0xff; ++i;
+        ~~~~~~~~~^~~~~~
+./serialize.hh:158:18: warning: conversion from ‘int’ to ‘unsigned char’ may change value [-Wconversion]
+   *i = (x >> 16) & 0xff; ++i;
+        ~~~~~~~~~~^~~~~~
+./serialize.hh:159:18: warning: conversion from ‘int’ to ‘unsigned char’ may change value [-Wconversion]
+   *i = (x >> 24) & 0xff; ++i;
+        ~~~~~~~~~~^~~~~~
+./serialize.hh: In instantiation of ‘Iterator serialize1(NumType, Iterator) [with NumType = JigdoDesc::Type; Iterator = unsigned char*]’:
+./mkimage.hh:310:17:   required from ‘Iterator JigdoDesc::ImageInfo::serialize(Iterator) const [with Iterator = unsigned char*]’
+mkimage.cc:268:30:   required from here
+./serialize.hh:132:10: warning: conversion from ‘int’ to ‘unsigned char’ may change value [-Wconversion]
+   *i = x & 0xff; ++i;
+        ~~^~~~~~
+./serialize.hh: In instantiation of ‘Iterator serialize4(NumType, Iterator) [with NumType = unsigned int; Iterator = unsigned char*]’:
+./mkimage.hh:313:17:   required from ‘Iterator JigdoDesc::ImageInfo::serialize(Iterator) const [with Iterator = unsigned char*]’
+mkimage.cc:268:30:   required from here
+./serialize.hh:159:18: warning: conversion from ‘unsigned int’ to ‘unsigned char’ may change value [-Wconversion]
+   *i = (x >> 24) & 0xff; ++i;
+        ~~~~~~~~~~^~~~~~
+In file included from ./jigdo-file-cmd.hh:28,
+                 from jigdo-file-cmd.cc:25:
+./mkimage.hh:75:43: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   static void seekFromEnd(bistream& file) throw(JigdoDescError);
+                                           ^~~~~
+./mkimage.hh:233:33: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   bistream& get(bistream& file) throw(JigdoDescError, bad_alloc);
+                                 ^~~~~
+./mkimage.hh:295:5: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+     throw(JigdoDescError, bad_alloc) {
+     ^~~~~
+In file included from jigdo-file-cmd.cc:27:
+./recursedir.hh:79:7: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+       throw(RecurseError, bad_alloc);
+       ^~~~~
+./recursedir.hh:105:5: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+     throw(RecurseError);
+     ^~~~~
+jigdo-file-cmd.cc:56:59: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ istream* openForInput(istream*& dest, const string& name) throw(Cleanup) {
+                                                           ^~~~~
+jigdo-file-cmd.cc:106:60: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+ ostream* openForOutput(ostream*& dest, const string& name) throw(Cleanup) {
+                                                            ^~~~~
+jigdo-file-cmd.cc: In static member function ‘static int JigdoFileCmd::makeTemplate()’:
+jigdo-file-cmd.cc:221:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<bistream> imageDel(openForInput(image, imageFile));
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from jigdo-file-cmd.cc:17:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+jigdo-file-cmd.cc:223:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<ConfigFile> cfDel(new ConfigFile());
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from jigdo-file-cmd.cc:17:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+jigdo-file-cmd.cc:227:5: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+     auto_ptr<istream> jigdoMergeDel(openForInput(jigdoMerge,
+     ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from jigdo-file-cmd.cc:17:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+jigdo-file-cmd.cc:240:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<bostream> templDel(openForOutput(templ, templFile));
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from jigdo-file-cmd.cc:17:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+jigdo-file-cmd.cc:253:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<MkTemplate>
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from jigdo-file-cmd.cc:17:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+jigdo-file-cmd.cc:269:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<ostream> jigdoDel(openForOutput(jigdoF, jigdoFile));
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from jigdo-file-cmd.cc:17:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+jigdo-file-cmd.cc: In static member function ‘static int JigdoFileCmd::makeImage()’:
+jigdo-file-cmd.cc:306:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<bistream> templDel(openForInput(templ, templFile));
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from jigdo-file-cmd.cc:17:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+jigdo-file-cmd.cc: In static member function ‘static int JigdoFileCmd::listTemplate()’:
+jigdo-file-cmd.cc:335:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<bistream> templDel(openForInput(templ, templFile));
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from jigdo-file-cmd.cc:17:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+jigdo-file-cmd.cc: In static member function ‘static int JigdoFileCmd::verifyImage()’:
+jigdo-file-cmd.cc:370:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<bistream> imageDel(openForInput(image, imageFile));
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from jigdo-file-cmd.cc:17:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+jigdo-file-cmd.cc:376:5: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+     auto_ptr<bistream> templDel(openForInput(templ, templFile));
+     ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from jigdo-file-cmd.cc:17:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+jigdo-file-cmd.cc: In static member function ‘static int JigdoFileCmd::printMissing(JigdoFileCmd::Command)’:
+jigdo-file-cmd.cc:450:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<bistream> templDel(openForInput(templ, templFile));
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from jigdo-file-cmd.cc:17:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+jigdo-file-cmd.cc:465:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<istream> jigdoDel(openForInput(jigdo, jigdoFile));
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from jigdo-file-cmd.cc:17:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+jigdo-file-cmd.cc:466:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<ConfigFile> cfDel(new ConfigFile());
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from jigdo-file-cmd.cc:17:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+In file included from mktemplate.cc:42:
+./mkimage.hh:75:43: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   static void seekFromEnd(bistream& file) throw(JigdoDescError);
+                                           ^~~~~
+./mkimage.hh:233:33: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+   bistream& get(bistream& file) throw(JigdoDescError, bad_alloc);
+                                 ^~~~~
+./mkimage.hh:295:5: warning: dynamic exception specifications are deprecated in C++11 [-Wdeprecated]
+     throw(JigdoDescError, bad_alloc) {
+     ^~~~~
+mktemplate.cc: In member function ‘void MkTemplate::checkRsyncSumMatch2(size_t, size_t, size_t, uint64&, FilePart*)’:
+mktemplate.cc:268:52: warning: conversion from ‘uint64’ {aka ‘long long unsigned int’} to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+   size_t eventLen = (file->size() < md5BlockLength ?
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+                      file->size() : md5BlockLength);
+                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+mktemplate.cc: In member function ‘bool MkTemplate::rereadUnmatched(FilePart*, uint64)’:
+mktemplate.cc:310:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<bistream> inputFile(new bifstream(inputName.c_str(),ios::binary));
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from mktemplate.cc:35:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+mktemplate.cc:314:35: warning: conversion from ‘long long unsigned int’ to ‘std::streamsize’ {aka ‘int’} may change value [-Wconversion]
+               (readAmount < count ? readAmount : count));
+               ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+mktemplate.cc: In member function ‘bool MkTemplate::checkMD5Match(byte*, size_t, size_t, size_t, uint64&, size_t, MkTemplate::Desc&)’:
+mktemplate.cc:520:38: warning: conversion from ‘uint64’ {aka ‘long long unsigned int’} to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+     size_t toReread = unmatchedStart - oldestMatch->startOffset();
+                       ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mktemplate.cc:531:39: warning: conversion from ‘uint64’ {aka ‘long long unsigned int’} to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+     size_t toWrite = x->startOffset() - unmatchedStart;
+                      ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+mktemplate.cc:533:42: warning: conversion from ‘uint64’ {aka ‘long long unsigned int’} to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+     size_t writeStart = modSub(data, off - unmatchedStart, bufferLength);
+                                      ~~~~^~~~~~~~~~~~~~~~
+mktemplate.cc: In member function ‘bool MkTemplate::unmatchedAtEnd(byte*, size_t, size_t, MkTemplate::Desc&)’:
+mktemplate.cc:579:38: warning: conversion from ‘uint64’ {aka ‘long long unsigned int’} to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+     size_t toReread = unmatchedStart - y->startOffset();
+                       ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+mktemplate.cc:587:26: warning: conversion from ‘uint64’ {aka ‘long long unsigned int’} to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+     size_t toWrite = off - unmatchedStart;
+                      ~~~~^~~~~~~~~~~~~~~~
+mktemplate.cc: In member function ‘void MkTemplate::scanImage_mainLoop_fastForward(uint64, RsyncSum64*, byte*, size_t*, size_t*, size_t*, size_t, size_t, uint32, size_t)’:
+mktemplate.cc:655:35: warning: conversion from ‘uint64’ {aka ‘long long unsigned int’} to ‘unsigned int’ may change value [-Wconversion]
+     unsigned len = nextAlignedOff - off;
+                    ~~~~~~~~~~~~~~~^~~~~
+mktemplate.cc:656:48: warning: conversion from ‘uint64’ {aka ‘long long unsigned int’} to ‘unsigned int’ may change value [-Wconversion]
+     if (len > nextEvent - off) len = nextEvent - off;
+                                      ~~~~~~~~~~^~~~~
+mktemplate.cc: In member function ‘bool MkTemplate::scanImage(byte*, size_t, size_t, uint32, size_t, MD5Sum&)’:
+mktemplate.cc:739:3: warning: ‘template<class> class std::auto_ptr’ is deprecated [-Wdeprecated-declarations]
+   auto_ptr<Zobstream> zipDel;
+   ^~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/c++/8/memory:80,
+                 from mktemplate.cc:35:
+/usr/arm-linux-gnueabihf/include/c++/8/bits/unique_ptr.h:53:28: note: declared here
+   template<typename> class auto_ptr;
+                            ^~~~~~~~
+mktemplate.cc:792:44: warning: conversion from ‘uint64’ {aka ‘long long unsigned int’} to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+         size_t toWrite = newUnmatchedStart - unmatchedStart;
+                          ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+mktemplate.cc:796:46: warning: conversion from ‘uint64’ {aka ‘long long unsigned int’} to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+         size_t writeStart = modSub(data, off - unmatchedStart,
+                                          ~~~~^~~~~~~~~~~~~~~~
+mktemplate.cc:900:52: warning: conversion from ‘uint64’ {aka ‘long long unsigned int’} to ‘size_t’ {aka ‘unsigned int’} may change value [-Wconversion]
+           if (stillBuffered > off) stillBuffered = off;
+                                                    ^~~
+mktemplate.cc: At global scope:
+mktemplate.cc:141:8: warning: ‘void {anonymous}::write48(bostream&, uint64)’ defined but not used [-Wunused-function]
+   void write48(bostream& s, uint64 x) {
+        ^~~~~~~
+arm-linux-gnueabihf-g++ -o jigdo-file cachefile.o compat.o jigdo-file-cmd.o jigdo-file.o jigdoconfig.o mkimage.o mkjigdo.o mktemplate.o partialmatch.o recursedir.o scan.o util/bstream.o util/configfile.o util/glibc-getopt.o util/glibc-getopt1.o util/glibc-md5.o util/log.o util/md5sum.o util/rsyncsum.o util/string.o zstream.o zstream-bz.o zstream-gz.o util/debug.o  -lbz2 -lz  -ldb-5.3 -Wl,-z,relro  -Wl,-z,relro
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/src'
+cd doc && /usr/bin/make all
+make[2]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+cd po  && /usr/bin/make all
+make[2]: Entering directory '/<<PKGBUILDDIR>>/po'
+rm -f "de.gmo" && msgfmt --statistics -o "de.gmo" de.po
+300 translated messages.
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/po'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+touch build-stamp
+ fakeroot debian/rules binary-arch
+dh_testdir
+dh_testroot
+dh_prep
+/usr/bin/make DESTDIR=debian/jigdo-file install-po \
+    install-jigdo-file install-jigdo-lite install-jigdo-mirror
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+if test -n "de.gmo"; then for file in de.gmo; do \
+	    lang=`echo $file | sed -e 's/\.gmo$//'`; \
+	    dir="debian/jigdo-file/usr/share/locale/$lang/LC_MESSAGES"; \
+	    echo "/usr/bin/install -c -d \"$dir\""; \
+	    /usr/bin/install -c -d "$dir"; \
+	    s="./po/$file"; \
+	    if test -f "po/$file"; then s="po/$file"; fi; \
+	    echo "/usr/bin/install -c -m 644 $s \"$dir/jigdo.mo\""; \
+	    /usr/bin/install -c -m 644 "$s" "$dir/jigdo.mo" \
+	        || exit 1; \
+	done; fi
+/usr/bin/install -c -d debian/jigdo-file/usr/bin
+/usr/bin/install -c -d "debian/jigdo-file/usr/bin"
+/usr/bin/install -c -d "debian/jigdo-file/usr/bin"
+/usr/bin/install -c  src/jigdo-file debian/jigdo-file/usr/bin
+/usr/bin/install -c -m 755 "./scripts/jigdo-mirror" \
+	    "debian/jigdo-file/usr/bin"
+/usr/bin/install -c -d "debian/jigdo-file/usr/share/jigdo"
+/usr/bin/install -c -d "debian/jigdo-file/usr/share/locale/de/LC_MESSAGES"
+/usr/bin/install -c -m 644 po/de.gmo "debian/jigdo-file/usr/share/locale/de/LC_MESSAGES/jigdo.mo"
+/usr/bin/install -c -m 755 "./scripts/jigdo-lite" \
+	    "debian/jigdo-file/usr/bin"
+/usr/bin/install -c -d debian/jigdo-file/usr/share/man/man1
+sed -e 's%"\(mirrors.jigdo"\)%"/usr/share/jigdo/debian-\1%' \
+	    <"./scripts/jigdo-lite" \
+	    >"debian/jigdo-file/usr/bin/jigdo-lite"
+x="doc/jigdo-mirror.1"; \
+	test -f "$x" || x="./$x"; \
+	/usr/bin/install -c "$x" debian/jigdo-file/usr/share/man/man1
+/usr/bin/install -c -d debian/jigdo-file/usr/share/man/man1
+/usr/bin/install -c -m 644 "./scripts/debian-mirrors.jigdo" \
+	    "debian/jigdo-file/usr/share/jigdo"
+x="doc/jigdo-file.1"; \
+	test -f "$x" || x="./$x"; \
+	/usr/bin/install -c "$x" debian/jigdo-file/usr/share/man/man1
+/usr/bin/install -c -d debian/jigdo-file/usr/share/man/man1
+x="doc/jigdo-lite.1"; \
+	test -f "$x" || x="./$x"; \
+	/usr/bin/install -c "$x" debian/jigdo-file/usr/share/man/man1
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+dh_testdir
+dh_testroot
+dh_installdocs
+dh_installexamples
+dh_installmenu
+dh_installchangelogs 
+dh_link
+dh_strip
+dh_compress
+dh_fixperms
+dh_installdeb
+dh_shlibdeps
+dpkg-shlibdeps: warning: debian/jigdo-file/usr/bin/jigdo-file contains an unresolvable reference to symbol __aeabi_atexit@CXXABI_ARM_1.3.3: it's probably a plugin
+dh_gencontrol
+dh_md5sums
+dh_builddeb
+dpkg-deb: building package 'jigdo-file-dbgsym' in '../jigdo-file-dbgsym_0.7.3-5_armhf.deb'.
+dpkg-deb: building package 'jigdo-file' in '../jigdo-file_0.7.3-5_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../jigdo_0.7.3-5_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-04T15:20:23Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+jigdo_0.7.3-5_armhf.changes:
+----------------------------
+
+Format: 1.8
+Date: Thu, 07 Dec 2017 16:38:20 +0000
+Source: jigdo
+Binary: jigdo-file jigdo-file-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 0.7.3-5
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Steve McIntyre <93sam@debian.org>
+Changed-By: Steve McIntyre <93sam@debian.org>
+Description:
+ jigdo-file - Download Debian CD images from any Debian mirror
+Closes: 578325 609816 767318 826781 864516 865864 880981
+Changes:
+ jigdo (0.7.3-5) unstable; urgency=medium
+ .
+   * Switch addresses from atterer.org to atterer.org in various places
+     (Closes: #609816)
+   * jigdo-lite: use tmpDir when creating images. Closes: #578325
+     Thanks to Mateusz Poszwa for the patch.
+   * jigdo-lite: Cope with https URLs. Closes: #865864.
+     Thanks to s3v for the patch for inspiration.
+   * jigdo-lite: Unset GREP_OPTIONS at the start. Closes: #767318
+   * jigdo-lite: Read/store the filesPerFetch setting from the config
+     file. Closes: #826781
+   * jigdo-file: Fix building with glibc >= 2.25. Closes: #880981
+     Thanks to Matthias Klose for the patch.
+   * Various packaging changes:
+     + Switch source format to 3.0 (quilt) and split up patches a little
+     + Update to Standards-Version: 4.1.1
+     + Switch Priority to optional
+     + Improve cross-building. Closes: #864516. Thanks to Helmut Grohne for
+       the patch
+Checksums-Sha1:
+ c0a58f154014b4f1d5c69be831033e4ab143f59a 1650704 jigdo-file-dbgsym_0.7.3-5_armhf.deb
+ 8a71e9ab37bbac19eca163b1ca648645dc1bb9d9 168116 jigdo-file_0.7.3-5_armhf.deb
+ 73fddce80e79a8cd772572765859b7e3c926b6f2 5515 jigdo_0.7.3-5_armhf.buildinfo
+Checksums-Sha256:
+ 483ddcad3510e3c831b0ffd42e6bd4f572c5b0cb842e876d2711b89658ff1a5c 1650704 jigdo-file-dbgsym_0.7.3-5_armhf.deb
+ 1ca953e82662770e0c1aa1aa71c50f920ec937e6a87836edd8c821f3439438a5 168116 jigdo-file_0.7.3-5_armhf.deb
+ a116a565747747b51636930957797c49af2bfdfe2c1b740839fe816ecb3a248f 5515 jigdo_0.7.3-5_armhf.buildinfo
+Files:
+ 4787d3ca273c7cd7fd19bfa20f94d479 1650704 debug optional jigdo-file-dbgsym_0.7.3-5_armhf.deb
+ 1d9f2f3d6f6cd3fa753711461e4b0f9a 168116 utils optional jigdo-file_0.7.3-5_armhf.deb
+ b542036c773a5975987401b5aa2d9e12 5515 utils optional jigdo_0.7.3-5_armhf.buildinfo
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: jigdo
+Binary: jigdo-file
+Architecture: armhf
+Version: 0.7.3-5
+Checksums-Md5:
+ 4787d3ca273c7cd7fd19bfa20f94d479 1650704 jigdo-file-dbgsym_0.7.3-5_armhf.deb
+ 1d9f2f3d6f6cd3fa753711461e4b0f9a 168116 jigdo-file_0.7.3-5_armhf.deb
+Checksums-Sha1:
+ c0a58f154014b4f1d5c69be831033e4ab143f59a 1650704 jigdo-file-dbgsym_0.7.3-5_armhf.deb
+ 8a71e9ab37bbac19eca163b1ca648645dc1bb9d9 168116 jigdo-file_0.7.3-5_armhf.deb
+Checksums-Sha256:
+ 483ddcad3510e3c831b0ffd42e6bd4f572c5b0cb842e876d2711b89658ff1a5c 1650704 jigdo-file-dbgsym_0.7.3-5_armhf.deb
+ 1ca953e82662770e0c1aa1aa71c50f920ec937e6a87836edd8c821f3439438a5 168116 jigdo-file_0.7.3-5_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Mon, 04 Mar 2019 15:20:23 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.52-5),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libblkid-dev (= 2.33.1-0.1),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libbz2-dev (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb-dev (= 5.3.1+nmu1),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdb5.3-dev (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libexpat1 (= 2.2.6-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi-dev (= 3.2.1-9),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libglib2.0-bin (= 2.58.3-1),
+ libglib2.0-data (= 2.58.3-1),
+ libglib2.0-dev (= 2.58.3-1),
+ libglib2.0-dev-bin (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmount-dev (= 2.33.1-0.1),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpdec2 (= 2.4.2-2),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre16-3 (= 2:8.39-11),
+ libpcre3 (= 2:8.39-11),
+ libpcre3-dev (= 2:8.39-11),
+ libpcre32-3 (= 2:8.39-11),
+ libpcrecpp0v5 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libpython3-stdlib (= 3.7.2-1),
+ libpython3.7-minimal (= 3.7.2-2),
+ libpython3.7-stdlib (= 3.7.2-2),
+ libquadmath0 (= 8.3.0-2),
+ libreadline7 (= 7.0-5),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libselinux1-dev (= 2.8-1+b1),
+ libsepol1 (= 2.8-1),
+ libsepol1-dev (= 2.8-1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libsqlite3-0 (= 3.27.2-1),
+ libssl1.1 (= 1.1.1b-1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ mime-support (= 3.62),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ python3 (= 3.7.2-1),
+ python3-distutils (= 3.7.2-3),
+ python3-lib2to3 (= 3.7.2-3),
+ python3-minimal (= 3.7.2-1),
+ python3.7 (= 3.7.2-2),
+ python3.7-minimal (= 3.7.2-2),
+ readline-common (= 7.0-5),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ uuid-dev (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1),
+ zlib1g-dev (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1512664700"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+jigdo-file-dbgsym_0.7.3-5_armhf.deb
+-----------------------------------
+
+ new Debian package, version 2.0.
+ size 1650704 bytes: control archive=516 bytes.
+     339 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: jigdo-file-dbgsym
+ Source: jigdo
+ Version: 0.7.3-5
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Steve McIntyre <93sam@debian.org>
+ Installed-Size: 1676
+ Depends: jigdo-file (= 0.7.3-5)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for jigdo-file
+ Build-Ids: d1e84a8ef1df97ce774eaea31a074196a7a9f30b
+
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/lib/
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/lib/debug/.build-id/d1/
+-rw-r--r-- root/root   1705816 2017-12-07 16:38 ./usr/lib/debug/.build-id/d1/e84a8ef1df97ce774eaea31a074196a7a9f30b.debug
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/share/
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2017-12-07 16:38 ./usr/share/doc/jigdo-file-dbgsym -> jigdo-file
+
+
+jigdo-file_0.7.3-5_armhf.deb
+----------------------------
+
+ new Debian package, version 2.0.
+ size 168116 bytes: control archive=1520 bytes.
+    1394 bytes,    30 lines      control              
+    1038 bytes,    15 lines      md5sums              
+ Package: jigdo-file
+ Source: jigdo
+ Version: 0.7.3-5
+ Architecture: armhf
+ Maintainer: Steve McIntyre <93sam@debian.org>
+ Installed-Size: 397
+ Depends: wget, libbz2-1.0, libc6 (>= 2.4), libdb5.3, libgcc1 (>= 1:3.5), libstdc++6 (>= 5.2), zlib1g (>= 1:1.1.4)
+ Conflicts: jigdo (<< 0.6.9)
+ Section: utils
+ Priority: optional
+ Homepage: http://atterer.org/jigdo/
+ Description: Download Debian CD images from any Debian mirror
+  Using the jigdo-lite script contained in this package, you can use
+  your nearest "regular" Debian mirror to download Debian CD images,
+  instead of having to use one of the few, slow, overloaded mirrors
+  that offer the images as direct HTTP or FTP downloads. See
+  <http://www.debian.org/CD/jigdo-cd/> for details.
+  .
+  Jigsaw Download, or short jigdo, is a scheme developed primarily to
+  make it easy to distribute huge filesystem images (e.g. CD (ISO9660)
+  or DVD (UDF) images) over the internet, but it could also be used for
+  other data which is awkward to handle due to its size, like
+  audio/video files or large software packages.
+  .
+  jigdo tries to ensure that the large file is downloaded in small
+  parts which can be stored on different servers. People who want to
+  download the image do so by telling the jigdo download tool to
+  process one ".jigdo" file; using it, jigdo downloads the parts and
+  reassembles the image. jigdo-file is used to prepare the files for
+  download.
+
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/bin/
+-rwxr-xr-x root/root    162576 2017-12-07 16:38 ./usr/bin/jigdo-file
+-rwxr-xr-x root/root     27385 2017-12-07 16:38 ./usr/bin/jigdo-lite
+-rwxr-xr-x root/root     13728 2017-12-07 16:38 ./usr/bin/jigdo-mirror
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/share/
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/share/doc-base/
+-rw-r--r-- root/root       528 2016-08-10 13:09 ./usr/share/doc-base/jigdo-mini-howto
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/share/doc/
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/share/doc/jigdo-file/
+-rw-r--r-- root/root      1613 2004-06-20 20:39 ./usr/share/doc/jigdo-file/THANKS
+-rw-r--r-- root/root      3973 2005-04-04 21:58 ./usr/share/doc/jigdo-file/TechDetails.txt.gz
+-rw-r--r-- root/root      3351 2017-12-07 16:38 ./usr/share/doc/jigdo-file/changelog.Debian.gz
+-rw-r--r-- root/root      6693 2006-05-19 20:54 ./usr/share/doc/jigdo-file/changelog.gz
+-rw-r--r-- root/root      1698 2017-12-07 15:12 ./usr/share/doc/jigdo-file/copyright
+-rw-r--r-- root/root     66310 2017-12-07 16:38 ./usr/share/doc/jigdo-file/debian-jigdo-mini-howto.html
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/share/jigdo/
+-rw-r--r-- root/root     31273 2017-12-07 16:38 ./usr/share/jigdo/debian-mirrors.jigdo
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/share/locale/
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/share/locale/de/
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/share/locale/de/LC_MESSAGES/
+-rw-r--r-- root/root     47256 2017-12-07 16:38 ./usr/share/locale/de/LC_MESSAGES/jigdo.mo
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/share/man/
+drwxr-xr-x root/root         0 2017-12-07 16:38 ./usr/share/man/man1/
+-rw-r--r-- root/root     15827 2017-12-07 16:38 ./usr/share/man/man1/jigdo-file.1.gz
+-rw-r--r-- root/root      1140 2017-12-07 16:38 ./usr/share/man/man1/jigdo-lite.1.gz
+-rw-r--r-- root/root      1187 2017-12-07 16:38 ./usr/share/man/man1/jigdo-mirror.1.gz
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [553 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [639 B]
+Fetched 2155 B in 0s (159 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 1s (3497 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 21100 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* dwz* gcc-8-base:armhf*
+  gettext* gettext-base* groff-base* intltool-debian* libapt-pkg-perl*
+  libarchive-zip-perl* libasan5:armhf* libatomic1:armhf* libblkid-dev:armhf*
+  libblkid1:armhf* libbsd0* libbz2-1.0:armhf* libbz2-dev:armhf* libc6:armhf*
+  libc6-dev:armhf* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclone-perl* libcroco3* libdb-dev:armhf*
+  libdb5.3:armhf* libdb5.3-dev:armhf* libdigest-hmac-perl* libelf1*
+  libemail-valid-perl* libexporter-tiny-perl* libffi-dev:armhf* libffi6:armhf*
+  libfile-basedir-perl* libfile-stripnondeterminism-perl* libfuture-perl*
+  libgcc-8-dev:armhf* libgcc1:armhf* libglib2.0-0* libglib2.0-0:armhf*
+  libglib2.0-bin* libglib2.0-data* libglib2.0-dev:armhf* libglib2.0-dev-bin*
+  libgomp1:armhf* libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* liblist-moreutils-perl* libmount-dev:armhf*
+  libmount1:armhf* libmpdec2* libncurses6* libnet-dns-perl*
+  libnet-domain-tld-perl* libnet-ip-perl* libparse-debianchangelog-perl*
+  libpath-tiny-perl* libpcre16-3:armhf* libpcre3:armhf* libpcre3-dev:armhf*
+  libpcre32-3:armhf* libpcrecpp0v5:armhf* libpipeline1* libpython3-stdlib*
+  libpython3.7-minimal* libpython3.7-stdlib* libselinux1:armhf*
+  libselinux1-dev:armhf* libsepol1:armhf* libsepol1-dev:armhf* libsigsegv2*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libstruct-dumb-perl*
+  libsub-name-perl* libtext-levenshtein-perl* libtool* libubsan1:armhf*
+  libuchardet0* libuuid1:armhf* lintian* linux-libc-dev:armhf* m4* man-db*
+  mime-support* patchutils* pkg-config* po-debconf* python3*
+  python3-distutils* python3-lib2to3* python3-minimal* python3.7*
+  python3.7-minimal* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* uuid-dev:armhf*
+  zlib1g:armhf* zlib1g-dev:armhf*
+0 upgraded, 0 newly installed, 109 to remove and 0 not upgraded.
+After this operation, 144 MB disk space will be freed.
+(Reading database ... 22378 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libglib2.0-dev:armhf (2.58.3-1) ...
+Removing libselinux1-dev:armhf (2.8-1+b1) ...
+Removing libpcre3-dev:armhf (2:8.39-11) ...
+Removing libpcrecpp0v5:armhf (2:8.39-11) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libmount-dev:armhf (2.33.1-0.1) ...
+Removing libblkid-dev:armhf (2.33.1-0.1) ...
+Removing libglib2.0-0:armhf (2.58.3-1) ...
+Removing libmount1:armhf (2.33.1-0.1) ...
+Removing libblkid1:armhf (2.33.1-0.1) ...
+Removing libbz2-dev:armhf (1.0.6-9) ...
+Removing libbz2-1.0:armhf (1.0.6-9) ...
+Removing zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing uuid-dev:armhf (2.33.1-0.1) ...
+Removing libuuid1:armhf (2.33.1-0.1) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libdb-dev:armhf (5.3.1+nmu1) ...
+Removing libdb5.3-dev:armhf (5.3.28+dfsg1-0.5) ...
+Removing libdb5.3:armhf (5.3.28+dfsg1-0.5) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing libglib2.0-bin (2.58.3-1) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libffi-dev:armhf (3.2.1-9) ...
+Removing libffi6:armhf (3.2.1-9) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing pkg-config (0.29-6) ...
+Removing libglib2.0-dev-bin (2.58.3-1) ...
+Removing libglib2.0-data (2.58.3-1) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing python3-distutils (3.7.2-3) ...
+Removing python3-lib2to3 (3.7.2-3) ...
+Removing python3 (3.7.2-1) ...
+Removing python3.7 (3.7.2-2) ...
+Removing libpython3-stdlib:amd64 (3.7.2-1) ...
+Removing libpython3.7-stdlib:amd64 (3.7.2-2) ...
+find: ‘/usr/lib/python3’: No such file or directory
+Removing libmpdec2:amd64 (2.4.2-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libpcre16-3:armhf (2:8.39-11) ...
+Removing libselinux1:armhf (2.8-1+b1) ...
+Removing libpcre3:armhf (2:8.39-11) ...
+Removing libpcre32-3:armhf (2:8.39-11) ...
+Removing python3-minimal (3.7.2-1) ...
+Removing python3.7-minimal (3.7.2-2) ...
+Removing libpython3.7-minimal:amd64 (3.7.2-2) ...
+find: ‘/usr/lib/python3’: No such file or directory
+Removing libsepol1-dev:armhf (2.8-1) ...
+Removing libsepol1:armhf (2.8-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing mime-support (3.62) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16463 files and directories currently installed.)
+Purging configuration files for libblkid-dev:armhf (2.33.1-0.1) ...
+Purging configuration files for mime-support (3.62) ...
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for libglib2.0-0:armhf (2.58.3-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for python3 (3.7.2-1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libpython3.7-minimal:amd64 (3.7.2-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for python3.7-minimal (3.7.2-2) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 19
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 11
+Job: /home/build/sbuild-setup/repo/pool/main/j/jigdo/jigdo_0.7.3-5.dsc
+Lintian: pass
+Machine Architecture: amd64
+Package: jigdo
+Package-Time: 37
+Source-Version: 0.7.3-5
+Space: n/a
+Status: successful
+Version: 0.7.3-5
+--------------------------------------------------------------------------------
+Finished at 2019-03-04T15:20:23Z
+Build needed 00:00:37, no disk space

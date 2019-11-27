@@ -1,0 +1,1591 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| fsarchiver 0.8.5-2 (armhf)                   Fri, 01 Mar 2019 20:04:44 +0000 |
++==============================================================================+
+
+Package: fsarchiver
+Version: 0.8.5-2
+Source Version: 0.8.5-2
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-e59a5cf0-1ca1-4f84-a162-1ed93a2171a6' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/fsarchiver-OoPhDM/resolver-r1Yd6E' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/f/fsarchiver/fsarchiver_0.8.5-2.dsc exists in /home/build/sbuild-setup/repo/pool/main/f/fsarchiver; copying to chroot
+I: NOTICE: Log filtering will replace 'build/fsarchiver-OoPhDM/fsarchiver-0.8.5' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/fsarchiver-OoPhDM' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 11), zlib1g-dev, libbz2-dev, liblzma-dev, liblzo2-dev, liblz4-dev, libzstd-dev, libgcrypt20-dev, e2fslibs-dev, uuid-dev, libblkid-dev, libattr1-dev, pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 11), zlib1g-dev, libbz2-dev, liblzma-dev, liblzo2-dev, liblz4-dev, libzstd-dev, libgcrypt20-dev, e2fslibs-dev, uuid-dev, libblkid-dev, libattr1-dev, pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [455 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [546 B]
+Fetched 1958 B in 0s (140 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils comerr-dev:armhf
+  debhelper dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libattr1:armhf libattr1-dev:armhf libblkid-dev:armhf
+  libblkid1:armhf libbsd0 libbz2-1.0:armhf libbz2-dev:armhf libc6:armhf
+  libc6-dev:armhf libcom-err2:armhf libcroco3 libelf1 libext2fs-dev:armhf
+  libext2fs2:armhf libfile-stripnondeterminism-perl libgcc-8-dev:armhf
+  libgcc1:armhf libgcrypt20:armhf libgcrypt20-dev:armhf libglib2.0-0
+  libgomp1:armhf libgpg-error-dev:armhf libgpg-error0:armhf liblz4-1:armhf
+  liblz4-dev:armhf liblzma-dev:armhf liblzma5:armhf liblzo2-2:armhf
+  liblzo2-dev:armhf libncurses6 libpipeline1 libsigsegv2 libstdc++-8-dev:armhf
+  libstdc++6:armhf libtool libubsan1:armhf libuchardet0 libuuid1:armhf
+  libzstd-dev:armhf libzstd1:armhf linux-libc-dev:armhf m4 man-db pkg-config
+  po-debconf uuid-dev:armhf zlib1g:armhf zlib1g-dev:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation doc-base:armhf dh-make gettext-doc libasprintf-dev libgettextpo-dev
+  groff glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  rng-tools:armhf libgcrypt20-doc:armhf liblzma-doc:armhf
+  libstdc++-8-doc:armhf libtool-doc gfortran | fortran95-compiler gcj-jdk
+  m4-doc apparmor less www-browser libmail-box-perl
+Recommended packages:
+  curl | wget | lynx bzip2-doc:armhf libidn2-0:armhf libarchive-cpio-perl
+  libglib2.0-data shared-mime-info xdg-user-dirs libgpg-error-l10n:armhf
+  libgpm2 libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils comerr-dev:armhf
+  debhelper dh-autoreconf dh-strip-nondeterminism dwz gcc-8-base:armhf gettext
+  gettext-base groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libattr1:armhf libattr1-dev:armhf libblkid-dev:armhf
+  libblkid1:armhf libbsd0 libbz2-1.0:armhf libbz2-dev:armhf libc6:armhf
+  libc6-dev:armhf libcom-err2:armhf libcroco3 libelf1 libext2fs-dev:armhf
+  libext2fs2:armhf libfile-stripnondeterminism-perl libgcc-8-dev:armhf
+  libgcc1:armhf libgcrypt20:armhf libgcrypt20-dev:armhf libglib2.0-0
+  libgomp1:armhf libgpg-error-dev:armhf libgpg-error0:armhf liblz4-1:armhf
+  liblz4-dev:armhf liblzma-dev:armhf liblzma5:armhf liblzo2-2:armhf
+  liblzo2-dev:armhf libncurses6 libpipeline1 libsigsegv2 libstdc++-8-dev:armhf
+  libstdc++6:armhf libtool libubsan1:armhf libuchardet0 libuuid1:armhf
+  libzstd-dev:armhf libzstd1:armhf linux-libc-dev:armhf m4 man-db pkg-config
+  po-debconf sbuild-build-depends-main-dummy:armhf uuid-dev:armhf zlib1g:armhf
+  zlib1g-dev:armhf
+0 upgraded, 67 newly installed, 0 to remove and 0 not upgraded.
+Need to get 862 kB/22.6 MB of archives.
+After this operation, 88.6 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [972 B]
+Get:2 http://10.116.41.102/debian sid/main armhf libext2fs2 armhf 1.44.5-1 [206 kB]
+Get:3 http://10.116.41.102/debian sid/main armhf libext2fs-dev armhf 1.44.5-1 [291 kB]
+Get:4 http://10.116.41.102/debian sid/main armhf liblzo2-dev armhf 2.10-0.1 [110 kB]
+Get:5 http://10.116.41.102/debian sid/main armhf libzstd-dev armhf 1.3.8+dfsg-3 [255 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 862 kB in 0s (10.4 MB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../07-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../08-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../09-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../10-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../11-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../12-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../13-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../14-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../15-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../16-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../17-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libcom-err2:armhf.
+Preparing to unpack .../18-libcom-err2_1.44.5-1_armhf.deb ...
+Unpacking libcom-err2:armhf (1.44.5-1) ...
+Selecting previously unselected package comerr-dev:armhf.
+Preparing to unpack .../19-comerr-dev_2.1-1.44.5-1_armhf.deb ...
+Unpacking comerr-dev:armhf (2.1-1.44.5-1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../20-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../21-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../22-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../23-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../24-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../25-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../26-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../27-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../28-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../29-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../30-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../31-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../32-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../33-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../34-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../35-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../36-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libattr1:armhf.
+Preparing to unpack .../37-libattr1_1%3a2.4.47-4_armhf.deb ...
+Unpacking libattr1:armhf (1:2.4.47-4) ...
+Selecting previously unselected package libattr1-dev:armhf.
+Preparing to unpack .../38-libattr1-dev_1%3a2.4.47-4_armhf.deb ...
+Unpacking libattr1-dev:armhf (1:2.4.47-4) ...
+Selecting previously unselected package libuuid1:armhf.
+Preparing to unpack .../39-libuuid1_2.33.1-0.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libblkid1:armhf.
+Preparing to unpack .../40-libblkid1_2.33.1-0.1_armhf.deb ...
+Unpacking libblkid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package uuid-dev:armhf.
+Preparing to unpack .../41-uuid-dev_2.33.1-0.1_armhf.deb ...
+Unpacking uuid-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libblkid-dev:armhf.
+Preparing to unpack .../42-libblkid-dev_2.33.1-0.1_armhf.deb ...
+Unpacking libblkid-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libbz2-1.0:armhf.
+Preparing to unpack .../43-libbz2-1.0_1.0.6-9_armhf.deb ...
+Unpacking libbz2-1.0:armhf (1.0.6-9) ...
+Selecting previously unselected package libbz2-dev:armhf.
+Preparing to unpack .../44-libbz2-dev_1.0.6-9_armhf.deb ...
+Unpacking libbz2-dev:armhf (1.0.6-9) ...
+Selecting previously unselected package libext2fs2:armhf.
+Preparing to unpack .../45-libext2fs2_1.44.5-1_armhf.deb ...
+Unpacking libext2fs2:armhf (1.44.5-1) ...
+Selecting previously unselected package libext2fs-dev:armhf.
+Preparing to unpack .../46-libext2fs-dev_1.44.5-1_armhf.deb ...
+Unpacking libext2fs-dev:armhf (1.44.5-1) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../47-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../48-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../49-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libgpg-error0:armhf.
+Preparing to unpack .../50-libgpg-error0_1.35-1_armhf.deb ...
+Unpacking libgpg-error0:armhf (1.35-1) ...
+Selecting previously unselected package libgcrypt20:armhf.
+Preparing to unpack .../51-libgcrypt20_1.8.4-5_armhf.deb ...
+Unpacking libgcrypt20:armhf (1.8.4-5) ...
+Selecting previously unselected package libgpg-error-dev:armhf.
+Preparing to unpack .../52-libgpg-error-dev_1.35-1_armhf.deb ...
+Unpacking libgpg-error-dev:armhf (1.35-1) ...
+Selecting previously unselected package libgcrypt20-dev:armhf.
+Preparing to unpack .../53-libgcrypt20-dev_1.8.4-5_armhf.deb ...
+Unpacking libgcrypt20-dev:armhf (1.8.4-5) ...
+Selecting previously unselected package liblz4-1:armhf.
+Preparing to unpack .../54-liblz4-1_1.8.3-1_armhf.deb ...
+Unpacking liblz4-1:armhf (1.8.3-1) ...
+Selecting previously unselected package liblz4-dev:armhf.
+Preparing to unpack .../55-liblz4-dev_1.8.3-1_armhf.deb ...
+Unpacking liblz4-dev:armhf (1.8.3-1) ...
+Selecting previously unselected package liblzma5:armhf.
+Preparing to unpack .../56-liblzma5_5.2.4-1_armhf.deb ...
+Unpacking liblzma5:armhf (5.2.4-1) ...
+Selecting previously unselected package liblzma-dev:armhf.
+Preparing to unpack .../57-liblzma-dev_5.2.4-1_armhf.deb ...
+Unpacking liblzma-dev:armhf (5.2.4-1) ...
+Selecting previously unselected package liblzo2-2:armhf.
+Preparing to unpack .../58-liblzo2-2_2.10-0.1_armhf.deb ...
+Unpacking liblzo2-2:armhf (2.10-0.1) ...
+Selecting previously unselected package liblzo2-dev:armhf.
+Preparing to unpack .../59-liblzo2-dev_2.10-0.1_armhf.deb ...
+Unpacking liblzo2-dev:armhf (2.10-0.1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../60-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libzstd1:armhf.
+Preparing to unpack .../61-libzstd1_1.3.8+dfsg-3_armhf.deb ...
+Unpacking libzstd1:armhf (1.3.8+dfsg-3) ...
+Selecting previously unselected package libzstd-dev:armhf.
+Preparing to unpack .../62-libzstd-dev_1.3.8+dfsg-3_armhf.deb ...
+Unpacking libzstd-dev:armhf (1.3.8+dfsg-3) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../63-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../64-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package zlib1g-dev:armhf.
+Preparing to unpack .../65-zlib1g-dev_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../66-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-7) ...
+Setting up libattr1:armhf (1:2.4.47-4) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libbz2-1.0:armhf (1.0.6-9) ...
+Setting up libbz2-dev:armhf (1.0.6-9) ...
+Setting up libzstd1:armhf (1.3.8+dfsg-3) ...
+Setting up libzstd-dev:armhf (1.3.8+dfsg-3) ...
+Setting up libattr1-dev:armhf (1:2.4.47-4) ...
+Setting up liblzma5:armhf (5.2.4-1) ...
+Setting up libgpg-error0:armhf (1.35-1) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up liblz4-1:armhf (1.8.3-1) ...
+Setting up libgcrypt20:armhf (1.8.4-5) ...
+Setting up liblzo2-2:armhf (2.10-0.1) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libcom-err2:armhf (1.44.5-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libext2fs2:armhf (1.44.5-1) ...
+Setting up libgpg-error-dev:armhf (1.35-1) ...
+Setting up comerr-dev:armhf (2.1-1.44.5-1) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libuuid1:armhf (2.33.1-0.1) ...
+Setting up liblz4-dev:armhf (1.8.3-1) ...
+Setting up liblzo2-dev:armhf (2.10-0.1) ...
+Setting up liblzma-dev:armhf (5.2.4-1) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Setting up libext2fs-dev:armhf (1.44.5-1) ...
+Setting up libblkid1:armhf (2.33.1-0.1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libgcrypt20-dev:armhf (1.8.4-5) ...
+Setting up uuid-dev:armhf (2.33.1-0.1) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libblkid-dev:armhf (2.33.1-0.1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in linux-any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 comerr-dev_2.1-1.44.5-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libattr1-dev_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid-dev_2.33.1-0.1 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libbz2-dev_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs-dev_1.44.5-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgcrypt20-dev_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error-dev_1.35-1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblz4-dev_1.8.3-1 liblzma-dev_5.2.4-1 liblzma5_5.2.4-1 liblzo2-2_2.10-0.1 liblzo2-dev_2.10-0.1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd-dev_1.3.8+dfsg-3 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-dev_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1 zlib1g-dev_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: fsarchiver
+Binary: fsarchiver
+Architecture: linux-any
+Version: 0.8.5-2
+Maintainer: Michael Biebl <biebl@debian.org>
+Homepage: http://www.fsarchiver.org/
+Standards-Version: 4.1.5
+Vcs-Browser: https://salsa.debian.org/debian/fsarchiver
+Vcs-Git: https://salsa.debian.org/debian/fsarchiver.git
+Testsuite: autopkgtest
+Testsuite-Triggers: acl, e2fsprogs, file, uuid-runtime, xattr, xfsprogs
+Build-Depends: debhelper (>= 11), zlib1g-dev, libbz2-dev, liblzma-dev, liblzo2-dev, liblz4-dev, libzstd-dev, libgcrypt20-dev, e2fslibs-dev, uuid-dev, libblkid-dev, libattr1-dev, pkg-config
+Package-List:
+ fsarchiver deb admin optional arch=linux-any
+Checksums-Sha1:
+ 1d4cd8064b49213bc825e9439d940d2041e975e0 298502 fsarchiver_0.8.5.orig.tar.gz
+ 53a11f9de16fac9175b4d439ab6ee9614016a75d 4544 fsarchiver_0.8.5-2.debian.tar.xz
+Checksums-Sha256:
+ c694f52e42703d7e8c4d56f2db97a8ff5616df1d723429126de97c22217c88fe 298502 fsarchiver_0.8.5.orig.tar.gz
+ c7f96f096526b1ab3e510f98397a358b13d41cf4bfe58e9d4170b58d539d38d2 4544 fsarchiver_0.8.5-2.debian.tar.xz
+Files:
+ dbdc7733e8be2b91cc2749041e6dca48 298502 fsarchiver_0.8.5.orig.tar.gz
+ c846737dffbe3a789c391e6df5d8fb97 4544 fsarchiver_0.8.5-2.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEECbOsLssWnJBDRcxUauHfDWCPItwFAltH90YACgkQauHfDWCP
+ItzglA//QuzeRnyja14aNWDHtxZBjyM6J2JraPbTnagVWgCt6bOP7AKp9l9DDxz7
+N1vQec1072TQZqAZOdhjKvVo16eLvrKBjc17xA4n8+ZALRHntfQI+lzz/8hsSc4r
+JszdpySC5ZuJEUeYMzobl6bLx0aFDWNhlduUENElGKtlrvwd+KlJQQQuoya1H6AY
+dPrG05SaLgaHCRPXqiplOi2wliPdgiJmrXCMHI7UMhwNvsPOgX8G1WwbPoNby080
+U0UWhf2Gy3kpWoPRTuHUptDZkoPhmyq3PFM6pRmZBd9PQZyteWQxlRF9HmkWPv5+
+Fn+AXcobn3v8AClxGqE+mN0gQFl0E29ad2K/1a12ssL/SFg9IscW79Zoo1NuOWU9
+XykSu9uFb2qNAB7+f6wZR1cmtcSTDqH1GsuvBnrQl9sNjo/jXH9oXBXJ1ac8oyJj
+hlUpYJf7s6jUdnpcIWIoj8YWAsAkpw+FnCvVpXOWwcLIuE4e0RCaQMQqYHdvXbz4
+qs2H4O/79V9s/73w9Uop2d3rLnDNHnFzXbV0gaiDtaRU/UB/UNG3RdvLfRPs8ugJ
+0TR2wnHl/Rn5avMyoYd/WsAJfiEF0/Es1QVnsUshDlrQTJpAlTdzEcVrMCDhL71x
+/qqFneqY1EkiT3TTT4LeL77I/UVndQzZTbxVrHussQH3CJlF5AQ=
+=T5uL
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Fri Jul 13 00:50:14 2018 UTC
+gpgv:                using RSA key 09B3AC2ECB169C904345CC546AE1DF0D608F22DC
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./fsarchiver_0.8.5-2.dsc
+dpkg-source: info: extracting fsarchiver in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking fsarchiver_0.8.5.orig.tar.gz
+dpkg-source: info: unpacking fsarchiver_0.8.5-2.debian.tar.xz
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-e59a5cf0-1ca1-4f84-a162-1ed93a2171a6
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package fsarchiver
+dpkg-buildpackage: info: source version 0.8.5-2
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Michael Biebl <biebl@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ debian/rules clean
+dh clean
+   dh_clean
+ debian/rules binary-arch
+dh binary-arch
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+   dh_auto_configure -a
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking target system type... arm-unknown-linux-gnueabihf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking whether make supports the include directive... yes (GNU style)
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking for library containing strerror... none required
+checking for arm-linux-gnueabihf-gcc... (cached) arm-linux-gnueabihf-gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... (cached) yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... (cached) none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... (cached) yes
+checking dependency style of arm-linux-gnueabihf-gcc... (cached) none
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking for arm-linux-gnueabihf-pkg-config... /usr/bin/arm-linux-gnueabihf-pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for pthread_create in -lpthread... yes
+configure: checking for libz (library and header files)...
+checking for compress in -lz... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking zlib.h usability... yes
+checking zlib.h presence... yes
+checking for zlib.h... yes
+configure: checking for libbz2 (library and header files) ... ...
+checking for BZ2_bzBuffToBuffCompress in -lbz2... yes
+checking bzlib.h usability... yes
+checking bzlib.h presence... yes
+checking for bzlib.h... yes
+checking for LZMA... yes
+configure: checking for liblzo2 (library and header files)...
+checking for lzo1x_1_compress in -llzo2... yes
+checking lzo/lzo1x.h usability... yes
+checking lzo/lzo1x.h presence... yes
+checking for lzo/lzo1x.h... yes
+configure: checking for lz4 (library and header files)...
+checking for LZ4_compress in -llz4... yes
+checking lz4.h usability... yes
+checking lz4.h presence... yes
+checking for lz4.h... yes
+configure: checking for zstd (library and header files)...
+checking for ZSTD_compress in -lzstd... yes
+checking zstd.h usability... yes
+checking zstd.h presence... yes
+checking for zstd.h... yes
+configure: checking for libgcrypt (library and header files)...
+checking for gcry_cipher_encrypt in -lgcrypt... yes
+checking gcrypt.h usability... yes
+checking gcrypt.h presence... yes
+checking for gcrypt.h... yes
+checking for EXT2FS... yes
+checking for COM_ERR... yes
+checking for E2P... yes
+checking for BLKID... yes
+checking for UUID... yes
+checking sys/xattr.h usability... yes
+checking sys/xattr.h presence... yes
+checking for sys/xattr.h... yes
+checking malloc.h usability... yes
+checking malloc.h presence... yes
+checking for malloc.h... yes
+checking for unistd.h... (cached) yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking sys/param.h usability... yes
+checking sys/param.h presence... yes
+checking for sys/param.h... yes
+checking sys/statfs.h usability... yes
+checking sys/statfs.h presence... yes
+checking for sys/statfs.h... yes
+checking sys/mount.h usability... yes
+checking sys/mount.h presence... yes
+checking for sys/mount.h... yes
+checking for stdint.h... (cached) yes
+checking endian.h usability... yes
+checking endian.h presence... yes
+checking for endian.h... yes
+checking stdbool.h usability... yes
+checking stdbool.h presence... yes
+checking for stdbool.h... yes
+checking for stdlib.h... (cached) yes
+checking stdio.h usability... yes
+checking stdio.h presence... yes
+checking for stdio.h... yes
+checking getopt.h usability... yes
+checking getopt.h presence... yes
+checking for getopt.h... yes
+checking fcntl.h usability... yes
+checking fcntl.h presence... yes
+checking for fcntl.h... yes
+checking time.h usability... yes
+checking time.h presence... yes
+checking for time.h... yes
+checking wordexp.h usability... yes
+checking wordexp.h presence... yes
+checking for wordexp.h... yes
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking fnmatch.h usability... yes
+checking fnmatch.h presence... yes
+checking for fnmatch.h... yes
+checking for strerror... yes
+checking for open64... yes
+checking for lstat64... yes
+checking for stat64... yes
+checking for fstatfs64... yes
+checking for fstatvfs64... yes
+checking for mempcpy... yes
+checking for lutimes... yes
+checking for ANSI C header files... (cached) yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating doc/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+   dh_auto_build -a
+	make -j16
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+make  all-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in src
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-fsarchiver.o `test -f 'fsarchiver.c' || echo './'`fsarchiver.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-oper_save.o `test -f 'oper_save.c' || echo './'`oper_save.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-oper_restore.o `test -f 'oper_restore.c' || echo './'`oper_restore.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-oper_probe.o `test -f 'oper_probe.c' || echo './'`oper_probe.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-thread_archio.o `test -f 'thread_archio.c' || echo './'`thread_archio.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-archreader.o `test -f 'archreader.c' || echo './'`archreader.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-archwriter.o `test -f 'archwriter.c' || echo './'`archwriter.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-writebuf.o `test -f 'writebuf.c' || echo './'`writebuf.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-archinfo.o `test -f 'archinfo.c' || echo './'`archinfo.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-thread_comp.o `test -f 'thread_comp.c' || echo './'`thread_comp.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-comp_gzip.o `test -f 'comp_gzip.c' || echo './'`comp_gzip.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-comp_bzip2.o `test -f 'comp_bzip2.c' || echo './'`comp_bzip2.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-comp_lzma.o `test -f 'comp_lzma.c' || echo './'`comp_lzma.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-comp_lzo.o `test -f 'comp_lzo.c' || echo './'`comp_lzo.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-comp_lz4.o `test -f 'comp_lz4.c' || echo './'`comp_lz4.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-comp_zstd.o `test -f 'comp_zstd.c' || echo './'`comp_zstd.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-crypto.o `test -f 'crypto.c' || echo './'`crypto.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-fs_ntfs.o `test -f 'fs_ntfs.c' || echo './'`fs_ntfs.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-fs_ext2.o `test -f 'fs_ext2.c' || echo './'`fs_ext2.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-fs_reiserfs.o `test -f 'fs_reiserfs.c' || echo './'`fs_reiserfs.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-fs_reiser4.o `test -f 'fs_reiser4.c' || echo './'`fs_reiser4.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-fs_btrfs.o `test -f 'fs_btrfs.c' || echo './'`fs_btrfs.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-fs_xfs.o `test -f 'fs_xfs.c' || echo './'`fs_xfs.c
+oper_probe.c: In function ‘partlist_getlist’:
+oper_probe.c:91:56: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 1019 [-Wformat-truncation=]
+             snprintf(longname, sizeof(longname), "/dev/%s", devname);
+                                                        ^~   ~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from common.h:21,
+                 from oper_probe.c:28:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 6 and 1029 bytes into a destination of size 1024
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-fs_jfs.o `test -f 'fs_jfs.c' || echo './'`fs_jfs.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-fs_vfat.o `test -f 'fs_vfat.c' || echo './'`fs_vfat.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-common.o `test -f 'common.c' || echo './'`common.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-dico.o `test -f 'dico.c' || echo './'`dico.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-strdico.o `test -f 'strdico.c' || echo './'`strdico.c
+archreader.c: In function ‘archreader_close’:
+archreader.c:129:5: warning: ignoring return value of ‘lockf’, declared with attribute warn_unused_result [-Wunused-result]
+     lockf(ai->archfd, F_ULOCK, 0);
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-dichl.o `test -f 'dichl.c' || echo './'`dichl.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-queue.o `test -f 'queue.c' || echo './'`queue.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-error.o `test -f 'error.c' || echo './'`error.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-syncthread.o `test -f 'syncthread.c' || echo './'`syncthread.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-datafile.o `test -f 'datafile.c' || echo './'`datafile.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-strlist.o `test -f 'strlist.c' || echo './'`strlist.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-regmulti.o `test -f 'regmulti.c' || echo './'`regmulti.c
+fs_xfs.c: In function ‘xfs_mkfs’:
+fs_xfs.c:205:39: warning: ‘%s’ directive output may be truncated writing up to 2047 bytes into a region of size 64 [-Wformat-truncation=]
+         snprintf(uuid, sizeof(uuid), "%s", buffer);
+                                       ^~   ~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from fs_xfs.c:23:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin_snprintf’ output between 1 and 2048 bytes into a destination of size 64
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-options.o `test -f 'options.c' || echo './'`options.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-logfile.o `test -f 'logfile.c' || echo './'`logfile.c
+fs_ext2.c: In function ‘extfs_getinfo’:
+fs_ext2.c:444:52: warning: argument to ‘sizeof’ in ‘strncpy’ call is the same expression as the source; did you mean to use the size of the destination? [-Wsizeof-pointer-memaccess]
+         strncpy(label, super->s_volume_name, sizeof(super->s_volume_name));
+                                                    ^
+fs_ext2.c: In function ‘extfs_mkfs’:
+fs_ext2.c:219:39: warning: ‘%s’ directive output may be truncated writing up to 2047 bytes into a region of size 64 [-Wformat-truncation=]
+         snprintf(uuid, sizeof(uuid), "%s", buffer);
+                                       ^~   ~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from fs_ext2.c:22:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin_snprintf’ output between 1 and 2048 bytes into a destination of size 64
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-filesys.o `test -f 'filesys.c' || echo './'`filesys.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE -D_GNU_SOURCE -I. -I..   -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o fsarchiver-devinfo.o `test -f 'devinfo.c' || echo './'`devinfo.c
+devinfo.c: In function ‘get_devinfo’:
+devinfo.c:83:71: warning: ‘%s’ directive output may be truncated writing up to 4095 bytes into a region of size 256 [-Wformat-truncation=]
+                 snprintf(outdev->longname, sizeof(outdev->longname), "%s", temp);
+                                                                       ^~   ~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from common.h:21,
+                 from devinfo.c:36:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin_snprintf’ output between 1 and 4096 bytes into a destination of size 256
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+oper_restore.c: In function ‘extractar_filesystem_extract’:
+oper_restore.c:1250:51: warning: ‘%s’ directive output may be truncated writing up to 1023 bytes into a region of size 128 [-Wformat-truncation=]
+         snprintf(filesystem, sizeof(filesystem), "%s", tempbuf);
+                                                   ^~   ~~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from /usr/include/arm-linux-gnueabihf/gpg-error.h:65,
+                 from /usr/include/gcrypt.h:30,
+                 from oper_restore.c:31:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin_snprintf’ output between 1 and 1024 bytes into a destination of size 128
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+common.c: In function ‘exec_command’:
+common.c:400:13: warning: ignoring return value of ‘read’, declared with attribute warn_unused_result [-Wunused-result]
+             read(mystdout, stdoutbuf+outpos, stdoutsize-outpos-1);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+common.c:402:13: warning: ignoring return value of ‘read’, declared with attribute warn_unused_result [-Wunused-result]
+             read(mystderr, stderrbuf+errpos, stderrsize-errpos-1);
+             ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wall -std=gnu99 -rdynamic -ggdb  -I/usr/include/ext2fs -I/usr/include/et -I/usr/include/et -I/usr/include/e2p -I/usr/include/blkid -I/usr/include/uuid -I/usr/include/uuid -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o fsarchiver fsarchiver-fsarchiver.o fsarchiver-oper_save.o fsarchiver-oper_restore.o fsarchiver-oper_probe.o fsarchiver-thread_archio.o fsarchiver-archreader.o fsarchiver-archwriter.o fsarchiver-writebuf.o fsarchiver-archinfo.o fsarchiver-thread_comp.o fsarchiver-comp_gzip.o fsarchiver-comp_bzip2.o fsarchiver-comp_lzma.o fsarchiver-comp_lzo.o fsarchiver-comp_lz4.o fsarchiver-comp_zstd.o fsarchiver-crypto.o fsarchiver-fs_ntfs.o fsarchiver-fs_ext2.o fsarchiver-fs_reiserfs.o fsarchiver-fs_reiser4.o fsarchiver-fs_btrfs.o fsarchiver-fs_xfs.o fsarchiver-fs_jfs.o fsarchiver-fs_vfat.o fsarchiver-common.o fsarchiver-dico.o fsarchiver-strdico.o fsarchiver-dichl.o fsarchiver-queue.o fsarchiver-error.o fsarchiver-syncthread.o fsarchiver-datafile.o fsarchiver-strlist.o fsarchiver-regmulti.o fsarchiver-options.o fsarchiver-logfile.o fsarchiver-filesys.o fsarchiver-devinfo.o -lpthread -lrt -L/usr/lib/arm-linux-gnueabihf -llzma -L/usr/lib/arm-linux-gnueabihf -lext2fs -L/usr/lib/arm-linux-gnueabihf -lcom_err -L/usr/lib/arm-linux-gnueabihf -le2p -L/usr/lib/arm-linux-gnueabihf -lblkid -L/usr/lib/arm-linux-gnueabihf -luuid -lpthread  -lz -lbz2 -llzo2 -llz4 -lzstd -lgcrypt -lgpg-error
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+Making all in doc
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_test -a
+   create-stamp debian/debhelper-build-stamp
+   dh_testroot -a
+   dh_prep -a
+   dh_auto_install -a
+	make -j16 install DESTDIR=/<<PKGBUILDDIR>>/debian/fsarchiver AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+Making install in src
+make[2]: Entering directory '/<<PKGBUILDDIR>>/src'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+make[3]: Nothing to be done for 'install-data-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/fsarchiver/usr/sbin'
+  /usr/bin/install -c fsarchiver '/<<PKGBUILDDIR>>/debian/fsarchiver/usr/sbin'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/src'
+Making install in doc
+make[2]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/fsarchiver/usr/share/man/man8'
+ /usr/bin/install -c -m 644 fsarchiver.8 '/<<PKGBUILDDIR>>/debian/fsarchiver/usr/share/man/man8'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installdocs -a
+   dh_installchangelogs -a
+   dh_installman -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   dh_missing -a
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/fsarchiver/usr/sbin/fsarchiver was not linked against libcom_err.so.2 (it uses none of the library's symbols)
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/fsarchiver/usr/sbin/fsarchiver was not linked against libgpg-error.so.0 (it uses none of the library's symbols)
+   dh_installdeb -a
+   dh_gencontrol -a
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'fsarchiver' in '../fsarchiver_0.8.5-2_armhf.deb'.
+dpkg-deb: building package 'fsarchiver-dbgsym' in '../fsarchiver-dbgsym_0.8.5-2_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../fsarchiver_0.8.5-2_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T20:05:13Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+fsarchiver_0.8.5-2_armhf.changes:
+---------------------------------
+
+Format: 1.8
+Date: Fri, 13 Jul 2018 02:47:01 +0200
+Source: fsarchiver
+Binary: fsarchiver fsarchiver-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 0.8.5-2
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Michael Biebl <biebl@debian.org>
+Changed-By: Michael Biebl <biebl@debian.org>
+Description:
+ fsarchiver - file system archiver
+Changes:
+ fsarchiver (0.8.5-2) unstable; urgency=medium
+ .
+   * autopkgtest: Run xfs and ext4 test in the same testbed
+   * autopkgtest: Add isolation-machine restriction to ext4 and xfs test.
+     They require a loopback device which is not available in e.g. a LXC
+     container.
+   * autopkgtest: Add new backup-and-restore-directory.sh test.
+     This tests the backup and restore of a directory (savedir/restdir) and
+     checks if hard links, soft links, file system ACLs and extended
+     attributes are correctly restored.
+Checksums-Sha1:
+ 860143e7185a3813e9b453f92a1bbb49dc6122cf 249472 fsarchiver-dbgsym_0.8.5-2_armhf.deb
+ 477fcb0f3e06315874cfc58e1214d68376bd5f74 5005 fsarchiver_0.8.5-2_armhf.buildinfo
+ 4bef133cae0be236444a5d1dae51d22155b9088c 102632 fsarchiver_0.8.5-2_armhf.deb
+Checksums-Sha256:
+ 91b49ce97030f32dca818b9d206e8f26707fea8f10c0bdd227617be122a98d46 249472 fsarchiver-dbgsym_0.8.5-2_armhf.deb
+ 407b88eb71223431fe92c18c03790a226903addf32d0f5bc54f41e3a51f827a3 5005 fsarchiver_0.8.5-2_armhf.buildinfo
+ 3e73139c14ea536cca7da224107b232aed46b996fb9a718e40f8905352e668bc 102632 fsarchiver_0.8.5-2_armhf.deb
+Files:
+ 5e289bf2cc51f51cb1df21ba6db04cb0 249472 debug optional fsarchiver-dbgsym_0.8.5-2_armhf.deb
+ 1d83988e7bef1cb82cd42748ab939114 5005 admin optional fsarchiver_0.8.5-2_armhf.buildinfo
+ e77530fe9102855d7d5e60146e31112e 102632 admin optional fsarchiver_0.8.5-2_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: fsarchiver
+Binary: fsarchiver
+Architecture: armhf
+Version: 0.8.5-2
+Checksums-Md5:
+ 5e289bf2cc51f51cb1df21ba6db04cb0 249472 fsarchiver-dbgsym_0.8.5-2_armhf.deb
+ e77530fe9102855d7d5e60146e31112e 102632 fsarchiver_0.8.5-2_armhf.deb
+Checksums-Sha1:
+ 860143e7185a3813e9b453f92a1bbb49dc6122cf 249472 fsarchiver-dbgsym_0.8.5-2_armhf.deb
+ 4bef133cae0be236444a5d1dae51d22155b9088c 102632 fsarchiver_0.8.5-2_armhf.deb
+Checksums-Sha256:
+ 91b49ce97030f32dca818b9d206e8f26707fea8f10c0bdd227617be122a98d46 249472 fsarchiver-dbgsym_0.8.5-2_armhf.deb
+ 3e73139c14ea536cca7da224107b232aed46b996fb9a718e40f8905352e668bc 102632 fsarchiver_0.8.5-2_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Fri, 01 Mar 2019 20:05:13 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ comerr-dev (= 2.1-1.44.5-1),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.52-5),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libattr1-dev (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libblkid-dev (= 2.33.1-0.1),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libbz2-dev (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcom-err2 (= 1.44.5-1),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libext2fs-dev (= 1.44.5-1),
+ libext2fs2 (= 1.44.5-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgcrypt20-dev (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error-dev (= 1.35-1),
+ libgpg-error0 (= 1.35-1),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblz4-dev (= 1.8.3-1),
+ liblzma-dev (= 5.2.4-1),
+ liblzma5 (= 5.2.4-1),
+ liblzo2-2 (= 2.10-0.1),
+ liblzo2-dev (= 2.10-0.1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libquadmath0 (= 8.3.0-2),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ libzstd-dev (= 1.3.8+dfsg-3),
+ libzstd1 (= 1.3.8+dfsg-3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ uuid-dev (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1),
+ zlib1g-dev (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1531442821"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+fsarchiver-dbgsym_0.8.5-2_armhf.deb
+-----------------------------------
+
+ new Debian package, version 2.0.
+ size 249472 bytes: control archive=512 bytes.
+     342 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: fsarchiver-dbgsym
+ Source: fsarchiver
+ Version: 0.8.5-2
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Michael Biebl <biebl@debian.org>
+ Installed-Size: 284
+ Depends: fsarchiver (= 0.8.5-2)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for fsarchiver
+ Build-Ids: a8a72738567d0afe43e7cbace1c6034663daa401
+
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./usr/
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./usr/lib/
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./usr/lib/debug/.build-id/a8/
+-rw-r--r-- root/root    280284 2018-07-13 00:47 ./usr/lib/debug/.build-id/a8/a72738567d0afe43e7cbace1c6034663daa401.debug
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./usr/share/
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2018-07-13 00:47 ./usr/share/doc/fsarchiver-dbgsym -> fsarchiver
+
+
+fsarchiver_0.8.5-2_armhf.deb
+----------------------------
+
+ new Debian package, version 2.0.
+ size 102632 bytes: control archive=1064 bytes.
+    1121 bytes,    20 lines      control              
+     409 bytes,     6 lines      md5sums              
+ Package: fsarchiver
+ Version: 0.8.5-2
+ Architecture: armhf
+ Maintainer: Michael Biebl <biebl@debian.org>
+ Installed-Size: 213
+ Depends: libblkid1 (>= 2.16), libbz2-1.0, libc6 (>= 2.28), libcom-err2 (>= 1.43.9), libext2fs2 (>= 1.37), libgcrypt20 (>= 1.8.0), libgpg-error0 (>= 1.14), liblz4-1 (>= 0.0~r130), liblzma5 (>= 5.1.1alpha+20120614), liblzo2-2, libuuid1 (>= 2.16), libzstd1 (>= 1.3.2), zlib1g (>= 1:1.1.4)
+ Recommends: e2fsprogs
+ Suggests: xfsprogs, reiserfsprogs, reiser4progs, jfsutils, ntfsprogs, ntfs-3g, btrfs-progs
+ Section: admin
+ Priority: optional
+ Homepage: http://www.fsarchiver.org/
+ Description: file system archiver
+  FSArchiver is a system tool that allows you to save the contents of a
+  file system to a compressed archive file. The file system can be restored
+  on a partition which has a different size and it can be restored on a
+  different file system.
+  Unlike tar/dar, FSArchiver also creates the file system when it extracts
+  the data to partitions.
+  Everything is checksummed in the archive in order to protect the data. If
+  the archive is corrupt, you just lose the current file, not the whole archive.
+
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./usr/
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./usr/sbin/
+-rwxr-xr-x root/root    188200 2018-07-13 00:47 ./usr/sbin/fsarchiver
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./usr/share/
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./usr/share/doc/fsarchiver/
+-rw-r--r-- root/root      3876 2018-01-28 07:47 ./usr/share/doc/fsarchiver/README
+-rw-r--r-- root/root      2024 2018-07-13 00:47 ./usr/share/doc/fsarchiver/changelog.Debian.gz
+-rw-r--r-- root/root      7516 2018-07-10 20:17 ./usr/share/doc/fsarchiver/changelog.gz
+-rw-r--r-- root/root      1070 2018-07-13 00:47 ./usr/share/doc/fsarchiver/copyright
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-07-13 00:47 ./usr/share/man/man8/
+-rw-r--r-- root/root      3099 2018-07-13 00:47 ./usr/share/man/man8/fsarchiver.8.gz
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [592 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [675 B]
+Fetched 2230 B in 0s (156 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 0s (10.2 MB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 19495 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils*
+  comerr-dev:armhf* debhelper* dh-autoreconf* dh-strip-nondeterminism*
+  diffstat* dwz* gcc-8-base:armhf* gettext* gettext-base* groff-base*
+  intltool-debian* libapt-pkg-perl* libarchive-zip-perl* libasan5:armhf*
+  libatomic1:armhf* libattr1:armhf* libattr1-dev:armhf* libblkid-dev:armhf*
+  libblkid1:armhf* libbsd0* libbz2-1.0:armhf* libbz2-dev:armhf* libc6:armhf*
+  libc6-dev:armhf* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclone-perl* libcom-err2:armhf* libcroco3*
+  libdigest-hmac-perl* libelf1* libemail-valid-perl* libexporter-tiny-perl*
+  libext2fs-dev:armhf* libext2fs2:armhf* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfuture-perl* libgcc-8-dev:armhf*
+  libgcc1:armhf* libgcrypt20:armhf* libgcrypt20-dev:armhf* libglib2.0-0*
+  libgomp1:armhf* libgpg-error-dev:armhf* libgpg-error0:armhf*
+  libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* liblist-moreutils-perl* liblz4-1:armhf*
+  liblz4-dev:armhf* liblzma-dev:armhf* liblzma5:armhf* liblzo2-2:armhf*
+  liblzo2-dev:armhf* libncurses6* libnet-dns-perl* libnet-domain-tld-perl*
+  libnet-ip-perl* libparse-debianchangelog-perl* libpath-tiny-perl*
+  libpipeline1* libsigsegv2* libstdc++-8-dev:armhf* libstdc++6:armhf*
+  libstruct-dumb-perl* libsub-name-perl* libtext-levenshtein-perl* libtool*
+  libubsan1:armhf* libuchardet0* libuuid1:armhf* libzstd-dev:armhf*
+  libzstd1:armhf* lintian* linux-libc-dev:armhf* m4* man-db* patchutils*
+  pkg-config* po-debconf* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* uuid-dev:armhf*
+  zlib1g:armhf* zlib1g-dev:armhf*
+0 upgraded, 0 newly installed, 95 to remove and 0 not upgraded.
+After this operation, 97.9 MB disk space will be freed.
+(Reading database ... 20773 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing libext2fs-dev:armhf (1.44.5-1) ...
+Removing comerr-dev:armhf (2.1-1.44.5-1) ...
+Removing diffstat (1.62-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libattr1-dev:armhf (1:2.4.47-4) ...
+Removing libattr1:armhf (1:2.4.47-4) ...
+Removing libblkid-dev:armhf (2.33.1-0.1) ...
+Removing libblkid1:armhf (2.33.1-0.1) ...
+Removing libbz2-dev:armhf (1.0.6-9) ...
+Removing libbz2-1.0:armhf (1.0.6-9) ...
+Removing zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing liblzma-dev:armhf (5.2.4-1) ...
+Removing liblzma5:armhf (5.2.4-1) ...
+Removing uuid-dev:armhf (2.33.1-0.1) ...
+Removing libgcrypt20-dev:armhf (1.8.4-5) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libcom-err2:armhf (1.44.5-1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libext2fs2:armhf (1.44.5-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libgcrypt20:armhf (1.8.4-5) ...
+Removing pkg-config (0.29-6) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libgpg-error-dev:armhf (1.35-1) ...
+Removing libgpg-error0:armhf (1.35-1) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing liblz4-dev:armhf (1.8.3-1) ...
+Removing liblz4-1:armhf (1.8.3-1) ...
+Removing liblzo2-dev:armhf (2.10-0.1) ...
+Removing liblzo2-2:armhf (2.10-0.1) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libuuid1:armhf (2.33.1-0.1) ...
+Removing libzstd-dev:armhf (1.3.8+dfsg-3) ...
+Removing libzstd1:armhf (1.3.8+dfsg-3) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16459 files and directories currently installed.)
+Purging configuration files for libblkid-dev:armhf (2.33.1-0.1) ...
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for comerr-dev:armhf (2.1-1.44.5-1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 17
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 8
+Job: /home/build/sbuild-setup/repo/pool/main/f/fsarchiver/fsarchiver_0.8.5-2.dsc
+Lintian: pass
+Machine Architecture: amd64
+Package: fsarchiver
+Package-Time: 29
+Source-Version: 0.8.5-2
+Space: n/a
+Status: successful
+Version: 0.8.5-2
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T20:05:13Z
+Build needed 00:00:29, no disk space

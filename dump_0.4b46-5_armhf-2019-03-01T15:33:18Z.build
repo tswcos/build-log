@@ -1,0 +1,1876 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| dump 0.4b46-5 (armhf)                        Fri, 01 Mar 2019 15:33:18 +0000 |
++==============================================================================+
+
+Package: dump
+Version: 0.4b46-5
+Source Version: 0.4b46-5
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-0d0bf372-dd92-4d5b-89ea-4f6bd7de5385' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/dump-RINcAp/resolver-9yaxzD' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/d/dump/dump_0.4b46-5.dsc exists in /home/build/sbuild-setup/repo/pool/main/d/dump; copying to chroot
+I: NOTICE: Log filtering will replace 'build/dump-RINcAp/dump-0.4b46' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/dump-RINcAp' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 9), autoconf, autotools-dev, dh-autoreconf, comerr-dev, e2fslibs-dev, libblkid-dev, libbz2-dev, liblzo2-dev, libdevmapper-dev, libreadline-dev, libselinux1-dev, pkg-config, uuid-dev, zlib1g-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 9), autoconf, autotools-dev, dh-autoreconf, comerr-dev, e2fslibs-dev, libblkid-dev, libbz2-dev, liblzo2-dev, libdevmapper-dev, libreadline-dev, libselinux1-dev, pkg-config, uuid-dev, zlib1g-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [475 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [565 B]
+Fetched 1997 B in 0s (141 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils comerr-dev:armhf
+  debhelper dh-autoreconf dh-strip-nondeterminism dmsetup dwz gcc-8-base:armhf
+  gettext gettext-base groff-base intltool-debian libarchive-zip-perl
+  libasan5:armhf libatomic1:armhf libblkid-dev:armhf libblkid1:armhf libbsd0
+  libbz2-1.0:armhf libbz2-dev:armhf libc6:armhf libc6-dev:armhf
+  libcom-err2:armhf libcroco3 libdevmapper-dev:armhf
+  libdevmapper-event1.02.1:armhf libdevmapper1.02.1 libdevmapper1.02.1:armhf
+  libelf1 libext2fs-dev:armhf libext2fs2:armhf
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf liblzo2-2:armhf liblzo2-dev:armhf
+  libncurses-dev:armhf libncurses6 libncurses6:armhf libncursesw6:armhf
+  libpcre16-3:armhf libpcre3:armhf libpcre3-dev:armhf libpcre32-3:armhf
+  libpcrecpp0v5:armhf libpipeline1 libreadline-dev:armhf libreadline7:armhf
+  libselinux1:armhf libselinux1-dev:armhf libsepol1:armhf libsepol1-dev:armhf
+  libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf libtinfo6:armhf libtool
+  libubsan1:armhf libuchardet0 libudev-dev:armhf libudev1:armhf libuuid1:armhf
+  linux-libc-dev:armhf m4 man-db pkg-config po-debconf uuid-dev:armhf
+  zlib1g:armhf zlib1g-dev:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation doc-base:armhf dh-make gettext-doc libasprintf-dev libgettextpo-dev
+  groff glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  ncurses-doc:armhf readline-doc:armhf libstdc++-8-doc:armhf libtool-doc
+  gfortran | fortran95-compiler gcj-jdk m4-doc apparmor less www-browser
+  libmail-box-perl
+Recommended packages:
+  curl | wget | lynx bzip2-doc:armhf libidn2-0:armhf libarchive-cpio-perl
+  libglib2.0-data shared-mime-info xdg-user-dirs libgpm2 libgpm2:armhf
+  libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils comerr-dev:armhf
+  debhelper dh-autoreconf dh-strip-nondeterminism dmsetup dwz gcc-8-base:armhf
+  gettext gettext-base groff-base intltool-debian libarchive-zip-perl
+  libasan5:armhf libatomic1:armhf libblkid-dev:armhf libblkid1:armhf libbsd0
+  libbz2-1.0:armhf libbz2-dev:armhf libc6:armhf libc6-dev:armhf
+  libcom-err2:armhf libcroco3 libdevmapper-dev:armhf
+  libdevmapper-event1.02.1:armhf libdevmapper1.02.1 libdevmapper1.02.1:armhf
+  libelf1 libext2fs-dev:armhf libext2fs2:armhf
+  libfile-stripnondeterminism-perl libgcc-8-dev:armhf libgcc1:armhf
+  libglib2.0-0 libgomp1:armhf liblzo2-2:armhf liblzo2-dev:armhf
+  libncurses-dev:armhf libncurses6 libncurses6:armhf libncursesw6:armhf
+  libpcre16-3:armhf libpcre3:armhf libpcre3-dev:armhf libpcre32-3:armhf
+  libpcrecpp0v5:armhf libpipeline1 libreadline-dev:armhf libreadline7:armhf
+  libselinux1:armhf libselinux1-dev:armhf libsepol1:armhf libsepol1-dev:armhf
+  libsigsegv2 libstdc++-8-dev:armhf libstdc++6:armhf libtinfo6:armhf libtool
+  libubsan1:armhf libuchardet0 libudev-dev:armhf libudev1:armhf libuuid1:armhf
+  linux-libc-dev:armhf m4 man-db pkg-config po-debconf
+  sbuild-build-depends-main-dummy:armhf uuid-dev:armhf zlib1g:armhf
+  zlib1g-dev:armhf
+0 upgraded, 77 newly installed, 0 to remove and 0 not upgraded.
+Need to get 840 kB/24.4 MB of archives.
+After this operation, 94.0 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [992 B]
+Get:2 http://10.116.41.102/debian sid/main armhf libbz2-dev armhf 1.0.6-9 [28.9 kB]
+Get:3 http://10.116.41.102/debian sid/main armhf libdevmapper1.02.1 armhf 2:1.02.155-2 [131 kB]
+Get:4 http://10.116.41.102/debian sid/main armhf libdevmapper-event1.02.1 armhf 2:1.02.155-2 [21.4 kB]
+Get:5 http://10.116.41.102/debian sid/main armhf libdevmapper-dev armhf 2:1.02.155-2 [51.4 kB]
+Get:6 http://10.116.41.102/debian sid/main armhf libext2fs2 armhf 1.44.5-1 [206 kB]
+Get:7 http://10.116.41.102/debian sid/main armhf libext2fs-dev armhf 1.44.5-1 [291 kB]
+Get:8 http://10.116.41.102/debian sid/main armhf liblzo2-dev armhf 2.10-0.1 [110 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 840 kB in 0s (10.1 MB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../06-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../07-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../08-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../09-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../10-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../11-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../12-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../13-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../14-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../15-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../16-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../17-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libcom-err2:armhf.
+Preparing to unpack .../18-libcom-err2_1.44.5-1_armhf.deb ...
+Unpacking libcom-err2:armhf (1.44.5-1) ...
+Selecting previously unselected package comerr-dev:armhf.
+Preparing to unpack .../19-comerr-dev_2.1-1.44.5-1_armhf.deb ...
+Unpacking comerr-dev:armhf (2.1-1.44.5-1) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../20-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../21-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../22-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../23-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../24-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../25-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../26-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../27-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../28-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../29-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../30-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../31-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../32-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../33-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package libdevmapper1.02.1:amd64.
+Preparing to unpack .../34-libdevmapper1.02.1_2%3a1.02.155-2_amd64.deb ...
+Unpacking libdevmapper1.02.1:amd64 (2:1.02.155-2) ...
+Selecting previously unselected package dmsetup.
+Preparing to unpack .../35-dmsetup_2%3a1.02.155-2_amd64.deb ...
+Unpacking dmsetup (2:1.02.155-2) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../36-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../37-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../38-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libuuid1:armhf.
+Preparing to unpack .../39-libuuid1_2.33.1-0.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libblkid1:armhf.
+Preparing to unpack .../40-libblkid1_2.33.1-0.1_armhf.deb ...
+Unpacking libblkid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package uuid-dev:armhf.
+Preparing to unpack .../41-uuid-dev_2.33.1-0.1_armhf.deb ...
+Unpacking uuid-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libblkid-dev:armhf.
+Preparing to unpack .../42-libblkid-dev_2.33.1-0.1_armhf.deb ...
+Unpacking libblkid-dev:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libbz2-1.0:armhf.
+Preparing to unpack .../43-libbz2-1.0_1.0.6-9_armhf.deb ...
+Unpacking libbz2-1.0:armhf (1.0.6-9) ...
+Selecting previously unselected package libbz2-dev:armhf.
+Preparing to unpack .../44-libbz2-dev_1.0.6-9_armhf.deb ...
+Unpacking libbz2-dev:armhf (1.0.6-9) ...
+Selecting previously unselected package libpcre3:armhf.
+Preparing to unpack .../45-libpcre3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre3:armhf (2:8.39-11) ...
+Selecting previously unselected package libselinux1:armhf.
+Preparing to unpack .../46-libselinux1_2.8-1+b1_armhf.deb ...
+Unpacking libselinux1:armhf (2.8-1+b1) ...
+Selecting previously unselected package libudev1:armhf.
+Preparing to unpack .../47-libudev1_241-1_armhf.deb ...
+Unpacking libudev1:armhf (241-1) ...
+Selecting previously unselected package libdevmapper1.02.1:armhf.
+Preparing to unpack .../48-libdevmapper1.02.1_2%3a1.02.155-2_armhf.deb ...
+Unpacking libdevmapper1.02.1:armhf (2:1.02.155-2) ...
+Selecting previously unselected package libdevmapper-event1.02.1:armhf.
+Preparing to unpack .../49-libdevmapper-event1.02.1_2%3a1.02.155-2_armhf.deb ...
+Unpacking libdevmapper-event1.02.1:armhf (2:1.02.155-2) ...
+Selecting previously unselected package libudev-dev:armhf.
+Preparing to unpack .../50-libudev-dev_241-1_armhf.deb ...
+Unpacking libudev-dev:armhf (241-1) ...
+Selecting previously unselected package libsepol1:armhf.
+Preparing to unpack .../51-libsepol1_2.8-1_armhf.deb ...
+Unpacking libsepol1:armhf (2.8-1) ...
+Selecting previously unselected package libsepol1-dev:armhf.
+Preparing to unpack .../52-libsepol1-dev_2.8-1_armhf.deb ...
+Unpacking libsepol1-dev:armhf (2.8-1) ...
+Selecting previously unselected package libpcre16-3:armhf.
+Preparing to unpack .../53-libpcre16-3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre16-3:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcre32-3:armhf.
+Preparing to unpack .../54-libpcre32-3_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre32-3:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcrecpp0v5:armhf.
+Preparing to unpack .../55-libpcrecpp0v5_2%3a8.39-11_armhf.deb ...
+Unpacking libpcrecpp0v5:armhf (2:8.39-11) ...
+Selecting previously unselected package libpcre3-dev:armhf.
+Preparing to unpack .../56-libpcre3-dev_2%3a8.39-11_armhf.deb ...
+Unpacking libpcre3-dev:armhf (2:8.39-11) ...
+Selecting previously unselected package libselinux1-dev:armhf.
+Preparing to unpack .../57-libselinux1-dev_2.8-1+b1_armhf.deb ...
+Unpacking libselinux1-dev:armhf (2.8-1+b1) ...
+Selecting previously unselected package libdevmapper-dev:armhf.
+Preparing to unpack .../58-libdevmapper-dev_2%3a1.02.155-2_armhf.deb ...
+Unpacking libdevmapper-dev:armhf (2:1.02.155-2) ...
+Selecting previously unselected package libext2fs2:armhf.
+Preparing to unpack .../59-libext2fs2_1.44.5-1_armhf.deb ...
+Unpacking libext2fs2:armhf (1.44.5-1) ...
+Selecting previously unselected package libext2fs-dev:armhf.
+Preparing to unpack .../60-libext2fs-dev_1.44.5-1_armhf.deb ...
+Unpacking libext2fs-dev:armhf (1.44.5-1) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../61-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../62-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../63-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package liblzo2-2:armhf.
+Preparing to unpack .../64-liblzo2-2_2.10-0.1_armhf.deb ...
+Unpacking liblzo2-2:armhf (2.10-0.1) ...
+Selecting previously unselected package liblzo2-dev:armhf.
+Preparing to unpack .../65-liblzo2-dev_2.10-0.1_armhf.deb ...
+Unpacking liblzo2-dev:armhf (2.10-0.1) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../66-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../67-libncurses6_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../68-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../69-libncurses-dev_6.1+20181013-2_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libreadline7:armhf.
+Preparing to unpack .../70-libreadline7_7.0-5_armhf.deb ...
+Unpacking libreadline7:armhf (7.0-5) ...
+Selecting previously unselected package libreadline-dev:armhf.
+Preparing to unpack .../71-libreadline-dev_7.0-5_armhf.deb ...
+Unpacking libreadline-dev:armhf (7.0-5) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../72-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../73-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../74-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package zlib1g-dev:armhf.
+Preparing to unpack .../75-zlib1g-dev_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../76-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up po-debconf (1.0.21) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libc6:armhf (2.28-7) ...
+Setting up libudev1:armhf (241-1) ...
+Setting up libsepol1:armhf (2.8-1) ...
+Setting up libdevmapper1.02.1:amd64 (2:1.02.155-2) ...
+Setting up dmsetup (2:1.02.155-2) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libbz2-1.0:armhf (1.0.6-9) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+Setting up libbz2-dev:armhf (1.0.6-9) ...
+Setting up libpcre16-3:armhf (2:8.39-11) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libsepol1-dev:armhf (2.8-1) ...
+Setting up liblzo2-2:armhf (2.10-0.1) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libcom-err2:armhf (1.44.5-1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libpcre3:armhf (2:8.39-11) ...
+Setting up libext2fs2:armhf (1.44.5-1) ...
+Setting up libncurses6:armhf (6.1+20181013-2) ...
+Setting up comerr-dev:armhf (2.1-1.44.5-1) ...
+Setting up libpcre32-3:armhf (2:8.39-11) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libuuid1:armhf (2.33.1-0.1) ...
+Setting up libudev-dev:armhf (241-1) ...
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up liblzo2-dev:armhf (2.10-0.1) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Setting up libext2fs-dev:armhf (1.44.5-1) ...
+Setting up libblkid1:armhf (2.33.1-0.1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libreadline7:armhf (7.0-5) ...
+Setting up libpcrecpp0v5:armhf (2:8.39-11) ...
+Setting up libncurses-dev:armhf (6.1+20181013-2) ...
+Setting up libpcre3-dev:armhf (2:8.39-11) ...
+Setting up debhelper (12.1.1) ...
+Setting up libreadline-dev:armhf (7.0-5) ...
+Setting up libselinux1:armhf (2.8-1+b1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up uuid-dev:armhf (2.33.1-0.1) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libdevmapper1.02.1:armhf (2:1.02.155-2) ...
+Setting up libblkid-dev:armhf (2.33.1-0.1) ...
+Setting up libdevmapper-event1.02.1:armhf (2:1.02.155-2) ...
+Setting up libselinux1-dev:armhf (2.8-1+b1) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libdevmapper-dev:armhf (2:1.02.155-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 comerr-dev_2.1-1.44.5-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dmsetup_2:1.02.155-2 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid-dev_2.33.1-0.1 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libbz2-dev_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdevmapper-dev_2:1.02.155-2 libdevmapper-event1.02.1_2:1.02.155-2 libdevmapper1.02.1_2:1.02.155-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs-dev_1.44.5-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 liblzo2-2_2.10-0.1 liblzo2-dev_2.10-0.1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses-dev_6.1+20181013-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre16-3_2:8.39-11 libpcre3_2:8.39-11 libpcre3-dev_2:8.39-11 libpcre32-3_2:8.39-11 libpcrecpp0v5_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libquadmath0_8.3.0-2 libreadline-dev_7.0-5 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libselinux1-dev_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsepol1-dev_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev-dev_241-1 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 po-debconf_1.0.21 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-dev_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1 zlib1g-dev_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: dump
+Binary: dump
+Architecture: any
+Version: 0.4b46-5
+Maintainer: Alexander Zangerl <az@debian.org>
+Homepage: http://dump.sourceforge.net
+Standards-Version: 4.1.3.0
+Vcs-Browser: https://salsa.debian.org/debuan/dump
+Vcs-Git: https://salsa.debian.org/debian/dump.git
+Build-Depends: debhelper (>= 9), autoconf, autotools-dev, dh-autoreconf, comerr-dev, e2fslibs-dev, libblkid-dev, libbz2-dev, liblzo2-dev, libdevmapper-dev, libreadline-dev, libselinux1-dev, pkg-config, uuid-dev, zlib1g-dev
+Package-List:
+ dump deb utils optional arch=any
+Checksums-Sha1:
+ f689ac9ead0d853dc6d8a6359e4c7ce7fd39df95 578200 dump_0.4b46.orig.tar.gz
+ 82591383326f80dc1f6c63a52e7ac2cd066d686e 22072 dump_0.4b46-5.debian.tar.xz
+Checksums-Sha256:
+ 8061d927dd1ae98e0a1bd70406cde5ecbced154507460629be174c55822f2f97 578200 dump_0.4b46.orig.tar.gz
+ 1a2cec63b86192244ce959f8dd63966af3ce76d9795701a2cf9d588eb873dcd4 22072 dump_0.4b46-5.debian.tar.xz
+Files:
+ 4c463f797e7e8a1112fabf5cbf8e1855 578200 dump_0.4b46.orig.tar.gz
+ cfa774c69ecd96398e14e4000a08df9a 22072 dump_0.4b46-5.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIcBAEBCgAGBQJbGyyXAAoJED06g4g30PqNTKoQAKUwZP4D6q80oknSXvOwGoDf
+dpWwgVG/VnUFQ98QaQSb7NgQoMYqPHnVQSWfR05AxQin8/r0uKj7h8uwEiMi7tVK
++UomNForxbl4uQ9yHs+/YQQ1cUfp7uENywjyZc2g0BrVObFOY5uAK7SwGM6T/Ajl
+tCB9mOpZbXrMjsV0she3Mt/gcZ9yH7GI5sb7n34n/LkGJcrvIurHv50wf5YegxVI
+m4nMAJfoz1K8I7srcbm+iF2va36wOr5Qc3uTh38771a2IG/84yJteULueJMuclTr
+o/cywYJeOGNM8JOsoWHaTr6rXHtNkV75d3CqzwTes2D+zXwC7C42OZsL2O7F/tOt
+r7u7uIPaA47ezAPt3rSqqD33dfkgkGtLR2EmpRJ7K2XS37G8aARZFpqPdI29yB6N
+suV8439yA1Dz29juvT5lZBxrO8a5OGdRepgon14TYbe2wKSQlsZzFwuYd2Nz7Dx7
+afDsjHamQnANNeNAnP70XvcMFmgntR4O8Ue4THOpogzH5lu3/FL1Ip+ocnh+AV7l
+yZk0Nhy2fvjDo0RMSq07pvdk/TK2l6t6/xVQe4cXHBN0KLYiau5sTyuWuJBNk1gh
+LYvw/g+cshQlVOUGXHhGPIAS1cZkGjbOV57fcVJIwfjbyNTEN9KOlRxnwG1gx61z
+Xmm8npYP7PXFsn6sdQtS
+=Doe9
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sat Jun  9 01:25:43 2018 UTC
+gpgv:                using RSA key 3D3A838837D0FA8D
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./dump_0.4b46-5.dsc
+dpkg-source: info: extracting dump in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking dump_0.4b46.orig.tar.gz
+dpkg-source: info: unpacking dump_0.4b46-5.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying upstream
+dpkg-source: info: applying symlinktime
+dpkg-source: info: applying ftruncate
+dpkg-source: info: applying zerosep
+dpkg-source: info: applying fix-manpage
+dpkg-source: info: applying bashism_in_examples
+dpkg-source: info: applying sparc-clone-lockup
+dpkg-source: info: applying badentry_terminal
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-0d0bf372-dd92-4d5b-89ea-4f6bd7de5385
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package dump
+dpkg-buildpackage: info: source version 0.4b46-5
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Alexander Zangerl <az@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean --with autoreconf
+   dh_clean
+ debian/rules build-arch
+dh build-arch --with autoreconf
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:15: installing './compile'
+configure.ac:3: installing './missing'
+common/Makefile.am: installing './depcomp'
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_testdir
+EXT2FS_LIBS="-lext2fs -lcom_err" dh_auto_configure -- \
+	--prefix=/usr \
+	--sbindir=/sbin \
+	--with-ccopts="-O2 -g -Wall" \
+	--with-dumpdatespath=/var/lib/dumpdates \
+	--enable-lzo --enable-bzip2 --enable-zlib \
+	--disable-ssl
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --prefix=/usr --sbindir=/sbin "--with-ccopts=-O2 -g -Wall" --with-dumpdatespath=/var/lib/dumpdates --enable-lzo --enable-bzip2 --enable-zlib --disable-ssl
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --with-ccopts
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking whether make sets $(MAKE)... (cached) yes
+checking whether ln -s works... yes
+checking for arm-linux-gnueabihf-pkg-config... /usr/bin/arm-linux-gnueabihf-pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... 64
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for fgrep... /bin/grep -F
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/arm-linux-gnueabihf-nm -B
+checking the name lister (/usr/bin/arm-linux-gnueabihf-nm -B) interface... BSD nm
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for arm-linux-gnueabihf-objdump... arm-linux-gnueabihf-objdump
+checking how to recognize dependent libraries... pass_all
+checking for arm-linux-gnueabihf-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for archiver @FILE support... @
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for arm-linux-gnueabihf-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC -DPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for sys/types.h... (cached) yes
+checking whether to enable extra debugging... no
+checking whether to build static binaries... no
+checking whether to build rmt... yes
+checking whether to build ermt... no
+checking whether to enable kerberos extensions... no
+Including readline support by default
+Using new style F script by default
+Enabling Quick File Access support by default
+Not including Quick File Access debugging code by default
+Not including Mac OSX restore compatibility code by default
+checking for SELINUX... yes
+DUMPDATESPATH is /var/lib/dumpdates
+checking for EXT2FS... yes
+checking for COM_ERR... yes
+checking for ext2fs_read_inode_full in -lext2fs... yes
+checking for ext2fs/ext2_fs.h... yes
+checking for ext2_ino_t type in libext2fs headers... yes
+checking for s_journal_inum field in ext2_super_block struct... yes
+checking for BLKID... yes
+checking for UUID... yes
+checking for tgetent in -lncurses... yes
+checking for tgetent in -ltermcap... yes
+checking for tgetent in -ltinfo... yes
+checking for readline/readline.h... yes
+checking for readline in -lreadline... yes
+checking for rl_completion_matches in -lreadline... yes
+checking for rl_completion_append_character in -lreadline... yes
+checking for ZLIB... yes
+checking for bzlib.h... yes
+checking for BZ2_bzBuffToBuffCompress in -lbz2... yes
+checking for lzo/lzo1x.h... yes
+checking for lzo1x_1_compress in -llzo2... yes
+checking for sqlite3.h... no
+checking for sqlite3_initialize in -lsqlite3... no
+checking for err... yes
+checking for errx... yes
+checking for verr... yes
+checking for verrx... yes
+checking for vwarn... yes
+checking for vwarnx... yes
+checking for warn... yes
+checking for warnx... yes
+checking for realpath... yes
+checking for lchown... yes
+checking for utimensat... yes
+checking for glob... yes
+checking for extended glob routines... yes
+checking for int64_t... yes
+checking for uint64_t... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating dump.lsm
+config.status: creating Makefile
+config.status: creating common/Makefile
+config.status: creating compat/lib/Makefile
+config.status: creating dump/Makefile
+config.status: creating restore/Makefile
+config.status: creating rmt/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+configure: WARNING: unrecognized options: --disable-maintainer-mode, --with-ccopts
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_build -a
+	make -j1
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+make  all-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in compat/lib
+make[3]: Entering directory '/<<PKGBUILDDIR>>/compat/lib'
+/bin/bash ../../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../..  -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o bylabel.lo bylabel.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../.. -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c bylabel.c  -fPIC -DPIC -o .libs/bylabel.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../.. -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c bylabel.c -fPIE -o bylabel.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../..  -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o compaterr.lo compaterr.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../.. -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c compaterr.c  -fPIC -DPIC -o .libs/compaterr.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../.. -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c compaterr.c -fPIE -o compaterr.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../..  -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o compatglob.lo compatglob.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../.. -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c compatglob.c  -fPIC -DPIC -o .libs/compatglob.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../.. -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c compatglob.c -fPIE -o compatglob.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../..  -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o rmtflags.lo rmtflags.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../.. -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c rmtflags.c  -fPIC -DPIC -o .libs/rmtflags.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../.. -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c rmtflags.c -fPIE -o rmtflags.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../..  -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o system.lo system.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../.. -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c system.c  -fPIC -DPIC -o .libs/system.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../.. -I../../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c system.c -fPIE -o system.o >/dev/null 2>&1
+/bin/bash ../../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE  -Wl,-z,relro -fPIE -Wl,-z,now -Wl,--as-needed -o libcompat.la  bylabel.lo compaterr.lo compatglob.lo rmtflags.lo system.lo -L/usr/lib/arm-linux-gnueabihf -lblkid 
+libtool: link: arm-linux-gnueabihf-ar cru .libs/libcompat.a .libs/bylabel.o .libs/compaterr.o .libs/compatglob.o .libs/rmtflags.o .libs/system.o 
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: arm-linux-gnueabihf-ranlib .libs/libcompat.a
+libtool: link: ( cd ".libs" && rm -f "libcompat.la" && ln -s "../libcompat.la" "libcompat.la" )
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/compat/lib'
+Making all in common
+make[3]: Entering directory '/<<PKGBUILDDIR>>/common'
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o dumprmt.lo dumprmt.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c dumprmt.c  -fPIC -DPIC -o .libs/dumprmt.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c dumprmt.c -fPIE -o dumprmt.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o legacy_indexer.lo legacy_indexer.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c legacy_indexer.c  -fPIC -DPIC -o .libs/legacy_indexer.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c legacy_indexer.c -fPIE -o legacy_indexer.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o sqlite_indexer.lo sqlite_indexer.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c sqlite_indexer.c  -fPIC -DPIC -o .libs/sqlite_indexer.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c sqlite_indexer.c -fPIE -o sqlite_indexer.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o transformation_null.lo transformation_null.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c transformation_null.c  -fPIC -DPIC -o .libs/transformation_null.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c transformation_null.c -fPIE -o transformation_null.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o transformation_lzo.lo transformation_lzo.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c transformation_lzo.c  -fPIC -DPIC -o .libs/transformation_lzo.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c transformation_lzo.c -fPIE -o transformation_lzo.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o transformation_zlib.lo transformation_zlib.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c transformation_zlib.c  -fPIC -DPIC -o .libs/transformation_zlib.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c transformation_zlib.c -fPIE -o transformation_zlib.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o transformation_bzlib.lo transformation_bzlib.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c transformation_bzlib.c  -fPIC -DPIC -o .libs/transformation_bzlib.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c transformation_bzlib.c -fPIE -o transformation_bzlib.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o transformation_ssl.lo transformation_ssl.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c transformation_ssl.c  -fPIC -DPIC -o .libs/transformation_ssl.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../dump -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\" -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c transformation_ssl.c -fPIE -o transformation_ssl.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE  -Wl,-z,relro -fPIE -Wl,-z,now -Wl,--as-needed -o libcommon.la  dumprmt.lo legacy_indexer.lo sqlite_indexer.lo transformation_null.lo transformation_lzo.lo transformation_zlib.lo transformation_bzlib.lo transformation_ssl.lo -L/usr/lib/arm-linux-gnueabihf -luuid -L/usr/lib/arm-linux-gnueabihf -lz -lbz2 -llzo2   
+libtool: link: arm-linux-gnueabihf-ar cru .libs/libcommon.a .libs/dumprmt.o .libs/legacy_indexer.o .libs/sqlite_indexer.o .libs/transformation_null.o .libs/transformation_lzo.o .libs/transformation_zlib.o .libs/transformation_bzlib.o .libs/transformation_ssl.o 
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: arm-linux-gnueabihf-ranlib .libs/libcommon.a
+libtool: link: ( cd ".libs" && rm -f "libcommon.la" && ln -s "../libcommon.la" "libcommon.la" )
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/common'
+Making all in dump
+make[3]: Entering directory '/<<PKGBUILDDIR>>/dump'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../dump -I../compat/include -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o itime.o itime.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../dump -I../compat/include -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o main.o main.c
+main.c: In function ‘main’:
+main.c:629:49: warning: ‘%s’ directive output may be truncated writing up to 4095 bytes into a region of size 4090 [-Wformat-truncation=]
+     (void)snprintf(name, sizeof(name), "%s (dir %s)",
+                                                 ^~
+            dt->mnt_dir, directory);
+                         ~~~~~~~~~                
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from main.c:44:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 8 or more bytes (assuming 4103) into a destination of size 4096
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../dump -I../compat/include -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o optr.o optr.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../dump -I../compat/include -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o tape.o tape.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../dump -I../compat/include -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o traverse.o traverse.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../dump -I../compat/include -I../common -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o unctime.o unctime.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE  -Wl,-z,relro -fPIE -Wl,-z,now -Wl,--as-needed -o dump itime.o main.o optr.o tape.o traverse.o unctime.o ../common/libcommon.la ../compat/lib/libcompat.la -lext2fs -lcom_err -L/usr/lib/arm-linux-gnueabihf -lcom_err 
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -Wl,-z -Wl,relro -fPIE -Wl,-z -Wl,now -Wl,--as-needed -o dump itime.o main.o optr.o tape.o traverse.o unctime.o  ../common/.libs/libcommon.a -L/usr/lib/arm-linux-gnueabihf -luuid -lz -lbz2 -llzo2 ../compat/lib/.libs/libcompat.a -lblkid -lext2fs -lcom_err
+\
+sed -e "s|__DUMPDATES__|/var/lib/dumpdates|g" \
+    -e "s|__DATE__||g" \
+    -e "s|__VERSION__|0.4b46|g" dump.8.in > dump.8
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/dump'
+Making all in restore
+make[3]: Entering directory '/<<PKGBUILDDIR>>/restore'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../common -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o dirs.o dirs.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../common -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o interactive.o interactive.c
+interactive.c: In function ‘filename_generator’:
+interactive.c:958:37: warning: ‘%s’ directive output may be truncated writing up to 4095 bytes into a region of size between 0 and 4095 [-Wformat-truncation=]
+     snprintf(pname, MAXPATHLEN, "%s/%s", completion_curdir, ppname);
+                                     ^~                      ~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ../compat/include/bsdcompat.h:12,
+                 from interactive.c:49:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 2 and 8192 bytes into a destination of size 4096
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+interactive.c:956:37: warning: ‘__builtin___snprintf_chk’ output may be truncated before the last format character [-Wformat-truncation=]
+     snprintf(pname, MAXPATHLEN, ".%s", ppname);
+                                     ^
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ../compat/include/bsdcompat.h:12,
+                 from interactive.c:49:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 2 and 4097 bytes into a destination of size 4096
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+interactive.c:995:60: warning: ‘%s’ directive output may be truncated writing up to 255 bytes into a region of size between 1 and 4096 [-Wformat-truncation=]
+      snprintf(files + entries * MAXPATHLEN, MAXPATHLEN, "%s%s ", ppname, dp->d_name);
+                                                            ^~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ../compat/include/bsdcompat.h:12,
+                 from interactive.c:49:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 2 and 4352 bytes into a destination of size 4096
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+interactive.c:993:60: warning: ‘%s’ directive output may be truncated writing up to 255 bytes into a region of size between 1 and 4096 [-Wformat-truncation=]
+      snprintf(files + entries * MAXPATHLEN, MAXPATHLEN, "%s%s/", ppname, dp->d_name);
+                                                            ^~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ../compat/include/bsdcompat.h:12,
+                 from interactive.c:49:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 2 and 4352 bytes into a destination of size 4096
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+interactive.c: In function ‘runcmdshell’:
+interactive.c:430:40: warning: ‘%s’ directive output may be truncated writing up to 8191 bytes into a region of size between 4096 and 8191 [-Wformat-truncation=]
+   snprintf(output, sizeof(output), "%s/%s", curdir, rawname);
+                                        ^~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ../compat/include/bsdcompat.h:12,
+                 from interactive.c:49:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 2 and 12288 bytes into a destination of size 8192
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../common -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o main.o main.c
+main.c: In function ‘main’:
+main.c:387:43: warning: ‘%s’ directive output may be truncated writing likely 9 or more bytes into a region of size between 0 and 4095 [-Wformat-truncation=]
+   snprintf(fullpathinput, MAXPATHLEN, "%s/%s", wd, inputdev);
+                                           ^~
+main.c:387:39: note: assuming directive output of 9 bytes
+   snprintf(fullpathinput, MAXPATHLEN, "%s/%s", wd, inputdev);
+                                       ^~~~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from ../compat/include/bsdcompat.h:12,
+                 from main.c:53:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output 2 or more bytes (assuming 4106) into a destination of size 4096
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../common -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o restore.o restore.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../common -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o symtab.o symtab.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../common -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o tape.o tape.c
+tape.c: In function ‘getvol’:
+tape.c:558:36: warning: ‘%03ld’ directive output may be truncated writing between 3 and 11 bytes into a region of size between 1 and 4096 [-Wformat-truncation=]
+   snprintf(magtape, MAXPATHLEN, "%s%03ld", magtapeprefix, newvol);
+                                    ^~~~~
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from tape.c:49:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 4 and 4107 bytes into a destination of size 4096
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../common -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o utilities.o utilities.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../common -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o xattr.o xattr.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE  -Wl,-z,relro -fPIE -Wl,-z,now -Wl,--as-needed -o restore dirs.o interactive.o main.o restore.o symtab.o tape.o utilities.o xattr.o ../common/libcommon.la ../compat/lib/libcompat.la -lreadline -ltinfo -lselinux -lext2fs -lcom_err -le2p 
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -Wl,-z -Wl,relro -fPIE -Wl,-z -Wl,now -Wl,--as-needed -o restore dirs.o interactive.o main.o restore.o symtab.o tape.o utilities.o xattr.o  ../common/.libs/libcommon.a -L/usr/lib/arm-linux-gnueabihf -luuid -lz -lbz2 -llzo2 ../compat/lib/.libs/libcompat.a -lblkid -lreadline -ltinfo -lselinux -lext2fs -lcom_err -le2p
+\
+sed -e "s|__DATE__||g" \
+    -e "s|__VERSION__|0.4b46|g" restore.8.in > restore.8
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/restore'
+Making all in rmt
+make[3]: Entering directory '/<<PKGBUILDDIR>>/rmt'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I../compat/include -Wdate-time -D_FORTIFY_SOURCE=2 -D_USE_BSD_SIGNAL -D_PATH_DUMPDATES=\"/var/lib/dumpdates\" -D_DUMP_VERSION=\"0.4b46\" -D_PATH_RMT=\"/etc/rmt\"  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -c -o rmt.o rmt.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc  -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE  -Wl,-z,relro -fPIE -Wl,-z,now -Wl,--as-needed -o rmt rmt.o ../compat/lib/libcompat.la -lext2fs -lcom_err 
+libtool: link: arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIE -Wl,-z -Wl,relro -fPIE -Wl,-z -Wl,now -Wl,--as-needed -o rmt rmt.o  ../compat/lib/.libs/libcompat.a -L/usr/lib/arm-linux-gnueabihf -lblkid -lext2fs -lcom_err
+\
+sed -e "s|__DATE__||g" \
+    -e "s|__VERSION__|0.4b46|g" rmt.8.in > rmt.8
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/rmt'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_test -a
+ fakeroot debian/rules binary-arch
+dh binary-arch --with autoreconf
+   dh_auto_test -a
+   dh_testroot -a
+   dh_prep -a
+   dh_installdirs -a
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_install -- \
+	SBINDIR=`pwd`/debian/dump/sbin \
+	MANDIR=`pwd`/debian/dump/usr/share/man/man8
+	make -j1 install DESTDIR=/<<PKGBUILDDIR>>/debian/dump AM_UPDATE_INFO_DIR=no SBINDIR=/<<PKGBUILDDIR>>/debian/dump/sbin MANDIR=/<<PKGBUILDDIR>>/debian/dump/usr/share/man/man8
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making install in compat/lib
+make[3]: Entering directory '/<<PKGBUILDDIR>>/compat/lib'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/compat/lib'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/compat/lib'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/compat/lib'
+Making install in common
+make[3]: Entering directory '/<<PKGBUILDDIR>>/common'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/common'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/common'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/common'
+Making install in dump
+make[3]: Entering directory '/<<PKGBUILDDIR>>/dump'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/dump'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/dump/sbin'
+  /bin/bash ../libtool   --mode=install /usr/bin/install -c dump '/<<PKGBUILDDIR>>/debian/dump/sbin'
+libtool: install: /usr/bin/install -c dump /<<PKGBUILDDIR>>/debian/dump/sbin/dump
+make  install-exec-hook
+make[5]: Entering directory '/<<PKGBUILDDIR>>/dump'
+/bin/mkdir -p /<<PKGBUILDDIR>>/debian/dump/sbin
+ln -s dump /<<PKGBUILDDIR>>/debian/dump/sbin/rdump
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/dump'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/dump/usr/share/man/man8'
+ /usr/bin/install -c -m 644 rdump.8 dump.8 '/<<PKGBUILDDIR>>/debian/dump/usr/share/man/man8'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/dump'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/dump'
+Making install in restore
+make[3]: Entering directory '/<<PKGBUILDDIR>>/restore'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/restore'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/dump/sbin'
+  /bin/bash ../libtool   --mode=install /usr/bin/install -c restore '/<<PKGBUILDDIR>>/debian/dump/sbin'
+libtool: install: /usr/bin/install -c restore /<<PKGBUILDDIR>>/debian/dump/sbin/restore
+make  install-exec-hook
+make[5]: Entering directory '/<<PKGBUILDDIR>>/restore'
+/bin/mkdir -p /<<PKGBUILDDIR>>/debian/dump/sbin
+ln -s restore /<<PKGBUILDDIR>>/debian/dump/sbin/rrestore
+make[5]: Leaving directory '/<<PKGBUILDDIR>>/restore'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/dump/usr/share/man/man8'
+ /usr/bin/install -c -m 644 rrestore.8 restore.8 '/<<PKGBUILDDIR>>/debian/dump/usr/share/man/man8'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/restore'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/restore'
+Making install in rmt
+make[3]: Entering directory '/<<PKGBUILDDIR>>/rmt'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/rmt'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/dump/sbin'
+  /bin/bash ../libtool   --mode=install /usr/bin/install -c rmt '/<<PKGBUILDDIR>>/debian/dump/sbin'
+libtool: install: /usr/bin/install -c rmt /<<PKGBUILDDIR>>/debian/dump/sbin/rmt
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/dump/usr/share/man/man8'
+ /usr/bin/install -c -m 644 rmt.8 '/<<PKGBUILDDIR>>/debian/dump/usr/share/man/man8'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/rmt'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/rmt'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[4]: Entering directory '/<<PKGBUILDDIR>>'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+mv debian/dump/usr/share/man/man8/rmt.8 \
+	debian/dump/usr/share/man/man8/rmt-dump.8
+mv debian/dump/sbin/rmt debian/dump/usr/sbin/rmt-dump
+(cd debian/dump/sbin ; rm -f rdump rrestore ; \
+	ln -s dump rdump ; ln -s restore rrestore )
+(cd debian/dump/usr/share/man/man8 ; rm -f rdump* rrestore* ; \
+	ln -s dump.8.gz rdump.8.gz ; ln -s restore.8.gz rrestore.8.gz )
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_installdocs -a
+   dh_installchangelogs -a
+   dh_installexamples -a
+   dh_installman -a
+   dh_lintian -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   dh_missing -a
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+   dh_installdeb -a
+   dh_gencontrol -a
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'dump' in '../dump_0.4b46-5_armhf.deb'.
+dpkg-deb: building package 'dump-dbgsym' in '../dump-dbgsym_0.4b46-5_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../dump_0.4b46-5_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T15:34:03Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+dump_0.4b46-5_armhf.changes:
+----------------------------
+
+Format: 1.8
+Date: Sat, 09 Jun 2018 11:23:46 +1000
+Source: dump
+Binary: dump dump-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 0.4b46-5
+Distribution: unstable-amd64-sbuild
+Urgency: high
+Maintainer: Alexander Zangerl <az@debian.org>
+Changed-By: Alexander Zangerl <az@debian.org>
+Description:
+ dump       - backup and restore for ext2/3/4 filesystems
+Closes: 900885
+Changes:
+ dump (0.4b46-5) unstable; urgency=high
+ .
+   * applied patch by Michael Cree to make dump build on alpha again
+     (alpha has no getpid syscall, which
+     the #623422 patch for sparc uses) (closes: #900885)
+Checksums-Sha1:
+ ce2b3a3ccd9f3719dca8a2f65797ed6cb86b232f 302536 dump-dbgsym_0.4b46-5_armhf.deb
+ 945f0fa3491bfc3c91e8bb0e801b287937f86768 5233 dump_0.4b46-5_armhf.buildinfo
+ 2df47a1ac66279f4710a01bc779a84d998f21f4e 129044 dump_0.4b46-5_armhf.deb
+Checksums-Sha256:
+ 2e31ae0b69149035bdc6acda3b231fd55dedc04c6852b37fd569c4ddc6195605 302536 dump-dbgsym_0.4b46-5_armhf.deb
+ 7e7ec982d70f138842c82f9180ad74ac8f62e160c258aaea89712b0c0af2a82c 5233 dump_0.4b46-5_armhf.buildinfo
+ 8416b2f2eed91ae9d41def95f629822f3284c4325a76668f559e69fd3d5b071f 129044 dump_0.4b46-5_armhf.deb
+Files:
+ a5d61ab7dae0417166c682718f87fe72 302536 debug optional dump-dbgsym_0.4b46-5_armhf.deb
+ 0abd9b2dffb21d6e265860aaf348c744 5233 utils optional dump_0.4b46-5_armhf.buildinfo
+ 9345a5ab95e216c5854c7c932443797f 129044 utils optional dump_0.4b46-5_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: dump
+Binary: dump
+Architecture: armhf
+Version: 0.4b46-5
+Checksums-Md5:
+ a5d61ab7dae0417166c682718f87fe72 302536 dump-dbgsym_0.4b46-5_armhf.deb
+ 9345a5ab95e216c5854c7c932443797f 129044 dump_0.4b46-5_armhf.deb
+Checksums-Sha1:
+ ce2b3a3ccd9f3719dca8a2f65797ed6cb86b232f 302536 dump-dbgsym_0.4b46-5_armhf.deb
+ 2df47a1ac66279f4710a01bc779a84d998f21f4e 129044 dump_0.4b46-5_armhf.deb
+Checksums-Sha256:
+ 2e31ae0b69149035bdc6acda3b231fd55dedc04c6852b37fd569c4ddc6195605 302536 dump-dbgsym_0.4b46-5_armhf.deb
+ 8416b2f2eed91ae9d41def95f629822f3284c4325a76668f559e69fd3d5b071f 129044 dump_0.4b46-5_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Fri, 01 Mar 2019 15:34:02 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ comerr-dev (= 2.1-1.44.5-1),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dmsetup (= 2:1.02.155-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.52-5),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libblkid-dev (= 2.33.1-0.1),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libbz2-dev (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcom-err2 (= 1.44.5-1),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.247),
+ libdevmapper-dev (= 2:1.02.155-2),
+ libdevmapper-event1.02.1 (= 2:1.02.155-2),
+ libdevmapper1.02.1 (= 2:1.02.155-2),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libext2fs-dev (= 1.44.5-1),
+ libext2fs2 (= 1.44.5-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libicu63 (= 63.1-6),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ liblzo2-2 (= 2.10-0.1),
+ liblzo2-dev (= 2.10-0.1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses-dev (= 6.1+20181013-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre16-3 (= 2:8.39-11),
+ libpcre3 (= 2:8.39-11),
+ libpcre3-dev (= 2:8.39-11),
+ libpcre32-3 (= 2:8.39-11),
+ libpcrecpp0v5 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libquadmath0 (= 8.3.0-2),
+ libreadline-dev (= 7.0-5),
+ libreadline7 (= 7.0-5),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libselinux1-dev (= 2.8-1+b1),
+ libsepol1 (= 2.8-1),
+ libsepol1-dev (= 2.8-1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev-dev (= 241-1),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ readline-common (= 7.0-5),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ util-linux (= 2.33.1-0.1),
+ uuid-dev (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1),
+ zlib1g-dev (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1528507426"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+dump-dbgsym_0.4b46-5_armhf.deb
+------------------------------
+
+ new Debian package, version 2.0.
+ size 302536 bytes: control archive=636 bytes.
+     403 bytes,    12 lines      control              
+     318 bytes,     3 lines      md5sums              
+ Package: dump-dbgsym
+ Source: dump
+ Version: 0.4b46-5
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Alexander Zangerl <az@debian.org>
+ Installed-Size: 351
+ Depends: dump (= 0.4b46-5)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for dump
+ Build-Ids: 02d156b7f4c035775a0c6df7f31d18602df4513e 6990623061e8933c60ac1ed4a58829fdd34d3421 999b85cfbb38722af264bc871513f8fe1ef6b572
+
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/lib/
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/lib/debug/.build-id/02/
+-rw-r--r-- root/root    151828 2018-06-09 01:23 ./usr/lib/debug/.build-id/02/d156b7f4c035775a0c6df7f31d18602df4513e.debug
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/lib/debug/.build-id/69/
+-rw-r--r-- root/root     18700 2018-06-09 01:23 ./usr/lib/debug/.build-id/69/90623061e8933c60ac1ed4a58829fdd34d3421.debug
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/lib/debug/.build-id/99/
+-rw-r--r-- root/root    174676 2018-06-09 01:23 ./usr/lib/debug/.build-id/99/9b85cfbb38722af264bc871513f8fe1ef6b572.debug
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/share/
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2018-06-09 01:23 ./usr/share/doc/dump-dbgsym -> dump
+
+
+dump_0.4b46-5_armhf.deb
+-----------------------
+
+ new Debian package, version 2.0.
+ size 129044 bytes: control archive=2428 bytes.
+     933 bytes,    19 lines      control              
+    3406 bytes,    43 lines      md5sums              
+     424 bytes,    21 lines   *  postinst             #!/bin/sh
+     222 bytes,    18 lines   *  postrm               #!/bin/sh
+      73 bytes,     7 lines   *  prerm                #!/bin/sh
+ Package: dump
+ Version: 0.4b46-5
+ Architecture: armhf
+ Maintainer: Alexander Zangerl <az@debian.org>
+ Installed-Size: 285
+ Depends: libblkid1 (>= 2.16), libbz2-1.0, libc6 (>= 2.28), libcom-err2 (>= 1.43.9), libext2fs2 (>= 1.37), liblzo2-2, libreadline7 (>= 6.0), libselinux1 (>= 1.32), zlib1g (>= 1:1.1.4), tar (>= 1.13.92-3)
+ Section: utils
+ Priority: optional
+ Homepage: http://dump.sourceforge.net
+ Description: backup and restore for ext2/3/4 filesystems
+  This is a port of the 4.4BSD filesystem backup suite.
+  Dump examines files on a filesystem and determines which files need to be
+  backed up. These files are copied to the given disk, tape or other storage
+  medium for safe keeping.
+  .
+  The restore command performs the inverse function of dump. A full backup of
+  a filesystem may be restored and subsequent incremental backups layered on
+  top of it. Single files and directory subtrees may be restored from full or
+  partial backups.
+
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./sbin/
+-rwxr-xr-x root/root     59152 2018-06-09 01:23 ./sbin/dump
+lrwxrwxrwx root/root         0 2018-06-09 01:23 ./sbin/rdump -> dump
+-rwxr-xr-x root/root     91804 2018-06-09 01:23 ./sbin/restore
+lrwxrwxrwx root/root         0 2018-06-09 01:23 ./sbin/rrestore -> restore
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/sbin/
+-rwxr-xr-x root/root      9780 2018-06-09 01:23 ./usr/sbin/rmt-dump
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/share/
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/share/doc/
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/share/doc/dump/
+-rw-r--r-- root/root       597 2016-05-06 02:55 ./usr/share/doc/dump/KNOWNBUGS
+-rw-r--r-- root/root       476 2016-05-06 02:55 ./usr/share/doc/dump/MAINTAINERS
+-rw-r--r-- root/root       479 2018-06-05 12:20 ./usr/share/doc/dump/NEWS.Debian.gz
+-rw-r--r-- root/root       297 2016-05-06 02:55 ./usr/share/doc/dump/README
+-rw-r--r-- root/root       828 2018-06-05 12:20 ./usr/share/doc/dump/README.Debian
+-rw-r--r-- root/root      2493 2016-06-08 05:01 ./usr/share/doc/dump/REPORTING-BUGS
+-rw-r--r-- root/root      1135 2016-06-08 05:01 ./usr/share/doc/dump/TODO
+-rw-r--r-- root/root      7529 2018-06-09 01:23 ./usr/share/doc/dump/changelog.Debian.gz
+-rw-r--r-- root/root        47 2016-05-06 02:55 ./usr/share/doc/dump/changelog.gz
+-rw-r--r-- root/root      4165 2018-06-05 12:20 ./usr/share/doc/dump/copyright
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/share/doc/dump/examples/
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/share/doc/dump/examples/cron_dump_to_disk/
+-rw-r--r-- root/root      1555 2016-04-21 14:23 ./usr/share/doc/dump/examples/cron_dump_to_disk/README
+-rw-r--r-- root/root      2489 2016-04-21 14:23 ./usr/share/doc/dump/examples/cron_dump_to_disk/backup.gz
+-rwxr-xr-x root/root      3959 2016-04-21 14:23 ./usr/share/doc/dump/examples/cron_dump_to_disk/backup_rotate
+-rw-r--r-- root/root       297 2018-06-09 01:23 ./usr/share/doc/dump/examples/cron_dump_to_disk/backupskel.tar.gz
+-rw-r--r-- root/root       250 2016-04-21 14:23 ./usr/share/doc/dump/examples/cron_dump_to_disk/crontab_entries.txt
+drwxr-xr-x root/root         0 2016-09-05 19:25 ./usr/share/doc/dump/examples/dump_on_cd/
+-rw-r--r-- root/root      2143 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_cd/README
+-rwxr-xr-x root/root       285 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_cd/dump_userinfo.sh
+-rwxr-xr-x root/root       461 2016-05-06 02:46 ./usr/share/doc/dump/examples/dump_on_cd/start_dump.sh
+-rwxr-xr-x root/root       135 2016-05-06 02:46 ./usr/share/doc/dump/examples/dump_on_cd/verify_dump.sh
+drwxr-xr-x root/root         0 2016-09-05 19:25 ./usr/share/doc/dump/examples/dump_on_cd_2/
+drwxr-xr-x root/root         0 2016-09-05 19:25 ./usr/share/doc/dump/examples/dump_on_cd_2/DE/
+-rw-r--r-- root/root      1114 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_cd_2/DE/backup_CD
+-rw-r--r-- root/root      1474 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_cd_2/DE/backup_DVD
+-rw-r--r-- root/root       587 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_cd_2/DE/dump_userexit_CD
+-rw-r--r-- root/root       626 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_cd_2/DE/dump_userexit_DVD
+drwxr-xr-x root/root         0 2016-09-05 19:25 ./usr/share/doc/dump/examples/dump_on_cd_2/EN/
+-rw-r--r-- root/root      1071 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_cd_2/EN/backup_CD
+-rw-r--r-- root/root      1477 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_cd_2/EN/backup_DVD
+-rw-r--r-- root/root       537 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_cd_2/EN/dump_userexit_CD
+-rw-r--r-- root/root       625 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_cd_2/EN/dump_userexit_DVD
+-rw-r--r-- root/root       299 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_cd_2/README
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/share/doc/dump/examples/dump_on_cd_3/
+-rw-r--r-- root/root       638 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_cd_3/README
+-rwxr-xr-x root/root      2699 2018-06-09 01:23 ./usr/share/doc/dump/examples/dump_on_cd_3/dump_disk
+drwxr-xr-x root/root         0 2016-09-05 19:25 ./usr/share/doc/dump/examples/dump_on_remote_cd/
+-rw-r--r-- root/root      1336 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_remote_cd/README
+-rwxr-xr-x root/root      2650 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_remote_cd/dump-to-remote-cd
+-rwxr-xr-x root/root      1927 2016-04-21 14:23 ./usr/share/doc/dump/examples/dump_on_remote_cd/get-dumpdata-to-cdrecord
+drwxr-xr-x root/root         0 2016-09-05 19:25 ./usr/share/doc/dump/examples/encrypted_rmt/
+-rw-r--r-- root/root      2903 2016-04-21 14:23 ./usr/share/doc/dump/examples/encrypted_rmt/README
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/share/doc/dump/examples/howto/
+-rw-r--r-- root/root      4503 2016-04-21 14:23 ./usr/share/doc/dump/examples/howto/ultra-mini-howto.gz
+drwxr-xr-x root/root         0 2016-09-05 19:25 ./usr/share/doc/dump/examples/remote_backup_ssh/
+-rw-r--r-- root/root      1583 2016-05-06 02:55 ./usr/share/doc/dump/examples/remote_backup_ssh/backitup
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/share/lintian/
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/share/lintian/overrides/
+-rw-r--r-- root/root       240 2018-06-05 12:20 ./usr/share/lintian/overrides/dump
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/share/man/
+drwxr-xr-x root/root         0 2018-06-09 01:23 ./usr/share/man/man8/
+-rw-r--r-- root/root      8693 2018-06-09 01:23 ./usr/share/man/man8/dump.8.gz
+lrwxrwxrwx root/root         0 2018-06-09 01:23 ./usr/share/man/man8/rdump.8.gz -> dump.8.gz
+-rw-r--r-- root/root      7853 2018-06-09 01:23 ./usr/share/man/man8/restore.8.gz
+-rw-r--r-- root/root      3300 2018-06-09 01:23 ./usr/share/man/man8/rmt-dump.8.gz
+lrwxrwxrwx root/root         0 2018-06-09 01:23 ./usr/share/man/man8/rrestore.8.gz -> restore.8.gz
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [610 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [691 B]
+Fetched 2264 B in 0s (167 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 0s (8671 kB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 20024 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+N: 0 tags overridden; 1 unused override
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils*
+  comerr-dev:armhf* debhelper* dh-autoreconf* dh-strip-nondeterminism*
+  diffstat* dmsetup* dwz* gcc-8-base:armhf* gettext* gettext-base* groff-base*
+  intltool-debian* libapt-pkg-perl* libarchive-zip-perl* libasan5:armhf*
+  libatomic1:armhf* libblkid-dev:armhf* libblkid1:armhf* libbsd0*
+  libbz2-1.0:armhf* libbz2-dev:armhf* libc6:armhf* libc6-dev:armhf*
+  libcapture-tiny-perl* libcgi-pm-perl* libclass-accessor-perl* libclone-perl*
+  libcom-err2:armhf* libcroco3* libdevmapper-dev:armhf*
+  libdevmapper-event1.02.1:armhf* libdevmapper1.02.1*
+  libdevmapper1.02.1:armhf* libdigest-hmac-perl* libelf1* libemail-valid-perl*
+  libexporter-tiny-perl* libext2fs-dev:armhf* libext2fs2:armhf*
+  libfile-basedir-perl* libfile-stripnondeterminism-perl* libfuture-perl*
+  libgcc-8-dev:armhf* libgcc1:armhf* libglib2.0-0* libgomp1:armhf*
+  libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* liblist-moreutils-perl* liblzo2-2:armhf*
+  liblzo2-dev:armhf* libncurses-dev:armhf* libncurses6* libncurses6:armhf*
+  libncursesw6:armhf* libnet-dns-perl* libnet-domain-tld-perl* libnet-ip-perl*
+  libparse-debianchangelog-perl* libpath-tiny-perl* libpcre16-3:armhf*
+  libpcre3:armhf* libpcre3-dev:armhf* libpcre32-3:armhf* libpcrecpp0v5:armhf*
+  libpipeline1* libreadline-dev:armhf* libreadline7:armhf* libselinux1:armhf*
+  libselinux1-dev:armhf* libsepol1:armhf* libsepol1-dev:armhf* libsigsegv2*
+  libstdc++-8-dev:armhf* libstdc++6:armhf* libstruct-dumb-perl*
+  libsub-name-perl* libtext-levenshtein-perl* libtinfo6:armhf* libtool*
+  libubsan1:armhf* libuchardet0* libudev-dev:armhf* libudev1:armhf*
+  libuuid1:armhf* lintian* linux-libc-dev:armhf* m4* man-db* patchutils*
+  pkg-config* po-debconf* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* uuid-dev:armhf*
+  zlib1g:armhf* zlib1g-dev:armhf*
+0 upgraded, 0 newly installed, 105 to remove and 0 not upgraded.
+After this operation, 103 MB disk space will be freed.
+(Reading database ... 21302 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing libext2fs-dev:armhf (1.44.5-1) ...
+Removing comerr-dev:armhf (2.1-1.44.5-1) ...
+Removing diffstat (1.62-1) ...
+Removing libdevmapper-dev:armhf (2:1.02.155-2) ...
+Removing libdevmapper-event1.02.1:armhf (2:1.02.155-2) ...
+Removing libdevmapper1.02.1:armhf (2:1.02.155-2) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libselinux1-dev:armhf (2.8-1+b1) ...
+Removing libpcre3-dev:armhf (2:8.39-11) ...
+Removing libpcrecpp0v5:armhf (2:8.39-11) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libblkid-dev:armhf (2.33.1-0.1) ...
+Removing libblkid1:armhf (2.33.1-0.1) ...
+Removing libbz2-dev:armhf (1.0.6-9) ...
+Removing libbz2-1.0:armhf (1.0.6-9) ...
+Removing zlib1g-dev:armhf (1:1.2.11.dfsg-1) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing uuid-dev:armhf (2.33.1-0.1) ...
+Removing libuuid1:armhf (2.33.1-0.1) ...
+Removing libreadline-dev:armhf (7.0-5) ...
+Removing libncurses-dev:armhf (6.1+20181013-2) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libcom-err2:armhf (1.44.5-1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libext2fs2:armhf (1.44.5-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing pkg-config (0.29-6) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing liblzo2-dev:armhf (2.10-0.1) ...
+Removing liblzo2-2:armhf (2.10-0.1) ...
+Removing libncurses6:armhf (6.1+20181013-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libpcre16-3:armhf (2:8.39-11) ...
+Removing libselinux1:armhf (2.8-1+b1) ...
+Removing libpcre3:armhf (2:8.39-11) ...
+Removing libpcre32-3:armhf (2:8.39-11) ...
+Removing libreadline7:armhf (7.0-5) ...
+Removing libsepol1-dev:armhf (2.8-1) ...
+Removing libsepol1:armhf (2.8-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libudev-dev:armhf (241-1) ...
+Removing libudev1:armhf (241-1) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing dh-autoreconf (19) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dmsetup (2:1.02.155-2) ...
+Removing libdevmapper1.02.1:amd64 (2:1.02.155-2) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16459 files and directories currently installed.)
+Purging configuration files for libblkid-dev:armhf (2.33.1-0.1) ...
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for comerr-dev:armhf (2.1-1.44.5-1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for libudev-dev:armhf (241-1) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 32
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 8
+Job: /home/build/sbuild-setup/repo/pool/main/d/dump/dump_0.4b46-5.dsc
+Lintian: pass
+Machine Architecture: amd64
+Package: dump
+Package-Time: 45
+Source-Version: 0.4b46-5
+Space: n/a
+Status: successful
+Version: 0.4b46-5
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T15:34:03Z
+Build needed 00:00:45, no disk space

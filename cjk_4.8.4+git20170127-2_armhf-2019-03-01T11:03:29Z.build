@@ -1,0 +1,2541 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| cjk 4.8.4+git20170127-2 (armhf)              Fri, 01 Mar 2019 11:03:29 +0000 |
++==============================================================================+
+
+Package: cjk
+Version: 4.8.4+git20170127-2
+Source Version: 4.8.4+git20170127-2
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-8faceb02-9630-4023-ae6e-1200ada7f0dd' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/cjk-F8TfoP/resolver-zLjEc9' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/c/cjk/cjk_4.8.4+git20170127-2.dsc exists in /home/build/sbuild-setup/repo/pool/main/c/cjk; copying to chroot
+I: NOTICE: Log filtering will replace 'build/cjk-F8TfoP/cjk-4.8.4+git20170127' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/cjk-F8TfoP' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 10.2.5), quilt, libkpathsea-dev, texlive-extra-utils, git-core, tex-common (>= 4), build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 10.2.5), quilt, libkpathsea-dev, texlive-extra-utils, git-core, tex-common (>= 4), build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [441 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [532 B]
+Fetched 1930 B in 0s (0 B/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism diffstat dwz fontconfig-config
+  fonts-dejavu-core fonts-lmodern gcc-8-base:armhf gettext gettext-base git
+  git-man groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libavahi-client3 libavahi-common-data libavahi-common3
+  libbrotli1 libbsd0 libc6:armhf libc6-dev:armhf libcairo2 libcroco3 libcups2
+  libcupsimage2 libcurl3-gnutls libdatrie1 libdbus-1-3 libelf1 liberror-perl
+  libfile-stripnondeterminism-perl libfontconfig1 libfreetype6
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgomp1:armhf libgraphite2-3
+  libgs9 libgs9-common libgssapi-krb5-2 libharfbuzz-icu0 libharfbuzz0b libice6
+  libidn11 libijs-0.35 libjbig0 libjbig2dec0 libjpeg62-turbo libk5crypto3
+  libkeyutils1 libkpathsea-dev:armhf libkpathsea6 libkpathsea6:armhf libkrb5-3
+  libkrb5support0 liblcms2-2 libmime-charset-perl libncurses6 libnghttp2-14
+  libopenjp2-7 libpaper-utils libpaper1 libpcre2-8-0 libpipeline1
+  libpixman-1-0 libpng16-16 libpotrace0 libpsl5 libptexenc1 libpython-stdlib
+  libpython2-stdlib libpython2.7-minimal libpython2.7-stdlib librtmp1
+  libsigsegv2 libsm6 libsombok3 libssh2-1 libstdc++-8-dev:armhf
+  libstdc++6:armhf libsynctex2 libteckit0 libtexlua52 libtexlua53
+  libtexluajit2 libthai-data libthai0 libtiff5 libtool libubsan1:armhf
+  libuchardet0 libunicode-linebreak-perl libwebp6 libwoff1 libx11-6
+  libx11-data libxau6 libxaw7 libxcb-render0 libxcb-shm0 libxcb1 libxdmcp6
+  libxext6 libxi6 libxmu6 libxpm4 libxrender1 libxt6 libxxhash0 libzzip-0-13
+  linux-libc-dev:armhf m4 man-db mime-support po-debconf poppler-data python
+  python-minimal python2 python2-minimal python2.7 python2.7-minimal quilt
+  t1utils tex-common texlive-base texlive-binaries texlive-extra-utils
+  texlive-latex-base x11-common xdg-utils
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation dh-make gettext-doc libasprintf-dev libgettextpo-dev git-daemon-run
+  | git-daemon-sysvinit git-doc git-el git-email git-gui gitk gitweb git-cvs
+  git-mediawiki git-svn groff glibc-doc:armhf libc-l10n:armhf locales:armhf
+  manpages-dev:armhf cups-common krb5-doc krb5-user liblcms2-utils
+  libencode-hanextra-perl libpod2-base-perl libstdc++-8-doc:armhf libtool-doc
+  gfortran | fortran95-compiler gcj-jdk m4-doc apparmor less www-browser
+  libmail-box-perl poppler-utils ghostscript fonts-japanese-mincho
+  | fonts-ipafont-mincho fonts-japanese-gothic | fonts-ipafont-gothic
+  fonts-arphic-ukai fonts-arphic-uming fonts-nanum python-doc python-tk
+  python2-doc python2.7-doc binfmt-support default-mta | mail-transport-agent
+  graphviz procmail gv | postscript-viewer perl-tk xpdf-reader | pdf-viewer
+  chktex dvidvi dvipng fragmaster lacheck latexdiff latexmk purifyeps xindy
+  texlive-latex-base-doc
+Recommended packages:
+  curl | wget | lynx less ssh-client libidn2-0:armhf libcupsfilters1 dbus
+  libarchive-cpio-perl libglib2.0-data shared-mime-info xdg-user-dirs
+  fonts-droid-fallback krb5-locales libgpm2 publicsuffix libltdl-dev
+  libmail-sendmail-perl lmodern ghostscript libyaml-tiny-perl ruby
+  | ruby-interpreter texlive-latex-recommended libfile-mimeinfo-perl
+  libnet-dbus-perl libx11-protocol-perl x11-utils x11-xserver-utils
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils debhelper
+  dh-autoreconf dh-strip-nondeterminism diffstat dwz fontconfig-config
+  fonts-dejavu-core fonts-lmodern gcc-8-base:armhf gettext gettext-base git
+  git-man groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libavahi-client3 libavahi-common-data libavahi-common3
+  libbrotli1 libbsd0 libc6:armhf libc6-dev:armhf libcairo2 libcroco3 libcups2
+  libcupsimage2 libcurl3-gnutls libdatrie1 libdbus-1-3 libelf1 liberror-perl
+  libfile-stripnondeterminism-perl libfontconfig1 libfreetype6
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgomp1:armhf libgraphite2-3
+  libgs9 libgs9-common libgssapi-krb5-2 libharfbuzz-icu0 libharfbuzz0b libice6
+  libidn11 libijs-0.35 libjbig0 libjbig2dec0 libjpeg62-turbo libk5crypto3
+  libkeyutils1 libkpathsea-dev:armhf libkpathsea6 libkpathsea6:armhf libkrb5-3
+  libkrb5support0 liblcms2-2 libmime-charset-perl libncurses6 libnghttp2-14
+  libopenjp2-7 libpaper-utils libpaper1 libpcre2-8-0 libpipeline1
+  libpixman-1-0 libpng16-16 libpotrace0 libpsl5 libptexenc1 libpython-stdlib
+  libpython2-stdlib libpython2.7-minimal libpython2.7-stdlib librtmp1
+  libsigsegv2 libsm6 libsombok3 libssh2-1 libstdc++-8-dev:armhf
+  libstdc++6:armhf libsynctex2 libteckit0 libtexlua52 libtexlua53
+  libtexluajit2 libthai-data libthai0 libtiff5 libtool libubsan1:armhf
+  libuchardet0 libunicode-linebreak-perl libwebp6 libwoff1 libx11-6
+  libx11-data libxau6 libxaw7 libxcb-render0 libxcb-shm0 libxcb1 libxdmcp6
+  libxext6 libxi6 libxmu6 libxpm4 libxrender1 libxt6 libxxhash0 libzzip-0-13
+  linux-libc-dev:armhf m4 man-db mime-support po-debconf poppler-data python
+  python-minimal python2 python2-minimal python2.7 python2.7-minimal quilt
+  sbuild-build-depends-main-dummy:armhf t1utils tex-common texlive-base
+  texlive-binaries texlive-extra-utils texlive-latex-base x11-common xdg-utils
+0 upgraded, 142 newly installed, 0 to remove and 0 not upgraded.
+Need to get 101 MB/129 MB of archives.
+After this operation, 390 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [956 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libpython2.7-minimal amd64 2.7.16~rc1-1 [394 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 python2.7-minimal amd64 2.7.16~rc1-1 [1369 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libpython2.7-stdlib amd64 2.7.16~rc1-1 [1910 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 python2.7 amd64 2.7.16~rc1-1 [304 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 poppler-data all 0.4.9-2 [1473 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 tex-common all 6.10 [53.0 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 fonts-lmodern all 2.004.5-5 [4539 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libkeyutils1 amd64 1.6-4 [14.8 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libkrb5support0 amd64 1.17-2 [65.6 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libk5crypto3 amd64 1.17-2 [121 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libkrb5-3 amd64 1.17-2 [368 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libgssapi-krb5-2 amd64 1.17-2 [158 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libcurl3-gnutls amd64 7.64.0-1 [329 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libpcre2-8-0 amd64 10.32-4 [213 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 liberror-perl all 0.17027-2 [30.9 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 git-man all 1:2.20.1-2 [1619 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 git amd64 1:2.20.1-2 [5621 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libbrotli1 amd64 1.0.7-2 [270 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libcupsimage2 amd64 2.2.10-4 [132 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 libgs9-common all 9.26a~dfsg-2 [5136 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libijs-0.35 amd64 0.35-13 [18.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libjbig2dec0 amd64 0.15-2 [61.7 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libopenjp2-7 amd64 2.3.0-1.1 [158 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 libpaper1 amd64 1.1.26 [20.8 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 libgs9 amd64 9.26a~dfsg-2 [2198 kB]
+Get:27 http://10.116.41.102/debian sid/main amd64 libharfbuzz-icu0 amd64 2.3.1-1 [834 kB]
+Get:28 http://10.116.41.102/debian sid/main amd64 libice6 amd64 2:1.0.9-2 [58.7 kB]
+Get:29 http://10.116.41.102/debian sid/main armhf libkpathsea6 armhf 2018.20181218.49446-1 [157 kB]
+Get:30 http://10.116.41.102/debian sid/main armhf libkpathsea-dev armhf 2018.20181218.49446-1 [185 kB]
+Get:31 http://10.116.41.102/debian sid/main amd64 libkpathsea6 amd64 2018.20181218.49446-1 [167 kB]
+Get:32 http://10.116.41.102/debian sid/main amd64 libmime-charset-perl all 1.012.2-1 [35.4 kB]
+Get:33 http://10.116.41.102/debian sid/main amd64 libpaper-utils amd64 1.1.26 [17.9 kB]
+Get:34 http://10.116.41.102/debian sid/main amd64 libpotrace0 amd64 1.15-1 [26.3 kB]
+Get:35 http://10.116.41.102/debian sid/main amd64 libptexenc1 amd64 2018.20181218.49446-1 [61.0 kB]
+Get:36 http://10.116.41.102/debian sid/main amd64 libsm6 amd64 2:1.2.3-1 [35.1 kB]
+Get:37 http://10.116.41.102/debian sid/main amd64 libsombok3 amd64 2.4.0-2 [31.3 kB]
+Get:38 http://10.116.41.102/debian sid/main amd64 libsynctex2 amd64 2018.20181218.49446-1 [80.5 kB]
+Get:39 http://10.116.41.102/debian sid/main amd64 libteckit0 amd64 2.5.8+ds2-5 [318 kB]
+Get:40 http://10.116.41.102/debian sid/main amd64 libtexlua52 amd64 2018.20181218.49446-1 [112 kB]
+Get:41 http://10.116.41.102/debian sid/main amd64 libtexlua53 amd64 2018.20181218.49446-1 [126 kB]
+Get:42 http://10.116.41.102/debian sid/main amd64 libtexluajit2 amd64 2018.20181218.49446-1 [256 kB]
+Get:43 http://10.116.41.102/debian sid/main amd64 libunicode-linebreak-perl amd64 0.0.20190101-1 [103 kB]
+Get:44 http://10.116.41.102/debian sid/main amd64 libwoff1 amd64 1.0.2-1 [43.2 kB]
+Get:45 http://10.116.41.102/debian sid/main amd64 libxt6 amd64 1:1.1.5-1 [188 kB]
+Get:46 http://10.116.41.102/debian sid/main amd64 libxmu6 amd64 2:1.1.2-2 [60.3 kB]
+Get:47 http://10.116.41.102/debian sid/main amd64 libxpm4 amd64 1:3.5.12-1 [49.1 kB]
+Get:48 http://10.116.41.102/debian sid/main amd64 libxaw7 amd64 2:1.0.13-1+b2 [201 kB]
+Get:49 http://10.116.41.102/debian sid/main amd64 libxxhash0 amd64 0.6.5-2 [7156 B]
+Get:50 http://10.116.41.102/debian sid/main amd64 libzzip-0-13 amd64 0.13.62-3.1 [55.4 kB]
+Get:51 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:52 http://10.116.41.102/debian sid/main amd64 texlive-binaries amd64 2018.20181218.49446-1 [11.3 MB]
+Get:53 http://10.116.41.102/debian sid/main amd64 xdg-utils all 1.1.3-1 [73.3 kB]
+Get:54 http://10.116.41.102/debian sid/main amd64 texlive-base all 2018.20190207-1 [19.7 MB]
+Get:55 http://10.116.41.102/debian sid/main amd64 texlive-latex-base all 2018.20190207-1 [986 kB]
+Get:56 http://10.116.41.102/debian sid/main amd64 texlive-extra-utils all 2018.20190207-1 [38.8 MB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 101 MB in 12s (8744 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package libpython2.7-minimal:amd64.
+Preparing to unpack .../06-libpython2.7-minimal_2.7.16~rc1-1_amd64.deb ...
+Unpacking libpython2.7-minimal:amd64 (2.7.16~rc1-1) ...
+Selecting previously unselected package python2.7-minimal.
+Preparing to unpack .../07-python2.7-minimal_2.7.16~rc1-1_amd64.deb ...
+Unpacking python2.7-minimal (2.7.16~rc1-1) ...
+Selecting previously unselected package python2-minimal.
+Preparing to unpack .../08-python2-minimal_2.7.15-4_amd64.deb ...
+Unpacking python2-minimal (2.7.15-4) ...
+Selecting previously unselected package python-minimal.
+Preparing to unpack .../09-python-minimal_2.7.15-4_amd64.deb ...
+Unpacking python-minimal (2.7.15-4) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../10-mime-support_3.62_all.deb ...
+Unpacking mime-support (3.62) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Preparing to unpack .../11-libpython2.7-stdlib_2.7.16~rc1-1_amd64.deb ...
+Unpacking libpython2.7-stdlib:amd64 (2.7.16~rc1-1) ...
+Selecting previously unselected package python2.7.
+Preparing to unpack .../12-python2.7_2.7.16~rc1-1_amd64.deb ...
+Unpacking python2.7 (2.7.16~rc1-1) ...
+Selecting previously unselected package libpython2-stdlib:amd64.
+Preparing to unpack .../13-libpython2-stdlib_2.7.15-4_amd64.deb ...
+Unpacking libpython2-stdlib:amd64 (2.7.15-4) ...
+Selecting previously unselected package libpython-stdlib:amd64.
+Preparing to unpack .../14-libpython-stdlib_2.7.15-4_amd64.deb ...
+Unpacking libpython-stdlib:amd64 (2.7.15-4) ...
+Setting up libpython2.7-minimal:amd64 (2.7.16~rc1-1) ...
+Setting up python2.7-minimal (2.7.16~rc1-1) ...
+Setting up python2-minimal (2.7.15-4) ...
+Selecting previously unselected package python2.
+(Reading database ... 17859 files and directories currently installed.)
+Preparing to unpack .../python2_2.7.15-4_amd64.deb ...
+Unpacking python2 (2.7.15-4) ...
+Setting up python-minimal (2.7.15-4) ...
+Selecting previously unselected package python.
+(Reading database ... 17890 files and directories currently installed.)
+Preparing to unpack .../000-python_2.7.15-4_amd64.deb ...
+Unpacking python (2.7.15-4) ...
+Selecting previously unselected package poppler-data.
+Preparing to unpack .../001-poppler-data_0.4.9-2_all.deb ...
+Unpacking poppler-data (0.4.9-2) ...
+Selecting previously unselected package tex-common.
+Preparing to unpack .../002-tex-common_6.10_all.deb ...
+Unpacking tex-common (6.10) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../003-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../004-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../005-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../006-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../007-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../008-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../009-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../010-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../011-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../012-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../013-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../014-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../015-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../016-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../017-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../018-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../019-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../020-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../021-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../022-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../023-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package diffstat.
+Preparing to unpack .../024-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package fonts-dejavu-core.
+Preparing to unpack .../025-fonts-dejavu-core_2.37-1_all.deb ...
+Unpacking fonts-dejavu-core (2.37-1) ...
+Selecting previously unselected package fontconfig-config.
+Preparing to unpack .../026-fontconfig-config_2.13.1-2_all.deb ...
+Unpacking fontconfig-config (2.13.1-2) ...
+Selecting previously unselected package fonts-lmodern.
+Preparing to unpack .../027-fonts-lmodern_2.004.5-5_all.deb ...
+Unpacking fonts-lmodern (2.004.5-5) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../028-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libkeyutils1:amd64.
+Preparing to unpack .../029-libkeyutils1_1.6-4_amd64.deb ...
+Unpacking libkeyutils1:amd64 (1.6-4) ...
+Selecting previously unselected package libkrb5support0:amd64.
+Preparing to unpack .../030-libkrb5support0_1.17-2_amd64.deb ...
+Unpacking libkrb5support0:amd64 (1.17-2) ...
+Selecting previously unselected package libk5crypto3:amd64.
+Preparing to unpack .../031-libk5crypto3_1.17-2_amd64.deb ...
+Unpacking libk5crypto3:amd64 (1.17-2) ...
+Selecting previously unselected package libkrb5-3:amd64.
+Preparing to unpack .../032-libkrb5-3_1.17-2_amd64.deb ...
+Unpacking libkrb5-3:amd64 (1.17-2) ...
+Selecting previously unselected package libgssapi-krb5-2:amd64.
+Preparing to unpack .../033-libgssapi-krb5-2_1.17-2_amd64.deb ...
+Unpacking libgssapi-krb5-2:amd64 (1.17-2) ...
+Selecting previously unselected package libnghttp2-14:amd64.
+Preparing to unpack .../034-libnghttp2-14_1.36.0-2_amd64.deb ...
+Unpacking libnghttp2-14:amd64 (1.36.0-2) ...
+Selecting previously unselected package libpsl5:amd64.
+Preparing to unpack .../035-libpsl5_0.20.2-2_amd64.deb ...
+Unpacking libpsl5:amd64 (0.20.2-2) ...
+Selecting previously unselected package librtmp1:amd64.
+Preparing to unpack .../036-librtmp1_2.4+20151223.gitfa8646d.1-2_amd64.deb ...
+Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2) ...
+Selecting previously unselected package libssh2-1:amd64.
+Preparing to unpack .../037-libssh2-1_1.8.0-2_amd64.deb ...
+Unpacking libssh2-1:amd64 (1.8.0-2) ...
+Selecting previously unselected package libcurl3-gnutls:amd64.
+Preparing to unpack .../038-libcurl3-gnutls_7.64.0-1_amd64.deb ...
+Unpacking libcurl3-gnutls:amd64 (7.64.0-1) ...
+Selecting previously unselected package libpcre2-8-0:amd64.
+Preparing to unpack .../039-libpcre2-8-0_10.32-4_amd64.deb ...
+Unpacking libpcre2-8-0:amd64 (10.32-4) ...
+Selecting previously unselected package liberror-perl.
+Preparing to unpack .../040-liberror-perl_0.17027-2_all.deb ...
+Unpacking liberror-perl (0.17027-2) ...
+Selecting previously unselected package git-man.
+Preparing to unpack .../041-git-man_1%3a2.20.1-2_all.deb ...
+Unpacking git-man (1:2.20.1-2) ...
+Selecting previously unselected package git.
+Preparing to unpack .../042-git_1%3a2.20.1-2_amd64.deb ...
+Unpacking git (1:2.20.1-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../043-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../044-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../045-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../046-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../047-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libavahi-common-data:amd64.
+Preparing to unpack .../048-libavahi-common-data_0.7-4+b1_amd64.deb ...
+Unpacking libavahi-common-data:amd64 (0.7-4+b1) ...
+Selecting previously unselected package libavahi-common3:amd64.
+Preparing to unpack .../049-libavahi-common3_0.7-4+b1_amd64.deb ...
+Unpacking libavahi-common3:amd64 (0.7-4+b1) ...
+Selecting previously unselected package libdbus-1-3:amd64.
+Preparing to unpack .../050-libdbus-1-3_1.12.12-1_amd64.deb ...
+Unpacking libdbus-1-3:amd64 (1.12.12-1) ...
+Selecting previously unselected package libavahi-client3:amd64.
+Preparing to unpack .../051-libavahi-client3_0.7-4+b1_amd64.deb ...
+Unpacking libavahi-client3:amd64 (0.7-4+b1) ...
+Selecting previously unselected package libbrotli1:amd64.
+Preparing to unpack .../052-libbrotli1_1.0.7-2_amd64.deb ...
+Unpacking libbrotli1:amd64 (1.0.7-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../053-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../054-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libpng16-16:amd64.
+Preparing to unpack .../055-libpng16-16_1.6.36-5_amd64.deb ...
+Unpacking libpng16-16:amd64 (1.6.36-5) ...
+Selecting previously unselected package libfreetype6:amd64.
+Preparing to unpack .../056-libfreetype6_2.9.1-3_amd64.deb ...
+Unpacking libfreetype6:amd64 (2.9.1-3) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Preparing to unpack .../057-libfontconfig1_2.13.1-2_amd64.deb ...
+Unpacking libfontconfig1:amd64 (2.13.1-2) ...
+Selecting previously unselected package libpixman-1-0:amd64.
+Preparing to unpack .../058-libpixman-1-0_0.36.0-1_amd64.deb ...
+Unpacking libpixman-1-0:amd64 (0.36.0-1) ...
+Selecting previously unselected package libxau6:amd64.
+Preparing to unpack .../059-libxau6_1%3a1.0.8-1+b2_amd64.deb ...
+Unpacking libxau6:amd64 (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:amd64.
+Preparing to unpack .../060-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:amd64.
+Preparing to unpack .../061-libxcb1_1.13.1-2_amd64.deb ...
+Unpacking libxcb1:amd64 (1.13.1-2) ...
+Selecting previously unselected package libx11-data.
+Preparing to unpack .../062-libx11-data_2%3a1.6.7-1_all.deb ...
+Unpacking libx11-data (2:1.6.7-1) ...
+Selecting previously unselected package libx11-6:amd64.
+Preparing to unpack .../063-libx11-6_2%3a1.6.7-1_amd64.deb ...
+Unpacking libx11-6:amd64 (2:1.6.7-1) ...
+Selecting previously unselected package libxcb-render0:amd64.
+Preparing to unpack .../064-libxcb-render0_1.13.1-2_amd64.deb ...
+Unpacking libxcb-render0:amd64 (1.13.1-2) ...
+Selecting previously unselected package libxcb-shm0:amd64.
+Preparing to unpack .../065-libxcb-shm0_1.13.1-2_amd64.deb ...
+Unpacking libxcb-shm0:amd64 (1.13.1-2) ...
+Selecting previously unselected package libxext6:amd64.
+Preparing to unpack .../066-libxext6_2%3a1.3.3-1+b2_amd64.deb ...
+Unpacking libxext6:amd64 (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxrender1:amd64.
+Preparing to unpack .../067-libxrender1_1%3a0.9.10-1_amd64.deb ...
+Unpacking libxrender1:amd64 (1:0.9.10-1) ...
+Selecting previously unselected package libcairo2:amd64.
+Preparing to unpack .../068-libcairo2_1.16.0-3_amd64.deb ...
+Unpacking libcairo2:amd64 (1.16.0-3) ...
+Selecting previously unselected package libcups2:amd64.
+Preparing to unpack .../069-libcups2_2.2.10-4_amd64.deb ...
+Unpacking libcups2:amd64 (2.2.10-4) ...
+Selecting previously unselected package libcupsimage2:amd64.
+Preparing to unpack .../070-libcupsimage2_2.2.10-4_amd64.deb ...
+Unpacking libcupsimage2:amd64 (2.2.10-4) ...
+Selecting previously unselected package libdatrie1:amd64.
+Preparing to unpack .../071-libdatrie1_0.2.12-2_amd64.deb ...
+Unpacking libdatrie1:amd64 (0.2.12-2) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../072-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../073-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../074-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libgraphite2-3:amd64.
+Preparing to unpack .../075-libgraphite2-3_1.3.13-7_amd64.deb ...
+Unpacking libgraphite2-3:amd64 (1.3.13-7) ...
+Selecting previously unselected package libgs9-common.
+Preparing to unpack .../076-libgs9-common_9.26a~dfsg-2_all.deb ...
+Unpacking libgs9-common (9.26a~dfsg-2) ...
+Selecting previously unselected package libidn11:amd64.
+Preparing to unpack .../077-libidn11_1.33-2.2_amd64.deb ...
+Unpacking libidn11:amd64 (1.33-2.2) ...
+Selecting previously unselected package libijs-0.35:amd64.
+Preparing to unpack .../078-libijs-0.35_0.35-13_amd64.deb ...
+Unpacking libijs-0.35:amd64 (0.35-13) ...
+Selecting previously unselected package libjbig2dec0:amd64.
+Preparing to unpack .../079-libjbig2dec0_0.15-2_amd64.deb ...
+Unpacking libjbig2dec0:amd64 (0.15-2) ...
+Selecting previously unselected package libjpeg62-turbo:amd64.
+Preparing to unpack .../080-libjpeg62-turbo_1%3a1.5.2-2+b1_amd64.deb ...
+Unpacking libjpeg62-turbo:amd64 (1:1.5.2-2+b1) ...
+Selecting previously unselected package liblcms2-2:amd64.
+Preparing to unpack .../081-liblcms2-2_2.9-3_amd64.deb ...
+Unpacking liblcms2-2:amd64 (2.9-3) ...
+Selecting previously unselected package libopenjp2-7:amd64.
+Preparing to unpack .../082-libopenjp2-7_2.3.0-1.1_amd64.deb ...
+Unpacking libopenjp2-7:amd64 (2.3.0-1.1) ...
+Selecting previously unselected package libpaper1:amd64.
+Preparing to unpack .../083-libpaper1_1.1.26_amd64.deb ...
+Unpacking libpaper1:amd64 (1.1.26) ...
+Selecting previously unselected package libjbig0:amd64.
+Preparing to unpack .../084-libjbig0_2.1-3.1+b2_amd64.deb ...
+Unpacking libjbig0:amd64 (2.1-3.1+b2) ...
+Selecting previously unselected package libwebp6:amd64.
+Preparing to unpack .../085-libwebp6_0.6.1-2_amd64.deb ...
+Unpacking libwebp6:amd64 (0.6.1-2) ...
+Selecting previously unselected package libtiff5:amd64.
+Preparing to unpack .../086-libtiff5_4.0.10-4_amd64.deb ...
+Unpacking libtiff5:amd64 (4.0.10-4) ...
+Selecting previously unselected package libgs9:amd64.
+Preparing to unpack .../087-libgs9_9.26a~dfsg-2_amd64.deb ...
+Unpacking libgs9:amd64 (9.26a~dfsg-2) ...
+Selecting previously unselected package libharfbuzz0b:amd64.
+Preparing to unpack .../088-libharfbuzz0b_2.3.1-1_amd64.deb ...
+Unpacking libharfbuzz0b:amd64 (2.3.1-1) ...
+Selecting previously unselected package libharfbuzz-icu0:amd64.
+Preparing to unpack .../089-libharfbuzz-icu0_2.3.1-1_amd64.deb ...
+Unpacking libharfbuzz-icu0:amd64 (2.3.1-1) ...
+Selecting previously unselected package x11-common.
+Preparing to unpack .../090-x11-common_1%3a7.7+19_all.deb ...
+Unpacking x11-common (1:7.7+19) ...
+Selecting previously unselected package libice6:amd64.
+Preparing to unpack .../091-libice6_2%3a1.0.9-2_amd64.deb ...
+Unpacking libice6:amd64 (2:1.0.9-2) ...
+Selecting previously unselected package libkpathsea6:armhf.
+Preparing to unpack .../092-libkpathsea6_2018.20181218.49446-1_armhf.deb ...
+Unpacking libkpathsea6:armhf (2018.20181218.49446-1) ...
+Selecting previously unselected package libkpathsea-dev:armhf.
+Preparing to unpack .../093-libkpathsea-dev_2018.20181218.49446-1_armhf.deb ...
+Unpacking libkpathsea-dev:armhf (2018.20181218.49446-1) ...
+Selecting previously unselected package libkpathsea6:amd64.
+Preparing to unpack .../094-libkpathsea6_2018.20181218.49446-1_amd64.deb ...
+Unpacking libkpathsea6:amd64 (2018.20181218.49446-1) ...
+Selecting previously unselected package libmime-charset-perl.
+Preparing to unpack .../095-libmime-charset-perl_1.012.2-1_all.deb ...
+Unpacking libmime-charset-perl (1.012.2-1) ...
+Selecting previously unselected package libpaper-utils.
+Preparing to unpack .../096-libpaper-utils_1.1.26_amd64.deb ...
+Unpacking libpaper-utils (1.1.26) ...
+Selecting previously unselected package libpotrace0:amd64.
+Preparing to unpack .../097-libpotrace0_1.15-1_amd64.deb ...
+Unpacking libpotrace0:amd64 (1.15-1) ...
+Selecting previously unselected package libptexenc1:amd64.
+Preparing to unpack .../098-libptexenc1_2018.20181218.49446-1_amd64.deb ...
+Unpacking libptexenc1:amd64 (2018.20181218.49446-1) ...
+Selecting previously unselected package libsm6:amd64.
+Preparing to unpack .../099-libsm6_2%3a1.2.3-1_amd64.deb ...
+Unpacking libsm6:amd64 (2:1.2.3-1) ...
+Selecting previously unselected package libthai-data.
+Preparing to unpack .../100-libthai-data_0.1.28-2_all.deb ...
+Unpacking libthai-data (0.1.28-2) ...
+Selecting previously unselected package libthai0:amd64.
+Preparing to unpack .../101-libthai0_0.1.28-2_amd64.deb ...
+Unpacking libthai0:amd64 (0.1.28-2) ...
+Selecting previously unselected package libsombok3:amd64.
+Preparing to unpack .../102-libsombok3_2.4.0-2_amd64.deb ...
+Unpacking libsombok3:amd64 (2.4.0-2) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../103-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libsynctex2:amd64.
+Preparing to unpack .../104-libsynctex2_2018.20181218.49446-1_amd64.deb ...
+Unpacking libsynctex2:amd64 (2018.20181218.49446-1) ...
+Selecting previously unselected package libteckit0:amd64.
+Preparing to unpack .../105-libteckit0_2.5.8+ds2-5_amd64.deb ...
+Unpacking libteckit0:amd64 (2.5.8+ds2-5) ...
+Selecting previously unselected package libtexlua52:amd64.
+Preparing to unpack .../106-libtexlua52_2018.20181218.49446-1_amd64.deb ...
+Unpacking libtexlua52:amd64 (2018.20181218.49446-1) ...
+Selecting previously unselected package libtexlua53:amd64.
+Preparing to unpack .../107-libtexlua53_2018.20181218.49446-1_amd64.deb ...
+Unpacking libtexlua53:amd64 (2018.20181218.49446-1) ...
+Selecting previously unselected package libtexluajit2:amd64.
+Preparing to unpack .../108-libtexluajit2_2018.20181218.49446-1_amd64.deb ...
+Unpacking libtexluajit2:amd64 (2018.20181218.49446-1) ...
+Selecting previously unselected package libunicode-linebreak-perl.
+Preparing to unpack .../109-libunicode-linebreak-perl_0.0.20190101-1_amd64.deb ...
+Unpacking libunicode-linebreak-perl (0.0.20190101-1) ...
+Selecting previously unselected package libwoff1:amd64.
+Preparing to unpack .../110-libwoff1_1.0.2-1_amd64.deb ...
+Unpacking libwoff1:amd64 (1.0.2-1) ...
+Selecting previously unselected package libxt6:amd64.
+Preparing to unpack .../111-libxt6_1%3a1.1.5-1_amd64.deb ...
+Unpacking libxt6:amd64 (1:1.1.5-1) ...
+Selecting previously unselected package libxmu6:amd64.
+Preparing to unpack .../112-libxmu6_2%3a1.1.2-2_amd64.deb ...
+Unpacking libxmu6:amd64 (2:1.1.2-2) ...
+Selecting previously unselected package libxpm4:amd64.
+Preparing to unpack .../113-libxpm4_1%3a3.5.12-1_amd64.deb ...
+Unpacking libxpm4:amd64 (1:3.5.12-1) ...
+Selecting previously unselected package libxaw7:amd64.
+Preparing to unpack .../114-libxaw7_2%3a1.0.13-1+b2_amd64.deb ...
+Unpacking libxaw7:amd64 (2:1.0.13-1+b2) ...
+Selecting previously unselected package libxi6:amd64.
+Preparing to unpack .../115-libxi6_2%3a1.7.9-1_amd64.deb ...
+Unpacking libxi6:amd64 (2:1.7.9-1) ...
+Selecting previously unselected package libxxhash0:amd64.
+Preparing to unpack .../116-libxxhash0_0.6.5-2_amd64.deb ...
+Unpacking libxxhash0:amd64 (0.6.5-2) ...
+Selecting previously unselected package libzzip-0-13:amd64.
+Preparing to unpack .../117-libzzip-0-13_0.13.62-3.1_amd64.deb ...
+Unpacking libzzip-0-13:amd64 (0.13.62-3.1) ...
+Selecting previously unselected package quilt.
+Preparing to unpack .../118-quilt_0.65-3_all.deb ...
+Unpacking quilt (0.65-3) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../119-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package texlive-binaries.
+Preparing to unpack .../120-texlive-binaries_2018.20181218.49446-1_amd64.deb ...
+Unpacking texlive-binaries (2018.20181218.49446-1) ...
+Selecting previously unselected package xdg-utils.
+Preparing to unpack .../121-xdg-utils_1.1.3-1_all.deb ...
+Unpacking xdg-utils (1.1.3-1) ...
+Selecting previously unselected package texlive-base.
+Preparing to unpack .../122-texlive-base_2018.20190207-1_all.deb ...
+Unpacking texlive-base (2018.20190207-1) ...
+Selecting previously unselected package texlive-latex-base.
+Preparing to unpack .../123-texlive-latex-base_2018.20190207-1_all.deb ...
+Unpacking texlive-latex-base (2018.20190207-1) ...
+Selecting previously unselected package texlive-extra-utils.
+Preparing to unpack .../124-texlive-extra-utils_2018.20190207-1_all.deb ...
+Unpacking texlive-extra-utils (2018.20190207-1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../125-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libgs9-common (9.26a~dfsg-2) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up libgraphite2-3:amd64 (1.3.13-7) ...
+Setting up liblcms2-2:amd64 (2.9-3) ...
+Setting up libpixman-1-0:amd64 (0.36.0-1) ...
+Setting up libpaper1:amd64 (1.1.26) ...
+
+Creating config file /etc/papersize with new version
+Setting up libxau6:amd64 (1:1.0.8-1+b2) ...
+Setting up libkeyutils1:amd64 (1.6-4) ...
+Setting up libpsl5:amd64 (0.20.2-2) ...
+Setting up mime-support (3.62) ...
+Setting up libtexlua52:amd64 (2018.20181218.49446-1) ...
+Setting up libdatrie1:amd64 (0.2.12-2) ...
+Setting up libtexlua53:amd64 (2018.20181218.49446-1) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up libijs-0.35:amd64 (0.35-13) ...
+Setting up libtexluajit2:amd64 (2018.20181218.49446-1) ...
+Setting up libbrotli1:amd64 (1.0.7-2) ...
+Setting up x11-common (1:7.7+19) ...
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up libnghttp2-14:amd64 (1.36.0-2) ...
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up libzzip-0-13:amd64 (0.13.62-3.1) ...
+Setting up libpaper-utils (1.1.26) ...
+Setting up libjbig0:amd64 (2.1-3.1+b2) ...
+Setting up poppler-data (0.4.9-2) ...
+Setting up libkrb5support0:amd64 (1.17-2) ...
+Setting up libpython2.7-stdlib:amd64 (2.7.16~rc1-1) ...
+Setting up liberror-perl (0.17027-2) ...
+Setting up tex-common (6.10) ...
+update-language: texlive-base not installed and configured, doing nothing!
+Setting up autotools-dev (20180224.1) ...
+Setting up libjpeg62-turbo:amd64 (1:1.5.2-2+b1) ...
+Setting up libx11-data (2:1.6.7-1) ...
+Setting up libjbig2dec0:amd64 (0.15-2) ...
+Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2) ...
+Setting up libidn11:amd64 (1.33-2.2) ...
+Setting up libteckit0:amd64 (2.5.8+ds2-5) ...
+Setting up libavahi-common-data:amd64 (0.7-4+b1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libdbus-1-3:amd64 (1.12.12-1) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libpng16-16:amd64 (1.6.36-5) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libwebp6:amd64 (0.6.1-2) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up fonts-dejavu-core (2.37-1) ...
+Setting up libpcre2-8-0:amd64 (10.32-4) ...
+Setting up libk5crypto3:amd64 (1.17-2) ...
+Setting up libkpathsea6:amd64 (2018.20181218.49446-1) ...
+Setting up libmime-charset-perl (1.012.2-1) ...
+Setting up libxxhash0:amd64 (0.6.5-2) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up fonts-lmodern (2.004.5-5) ...
+Setting up libopenjp2-7:amd64 (2.3.0-1.1) ...
+Setting up git-man (1:2.20.1-2) ...
+Setting up libthai-data (0.1.28-2) ...
+Setting up libssh2-1:amd64 (1.8.0-2) ...
+Setting up libkrb5-3:amd64 (1.17-2) ...
+Setting up libtiff5:amd64 (4.0.10-4) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up xdg-utils (1.1.3-1) ...
+Setting up libsynctex2:amd64 (2018.20181218.49446-1) ...
+Setting up libpotrace0:amd64 (1.15-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up libice6:amd64 (2:1.0.9-2) ...
+Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+Setting up libxcb1:amd64 (1.13.1-2) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up python2.7 (2.7.16~rc1-1) ...
+Setting up libwoff1:amd64 (1.0.2-1) ...
+Setting up libtool (2.4.6-10) ...
+Setting up libpython2-stdlib:amd64 (2.7.15-4) ...
+Setting up libxcb-render0:amd64 (1.13.1-2) ...
+Setting up fontconfig-config (2.13.1-2) ...
+Setting up libavahi-common3:amd64 (0.7-4+b1) ...
+Setting up m4 (1.4.18-2) ...
+Setting up libxcb-shm0:amd64 (1.13.1-2) ...
+Setting up python2 (2.7.15-4) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up libthai0:amd64 (0.1.28-2) ...
+Setting up libpython-stdlib:amd64 (2.7.15-4) ...
+Setting up libptexenc1:amd64 (2018.20181218.49446-1) ...
+Setting up libfreetype6:amd64 (2.9.1-3) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up libgssapi-krb5-2:amd64 (1.17-2) ...
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up libx11-6:amd64 (2:1.6.7-1) ...
+Setting up libharfbuzz0b:amd64 (2.3.1-1) ...
+Setting up libfontconfig1:amd64 (2.13.1-2) ...
+Setting up libsm6:amd64 (2:1.2.3-1) ...
+Setting up python (2.7.15-4) ...
+Setting up libavahi-client3:amd64 (0.7-4+b1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up libharfbuzz-icu0:amd64 (2.3.1-1) ...
+Setting up libxpm4:amd64 (1:3.5.12-1) ...
+Setting up libxrender1:amd64 (1:0.9.10-1) ...
+Setting up libsombok3:amd64 (2.4.0-2) ...
+Setting up po-debconf (1.0.21) ...
+Setting up libxext6:amd64 (2:1.3.3-1+b2) ...
+Setting up libcurl3-gnutls:amd64 (7.64.0-1) ...
+Setting up quilt (0.65-3) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libcairo2:amd64 (1.16.0-3) ...
+Setting up libunicode-linebreak-perl (0.0.20190101-1) ...
+Setting up git (1:2.20.1-2) ...
+Setting up libxt6:amd64 (1:1.1.5-1) ...
+Setting up libcups2:amd64 (2.2.10-4) ...
+Setting up libxmu6:amd64 (2:1.1.2-2) ...
+Setting up libxi6:amd64 (2:1.7.9-1) ...
+Setting up libxaw7:amd64 (2:1.0.13-1+b2) ...
+Setting up libcupsimage2:amd64 (2.2.10-4) ...
+Setting up libgs9:amd64 (9.26a~dfsg-2) ...
+Setting up texlive-binaries (2018.20181218.49446-1) ...
+update-alternatives: using /usr/bin/xdvi-xaw to provide /usr/bin/xdvi.bin (xdvi.bin) in auto mode
+update-alternatives: using /usr/bin/bibtex.original to provide /usr/bin/bibtex (bibtex) in auto mode
+Setting up texlive-base (2018.20190207-1) ...
+tl-paper: setting paper size for dvips to a4: /var/lib/texmf/dvips/config/config-paper.ps
+tl-paper: setting paper size for dvipdfmx to a4: /var/lib/texmf/dvipdfmx/dvipdfmx-paper.cfg
+tl-paper: setting paper size for xdvi to a4: /var/lib/texmf/xdvi/XDvi-paper
+tl-paper: setting paper size for pdftex to a4: /var/lib/texmf/tex/generic/config/pdftexconfig.tex
+tl-paper: setting paper size for dvipdfmx to letter: /var/lib/texmf/dvipdfmx/dvipdfmx-paper.cfg
+tl-paper: setting paper size for dvips to letter: /var/lib/texmf/dvips/config/config-paper.ps
+tl-paper: setting paper size for pdftex to letter: /var/lib/texmf/tex/generic/config/pdftexconfig.tex
+tl-paper: setting paper size for xdvi to letter: /var/lib/texmf/xdvi/XDvi-paper
+Setting up texlive-latex-base (2018.20190207-1) ...
+Setting up texlive-extra-utils (2018.20190207-1) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libkpathsea6:armhf (2018.20181218.49446-1) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up debhelper (12.1.1) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libkpathsea-dev:armhf (2018.20181218.49446-1) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for tex-common (6.10) ...
+Running updmap-sys. This may take some time... done.
+Running mktexlsr /var/lib/texmf ... done.
+Building format(s) --all.
+	This may take some time... done.
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-strip-nondeterminism_1.1.1-1 diffstat_1.62-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 fontconfig-config_2.13.1-2 fonts-dejavu-core_2.37-1 fonts-lmodern_2.004.5-5 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 git_1:2.20.1-2 git-man_1:2.20.1-2 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libavahi-client3_0.7-4+b1 libavahi-common-data_0.7-4+b1 libavahi-common3_0.7-4+b1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbrotli1_1.0.7-2 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcairo2_1.16.0-3 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libcups2_2.2.10-4 libcupsimage2_2.2.10-4 libcurl3-gnutls_7.64.0-1 libdata-dump-perl_1.23-1 libdatrie1_0.2.12-2 libdb5.3_5.3.28+dfsg1-0.5 libdbus-1-3_1.12.12-1 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 liberror-perl_0.17027-2 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libfontconfig1_2.13.1-2 libfreetype6_2.9.1-3 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libgraphite2-3_1.3.13-7 libgs9_9.26a~dfsg-2 libgs9-common_9.26a~dfsg-2 libgssapi-krb5-2_1.17-2 libharfbuzz-icu0_2.3.1-1 libharfbuzz0b_2.3.1-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libice6_2:1.0.9-2 libicu63_63.1-6 libidn11_1.33-2.2 libidn2-0_2.0.5-1 libijs-0.35_0.35-13 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libjbig0_2.1-3.1+b2 libjbig2dec0_0.15-2 libjpeg62-turbo_1:1.5.2-2+b1 libk5crypto3_1.17-2 libkeyutils1_1.6-4 libkpathsea-dev_2018.20181218.49446-1 libkpathsea6_2018.20181218.49446-1 libkrb5-3_1.17-2 libkrb5support0_1.17-2 libksba8_1.3.5-2 liblcms2-2_2.9-3 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmime-charset-perl_1.012.2-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnghttp2-14_1.36.0-2 libnpth0_1.6-1 libopenjp2-7_2.3.0-1.1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpaper-utils_1.1.26 libpaper1_1.1.26 libpcre2-8-0_10.32-4 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpixman-1-0_0.36.0-1 libpng16-16_1.6.36-5 libpotrace0_1.15-1 libpsl5_0.20.2-2 libptexenc1_2018.20181218.49446-1 libpython-stdlib_2.7.15-4 libpython2-stdlib_2.7.15-4 libpython2.7-minimal_2.7.16~rc1-1 libpython2.7-stdlib_2.7.16~rc1-1 libquadmath0_8.3.0-2 libreadline7_7.0-5 librtmp1_2.4+20151223.gitfa8646d.1-2 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsm6_2:1.2.3-1 libsmartcols1_2.33.1-0.1 libsombok3_2.4.0-2 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssh2-1_1.8.0-2 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsynctex2_2018.20181218.49446-1 libsystemd0_241-1 libtasn1-6_4.13-3 libteckit0_2.5.8+ds2-5 libtexlua52_2018.20181218.49446-1 libtexlua53_2018.20181218.49446-1 libtexluajit2_2018.20181218.49446-1 libthai-data_0.1.28-2 libthai0_0.1.28-2 libtiff5_4.0.10-4 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunicode-linebreak-perl_0.0.20190101-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libwebp6_0.6.1-2 libwoff1_1.0.2-1 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libx11-6_2:1.6.7-1 libx11-data_2:1.6.7-1 libxau6_1:1.0.8-1+b2 libxaw7_2:1.0.13-1+b2 libxcb-render0_1.13.1-2 libxcb-shm0_1.13.1-2 libxcb1_1.13.1-2 libxdmcp6_1:1.1.2-3 libxext6_2:1.3.3-1+b2 libxi6_2:1.7.9-1 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libxmu6_2:1.1.2-2 libxpm4_1:3.5.12-1 libxrender1_1:0.9.10-1 libxt6_1:1.1.5-1 libxxhash0_0.6.5-2 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 libzzip-0-13_0.13.62-3.1 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mime-support_3.62 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 po-debconf_1.0.21 poppler-data_0.4.9-2 python_2.7.15-4 python-minimal_2.7.15-4 python2_2.7.15-4 python2-minimal_2.7.15-4 python2.7_2.7.16~rc1-1 python2.7-minimal_2.7.16~rc1-1 quilt_0.65-3 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 t1utils_1.41-3 tar_1.30+dfsg-5 tex-common_6.10 texlive-base_2018.20190207-1 texlive-binaries_2018.20181218.49446-1 texlive-extra-utils_2018.20190207-1 texlive-latex-base_2018.20190207-1 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 x11-common_1:7.7+19 xdg-utils_1.1.3-1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: cjk
+Binary: latex-cjk-common, latex-cjk-chinese, latex-cjk-japanese, latex-cjk-korean, latex-cjk-thai, latex-cjk-all, cjk-latex
+Architecture: any all
+Version: 4.8.4+git20170127-2
+Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
+Uploaders: Danai SAE-HAN (韓達耐) <danai@debian.org>, Norbert Preining <preining@debian.org>
+Homepage: http://cjk.ffii.org/
+Standards-Version: 4.1.0
+Vcs-Browser: http://anonscm.debian.org/viewvc/debian-tex/cjk/trunk/
+Vcs-Svn: svn://anonscm.debian.org/debian-tex/cjk/trunk
+Build-Depends: debhelper (>= 10.2.5), quilt, libkpathsea-dev, texlive-extra-utils, git-core, tex-common (>= 4)
+Build-Depends-Indep: texlive-base-bin, perl-base (>= 5.8.0), texlive-font-utils, texlive-lang-other (>= 2013.20130523)
+Package-List:
+ cjk-latex deb tex optional arch=all
+ latex-cjk-all deb tex optional arch=all
+ latex-cjk-chinese deb tex optional arch=any
+ latex-cjk-common deb tex optional arch=any
+ latex-cjk-japanese deb tex optional arch=any
+ latex-cjk-korean deb tex optional arch=all
+ latex-cjk-thai deb tex optional arch=all
+Checksums-Sha1:
+ 5ebf2ffb9228d3f02cbcb92e0f67a853d4f5bd7e 539285 cjk_4.8.4+git20170127.orig.tar.gz
+ 6b8b946bd8715402eafa9022f79dba1b9cfd5060 49172 cjk_4.8.4+git20170127-2.debian.tar.xz
+Checksums-Sha256:
+ c6e04d17586207ee8bdfc4008de2d1af015fc171293a7d1564ac5e77caec12b5 539285 cjk_4.8.4+git20170127.orig.tar.gz
+ c6314f3ede89af7bf684b8d3ad62a357fbe4ff56d85605e7b776db8ddfaa7c06 49172 cjk_4.8.4+git20170127-2.debian.tar.xz
+Files:
+ a24579fba661369b66e75aef5280bbda 539285 cjk_4.8.4+git20170127.orig.tar.gz
+ 3580e8c22e2180099a3cd9abe9112e63 49172 cjk_4.8.4+git20170127-2.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJFBAEBCgAvFiEEG7yHUyS3GBuUxhYDLjGICmLrVDQFAlnKVh4RHGRhbmFpQGRl
+Ymlhbi5vcmcACgkQLjGICmLrVDTZ8A//aCSIPNjP+RHic9GPZWXW99tvsE6kAHNf
+aud7t0w/zavg9p4nucnSpKV4luoUv2iXRWVVapY2FhlcL0TILWyUhqKRrdgBBWdy
+bpmR+Z8Deilljvr0Xd06dl8n0t9m+PugEMS9YD06gng8dXaHL9pCEt+x7WRYUVJb
+nc0+6C9tfxYeZPpYUahL6HG42P2RFg2cRtcghOGYyk9N0VM+rNyxhE3WSxt73j6r
+M2yNceJkHmcdkPtKdSVqLGML9qm4EGxCa+dlf9rKzmqUn7rzJcS573z+ZERdzVbT
+ItkpT2Qsg7U//UruW3xXtJRbL0qNykAfdsUEyTxQx4GN89z2ffEohH0Q6f1u20+o
++oKxD4Fwvkh4ZcIWUCHxsnSzt02XH68P4Z2I2h5CBqZ/bkPbD+yeq9lX3b4ZNsj3
+8JNKHT6kGB4qEvrkFnT4Oyusi/Q86OiWq8nQb6UO2IEJbz4XNNy7PKAuKFLIou13
+I49ZFh2twV7jcPrpDhvQv1qdK/1Zkd6F5quwpGmEHBjdDWf199vOFfBd4MGPlAaR
+uwAtESJCg0qBYzpl0OJ5jNjfdhKVan3zPDUpMJHQm/WX8Kev7IkbJq/VLAsh260J
+ESKzk7x2GxskRBYsWh3VGS0RNU6rqfcnxmt1jBPr2YjEytEpJpEkFRJ4Iu37ZA1p
+McW6MqZCVAg=
+=rgu4
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Tue Sep 26 13:29:02 2017 UTC
+gpgv:                using RSA key 1BBC875324B7181B94C616032E31880A62EB5434
+gpgv:                issuer "danai@debian.org"
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./cjk_4.8.4+git20170127-2.dsc
+dpkg-source: info: extracting cjk in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking cjk_4.8.4+git20170127.orig.tar.gz
+dpkg-source: info: unpacking cjk_4.8.4+git20170127-2.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 03_Makefile.diff
+dpkg-source: info: applying 04_extend_examplefiles.diff
+dpkg-source: info: applying 05_fix_examplefiles.diff
+dpkg-source: info: applying 06_extend_JIS_example.diff
+dpkg-source: info: applying 08_add_newpage_to_examples.diff
+dpkg-source: info: applying 09_fix_korean_fd_files.diff
+dpkg-source: info: applying 10_add_comments_in_KS_example_for_working_ko.tex_fonts.diff
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-8faceb02-9630-4023-ae6e-1200ada7f0dd
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package cjk
+dpkg-buildpackage: info: source version 4.8.4+git20170127-2
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Danai SAE-HAN (韓達耐) <danai@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh_testroot
+rm -f build-stamp build-indep-stamp build-arch-stamp
+# Add here commands to clean up after the build process.
+if [ 3 -gt 0 ]; then /usr/bin/make distclean; fi
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+rm -f utils/Bg5conv/bg5conv utils/extconv/extconv utils/SJISconv/sjisconv utils/CEFconv/cefconv utils/CEFconv/cef5conv utils/CEFconv/cefsconv utils/hbf2gf/hbf2gf
+if [[ -e utils/hbf2gf/Makefile ]]; then /usr/bin/make -C utils/hbf2gf distclean; fi
+/bin/sh: 1: [[: not found
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+# Remove the binary files.
+rm -rf build_thaifonts
+rm -f utils/hbf2gf/config.log
+rm -f utils/hbf2gf/config.status
+rm -f utils/hbf2gf/hbf.o
+rm -f utils/hbf2gf/hbf2gf
+rm -f utils/hbf2gf/hbf2gf.c
+rm -f utils/hbf2gf/hbf2gf.o
+rm -f utils/hbf2gf/Makefile
+rm -f utils/Bg5conv/bg5conv
+rm -f utils/CEFconv/cefconv
+rm -f utils/CEFconv/cef5conv
+rm -f utils/CEFconv/cefsconv
+rm -f utils/SJISconv/sjisconv
+rm -f utils/extconv/extconv
+# Clean up config.{guess,sub}
+dh_clean
+ debian/rules build-arch
+dh_testdir
+# Update config.{guess,sub}
+dh_update_autotools_config
+# Add here commands to compile the package.
+CFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security" LDFLAGS="-Wl,-z,relro" \
+dh_auto_configure --sourcedirectory=utils/hbf2gf -- \
+        --with-kpathsea-lib=/usr/lib \
+        --with-kpathsea-include=/usr/include
+	cd utils/hbf2gf && ./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf --libexecdir=\${prefix}/lib/arm-linux-gnueabihf --disable-maintainer-mode --disable-dependency-tracking --host=arm-linux-gnueabihf --with-kpathsea-lib=/usr/lib --with-kpathsea-include=/usr/include
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode, --disable-dependency-tracking
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking target system type... arm-unknown-linux-gnueabihf
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for ANSI C header files... yes
+checking for kpse_set_program_name in -lkpathsea... yes
+checking for kpse_init_prog in -lkpathsea... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking kpathsea/kpathsea.h usability... yes
+checking kpathsea/kpathsea.h presence... yes
+checking for kpathsea/kpathsea.h... yes
+checking kpathsea/c-auto.h usability... yes
+checking kpathsea/c-auto.h presence... yes
+checking for kpathsea/c-auto.h... yes
+checking for an ANSI C-conforming const... yes
+checking whether struct tm is in sys/time.h or time.h... time.h
+checking for vprintf... yes
+checking for _doprnt... no
+checking for strdup... yes
+checking for strstr... yes
+checking for strtol... yes
+checking for strtoul... yes
+checking for rm... rm
+checking for a BSD-compatible install... /usr/bin/install -c
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: WARNING:  'Makefile.in' seems to ignore the --datarootdir setting
+configure: WARNING: unrecognized options: --disable-silent-rules, --disable-maintainer-mode, --disable-dependency-tracking
+dh_auto_build --sourcedirectory=utils/hbf2gf
+	cd utils/hbf2gf && make -j16
+make[1]: Entering directory '/<<PKGBUILDDIR>>/utils/hbf2gf'
+ctangle hbf2gf.w
+arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include -I. -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_LIBKPATHSEA=1 -DHAVE_LIBKPATHSEA=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_VPRINTF=1 -DHAVE_STRDUP=1 -DHAVE_STRSTR=1 -DHAVE_STRTOL=1 -DHAVE_STRTOUL=1  -Dunix  hbf.c
+This is CTANGLE, Version 3.64 (TeX Live 2019/dev/Debian)
+*1*4*11*45*47*49*52*69*81*82.
+Writing the output file (hbf2gf.c):....500.....1000.....1500.....2000
+Done.
+(No errors were found.)
+arm-linux-gnueabihf-gcc -c -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include -I. -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_LIBKPATHSEA=1 -DHAVE_LIBKPATHSEA=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_VPRINTF=1 -DHAVE_STRDUP=1 -DHAVE_STRSTR=1 -DHAVE_STRTOL=1 -DHAVE_STRTOUL=1  -Dunix  hbf2gf.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -I/usr/include -I. -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DSTDC_HEADERS=1 -DHAVE_LIBKPATHSEA=1 -DHAVE_LIBKPATHSEA=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_VPRINTF=1 -DHAVE_STRDUP=1 -DHAVE_STRSTR=1 -DHAVE_STRTOL=1 -DHAVE_STRTOUL=1  -Dunix  -o hbf2gf hbf2gf.o hbf.o -Wl,-z,relro -lkpathsea -lkpathsea  -L/usr/lib
+make[1]: Leaving directory '/<<PKGBUILDDIR>>/utils/hbf2gf'
+dh_auto_build
+	make -j16 PKG_CONFIG=arm-linux-gnueabihf-pkg-config CXX=arm-linux-gnueabihf-g\+\+ CC=arm-linux-gnueabihf-gcc
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+ctangle utils/Bg5conv/bg5conv.w - utils/Bg5conv/bg5conv.c
+ctangle utils/extconv/extconv.w - utils/extconv/extconv.c
+ctangle utils/SJISconv/sjisconv.w - utils/SJISconv/sjisconv.c
+ctangle utils/CEFconv/cefconv.w - utils/CEFconv/cefconv.c
+ctangle utils/CEFconv/cef5conv.w - utils/CEFconv/cef5conv.c
+ctangle utils/CEFconv/cefsconv.w - utils/CEFconv/cefsconv.c
+This is CTANGLE, Version 3.64 (TeX Live 2019/dev/Debian)
+*1*2
+Writing the output file (utils/Bg5conv/bg5conv.c):
+Done.
+(No errors were found.)
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c -o utils/Bg5conv/bg5conv.o utils/Bg5conv/bg5conv.c
+This is CTANGLE, Version 3.64 (TeX Live 2019/dev/Debian)
+*1*2
+Writing the output file (utils/CEFconv/cefconv.c):.
+Done.
+(No errors were found.)
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c -o utils/CEFconv/cefconv.o utils/CEFconv/cefconv.c
+This is CTANGLE, Version 3.64 (TeX Live 2019/dev/Debian)
+*1*2
+Writing the output file (utils/CEFconv/cefsconv.c):.
+Done.
+(No errors were found.)
+This is CTANGLE, Version 3.64 (TeX Live 2019/dev/Debian)
+*1*2
+Writing the output file (utils/extconv/extconv.c):
+Done.
+(No errors were found.)
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c -o utils/CEFconv/cefsconv.o utils/CEFconv/cefsconv.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c -o utils/extconv/extconv.o utils/extconv/extconv.c
+This is CTANGLE, Version 3.64 (TeX Live 2019/dev/Debian)
+*1This is CTANGLE, Version 3.64 (TeX Live 2019/dev/Debian)
+*1*2*2
+Writing the output file (utils/SJISconv/sjisconv.c):
+Done.
+(No errors were found.)
+
+Writing the output file (utils/CEFconv/cef5conv.c):.
+Done.
+(No errors were found.)
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c -o utils/SJISconv/sjisconv.o utils/SJISconv/sjisconv.c
+arm-linux-gnueabihf-gcc -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2  -c -o utils/CEFconv/cef5conv.o utils/CEFconv/cef5conv.c
+arm-linux-gnueabihf-gcc -Wl,-z,relro  utils/Bg5conv/bg5conv.o   -o utils/Bg5conv/bg5conv
+arm-linux-gnueabihf-gcc -Wl,-z,relro  utils/extconv/extconv.o   -o utils/extconv/extconv
+arm-linux-gnueabihf-gcc -Wl,-z,relro  utils/SJISconv/sjisconv.o   -o utils/SJISconv/sjisconv
+arm-linux-gnueabihf-gcc -Wl,-z,relro  utils/CEFconv/cefconv.o   -o utils/CEFconv/cefconv
+arm-linux-gnueabihf-gcc -Wl,-z,relro  utils/CEFconv/cefsconv.o   -o utils/CEFconv/cefsconv
+arm-linux-gnueabihf-gcc -Wl,-z,relro  utils/CEFconv/cef5conv.o   -o utils/CEFconv/cef5conv
+
+    Say `make dist' to build the tarballs.
+
+rm utils/Bg5conv/bg5conv.c utils/SJISconv/sjisconv.o utils/CEFconv/cef5conv.o utils/CEFconv/cefsconv.o utils/extconv/extconv.o utils/SJISconv/sjisconv.c utils/CEFconv/cef5conv.c utils/Bg5conv/bg5conv.o utils/CEFconv/cefconv.o utils/CEFconv/cefconv.c utils/extconv/extconv.c utils/CEFconv/cefsconv.c
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+touch build-arch-stamp
+ fakeroot debian/rules binary-arch
+touch build-stamp
+dh_testdir
+dh_testroot
+# Add here commands to install the package into debian/tmp.
+/usr/bin/make prefix=/<<PKGBUILDDIR>>/debian/tmp/usr install
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+
+    Say `make dist' to build the tarballs.
+
+install -d /<<PKGBUILDDIR>>/debian/tmp/usr/bin /<<PKGBUILDDIR>>/debian/tmp/usr/share/texmf/hbf2gf
+cp -a utils/Bg5conv/bg5conv utils/extconv/extconv utils/SJISconv/sjisconv utils/CEFconv/cefconv utils/CEFconv/cef5conv utils/CEFconv/cefsconv /<<PKGBUILDDIR>>/debian/tmp/usr/bin
+install -m 0755 utils/*conv/*latex /<<PKGBUILDDIR>>/debian/tmp/usr/bin
+/usr/bin/make -C utils/hbf2gf install
+make[2]: Entering directory '/<<PKGBUILDDIR>>/utils/hbf2gf'
+./mkinstalldirs /<<PKGBUILDDIR>>/debian/tmp/usr/bin /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man1
+mkdir -p -- /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man1
+for P in hbf2gf ; do \
+          /usr/bin/install -c $P /<<PKGBUILDDIR>>/debian/tmp/usr/bin/$P ; \
+          /usr/bin/install -c -m 644 ./$P.1 /<<PKGBUILDDIR>>/debian/tmp/usr/share/man/man1 ; \
+        done
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/utils/hbf2gf'
+cp -a utils/hbf2gf/cfg/* /<<PKGBUILDDIR>>/debian/tmp/usr/share/texmf/hbf2gf
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+dh_testdir -a
+dh_testroot -a
+dh_install -a
+chmod +x debian/latex-cjk-common/usr/share/latex-cjk-common/utils/subfonts/*.pl
+dh_link -platex-cjk-chinese usr/share/doc/latex-cjk-common usr/share/doc/latex-cjk-chinese
+dh_link -platex-cjk-japanese usr/share/doc/latex-cjk-common usr/share/doc/latex-cjk-japanese
+# Get the documentation in texdoc.  texdoctk unfortunately uses another engine.
+dh_link -platex-cjk-common usr/share/doc/latex-cjk-common usr/share/texmf/doc/latex/latex-cjk
+dh_installtex -platex-cjk-common -platex-cjk-japanese
+dh_installtex -platex-cjk-chinese
+dh_installdocs -platex-cjk-common
+dh_installexamples -platex-cjk-common
+dh_installman -a
+dh_installchangelogs -platex-cjk-common ChangeLog
+dh_installemacsen -a
+dh_strip --exclude=.pl -a
+dh_compress -a
+dh_fixperms -a
+dh_shlibdeps -a
+dh_installdeb -a
+dh_gencontrol -a
+dh_md5sums -a
+dh_builddeb -a
+dpkg-deb: building package 'latex-cjk-chinese-dbgsym' in '../latex-cjk-chinese-dbgsym_4.8.4+git20170127-2_armhf.deb'.
+dpkg-deb: building package 'latex-cjk-common-dbgsym' in '../latex-cjk-common-dbgsym_4.8.4+git20170127-2_armhf.deb'.
+dpkg-deb: building package 'latex-cjk-japanese-dbgsym' in '../latex-cjk-japanese-dbgsym_4.8.4+git20170127-2_armhf.deb'.
+dpkg-deb: building package 'latex-cjk-japanese' in '../latex-cjk-japanese_4.8.4+git20170127-2_armhf.deb'.
+dpkg-deb: building package 'latex-cjk-chinese' in '../latex-cjk-chinese_4.8.4+git20170127-2_armhf.deb'.
+dpkg-deb: building package 'latex-cjk-common' in '../latex-cjk-common_4.8.4+git20170127-2_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../cjk_4.8.4+git20170127-2_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-01T11:04:27Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+cjk_4.8.4+git20170127-2_armhf.changes:
+--------------------------------------
+
+Format: 1.8
+Date: Tue, 26 Sep 2017 21:26:31 +0800
+Source: cjk
+Binary: latex-cjk-chinese latex-cjk-chinese-dbgsym latex-cjk-common latex-cjk-common-dbgsym latex-cjk-japanese latex-cjk-japanese-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 4.8.4+git20170127-2
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
+Changed-By: Danai SAE-HAN (韓達耐) <danai@debian.org>
+Description:
+ latex-cjk-chinese - Chinese module of LaTeX CJK
+ latex-cjk-common - LaTeX macro package for CJK (Chinese/Japanese/Korean)
+ latex-cjk-japanese - Japanese module of LaTeX CJK
+Closes: 875932
+Changes:
+ cjk (4.8.4+git20170127-2) unstable; urgency=medium
+ .
+   * Fix FTCBFS: (Closes: #875932)
+     [debian/rules]
+       - Remove manual patching and unpatching in a 3.0 (quilt) package.
+       - Let dh_auto_configure and dh_auto_build pass cross flags.
+         Bug report and patch thanks to Helmut Grohne!
+Checksums-Sha1:
+ bbbc748ef092fec1ab22aa7271ed9fd25c430b71 9443 cjk_4.8.4+git20170127-2_armhf.buildinfo
+ b2b02eb504d302568456ef39e3534f808111aeaa 17540 latex-cjk-chinese-dbgsym_4.8.4+git20170127-2_armhf.deb
+ 07c286c4df4b5bdc62290c00d13c8e0d2d6f4e21 56324 latex-cjk-chinese_4.8.4+git20170127-2_armhf.deb
+ 4763cf81f5fad2dd65e84bba2889cd87a3596578 44612 latex-cjk-common-dbgsym_4.8.4+git20170127-2_armhf.deb
+ e10be613a4981a2052f377d732bf82092015ca21 241484 latex-cjk-common_4.8.4+git20170127-2_armhf.deb
+ c5a8e4e6c79efb6e2c4b7a4356ef9635926d43e1 4656 latex-cjk-japanese-dbgsym_4.8.4+git20170127-2_armhf.deb
+ e6ed68ab21f4dc945f3097a242002bf35a36b4bd 35032 latex-cjk-japanese_4.8.4+git20170127-2_armhf.deb
+Checksums-Sha256:
+ 3af59119824a58f1f34329a11e8d08d4846998f85b035c89e903e540357ef9c3 9443 cjk_4.8.4+git20170127-2_armhf.buildinfo
+ f0978f637296bd1fc804dba7d40bb2279304aeef3d34dfb267f2988c737e9e80 17540 latex-cjk-chinese-dbgsym_4.8.4+git20170127-2_armhf.deb
+ 78a5f5987eb6b77ba443eb19aa8b3acaa21f132b46e331ffd7af0df59ac6b8a8 56324 latex-cjk-chinese_4.8.4+git20170127-2_armhf.deb
+ 60909593270e921c846a14dd03042fe50f0d186e16ddd6c866cb285a620f5497 44612 latex-cjk-common-dbgsym_4.8.4+git20170127-2_armhf.deb
+ 73d233a8a2b5368481e8b2dc51dab6e7a9b82f5f922bbae4083dce998b5f6aa2 241484 latex-cjk-common_4.8.4+git20170127-2_armhf.deb
+ 26c88a4b4837f1d9f4e61686391db26d093d040d20423b794d076638f9aebc78 4656 latex-cjk-japanese-dbgsym_4.8.4+git20170127-2_armhf.deb
+ 8742db9da0a28b1f804557790e790e46c5567b97f063afa5de3c5396e05d8108 35032 latex-cjk-japanese_4.8.4+git20170127-2_armhf.deb
+Files:
+ 349f4ae54c42ec345a87a94e5a6ece9c 9443 tex optional cjk_4.8.4+git20170127-2_armhf.buildinfo
+ 593dd218605368b2f100a7cae2aa3dd8 17540 debug optional latex-cjk-chinese-dbgsym_4.8.4+git20170127-2_armhf.deb
+ 28aa22d86eec4db81958db7519a93524 56324 tex optional latex-cjk-chinese_4.8.4+git20170127-2_armhf.deb
+ 9e16eda061a6c285e1a233638e11c312 44612 debug optional latex-cjk-common-dbgsym_4.8.4+git20170127-2_armhf.deb
+ 473fe58842e275c2cf1f53a692bc703b 241484 tex optional latex-cjk-common_4.8.4+git20170127-2_armhf.deb
+ 3761b22954483b1c3f2766a3a65ea68f 4656 debug optional latex-cjk-japanese-dbgsym_4.8.4+git20170127-2_armhf.deb
+ 4a6864d0acce012f80bce1fbe310992c 35032 tex optional latex-cjk-japanese_4.8.4+git20170127-2_armhf.deb
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: cjk
+Binary: latex-cjk-common latex-cjk-chinese latex-cjk-japanese latex-cjk-korean latex-cjk-thai latex-cjk-all cjk-latex
+Architecture: armhf
+Version: 4.8.4+git20170127-2
+Checksums-Md5:
+ 593dd218605368b2f100a7cae2aa3dd8 17540 latex-cjk-chinese-dbgsym_4.8.4+git20170127-2_armhf.deb
+ 28aa22d86eec4db81958db7519a93524 56324 latex-cjk-chinese_4.8.4+git20170127-2_armhf.deb
+ 9e16eda061a6c285e1a233638e11c312 44612 latex-cjk-common-dbgsym_4.8.4+git20170127-2_armhf.deb
+ 473fe58842e275c2cf1f53a692bc703b 241484 latex-cjk-common_4.8.4+git20170127-2_armhf.deb
+ 3761b22954483b1c3f2766a3a65ea68f 4656 latex-cjk-japanese-dbgsym_4.8.4+git20170127-2_armhf.deb
+ 4a6864d0acce012f80bce1fbe310992c 35032 latex-cjk-japanese_4.8.4+git20170127-2_armhf.deb
+Checksums-Sha1:
+ b2b02eb504d302568456ef39e3534f808111aeaa 17540 latex-cjk-chinese-dbgsym_4.8.4+git20170127-2_armhf.deb
+ 07c286c4df4b5bdc62290c00d13c8e0d2d6f4e21 56324 latex-cjk-chinese_4.8.4+git20170127-2_armhf.deb
+ 4763cf81f5fad2dd65e84bba2889cd87a3596578 44612 latex-cjk-common-dbgsym_4.8.4+git20170127-2_armhf.deb
+ e10be613a4981a2052f377d732bf82092015ca21 241484 latex-cjk-common_4.8.4+git20170127-2_armhf.deb
+ c5a8e4e6c79efb6e2c4b7a4356ef9635926d43e1 4656 latex-cjk-japanese-dbgsym_4.8.4+git20170127-2_armhf.deb
+ e6ed68ab21f4dc945f3097a242002bf35a36b4bd 35032 latex-cjk-japanese_4.8.4+git20170127-2_armhf.deb
+Checksums-Sha256:
+ f0978f637296bd1fc804dba7d40bb2279304aeef3d34dfb267f2988c737e9e80 17540 latex-cjk-chinese-dbgsym_4.8.4+git20170127-2_armhf.deb
+ 78a5f5987eb6b77ba443eb19aa8b3acaa21f132b46e331ffd7af0df59ac6b8a8 56324 latex-cjk-chinese_4.8.4+git20170127-2_armhf.deb
+ 60909593270e921c846a14dd03042fe50f0d186e16ddd6c866cb285a620f5497 44612 latex-cjk-common-dbgsym_4.8.4+git20170127-2_armhf.deb
+ 73d233a8a2b5368481e8b2dc51dab6e7a9b82f5f922bbae4083dce998b5f6aa2 241484 latex-cjk-common_4.8.4+git20170127-2_armhf.deb
+ 26c88a4b4837f1d9f4e61686391db26d093d040d20423b794d076638f9aebc78 4656 latex-cjk-japanese-dbgsym_4.8.4+git20170127-2_armhf.deb
+ 8742db9da0a28b1f804557790e790e46c5567b97f063afa5de3c5396e05d8108 35032 latex-cjk-japanese_4.8.4+git20170127-2_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Fri, 01 Mar 2019 11:04:27 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffstat (= 1.62-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ fontconfig-config (= 2.13.1-2),
+ fonts-dejavu-core (= 2.37-1),
+ fonts-lmodern (= 2.004.5-5),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ git (= 1:2.20.1-2),
+ git-man (= 1:2.20.1-2),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.52-5),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libavahi-client3 (= 0.7-4+b1),
+ libavahi-common-data (= 0.7-4+b1),
+ libavahi-common3 (= 0.7-4+b1),
+ libbinutils (= 2.31.1-14),
+ libblkid1 (= 2.33.1-0.1),
+ libbrotli1 (= 1.0.7-2),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcairo2 (= 1.16.0-3),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcom-err2 (= 1.44.5-1),
+ libcroco3 (= 0.6.12-3),
+ libcups2 (= 2.2.10-4),
+ libcupsimage2 (= 2.2.10-4),
+ libcurl3-gnutls (= 7.64.0-1),
+ libdatrie1 (= 0.2.12-2),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdbus-1-3 (= 1.12.12-1),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ liberror-perl (= 0.17027-2),
+ libexpat1 (= 2.2.6-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libfontconfig1 (= 2.13.1-2),
+ libfreetype6 (= 2.9.1-3),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgnutls30 (= 3.6.6-2),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libgraphite2-3 (= 1.3.13-7),
+ libgs9 (= 9.26a~dfsg-2),
+ libgs9-common (= 9.26a~dfsg-2),
+ libgssapi-krb5-2 (= 1.17-2),
+ libharfbuzz-icu0 (= 2.3.1-1),
+ libharfbuzz0b (= 2.3.1-1),
+ libhogweed4 (= 3.4.1-1),
+ libice6 (= 2:1.0.9-2),
+ libicu63 (= 63.1-6),
+ libidn11 (= 1.33-2.2),
+ libidn2-0 (= 2.0.5-1),
+ libijs-0.35 (= 0.35-13),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ libjbig0 (= 2.1-3.1+b2),
+ libjbig2dec0 (= 0.15-2),
+ libjpeg62-turbo (= 1:1.5.2-2+b1),
+ libk5crypto3 (= 1.17-2),
+ libkeyutils1 (= 1.6-4),
+ libkpathsea-dev (= 2018.20181218.49446-1),
+ libkpathsea6 (= 2018.20181218.49446-1),
+ libkrb5-3 (= 1.17-2),
+ libkrb5support0 (= 1.17-2),
+ liblcms2-2 (= 2.9-3),
+ libldap-2.4-2 (= 2.4.47+dfsg-3),
+ libldap-common (= 2.4.47+dfsg-3),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmime-charset-perl (= 1.012.2-1),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libnettle6 (= 3.4.1-1),
+ libnghttp2-14 (= 1.36.0-2),
+ libopenjp2-7 (= 2.3.0-1.1),
+ libp11-kit0 (= 0.23.15-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpaper-utils (= 1.1.26),
+ libpaper1 (= 1.1.26),
+ libpcre2-8-0 (= 10.32-4),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libpixman-1-0 (= 0.36.0-1),
+ libpng16-16 (= 1.6.36-5),
+ libpotrace0 (= 1.15-1),
+ libpsl5 (= 0.20.2-2),
+ libptexenc1 (= 2018.20181218.49446-1),
+ libpython-stdlib (= 2.7.15-4),
+ libpython2-stdlib (= 2.7.15-4),
+ libpython2.7-minimal (= 2.7.16~rc1-1),
+ libpython2.7-stdlib (= 2.7.16~rc1-1),
+ libquadmath0 (= 8.3.0-2),
+ libreadline7 (= 7.0-5),
+ librtmp1 (= 2.4+20151223.gitfa8646d.1-2),
+ libsasl2-2 (= 2.1.27+dfsg-1),
+ libsasl2-modules-db (= 2.1.27+dfsg-1),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsigsegv2 (= 2.12-2),
+ libsm6 (= 2:1.2.3-1),
+ libsmartcols1 (= 2.33.1-0.1),
+ libsombok3 (= 2.4.0-2),
+ libsqlite3-0 (= 3.27.2-1),
+ libssh2-1 (= 1.8.0-2),
+ libssl1.1 (= 1.1.1b-1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsynctex2 (= 2018.20181218.49446-1),
+ libsystemd0 (= 241-1),
+ libtasn1-6 (= 4.13-3),
+ libteckit0 (= 2.5.8+ds2-5),
+ libtexlua52 (= 2018.20181218.49446-1),
+ libtexlua53 (= 2018.20181218.49446-1),
+ libtexluajit2 (= 2018.20181218.49446-1),
+ libthai-data (= 0.1.28-2),
+ libthai0 (= 0.1.28-2),
+ libtiff5 (= 4.0.10-4),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunicode-linebreak-perl (= 0.0.20190101-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libwebp6 (= 0.6.1-2),
+ libwoff1 (= 1.0.2-1),
+ libx11-6 (= 2:1.6.7-1),
+ libx11-data (= 2:1.6.7-1),
+ libxau6 (= 1:1.0.8-1+b2),
+ libxaw7 (= 2:1.0.13-1+b2),
+ libxcb-render0 (= 1.13.1-2),
+ libxcb-shm0 (= 1.13.1-2),
+ libxcb1 (= 1.13.1-2),
+ libxdmcp6 (= 1:1.1.2-3),
+ libxext6 (= 2:1.3.3-1+b2),
+ libxi6 (= 2:1.7.9-1),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ libxmu6 (= 2:1.1.2-2),
+ libxpm4 (= 1:3.5.12-1),
+ libxrender1 (= 1:0.9.10-1),
+ libxt6 (= 1:1.1.5-1),
+ libxxhash0 (= 0.6.5-2),
+ libzstd1 (= 1.3.8+dfsg-3),
+ libzzip-0-13 (= 0.13.62-3.1),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ lsb-base (= 10.2018112800),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ mime-support (= 3.62),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ po-debconf (= 1.0.21),
+ poppler-data (= 0.4.9-2),
+ python (= 2.7.15-4),
+ python-minimal (= 2.7.15-4),
+ python2 (= 2.7.15-4),
+ python2-minimal (= 2.7.15-4),
+ python2.7 (= 2.7.16~rc1-1),
+ python2.7-minimal (= 2.7.16~rc1-1),
+ quilt (= 0.65-3),
+ readline-common (= 7.0-5),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ t1utils (= 1.41-3),
+ tar (= 1.30+dfsg-5),
+ tex-common (= 6.10),
+ texlive-base (= 2018.20190207-1),
+ texlive-binaries (= 2018.20181218.49446-1),
+ texlive-extra-utils (= 2018.20190207-1),
+ texlive-latex-base (= 2018.20190207-1),
+ ucf (= 3.0038+nmu1),
+ util-linux (= 2.33.1-0.1),
+ x11-common (= 1:7.7+19),
+ xdg-utils (= 1.1.3-1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1506432391"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+latex-cjk-chinese-dbgsym_4.8.4+git20170127-2_armhf.deb
+------------------------------------------------------
+
+ new Debian package, version 2.0.
+ size 17540 bytes: control archive=764 bytes.
+     569 bytes,    12 lines      control              
+     530 bytes,     5 lines      md5sums              
+ Package: latex-cjk-chinese-dbgsym
+ Source: cjk
+ Version: 4.8.4+git20170127-2
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
+ Installed-Size: 57
+ Depends: latex-cjk-chinese (= 4.8.4+git20170127-2)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for latex-cjk-chinese
+ Build-Ids: 2faac728daf0731d3263c40bc37b0b017d4f2fbb 903195f0084515fc806207515aa2295206b61117 9342dad7fcc881fa44f6246c88e6de0e1acffc56 b84d7fa688868a106a3e53f958ac817c4f2ccf5f d86ffdb83d338cb88f98a0847edb9119a32e7022
+
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/debug/.build-id/2f/
+-rw-r--r-- root/root      9028 2017-09-26 13:26 ./usr/lib/debug/.build-id/2f/aac728daf0731d3263c40bc37b0b017d4f2fbb.debug
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/debug/.build-id/90/
+-rw-r--r-- root/root      7268 2017-09-26 13:26 ./usr/lib/debug/.build-id/90/3195f0084515fc806207515aa2295206b61117.debug
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/debug/.build-id/93/
+-rw-r--r-- root/root      7268 2017-09-26 13:26 ./usr/lib/debug/.build-id/93/42dad7fcc881fa44f6246c88e6de0e1acffc56.debug
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/debug/.build-id/b8/
+-rw-r--r-- root/root      9032 2017-09-26 13:26 ./usr/lib/debug/.build-id/b8/4d7fa688868a106a3e53f958ac817c4f2ccf5f.debug
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/debug/.build-id/d8/
+-rw-r--r-- root/root      8888 2017-09-26 13:26 ./usr/lib/debug/.build-id/d8/6ffdb83d338cb88f98a0847edb9119a32e7022.debug
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-chinese-dbgsym -> latex-cjk-chinese
+
+
+latex-cjk-chinese_4.8.4+git20170127-2_armhf.deb
+-----------------------------------------------
+
+ new Debian package, version 2.0.
+ size 56324 bytes: control archive=2752 bytes.
+    1241 bytes,    23 lines      control              
+    3325 bytes,    48 lines      md5sums              
+     688 bytes,    25 lines   *  postinst             #!/bin/sh
+    1259 bytes,    47 lines   *  postrm               #!/bin/sh
+     317 bytes,     6 lines   *  preinst              #!/bin/sh
+     317 bytes,     6 lines   *  prerm                #!/bin/sh
+ Package: latex-cjk-chinese
+ Source: cjk
+ Version: 4.8.4+git20170127-2
+ Architecture: armhf
+ Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
+ Installed-Size: 223
+ Depends: latex-cjk-common (= 4.8.4+git20170127-2), tex-common (>= 6), libc6 (>= 2.4)
+ Recommends: latex-cjk-chinese-arphic-bsmi00lp, latex-cjk-chinese-arphic-bkai00mp, latex-cjk-chinese-arphic-gbsn00lp, latex-cjk-chinese-arphic-gkai00mp
+ Suggests: hbf-cns40-b5, hbf-jfs56
+ Conflicts: cjk-latex (<= 4.5.1), tfm-arphic-bkai00mp (<= 2.11.2-0.1), tfm-arphic-bsmi00lp (<= 2.11.2-0.1), tfm-arphic-gbsn00lp (<= 2.11.2-0.1), tfm-arphic-gkai00mp (<= 2.11.2-0.1)
+ Section: tex
+ Priority: optional
+ Homepage: http://cjk.ffii.org/
+ Description: Chinese module of LaTeX CJK
+  CJK is a macro package for LaTeX.  This package gives you the possibility
+  to include Chinese (traditional and simplified) text in your (La)TeX documents.
+  .
+  Install hbf-jfs56 if you want to use bitmap fonts in simplified Chinese.
+  Install hbf-cns40-b5 if you want bitmap fonts in traditional Chinese.
+  Install hbf-cns40-[1-7] if you want CEF bitmap fonts.  This is only needed
+  if you need extremely rare and exotic Chinese characters.
+  .
+  Have a look at latex-cjk-common for a more detailed description.
+
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/bin/
+-rwxr-xr-x root/root      1216 2017-09-26 13:26 ./usr/bin/bg5+latex
+-rwxr-xr-x root/root      1222 2017-09-26 13:26 ./usr/bin/bg5+pdflatex
+-rwxr-xr-x root/root      5624 2017-09-26 13:26 ./usr/bin/bg5conv
+-rwxr-xr-x root/root      1216 2017-09-26 13:26 ./usr/bin/bg5latex
+-rwxr-xr-x root/root      1222 2017-09-26 13:26 ./usr/bin/bg5pdflatex
+-rwxr-xr-x root/root      5640 2017-09-26 13:26 ./usr/bin/cef5conv
+-rwxr-xr-x root/root      1217 2017-09-26 13:26 ./usr/bin/cef5latex
+-rwxr-xr-x root/root      1223 2017-09-26 13:26 ./usr/bin/cef5pdflatex
+-rwxr-xr-x root/root      5640 2017-09-26 13:26 ./usr/bin/cefconv
+-rwxr-xr-x root/root      1216 2017-09-26 13:26 ./usr/bin/ceflatex
+-rwxr-xr-x root/root      1222 2017-09-26 13:26 ./usr/bin/cefpdflatex
+-rwxr-xr-x root/root      5640 2017-09-26 13:26 ./usr/bin/cefsconv
+-rwxr-xr-x root/root      1217 2017-09-26 13:26 ./usr/bin/cefslatex
+-rwxr-xr-x root/root      1220 2017-09-26 13:26 ./usr/bin/cefspdflatex
+-rwxr-xr-x root/root      5624 2017-09-26 13:26 ./usr/bin/extconv
+-rwxr-xr-x root/root      1216 2017-09-26 13:26 ./usr/bin/gbklatex
+-rwxr-xr-x root/root      1222 2017-09-26 13:26 ./usr/bin/gbkpdflatex
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-chinese -> latex-cjk-common
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/
+-rw-r--r-- root/root      2741 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/CEF.txt
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/chinese/
+-rw-r--r-- root/root       193 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/chinese/README
+-rw-r--r-- root/root     18276 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/chinese/READMEb5.tex.gz
+-rw-r--r-- root/root      2897 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/chinese/READMEgb.tex
+-rw-r--r-- root/root      6111 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/chinese/emTeXb5.txt.gz
+-rw-r--r-- root/root      5914 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/chinese/teTeXb5.txt.gz
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/
+-rw-r--r-- root/root      1260 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/Big5.tex
+-rw-r--r-- root/root       978 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/Big5vert.tex
+-rw-r--r-- root/root      1403 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/CEF_test.tex
+-rw-r--r-- root/root       833 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/GB.tex
+-rw-r--r-- root/root      1990 2008-08-05 00:14 ./usr/share/doc/latex-cjk-common/examples/arphic-sampler.tex
+-rw-r--r-- root/root      1992 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/examples/pytest.tex
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/man/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/man/man1/
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/man/man1/bg5+latex.1.gz -> cjklatex.1.gz
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/man/man1/bg5+pdflatex.1.gz -> cjklatex.1.gz
+-rw-r--r-- root/root      1222 2017-09-26 13:26 ./usr/share/man/man1/bg5conv.1.gz
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/man/man1/bg5latex.1.gz -> cjklatex.1.gz
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/man/man1/bg5pdflatex.1.gz -> cjklatex.1.gz
+-rw-r--r-- root/root      1433 2017-09-26 13:26 ./usr/share/man/man1/cef5conv.1.gz
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/man/man1/cef5latex.1.gz -> cjklatex.1.gz
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/man/man1/cef5pdflatex.1.gz -> cjklatex.1.gz
+-rw-r--r-- root/root      1374 2017-09-26 13:26 ./usr/share/man/man1/cefconv.1.gz
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/man/man1/ceflatex.1.gz -> cjklatex.1.gz
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/man/man1/cefpdflatex.1.gz -> cjklatex.1.gz
+-rw-r--r-- root/root      1434 2017-09-26 13:26 ./usr/share/man/man1/cefsconv.1.gz
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/man/man1/cefslatex.1.gz -> cjklatex.1.gz
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/man/man1/cefspdflatex.1.gz -> cjklatex.1.gz
+-rw-r--r-- root/root      1229 2017-09-26 13:26 ./usr/share/man/man1/extconv.1.gz
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/man/man1/gbklatex.1.gz -> cjklatex.1.gz
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/man/man1/gbkpdflatex.1.gz -> cjklatex.1.gz
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/generic/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/generic/babel/
+-rw-r--r-- root/root      1854 2017-01-27 07:58 ./usr/share/texmf/tex/generic/babel/pinyin.ldf
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/generic/hyphen/
+-rw-r--r-- root/root      2212 2017-01-27 07:58 ./usr/share/texmf/tex/generic/hyphen/pyhyph.tex
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/latex/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/latex/CJK/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/latex/CJK/Bg5/
+-rw-r--r-- root/root      2551 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/Bg5/Bg5.cap
+-rw-r--r-- root/root      5920 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/Bg5/Bg5.chr
+-rw-r--r-- root/root      2767 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/Bg5/Bg5.cpx
+-rw-r--r-- root/root     11075 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/Bg5/Bg5.enc
+-rw-r--r-- root/root     13688 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/Bg5/HK.enc
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/latex/CJK/CNS/
+-rw-r--r-- root/root      3357 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/CNS/EUC-TW.bdg
+-rw-r--r-- root/root      5728 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/CNS/EUC-TW.chr
+-rw-r--r-- root/root      7173 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/CNS/EUC-TW.enc
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/latex/CJK/GB/
+-rw-r--r-- root/root      2651 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/GB/GB.cap
+-rw-r--r-- root/root      2797 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/GB/GB.cpx
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/latex/CJK/UTF8/
+-rw-r--r-- root/root      2704 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/UTF8/zh-Hans.cpx
+-rw-r--r-- root/root      2613 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/UTF8/zh-Hant.cpx
+
+
+latex-cjk-common-dbgsym_4.8.4+git20170127-2_armhf.deb
+-----------------------------------------------------
+
+ new Debian package, version 2.0.
+ size 44612 bytes: control archive=540 bytes.
+     402 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: latex-cjk-common-dbgsym
+ Source: cjk
+ Version: 4.8.4+git20170127-2
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
+ Installed-Size: 60
+ Depends: latex-cjk-common (= 4.8.4+git20170127-2)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for latex-cjk-common
+ Build-Ids: 1d6ce3c0c74f6fd13affd02a57c6565443d5acf7
+
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/debug/.build-id/1d/
+-rw-r--r-- root/root     50884 2017-09-26 13:26 ./usr/lib/debug/.build-id/1d/6ce3c0c74f6fd13affd02a57c6565443d5acf7.debug
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common-dbgsym -> latex-cjk-common
+
+
+latex-cjk-common_4.8.4+git20170127-2_armhf.deb
+----------------------------------------------
+
+ new Debian package, version 2.0.
+ size 241484 bytes: control archive=4348 bytes.
+      46 bytes,     1 lines      conffiles            
+    1071 bytes,    24 lines      control              
+    8211 bytes,   101 lines      md5sums              
+     814 bytes,    28 lines   *  postinst             #!/bin/sh
+     959 bytes,    43 lines   *  postrm               #!/bin/sh
+     363 bytes,     9 lines   *  preinst              #!/bin/sh
+     306 bytes,     7 lines   *  prerm                #!/bin/sh
+ Package: latex-cjk-common
+ Source: cjk
+ Version: 4.8.4+git20170127-2
+ Architecture: armhf
+ Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
+ Installed-Size: 683
+ Depends: texlive-latex-base, texlive-font-utils (>= 2007.dfsg.2-1), tex-common (>= 6), emacsen-common (>= 2.0.8), libc6 (>= 2.7), libkpathsea6
+ Conflicts: cjk-latex (<= 4.5.1), latex-cjk, latex-cjk-xcjk
+ Replaces: cjk-latex
+ Provides: cjk-latex
+ Section: tex
+ Priority: optional
+ Homepage: http://cjk.ffii.org/
+ Description: LaTeX macro package for CJK (Chinese/Japanese/Korean)
+  CJK is a macro package for LaTeX to enable typesetting in Chinese,
+  Japanese, Korean and Thai, and it supports Vietnamese through the
+  "vntex" macro.  And you can still use Russian, Greek and other
+  languages in the same document.
+  It supports various CJK encodings, like UTF-8, Big5, GB, JIS, KS,
+  CNS (through CEF) and Emacs MULE.
+  .
+  This package will install the common files, as well as a few
+  GNU/Emacs Lisp files, and it provides support for furigana
+  ("ruby text") and PinYin, either with or without tone marks.
+
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./etc/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./etc/emacs/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./etc/emacs/site-start.d/
+-rw-r--r-- root/root       939 2008-08-05 00:14 ./etc/emacs/site-start.d/50latex-cjk-common.el
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/bin/
+-rwxr-xr-x root/root     30720 2017-09-26 13:26 ./usr/bin/hbf2gf
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/emacsen-common/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/emacsen-common/packages/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/emacsen-common/packages/compat/
+-rw-r--r-- root/root         2 2015-07-01 03:48 ./usr/lib/emacsen-common/packages/compat/latex-cjk-common
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/emacsen-common/packages/install/
+-rwxr-xr-x root/root      1441 2008-08-05 00:14 ./usr/lib/emacsen-common/packages/install/latex-cjk-common
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/emacsen-common/packages/remove/
+-rwxr-xr-x root/root       489 2008-08-05 00:14 ./usr/lib/emacsen-common/packages/remove/latex-cjk-common
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/
+-rw-r--r-- root/root     16382 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/CJK.txt.gz
+-rw-r--r-- root/root       623 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/CJKnumb.txt
+-rw-r--r-- root/root       666 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/CJKspace.txt
+-rw-r--r-- root/root      1444 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/CJKutf8.txt
+-rw-r--r-- root/root      3833 2013-01-15 18:15 ./usr/share/doc/latex-cjk-common/README.Debian.gz
+-rw-r--r-- root/root      1821 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/TDS.txt.gz
+-rw-r--r-- root/root       386 2008-08-05 00:14 ./usr/share/doc/latex-cjk-common/THANKS
+-rw-r--r-- root/root      3512 2012-01-06 07:59 ./usr/share/doc/latex-cjk-common/TODO.Debian.gz
+-rw-r--r-- root/root     18206 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/changelog.Debian.gz
+-rw-r--r-- root/root     22299 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/changelog.gz
+-rw-r--r-- root/root      6686 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/cjk-enc.txt.gz
+-rw-r--r-- root/root      4569 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/commands.txt.gz
+-rw-r--r-- root/root     22645 2017-03-12 05:03 ./usr/share/doc/latex-cjk-common/copyright
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/
+-rw-r--r-- root/root      3579 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/CJKbabel.tex.gz
+-rw-r--r-- root/root      2596 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/CJKfntef.tex
+-rw-r--r-- root/root      2891 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/CJKmixed.tex
+-rw-r--r-- root/root      1085 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/CJKspace.tex
+-rw-r--r-- root/root      3635 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/CJKutf8.tex.gz
+-rw-r--r-- root/root      3026 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/examples/README
+-rw-r--r-- root/root      1214 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/UTF8.tex
+-rw-r--r-- root/root      3385 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/examples/muletest.tex.gz
+-rw-r--r-- root/root       659 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/examples/py_test.tex
+-rw-r--r-- root/root      1319 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/rubytest.tex
+-rw-r--r-- root/root      3898 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/fdxfiles.txt
+-rw-r--r-- root/root      4609 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/fonts.txt.gz
+-rw-r--r-- root/root      5974 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/hbf2gf.txt.gz
+-rw-r--r-- root/root      3539 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/history.2_5.gz
+-rw-r--r-- root/root     18068 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/history.txt.gz
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/pdfhowto/
+-rw-r--r-- root/root      7392 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/HOWTO.txt.gz
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/
+-rw-r--r-- root/root      2200 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/bkai.map
+-rw-r--r-- root/root     12237 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/cid-x.map
+-rw-r--r-- root/root      2035 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/cwtb.map
+-rw-r--r-- root/root      1922 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/dvipdfmx.cfg.gz
+-rw-r--r-- root/root      2861 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/gen-map.pl
+-rw-r--r-- root/root       911 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/map.list
+drwxr-xr-x root/root         0 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/texinput/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/texinput/Bg5/
+-rw-r--r-- root/root       347 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/texinput/Bg5/c00cwtb.fd
+-rw-r--r-- root/root       347 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/texinput/Bg5/c00tmpl.fd
+drwxr-xr-x root/root         0 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/texinput/GB/
+-rw-r--r-- root/root       347 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/texinput/GB/c10tmpl.fd
+drwxr-xr-x root/root         0 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/texinput/JIS/
+-rw-r--r-- root/root       346 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/texinput/JIS/c40tmpl.fd
+drwxr-xr-x root/root         0 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/texinput/SJIS/
+-rw-r--r-- root/root       346 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/texinput/SJIS/c49tmpl.fd
+-rw-r--r-- root/root      1533 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/updmap.my.gz
+-rw-r--r-- root/root      3605 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pdfhowto/examples/wcl.sfd
+-rw-r--r-- root/root      2001 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pinyin.txt
+-rw-r--r-- root/root      3723 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/pyhyphen.txt
+-rw-r--r-- root/root      1017 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/reftex.txt
+-rw-r--r-- root/root      2222 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/ruby.txt.gz
+-rw-r--r-- root/root      2055 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/vertical.txt.gz
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/emacs/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/emacs/site-lisp/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/emacs/site-lisp/latex-cjk-common/
+-rw-r--r-- root/root     47630 2017-01-27 07:58 ./usr/share/emacs/site-lisp/latex-cjk-common/cjk-enc.el
+-rw-r--r-- root/root      3671 2017-01-27 07:58 ./usr/share/emacs/site-lisp/latex-cjk-common/cjkspace.el
+-rw-r--r-- root/root      3182 2017-01-27 07:58 ./usr/share/emacs/site-lisp/latex-cjk-common/cjktilde.el
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/latex-cjk-common/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/latex-cjk-common/utils/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/latex-cjk-common/utils/subfonts/
+-rwxr-xr-x root/root      2747 2017-01-27 07:58 ./usr/share/latex-cjk-common/utils/subfonts/clonevf.pl
+-rwxr-xr-x root/root     11597 2017-01-27 07:58 ./usr/share/latex-cjk-common/utils/subfonts/hlatex2agl.pl
+-rwxr-xr-x root/root      8253 2017-01-27 07:58 ./usr/share/latex-cjk-common/utils/subfonts/makefdx.pl
+-rwxr-xr-x root/root      8126 2017-01-27 07:58 ./usr/share/latex-cjk-common/utils/subfonts/sfd2uni.pl
+-rw-r--r-- root/root      2534 2017-01-27 07:58 ./usr/share/latex-cjk-common/utils/subfonts/subfonts.pe
+-rwxr-xr-x root/root      7529 2017-01-27 07:58 ./usr/share/latex-cjk-common/utils/subfonts/uni2sfd.pl
+-rw-r--r-- root/root      2732 2017-01-27 07:58 ./usr/share/latex-cjk-common/utils/subfonts/vertical.pe
+-rw-r--r-- root/root      3057 2017-01-27 07:58 ./usr/share/latex-cjk-common/utils/subfonts/vertref.pe
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/man/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/man/man1/
+-rw-r--r-- root/root      1860 2017-09-26 13:26 ./usr/share/man/man1/cjklatex.1.gz
+-rw-r--r-- root/root      6178 2017-09-26 13:26 ./usr/share/man/man1/hbf2gf.1.gz
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/doc/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/doc/latex/
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/texmf/doc/latex/latex-cjk -> ../../../doc/latex-cjk-common
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/hbf2gf/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/hbf2gf/cfg/
+-rw-r--r-- root/root       486 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/b5ka12.cfg
+-rw-r--r-- root/root       515 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/b5kr12.cfg
+-rw-r--r-- root/root       575 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/b5so12.cfg
+-rw-r--r-- root/root       496 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/c1so12.cfg
+-rw-r--r-- root/root       496 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/c2so12.cfg
+-rw-r--r-- root/root       496 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/c3so12.cfg
+-rw-r--r-- root/root       496 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/c4so12.cfg
+-rw-r--r-- root/root       496 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/c5so12.cfg
+-rw-r--r-- root/root       496 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/c6so12.cfg
+-rw-r--r-- root/root       496 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/c7so12.cfg
+-rw-r--r-- root/root       497 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/csso12.cfg
+-rw-r--r-- root/root       480 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/gsfs14.cfg
+-rw-r--r-- root/root       532 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/j2so12.cfg
+-rw-r--r-- root/root       495 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/jsso12.cfg
+-rw-r--r-- root/root       479 2017-01-27 07:58 ./usr/share/texmf/hbf2gf/cfg/ksso17.cfg
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/latex/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/latex/CJK/
+-rw-r--r-- root/root     29591 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/CJK.enc
+-rw-r--r-- root/root     32721 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/CJK.sty
+-rw-r--r-- root/root     12851 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/CJKfntef.sty
+-rw-r--r-- root/root      9524 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/CJKnumb.sty
+-rw-r--r-- root/root      2451 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/CJKspace.sty
+-rw-r--r-- root/root      3691 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/CJKulem.sty
+-rw-r--r-- root/root     24621 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/CJKutf8.sty
+-rw-r--r-- root/root      4375 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/CJKvert.sty
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/latex/CJK/UTF8/
+-rw-r--r-- root/root      3857 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/UTF8/UTF8.bdg
+-rw-r--r-- root/root      8601 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/UTF8/UTF8.chr
+-rw-r--r-- root/root      6111 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/UTF8/UTF8.enc
+-rw-r--r-- root/root      5932 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/extended.chr
+-rw-r--r-- root/root     14510 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/extended.enc
+drwxr-xr-x root/root         0 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/mule/
+-rw-r--r-- root/root     12177 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/mule/MULEenc.sty
+-rw-r--r-- root/root     32858 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/pinyin.sty
+-rw-r--r-- root/root      2603 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/pmC.chr
+-rw-r--r-- root/root      6738 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/pmCbig.enc
+-rw-r--r-- root/root      6464 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/pmCsmall.enc
+-rw-r--r-- root/root      4217 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/ruby.sty
+-rw-r--r-- root/root      4133 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/standard.bdg
+-rw-r--r-- root/root      5502 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/standard.chr
+-rw-r--r-- root/root      6892 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/standard.enc
+
+
+latex-cjk-japanese-dbgsym_4.8.4+git20170127-2_armhf.deb
+-------------------------------------------------------
+
+ new Debian package, version 2.0.
+ size 4656 bytes: control archive=544 bytes.
+     408 bytes,    12 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: latex-cjk-japanese-dbgsym
+ Source: cjk
+ Version: 4.8.4+git20170127-2
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
+ Installed-Size: 18
+ Depends: latex-cjk-japanese (= 4.8.4+git20170127-2)
+ Section: debug
+ Priority: optional
+ Description: debug symbols for latex-cjk-japanese
+ Build-Ids: 5f768e1874b74cc8ccfe274d9cfe56495a400916
+
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/lib/debug/.build-id/5f/
+-rw-r--r-- root/root      7288 2017-09-26 13:26 ./usr/lib/debug/.build-id/5f/768e1874b74cc8ccfe274d9cfe56495a400916.debug
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-japanese-dbgsym -> latex-cjk-japanese
+
+
+latex-cjk-japanese_4.8.4+git20170127-2_armhf.deb
+------------------------------------------------
+
+ new Debian package, version 2.0.
+ size 35032 bytes: control archive=2296 bytes.
+     793 bytes,    21 lines      control              
+    2969 bytes,    38 lines      md5sums              
+     388 bytes,    21 lines   *  postinst             #!/bin/sh
+     959 bytes,    43 lines   *  postrm               #!/bin/sh
+ Package: latex-cjk-japanese
+ Source: cjk
+ Version: 4.8.4+git20170127-2
+ Architecture: armhf
+ Maintainer: Debian TeX maintainers <debian-tex-maint@lists.debian.org>
+ Installed-Size: 170
+ Depends: latex-cjk-common (= 4.8.4+git20170127-2), tex-common (>= 6), libc6 (>= 2.4)
+ Recommends: latex-cjk-japanese-wadalab
+ Suggests: hbf-kanji48
+ Conflicts: cjk-latex (<= 4.5.1)
+ Section: tex
+ Priority: optional
+ Homepage: http://cjk.ffii.org/
+ Description: Japanese module of LaTeX CJK
+  CJK is a macro package for LaTeX.  This package gives you the possibility
+  to include Japanese text in your (La)TeX documents.  Install
+  latex-cjk-japanese-wadalab for pretty printing.
+  .
+  Install hbf-kanji48 if you want to use bitmap fonts in your documents.
+  .
+  Have a look at latex-cjk-common for a more detailed description.
+
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/bin/
+-rwxr-xr-x root/root      5624 2017-09-26 13:26 ./usr/bin/sjisconv
+-rwxr-xr-x root/root      1217 2017-09-26 13:26 ./usr/bin/sjislatex
+-rwxr-xr-x root/root      1220 2017-09-26 13:26 ./usr/bin/sjispdflatex
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/
+-rw-r--r-- root/root      3376 2008-08-05 00:14 ./usr/share/doc/latex-cjk-common/README.Debian-msgothic
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/
+-rw-r--r-- root/root      1326 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/JIS.tex
+-rw-r--r-- root/root      1038 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/examples/SJIS.tex
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-common/japanese/
+-rw-r--r-- root/root       860 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/japanese/README
+-rw-r--r-- root/root      2555 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/japanese/ascii.txt
+-rw-r--r-- root/root      5530 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/japanese/japanese.jis.gz
+-rw-r--r-- root/root      4884 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/japanese/japanese.txt.gz
+-rw-r--r-- root/root      1980 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/japanese/jp-fonts.txt
+-rw-r--r-- root/root      2114 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/japanese/jp-tex.txt
+-rw-r--r-- root/root      1581 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/japanese/preview.txt
+-rw-r--r-- root/root      3879 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/japanese/shibuaki.txt
+-rw-r--r-- root/root      4918 2017-01-27 07:58 ./usr/share/doc/latex-cjk-common/wadalab.txt.gz
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/doc/latex-cjk-japanese -> latex-cjk-common
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/man/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/man/man1/
+-rw-r--r-- root/root      1218 2017-09-26 13:26 ./usr/share/man/man1/sjisconv.1.gz
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/man/man1/sjislatex.1.gz -> cjklatex.1.gz
+lrwxrwxrwx root/root         0 2017-09-26 13:26 ./usr/share/man/man1/sjispdflatex.1.gz -> cjklatex.1.gz
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/fonts/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/fonts/sfd/
+-rw-r--r-- root/root      1749 2017-01-27 07:58 ./usr/share/texmf/fonts/sfd/DNP.sfd
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/latex/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/latex/CJK/
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/latex/CJK/JIS/
+-rw-r--r-- root/root      3380 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/JIS/EUC-JP.bdg
+-rw-r--r-- root/root      6559 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/JIS/EUC-JP.chr
+-rw-r--r-- root/root      7303 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/JIS/EUC-JP.enc
+-rw-r--r-- root/root      7068 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/JIS/EUC-JPdnp.enc
+-rw-r--r-- root/root      2451 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/JIS/JIS.cap
+-rw-r--r-- root/root      2618 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/JIS/JIS.cpx
+-rw-r--r-- root/root      6637 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/JIS/JISdnp.enc
+-rw-r--r-- root/root       620 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/JIS/c40song.fd
+-rw-r--r-- root/root       606 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/JIS/c41song.fd
+-rw-r--r-- root/root       823 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/JIS/c42song.fd
+-rw-r--r-- root/root       701 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/JIS/c43song.fd
+-rw-r--r-- root/root       657 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/JIS/c50song.fd
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/latex/CJK/SJIS/
+-rw-r--r-- root/root      3999 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/SJIS/SJIS.bdg
+-rw-r--r-- root/root      2579 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/SJIS/SJIS.cap
+-rw-r--r-- root/root      6796 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/SJIS/SJIS.chr
+-rw-r--r-- root/root      2615 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/SJIS/SJIS.cpx
+-rw-r--r-- root/root     10064 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/SJIS/SJIS.enc
+-rw-r--r-- root/root      6593 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/SJIS/SJISdnp.chr
+-rw-r--r-- root/root      9681 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/SJIS/SJISdnp.enc
+-rw-r--r-- root/root       795 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/SJIS/c49song.fd
+drwxr-xr-x root/root         0 2017-09-26 13:26 ./usr/share/texmf/tex/latex/CJK/UTF8/
+-rw-r--r-- root/root      2502 2017-01-27 07:58 ./usr/share/texmf/tex/latex/CJK/UTF8/ja.cpx
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [572 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [664 B]
+Fetched 2199 B in 0s (162 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl libclass-accessor-perl
+  libclone-perl libdigest-hmac-perl libemail-valid-perl libexporter-tiny-perl
+  libfile-basedir-perl libfuture-perl libio-async-perl libio-pty-perl
+  libipc-run-perl libipc-system-simple-perl liblist-moreutils-perl
+  libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl libclass-accessor-perl
+  libclone-perl libdigest-hmac-perl libemail-valid-perl libexporter-tiny-perl
+  libfile-basedir-perl libfuture-perl libio-async-perl libio-pty-perl
+  libipc-run-perl libipc-system-simple-perl liblist-moreutils-perl
+  libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf
+0 upgraded, 26 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2785 kB/2875 kB of archives.
+After this operation, 8956 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2785 kB in 1s (3528 kB/s)
+Selecting previously unselected package libapt-pkg-perl.
+(Reading database ... 28658 files and directories currently installed.)
+Preparing to unpack .../00-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../01-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../02-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../03-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../04-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../05-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../06-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../07-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../08-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../09-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../10-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../11-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../12-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../13-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../14-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../15-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../16-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../17-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../18-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../19-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../20-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../21-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../22-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../23-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../24-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../25-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+W: cjk source: vcs-obsolete-in-debian-infrastructure vcs-svn svn://anonscm.debian.org/debian-tex/cjk/trunk
+W: cjk source: vcs-obsolete-in-debian-infrastructure vcs-browser http://anonscm.debian.org/viewvc/debian-tex/cjk/trunk/
+W: latex-cjk-common: emacsen-common-without-dh-elpa
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* debhelper*
+  dh-autoreconf* dh-strip-nondeterminism* diffstat* dwz* fontconfig-config*
+  fonts-dejavu-core* fonts-lmodern* gcc-8-base:armhf* gettext* gettext-base*
+  git* git-man* groff-base* intltool-debian* libapt-pkg-perl*
+  libarchive-zip-perl* libasan5:armhf* libatomic1:armhf* libavahi-client3*
+  libavahi-common-data* libavahi-common3* libbrotli1* libbsd0* libc6:armhf*
+  libc6-dev:armhf* libcairo2* libcapture-tiny-perl* libcgi-pm-perl*
+  libclass-accessor-perl* libclone-perl* libcroco3* libcups2* libcupsimage2*
+  libcurl3-gnutls* libdatrie1* libdbus-1-3* libdigest-hmac-perl* libelf1*
+  libemail-valid-perl* liberror-perl* libexporter-tiny-perl*
+  libfile-basedir-perl* libfile-stripnondeterminism-perl* libfontconfig1*
+  libfreetype6* libfuture-perl* libgcc-8-dev:armhf* libgcc1:armhf*
+  libglib2.0-0* libgomp1:armhf* libgraphite2-3* libgs9* libgs9-common*
+  libgssapi-krb5-2* libharfbuzz-icu0* libharfbuzz0b* libice6* libidn11*
+  libijs-0.35* libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* libjbig0* libjbig2dec0* libjpeg62-turbo*
+  libk5crypto3* libkeyutils1* libkpathsea-dev:armhf* libkpathsea6*
+  libkpathsea6:armhf* libkrb5-3* libkrb5support0* liblcms2-2*
+  liblist-moreutils-perl* libmime-charset-perl* libncurses6* libnet-dns-perl*
+  libnet-domain-tld-perl* libnet-ip-perl* libnghttp2-14* libopenjp2-7*
+  libpaper-utils* libpaper1* libparse-debianchangelog-perl* libpath-tiny-perl*
+  libpcre2-8-0* libpipeline1* libpixman-1-0* libpng16-16* libpotrace0*
+  libpsl5* libptexenc1* libpython-stdlib* libpython2-stdlib*
+  libpython2.7-minimal* libpython2.7-stdlib* librtmp1* libsigsegv2* libsm6*
+  libsombok3* libssh2-1* libstdc++-8-dev:armhf* libstdc++6:armhf*
+  libstruct-dumb-perl* libsub-name-perl* libsynctex2* libteckit0* libtexlua52*
+  libtexlua53* libtexluajit2* libtext-levenshtein-perl* libthai-data*
+  libthai0* libtiff5* libtool* libubsan1:armhf* libuchardet0*
+  libunicode-linebreak-perl* libwebp6* libwoff1* libx11-6* libx11-data*
+  libxau6* libxaw7* libxcb-render0* libxcb-shm0* libxcb1* libxdmcp6* libxext6*
+  libxi6* libxmu6* libxpm4* libxrender1* libxt6* libxxhash0* libzzip-0-13*
+  lintian* linux-libc-dev:armhf* m4* man-db* mime-support* patchutils*
+  po-debconf* poppler-data* python* python-minimal* python2* python2-minimal*
+  python2.7* python2.7-minimal* quilt*
+  sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* tex-common* texlive-base*
+  texlive-binaries* texlive-extra-utils* texlive-latex-base* x11-common*
+  xdg-utils*
+0 upgraded, 0 newly installed, 168 to remove and 0 not upgraded.
+After this operation, 399 MB disk space will be freed.
+(Reading database ... 29911 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing quilt (0.65-3) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing diffstat (1.62-1) ...
+Removing texlive-extra-utils (2018.20190207-1) ...
+Removing texlive-latex-base (2018.20190207-1) ...
+Removing fonts-lmodern (2.004.5-5) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing git (1:2.20.1-2) ...
+Removing git-man (1:2.20.1-2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libkpathsea-dev:armhf (2018.20181218.49446-1) ...
+Removing libkpathsea6:armhf (2018.20181218.49446-1) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libcurl3-gnutls:amd64 (7.64.0-1) ...
+Removing libunicode-linebreak-perl (0.0.20190101-1) ...
+Removing libsombok3:amd64 (2.4.0-2) ...
+Removing libthai0:amd64 (0.1.28-2) ...
+Removing libdatrie1:amd64 (0.2.12-2) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing liberror-perl (0.17027-2) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing libmime-charset-perl (1.012.2-1) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libnghttp2-14:amd64 (1.36.0-2) ...
+Removing texlive-base (2018.20190207-1) ...
+Removing libpaper-utils (1.1.26) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libpcre2-8-0:amd64 (10.32-4) ...
+Removing libpsl5:amd64 (0.20.2-2) ...
+Removing python (2.7.15-4) ...
+Removing libpython-stdlib:amd64 (2.7.15-4) ...
+Removing python2 (2.7.15-4) ...
+Removing libpython2-stdlib:amd64 (2.7.15-4) ...
+Removing python2.7 (2.7.16~rc1-1) ...
+Removing libpython2.7-stdlib:amd64 (2.7.16~rc1-1) ...
+Removing python-minimal (2.7.15-4) ...
+Removing librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2) ...
+Removing libssh2-1:amd64 (1.8.0-2) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libthai-data (0.1.28-2) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing mime-support (3.62) ...
+Removing patchutils (0.3.4-2) ...
+Removing python2-minimal (2.7.15-4) ...
+Removing xdg-utils (1.1.3-1) ...
+Removing texlive-binaries (2018.20181218.49446-1) ...
+Removing libgs9:amd64 (9.26a~dfsg-2) ...
+Removing libcupsimage2:amd64 (2.2.10-4) ...
+Removing libcups2:amd64 (2.2.10-4) ...
+Removing libavahi-client3:amd64 (0.7-4+b1) ...
+Removing libavahi-common3:amd64 (0.7-4+b1) ...
+Removing libavahi-common-data:amd64 (0.7-4+b1) ...
+Removing libwoff1:amd64 (1.0.2-1) ...
+Removing libbrotli1:amd64 (1.0.7-2) ...
+Removing libxaw7:amd64 (2:1.0.13-1+b2) ...
+Removing libxmu6:amd64 (2:1.1.2-2) ...
+Removing libxt6:amd64 (1:1.1.5-1) ...
+Removing libcairo2:amd64 (1.16.0-3) ...
+Removing libxrender1:amd64 (1:0.9.10-1) ...
+Removing libxcb-shm0:amd64 (1.13.1-2) ...
+Removing libsm6:amd64 (2:1.2.3-1) ...
+Removing libice6:amd64 (2:1.0.9-2) ...
+Removing libdbus-1-3:amd64 (1.12.12-1) ...
+Removing libharfbuzz-icu0:amd64 (2.3.1-1) ...
+Removing libharfbuzz0b:amd64 (2.3.1-1) ...
+Removing libgraphite2-3:amd64 (1.3.13-7) ...
+Removing libgs9-common (9.26a~dfsg-2) ...
+Removing libgssapi-krb5-2:amd64 (1.17-2) ...
+Removing libidn11:amd64 (1.33-2.2) ...
+Removing libijs-0.35:amd64 (0.35-13) ...
+Removing libtiff5:amd64 (4.0.10-4) ...
+Removing libjbig0:amd64 (2.1-3.1+b2) ...
+Removing libjbig2dec0:amd64 (0.15-2) ...
+Removing libjpeg62-turbo:amd64 (1:1.5.2-2+b1) ...
+Removing libkrb5-3:amd64 (1.17-2) ...
+Removing libk5crypto3:amd64 (1.17-2) ...
+Removing libkrb5support0:amd64 (1.17-2) ...
+Removing libkeyutils1:amd64 (1.6-4) ...
+Removing libptexenc1:amd64 (2018.20181218.49446-1) ...
+Removing libkpathsea6:amd64 (2018.20181218.49446-1) ...
+Removing liblcms2-2:amd64 (2.9-3) ...
+Removing libopenjp2-7:amd64 (2.3.0-1.1) ...
+Removing libpaper1:amd64 (1.1.26) ...
+Removing libpixman-1-0:amd64 (0.36.0-1) ...
+Removing libpotrace0:amd64 (1.15-1) ...
+Removing python2.7-minimal (2.7.16~rc1-1) ...
+Removing libpython2.7-minimal:amd64 (2.7.16~rc1-1) ...
+find: ‘/usr/lib/python2.7’: No such file or directory
+Removing libsynctex2:amd64 (2018.20181218.49446-1) ...
+Removing libteckit0:amd64 (2.5.8+ds2-5) ...
+Removing libtexlua52:amd64 (2018.20181218.49446-1) ...
+Removing libtexlua53:amd64 (2018.20181218.49446-1) ...
+Removing libtexluajit2:amd64 (2018.20181218.49446-1) ...
+Removing libwebp6:amd64 (0.6.1-2) ...
+Removing libxcb-render0:amd64 (1.13.1-2) ...
+Removing libxi6:amd64 (2:1.7.9-1) ...
+Removing libxext6:amd64 (2:1.3.3-1+b2) ...
+Removing libxpm4:amd64 (1:3.5.12-1) ...
+Removing libxxhash0:amd64 (0.6.5-2) ...
+Removing libzzip-0-13:amd64 (0.13.62-3.1) ...
+Removing poppler-data (0.4.9-2) ...
+Removing t1utils (1.41-3) ...
+Removing tex-common (6.10) ...
+Removing x11-common (1:7.7+19) ...
+invoke-rc.d: could not determine current runlevel
+All runlevel operations denied by policy
+invoke-rc.d: policy-rc.d denied execution of stop.
+Removing libfontconfig1:amd64 (2.13.1-2) ...
+Removing fontconfig-config (2.13.1-2) ...
+Removing fonts-dejavu-core (2.37-1) ...
+Removing libx11-6:amd64 (2:1.6.7-1) ...
+Removing libxcb1:amd64 (1.13.1-2) ...
+Removing libxdmcp6:amd64 (1:1.1.2-3) ...
+Removing libfreetype6:amd64 (2.9.1-3) ...
+Removing libpng16-16:amd64 (1.6.36-5) ...
+Removing libx11-data (2:1.6.7-1) ...
+Removing libxau6:amd64 (1:1.0.8-1+b2) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16538 files and directories currently installed.)
+Purging configuration files for libpaper1:amd64 (1.1.26) ...
+Purging configuration files for mime-support (3.62) ...
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for fontconfig-config (2.13.1-2) ...
+Purging configuration files for x11-common (1:7.7+19) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for quilt (0.65-3) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for poppler-data (0.4.9-2) ...
+dpkg: warning: while removing poppler-data, directory '/usr/share/poppler/cMap/Adobe-Korea1' not empty so not removed
+dpkg: warning: while removing poppler-data, directory '/usr/share/poppler/cMap/Adobe-Japan2' not empty so not removed
+dpkg: warning: while removing poppler-data, directory '/usr/share/poppler/cMap/Adobe-Japan1' not empty so not removed
+dpkg: warning: while removing poppler-data, directory '/usr/share/poppler/cMap/Adobe-GB1' not empty so not removed
+dpkg: warning: while removing poppler-data, directory '/usr/share/poppler/cMap/Adobe-CNS1' not empty so not removed
+dpkg: warning: while removing poppler-data, directory '/usr/share/fonts/cmap' not empty so not removed
+dpkg: warning: while removing poppler-data, directory '/usr/share/fonts/cMap' not empty so not removed
+Purging configuration files for tex-common (6.10) ...
+Purging configuration files for libpython2.7-minimal:amd64 (2.7.16~rc1-1) ...
+Purging configuration files for texlive-latex-base (2018.20190207-1) ...
+Purging configuration files for python2.7-minimal (2.7.16~rc1-1) ...
+Purging configuration files for texlive-extra-utils (2018.20190207-1) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for libgssapi-krb5-2:amd64 (1.17-2) ...
+Purging configuration files for fonts-dejavu-core (2.37-1) ...
+dpkg: warning: while removing fonts-dejavu-core, directory '/usr/share/fonts/truetype/dejavu' not empty so not removed
+Purging configuration files for git (1:2.20.1-2) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+Purging configuration files for fonts-lmodern (2.004.5-5) ...
+dpkg: warning: while removing fonts-lmodern, directory '/usr/share/texmf/fonts/opentype/public/lm-math' not empty so not removed
+dpkg: warning: while removing fonts-lmodern, directory '/usr/share/texmf/fonts/opentype/public/lm' not empty so not removed
+Purging configuration files for texlive-base (2018.20190207-1) ...
+Purging configuration files for python (2.7.15-4) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 10
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 42
+Job: /home/build/sbuild-setup/repo/pool/main/c/cjk/cjk_4.8.4+git20170127-2.dsc
+Lintian: warn
+Machine Architecture: amd64
+Package: cjk
+Package-Time: 58
+Source-Version: 4.8.4+git20170127-2
+Space: n/a
+Status: successful
+Version: 4.8.4+git20170127-2
+--------------------------------------------------------------------------------
+Finished at 2019-03-01T11:04:27Z
+Build needed 00:00:58, no disk space

@@ -1,0 +1,2120 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 36857dea695f
+
++==============================================================================+
+| libshout 2.4.1-2 (armhf)                     Tue, 05 Mar 2019 08:53:32 +0000 |
++==============================================================================+
+
+Package: libshout
+Version: 2.4.1-2
+Source Version: 2.4.1-2
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-34727e6b-1d35-408b-a644-6a6284c4f5a2' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/libshout-2xOSFc/resolver-UreXiI' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://10.116.41.102/debian sid InRelease
+Hit:2 http://cdn-fastly.deb.debian.org/debian sid InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/libs/libshout/libshout_2.4.1-2.dsc exists in /home/build/sbuild-setup/repo/pool/main/libs/libshout; copying to chroot
+I: NOTICE: Log filtering will replace 'build/libshout-2xOSFc/libshout-2.4.1' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/libshout-2xOSFc' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: cdbs, autotools-dev, libtool, automake, autoconf, debhelper, dh-buildinfo, libogg-dev, libvorbis-dev, pkg-config, libtheora-dev, libspeex-dev, libssl-dev, d-shlibs (>= 0.48), pkg-kde-tools, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: cdbs, autotools-dev, libtool, automake, autoconf, debhelper, dh-buildinfo, libogg-dev, libvorbis-dev, pkg-config, libtheora-dev, libspeex-dev, libssl-dev, d-shlibs (>= 0.48), pkg-kde-tools, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [469 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [559 B]
+Fetched 1985 B in 0s (136 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils cdbs d-shlibs
+  debhelper dh-autoreconf dh-buildinfo dh-strip-nondeterminism dwz
+  fontconfig-config fonts-dejavu-core gcc-8-base:armhf gettext gettext-base
+  groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libbsd0:armhf libc6:armhf libc6-dev:armhf
+  libcairo2:armhf libcroco3 libelf1 libexpat1:armhf
+  libfile-stripnondeterminism-perl libfontconfig1:armhf libfreetype6:armhf
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgomp1:armhf libmpdec2
+  libncurses6 libogg-dev:armhf libogg0:armhf libpipeline1 libpixman-1-0:armhf
+  libpng16-16:armhf libpython3-stdlib libpython3.7-minimal libpython3.7-stdlib
+  libsigsegv2 libspeex-dev:armhf libspeex1:armhf libssl-dev:armhf
+  libssl1.1:armhf libstdc++-8-dev:armhf libstdc++6:armhf libtheora-dev:armhf
+  libtheora0:armhf libtool libubsan1:armhf libuchardet0 libuuid1:armhf
+  libvorbis-dev:armhf libvorbis0a:armhf libvorbisenc2:armhf
+  libvorbisfile3:armhf libx11-6:armhf libx11-data libxau6:armhf
+  libxcb-render0:armhf libxcb-shm0:armhf libxcb1:armhf libxdmcp6:armhf
+  libxext6:armhf libxrender1:armhf linux-libc-dev:armhf m4 man-db mime-support
+  pkg-config pkg-kde-tools po-debconf python3 python3-minimal python3.7
+  python3.7-minimal zlib1g:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc wamerican | wordlist whois
+  vacation devscripts dh-make gettext-doc libasprintf-dev libgettextpo-dev
+  groff glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  speex:armhf libssl-doc:armhf libstdc++-8-doc:armhf libtool-doc gfortran
+  | fortran95-compiler gcj-jdk m4-doc apparmor less www-browser
+  libmail-box-perl python3-doc python3-tk python3-venv python3.7-venv
+  python3.7-doc binfmt-support
+Recommended packages:
+  curl | wget | lynx libidn2-0:armhf libarchive-cpio-perl libglib2.0-data
+  shared-mime-info xdg-user-dirs libgpm2 libltdl-dev libmail-sendmail-perl
+The following NEW packages will be installed:
+  autoconf automake autopoint autotools-dev bsdmainutils cdbs d-shlibs
+  debhelper dh-autoreconf dh-buildinfo dh-strip-nondeterminism dwz
+  fontconfig-config fonts-dejavu-core gcc-8-base:armhf gettext gettext-base
+  groff-base intltool-debian libarchive-zip-perl libasan5:armhf
+  libatomic1:armhf libbsd0 libbsd0:armhf libc6:armhf libc6-dev:armhf
+  libcairo2:armhf libcroco3 libelf1 libexpat1:armhf
+  libfile-stripnondeterminism-perl libfontconfig1:armhf libfreetype6:armhf
+  libgcc-8-dev:armhf libgcc1:armhf libglib2.0-0 libgomp1:armhf libmpdec2
+  libncurses6 libogg-dev:armhf libogg0:armhf libpipeline1 libpixman-1-0:armhf
+  libpng16-16:armhf libpython3-stdlib libpython3.7-minimal libpython3.7-stdlib
+  libsigsegv2 libspeex-dev:armhf libspeex1:armhf libssl-dev:armhf
+  libssl1.1:armhf libstdc++-8-dev:armhf libstdc++6:armhf libtheora-dev:armhf
+  libtheora0:armhf libtool libubsan1:armhf libuchardet0 libuuid1:armhf
+  libvorbis-dev:armhf libvorbis0a:armhf libvorbisenc2:armhf
+  libvorbisfile3:armhf libx11-6:armhf libx11-data libxau6:armhf
+  libxcb-render0:armhf libxcb-shm0:armhf libxcb1:armhf libxdmcp6:armhf
+  libxext6:armhf libxrender1:armhf linux-libc-dev:armhf m4 man-db mime-support
+  pkg-config pkg-kde-tools po-debconf python3 python3-minimal python3.7
+  python3.7-minimal sbuild-build-depends-main-dummy:armhf zlib1g:armhf
+0 upgraded, 86 newly installed, 0 to remove and 0 not upgraded.
+Need to get 984 B/32.6 MB of archives.
+After this operation, 127 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [984 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 984 B in 0s (0 B/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 16440 files and directories currently installed.)
+Preparing to unpack .../0-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../1-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../2-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../3-groff-base_1.22.4-2_amd64.deb ...
+Unpacking groff-base (1.22.4-2) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../4-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../5-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package libpython3.7-minimal:amd64.
+Preparing to unpack .../6-libpython3.7-minimal_3.7.2-2_amd64.deb ...
+Unpacking libpython3.7-minimal:amd64 (3.7.2-2) ...
+Selecting previously unselected package python3.7-minimal.
+Preparing to unpack .../7-python3.7-minimal_3.7.2-2_amd64.deb ...
+Unpacking python3.7-minimal (3.7.2-2) ...
+Setting up libpython3.7-minimal:amd64 (3.7.2-2) ...
+Setting up python3.7-minimal (3.7.2-2) ...
+Selecting previously unselected package python3-minimal.
+(Reading database ... 17315 files and directories currently installed.)
+Preparing to unpack .../0-python3-minimal_3.7.2-1_amd64.deb ...
+Unpacking python3-minimal (3.7.2-1) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../1-mime-support_3.62_all.deb ...
+Unpacking mime-support (3.62) ...
+Selecting previously unselected package libmpdec2:amd64.
+Preparing to unpack .../2-libmpdec2_2.4.2-2_amd64.deb ...
+Unpacking libmpdec2:amd64 (2.4.2-2) ...
+Selecting previously unselected package libpython3.7-stdlib:amd64.
+Preparing to unpack .../3-libpython3.7-stdlib_3.7.2-2_amd64.deb ...
+Unpacking libpython3.7-stdlib:amd64 (3.7.2-2) ...
+Selecting previously unselected package python3.7.
+Preparing to unpack .../4-python3.7_3.7.2-2_amd64.deb ...
+Unpacking python3.7 (3.7.2-2) ...
+Selecting previously unselected package libpython3-stdlib:amd64.
+Preparing to unpack .../5-libpython3-stdlib_3.7.2-1_amd64.deb ...
+Unpacking libpython3-stdlib:amd64 (3.7.2-1) ...
+Setting up python3-minimal (3.7.2-1) ...
+Selecting previously unselected package python3.
+(Reading database ... 17749 files and directories currently installed.)
+Preparing to unpack .../00-python3_3.7.2-1_amd64.deb ...
+Unpacking python3 (3.7.2-1) ...
+Selecting previously unselected package gettext-base.
+Preparing to unpack .../01-gettext-base_0.19.8.1-9_amd64.deb ...
+Unpacking gettext-base (0.19.8.1-9) ...
+Selecting previously unselected package libsigsegv2:amd64.
+Preparing to unpack .../02-libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../03-m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Selecting previously unselected package autoconf.
+Preparing to unpack .../04-autoconf_2.69-11_all.deb ...
+Unpacking autoconf (2.69-11) ...
+Selecting previously unselected package autotools-dev.
+Preparing to unpack .../05-autotools-dev_20180224.1_all.deb ...
+Unpacking autotools-dev (20180224.1) ...
+Selecting previously unselected package automake.
+Preparing to unpack .../06-automake_1%3a1.16.1-4_all.deb ...
+Unpacking automake (1:1.16.1-4) ...
+Selecting previously unselected package autopoint.
+Preparing to unpack .../07-autopoint_0.19.8.1-9_all.deb ...
+Unpacking autopoint (0.19.8.1-9) ...
+Selecting previously unselected package cdbs.
+Preparing to unpack .../08-cdbs_0.4.158_all.deb ...
+Unpacking cdbs (0.4.158) ...
+Selecting previously unselected package d-shlibs.
+Preparing to unpack .../09-d-shlibs_0.84_all.deb ...
+Unpacking d-shlibs (0.84) ...
+Selecting previously unselected package libtool.
+Preparing to unpack .../10-libtool_2.4.6-10_all.deb ...
+Unpacking libtool (2.4.6-10) ...
+Selecting previously unselected package dh-autoreconf.
+Preparing to unpack .../11-dh-autoreconf_19_all.deb ...
+Unpacking dh-autoreconf (19) ...
+Selecting previously unselected package libarchive-zip-perl.
+Preparing to unpack .../12-libarchive-zip-perl_1.64-1_all.deb ...
+Unpacking libarchive-zip-perl (1.64-1) ...
+Selecting previously unselected package libfile-stripnondeterminism-perl.
+Preparing to unpack .../13-libfile-stripnondeterminism-perl_1.1.1-1_all.deb ...
+Unpacking libfile-stripnondeterminism-perl (1.1.1-1) ...
+Selecting previously unselected package dh-strip-nondeterminism.
+Preparing to unpack .../14-dh-strip-nondeterminism_1.1.1-1_all.deb ...
+Unpacking dh-strip-nondeterminism (1.1.1-1) ...
+Selecting previously unselected package libelf1:amd64.
+Preparing to unpack .../15-libelf1_0.176-1_amd64.deb ...
+Unpacking libelf1:amd64 (0.176-1) ...
+Selecting previously unselected package dwz.
+Preparing to unpack .../16-dwz_0.12-3_amd64.deb ...
+Unpacking dwz (0.12-3) ...
+Selecting previously unselected package libglib2.0-0:amd64.
+Preparing to unpack .../17-libglib2.0-0_2.58.3-1_amd64.deb ...
+Unpacking libglib2.0-0:amd64 (2.58.3-1) ...
+Selecting previously unselected package libcroco3:amd64.
+Preparing to unpack .../18-libcroco3_0.6.12-3_amd64.deb ...
+Unpacking libcroco3:amd64 (0.6.12-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../19-libncurses6_6.1+20181013-2_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20181013-2) ...
+Selecting previously unselected package gettext.
+Preparing to unpack .../20-gettext_0.19.8.1-9_amd64.deb ...
+Unpacking gettext (0.19.8.1-9) ...
+Selecting previously unselected package intltool-debian.
+Preparing to unpack .../21-intltool-debian_0.35.0+20060710.5_all.deb ...
+Unpacking intltool-debian (0.35.0+20060710.5) ...
+Selecting previously unselected package po-debconf.
+Preparing to unpack .../22-po-debconf_1.0.21_all.deb ...
+Unpacking po-debconf (1.0.21) ...
+Selecting previously unselected package debhelper.
+Preparing to unpack .../23-debhelper_12.1.1_all.deb ...
+Unpacking debhelper (12.1.1) ...
+Selecting previously unselected package dh-buildinfo.
+Preparing to unpack .../24-dh-buildinfo_0.11+nmu2_all.deb ...
+Unpacking dh-buildinfo (0.11+nmu2) ...
+Selecting previously unselected package fonts-dejavu-core.
+Preparing to unpack .../25-fonts-dejavu-core_2.37-1_all.deb ...
+Unpacking fonts-dejavu-core (2.37-1) ...
+Selecting previously unselected package fontconfig-config.
+Preparing to unpack .../26-fontconfig-config_2.13.1-2_all.deb ...
+Unpacking fontconfig-config (2.13.1-2) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../27-gcc-8-base_8.3.0-2_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../28-libgcc1_1%3a8.3.0-2_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-2) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../29-libc6_2.28-7_armhf.deb ...
+Unpacking libc6:armhf (2.28-7) ...
+Selecting previously unselected package libstdc++6:armhf.
+Preparing to unpack .../30-libstdc++6_8.3.0-2_armhf.deb ...
+Unpacking libstdc++6:armhf (8.3.0-2) ...
+Selecting previously unselected package libasan5:armhf.
+Preparing to unpack .../31-libasan5_8.3.0-2_armhf.deb ...
+Unpacking libasan5:armhf (8.3.0-2) ...
+Selecting previously unselected package libatomic1:armhf.
+Preparing to unpack .../32-libatomic1_8.3.0-2_armhf.deb ...
+Unpacking libatomic1:armhf (8.3.0-2) ...
+Selecting previously unselected package libbsd0:armhf.
+Preparing to unpack .../33-libbsd0_0.9.1-2_armhf.deb ...
+Unpacking libbsd0:armhf (0.9.1-2) ...
+Selecting previously unselected package linux-libc-dev:armhf.
+Preparing to unpack .../34-linux-libc-dev_4.19.20-1_armhf.deb ...
+Unpacking linux-libc-dev:armhf (4.19.20-1) ...
+Selecting previously unselected package libc6-dev:armhf.
+Preparing to unpack .../35-libc6-dev_2.28-7_armhf.deb ...
+Unpacking libc6-dev:armhf (2.28-7) ...
+Selecting previously unselected package libexpat1:armhf.
+Preparing to unpack .../36-libexpat1_2.2.6-1_armhf.deb ...
+Unpacking libexpat1:armhf (2.2.6-1) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../37-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libpng16-16:armhf.
+Preparing to unpack .../38-libpng16-16_1.6.36-5_armhf.deb ...
+Unpacking libpng16-16:armhf (1.6.36-5) ...
+Selecting previously unselected package libfreetype6:armhf.
+Preparing to unpack .../39-libfreetype6_2.9.1-3_armhf.deb ...
+Unpacking libfreetype6:armhf (2.9.1-3) ...
+Selecting previously unselected package libuuid1:armhf.
+Preparing to unpack .../40-libuuid1_2.33.1-0.1_armhf.deb ...
+Unpacking libuuid1:armhf (2.33.1-0.1) ...
+Selecting previously unselected package libfontconfig1:armhf.
+Preparing to unpack .../41-libfontconfig1_2.13.1-2_armhf.deb ...
+Unpacking libfontconfig1:armhf (2.13.1-2) ...
+Selecting previously unselected package libpixman-1-0:armhf.
+Preparing to unpack .../42-libpixman-1-0_0.36.0-1_armhf.deb ...
+Unpacking libpixman-1-0:armhf (0.36.0-1) ...
+Selecting previously unselected package libxau6:armhf.
+Preparing to unpack .../43-libxau6_1%3a1.0.8-1+b2_armhf.deb ...
+Unpacking libxau6:armhf (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp6:armhf.
+Preparing to unpack .../44-libxdmcp6_1%3a1.1.2-3_armhf.deb ...
+Unpacking libxdmcp6:armhf (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1:armhf.
+Preparing to unpack .../45-libxcb1_1.13.1-2_armhf.deb ...
+Unpacking libxcb1:armhf (1.13.1-2) ...
+Selecting previously unselected package libx11-data.
+Preparing to unpack .../46-libx11-data_2%3a1.6.7-1_all.deb ...
+Unpacking libx11-data (2:1.6.7-1) ...
+Selecting previously unselected package libx11-6:armhf.
+Preparing to unpack .../47-libx11-6_2%3a1.6.7-1_armhf.deb ...
+Unpacking libx11-6:armhf (2:1.6.7-1) ...
+Selecting previously unselected package libxcb-render0:armhf.
+Preparing to unpack .../48-libxcb-render0_1.13.1-2_armhf.deb ...
+Unpacking libxcb-render0:armhf (1.13.1-2) ...
+Selecting previously unselected package libxcb-shm0:armhf.
+Preparing to unpack .../49-libxcb-shm0_1.13.1-2_armhf.deb ...
+Unpacking libxcb-shm0:armhf (1.13.1-2) ...
+Selecting previously unselected package libxext6:armhf.
+Preparing to unpack .../50-libxext6_2%3a1.3.3-1+b2_armhf.deb ...
+Unpacking libxext6:armhf (2:1.3.3-1+b2) ...
+Selecting previously unselected package libxrender1:armhf.
+Preparing to unpack .../51-libxrender1_1%3a0.9.10-1_armhf.deb ...
+Unpacking libxrender1:armhf (1:0.9.10-1) ...
+Selecting previously unselected package libcairo2:armhf.
+Preparing to unpack .../52-libcairo2_1.16.0-3_armhf.deb ...
+Unpacking libcairo2:armhf (1.16.0-3) ...
+Selecting previously unselected package libgomp1:armhf.
+Preparing to unpack .../53-libgomp1_8.3.0-2_armhf.deb ...
+Unpacking libgomp1:armhf (8.3.0-2) ...
+Selecting previously unselected package libubsan1:armhf.
+Preparing to unpack .../54-libubsan1_8.3.0-2_armhf.deb ...
+Unpacking libubsan1:armhf (8.3.0-2) ...
+Selecting previously unselected package libgcc-8-dev:armhf.
+Preparing to unpack .../55-libgcc-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libgcc-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libogg0:armhf.
+Preparing to unpack .../56-libogg0_1.3.2-1+b1_armhf.deb ...
+Unpacking libogg0:armhf (1.3.2-1+b1) ...
+Selecting previously unselected package libogg-dev:armhf.
+Preparing to unpack .../57-libogg-dev_1.3.2-1+b1_armhf.deb ...
+Unpacking libogg-dev:armhf (1.3.2-1+b1) ...
+Selecting previously unselected package libspeex1:armhf.
+Preparing to unpack .../58-libspeex1_1.2~rc1.2-1+b2_armhf.deb ...
+Unpacking libspeex1:armhf (1.2~rc1.2-1+b2) ...
+Selecting previously unselected package libspeex-dev:armhf.
+Preparing to unpack .../59-libspeex-dev_1.2~rc1.2-1+b2_armhf.deb ...
+Unpacking libspeex-dev:armhf (1.2~rc1.2-1+b2) ...
+Selecting previously unselected package libssl1.1:armhf.
+Preparing to unpack .../60-libssl1.1_1.1.1b-1_armhf.deb ...
+Unpacking libssl1.1:armhf (1.1.1b-1) ...
+Selecting previously unselected package libssl-dev:armhf.
+Preparing to unpack .../61-libssl-dev_1.1.1b-1_armhf.deb ...
+Unpacking libssl-dev:armhf (1.1.1b-1) ...
+Selecting previously unselected package libstdc++-8-dev:armhf.
+Preparing to unpack .../62-libstdc++-8-dev_8.3.0-2_armhf.deb ...
+Unpacking libstdc++-8-dev:armhf (8.3.0-2) ...
+Selecting previously unselected package libtheora0:armhf.
+Preparing to unpack .../63-libtheora0_1.1.1+dfsg.1-15_armhf.deb ...
+Unpacking libtheora0:armhf (1.1.1+dfsg.1-15) ...
+Selecting previously unselected package libtheora-dev:armhf.
+Preparing to unpack .../64-libtheora-dev_1.1.1+dfsg.1-15_armhf.deb ...
+Unpacking libtheora-dev:armhf (1.1.1+dfsg.1-15) ...
+Selecting previously unselected package libvorbis0a:armhf.
+Preparing to unpack .../65-libvorbis0a_1.3.6-2_armhf.deb ...
+Unpacking libvorbis0a:armhf (1.3.6-2) ...
+Selecting previously unselected package libvorbisenc2:armhf.
+Preparing to unpack .../66-libvorbisenc2_1.3.6-2_armhf.deb ...
+Unpacking libvorbisenc2:armhf (1.3.6-2) ...
+Selecting previously unselected package libvorbisfile3:armhf.
+Preparing to unpack .../67-libvorbisfile3_1.3.6-2_armhf.deb ...
+Unpacking libvorbisfile3:armhf (1.3.6-2) ...
+Selecting previously unselected package libvorbis-dev:armhf.
+Preparing to unpack .../68-libvorbis-dev_1.3.6-2_armhf.deb ...
+Unpacking libvorbis-dev:armhf (1.3.6-2) ...
+Selecting previously unselected package pkg-config.
+Preparing to unpack .../69-pkg-config_0.29-6_amd64.deb ...
+Unpacking pkg-config (0.29-6) ...
+Selecting previously unselected package pkg-kde-tools.
+Preparing to unpack .../70-pkg-kde-tools_0.15.28_all.deb ...
+Unpacking pkg-kde-tools (0.15.28) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../71-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up mime-support (3.62) ...
+Setting up libarchive-zip-perl (1.64-1) ...
+Setting up libglib2.0-0:amd64 (2.58.3-1) ...
+No schema files found: doing nothing.
+Setting up linux-libc-dev:armhf (4.19.20-1) ...
+Setting up gettext-base (0.19.8.1-9) ...
+Setting up autotools-dev (20180224.1) ...
+Setting up libx11-data (2:1.6.7-1) ...
+Setting up libncurses6:amd64 (6.1+20181013-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up gcc-8-base:armhf (8.3.0-2) ...
+Setting up autopoint (0.19.8.1-9) ...
+Setting up libcroco3:amd64 (0.6.12-3) ...
+Setting up pkg-config (0.29-6) ...
+Setting up fonts-dejavu-core (2.37-1) ...
+Setting up d-shlibs (0.84) ...
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libmpdec2:amd64 (2.4.2-2) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up cdbs (0.4.158) ...
+Setting up libelf1:amd64 (0.176-1) ...
+Setting up libfile-stripnondeterminism-perl (1.1.1-1) ...
+Setting up libpython3.7-stdlib:amd64 (3.7.2-2) ...
+Setting up gettext (0.19.8.1-9) ...
+Setting up libtool (2.4.6-10) ...
+Setting up fontconfig-config (2.13.1-2) ...
+Setting up m4 (1.4.18-2) ...
+Setting up intltool-debian (0.35.0+20060710.5) ...
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up autoconf (2.69-11) ...
+Setting up dwz (0.12-3) ...
+Setting up groff-base (1.22.4-2) ...
+Setting up libpython3-stdlib:amd64 (3.7.2-1) ...
+Setting up automake (1:1.16.1-4) ...
+update-alternatives: using /usr/bin/automake-1.16 to provide /usr/bin/automake (automake) in auto mode
+Setting up python3.7 (3.7.2-2) ...
+Setting up po-debconf (1.0.21) ...
+Setting up python3 (3.7.2-1) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up pkg-kde-tools (0.15.28) ...
+Setting up libgcc1:armhf (1:8.3.0-2) ...
+Setting up dh-autoreconf (19) ...
+Setting up libc6:armhf (2.28-7) ...
+Setting up dh-strip-nondeterminism (1.1.1-1) ...
+Setting up libc6-dev:armhf (2.28-7) ...
+Setting up libbsd0:armhf (0.9.1-2) ...
+Setting up libstdc++6:armhf (8.3.0-2) ...
+Setting up libexpat1:armhf (2.2.6-1) ...
+Setting up libpixman-1-0:armhf (0.36.0-1) ...
+Setting up libxau6:armhf (1:1.0.8-1+b2) ...
+Setting up libxdmcp6:armhf (1:1.1.2-3) ...
+Setting up libxcb1:armhf (1.13.1-2) ...
+Setting up libogg0:armhf (1.3.2-1+b1) ...
+Setting up libspeex1:armhf (1.2~rc1.2-1+b2) ...
+Setting up libxcb-render0:armhf (1.13.1-2) ...
+Setting up libssl1.1:armhf (1.1.1b-1) ...
+Setting up debhelper (12.1.1) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Setting up libxcb-shm0:armhf (1.13.1-2) ...
+Setting up libogg-dev:armhf (1.3.2-1+b1) ...
+Setting up libgomp1:armhf (8.3.0-2) ...
+Setting up libasan5:armhf (8.3.0-2) ...
+Setting up libssl-dev:armhf (1.1.1b-1) ...
+Setting up libpng16-16:armhf (1.6.36-5) ...
+Setting up libatomic1:armhf (8.3.0-2) ...
+Setting up libvorbis0a:armhf (1.3.6-2) ...
+Setting up libuuid1:armhf (2.33.1-0.1) ...
+Setting up libspeex-dev:armhf (1.2~rc1.2-1+b2) ...
+Setting up dh-buildinfo (0.11+nmu2) ...
+Setting up libubsan1:armhf (8.3.0-2) ...
+Setting up libx11-6:armhf (2:1.6.7-1) ...
+Setting up libvorbisenc2:armhf (1.3.6-2) ...
+Setting up libxrender1:armhf (1:0.9.10-1) ...
+Setting up libxext6:armhf (2:1.3.3-1+b2) ...
+Setting up libvorbisfile3:armhf (1.3.6-2) ...
+Setting up libfreetype6:armhf (2.9.1-3) ...
+Setting up libgcc-8-dev:armhf (8.3.0-2) ...
+Setting up libfontconfig1:armhf (2.13.1-2) ...
+Setting up libstdc++-8-dev:armhf (8.3.0-2) ...
+Setting up libvorbis-dev:armhf (1.3.6-2) ...
+Setting up libcairo2:armhf (1.16.0-3) ...
+Setting up libtheora0:armhf (1.1.1+dfsg.1-15) ...
+Setting up libtheora-dev:armhf (1.1.1+dfsg.1-15) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for libc-bin (2.28-7) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.31.1-14 dpkg-dev_1.19.5 g++-8_8.3.0-2 gcc-8_8.3.0-2 libc6-dev_2.28-7 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 linux-libc-dev_4.19.20-1
+Package versions: adduser_3.118 apt_1.8.0~rc4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-9 autotools-dev_20180224.1 base-files_10.1 base-passwd_3.5.46 bash_5.0-2 binutils_2.31.1-14 binutils-arm-linux-gnueabihf_2.31.1-14 binutils-common_2.31.1-14 binutils-x86-64-linux-gnu_2.31.1-14 bsdmainutils_11.1.2+b1 bsdutils_1:2.33.1-0.1 build-essential_12.5 bzip2_1.0.6-9 ca-certificates_20190110 ccache_3.6-1 cdbs_0.4.158 coreutils_8.30-2 cpp_4:8.2.0-2 cpp-8_8.3.0-2 cpp-8-arm-linux-gnueabihf_8.2.0-20cross1 cpp-arm-linux-gnueabihf_4:8.2.0-2 cross-config_2.6.15-2 crossbuild-essential-armhf_12.5 d-shlibs_0.84 dash_0.5.10.2-5 debconf_1.5.71 debhelper_12.1.1 debian-archive-keyring_2018.1 debianutils_4.8.6.1 dh-autoreconf_19 dh-buildinfo_0.11+nmu2 dh-strip-nondeterminism_1.1.1-1 diffutils_1:3.7-2 dirmngr_2.2.12-1 dpkg_1.19.5 dpkg-cross_2.6.15-2 dpkg-dev_1.19.5 dwz_0.12-3 e2fsprogs_1.44.5-1 eatmydata_105-7 fakeroot_1.23-1 fdisk_2.33.1-0.1 file_1:5.35-2 findutils_4.6.0+git+20190209-2 fontconfig-config_2.13.1-2 fonts-dejavu-core_2.37-1 g++_4:8.2.0-2 g++-8_8.3.0-2 g++-8-arm-linux-gnueabihf_8.2.0-20cross1 g++-arm-linux-gnueabihf_4:8.2.0-2 gcc_4:8.2.0-2 gcc-8_8.3.0-2 gcc-8-arm-linux-gnueabihf_8.2.0-20cross1 gcc-8-arm-linux-gnueabihf-base_8.2.0-20cross1 gcc-8-base_8.3.0-2 gcc-8-cross-base_8.2.0-20cross1 gcc-arm-linux-gnueabihf_4:8.2.0-2 gettext_0.19.8.1-9 gettext-base_0.19.8.1-9 gnupg_2.2.12-1 gnupg-l10n_2.2.12-1 gnupg-utils_2.2.12-1 gpg_2.2.12-1 gpg-agent_2.2.12-1 gpg-wks-client_2.2.12-1 gpg-wks-server_2.2.12-1 gpgconf_2.2.12-1 gpgsm_2.2.12-1 gpgv_2.2.12-1 grep_3.3-1 groff-base_1.22.4-2 gzip_1.9-3 hostname_3.21 init-system-helpers_1.56+nmu1 intltool-debian_0.35.0+20060710.5 libacl1_2.2.52-5 libapt-pkg5.0_1.8.0~rc4 libarchive-zip-perl_1.64-1 libasan5_8.3.0-2 libasan5-armhf-cross_8.2.0-20cross1 libassuan0_2.5.2-1 libatomic1_8.3.0-2 libatomic1-armhf-cross_8.2.0-20cross1 libattr1_1:2.4.47-4 libaudit-common_1:2.8.4-2 libaudit1_1:2.8.4-2 libauthen-sasl-perl_2.1600-1 libbinutils_2.31.1-14 libblkid1_2.33.1-0.1 libbsd0_0.9.1-2 libbz2-1.0_1.0.6-9 libc-bin_2.28-7 libc-dev-bin_2.28-7 libc6_2.28-7 libc6-armhf-cross_2.28-4cross1 libc6-dev_2.28-7 libc6-dev-armhf-cross_2.28-4cross1 libcairo2_1.16.0-3 libcap-ng0_0.7.9-2 libcc1-0_8.3.0-2 libcom-err2_1.44.5-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000001-1 libcroco3_0.6.12-3 libdata-dump-perl_1.23-1 libdb5.3_5.3.28+dfsg1-0.5 libdebconfclient0_0.247 libdebian-dpkgcross-perl_2.6.15-2 libdpkg-perl_1.19.5 libeatmydata1_105-7 libelf1_0.176-1 libencode-locale-perl_1.05-1 libexpat1_2.2.6-1 libext2fs2_1.44.5-1 libfakeroot_1.23-1 libfdisk1_2.33.1-0.1 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-listing-perl_6.04-1 libfile-stripnondeterminism-perl_1.1.1-1 libfile-which-perl_1.23-1 libfont-afm-perl_1.20-2 libfontconfig1_2.13.1-2 libfreetype6_2.9.1-3 libgcc-8-dev_8.3.0-2 libgcc-8-dev-armhf-cross_8.2.0-20cross1 libgcc1_1:8.3.0-2 libgcc1-armhf-cross_1:8.2.0-20cross1 libgcrypt20_1.8.4-5 libgdbm-compat4_1.18.1-3 libgdbm6_1.18.1-3 libglib2.0-0_2.58.3-1 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.6-2 libgomp1_8.3.0-2 libgomp1-armhf-cross_8.2.0-20cross1 libgpg-error0_1.35-1 libhogweed4_3.4.1-1 libhtml-form-perl_6.03-1 libhtml-format-perl_2.12-1 libhtml-parser-perl_3.72-3+b3 libhtml-tagset-perl_3.20-3 libhtml-tree-perl_5.07-2 libhttp-cookies-perl_6.04-1 libhttp-daemon-perl_6.01-1 libhttp-date-perl_6.02-1 libhttp-message-perl_6.18-1 libhttp-negotiate-perl_6.01-1 libicu63_63.1-6 libidn2-0_2.0.5-1 libio-html-perl_1.001-1 libio-socket-ssl-perl_2.060-3 libio-string-perl_1.08-3 libisl19_0.20-2 libitm1_8.3.0-2 libksba8_1.3.5-2 libldap-2.4-2_2.4.47+dfsg-3 libldap-common_2.4.47+dfsg-3 liblocale-gettext-perl_1.07-3+b4 liblsan0_8.3.0-2 liblwp-mediatypes-perl_6.02-1 liblwp-protocol-https-perl_6.07-2 liblz4-1_1.8.3-1 liblzma5_5.2.4-1 libmagic-mgc_1:5.35-2 libmagic1_1:5.35-2 libmailtools-perl_2.18-1 libmount1_2.33.1-0.1 libmpc3_1.1.0-1 libmpdec2_2.4.2-2 libmpfr6_4.0.2-1 libmpx2_8.3.0-2 libncurses6_6.1+20181013-2 libncursesw6_6.1+20181013-2 libnet-http-perl_6.18-1 libnet-smtp-ssl-perl_1.04-1 libnet-ssleay-perl_1.85-2+b1 libnettle6_3.4.1-1 libnpth0_1.6-1 libogg-dev_1.3.2-1+b1 libogg0_1.3.2-1+b1 libp11-kit0_0.23.15-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpcre3_2:8.39-11 libperl5.28_5.28.1-4 libpipeline1_1.5.1-2 libpixman-1-0_0.36.0-1 libpng16-16_1.6.36-5 libpython3-stdlib_3.7.2-1 libpython3.7-minimal_3.7.2-2 libpython3.7-stdlib_3.7.2-2 libquadmath0_8.3.0-2 libreadline7_7.0-5 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.3.3-4 libselinux1_2.8-1+b1 libsemanage-common_2.8-2 libsemanage1_2.8-2 libsepol1_2.8-1 libsigsegv2_2.12-2 libsmartcols1_2.33.1-0.1 libspeex-dev_1.2~rc1.2-1+b2 libspeex1_1.2~rc1.2-1+b2 libsqlite3-0_3.27.2-1 libss2_1.44.5-1 libssl-dev_1.1.1b-1 libssl1.1_1.1.1b-1 libstdc++-8-dev_8.3.0-2 libstdc++-8-dev-armhf-cross_8.2.0-20cross1 libstdc++6_8.3.0-2 libstdc++6-armhf-cross_8.2.0-20cross1 libsystemd0_241-1 libtasn1-6_4.13-3 libtheora-dev_1.1.1+dfsg.1-15 libtheora0_1.1.1+dfsg.1-15 libtimedate-perl_2.3000-2 libtinfo6_6.1+20181013-2 libtool_2.4.6-10 libtry-tiny-perl_0.30-1 libtsan0_8.3.0-2 libubsan1_8.3.0-2 libubsan1-armhf-cross_8.2.0-20cross1 libuchardet0_0.0.6-3 libudev1_241-1 libunistring2_0.9.10-1 liburi-perl_1.76-1 libuuid1_2.33.1-0.1 libvorbis-dev_1.3.6-2 libvorbis0a_1.3.6-2 libvorbisenc2_1.3.6-2 libvorbisfile3_1.3.6-2 libwww-perl_6.36-1 libwww-robotrules-perl_6.02-1 libx11-6_2:1.6.7-1 libx11-data_2:1.6.7-1 libxau6_1:1.0.8-1+b2 libxcb-render0_1.13.1-2 libxcb-shm0_1.13.1-2 libxcb1_1.13.1-2 libxdmcp6_1:1.1.2-3 libxext6_2:1.3.3-1+b2 libxml-libxml-perl_2.0134+dfsg-1 libxml-namespacesupport-perl_1.12-1 libxml-parser-perl_2.44-3 libxml-sax-base-perl_1.09-1 libxml-sax-expat-perl_0.51-1 libxml-sax-perl_1.00+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-7+b3 libxrender1_1:0.9.10-1 libyaml-0-2_0.2.1-1 libyaml-libyaml-perl_0.76+repack-1 libyaml-perl_1.27-1 libzstd1_1.3.8+dfsg-3 linux-libc-dev_4.19.20-1 linux-libc-dev-armhf-cross_4.19.13-1cross1 login_1:4.5-1.1 lsb-base_10.2018112800 m4_1.4.18-2 make_4.2.1-1.2 man-db_2.8.5-2 mawk_1.3.3-17+b3 mime-support_3.62 mount_2.33.1-0.1 ncurses-base_6.1+20181013-2 ncurses-bin_6.1+20181013-2 netbase_5.6 openssl_1.1.1b-1 passwd_1:4.5-1.1 patch_2.7.6-3 perl_5.28.1-4 perl-base_5.28.1-4 perl-modules-5.28_5.28.1-4 perl-openssl-defaults_3 pinentry-curses_1.1.0-1+b1 pkg-config_0.29-6 pkg-kde-tools_0.15.28 po-debconf_1.0.21 python3_3.7.2-1 python3-minimal_3.7.2-1 python3.7_3.7.2-2 python3.7-minimal_3.7.2-2 readline-common_7.0-5 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12 sysvinit-utils_2.93-8 tar_1.30+dfsg-5 tzdata_2018i-1 ucf_3.0038+nmu1 util-linux_2.33.1-0.1 uuid-runtime_2.33.1-0.1 xz-utils_5.2.4-1 zlib1g_1:1.2.11.dfsg-1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 3.0 (quilt)
+Source: libshout
+Binary: libshout3-dev, libshout3
+Architecture: any
+Version: 2.4.1-2
+Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
+Uploaders: Jonas Smedegaard <dr@jones.dk>, Guillaume Pellerin <yomguy@altern.org>, Romain Beauxis <toots@rastageeks.org>, Ying-Chun Liu <grandpaul@gmail.com>
+Homepage: http://www.icecast.org/
+Standards-Version: 4.1.1
+Vcs-Browser: https://anonscm.debian.org/git/pkg-multimedia/libshout.git
+Vcs-Git: https://anonscm.debian.org/git/pkg-multimedia/libshout.git
+Build-Depends: cdbs, autotools-dev, libtool, automake, autoconf, debhelper, dh-buildinfo, libogg-dev, libvorbis-dev, pkg-config, libtheora-dev, libspeex-dev, libssl-dev, d-shlibs (>= 0.48), pkg-kde-tools
+Package-List:
+ libshout3 deb libs optional arch=any
+ libshout3-dev deb libdevel optional arch=any
+Checksums-Sha1:
+ cca5606f38e84a4c46223796b06cf7483abaa32f 516161 libshout_2.4.1.orig.tar.gz
+ 8bf50be9091f1e0c75281ce90fa38afbd1100f54 14384 libshout_2.4.1-2.debian.tar.xz
+Checksums-Sha256:
+ f3acb8dec26f2dbf6df778888e0e429a4ce9378a9d461b02a7ccbf2991bbf24d 516161 libshout_2.4.1.orig.tar.gz
+ fae323e82d14fc6f2e44595e8be67d6a7fe090cc1298aeb79716140922a424fc 14384 libshout_2.4.1-2.debian.tar.xz
+Files:
+ 89cebf8cb0197f639cde69c95177fe47 516161 libshout_2.4.1.orig.tar.gz
+ 4dec9893402c5c1ab837d2bf341936c2 14384 libshout_2.4.1-2.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQJIBAEBCgAyFiEE+Ixt5DaZ6POztUwQx/FnbeotAe8FAloa8GkUHGpjb3dnaWxs
+QGRlYmlhbi5vcmcACgkQx/FnbeotAe98FA//fuZXx5mOiWXnLDtKmB6Cd8dajg4r
+T31CXby/gKmMV1wOTz2C7T8c3cKW1K7cY8V7usTBtbKd8ZfN8xYpcx3LlITM5F77
++V7RyjdINaIjBqUlz6l79Vkofc9SaZS3pawtQ2Zpx2nCTppbvpLFCFFgn1NEQkph
+QtqPwixdVUPQm7+64fCpmx7+WFfNsLMCPB51hR/5x5hRw4X1jsdrbMVK4Tf6dJwd
+LK2TvcWVIDiYmmGASLHj2k7kdqH5HUSVbACRFlDni7jBBP1n7pciEOdKZi32ePTi
+/v6gH7JBBnzCYtfcaOj4f+tY2UWM+zztNIJQFuvu+zhClLZGA1E7pl3MtGK/Vfdz
+NrU8QYyUXw1Vr37L3mtW9NVG335V7QIOamAcFxRKb00JElqLbmAWvV9j4Tp9cSdf
+PJ54ojDVThlqCbvj5AfCfIK00XM3QrboNke722+EheSZ+MXkfyFqp7GdCIwaeOnr
+QqiDKExyifb+NIVOZREcOURpQ+zCzGuZMKB7BQrNNMQqiXHk0R0O/i5xhhsHi0Av
+t7DnzATUmpCJfADcajLdODL7nB+D9+e4ZLMsn2WnN+qqjnScMYCvIUKtF1WQi4Ht
+uS6SvNiVFEqXCYsVIyOmnSJS+/a8StO40T/eeDpafmzJRlJMxqzU7q+nGnhNn764
+Tk+LcWx1vZzwE68=
+=BiUR
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Sun Nov 26 16:48:41 2017 UTC
+gpgv:                using RSA key F88C6DE43699E8F3B3B54C10C7F1676DEA2D01EF
+gpgv:                issuer "jcowgill@debian.org"
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./libshout_2.4.1-2.dsc
+dpkg-source: info: extracting libshout in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking libshout_2.4.1.orig.tar.gz
+dpkg-source: info: unpacking libshout_2.4.1-2.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 01-libshout-tls-compile-with-OpenSSL-1.1.0.patch
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-34727e6b-1d35-408b-a644-6a6284c4f5a2
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package libshout
+dpkg-buildpackage: info: source version 2.4.1-2
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by James Cowgill <jcowgill@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+CDBS WARNING:  copyright-check disabled - licensecheck is missing.
+test -x debian/rules
+rm -f debian/stamp-makefile-build debian/stamp-makefile-install
+CC="arm-linux-gnueabihf-gcc" CXX="arm-linux-gnueabihf-g++" PKG_CONFIG="arm-linux-gnueabihf-pkg-config" /usr/bin/make -C . -k distclean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+make[1]: *** No rule to make target 'distclean'.
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+make: [/usr/share/cdbs/1/class/makefile.mk:91: makefile-clean] Error 2 (ignored)
+rm -f debian/stamp-autotools
+rmdir --ignore-fail-on-non-empty .
+rmdir: failed to remove '.': Invalid argument
+make: [/usr/share/cdbs/1/class/autotools.mk:64: makefile-clean] Error 1 (ignored)
+set -e;    
+rm -f debian/copyright_newhints
+rm -f debian/cdbs-install-list debian/cdbs-package-list debian/stamp-copyright-check
+rm -rf "debian/upstream-cruft"
+rm -f debian/stamp-upstream-cruft
+rm -f debian/stamp-autotools-files
+dh_clean 
+rm -f debian/stamp-local-strip-la
+rm -f debian/stamp-local-shlibs-libshout
+rm -f m4/pkg.m4
+ debian/rules build-arch
+CDBS WARNING:  copyright-check disabled - licensecheck is missing.
+test -x debian/rules
+mkdir -p "."
+
+Scanning upstream source for new/changed copyright notices...
+
+set -e; LC_ALL=C.UTF-8 --check '.*' --recursive --copyright --deb-fmt --ignore '^(debian/(changelog|copyright(|_hints|_newhints)))$' --lines 0 * | /usr/lib/cdbs/licensecheck2dep5 > debian/copyright_newhints
+/bin/sh: 1: --check: not found
+0 combinations of copyright and licensing found.
+WARNING: 			New or changed notices discovered:
+
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+To fix the situation please do the following:
+  1) Examine debian/copyright_* and referenced files
+  2) Update debian/copyright as needed
+  3) Replace debian/copyright_hints with debian/copyright_newhints
+touch debian/stamp-copyright-check
+mkdir -p "debian/upstream-cruft"
+mv "Makefile.in" "debian/upstream-cruft/Makefile.in";      mv "doc/Makefile.in" "debian/upstream-cruft/doc/Makefile.in";      mv "examples/Makefile.in" "debian/upstream-cruft/examples/Makefile.in";      mv "include/Makefile.in" "debian/upstream-cruft/include/Makefile.in";      mv "include/shout/Makefile.in" "debian/upstream-cruft/include/shout/Makefile.in";      mv "src/Makefile.in" "debian/upstream-cruft/src/Makefile.in";      mv "win32/Makefile.in" "debian/upstream-cruft/win32/Makefile.in";                     mv "configure" "debian/upstream-cruft/configure";      mv "aclocal.m4" "debian/upstream-cruft/aclocal.m4";      mv "depcomp" "debian/upstream-cruft/depcomp";      mv "install-sh" "debian/upstream-cruft/install-sh";      mv "missing" "debian/upstream-cruft/missing";      mv "ltmain.sh" "debian/upstream-cruft/ltmain.sh";      mv "m4/libtool.m4" "debian/upstream-cruft/m4/libtool.m4";      mv "m4/ltoptions.m4" "debian/upstream-cruft/m4/ltoptions.m4";      mv "m4/ltversion.m4" "debian/upstream-cruft/m4/ltversion.m4";
+touch debian/stamp-upstream-cruft
+set -e;   mv ./config.guess ./config.guess.cdbs-orig; cp --remove-destination /usr/share/misc/config.guess ./config.guess;
+set -e;   mv ./config.sub ./config.sub.cdbs-orig; cp --remove-destination /usr/share/misc/config.sub ./config.sub;
+cd . && libtoolize -c -f
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+libtoolize: Consider adding 'AC_CONFIG_MACRO_DIRS([m4])' to configure.ac,
+libtoolize: and rerunning libtoolize and aclocal.
+cd . &&  aclocal -Im4 --install --force
+aclocal: installing 'm4/pkg.m4' from '/usr/share/aclocal/pkg.m4'
+cd . &&  autoconf 
+cd . &&  autoheader 
+cd . &&  automake --add-missing --copy --foreign --force
+configure.ac:24: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.  For more info, see:
+configure.ac:24: https://www.gnu.org/software/automake/manual/automake.html#Modernize-AM_005fINIT_005fAUTOMAKE-invocation
+configure.ac:34: installing './compile'
+configure.ac:24: installing './install-sh'
+configure.ac:24: installing './missing'
+examples/Makefile.am: installing './depcomp'
+src/Makefile.am:38: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+src/common/avl/Makefile.am:13: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+src/common/httpp/Makefile.am:12: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+src/common/net/Makefile.am:13: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+src/common/thread/Makefile.am:13: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+touch debian/stamp-autotools-files
+chmod a+x /<<PKGBUILDDIR>>/./configure
+mkdir -p .
+cd . && CC="arm-linux-gnueabihf-gcc" CXX="arm-linux-gnueabihf-g++" CFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security" CXXFLAGS="-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security" CPPFLAGS="-Wdate-time -D_FORTIFY_SOURCE=2" LDFLAGS="-Wl,-z,relro" /<<PKGBUILDDIR>>/./configure --build=x86_64-linux-gnu --host=arm-linux-gnueabihf --prefix=/usr --includedir="\${prefix}/include" --mandir="\${prefix}/share/man" --infodir="\${prefix}/share/info" --sysconfdir=/etc --localstatedir=/var --libexecdir="\${prefix}/lib/libshout" --srcdir=. --disable-maintainer-mode --disable-dependency-tracking --disable-silent-rules --libdir=\${prefix}/lib/arm-linux-gnueabihf
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-linux-gnueabihf-strip... arm-linux-gnueabihf-strip
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for arm-linux-gnueabihf-gcc... arm-linux-gnueabihf-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether arm-linux-gnueabihf-gcc accepts -g... yes
+checking for arm-linux-gnueabihf-gcc option to accept ISO C89... none needed
+checking whether arm-linux-gnueabihf-gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of arm-linux-gnueabihf-gcc... none
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking how to print strings... printf
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by arm-linux-gnueabihf-gcc... /usr/arm-linux-gnueabihf/bin/ld
+checking if the linker (/usr/arm-linux-gnueabihf/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/arm-linux-gnueabihf-nm -B
+checking the name lister (/usr/bin/arm-linux-gnueabihf-nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-unknown-linux-gnueabihf format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/arm-linux-gnueabihf/bin/ld option to reload object files... -r
+checking for arm-linux-gnueabihf-objdump... arm-linux-gnueabihf-objdump
+checking how to recognize dependent libraries... pass_all
+checking for arm-linux-gnueabihf-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for arm-linux-gnueabihf-ar... arm-linux-gnueabihf-ar
+checking for archiver @FILE support... @
+checking for arm-linux-gnueabihf-strip... (cached) arm-linux-gnueabihf-strip
+checking for arm-linux-gnueabihf-ranlib... arm-linux-gnueabihf-ranlib
+checking command to parse /usr/bin/arm-linux-gnueabihf-nm -B output from arm-linux-gnueabihf-gcc object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for arm-linux-gnueabihf-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking how to run the C preprocessor... arm-linux-gnueabihf-gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if arm-linux-gnueabihf-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-linux-gnueabihf-gcc option to produce PIC... -fPIC -DPIC
+checking if arm-linux-gnueabihf-gcc PIC flag -fPIC -DPIC works... yes
+checking if arm-linux-gnueabihf-gcc static flag -static works... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... yes
+checking if arm-linux-gnueabihf-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-linux-gnueabihf-gcc linker (/usr/arm-linux-gnueabihf/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for ANSI C header files... (cached) yes
+checking whether time.h and sys/time.h may both be included... yes
+checking for strings.h... (cached) yes
+checking sys/timeb.h usability... yes
+checking sys/timeb.h presence... yes
+checking for sys/timeb.h... yes
+checking for an ANSI C-conforming const... yes
+checking for inline... inline
+checking for inttypes.h... (cached) yes
+checking for uint32_t... yes
+checking for gettimeofday... yes
+checking for ftime... yes
+checking for library containing nanosleep... none required
+checking sys/socket.h usability... yes
+checking sys/socket.h presence... yes
+checking for sys/socket.h... yes
+checking for socklen_t... yes
+checking for va_copy... va_copy
+checking sys/select.h usability... yes
+checking sys/select.h presence... yes
+checking for sys/select.h... yes
+checking sys/uio.h usability... yes
+checking sys/uio.h presence... yes
+checking for sys/uio.h... yes
+checking winsock2.h usability... no
+checking winsock2.h presence... no
+checking for winsock2.h... no
+checking for library containing sethostent... none required
+checking for library containing getnameinfo... none required
+checking for endhostent... yes
+checking for getaddrinfo... yes
+checking for inet_aton... yes
+checking for writev... yes
+checking for struct sockaddr_storage.ss_family... yes
+checking for inet_pton... yes
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... no
+checking whether pthreads work with -Kthread... no
+checking whether pthreads work with -kthread... no
+checking for the pthreads library -llthread... no
+checking whether pthreads work with -pthread... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... no
+checking for pthread_spin_lock... yes
+checking for arm-linux-gnueabihf-pkg-config... /usr/bin/arm-linux-gnueabihf-pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for libogg... ok
+checking for VORBIS... yes
+checking for THEORA... yes
+checking for SPEEX... yes
+checking for pkg-config... yes
+checking for pkg-config... /usr/bin/pkg-config
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating include/Makefile
+config.status: creating include/shout/Makefile
+config.status: creating include/shout/shout.h
+config.status: creating src/Makefile
+config.status: creating src/common/net/Makefile
+config.status: creating src/common/timing/Makefile
+config.status: creating src/common/thread/Makefile
+config.status: creating src/common/avl/Makefile
+config.status: creating src/common/httpp/Makefile
+config.status: creating doc/Makefile
+config.status: creating examples/Makefile
+config.status: creating win32/Makefile
+config.status: creating shout.pc
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+touch debian/stamp-autotools
+CC="arm-linux-gnueabihf-gcc" CXX="arm-linux-gnueabihf-g++" PKG_CONFIG="arm-linux-gnueabihf-pkg-config" /usr/bin/make -C . 
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+/usr/bin/make  all-recursive
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+Making all in include
+make[3]: Entering directory '/<<PKGBUILDDIR>>/include'
+Making all in shout
+make[4]: Entering directory '/<<PKGBUILDDIR>>/include/shout'
+make[4]: Nothing to be done for 'all'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/include/shout'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/include'
+make[4]: Nothing to be done for 'all-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/include'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/include'
+Making all in src
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+Making all in common/avl
+make[4]: Entering directory '/<<PKGBUILDDIR>>/src/common/avl'
+/bin/bash ../../../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./..  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o libiceavl_la-avl.lo `test -f 'avl.c' || echo './'`avl.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./.. -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c avl.c  -fPIC -DPIC -o .libs/libiceavl_la-avl.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./.. -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c avl.c -o libiceavl_la-avl.o >/dev/null 2>&1
+/bin/bash ../../../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o libiceavl.la  libiceavl_la-avl.lo  
+libtool: link: arm-linux-gnueabihf-ar cru .libs/libiceavl.a .libs/libiceavl_la-avl.o 
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: arm-linux-gnueabihf-ranlib .libs/libiceavl.a
+libtool: link: ( cd ".libs" && rm -f "libiceavl.la" && ln -s "../libiceavl.la" "libiceavl.la" )
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/src/common/avl'
+Making all in common/net
+make[4]: Entering directory '/<<PKGBUILDDIR>>/src/common/net'
+/bin/bash ../../../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./..  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o libicenet_la-sock.lo `test -f 'sock.c' || echo './'`sock.c
+/bin/bash ../../../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./..  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o libicenet_la-resolver.lo `test -f 'resolver.c' || echo './'`resolver.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./.. -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c sock.c  -fPIC -DPIC -o .libs/libicenet_la-sock.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./.. -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c resolver.c  -fPIC -DPIC -o .libs/libicenet_la-resolver.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./.. -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c resolver.c -o libicenet_la-resolver.o >/dev/null 2>&1
+sock.c: In function ‘_shout_sock_get_server_socket’:
+sock.c:730:45: warning: ‘__builtin___snprintf_chk’ output may be truncated before the last format character [-Wformat-truncation=]
+     snprintf (service, sizeof (service), "%d", port);
+                                             ^
+In file included from /usr/arm-linux-gnueabihf/include/stdio.h:873,
+                 from sock.c:31:
+/usr/arm-linux-gnueabihf/include/bits/stdio2.h:67:10: note: ‘__builtin___snprintf_chk’ output between 2 and 11 bytes into a destination of size 10
+   return __builtin___snprintf_chk (__s, __n, __USE_FORTIFY_LEVEL - 1,
+          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        __bos (__s), __fmt, __va_arg_pack ());
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./.. -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c sock.c -o libicenet_la-sock.o >/dev/null 2>&1
+/bin/bash ../../../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o libicenet.la  libicenet_la-sock.lo libicenet_la-resolver.lo  
+libtool: link: arm-linux-gnueabihf-ar cru .libs/libicenet.a .libs/libicenet_la-sock.o .libs/libicenet_la-resolver.o 
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: arm-linux-gnueabihf-ranlib .libs/libicenet.a
+libtool: link: ( cd ".libs" && rm -f "libicenet.la" && ln -s "../libicenet.la" "libicenet.la" )
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/src/common/net'
+Making all in common/timing
+make[4]: Entering directory '/<<PKGBUILDDIR>>/src/common/timing'
+/bin/bash ../../../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../..   -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o libicetiming_la-timing.lo `test -f 'timing.c' || echo './'`timing.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c timing.c  -fPIC -DPIC -o .libs/libicetiming_la-timing.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c timing.c -o libicetiming_la-timing.o >/dev/null 2>&1
+/bin/bash ../../../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o libicetiming.la  libicetiming_la-timing.lo  
+libtool: link: arm-linux-gnueabihf-ar cru .libs/libicetiming.a .libs/libicetiming_la-timing.o 
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: arm-linux-gnueabihf-ranlib .libs/libicetiming.a
+libtool: link: ( cd ".libs" && rm -f "libicetiming.la" && ln -s "../libicetiming.la" "libicetiming.la" )
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/src/common/timing'
+Making all in common/httpp
+make[4]: Entering directory '/<<PKGBUILDDIR>>/src/common/httpp'
+/bin/bash ../../../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./.. -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o libicehttpp_la-httpp.lo `test -f 'httpp.c' || echo './'`httpp.c
+/bin/bash ../../../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./.. -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o libicehttpp_la-encoding.lo `test -f 'encoding.c' || echo './'`encoding.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./.. -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c encoding.c  -fPIC -DPIC -o .libs/libicehttpp_la-encoding.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./.. -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c httpp.c  -fPIC -DPIC -o .libs/libicehttpp_la-httpp.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./.. -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c httpp.c -o libicehttpp_la-httpp.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./.. -I/usr/include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c encoding.c -o libicehttpp_la-encoding.o >/dev/null 2>&1
+/bin/bash ../../../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o libicehttpp.la  libicehttpp_la-httpp.lo libicehttpp_la-encoding.lo  
+libtool: link: arm-linux-gnueabihf-ar cru .libs/libicehttpp.a .libs/libicehttpp_la-httpp.o .libs/libicehttpp_la-encoding.o 
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: arm-linux-gnueabihf-ranlib .libs/libicehttpp.a
+libtool: link: ( cd ".libs" && rm -f "libicehttpp.la" && ln -s "../libicehttpp.la" "libicehttpp.la" )
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/src/common/httpp'
+Making all in common/thread
+make[4]: Entering directory '/<<PKGBUILDDIR>>/src/common/thread'
+/bin/bash ../../../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./..  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o libicethread_la-thread.lo `test -f 'thread.c' || echo './'`thread.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./.. -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c thread.c  -fPIC -DPIC -o .libs/libicethread_la-thread.o
+thread.c: In function ‘_shout_thread_join’:
+thread.c:746:9: warning: variable ‘i’ set but not used [-Wunused-but-set-variable]
+     int i;
+         ^
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I../../.. -I./.. -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c thread.c -o libicethread_la-thread.o >/dev/null 2>&1
+/bin/bash ../../../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o libicethread.la  libicethread_la-thread.lo  
+libtool: link: arm-linux-gnueabihf-ar cru .libs/libicethread.a .libs/libicethread_la-thread.o 
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: arm-linux-gnueabihf-ranlib .libs/libicethread.a
+libtool: link: ( cd ".libs" && rm -f "libicethread.la" && ln -s "../libicethread.la" "libicethread.la" )
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/src/common/thread'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/src'
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o shout.lo shout.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o util.lo util.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o queue.lo queue.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o proto_http.lo proto_http.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o proto_xaudiocast.lo proto_xaudiocast.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o proto_icy.lo proto_icy.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o proto_roaraudio.lo proto_roaraudio.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o format_ogg.lo format_ogg.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o format_webm.lo format_webm.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o format_mp3.lo format_mp3.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o codec_vorbis.lo codec_vorbis.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o codec_opus.lo codec_opus.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o codec_theora.lo codec_theora.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o codec_speex.lo codec_speex.c
+/bin/bash ../libtool  --tag=CC   --mode=compile arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/  -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o tls.lo tls.c
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c proto_icy.c  -fPIC -DPIC -o .libs/proto_icy.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c shout.c  -fPIC -DPIC -o .libs/shout.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c proto_http.c  -fPIC -DPIC -o .libs/proto_http.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c proto_roaraudio.c  -fPIC -DPIC -o .libs/proto_roaraudio.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c format_mp3.c  -fPIC -DPIC -o .libs/format_mp3.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c util.c  -fPIC -DPIC -o .libs/util.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c format_webm.c  -fPIC -DPIC -o .libs/format_webm.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c proto_xaudiocast.c  -fPIC -DPIC -o .libs/proto_xaudiocast.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c queue.c  -fPIC -DPIC -o .libs/queue.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c format_ogg.c  -fPIC -DPIC -o .libs/format_ogg.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c codec_opus.c  -fPIC -DPIC -o .libs/codec_opus.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c tls.c  -fPIC -DPIC -o .libs/tls.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c codec_theora.c  -fPIC -DPIC -o .libs/codec_theora.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c codec_speex.c  -fPIC -DPIC -o .libs/codec_speex.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c codec_vorbis.c  -fPIC -DPIC -o .libs/codec_vorbis.o
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c util.c -o util.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c proto_icy.c -o proto_icy.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c format_webm.c -o format_webm.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c format_mp3.c -o format_mp3.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c proto_xaudiocast.c -o proto_xaudiocast.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c codec_speex.c -o codec_speex.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c codec_vorbis.c -o codec_vorbis.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c codec_theora.c -o codec_theora.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c format_ogg.c -o format_ogg.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c queue.c -o queue.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c proto_roaraudio.c -o proto_roaraudio.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c codec_opus.c -o codec_opus.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c tls.c -o tls.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c proto_http.c -o proto_http.o >/dev/null 2>&1
+libtool: compile:  arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I.. -I../include -I./common/ -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c shout.c -o shout.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -version-info 5:0:2 -Wl,-z,relro -o libshout.la -rpath /usr/lib/arm-linux-gnueabihf shout.lo util.lo queue.lo proto_http.lo proto_xaudiocast.lo proto_icy.lo proto_roaraudio.lo format_ogg.lo format_webm.lo format_mp3.lo codec_vorbis.lo codec_opus.lo codec_theora.lo codec_speex.lo tls.lo common/net/libicenet.la common/timing/libicetiming.la common/avl/libiceavl.la common/httpp/libicehttpp.la common/thread/libicethread.la -L/usr/lib/arm-linux-gnueabihf -ltheora -logg -L/usr/lib/arm-linux-gnueabihf -lvorbis -L/usr/lib/arm-linux-gnueabihf -lspeex  -L/usr/lib -lssl  -lspeex  LDFLAGS -L/usr/lib/arm-linux-gnueabihf -ltheora -logg  
+libtool: link: arm-linux-gnueabihf-gcc -shared  -fPIC -DPIC  .libs/shout.o .libs/util.o .libs/queue.o .libs/proto_http.o .libs/proto_xaudiocast.o .libs/proto_icy.o .libs/proto_roaraudio.o .libs/format_ogg.o .libs/format_webm.o .libs/format_mp3.o .libs/codec_vorbis.o .libs/codec_opus.o .libs/codec_theora.o .libs/codec_speex.o .libs/tls.o  -Wl,--whole-archive common/net/.libs/libicenet.a common/timing/.libs/libicetiming.a common/avl/.libs/libiceavl.a common/httpp/.libs/libicehttpp.a common/thread/.libs/libicethread.a -Wl,--no-whole-archive  -L/usr/lib/arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf/libvorbis.so -L/usr/lib -lssl -lspeex -ltheora -logg  -pthread -g -O2 -fstack-protector-strong -Wl,-z -Wl,relro   -pthread -Wl,-soname -Wl,libshout.so.3 -o .libs/libshout.so.3.2.0
+libtool: link: (cd ".libs" && rm -f "libshout.so.3" && ln -s "libshout.so.3.2.0" "libshout.so.3")
+libtool: link: (cd ".libs" && rm -f "libshout.so" && ln -s "libshout.so.3.2.0" "libshout.so")
+libtool: link: (cd .libs/libshout.lax/libicenet.a && arm-linux-gnueabihf-ar x "/<<PKGBUILDDIR>>/src/common/net/.libs/libicenet.a")
+libtool: link: (cd .libs/libshout.lax/libicetiming.a && arm-linux-gnueabihf-ar x "/<<PKGBUILDDIR>>/src/common/timing/.libs/libicetiming.a")
+libtool: link: (cd .libs/libshout.lax/libiceavl.a && arm-linux-gnueabihf-ar x "/<<PKGBUILDDIR>>/src/common/avl/.libs/libiceavl.a")
+libtool: link: (cd .libs/libshout.lax/libicehttpp.a && arm-linux-gnueabihf-ar x "/<<PKGBUILDDIR>>/src/common/httpp/.libs/libicehttpp.a")
+libtool: link: (cd .libs/libshout.lax/libicethread.a && arm-linux-gnueabihf-ar x "/<<PKGBUILDDIR>>/src/common/thread/.libs/libicethread.a")
+libtool: link: arm-linux-gnueabihf-ar cru .libs/libshout.a  shout.o util.o queue.o proto_http.o proto_xaudiocast.o proto_icy.o proto_roaraudio.o format_ogg.o format_webm.o format_mp3.o codec_vorbis.o codec_opus.o codec_theora.o codec_speex.o tls.o  .libs/libshout.lax/libicenet.a/libicenet_la-resolver.o .libs/libshout.lax/libicenet.a/libicenet_la-sock.o  .libs/libshout.lax/libicetiming.a/libicetiming_la-timing.o  .libs/libshout.lax/libiceavl.a/libiceavl_la-avl.o  .libs/libshout.lax/libicehttpp.a/libicehttpp_la-encoding.o .libs/libshout.lax/libicehttpp.a/libicehttpp_la-httpp.o  .libs/libshout.lax/libicethread.a/libicethread_la-thread.o 
+arm-linux-gnueabihf-ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: arm-linux-gnueabihf-ranlib .libs/libshout.a
+libtool: link: rm -fr .libs/libshout.lax
+libtool: link: ( cd ".libs" && rm -f "libshout.la" && ln -s "../libshout.la" "libshout.la" )
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+Making all in examples
+make[3]: Entering directory '/<<PKGBUILDDIR>>/examples'
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I/usr/include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o example.o example.c
+arm-linux-gnueabihf-gcc -DHAVE_CONFIG_H -I. -I..  -I/usr/include -I../include -Wdate-time -D_FORTIFY_SOURCE=2 -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -c -o nonblocking.o nonblocking.c
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o example example.o ../src/libshout.la  -L/usr/lib/arm-linux-gnueabihf -lvorbis -ltheora -logg -lspeex -L/usr/lib -lssl 
+/bin/bash ../libtool  --tag=CC   --mode=link arm-linux-gnueabihf-gcc -Wall -ffast-math -fsigned-char -pthread   -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security  -Wl,-z,relro -o nonblocking nonblocking.o ../src/libshout.la  -L/usr/lib/arm-linux-gnueabihf -lvorbis -ltheora -logg -lspeex -L/usr/lib -lssl 
+libtool: link: arm-linux-gnueabihf-gcc -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z -Wl,relro -o .libs/example example.o  ../src/.libs/libshout.so -L/usr/lib/arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf/libvorbis.so -ltheora -logg -lspeex -L/usr/lib -lssl -pthread
+libtool: link: arm-linux-gnueabihf-gcc -Wall -ffast-math -fsigned-char -pthread -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z -Wl,relro -o .libs/nonblocking nonblocking.o  ../src/.libs/libshout.so -L/usr/lib/arm-linux-gnueabihf /usr/lib/arm-linux-gnueabihf/libvorbis.so -ltheora -logg -lspeex -L/usr/lib -lssl -pthread
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/examples'
+Making all in doc
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+Making all in win32
+make[3]: Entering directory '/<<PKGBUILDDIR>>/win32'
+make[3]: Nothing to be done for 'all'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/win32'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+touch debian/stamp-makefile-build
+ fakeroot debian/rules binary-arch
+CDBS WARNING:  copyright-check disabled - licensecheck is missing.
+test -x debian/rules
+dh_testroot
+dh_prep 
+dh_installdirs -A 
+mkdir -p "."
+set -e;   
+set -e;   
+CC="arm-linux-gnueabihf-gcc" CXX="arm-linux-gnueabihf-g++" PKG_CONFIG="arm-linux-gnueabihf-pkg-config" /usr/bin/make -C . install DESTDIR=/<<PKGBUILDDIR>>/debian/tmp/
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+Making install in include
+make[2]: Entering directory '/<<PKGBUILDDIR>>/include'
+Making install in shout
+make[3]: Entering directory '/<<PKGBUILDDIR>>/include/shout'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/include/shout'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp//usr/include/shout'
+ /usr/bin/install -c -m 644 shout.h '/<<PKGBUILDDIR>>/debian/tmp//usr/include/shout'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/include/shout'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/include/shout'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/include'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/include'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/include'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/include'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/include'
+Making install in src
+make[2]: Entering directory '/<<PKGBUILDDIR>>/src'
+Making install in common/avl
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src/common/avl'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/src/common/avl'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/src/common/avl'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src/common/avl'
+Making install in common/net
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src/common/net'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/src/common/net'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/src/common/net'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src/common/net'
+Making install in common/timing
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src/common/timing'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/src/common/timing'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/src/common/timing'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src/common/timing'
+Making install in common/httpp
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src/common/httpp'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/src/common/httpp'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/src/common/httpp'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src/common/httpp'
+Making install in common/thread
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src/common/thread'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/src/common/thread'
+make[4]: Nothing to be done for 'install-exec-am'.
+make[4]: Nothing to be done for 'install-data-am'.
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/src/common/thread'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src/common/thread'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/src'
+make[4]: Entering directory '/<<PKGBUILDDIR>>/src'
+make[4]: Nothing to be done for 'install-data-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp//usr/lib/arm-linux-gnueabihf'
+ /bin/bash ../libtool   --mode=install /usr/bin/install -c   libshout.la '/<<PKGBUILDDIR>>/debian/tmp//usr/lib/arm-linux-gnueabihf'
+libtool: install: /usr/bin/install -c .libs/libshout.so.3.2.0 /<<PKGBUILDDIR>>/debian/tmp//usr/lib/arm-linux-gnueabihf/libshout.so.3.2.0
+libtool: install: (cd /<<PKGBUILDDIR>>/debian/tmp//usr/lib/arm-linux-gnueabihf && { ln -s -f libshout.so.3.2.0 libshout.so.3 || { rm -f libshout.so.3 && ln -s libshout.so.3.2.0 libshout.so.3; }; })
+libtool: install: (cd /<<PKGBUILDDIR>>/debian/tmp//usr/lib/arm-linux-gnueabihf && { ln -s -f libshout.so.3.2.0 libshout.so || { rm -f libshout.so && ln -s libshout.so.3.2.0 libshout.so; }; })
+libtool: install: /usr/bin/install -c .libs/libshout.lai /<<PKGBUILDDIR>>/debian/tmp//usr/lib/arm-linux-gnueabihf/libshout.la
+libtool: install: /usr/bin/install -c .libs/libshout.a /<<PKGBUILDDIR>>/debian/tmp//usr/lib/arm-linux-gnueabihf/libshout.a
+libtool: install: chmod 644 /<<PKGBUILDDIR>>/debian/tmp//usr/lib/arm-linux-gnueabihf/libshout.a
+libtool: install: arm-linux-gnueabihf-ranlib /<<PKGBUILDDIR>>/debian/tmp//usr/lib/arm-linux-gnueabihf/libshout.a
+libtool: warning: remember to run 'libtool --finish /usr/lib/arm-linux-gnueabihf'
+make[4]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/src'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/src'
+Making install in examples
+make[2]: Entering directory '/<<PKGBUILDDIR>>/examples'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/examples'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/examples'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/examples'
+Making install in doc
+make[2]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/doc'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/doc'
+Making install in win32
+make[2]: Entering directory '/<<PKGBUILDDIR>>/win32'
+make[3]: Entering directory '/<<PKGBUILDDIR>>/win32'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/<<PKGBUILDDIR>>/win32'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/win32'
+make[2]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Entering directory '/<<PKGBUILDDIR>>'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp//usr/lib/arm-linux-gnueabihf/ckport/db'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp//usr/share/doc/libshout'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp//usr/share/aclocal'
+ /bin/mkdir -p '/<<PKGBUILDDIR>>/debian/tmp//usr/lib/arm-linux-gnueabihf/pkgconfig'
+ /usr/bin/install -c -m 644 COPYING NEWS README examples/example.c examples/nonblocking.c '/<<PKGBUILDDIR>>/debian/tmp//usr/share/doc/libshout'
+ /usr/bin/install -c -m 644 libshout.ckport '/<<PKGBUILDDIR>>/debian/tmp//usr/lib/arm-linux-gnueabihf/ckport/db'
+ /usr/bin/install -c -m 644 m4/shout.m4 '/<<PKGBUILDDIR>>/debian/tmp//usr/share/aclocal'
+ /usr/bin/install -c -m 644 shout.pc '/<<PKGBUILDDIR>>/debian/tmp//usr/lib/arm-linux-gnueabihf/pkgconfig'
+make[3]: Leaving directory '/<<PKGBUILDDIR>>'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>'
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+touch debian/stamp-makefile-install
+Adding cdbs dependencies to debian/libshout3-dev.substvars
+dh_installdirs -plibshout3-dev \
+	
+Adding cdbs dependencies to debian/libshout3.substvars
+dh_installdirs -plibshout3 \
+	
+dh_installdocs -plibshout3-dev ./README ./NEWS
+dh_installexamples -plibshout3-dev examples/example.c
+dh_installman -plibshout3-dev 
+dh_installinfo -plibshout3-dev 
+dh_installmenu -plibshout3-dev 
+dh_installcron -plibshout3-dev 
+dh_systemd_enable -plibshout3-dev 
+dh_installinit -plibshout3-dev 
+dh_installdebconf -plibshout3-dev 
+dh_installemacsen -plibshout3-dev 
+dh_installcatalogs -plibshout3-dev 
+dh_installpam -plibshout3-dev 
+dh_installlogrotate -plibshout3-dev 
+dh_installlogcheck -plibshout3-dev 
+dh_installchangelogs -plibshout3-dev 
+dh_installudev -plibshout3-dev 
+dh_lintian -plibshout3-dev 
+dh_bugfiles -plibshout3-dev 
+dh_install -plibshout3-dev 
+dh_systemd_start -plibshout3-dev 
+dh_link -plibshout3-dev 
+dh_buildinfo -plibshout3-dev 
+dh_installmime -plibshout3-dev 
+dh_installgsettings -plibshout3-dev 
+dh_installdocs -plibshout3 ./README ./NEWS
+dh_installexamples -plibshout3 
+dh_installman -plibshout3 
+dh_installinfo -plibshout3 
+dh_installmenu -plibshout3 
+dh_installcron -plibshout3 
+dh_systemd_enable -plibshout3 
+dh_installinit -plibshout3 
+dh_installdebconf -plibshout3 
+dh_installemacsen -plibshout3 
+dh_installcatalogs -plibshout3 
+dh_installpam -plibshout3 
+dh_installlogrotate -plibshout3 
+dh_installlogcheck -plibshout3 
+dh_installchangelogs -plibshout3 
+dh_installudev -plibshout3 
+dh_lintian -plibshout3 
+dh_bugfiles -plibshout3 
+dh_install -plibshout3 
+dh_systemd_start -plibshout3 
+dh_link -plibshout3 
+dh_buildinfo -plibshout3 
+dh_installmime -plibshout3 
+dh_installgsettings -plibshout3 
+find debian -type f -name '*.la' -delete
+touch debian/stamp-local-strip-la
+d-shlibmove --commit \
+	--multiarch \
+	--override s/ld1-dev// \
+	--movedev "debian/tmp/usr/include/*" usr/include/ \
+	--movedev "debian/tmp/usr/lib/arm-linux-gnueabihf/pkgconfig/*" \
+		usr/lib/arm-linux-gnueabihf/pkgconfig \
+	debian/tmp/usr/lib/arm-linux-gnueabihf/libshout.so
+Library package automatic movement utility
+ --> libogg-dev package exists.
+ --> libspeex-dev package exists.
+ --> libssl-dev package exists.
+ --> libtheora-dev package exists.
+ --> libvorbis-dev package exists.
+set -e
+install -d -m 755 debian/libshout3-dev/usr/lib/arm-linux-gnueabihf
+install -d -m 755 debian/libshout3/usr/lib/arm-linux-gnueabihf
+mv debian/tmp/usr/lib/arm-linux-gnueabihf/libshout.a debian/libshout3-dev/usr/lib/arm-linux-gnueabihf
+mv debian/tmp/usr/lib/arm-linux-gnueabihf/libshout.la debian/libshout3-dev/usr/lib/arm-linux-gnueabihf || true
+mv debian/tmp/usr/lib/arm-linux-gnueabihf/libshout.so debian/libshout3-dev/usr/lib/arm-linux-gnueabihf
+mv /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libshout.so.3 debian/libshout3/usr/lib/arm-linux-gnueabihf
+mv /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/libshout.so.3.2.0 debian/libshout3/usr/lib/arm-linux-gnueabihf
+PKGDEV=libshout3-dev
+PKGSHL=libshout3
+install -d -m 755 debian/libshout3-dev/usr/include/
+mv debian/tmp/usr/include/* debian/libshout3-dev/usr/include/
+install -d -m 755 debian/libshout3-dev/usr/lib/arm-linux-gnueabihf/pkgconfig
+mv debian/tmp/usr/lib/arm-linux-gnueabihf/pkgconfig/* debian/libshout3-dev/usr/lib/arm-linux-gnueabihf/pkgconfig
+mv: cannot stat 'debian/tmp/usr/lib/arm-linux-gnueabihf/libshout.la': No such file or directory
+touch debian/stamp-local-shlibs-libshout
+dh_strip -plibshout3-dev  
+dh_strip_nondeterminism -plibshout3-dev 
+dh_compress -plibshout3-dev 
+dh_fixperms -plibshout3-dev 
+dh_makeshlibs -plibshout3-dev  
+dh_strip -plibshout3  
+dh_strip_nondeterminism -plibshout3 
+dh_compress -plibshout3 
+dh_fixperms -plibshout3 
+dh_makeshlibs -plibshout3  
+dh_installdeb -plibshout3-dev 
+dh_perl -plibshout3-dev 
+dh_shlibdeps -plibshout3-dev 
+dh_installdeb -plibshout3 
+dh_perl -plibshout3 
+dh_shlibdeps -plibshout3 
+dpkg-shlibdeps: warning: symbol X509_free used by debian/libshout3/usr/lib/arm-linux-gnueabihf/libshout.so.3.2.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol X509_NAME_get_index_by_NID used by debian/libshout3/usr/lib/arm-linux-gnueabihf/libshout.so.3.2.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol X509_get_subject_name used by debian/libshout3/usr/lib/arm-linux-gnueabihf/libshout.so.3.2.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol ASN1_STRING_length used by debian/libshout3/usr/lib/arm-linux-gnueabihf/libshout.so.3.2.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol X509_NAME_ENTRY_get_data used by debian/libshout3/usr/lib/arm-linux-gnueabihf/libshout.so.3.2.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol X509_NAME_get_entry used by debian/libshout3/usr/lib/arm-linux-gnueabihf/libshout.so.3.2.0 found in none of the libraries
+dpkg-shlibdeps: warning: symbol X509_NAME_get_text_by_NID used by debian/libshout3/usr/lib/arm-linux-gnueabihf/libshout.so.3.2.0 found in none of the libraries
+dh_gencontrol -plibshout3-dev  
+dh_md5sums -plibshout3-dev 
+dh_builddeb -plibshout3-dev 
+dpkg-deb: building package 'libshout3-dev' in '../libshout3-dev_2.4.1-2_armhf.deb'.
+dh_gencontrol -plibshout3  
+dh_md5sums -plibshout3 
+dh_builddeb -plibshout3 
+dpkg-deb: building package 'libshout3' in '../libshout3_2.4.1-2_armhf.deb'.
+dpkg-deb: building package 'libshout3-dbgsym' in '../libshout3-dbgsym_2.4.1-2_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../libshout_2.4.1-2_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-03-05T08:54:15Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+libshout_2.4.1-2_armhf.changes:
+-------------------------------
+
+Format: 1.8
+Date: Sun, 26 Nov 2017 16:46:32 +0000
+Source: libshout
+Binary: libshout3 libshout3-dbgsym libshout3-dev
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 2.4.1-2
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
+Changed-By: James Cowgill <jcowgill@debian.org>
+Description:
+ libshout3  - MP3/Ogg Vorbis broadcast streaming library
+ libshout3-dev - MP3/Ogg Vorbis broadcast streaming library (development)
+Closes: 873647
+Changes:
+ libshout (2.4.1-2) unstable; urgency=medium
+ .
+   * Team upload.
+   * Switch to OpenSSL 1.1. (Closes: #873647)
+     Thanks to Sebastian Andrzej Siewior for the patch.
+   * Bump standards version to 4.1.1 (no changes).
+Checksums-Sha1:
+ efaaa29ce5bb0c89a91624b0499070a203515387 118456 libshout3-dbgsym_2.4.1-2_armhf.deb
+ 293555b4e2a74cd31ee04214fc1584662a25a2ef 47684 libshout3-dev_2.4.1-2_armhf.deb
+ ea6b04a5519e489cce62ec0a541ccc66f6353f84 42940 libshout3_2.4.1-2_armhf.deb
+ 5def9b95da36606f279c81430f5175eefe00076d 6463 libshout_2.4.1-2_armhf.buildinfo
+Checksums-Sha256:
+ d41ee2bd4fc9bb82d086a3c595d865d753ce889705ca815648132894573d2c68 118456 libshout3-dbgsym_2.4.1-2_armhf.deb
+ 85d3ff0c9d6a712c868efe91687cc1b445aeca974a0677d8e00896d2e71befe1 47684 libshout3-dev_2.4.1-2_armhf.deb
+ 83ebfd9b919809965f5e1f98efbec3a8375e46a7fde77f5f067bba08ac04b0cc 42940 libshout3_2.4.1-2_armhf.deb
+ f9d4188f8c49ab780f74c06d69f5caecaa6af239ab28fce6a8201a579c79561e 6463 libshout_2.4.1-2_armhf.buildinfo
+Files:
+ 356f2d6313020547f0e1a62632a30a00 118456 debug optional libshout3-dbgsym_2.4.1-2_armhf.deb
+ 5d2c1edad1d3a1f1dada462993a98d6d 47684 libdevel optional libshout3-dev_2.4.1-2_armhf.deb
+ 7fbf238929c740d66db962f3275be166 42940 libs optional libshout3_2.4.1-2_armhf.deb
+ a4954546c5de69e9a3e47a32715ead98 6463 libs optional libshout_2.4.1-2_armhf.buildinfo
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: libshout
+Binary: libshout3-dev libshout3
+Architecture: armhf
+Version: 2.4.1-2
+Checksums-Md5:
+ 356f2d6313020547f0e1a62632a30a00 118456 libshout3-dbgsym_2.4.1-2_armhf.deb
+ 5d2c1edad1d3a1f1dada462993a98d6d 47684 libshout3-dev_2.4.1-2_armhf.deb
+ 7fbf238929c740d66db962f3275be166 42940 libshout3_2.4.1-2_armhf.deb
+Checksums-Sha1:
+ efaaa29ce5bb0c89a91624b0499070a203515387 118456 libshout3-dbgsym_2.4.1-2_armhf.deb
+ 293555b4e2a74cd31ee04214fc1584662a25a2ef 47684 libshout3-dev_2.4.1-2_armhf.deb
+ ea6b04a5519e489cce62ec0a541ccc66f6353f84 42940 libshout3_2.4.1-2_armhf.deb
+Checksums-Sha256:
+ d41ee2bd4fc9bb82d086a3c595d865d753ce889705ca815648132894573d2c68 118456 libshout3-dbgsym_2.4.1-2_armhf.deb
+ 85d3ff0c9d6a712c868efe91687cc1b445aeca974a0677d8e00896d2e71befe1 47684 libshout3-dev_2.4.1-2_armhf.deb
+ 83ebfd9b919809965f5e1f98efbec3a8375e46a7fde77f5f067bba08ac04b0cc 42940 libshout3_2.4.1-2_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Tue, 05 Mar 2019 08:54:15 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ adduser (= 3.118),
+ apt (= 1.8.0~rc4),
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-9),
+ autotools-dev (= 20180224.1),
+ base-files (= 10.1),
+ base-passwd (= 3.5.46),
+ bash (= 5.0-2),
+ binutils (= 2.31.1-14),
+ binutils-common (= 2.31.1-14),
+ binutils-x86-64-linux-gnu (= 2.31.1-14),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.33.1-0.1),
+ build-essential (= 12.5),
+ bzip2 (= 1.0.6-9),
+ cdbs (= 0.4.158),
+ coreutils (= 8.30-2),
+ cpp (= 4:8.2.0-2),
+ cpp-8 (= 8.3.0-2),
+ d-shlibs (= 0.84),
+ dash (= 0.5.10.2-5),
+ debconf (= 1.5.71),
+ debhelper (= 12.1.1),
+ debian-archive-keyring (= 2018.1),
+ debianutils (= 4.8.6.1),
+ dh-autoreconf (= 19),
+ dh-buildinfo (= 0.11+nmu2),
+ dh-strip-nondeterminism (= 1.1.1-1),
+ diffutils (= 1:3.7-2),
+ dpkg (= 1.19.5),
+ dpkg-dev (= 1.19.5),
+ dwz (= 0.12-3),
+ fdisk (= 2.33.1-0.1),
+ file (= 1:5.35-2),
+ findutils (= 4.6.0+git+20190209-2),
+ fontconfig-config (= 2.13.1-2),
+ fonts-dejavu-core (= 2.37-1),
+ g++ (= 4:8.2.0-2),
+ g++-8 (= 8.3.0-2),
+ gcc (= 4:8.2.0-2),
+ gcc-8 (= 8.3.0-2),
+ gcc-8-base (= 8.3.0-2),
+ gettext (= 0.19.8.1-9),
+ gettext-base (= 0.19.8.1-9),
+ gpgv (= 2.2.12-1),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-2),
+ gzip (= 1.9-3),
+ hostname (= 3.21),
+ init-system-helpers (= 1.56+nmu1),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.52-5),
+ libapt-pkg5.0 (= 1.8.0~rc4),
+ libarchive-zip-perl (= 1.64-1),
+ libasan5 (= 8.3.0-2),
+ libatomic1 (= 8.3.0-2),
+ libattr1 (= 1:2.4.47-4),
+ libaudit-common (= 1:2.8.4-2),
+ libaudit1 (= 1:2.8.4-2),
+ libbinutils (= 2.31.1-14),
+ libblkid1 (= 2.33.1-0.1),
+ libbsd0 (= 0.9.1-2),
+ libbz2-1.0 (= 1.0.6-9),
+ libc-bin (= 2.28-7),
+ libc-dev-bin (= 2.28-7),
+ libc6 (= 2.28-7),
+ libc6-dev (= 2.28-7),
+ libcairo2 (= 1.16.0-3),
+ libcap-ng0 (= 0.7.9-2),
+ libcc1-0 (= 8.3.0-2),
+ libcroco3 (= 0.6.12-3),
+ libdb5.3 (= 5.3.28+dfsg1-0.5),
+ libdebconfclient0 (= 0.247),
+ libdpkg-perl (= 1.19.5),
+ libelf1 (= 0.176-1),
+ libexpat1 (= 2.2.6-1),
+ libfdisk1 (= 2.33.1-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.1.1-1),
+ libfontconfig1 (= 2.13.1-2),
+ libfreetype6 (= 2.9.1-3),
+ libgcc-8-dev (= 8.3.0-2),
+ libgcc1 (= 1:8.3.0-2),
+ libgcrypt20 (= 1.8.4-5),
+ libgdbm-compat4 (= 1.18.1-3),
+ libgdbm6 (= 1.18.1-3),
+ libglib2.0-0 (= 2.58.3-1),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgnutls30 (= 3.6.6-2),
+ libgomp1 (= 8.3.0-2),
+ libgpg-error0 (= 1.35-1),
+ libhogweed4 (= 3.4.1-1),
+ libicu63 (= 63.1-6),
+ libidn2-0 (= 2.0.5-1),
+ libisl19 (= 0.20-2),
+ libitm1 (= 8.3.0-2),
+ liblsan0 (= 8.3.0-2),
+ liblz4-1 (= 1.8.3-1),
+ liblzma5 (= 5.2.4-1),
+ libmagic-mgc (= 1:5.35-2),
+ libmagic1 (= 1:5.35-2),
+ libmount1 (= 2.33.1-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpdec2 (= 2.4.2-2),
+ libmpfr6 (= 4.0.2-1),
+ libmpx2 (= 8.3.0-2),
+ libncurses6 (= 6.1+20181013-2),
+ libncursesw6 (= 6.1+20181013-2),
+ libnettle6 (= 3.4.1-1),
+ libogg-dev (= 1.3.2-1+b1),
+ libogg0 (= 1.3.2-1+b1),
+ libp11-kit0 (= 0.23.15-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre3 (= 2:8.39-11),
+ libperl5.28 (= 5.28.1-4),
+ libpipeline1 (= 1.5.1-2),
+ libpixman-1-0 (= 0.36.0-1),
+ libpng16-16 (= 1.6.36-5),
+ libpython3-stdlib (= 3.7.2-1),
+ libpython3.7-minimal (= 3.7.2-2),
+ libpython3.7-stdlib (= 3.7.2-2),
+ libquadmath0 (= 8.3.0-2),
+ libreadline7 (= 7.0-5),
+ libseccomp2 (= 2.3.3-4),
+ libselinux1 (= 2.8-1+b1),
+ libsemanage-common (= 2.8-2),
+ libsemanage1 (= 2.8-2),
+ libsepol1 (= 2.8-1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.33.1-0.1),
+ libspeex-dev (= 1.2~rc1.2-1+b2),
+ libspeex1 (= 1.2~rc1.2-1+b2),
+ libsqlite3-0 (= 3.27.2-1),
+ libssl-dev (= 1.1.1b-1),
+ libssl1.1 (= 1.1.1b-1),
+ libstdc++-8-dev (= 8.3.0-2),
+ libstdc++6 (= 8.3.0-2),
+ libsystemd0 (= 241-1),
+ libtasn1-6 (= 4.13-3),
+ libtheora-dev (= 1.1.1+dfsg.1-15),
+ libtheora0 (= 1.1.1+dfsg.1-15),
+ libtinfo6 (= 6.1+20181013-2),
+ libtool (= 2.4.6-10),
+ libtsan0 (= 8.3.0-2),
+ libubsan1 (= 8.3.0-2),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 241-1),
+ libunistring2 (= 0.9.10-1),
+ libuuid1 (= 2.33.1-0.1),
+ libvorbis-dev (= 1.3.6-2),
+ libvorbis0a (= 1.3.6-2),
+ libvorbisenc2 (= 1.3.6-2),
+ libvorbisfile3 (= 1.3.6-2),
+ libx11-6 (= 2:1.6.7-1),
+ libx11-data (= 2:1.6.7-1),
+ libxau6 (= 1:1.0.8-1+b2),
+ libxcb-render0 (= 1.13.1-2),
+ libxcb-shm0 (= 1.13.1-2),
+ libxcb1 (= 1.13.1-2),
+ libxdmcp6 (= 1:1.1.2-3),
+ libxext6 (= 2:1.3.3-1+b2),
+ libxml2 (= 2.9.4+dfsg1-7+b3),
+ libxrender1 (= 1:0.9.10-1),
+ libzstd1 (= 1.3.8+dfsg-3),
+ linux-libc-dev (= 4.19.20-1),
+ login (= 1:4.5-1.1),
+ m4 (= 1.4.18-2),
+ make (= 4.2.1-1.2),
+ man-db (= 2.8.5-2),
+ mawk (= 1.3.3-17+b3),
+ mime-support (= 3.62),
+ ncurses-base (= 6.1+20181013-2),
+ ncurses-bin (= 6.1+20181013-2),
+ passwd (= 1:4.5-1.1),
+ patch (= 2.7.6-3),
+ perl (= 5.28.1-4),
+ perl-base (= 5.28.1-4),
+ perl-modules-5.28 (= 5.28.1-4),
+ pkg-config (= 0.29-6),
+ pkg-kde-tools (= 0.15.28),
+ po-debconf (= 1.0.21),
+ python3 (= 3.7.2-1),
+ python3-minimal (= 3.7.2-1),
+ python3.7 (= 3.7.2-2),
+ python3.7-minimal (= 3.7.2-2),
+ readline-common (= 7.0-5),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12),
+ sysvinit-utils (= 2.93-8),
+ tar (= 1.30+dfsg-5),
+ ucf (= 3.0038+nmu1),
+ util-linux (= 2.33.1-0.1),
+ xz-utils (= 5.2.4-1),
+ zlib1g (= 1:1.2.11.dfsg-1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1511714792"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+libshout3-dbgsym_2.4.1-2_armhf.deb
+----------------------------------
+
+ new Debian package, version 2.0.
+ size 118456 bytes: control archive=548 bytes.
+     404 bytes,    13 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: libshout3-dbgsym
+ Source: libshout
+ Version: 2.4.1-2
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
+ Installed-Size: 147
+ Depends: libshout3 (= 2.4.1-2)
+ Section: debug
+ Priority: optional
+ Multi-Arch: same
+ Description: debug symbols for libshout3
+ Build-Ids: cc00d05aeefa05ceaacf012bd6bb03e99a12047d
+
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/lib/
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/lib/debug/.build-id/cc/
+-rw-r--r-- root/root    139604 2017-11-26 16:46 ./usr/lib/debug/.build-id/cc/00d05aeefa05ceaacf012bd6bb03e99a12047d.debug
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/share/
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2017-11-26 16:46 ./usr/share/doc/libshout3-dbgsym -> libshout3
+
+
+libshout3-dev_2.4.1-2_armhf.deb
+-------------------------------
+
+ new Debian package, version 2.0.
+ size 47684 bytes: control archive=1260 bytes.
+    1172 bytes,    26 lines      control              
+     730 bytes,    10 lines      md5sums              
+ Package: libshout3-dev
+ Source: libshout
+ Version: 2.4.1-2
+ Architecture: armhf
+ Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
+ Installed-Size: 143
+ Depends: libshout3 (= 2.4.1-2), libogg-dev, libspeex-dev, libssl-dev, libtheora-dev, libvorbis-dev, pkg-config
+ Conflicts: libshout-dev
+ Provides: libshout-dev
+ Section: libdevel
+ Priority: optional
+ Multi-Arch: same
+ Homepage: http://www.icecast.org/
+ Description: MP3/Ogg Vorbis broadcast streaming library (development)
+  A library for communicating with and sending data to Icecast and Icecast 2
+  streaming audio servers.  It handles the socket connection, the timing of
+  the data transmission, and prevents bad data from getting to the server.
+  .
+  With just a few lines of code, a programmer can easily turn any application
+  into a streaming source for an Icecast-based server.  Libshout also allows
+  developers who want a specific feature set (database access, request taking)
+  to concentrate on that feature set, instead of worrying about how server
+  communication works.
+  .
+  This package contains the development headers, static libraries, and source
+  code to an example program.
+
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/include/
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/include/shout/
+-rw-r--r-- root/root     10347 2017-11-26 16:46 ./usr/include/shout/shout.h
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/lib/
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/lib/arm-linux-gnueabihf/
+-rw-r--r-- root/root     94466 2017-11-26 16:46 ./usr/lib/arm-linux-gnueabihf/libshout.a
+lrwxrwxrwx root/root         0 2017-11-26 16:46 ./usr/lib/arm-linux-gnueabihf/libshout.so -> libshout.so.3.2.0
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/lib/arm-linux-gnueabihf/pkgconfig/
+-rw-r--r-- root/root       378 2017-11-26 16:46 ./usr/lib/arm-linux-gnueabihf/pkgconfig/shout.pc
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/share/
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/share/aclocal/
+-rw-r--r-- root/root      2161 2017-11-26 16:46 ./usr/share/aclocal/shout.m4
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/share/doc/
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/share/doc/libshout3-dev/
+-rw-r--r-- root/root       693 2015-11-20 08:57 ./usr/share/doc/libshout3-dev/NEWS.gz
+-rw-r--r-- root/root       843 2015-01-27 18:08 ./usr/share/doc/libshout3-dev/README
+-rw-r--r-- root/root      1078 2017-11-26 16:46 ./usr/share/doc/libshout3-dev/buildinfo_armhf.gz
+-rw-r--r-- root/root      7193 2017-11-26 16:46 ./usr/share/doc/libshout3-dev/changelog.Debian.gz
+-rw-r--r-- root/root      6956 2017-11-26 15:33 ./usr/share/doc/libshout3-dev/copyright
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/share/doc/libshout3-dev/examples/
+-rw-r--r-- root/root      1893 2015-01-27 18:08 ./usr/share/doc/libshout3-dev/examples/example.c
+
+
+libshout3_2.4.1-2_armhf.deb
+---------------------------
+
+ new Debian package, version 2.0.
+ size 42940 bytes: control archive=2220 bytes.
+     707 bytes,    15 lines      control              
+     434 bytes,     6 lines      md5sums              
+      21 bytes,     1 lines      shlibs               
+    7170 bytes,   215 lines      symbols              
+      67 bytes,     2 lines      triggers             
+ Package: libshout3
+ Source: libshout
+ Version: 2.4.1-2
+ Architecture: armhf
+ Maintainer: Debian Multimedia Maintainers <pkg-multimedia-maintainers@lists.alioth.debian.org>
+ Installed-Size: 97
+ Depends: libc6 (>= 2.28), libogg0 (>= 1.0rc3), libspeex1 (>= 1.2~beta3-1), libssl1.1 (>= 1.1.0), libtheora0 (>= 0.0.0.alpha7.dfsg), libvorbis0a (>= 1.1.2)
+ Section: libs
+ Priority: optional
+ Multi-Arch: same
+ Homepage: http://www.icecast.org/
+ Description: MP3/Ogg Vorbis broadcast streaming library
+  A library for communicating with and sending data to Icecast and Icecast 2
+  streaming audio servers.  It handles the socket connection, the timing of
+  the data transmission, and prevents bad data from getting to the server.
+
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/lib/
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/lib/arm-linux-gnueabihf/
+lrwxrwxrwx root/root         0 2017-11-26 16:46 ./usr/lib/arm-linux-gnueabihf/libshout.so.3 -> libshout.so.3.2.0
+-rw-r--r-- root/root     59792 2017-11-26 16:46 ./usr/lib/arm-linux-gnueabihf/libshout.so.3.2.0
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/share/
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/share/doc/
+drwxr-xr-x root/root         0 2017-11-26 16:46 ./usr/share/doc/libshout3/
+-rw-r--r-- root/root       693 2015-11-20 08:57 ./usr/share/doc/libshout3/NEWS.gz
+-rw-r--r-- root/root       843 2015-01-27 18:08 ./usr/share/doc/libshout3/README
+-rw-r--r-- root/root      1078 2017-11-26 16:46 ./usr/share/doc/libshout3/buildinfo_armhf.gz
+-rw-r--r-- root/root      7193 2017-11-26 16:46 ./usr/share/doc/libshout3/changelog.Debian.gz
+-rw-r--r-- root/root      6956 2017-11-26 15:33 ./usr/share/doc/libshout3/copyright
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [604 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [691 B]
+Fetched 2258 B in 0s (148 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils t1utils
+Suggested packages:
+  libhtml-template-perl binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libasync-mergepoint-perl libsereal-perl libtest-fatal-perl
+  libtest-refcount-perl libdigest-bubblebabble-perl libnet-dns-sec-perl
+  libnet-libidn-perl libunicode-utf8-perl libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclone-perl libdigest-hmac-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfuture-perl libio-async-perl
+  libio-pty-perl libipc-run-perl libipc-system-simple-perl
+  liblist-moreutils-perl libnet-dns-perl libnet-domain-tld-perl libnet-ip-perl
+  libparse-debianchangelog-perl libpath-tiny-perl libstruct-dumb-perl
+  libsub-name-perl libtext-levenshtein-perl lintian patchutils
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 2847 kB/2971 kB of archives.
+After this operation, 9356 kB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [848 B]
+Get:2 http://10.116.41.102/debian sid/main amd64 libapt-pkg-perl amd64 0.1.34+b1 [71.2 kB]
+Get:3 http://10.116.41.102/debian sid/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:4 http://10.116.41.102/debian sid/main amd64 libcgi-pm-perl all 4.40-1 [222 kB]
+Get:5 http://10.116.41.102/debian sid/main amd64 libsub-name-perl amd64 0.21-1+b3 [13.6 kB]
+Get:6 http://10.116.41.102/debian sid/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:7 http://10.116.41.102/debian sid/main amd64 libclone-perl amd64 0.41-1+b1 [14.6 kB]
+Get:8 http://10.116.41.102/debian sid/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:9 http://10.116.41.102/debian sid/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:10 http://10.116.41.102/debian sid/main amd64 libnet-dns-perl all 1.19-1 [372 kB]
+Get:11 http://10.116.41.102/debian sid/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:12 http://10.116.41.102/debian sid/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:13 http://10.116.41.102/debian sid/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:14 http://10.116.41.102/debian sid/main amd64 libipc-system-simple-perl all 1.25-4 [26.5 kB]
+Get:15 http://10.116.41.102/debian sid/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:16 http://10.116.41.102/debian sid/main amd64 libfuture-perl all 0.39-1 [74.5 kB]
+Get:17 http://10.116.41.102/debian sid/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:18 http://10.116.41.102/debian sid/main amd64 libio-async-perl all 0.72-1 [262 kB]
+Get:19 http://10.116.41.102/debian sid/main amd64 libio-pty-perl amd64 1:1.08-1.1+b5 [33.7 kB]
+Get:20 http://10.116.41.102/debian sid/main amd64 libipc-run-perl all 20180523.0-1 [101 kB]
+Get:21 http://10.116.41.102/debian sid/main amd64 liblist-moreutils-perl amd64 0.416-1+b4 [64.2 kB]
+Get:22 http://10.116.41.102/debian sid/main amd64 libparse-debianchangelog-perl all 1.2.0-13 [59.5 kB]
+Get:23 http://10.116.41.102/debian sid/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:24 http://10.116.41.102/debian sid/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:25 http://10.116.41.102/debian sid/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:26 http://10.116.41.102/debian sid/main amd64 lintian all 2.9.1 [1193 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 2847 kB in 0s (31.9 MB/s)
+Selecting previously unselected package diffstat.
+(Reading database ... 20988 files and directories currently installed.)
+Preparing to unpack .../00-diffstat_1.62-1_amd64.deb ...
+Unpacking diffstat (1.62-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../01-libapt-pkg-perl_0.1.34+b1_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.34+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../02-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../03-libcgi-pm-perl_4.40-1_all.deb ...
+Unpacking libcgi-pm-perl (4.40-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../04-libsub-name-perl_0.21-1+b3_amd64.deb ...
+Unpacking libsub-name-perl (0.21-1+b3) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../05-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../06-libclone-perl_0.41-1+b1_amd64.deb ...
+Unpacking libclone-perl (0.41-1+b1) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../07-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../08-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../09-libnet-dns-perl_1.19-1_all.deb ...
+Unpacking libnet-dns-perl (1.19-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../10-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../11-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../12-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../13-libipc-system-simple-perl_1.25-4_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-4) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../14-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../15-libfuture-perl_0.39-1_all.deb ...
+Unpacking libfuture-perl (0.39-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../16-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../17-libio-async-perl_0.72-1_all.deb ...
+Unpacking libio-async-perl (0.72-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../18-libio-pty-perl_1%3a1.08-1.1+b5_amd64.deb ...
+Unpacking libio-pty-perl (1:1.08-1.1+b5) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../19-libipc-run-perl_20180523.0-1_all.deb ...
+Unpacking libipc-run-perl (20180523.0-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../20-liblist-moreutils-perl_0.416-1+b4_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b4) ...
+Selecting previously unselected package libparse-debianchangelog-perl.
+Preparing to unpack .../21-libparse-debianchangelog-perl_1.2.0-13_all.deb ...
+Unpacking libparse-debianchangelog-perl (1.2.0-13) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../22-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../23-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../24-patchutils_0.3.4-2_amd64.deb ...
+Unpacking patchutils (0.3.4-2) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../25-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../26-lintian_2.9.1_all.deb ...
+Unpacking lintian (2.9.1) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../27-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.34+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libio-pty-perl (1:1.08-1.1+b5) ...
+Setting up libclone-perl (0.41-1+b1) ...
+Setting up libfuture-perl (0.39-1) ...
+Setting up libcgi-pm-perl (4.40-1) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libio-async-perl (0.72-1) ...
+Setting up patchutils (0.3.4-2) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-4) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up diffstat (1.62-1) ...
+Setting up libipc-run-perl (20180523.0-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libsub-name-perl (0.21-1+b3) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b4) ...
+Setting up libnet-dns-perl (1.19-1) ...
+Setting up libparse-debianchangelog-perl (1.2.0-13) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up lintian (2.9.1) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+W: libshout source: vcs-obsolete-in-debian-infrastructure vcs-browser https://anonscm.debian.org/git/pkg-multimedia/libshout.git
+W: libshout source: vcs-obsolete-in-debian-infrastructure vcs-git https://anonscm.debian.org/git/pkg-multimedia/libshout.git
+W: libshout source: dep5-copyright-license-name-not-unique (paragraph at line 159)
+W: libshout source: missing-license-paragraph-in-dep5-copyright fsfullr (paragraph at line 82)
+N: 6 tags overridden (6 warnings); 2 unused overrides
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  libauthen-sasl-perl libdata-dump-perl libfont-afm-perl libhtml-form-perl
+  libhtml-format-perl libhttp-daemon-perl libmailtools-perl
+  libnet-smtp-ssl-perl libyaml-0-2 libyaml-libyaml-perl uuid-runtime
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  autoconf* automake* autopoint* autotools-dev* bsdmainutils* cdbs* d-shlibs*
+  debhelper* dh-autoreconf* dh-buildinfo* dh-strip-nondeterminism* diffstat*
+  dwz* fontconfig-config* fonts-dejavu-core* gcc-8-base:armhf* gettext*
+  gettext-base* groff-base* intltool-debian* libapt-pkg-perl*
+  libarchive-zip-perl* libasan5:armhf* libatomic1:armhf* libbsd0*
+  libbsd0:armhf* libc6:armhf* libc6-dev:armhf* libcairo2:armhf*
+  libcapture-tiny-perl* libcgi-pm-perl* libclass-accessor-perl* libclone-perl*
+  libcroco3* libdigest-hmac-perl* libelf1* libemail-valid-perl*
+  libexpat1:armhf* libexporter-tiny-perl* libfile-basedir-perl*
+  libfile-stripnondeterminism-perl* libfontconfig1:armhf* libfreetype6:armhf*
+  libfuture-perl* libgcc-8-dev:armhf* libgcc1:armhf* libglib2.0-0*
+  libgomp1:armhf* libio-async-perl* libio-pty-perl* libipc-run-perl*
+  libipc-system-simple-perl* liblist-moreutils-perl* libmpdec2* libncurses6*
+  libnet-dns-perl* libnet-domain-tld-perl* libnet-ip-perl* libogg-dev:armhf*
+  libogg0:armhf* libparse-debianchangelog-perl* libpath-tiny-perl*
+  libpipeline1* libpixman-1-0:armhf* libpng16-16:armhf* libpython3-stdlib*
+  libpython3.7-minimal* libpython3.7-stdlib* libsigsegv2* libspeex-dev:armhf*
+  libspeex1:armhf* libssl-dev:armhf* libssl1.1:armhf* libstdc++-8-dev:armhf*
+  libstdc++6:armhf* libstruct-dumb-perl* libsub-name-perl*
+  libtext-levenshtein-perl* libtheora-dev:armhf* libtheora0:armhf* libtool*
+  libubsan1:armhf* libuchardet0* libuuid1:armhf* libvorbis-dev:armhf*
+  libvorbis0a:armhf* libvorbisenc2:armhf* libvorbisfile3:armhf*
+  libx11-6:armhf* libx11-data* libxau6:armhf* libxcb-render0:armhf*
+  libxcb-shm0:armhf* libxcb1:armhf* libxdmcp6:armhf* libxext6:armhf*
+  libxrender1:armhf* lintian* linux-libc-dev:armhf* m4* man-db* mime-support*
+  patchutils* pkg-config* pkg-kde-tools* po-debconf* python3* python3-minimal*
+  python3.7* python3.7-minimal* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils* zlib1g:armhf*
+0 upgraded, 0 newly installed, 114 to remove and 0 not upgraded.
+After this operation, 136 MB disk space will be freed.
+(Reading database ... 22266 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing dh-buildinfo (0.11+nmu2) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.9.1) ...
+Removing cdbs (0.4.158) ...
+Removing d-shlibs (0.84) ...
+Removing diffstat (1.62-1) ...
+Removing libtheora-dev:armhf (1.1.1+dfsg.1-15) ...
+Removing libtheora0:armhf (1.1.1+dfsg.1-15) ...
+Removing libcairo2:armhf (1.16.0-3) ...
+Removing libfontconfig1:armhf (2.13.1-2) ...
+Removing fontconfig-config (2.13.1-2) ...
+Removing fonts-dejavu-core (2.37-1) ...
+Removing libstdc++-8-dev:armhf (8.3.0-2) ...
+Removing libgcc-8-dev:armhf (8.3.0-2) ...
+Removing libubsan1:armhf (8.3.0-2) ...
+Removing libasan5:armhf (8.3.0-2) ...
+Removing libstdc++6:armhf (8.3.0-2) ...
+Removing libapt-pkg-perl (0.1.34+b1) ...
+Removing libatomic1:armhf (8.3.0-2) ...
+Removing libxrender1:armhf (1:0.9.10-1) ...
+Removing libxext6:armhf (2:1.3.3-1+b2) ...
+Removing libx11-6:armhf (2:1.6.7-1) ...
+Removing libxcb-shm0:armhf (1.13.1-2) ...
+Removing libfreetype6:armhf (2.9.1-3) ...
+Removing libpng16-16:armhf (1.6.36-5) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing libuuid1:armhf (2.33.1-0.1) ...
+Removing libc6-dev:armhf (2.28-7) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libparse-debianchangelog-perl (1.2.0-13) ...
+Removing libcgi-pm-perl (4.40-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing libclone-perl (0.41-1+b1) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.19-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing libexpat1:armhf (2.2.6-1) ...
+Removing liblist-moreutils-perl (0.416-1+b4) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libio-async-perl (0.72-1) ...
+Removing libfuture-perl (0.39-1) ...
+Removing pkg-config (0.29-6) ...
+Removing libgomp1:armhf (8.3.0-2) ...
+Removing libipc-run-perl (20180523.0-1) ...
+Removing libio-pty-perl (1:1.08-1.1+b5) ...
+Removing libipc-system-simple-perl (1.25-4) ...
+Removing pkg-kde-tools (0.15.28) ...
+Removing python3 (3.7.2-1) ...
+Removing python3.7 (3.7.2-2) ...
+Removing libpython3-stdlib:amd64 (3.7.2-1) ...
+Removing libpython3.7-stdlib:amd64 (3.7.2-2) ...
+find: ‘/usr/lib/python3’: No such file or directory
+Removing libmpdec2:amd64 (2.4.2-2) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libvorbis-dev:armhf (1.3.6-2) ...
+Removing libogg-dev:armhf (1.3.2-1+b1) ...
+Removing libvorbisfile3:armhf (1.3.6-2) ...
+Removing libvorbisenc2:armhf (1.3.6-2) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libpixman-1-0:armhf (0.36.0-1) ...
+Removing python3-minimal (3.7.2-1) ...
+Removing python3.7-minimal (3.7.2-2) ...
+Removing libpython3.7-minimal:amd64 (3.7.2-2) ...
+find: ‘/usr/lib/python3’: No such file or directory
+Removing libspeex-dev:armhf (1.2~rc1.2-1+b2) ...
+Removing libspeex1:armhf (1.2~rc1.2-1+b2) ...
+Removing libssl-dev:armhf (1.1.1b-1) ...
+Removing libssl1.1:armhf (1.1.1b-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-name-perl (0.21-1+b3) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libvorbis0a:armhf (1.3.6-2) ...
+Removing libx11-data (2:1.6.7-1) ...
+Removing libxcb-render0:armhf (1.13.1-2) ...
+Removing linux-libc-dev:armhf (4.19.20-1) ...
+Removing mime-support (3.62) ...
+Removing patchutils (0.3.4-2) ...
+Removing t1utils (1.41-3) ...
+Removing libxcb1:armhf (1.13.1-2) ...
+Removing libxdmcp6:armhf (1:1.1.2-3) ...
+Removing libbsd0:armhf (0.9.1-2) ...
+Removing libogg0:armhf (1.3.2-1+b1) ...
+Removing libxau6:armhf (1:1.0.8-1+b2) ...
+Removing dh-strip-nondeterminism (1.1.1-1) ...
+Removing libfile-stripnondeterminism-perl (1.1.1-1) ...
+Removing libarchive-zip-perl (1.64-1) ...
+Removing libgcc1:armhf (1:8.3.0-2) ...
+Removing debhelper (12.1.1) ...
+Removing dh-autoreconf (19) ...
+Removing automake (1:1.16.1-4) ...
+Removing autoconf (2.69-11) ...
+Removing autopoint (0.19.8.1-9) ...
+Removing libtool (2.4.6-10) ...
+Removing autotools-dev (20180224.1) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing dwz (0.12-3) ...
+Removing gcc-8-base:armhf (8.3.0-2) ...
+Removing po-debconf (1.0.21) ...
+Removing intltool-debian (0.35.0+20060710.5) ...
+Removing gettext (0.19.8.1-9) ...
+Removing gettext-base (0.19.8.1-9) ...
+Removing groff-base (1.22.4-2) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libc6:armhf (2.28-7) ...
+Removing libcroco3:amd64 (0.6.12-3) ...
+Removing libelf1:amd64 (0.176-1) ...
+Removing libglib2.0-0:amd64 (2.58.3-1) ...
+Removing libncurses6:amd64 (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing m4 (1.4.18-2) ...
+Removing libsigsegv2:amd64 (2.12-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Processing triggers for ccache (3.6-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-7) ...
+(Reading database ... 16483 files and directories currently installed.)
+Purging configuration files for mime-support (3.62) ...
+Purging configuration files for libglib2.0-0:amd64 (2.58.3-1) ...
+Purging configuration files for fontconfig-config (2.13.1-2) ...
+Purging configuration files for libssl1.1:armhf (1.1.1b-1) ...
+Purging configuration files for lintian (2.9.1) ...
+Purging configuration files for python3 (3.7.2-1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libpython3.7-minimal:amd64 (3.7.2-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for pkg-config (0.29-6) ...
+Purging configuration files for fonts-dejavu-core (2.37-1) ...
+dpkg: warning: while removing fonts-dejavu-core, directory '/usr/share/fonts/truetype/dejavu' not empty so not removed
+Purging configuration files for python3.7-minimal (3.7.2-2) ...
+Purging configuration files for autoconf (2.69-11) ...
+Purging configuration files for libc6:armhf (2.28-7) ...
+Purging configuration files for groff-base (1.22.4-2) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 27
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 11
+Job: /home/build/sbuild-setup/repo/pool/main/libs/libshout/libshout_2.4.1-2.dsc
+Lintian: warn
+Machine Architecture: amd64
+Package: libshout
+Package-Time: 43
+Source-Version: 2.4.1-2
+Space: n/a
+Status: successful
+Version: 2.4.1-2
+--------------------------------------------------------------------------------
+Finished at 2019-03-05T08:54:15Z
+Build needed 00:00:43, no disk space

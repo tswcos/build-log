@@ -1,0 +1,3803 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 4be29f1fdf49
+
++==============================================================================+
+| codelite 12.0+dfsg-1 (armhf)                 Mon, 01 Jul 2019 08:23:33 +0000 |
++==============================================================================+
+
+Package: codelite
+Version: 12.0+dfsg-1
+Source Version: 12.0+dfsg-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-76ae5ca6-2dcd-4212-81e0-7f392e79c484' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/codelite-9JxPDq/resolver-WrezLU' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian unstable InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/c/codelite/codelite_12.0+dfsg-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/c/codelite; copying to chroot
+I: NOTICE: Log filtering will replace 'build/codelite-9JxPDq/codelite-12.0+dfsg' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/codelite-9JxPDq' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 11), cmake (>= 3.8), dpkg-dev (>= 1.16.1.1), libclang-dev, libgtk2.0-dev, libhunspell-dev, liblldb-dev, libssh-gcrypt-dev, libwxgtk3.0-dev, libwxsqlite3-3.0-dev, llvm, pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 11), cmake (>= 3.8), dpkg-dev (>= 1.16.1.1), libclang-dev, libgtk2.0-dev, libhunspell-dev, liblldb-dev, libssh-gcrypt-dev, libwxgtk3.0-dev, libwxsqlite3-3.0-dev, llvm, pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [960 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [535 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [563 B]
+Fetched 2058 B in 0s (162 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  adwaita-icon-theme autoconf automake autopoint autotools-dev binfmt-support
+  binutils-arm-linux-gnueabihf bsdmainutils cmake cmake-data
+  cpp-8-arm-linux-gnueabihf cpp-arm-linux-gnueabihf cross-config
+  crossbuild-essential-armhf debhelper dh-autoreconf dh-strip-nondeterminism
+  dpkg-cross dwz file fontconfig fontconfig-config fonts-dejavu-core
+  g++-8-arm-linux-gnueabihf g++-arm-linux-gnueabihf gcc-8-arm-linux-gnueabihf
+  gcc-8-arm-linux-gnueabihf-base gcc-8-base:armhf gcc-8-cross-base
+  gcc-arm-linux-gnueabihf gettext gettext-base gir1.2-atk-1.0:armhf
+  gir1.2-freedesktop:armhf gir1.2-gdkpixbuf-2.0:armhf gir1.2-glib-2.0:armhf
+  gir1.2-gtk-2.0:armhf gir1.2-harfbuzz-0.0:armhf gir1.2-pango-1.0:armhf
+  groff-base gtk-update-icon-cache hicolor-icon-theme icu-devtools
+  intltool-debian libarchive-zip-perl libarchive13 libasan5:armhf
+  libasan5-armhf-cross libatk1.0-0:armhf libatk1.0-data libatk1.0-dev:armhf
+  libatomic1:armhf libatomic1-armhf-cross libavahi-client3:armhf
+  libavahi-common-data:armhf libavahi-common3:armhf libblkid-dev:armhf
+  libblkid1:armhf libbsd0 libbsd0:armhf libbz2-1.0:armhf libc6:armhf
+  libc6-armhf-cross libc6-dev:armhf libc6-dev-armhf-cross
+  libcairo-gobject2:armhf libcairo-script-interpreter2:armhf libcairo2
+  libcairo2:armhf libcairo2-dev:armhf libclang-7-dev:armhf
+  libclang-common-7-dev:armhf libclang-dev:armhf libclang1-7:armhf
+  libcom-err2:armhf libconfig-auto-perl libconfig-inifiles-perl libcroco3
+  libcups2:armhf libcurl4 libdatrie1 libdatrie1:armhf libdb5.3:armhf
+  libdbus-1-3:armhf libdebian-dpkgcross-perl libdrm-amdgpu1:armhf
+  libdrm-common libdrm-dev:armhf libdrm-etnaviv1:armhf libdrm-exynos1:armhf
+  libdrm-freedreno1:armhf libdrm-nouveau2:armhf libdrm-omap1:armhf
+  libdrm-radeon1:armhf libdrm-tegra0:armhf libdrm2:armhf libedit2:armhf
+  libegl-mesa0:armhf libegl1:armhf libelf1:armhf libexpat1 libexpat1:armhf
+  libexpat1-dev:armhf libffi-dev:armhf libffi6:armhf libfile-homedir-perl
+  libfile-stripnondeterminism-perl libfile-which-perl libfontconfig1
+  libfontconfig1:armhf libfontconfig1-dev:armhf libfreetype6
+  libfreetype6:armhf libfreetype6-dev:armhf libfribidi-dev:armhf libfribidi0
+  libfribidi0:armhf libgbm1:armhf libgc1c2:armhf libgcc-8-dev:armhf
+  libgcc-8-dev-armhf-cross libgcc1:armhf libgcc1-armhf-cross libgcrypt20:armhf
+  libgcrypt20-dev:armhf libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-0:armhf
+  libgdk-pixbuf2.0-bin libgdk-pixbuf2.0-common libgdk-pixbuf2.0-dev:armhf
+  libgirepository-1.0-1:armhf libgl1:armhf libgl1-mesa-dev:armhf
+  libgl1-mesa-dri:armhf libglapi-mesa:armhf libgles1:armhf libgles2:armhf
+  libglib2.0-0 libglib2.0-0:armhf libglib2.0-bin libglib2.0-data
+  libglib2.0-dev:armhf libglib2.0-dev-bin libglu1-mesa:armhf
+  libglu1-mesa-dev:armhf libglvnd-core-dev:armhf libglvnd-dev:armhf
+  libglvnd0:armhf libglx-mesa0:armhf libglx0:armhf libgmp10:armhf
+  libgnutls30:armhf libgomp1:armhf libgomp1-armhf-cross libgpg-error-dev:armhf
+  libgpg-error0:armhf libgraphite2-3 libgraphite2-3:armhf
+  libgraphite2-dev:armhf libgssapi-krb5-2 libgssapi-krb5-2:armhf
+  libgtk2.0-0:armhf libgtk2.0-common libgtk2.0-dev:armhf libharfbuzz-dev:armhf
+  libharfbuzz-gobject0:armhf libharfbuzz-icu0:armhf libharfbuzz0b
+  libharfbuzz0b:armhf libhogweed4:armhf libhunspell-1.7-0:armhf
+  libhunspell-dev:armhf libice-dev:armhf libice6:armhf libicu-dev:armhf
+  libicu63 libicu63:armhf libidn2-0:armhf libio-string-perl libjbig0
+  libjbig0:armhf libjpeg62-turbo libjpeg62-turbo:armhf libjsoncpp1
+  libk5crypto3 libk5crypto3:armhf libkeyutils1 libkeyutils1:armhf libkrb5-3
+  libkrb5-3:armhf libkrb5support0 libkrb5support0:armhf liblldb-7:armhf
+  liblldb-7-dev:armhf liblldb-dev:armhf libllvm7:armhf liblocale-gettext-perl
+  liblz4-1:armhf liblzma5:armhf liblzo2-2:armhf libmagic-mgc libmagic1
+  libmount-dev:armhf libmount1:armhf libmpdec2 libncurses-dev:armhf
+  libncurses6 libncurses6:armhf libncursesw6:armhf libnettle6:armhf
+  libnghttp2-14 libnotify4:armhf libobjc-8-dev:armhf libobjc4:armhf
+  libopengl0:armhf libp11-kit0:armhf libpango-1.0-0 libpango-1.0-0:armhf
+  libpango1.0-dev:armhf libpangocairo-1.0-0 libpangocairo-1.0-0:armhf
+  libpangoft2-1.0-0 libpangoft2-1.0-0:armhf libpangoxft-1.0-0
+  libpangoxft-1.0-0:armhf libpcre16-3:armhf libpcre3:armhf libpcre3-dev:armhf
+  libpcre32-3:armhf libpcrecpp0v5:armhf libpipeline1 libpixman-1-0
+  libpixman-1-0:armhf libpixman-1-dev:armhf libpng-dev:armhf libpng16-16
+  libpng16-16:armhf libprocps7 libpsl5 libpthread-stubs0-dev:armhf
+  libpython-stdlib:armhf libpython2-stdlib:armhf libpython2.7:armhf
+  libpython2.7-minimal:armhf libpython2.7-stdlib:armhf libpython3-stdlib
+  libpython3.7-minimal libpython3.7-stdlib libreadline7:armhf librhash0
+  librsvg2-2 librsvg2-common librtmp1 libselinux1:armhf libselinux1-dev:armhf
+  libsensors-config libsensors5:armhf libsepol1:armhf libsepol1-dev:armhf
+  libsigsegv2 libsm-dev:armhf libsm6:armhf libsqlite3-0:armhf
+  libsqlite3-dev:armhf libssh-gcrypt-4:armhf libssh-gcrypt-dev:armhf libssh2-1
+  libssl1.1 libssl1.1:armhf libstdc++-8-dev:armhf libstdc++-8-dev-armhf-cross
+  libstdc++6:armhf libstdc++6-armhf-cross libsystemd0:armhf libtasn1-6:armhf
+  libthai-data libthai0 libthai0:armhf libtiff5 libtiff5:armhf
+  libtinfo-dev:armhf libtinfo6:armhf libtool libubsan1:armhf
+  libubsan1-armhf-cross libuchardet0 libunistring2:armhf libuuid1:armhf libuv1
+  libwayland-client0:armhf libwayland-server0:armhf libwebp6 libwebp6:armhf
+  libwxbase3.0-0v5 libwxbase3.0-0v5:armhf libwxbase3.0-dev:armhf
+  libwxgtk3.0-0v5:armhf libwxgtk3.0-dev:armhf libwxsqlite3-3.0-0:armhf
+  libwxsqlite3-3.0-dev:armhf libx11-6 libx11-6:armhf libx11-data
+  libx11-dev:armhf libx11-xcb-dev:armhf libx11-xcb1:armhf libxau-dev:armhf
+  libxau6 libxau6:armhf libxcb-dri2-0:armhf libxcb-dri2-0-dev:armhf
+  libxcb-dri3-0:armhf libxcb-dri3-dev:armhf libxcb-glx0:armhf
+  libxcb-glx0-dev:armhf libxcb-present-dev:armhf libxcb-present0:armhf
+  libxcb-randr0:armhf libxcb-randr0-dev:armhf libxcb-render0
+  libxcb-render0:armhf libxcb-render0-dev:armhf libxcb-shape0:armhf
+  libxcb-shape0-dev:armhf libxcb-shm0 libxcb-shm0:armhf libxcb-shm0-dev:armhf
+  libxcb-sync-dev:armhf libxcb-sync1:armhf libxcb-xfixes0:armhf
+  libxcb-xfixes0-dev:armhf libxcb1 libxcb1:armhf libxcb1-dev:armhf
+  libxcomposite-dev:armhf libxcomposite1:armhf libxcursor-dev:armhf
+  libxcursor1:armhf libxdamage-dev:armhf libxdamage1:armhf libxdmcp-dev:armhf
+  libxdmcp6 libxdmcp6:armhf libxext-dev:armhf libxext6 libxext6:armhf
+  libxfixes-dev:armhf libxfixes3:armhf libxft-dev:armhf libxft2 libxft2:armhf
+  libxi-dev:armhf libxi6:armhf libxinerama-dev:armhf libxinerama1:armhf
+  libxml-libxml-perl libxml-namespacesupport-perl libxml-sax-base-perl
+  libxml-sax-perl libxml-simple-perl libxml2 libxml2-utils libxrandr-dev:armhf
+  libxrandr2:armhf libxrender-dev:armhf libxrender1 libxrender1:armhf
+  libxshmfence-dev:armhf libxshmfence1:armhf libxxf86vm-dev:armhf
+  libxxf86vm1:armhf libyaml-perl libzstd1:armhf linux-libc-dev:armhf
+  linux-libc-dev-armhf-cross lldb-7:armhf llvm:armhf llvm-7:armhf
+  llvm-7-dev:armhf llvm-7-runtime:armhf llvm-runtime:armhf m4 man-db
+  mesa-common-dev:armhf mime-support pango1.0-tools pkg-config po-debconf
+  procps python:armhf python-lldb-7:armhf python-minimal:armhf python-six
+  python2:armhf python2-minimal:armhf python2.7:armhf python2.7-minimal:armhf
+  python3 python3-distutils python3-lib2to3 python3-minimal python3.7
+  python3.7-minimal sensible-utils shared-mime-info ucf uuid-dev:armhf
+  wx-common wx3.0-headers x11-common x11proto-composite-dev x11proto-core-dev
+  x11proto-damage-dev x11proto-dev x11proto-fixes-dev x11proto-input-dev
+  x11proto-randr-dev x11proto-xext-dev x11proto-xf86vidmode-dev
+  x11proto-xinerama-dev xorg-sgml-doctools xtrans-dev zlib1g:armhf
+  zlib1g-dev:armhf
+Suggested packages:
+  autoconf-archive gnu-standards autoconf-doc binutils-doc wamerican
+  | wordlist whois vacation cmake-doc ninja-build gcc-8-locales cpp-doc
+  dh-make binutils-multiarch gcc-8-doc libstdc++6-8-dbg-armhf-cross
+  libgcc1-dbg-armhf-cross libgomp1-dbg-armhf-cross libitm1-dbg-armhf-cross
+  libatomic1-dbg-armhf-cross libasan5-dbg-armhf-cross liblsan0-dbg-armhf-cross
+  libtsan0-dbg-armhf-cross libubsan1-dbg-armhf-cross libmpx2-dbg-armhf-cross
+  libquadmath0-dbg-armhf-cross manpages-dev flex bison gdb-arm-linux-gnueabihf
+  gcc-doc gettext-doc libasprintf-dev libgettextpo-dev groff lrzip
+  glibc-doc:armhf libc-l10n:armhf locales:armhf manpages-dev:armhf
+  libcairo2-doc:armhf cups-common:armhf rng-tools:armhf libgcrypt20-doc:armhf
+  libglib2.0-doc:armhf gnutls-bin:armhf libgraphite2-utils:armhf krb5-doc
+  krb5-user krb5-doc:armhf krb5-user:armhf librsvg2-common:armhf gvfs:armhf
+  libgtk2.0-doc:armhf libice-doc:armhf icu-doc:armhf ncurses-doc:armhf
+  imagemagick:armhf libpango1.0-doc:armhf librsvg2-bin lm-sensors
+  lm-sensors:armhf libsm-doc:armhf sqlite3-doc:armhf libssh-doc:armhf
+  libstdc++-8-doc:armhf libtool-doc gfortran | fortran95-compiler gcj-jdk
+  wx3.0-doc:armhf wxsqlite3-doc:armhf libx11-doc:armhf libxcb-doc:armhf
+  libxext-doc:armhf libyaml-shell-perl llvm-7-doc:armhf m4-doc apparmor less
+  www-browser libmail-box-perl python-doc:armhf python-tk:armhf
+  python2-doc:armhf python2.7-doc:armhf binutils:armhf python3-doc python3-tk
+  python3-venv python3.7-venv python3.7-doc
+Recommended packages:
+  curl | wget | lynx ca-certificates dbus:armhf libarchive-cpio-perl
+  freetype2-doc:armhf xdg-user-dirs xdg-user-dirs:armhf
+  libgpg-error-l10n:armhf libgail-common:armhf libgtk2.0-bin:armhf libgtk2.0-0
+  hunspell-en-us:armhf | hunspell-dictionary:armhf | myspell-dictionary:armhf
+  krb5-locales krb5-locales:armhf libgpm2 libgpm2:armhf
+  notification-daemon:armhf libpng-tools:armhf publicsuffix libltdl-dev
+  uuid-runtime:armhf libwww-perl libxml-sax-expat-perl libyaml-libyaml-perl
+  | libyaml-syck-perl libmail-sendmail-perl psmisc zip
+The following NEW packages will be installed:
+  adwaita-icon-theme autoconf automake autopoint autotools-dev binfmt-support
+  binutils-arm-linux-gnueabihf bsdmainutils cmake cmake-data
+  cpp-8-arm-linux-gnueabihf cpp-arm-linux-gnueabihf cross-config
+  crossbuild-essential-armhf debhelper dh-autoreconf dh-strip-nondeterminism
+  dpkg-cross dwz file fontconfig fontconfig-config fonts-dejavu-core
+  g++-8-arm-linux-gnueabihf g++-arm-linux-gnueabihf gcc-8-arm-linux-gnueabihf
+  gcc-8-arm-linux-gnueabihf-base gcc-8-base:armhf gcc-8-cross-base
+  gcc-arm-linux-gnueabihf gettext gettext-base gir1.2-atk-1.0:armhf
+  gir1.2-freedesktop:armhf gir1.2-gdkpixbuf-2.0:armhf gir1.2-glib-2.0:armhf
+  gir1.2-gtk-2.0:armhf gir1.2-harfbuzz-0.0:armhf gir1.2-pango-1.0:armhf
+  groff-base gtk-update-icon-cache hicolor-icon-theme icu-devtools
+  intltool-debian libarchive-zip-perl libarchive13 libasan5:armhf
+  libasan5-armhf-cross libatk1.0-0:armhf libatk1.0-data libatk1.0-dev:armhf
+  libatomic1:armhf libatomic1-armhf-cross libavahi-client3:armhf
+  libavahi-common-data:armhf libavahi-common3:armhf libblkid-dev:armhf
+  libblkid1:armhf libbsd0 libbsd0:armhf libbz2-1.0:armhf libc6:armhf
+  libc6-armhf-cross libc6-dev:armhf libc6-dev-armhf-cross
+  libcairo-gobject2:armhf libcairo-script-interpreter2:armhf libcairo2
+  libcairo2:armhf libcairo2-dev:armhf libclang-7-dev:armhf
+  libclang-common-7-dev:armhf libclang-dev:armhf libclang1-7:armhf
+  libcom-err2:armhf libconfig-auto-perl libconfig-inifiles-perl libcroco3
+  libcups2:armhf libcurl4 libdatrie1 libdatrie1:armhf libdb5.3:armhf
+  libdbus-1-3:armhf libdebian-dpkgcross-perl libdrm-amdgpu1:armhf
+  libdrm-common libdrm-dev:armhf libdrm-etnaviv1:armhf libdrm-exynos1:armhf
+  libdrm-freedreno1:armhf libdrm-nouveau2:armhf libdrm-omap1:armhf
+  libdrm-radeon1:armhf libdrm-tegra0:armhf libdrm2:armhf libedit2:armhf
+  libegl-mesa0:armhf libegl1:armhf libelf1:armhf libexpat1 libexpat1:armhf
+  libexpat1-dev:armhf libffi-dev:armhf libffi6:armhf libfile-homedir-perl
+  libfile-stripnondeterminism-perl libfile-which-perl libfontconfig1
+  libfontconfig1:armhf libfontconfig1-dev:armhf libfreetype6
+  libfreetype6:armhf libfreetype6-dev:armhf libfribidi-dev:armhf libfribidi0
+  libfribidi0:armhf libgbm1:armhf libgc1c2:armhf libgcc-8-dev:armhf
+  libgcc-8-dev-armhf-cross libgcc1:armhf libgcc1-armhf-cross libgcrypt20:armhf
+  libgcrypt20-dev:armhf libgdk-pixbuf2.0-0 libgdk-pixbuf2.0-0:armhf
+  libgdk-pixbuf2.0-bin libgdk-pixbuf2.0-common libgdk-pixbuf2.0-dev:armhf
+  libgirepository-1.0-1:armhf libgl1:armhf libgl1-mesa-dev:armhf
+  libgl1-mesa-dri:armhf libglapi-mesa:armhf libgles1:armhf libgles2:armhf
+  libglib2.0-0 libglib2.0-0:armhf libglib2.0-bin libglib2.0-data
+  libglib2.0-dev:armhf libglib2.0-dev-bin libglu1-mesa:armhf
+  libglu1-mesa-dev:armhf libglvnd-core-dev:armhf libglvnd-dev:armhf
+  libglvnd0:armhf libglx-mesa0:armhf libglx0:armhf libgmp10:armhf
+  libgnutls30:armhf libgomp1:armhf libgomp1-armhf-cross libgpg-error-dev:armhf
+  libgpg-error0:armhf libgraphite2-3 libgraphite2-3:armhf
+  libgraphite2-dev:armhf libgssapi-krb5-2 libgssapi-krb5-2:armhf
+  libgtk2.0-0:armhf libgtk2.0-common libgtk2.0-dev:armhf libharfbuzz-dev:armhf
+  libharfbuzz-gobject0:armhf libharfbuzz-icu0:armhf libharfbuzz0b
+  libharfbuzz0b:armhf libhogweed4:armhf libhunspell-1.7-0:armhf
+  libhunspell-dev:armhf libice-dev:armhf libice6:armhf libicu-dev:armhf
+  libicu63 libicu63:armhf libidn2-0:armhf libio-string-perl libjbig0
+  libjbig0:armhf libjpeg62-turbo libjpeg62-turbo:armhf libjsoncpp1
+  libk5crypto3 libk5crypto3:armhf libkeyutils1 libkeyutils1:armhf libkrb5-3
+  libkrb5-3:armhf libkrb5support0 libkrb5support0:armhf liblldb-7:armhf
+  liblldb-7-dev:armhf liblldb-dev:armhf libllvm7:armhf liblocale-gettext-perl
+  liblz4-1:armhf liblzma5:armhf liblzo2-2:armhf libmagic-mgc libmagic1
+  libmount-dev:armhf libmount1:armhf libmpdec2 libncurses-dev:armhf
+  libncurses6 libncurses6:armhf libncursesw6:armhf libnettle6:armhf
+  libnghttp2-14 libnotify4:armhf libobjc-8-dev:armhf libobjc4:armhf
+  libopengl0:armhf libp11-kit0:armhf libpango-1.0-0 libpango-1.0-0:armhf
+  libpango1.0-dev:armhf libpangocairo-1.0-0 libpangocairo-1.0-0:armhf
+  libpangoft2-1.0-0 libpangoft2-1.0-0:armhf libpangoxft-1.0-0
+  libpangoxft-1.0-0:armhf libpcre16-3:armhf libpcre3:armhf libpcre3-dev:armhf
+  libpcre32-3:armhf libpcrecpp0v5:armhf libpipeline1 libpixman-1-0
+  libpixman-1-0:armhf libpixman-1-dev:armhf libpng-dev:armhf libpng16-16
+  libpng16-16:armhf libprocps7 libpsl5 libpthread-stubs0-dev:armhf
+  libpython-stdlib:armhf libpython2-stdlib:armhf libpython2.7:armhf
+  libpython2.7-minimal:armhf libpython2.7-stdlib:armhf libpython3-stdlib
+  libpython3.7-minimal libpython3.7-stdlib libreadline7:armhf librhash0
+  librsvg2-2 librsvg2-common librtmp1 libselinux1:armhf libselinux1-dev:armhf
+  libsensors-config libsensors5:armhf libsepol1:armhf libsepol1-dev:armhf
+  libsigsegv2 libsm-dev:armhf libsm6:armhf libsqlite3-0:armhf
+  libsqlite3-dev:armhf libssh-gcrypt-4:armhf libssh-gcrypt-dev:armhf libssh2-1
+  libssl1.1 libssl1.1:armhf libstdc++-8-dev:armhf libstdc++-8-dev-armhf-cross
+  libstdc++6:armhf libstdc++6-armhf-cross libsystemd0:armhf libtasn1-6:armhf
+  libthai-data libthai0 libthai0:armhf libtiff5 libtiff5:armhf
+  libtinfo-dev:armhf libtinfo6:armhf libtool libubsan1:armhf
+  libubsan1-armhf-cross libuchardet0 libunistring2:armhf libuuid1:armhf libuv1
+  libwayland-client0:armhf libwayland-server0:armhf libwebp6 libwebp6:armhf
+  libwxbase3.0-0v5 libwxbase3.0-0v5:armhf libwxbase3.0-dev:armhf
+  libwxgtk3.0-0v5:armhf libwxgtk3.0-dev:armhf libwxsqlite3-3.0-0:armhf
+  libwxsqlite3-3.0-dev:armhf libx11-6 libx11-6:armhf libx11-data
+  libx11-dev:armhf libx11-xcb-dev:armhf libx11-xcb1:armhf libxau-dev:armhf
+  libxau6 libxau6:armhf libxcb-dri2-0:armhf libxcb-dri2-0-dev:armhf
+  libxcb-dri3-0:armhf libxcb-dri3-dev:armhf libxcb-glx0:armhf
+  libxcb-glx0-dev:armhf libxcb-present-dev:armhf libxcb-present0:armhf
+  libxcb-randr0:armhf libxcb-randr0-dev:armhf libxcb-render0
+  libxcb-render0:armhf libxcb-render0-dev:armhf libxcb-shape0:armhf
+  libxcb-shape0-dev:armhf libxcb-shm0 libxcb-shm0:armhf libxcb-shm0-dev:armhf
+  libxcb-sync-dev:armhf libxcb-sync1:armhf libxcb-xfixes0:armhf
+  libxcb-xfixes0-dev:armhf libxcb1 libxcb1:armhf libxcb1-dev:armhf
+  libxcomposite-dev:armhf libxcomposite1:armhf libxcursor-dev:armhf
+  libxcursor1:armhf libxdamage-dev:armhf libxdamage1:armhf libxdmcp-dev:armhf
+  libxdmcp6 libxdmcp6:armhf libxext-dev:armhf libxext6 libxext6:armhf
+  libxfixes-dev:armhf libxfixes3:armhf libxft-dev:armhf libxft2 libxft2:armhf
+  libxi-dev:armhf libxi6:armhf libxinerama-dev:armhf libxinerama1:armhf
+  libxml-libxml-perl libxml-namespacesupport-perl libxml-sax-base-perl
+  libxml-sax-perl libxml-simple-perl libxml2 libxml2-utils libxrandr-dev:armhf
+  libxrandr2:armhf libxrender-dev:armhf libxrender1 libxrender1:armhf
+  libxshmfence-dev:armhf libxshmfence1:armhf libxxf86vm-dev:armhf
+  libxxf86vm1:armhf libyaml-perl libzstd1:armhf linux-libc-dev:armhf
+  linux-libc-dev-armhf-cross lldb-7:armhf llvm:armhf llvm-7:armhf
+  llvm-7-dev:armhf llvm-7-runtime:armhf llvm-runtime:armhf m4 man-db
+  mesa-common-dev:armhf mime-support pango1.0-tools pkg-config po-debconf
+  procps python:armhf python-lldb-7:armhf python-minimal:armhf python-six
+  python2:armhf python2-minimal:armhf python2.7:armhf python2.7-minimal:armhf
+  python3 python3-distutils python3-lib2to3 python3-minimal python3.7
+  python3.7-minimal sbuild-build-depends-main-dummy:armhf sensible-utils
+  shared-mime-info ucf uuid-dev:armhf wx-common wx3.0-headers x11-common
+  x11proto-composite-dev x11proto-core-dev x11proto-damage-dev x11proto-dev
+  x11proto-fixes-dev x11proto-input-dev x11proto-randr-dev x11proto-xext-dev
+  x11proto-xf86vidmode-dev x11proto-xinerama-dev xorg-sgml-doctools xtrans-dev
+  zlib1g:armhf zlib1g-dev:armhf
+0 upgraded, 425 newly installed, 0 to remove and 0 not upgraded.
+Need to get 81.3 MB/254 MB of archives.
+After this operation, 1219 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [988 B]
+Get:2 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 binfmt-support amd64 2.2.0-2 [70.0 kB]
+Get:3 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libcurl4 amd64 7.64.0-4 [332 kB]
+Get:4 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libgtk2.0-common all 2.24.32-3 [2698 kB]
+Get:5 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libgtk2.0-0 armhf 2.24.32-3 [1543 kB]
+Get:6 http://cdn-fastly.deb.debian.org/debian unstable/main armhf gir1.2-gtk-2.0 armhf 2.24.32-3 [213 kB]
+Get:7 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libgc1c2 armhf 1:7.6.4-0.4 [212 kB]
+Get:8 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libobjc4 armhf 8.3.0-7 [42.2 kB]
+Get:9 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libobjc-8-dev armhf 8.3.0-7 [210 kB]
+Get:10 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libclang1-7 armhf 1:7.0.1-8 [4986 kB]
+Get:11 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libclang-common-7-dev armhf 1:7.0.1-8 [1357 kB]
+Get:12 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libclang-7-dev armhf 1:7.0.1-8 [14.8 MB]
+Get:13 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libclang-dev armhf 1:7.0-47.1 [7140 B]
+Get:14 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libgtk2.0-dev armhf 2.24.32-3 [2495 kB]
+Get:15 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libhunspell-dev armhf 1.7.0-2 [220 kB]
+Get:16 http://cdn-fastly.deb.debian.org/debian unstable/main armhf liblldb-7 armhf 1:7.0.1-8 [6682 kB]
+Get:17 http://cdn-fastly.deb.debian.org/debian unstable/main armhf llvm-7-runtime armhf 1:7.0.1-8 [162 kB]
+Get:18 http://cdn-fastly.deb.debian.org/debian unstable/main armhf llvm-7 armhf 1:7.0.1-8 [3781 kB]
+Get:19 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libtinfo-dev armhf 6.1+20181013-2 [932 B]
+Get:20 http://cdn-fastly.deb.debian.org/debian unstable/main armhf llvm-7-dev armhf 1:7.0.1-8 [20.7 MB]
+Get:21 http://cdn-fastly.deb.debian.org/debian unstable/main armhf python-lldb-7 armhf 1:7.0.1-8 [121 kB]
+Get:22 http://cdn-fastly.deb.debian.org/debian unstable/main armhf lldb-7 armhf 1:7.0.1-8 [7271 kB]
+Get:23 http://cdn-fastly.deb.debian.org/debian unstable/main armhf liblldb-7-dev armhf 1:7.0.1-8 [5059 kB]
+Get:24 http://cdn-fastly.deb.debian.org/debian unstable/main armhf liblldb-dev armhf 1:7.0-47.1 [7192 B]
+Get:25 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libsqlite3-dev armhf 3.27.2-3 [722 kB]
+Get:26 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libssh-gcrypt-dev armhf 0.8.7-1 [223 kB]
+Get:27 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libwxbase3.0-0v5 armhf 3.0.4+dfsg-8 [931 kB]
+Get:28 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 libwxbase3.0-0v5 amd64 3.0.4+dfsg-8 [1057 kB]
+Get:29 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 wx3.0-headers all 3.0.4+dfsg-8 [1128 kB]
+Get:30 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libwxbase3.0-dev armhf 3.0.4+dfsg-8 [138 kB]
+Get:31 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libwxgtk3.0-0v5 armhf 3.0.4+dfsg-8 [3727 kB]
+Get:32 http://cdn-fastly.deb.debian.org/debian unstable/main amd64 wx-common amd64 3.0.4+dfsg-8 [177 kB]
+Get:33 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libwxgtk3.0-dev armhf 3.0.4+dfsg-8 [138 kB]
+Get:34 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libwxsqlite3-3.0-0 armhf 3.4.1~dfsg-3 [54.8 kB]
+Get:35 http://cdn-fastly.deb.debian.org/debian unstable/main armhf libwxsqlite3-3.0-dev armhf 3.4.1~dfsg-3 [38.4 kB]
+Get:36 http://cdn-fastly.deb.debian.org/debian unstable/main armhf llvm-runtime armhf 1:7.0-47.1 [7180 B]
+Get:37 http://cdn-fastly.deb.debian.org/debian unstable/main armhf llvm armhf 1:7.0-47.1 [9512 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 81.3 MB in 11s (7177 kB/s)
+Selecting previously unselected package libbsd0:amd64.
+(Reading database ... 12426 files and directories currently installed.)
+Preparing to unpack .../00-libbsd0_0.9.1-2_amd64.deb ...
+Unpacking libbsd0:amd64 (0.9.1-2) ...
+Selecting previously unselected package bsdmainutils.
+Preparing to unpack .../01-bsdmainutils_11.1.2+b1_amd64.deb ...
+Unpacking bsdmainutils (11.1.2+b1) ...
+Selecting previously unselected package libuchardet0:amd64.
+Preparing to unpack .../02-libuchardet0_0.0.6-3_amd64.deb ...
+Unpacking libuchardet0:amd64 (0.0.6-3) ...
+Selecting previously unselected package groff-base.
+Preparing to unpack .../03-groff-base_1.22.4-3_amd64.deb ...
+Unpacking groff-base (1.22.4-3) ...
+Selecting previously unselected package libpipeline1:amd64.
+Preparing to unpack .../04-libpipeline1_1.5.1-2_amd64.deb ...
+Unpacking libpipeline1:amd64 (1.5.1-2) ...
+Selecting previously unselected package man-db.
+Preparing to unpack .../05-man-db_2.8.5-2_amd64.deb ...
+Unpacking man-db (2.8.5-2) ...
+Selecting previously unselected package gcc-8-base:armhf.
+Preparing to unpack .../06-gcc-8-base_8.3.0-7_armhf.deb ...
+Unpacking gcc-8-base:armhf (8.3.0-7) ...
+Selecting previously unselected package libgcc1:armhf.
+Preparing to unpack .../07-libgcc1_1%3a8.3.0-7_armhf.deb ...
+Unpacking libgcc1:armhf (1:8.3.0-7) ...
+Selecting previously unselected package libc6:armhf.
+Preparing to unpack .../08-libc6_2.28-10_armhf.deb ...
+Unpacking libc6:armhf (2.28-10) ...
+Selecting previously unselected package zlib1g:armhf.
+Preparing to unpack .../09-zlib1g_1%3a1.2.11.dfsg-1_armhf.deb ...
+Unpacking zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package libpython2.7-minimal:armhf.
+Preparing to unpack .../10-libpython2.7-minimal_2.7.16-2_armhf.deb ...
+Unpacking libpython2.7-minimal:armhf (2.7.16-2) ...
+Setting up gcc-8-base:armhf (8.3.0-7) ...
+Setting up libgcc1:armhf (1:8.3.0-7) ...
+Setting up libc6:armhf (2.28-10) ...
+Setting up zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Selecting previously unselected package python2.7-minimal:armhf.
+(Reading database ... 13575 files and directories currently installed.)
+Preparing to unpack .../00-python2.7-minimal_2.7.16-2_armhf.deb ...
+Unpacking python2.7-minimal:armhf (2.7.16-2) ...
+Selecting previously unselected package python2-minimal:armhf.
+Preparing to unpack .../01-python2-minimal_2.7.16-1_armhf.deb ...
+Unpacking python2-minimal:armhf (2.7.16-1) ...
+Selecting previously unselected package python-minimal:armhf.
+Preparing to unpack .../02-python-minimal_2.7.16-1_armhf.deb ...
+Unpacking python-minimal:armhf (2.7.16-1) ...
+Selecting previously unselected package libssl1.1:armhf.
+Preparing to unpack .../03-libssl1.1_1.1.1c-1_armhf.deb ...
+Unpacking libssl1.1:armhf (1.1.1c-1) ...
+Selecting previously unselected package mime-support.
+Preparing to unpack .../04-mime-support_3.62_all.deb ...
+Unpacking mime-support (3.62) ...
+Selecting previously unselected package libbz2-1.0:armhf.
+Preparing to unpack .../05-libbz2-1.0_1.0.6-9.1_armhf.deb ...
+Unpacking libbz2-1.0:armhf (1.0.6-9.1) ...
+Selecting previously unselected package libdb5.3:armhf.
+Preparing to unpack .../06-libdb5.3_5.3.28+dfsg1-0.6_armhf.deb ...
+Unpacking libdb5.3:armhf (5.3.28+dfsg1-0.6) ...
+Selecting previously unselected package libexpat1:armhf.
+Preparing to unpack .../07-libexpat1_2.2.6-2_armhf.deb ...
+Unpacking libexpat1:armhf (2.2.6-2) ...
+Selecting previously unselected package libffi6:armhf.
+Preparing to unpack .../08-libffi6_3.2.1-9_armhf.deb ...
+Unpacking libffi6:armhf (3.2.1-9) ...
+Selecting previously unselected package libtinfo6:armhf.
+Preparing to unpack .../09-libtinfo6_6.1+20181013-2_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../10-libncursesw6_6.1+20181013-2_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20181013-2) ...
+Selecting previously unselected package libreadline7:armhf.
+Preparing to unpack .../11-libreadline7_7.0-5_armhf.deb ...
+Unpacking libreadline7:armhf (7.0-5) ...
+Selecting previously unselected package libsqlite3-0:armhf.
+Preparing to unpack .../12-libsqlite3-0_3.27.2-3_armhf.deb ...
+Unpacking libsqlite3-0:armhf (3.27.2-3) ...
+Selecting previously unselected package libpython2.7-stdlib:armhf.
+Preparing to unpack .../13-libpython2.7-stdlib_2.7.16-2_armhf.deb ...
+Unpacking libpython2.7-stdlib:armhf (2.7.16-2) ...
+Selecting previously unselected package python2.7:armhf.
+Preparing to unpack .../14-python2.7_2.7.16-2_armhf.deb ...
+Unpacking python2.7:armhf (2.7.16-2) ...
+Selecting previously unselected package libpython2-stdlib:armhf.
+Preparing to unpack .../15-libpython2-stdlib_2.7.16-1_armhf.deb ...
+Unpacking libpython2-stdlib:armhf (2.7.16-1) ...
+Selecting previously unselected package libpython-stdlib:armhf.
+Preparing to unpack .../16-libpython-stdlib_2.7.16-1_armhf.deb ...
+Unpacking libpython-stdlib:armhf (2.7.16-1) ...
+Setting up libpython2.7-minimal:armhf (2.7.16-2) ...
+Setting up python2.7-minimal:armhf (2.7.16-2) ...
+/var/lib/dpkg/info/python2.7-minimal.postinst: 42: /var/lib/dpkg/info/python2.7-minimal.postinst: /usr/bin/python2.7: Exec format error
+dpkg: error processing package python2.7-minimal:armhf (--configure):
+ installed python2.7-minimal:armhf package post-installation script subprocess returned error exit status 2
+dpkg: dependency problems prevent configuration of python2-minimal:armhf:
+ python2-minimal:armhf depends on python2.7-minimal (>= 2.7.16-1~); however:
+  Package python2.7-minimal:armhf is not configured yet.
+
+dpkg: error processing package python2-minimal:armhf (--configure):
+ dependency problems - leaving unconfigured
+Errors were encountered while processing:
+ python2.7-minimal:armhf
+ python2-minimal:armhf
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+apt-get failed.
+E: Package installation failed
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  bsdmainutils gcc-8-base:armhf groff-base libbsd0 libbz2-1.0:armhf
+  libc6:armhf libdb5.3:armhf libexpat1:armhf libffi6:armhf libgcc1:armhf
+  libncursesw6:armhf libpipeline1 libpython-stdlib:armhf
+  libpython2-stdlib:armhf libpython2.7-minimal:armhf libpython2.7-stdlib:armhf
+  libreadline7:armhf libsqlite3-0:armhf libssl1.1:armhf libtinfo6:armhf
+  libuchardet0 man-db mime-support python-minimal:armhf python2-minimal:armhf
+  python2.7:armhf python2.7-minimal:armhf zlib1g:armhf
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+23 not fully installed or removed.
+After this operation, 0 B of additional disk space will be used.
+Setting up libexpat1:armhf (2.2.6-2) ...
+Setting up libpipeline1:amd64 (1.5.1-2) ...
+Setting up mime-support (3.62) ...
+Setting up libssl1.1:armhf (1.1.1c-1) ...
+Setting up libsqlite3-0:armhf (3.27.2-3) ...
+Setting up libffi6:armhf (3.2.1-9) ...
+Setting up python2.7-minimal:armhf (2.7.16-2) ...
+/var/lib/dpkg/info/python2.7-minimal.postinst: 42: /var/lib/dpkg/info/python2.7-minimal.postinst: /usr/bin/python2.7: Exec format error
+dpkg: error processing package python2.7-minimal:armhf (--configure):
+ installed python2.7-minimal:armhf package post-installation script subprocess returned error exit status 2
+dpkg: dependency problems prevent configuration of python2-minimal:armhf:
+ python2-minimal:armhf depends on python2.7-minimal (>= 2.7.16-1~); however:
+  Package python2.7-minimal:armhf is not configured yet.
+
+dpkg: error processing package python2-minimal:armhf (--configure):
+ dependency problems - leaving unconfigured
+Setting up libuchardet0:amd64 (0.0.6-3) ...
+Setting up libbz2-1.0:armhf (1.0.6-9.1) ...
+Setting up libbsd0:amd64 (0.9.1-2) ...
+Setting up libdb5.3:armhf (5.3.28+dfsg1-0.6) ...
+Setting up libtinfo6:armhf (6.1+20181013-2) ...
+dpkg: dependency problems prevent configuration of python2.7:armhf:
+ python2.7:armhf depends on python2.7-minimal (= 2.7.16-2); however:
+  Package python2.7-minimal:armhf is not configured yet.
+
+dpkg: error processing package python2.7:armhf (--configure):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of python-minimal:armhf:
+ python-minimal:armhf depends on python2.7-minimal (>= 2.7.16-1~); however:
+  Package python2.7-minimal:armhf is not configured yet.
+ python-minimal:armhf depends on python2-minimal (= 2.7.16-1); however:
+  Package python2-minimal:armhf is not configured yet.
+
+dpkg: error processing package python-minimal:armhf (--configure):
+ dependency problems - leaving unconfigured
+Setting up bsdmainutils (11.1.2+b1) ...
+update-alternatives: using /usr/bin/bsd-write to provide /usr/bin/write (write) in auto mode
+update-alternatives: using /usr/bin/bsd-from to provide /usr/bin/from (from) in auto mode
+Setting up libncursesw6:armhf (6.1+20181013-2) ...
+Setting up groff-base (1.22.4-3) ...
+Setting up libreadline7:armhf (7.0-5) ...
+Setting up man-db (2.8.5-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libpython2.7-stdlib:armhf (2.7.16-2) ...
+Setting up libpython2-stdlib:armhf (2.7.16-1) ...
+Setting up libpython-stdlib:armhf (2.7.16-1) ...
+Processing triggers for ccache (3.7.1-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-10) ...
+Errors were encountered while processing:
+ python2.7-minimal:armhf
+ python2-minimal:armhf
+ python2.7:armhf
+ python-minimal:armhf
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+apt-get failed.
+Failed to reinstall removed packages!
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package 'adwaita-icon-theme' is not installed, so not removed
+Package 'libatk1.0-data' is not installed, so not removed
+Package 'autoconf' is not installed, so not removed
+Package 'automake' is not installed, so not removed
+Package 'autotools-dev' is not installed, so not removed
+Package 'binfmt-support' is not installed, so not removed
+Package 'binutils-arm-linux-gnueabihf' is not installed, so not removed
+Package 'crossbuild-essential-armhf' is not installed, so not removed
+Package 'libcairo2' is not installed, so not removed
+Package 'cmake' is not installed, so not removed
+Package 'cmake-data' is not installed, so not removed
+Package 'libc6-armhf-cross' is not installed, so not removed
+Package 'libc6-dev-armhf-cross' is not installed, so not removed
+Package 'linux-libc-dev-armhf-cross' is not installed, so not removed
+Package 'libcurl4' is not installed, so not removed
+Package 'debhelper' is not installed, so not removed
+Package 'dh-autoreconf' is not installed, so not removed
+Package 'cross-config' is not installed, so not removed
+Package 'dpkg-cross' is not installed, so not removed
+Package 'libdebian-dpkgcross-perl' is not installed, so not removed
+Package 'dwz' is not installed, so not removed
+Package 'libexpat1' is not installed, so not removed. Did you mean 'libexpat1:armhf'?
+Package 'file' is not installed, so not removed
+Package 'libmagic-mgc' is not installed, so not removed
+Package 'libmagic1' is not installed, so not removed
+Package 'fontconfig' is not installed, so not removed
+Package 'fontconfig-config' is not installed, so not removed
+Package 'libfontconfig1' is not installed, so not removed
+Package 'fonts-dejavu-core' is not installed, so not removed
+Package 'libfreetype6' is not installed, so not removed
+Package 'libfribidi0' is not installed, so not removed
+Package 'cpp-8-arm-linux-gnueabihf' is not installed, so not removed
+Package 'g++-8-arm-linux-gnueabihf' is not installed, so not removed
+Package 'gcc-8-arm-linux-gnueabihf' is not installed, so not removed
+Package 'gcc-8-arm-linux-gnueabihf-base' is not installed, so not removed
+Package 'gcc-8-cross-base' is not installed, so not removed
+Package 'libasan5-armhf-cross' is not installed, so not removed
+Package 'libatomic1-armhf-cross' is not installed, so not removed
+Package 'libgcc-8-dev-armhf-cross' is not installed, so not removed
+Package 'libgcc1-armhf-cross' is not installed, so not removed
+Package 'libgomp1-armhf-cross' is not installed, so not removed
+Package 'libstdc++-8-dev-armhf-cross' is not installed, so not removed
+Package 'libstdc++6-armhf-cross' is not installed, so not removed
+Package 'libubsan1-armhf-cross' is not installed, so not removed
+Package 'cpp-arm-linux-gnueabihf' is not installed, so not removed
+Package 'g++-arm-linux-gnueabihf' is not installed, so not removed
+Package 'gcc-arm-linux-gnueabihf' is not installed, so not removed
+Package 'libgdk-pixbuf2.0-0' is not installed, so not removed
+Package 'libgdk-pixbuf2.0-bin' is not installed, so not removed
+Package 'libgdk-pixbuf2.0-common' is not installed, so not removed
+Package 'autopoint' is not installed, so not removed
+Package 'gettext' is not installed, so not removed
+Package 'gettext-base' is not installed, so not removed
+Package 'libglib2.0-0' is not installed, so not removed
+Package 'libglib2.0-bin' is not installed, so not removed
+Package 'libglib2.0-data' is not installed, so not removed
+Package 'libglib2.0-dev-bin' is not installed, so not removed
+Package 'libgraphite2-3' is not installed, so not removed
+Package 'libgtk2.0-common' is not installed, so not removed
+Package 'gtk-update-icon-cache' is not installed, so not removed
+Package 'libharfbuzz0b' is not installed, so not removed
+Package 'hicolor-icon-theme' is not installed, so not removed
+Package 'icu-devtools' is not installed, so not removed
+Package 'libicu63' is not installed, so not removed
+Package 'intltool-debian' is not installed, so not removed
+Package 'libjbig0' is not installed, so not removed
+Package 'libkeyutils1' is not installed, so not removed
+Package 'libgssapi-krb5-2' is not installed, so not removed
+Package 'libk5crypto3' is not installed, so not removed
+Package 'libkrb5-3' is not installed, so not removed
+Package 'libkrb5support0' is not installed, so not removed
+Package 'libarchive13' is not installed, so not removed
+Package 'libarchive-zip-perl' is not installed, so not removed
+Package 'libconfig-auto-perl' is not installed, so not removed
+Package 'libconfig-inifiles-perl' is not installed, so not removed
+Package 'libcroco3' is not installed, so not removed
+Package 'libdatrie1' is not installed, so not removed
+Package 'libdrm-common' is not installed, so not removed
+Package 'libfile-homedir-perl' is not installed, so not removed
+Package 'libfile-which-perl' is not installed, so not removed
+Package 'libio-string-perl' is not installed, so not removed
+Package 'libjpeg62-turbo' is not installed, so not removed
+Package 'libjsoncpp1' is not installed, so not removed
+Package 'liblocale-gettext-perl' is not installed, so not removed
+Package 'libpng16-16' is not installed, so not removed
+Package 'libpsl5' is not installed, so not removed
+Package 'librsvg2-2' is not installed, so not removed
+Package 'librsvg2-common' is not installed, so not removed
+Package 'libsigsegv2' is not installed, so not removed
+Package 'libssh2-1' is not installed, so not removed
+Package 'libthai-data' is not installed, so not removed
+Package 'libthai0' is not installed, so not removed
+Package 'libtool' is not installed, so not removed
+Package 'libuv1' is not installed, so not removed
+Package 'libwebp6' is not installed, so not removed
+Package 'libx11-6' is not installed, so not removed
+Package 'libx11-data' is not installed, so not removed
+Package 'libxau6' is not installed, so not removed
+Package 'libxcb-render0' is not installed, so not removed
+Package 'libxcb-shm0' is not installed, so not removed
+Package 'libxcb1' is not installed, so not removed
+Package 'libxdmcp6' is not installed, so not removed
+Package 'libxext6' is not installed, so not removed
+Package 'libxml-libxml-perl' is not installed, so not removed
+Package 'libxml-namespacesupport-perl' is not installed, so not removed
+Package 'libxml-sax-base-perl' is not installed, so not removed
+Package 'libxml-sax-perl' is not installed, so not removed
+Package 'libxml-simple-perl' is not installed, so not removed
+Package 'libxml2' is not installed, so not removed
+Package 'libxml2-utils' is not installed, so not removed
+Package 'libxrender1' is not installed, so not removed
+Package 'libyaml-perl' is not installed, so not removed
+Package 'libsensors-config' is not installed, so not removed
+Package 'm4' is not installed, so not removed
+Package 'libmpdec2' is not installed, so not removed
+Package 'libncurses6' is not installed, so not removed
+Package 'libnghttp2-14' is not installed, so not removed
+Package 'libssl1.1' is not installed, so not removed. Did you mean 'libssl1.1:armhf'?
+Package 'libpango-1.0-0' is not installed, so not removed
+Package 'libpangocairo-1.0-0' is not installed, so not removed
+Package 'libpangoft2-1.0-0' is not installed, so not removed
+Package 'libpangoxft-1.0-0' is not installed, so not removed
+Package 'pango1.0-tools' is not installed, so not removed
+Package 'libpixman-1-0' is not installed, so not removed
+Package 'pkg-config' is not installed, so not removed
+Package 'po-debconf' is not installed, so not removed
+Package 'libprocps7' is not installed, so not removed
+Package 'procps' is not installed, so not removed
+Package 'libpython3-stdlib' is not installed, so not removed
+Package 'python3' is not installed, so not removed
+Package 'python3-minimal' is not installed, so not removed
+Package 'python3-distutils' is not installed, so not removed
+Package 'python3-lib2to3' is not installed, so not removed
+Package 'libpython3.7-minimal' is not installed, so not removed
+Package 'libpython3.7-stdlib' is not installed, so not removed
+Package 'python3.7' is not installed, so not removed
+Package 'python3.7-minimal' is not installed, so not removed
+Package 'librhash0' is not installed, so not removed
+Package 'librtmp1' is not installed, so not removed
+Package 'sensible-utils' is not installed, so not removed
+Package 'shared-mime-info' is not installed, so not removed
+Package 'python-six' is not installed, so not removed
+Package 'dh-strip-nondeterminism' is not installed, so not removed
+Package 'libfile-stripnondeterminism-perl' is not installed, so not removed
+Package 'libtiff5' is not installed, so not removed
+Package 'ucf' is not installed, so not removed
+Package 'libwxbase3.0-0v5' is not installed, so not removed
+Package 'wx-common' is not installed, so not removed
+Package 'wx3.0-headers' is not installed, so not removed
+Package 'libxft2' is not installed, so not removed
+Package 'x11-common' is not installed, so not removed
+Package 'xorg-sgml-doctools' is not installed, so not removed
+Package 'x11proto-composite-dev' is not installed, so not removed
+Package 'x11proto-core-dev' is not installed, so not removed
+Package 'x11proto-damage-dev' is not installed, so not removed
+Package 'x11proto-dev' is not installed, so not removed
+Package 'x11proto-fixes-dev' is not installed, so not removed
+Package 'x11proto-input-dev' is not installed, so not removed
+Package 'x11proto-randr-dev' is not installed, so not removed
+Package 'x11proto-xext-dev' is not installed, so not removed
+Package 'x11proto-xf86vidmode-dev' is not installed, so not removed
+Package 'x11proto-xinerama-dev' is not installed, so not removed
+Package 'xtrans-dev' is not installed, so not removed
+Package 'gir1.2-atk-1.0:armhf' is not installed, so not removed
+Package 'libatk1.0-0:armhf' is not installed, so not removed
+Package 'libatk1.0-dev:armhf' is not installed, so not removed
+Package 'libavahi-client3:armhf' is not installed, so not removed
+Package 'libavahi-common-data:armhf' is not installed, so not removed
+Package 'libavahi-common3:armhf' is not installed, so not removed
+Package 'libcairo-gobject2:armhf' is not installed, so not removed
+Package 'libcairo-script-interpreter2:armhf' is not installed, so not removed
+Package 'libcairo2:armhf' is not installed, so not removed
+Package 'libcairo2-dev:armhf' is not installed, so not removed
+Package 'libcups2:armhf' is not installed, so not removed
+Package 'libdbus-1-3:armhf' is not installed, so not removed
+Package 'libcom-err2:armhf' is not installed, so not removed. Did you mean 'libcom-err2'?
+Package 'libelf1:armhf' is not installed, so not removed. Did you mean 'libelf1'?
+Package 'libexpat1-dev:armhf' is not installed, so not removed
+Package 'libfontconfig1:armhf' is not installed, so not removed
+Package 'libfontconfig1-dev:armhf' is not installed, so not removed
+Package 'libfreetype6:armhf' is not installed, so not removed
+Package 'libfreetype6-dev:armhf' is not installed, so not removed
+Package 'libfribidi-dev:armhf' is not installed, so not removed
+Package 'libfribidi0:armhf' is not installed, so not removed
+Package 'libasan5:armhf' is not installed, so not removed. Did you mean 'libasan5'?
+Package 'libatomic1:armhf' is not installed, so not removed. Did you mean 'libatomic1'?
+Package 'libgcc-8-dev:armhf' is not installed, so not removed. Did you mean 'libgcc-8-dev'?
+Package 'libgomp1:armhf' is not installed, so not removed. Did you mean 'libgomp1'?
+Package 'libobjc-8-dev:armhf' is not installed, so not removed
+Package 'libobjc4:armhf' is not installed, so not removed
+Package 'libstdc++-8-dev:armhf' is not installed, so not removed. Did you mean 'libstdc++-8-dev'?
+Package 'libstdc++6:armhf' is not installed, so not removed. Did you mean 'libstdc++6'?
+Package 'libubsan1:armhf' is not installed, so not removed. Did you mean 'libubsan1'?
+Package 'gir1.2-gdkpixbuf-2.0:armhf' is not installed, so not removed
+Package 'libgdk-pixbuf2.0-0:armhf' is not installed, so not removed
+Package 'libgdk-pixbuf2.0-dev:armhf' is not installed, so not removed
+Package 'libglib2.0-0:armhf' is not installed, so not removed
+Package 'libglib2.0-dev:armhf' is not installed, so not removed
+Package 'libc6-dev:armhf' is not installed, so not removed. Did you mean 'libc6-dev'?
+Package 'libgmp10:armhf' is not installed, so not removed. Did you mean 'libgmp10'?
+Package 'libgnutls30:armhf' is not installed, so not removed. Did you mean 'libgnutls30'?
+Package 'gir1.2-freedesktop:armhf' is not installed, so not removed
+Package 'gir1.2-glib-2.0:armhf' is not installed, so not removed
+Package 'libgirepository-1.0-1:armhf' is not installed, so not removed
+Package 'libgraphite2-3:armhf' is not installed, so not removed
+Package 'libgraphite2-dev:armhf' is not installed, so not removed
+Package 'gir1.2-gtk-2.0:armhf' is not installed, so not removed
+Package 'libgtk2.0-0:armhf' is not installed, so not removed
+Package 'libgtk2.0-dev:armhf' is not installed, so not removed
+Package 'gir1.2-harfbuzz-0.0:armhf' is not installed, so not removed
+Package 'libharfbuzz-dev:armhf' is not installed, so not removed
+Package 'libharfbuzz-gobject0:armhf' is not installed, so not removed
+Package 'libharfbuzz-icu0:armhf' is not installed, so not removed
+Package 'libharfbuzz0b:armhf' is not installed, so not removed
+Package 'libhunspell-1.7-0:armhf' is not installed, so not removed
+Package 'libhunspell-dev:armhf' is not installed, so not removed
+Package 'libicu-dev:armhf' is not installed, so not removed
+Package 'libicu63:armhf' is not installed, so not removed
+Package 'libjbig0:armhf' is not installed, so not removed
+Package 'libkeyutils1:armhf' is not installed, so not removed
+Package 'libgssapi-krb5-2:armhf' is not installed, so not removed
+Package 'libk5crypto3:armhf' is not installed, so not removed
+Package 'libkrb5-3:armhf' is not installed, so not removed
+Package 'libkrb5support0:armhf' is not installed, so not removed
+Package 'libbsd0:armhf' is not installed, so not removed. Did you mean 'libbsd0'?
+Package 'libdatrie1:armhf' is not installed, so not removed
+Package 'libdrm-amdgpu1:armhf' is not installed, so not removed
+Package 'libdrm-dev:armhf' is not installed, so not removed
+Package 'libdrm-etnaviv1:armhf' is not installed, so not removed
+Package 'libdrm-exynos1:armhf' is not installed, so not removed
+Package 'libdrm-freedreno1:armhf' is not installed, so not removed
+Package 'libdrm-nouveau2:armhf' is not installed, so not removed
+Package 'libdrm-omap1:armhf' is not installed, so not removed
+Package 'libdrm-radeon1:armhf' is not installed, so not removed
+Package 'libdrm-tegra0:armhf' is not installed, so not removed
+Package 'libdrm2:armhf' is not installed, so not removed
+Package 'libedit2:armhf' is not installed, so not removed
+Package 'libffi-dev:armhf' is not installed, so not removed
+Package 'libgc1c2:armhf' is not installed, so not removed
+Package 'libgcrypt20:armhf' is not installed, so not removed. Did you mean 'libgcrypt20'?
+Package 'libgcrypt20-dev:armhf' is not installed, so not removed
+Package 'libglu1-mesa:armhf' is not installed, so not removed
+Package 'libglu1-mesa-dev:armhf' is not installed, so not removed
+Package 'libegl1:armhf' is not installed, so not removed
+Package 'libgl1:armhf' is not installed, so not removed
+Package 'libgles1:armhf' is not installed, so not removed
+Package 'libgles2:armhf' is not installed, so not removed
+Package 'libglvnd-core-dev:armhf' is not installed, so not removed
+Package 'libglvnd-dev:armhf' is not installed, so not removed
+Package 'libglvnd0:armhf' is not installed, so not removed
+Package 'libglx0:armhf' is not installed, so not removed
+Package 'libopengl0:armhf' is not installed, so not removed
+Package 'libgpg-error-dev:armhf' is not installed, so not removed
+Package 'libgpg-error0:armhf' is not installed, so not removed. Did you mean 'libgpg-error0'?
+Package 'libice-dev:armhf' is not installed, so not removed
+Package 'libice6:armhf' is not installed, so not removed
+Package 'libidn2-0:armhf' is not installed, so not removed. Did you mean 'libidn2-0'?
+Package 'libjpeg62-turbo:armhf' is not installed, so not removed
+Package 'libnotify4:armhf' is not installed, so not removed
+Package 'libpng-dev:armhf' is not installed, so not removed
+Package 'libpng16-16:armhf' is not installed, so not removed
+Package 'libpthread-stubs0-dev:armhf' is not installed, so not removed
+Package 'libselinux1:armhf' is not installed, so not removed. Did you mean 'libselinux1'?
+Package 'libselinux1-dev:armhf' is not installed, so not removed
+Package 'libsepol1:armhf' is not installed, so not removed. Did you mean 'libsepol1'?
+Package 'libsepol1-dev:armhf' is not installed, so not removed
+Package 'libsm-dev:armhf' is not installed, so not removed
+Package 'libsm6:armhf' is not installed, so not removed
+Package 'libssh-gcrypt-4:armhf' is not installed, so not removed
+Package 'libssh-gcrypt-dev:armhf' is not installed, so not removed
+Package 'libtasn1-6:armhf' is not installed, so not removed. Did you mean 'libtasn1-6'?
+Package 'libthai0:armhf' is not installed, so not removed
+Package 'libunistring2:armhf' is not installed, so not removed. Did you mean 'libunistring2'?
+Package 'libwebp6:armhf' is not installed, so not removed
+Package 'libx11-6:armhf' is not installed, so not removed
+Package 'libx11-dev:armhf' is not installed, so not removed
+Package 'libx11-xcb-dev:armhf' is not installed, so not removed
+Package 'libx11-xcb1:armhf' is not installed, so not removed
+Package 'libxau-dev:armhf' is not installed, so not removed
+Package 'libxau6:armhf' is not installed, so not removed
+Package 'libxcb-dri2-0:armhf' is not installed, so not removed
+Package 'libxcb-dri2-0-dev:armhf' is not installed, so not removed
+Package 'libxcb-dri3-0:armhf' is not installed, so not removed
+Package 'libxcb-dri3-dev:armhf' is not installed, so not removed
+Package 'libxcb-glx0:armhf' is not installed, so not removed
+Package 'libxcb-glx0-dev:armhf' is not installed, so not removed
+Package 'libxcb-present-dev:armhf' is not installed, so not removed
+Package 'libxcb-present0:armhf' is not installed, so not removed
+Package 'libxcb-randr0:armhf' is not installed, so not removed
+Package 'libxcb-randr0-dev:armhf' is not installed, so not removed
+Package 'libxcb-render0:armhf' is not installed, so not removed
+Package 'libxcb-render0-dev:armhf' is not installed, so not removed
+Package 'libxcb-shape0:armhf' is not installed, so not removed
+Package 'libxcb-shape0-dev:armhf' is not installed, so not removed
+Package 'libxcb-shm0:armhf' is not installed, so not removed
+Package 'libxcb-shm0-dev:armhf' is not installed, so not removed
+Package 'libxcb-sync-dev:armhf' is not installed, so not removed
+Package 'libxcb-sync1:armhf' is not installed, so not removed
+Package 'libxcb-xfixes0:armhf' is not installed, so not removed
+Package 'libxcb-xfixes0-dev:armhf' is not installed, so not removed
+Package 'libxcb1:armhf' is not installed, so not removed
+Package 'libxcb1-dev:armhf' is not installed, so not removed
+Package 'libxcomposite-dev:armhf' is not installed, so not removed
+Package 'libxcomposite1:armhf' is not installed, so not removed
+Package 'libxcursor-dev:armhf' is not installed, so not removed
+Package 'libxcursor1:armhf' is not installed, so not removed
+Package 'libxdamage-dev:armhf' is not installed, so not removed
+Package 'libxdamage1:armhf' is not installed, so not removed
+Package 'libxdmcp-dev:armhf' is not installed, so not removed
+Package 'libxdmcp6:armhf' is not installed, so not removed
+Package 'libxext-dev:armhf' is not installed, so not removed
+Package 'libxext6:armhf' is not installed, so not removed
+Package 'libxfixes-dev:armhf' is not installed, so not removed
+Package 'libxfixes3:armhf' is not installed, so not removed
+Package 'libxi-dev:armhf' is not installed, so not removed
+Package 'libxi6:armhf' is not installed, so not removed
+Package 'libxinerama-dev:armhf' is not installed, so not removed
+Package 'libxinerama1:armhf' is not installed, so not removed
+Package 'libxrandr-dev:armhf' is not installed, so not removed
+Package 'libxrandr2:armhf' is not installed, so not removed
+Package 'libxrender-dev:armhf' is not installed, so not removed
+Package 'libxrender1:armhf' is not installed, so not removed
+Package 'libxshmfence-dev:armhf' is not installed, so not removed
+Package 'libxshmfence1:armhf' is not installed, so not removed
+Package 'libxxf86vm-dev:armhf' is not installed, so not removed
+Package 'libxxf86vm1:armhf' is not installed, so not removed
+Package 'libzstd1:armhf' is not installed, so not removed. Did you mean 'libzstd1'?
+Package 'linux-libc-dev:armhf' is not installed, so not removed. Did you mean 'linux-libc-dev'?
+Package 'libclang-dev:armhf' is not installed, so not removed
+Package 'liblldb-dev:armhf' is not installed, so not removed
+Package 'llvm:armhf' is not installed, so not removed
+Package 'llvm-runtime:armhf' is not installed, so not removed
+Package 'libclang-7-dev:armhf' is not installed, so not removed
+Package 'libclang-common-7-dev:armhf' is not installed, so not removed
+Package 'libclang1-7:armhf' is not installed, so not removed
+Package 'liblldb-7:armhf' is not installed, so not removed
+Package 'liblldb-7-dev:armhf' is not installed, so not removed
+Package 'libllvm7:armhf' is not installed, so not removed
+Package 'lldb-7:armhf' is not installed, so not removed
+Package 'llvm-7:armhf' is not installed, so not removed
+Package 'llvm-7-dev:armhf' is not installed, so not removed
+Package 'llvm-7-runtime:armhf' is not installed, so not removed
+Package 'python-lldb-7:armhf' is not installed, so not removed
+Package 'libsensors5:armhf' is not installed, so not removed
+Package 'liblz4-1:armhf' is not installed, so not removed. Did you mean 'liblz4-1'?
+Package 'liblzo2-2:armhf' is not installed, so not removed
+Package 'libegl-mesa0:armhf' is not installed, so not removed
+Package 'libgbm1:armhf' is not installed, so not removed
+Package 'libgl1-mesa-dev:armhf' is not installed, so not removed
+Package 'libgl1-mesa-dri:armhf' is not installed, so not removed
+Package 'libglapi-mesa:armhf' is not installed, so not removed
+Package 'libglx-mesa0:armhf' is not installed, so not removed
+Package 'mesa-common-dev:armhf' is not installed, so not removed
+Package 'libncurses-dev:armhf' is not installed, so not removed
+Package 'libncurses6:armhf' is not installed, so not removed
+Package 'libtinfo-dev:armhf' is not installed, so not removed
+Package 'libhogweed4:armhf' is not installed, so not removed. Did you mean 'libhogweed4'?
+Package 'libnettle6:armhf' is not installed, so not removed. Did you mean 'libnettle6'?
+Package 'libp11-kit0:armhf' is not installed, so not removed. Did you mean 'libp11-kit0'?
+Package 'gir1.2-pango-1.0:armhf' is not installed, so not removed
+Package 'libpango-1.0-0:armhf' is not installed, so not removed
+Package 'libpango1.0-dev:armhf' is not installed, so not removed
+Package 'libpangocairo-1.0-0:armhf' is not installed, so not removed
+Package 'libpangoft2-1.0-0:armhf' is not installed, so not removed
+Package 'libpangoxft-1.0-0:armhf' is not installed, so not removed
+Package 'libpcre16-3:armhf' is not installed, so not removed
+Package 'libpcre3:armhf' is not installed, so not removed. Did you mean 'libpcre3'?
+Package 'libpcre3-dev:armhf' is not installed, so not removed
+Package 'libpcre32-3:armhf' is not installed, so not removed
+Package 'libpcrecpp0v5:armhf' is not installed, so not removed
+Package 'libpixman-1-0:armhf' is not installed, so not removed
+Package 'libpixman-1-dev:armhf' is not installed, so not removed
+Package 'python:armhf' is not installed, so not removed
+Package 'python2:armhf' is not installed, so not removed
+Package 'libpython2.7:armhf' is not installed, so not removed
+Package 'libsqlite3-dev:armhf' is not installed, so not removed
+Package 'libsystemd0:armhf' is not installed, so not removed. Did you mean 'libsystemd0'?
+Package 'libtiff5:armhf' is not installed, so not removed
+Package 'libblkid-dev:armhf' is not installed, so not removed
+Package 'libblkid1:armhf' is not installed, so not removed. Did you mean 'libblkid1'?
+Package 'libmount-dev:armhf' is not installed, so not removed
+Package 'libmount1:armhf' is not installed, so not removed. Did you mean 'libmount1'?
+Package 'libuuid1:armhf' is not installed, so not removed. Did you mean 'libuuid1'?
+Package 'uuid-dev:armhf' is not installed, so not removed
+Package 'libwayland-client0:armhf' is not installed, so not removed
+Package 'libwayland-server0:armhf' is not installed, so not removed
+Package 'libwxsqlite3-3.0-0:armhf' is not installed, so not removed
+Package 'libwxsqlite3-3.0-dev:armhf' is not installed, so not removed
+Package 'libwxbase3.0-0v5:armhf' is not installed, so not removed
+Package 'libwxbase3.0-dev:armhf' is not installed, so not removed
+Package 'libwxgtk3.0-0v5:armhf' is not installed, so not removed
+Package 'libwxgtk3.0-dev:armhf' is not installed, so not removed
+Package 'libxft-dev:armhf' is not installed, so not removed
+Package 'libxft2:armhf' is not installed, so not removed
+Package 'liblzma5:armhf' is not installed, so not removed. Did you mean 'liblzma5'?
+Package 'zlib1g-dev:armhf' is not installed, so not removed
+Package 'sbuild-build-depends-main-dummy:armhf' is not installed, so not removed
+The following packages will be REMOVED:
+  bsdmainutils* gcc-8-base:armhf* groff-base* libbsd0* libbz2-1.0:armhf*
+  libc6:armhf* libdb5.3:armhf* libexpat1:armhf* libffi6:armhf* libgcc1:armhf*
+  libncursesw6:armhf* libpipeline1* libpython-stdlib:armhf*
+  libpython2-stdlib:armhf* libpython2.7-minimal:armhf*
+  libpython2.7-stdlib:armhf* libreadline7:armhf* libsqlite3-0:armhf*
+  libssl1.1:armhf* libtinfo6:armhf* libuchardet0* man-db* mime-support*
+  python-minimal:armhf* python2-minimal:armhf* python2.7:armhf*
+  python2.7-minimal:armhf* zlib1g:armhf*
+0 upgraded, 0 newly installed, 28 to remove and 0 not upgraded.
+4 not fully installed or removed.
+After this operation, 37.3 MB disk space will be freed.
+(Reading database ... 14201 files and directories currently installed.)
+Removing python-minimal:armhf (2.7.16-1) ...
+Removing python2-minimal:armhf (2.7.16-1) ...
+Removing python2.7:armhf (2.7.16-2) ...
+Removing python2.7-minimal:armhf (2.7.16-2) ...
+Removing man-db (2.8.5-2) ...
+Removing bsdmainutils (11.1.2+b1) ...
+Removing libpython-stdlib:armhf (2.7.16-1) ...
+Removing libpython2-stdlib:armhf (2.7.16-1) ...
+Removing libpython2.7-stdlib:armhf (2.7.16-2) ...
+Removing libffi6:armhf (3.2.1-9) ...
+Removing zlib1g:armhf (1:1.2.11.dfsg-1) ...
+Removing groff-base (1.22.4-3) ...
+Removing libbsd0:amd64 (0.9.1-2) ...
+Removing libbz2-1.0:armhf (1.0.6-9.1) ...
+Removing libdb5.3:armhf (5.3.28+dfsg1-0.6) ...
+Removing libexpat1:armhf (2.2.6-2) ...
+Removing libncursesw6:armhf (6.1+20181013-2) ...
+Removing libpipeline1:amd64 (1.5.1-2) ...
+Removing libpython2.7-minimal:armhf (2.7.16-2) ...
+find: ‘/usr/lib/python2.7’: No such file or directory
+Removing libreadline7:armhf (7.0-5) ...
+Removing libsqlite3-0:armhf (3.27.2-3) ...
+Removing libssl1.1:armhf (1.1.1c-1) ...
+Removing libtinfo6:armhf (6.1+20181013-2) ...
+Removing libuchardet0:amd64 (0.0.6-3) ...
+Removing mime-support (3.62) ...
+Removing libgcc1:armhf (1:8.3.0-7) ...
+Removing gcc-8-base:armhf (8.3.0-7) ...
+Removing libc6:armhf (2.28-10) ...
+Processing triggers for ccache (3.7.1-1) ...
+Updating symlinks in /usr/lib/ccache ...
+Processing triggers for libc-bin (2.28-10) ...
+(Reading database ... 12443 files and directories currently installed.)
+Purging configuration files for mime-support (3.62) ...
+Purging configuration files for libssl1.1:armhf (1.1.1c-1) ...
+Purging configuration files for man-db (2.8.5-2) ...
+Purging configuration files for libpython2.7-minimal:armhf (2.7.16-2) ...
+Purging configuration files for python2.7-minimal:armhf (2.7.16-2) ...
+Purging configuration files for bsdmainutils (11.1.2+b1) ...
+Purging configuration files for libc6:armhf (2.28-10) ...
+Purging configuration files for groff-base (1.22.4-3) ...
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: dose-distcheck:amd64
+Filtered Build-Depends: dose-distcheck:amd64
+dpkg-deb: building package 'sbuild-build-depends-dose3-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-dose3-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [676 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [702 B]
+Fetched 2341 B in 0s (153 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install dose3 build dependencies (apt-based resolver)
+-----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+sbuild-build-depends-dose3-dummy:armhf is already the newest version (0.invalid.0).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+(I)StdLoaders: Parsing and normalizing...
+(I)Packages: Parsing Packages file -...
+(I)Format822: total packages 86703
+(I)Distcheck: Cudf Universe: 86703 packages
+(I)Distcheck: --checkonly specified, consider all packages as background packages
+(I)Distcheck: Solving...
+output-version: 1.2
+native-architecture: amd64
+foreign-architecture: armhf
+report:
+ -
+  package: sbuild-build-depends-main-dummy
+  version: 0.invalid.0
+  architecture: armhf
+  status: ok
+  installationset:
+   -
+    package: zlib1g-dev
+    version: 1:1.2.11.dfsg-1
+    architecture: armhf
+   -
+    package: zlib1g
+    version: 1:1.2.11.dfsg-1
+    architecture: armhf
+   -
+    package: zlib1g
+    version: 1:1.2.11.dfsg-1
+    architecture: amd64
+   -
+    package: xz-utils
+    version: 5.2.4-1
+    architecture: amd64
+   -
+    package: xtrans-dev
+    version: 1.3.5-1
+    architecture: all
+   -
+    package: xorg-sgml-doctools
+    version: 1:1.11-1
+    architecture: all
+   -
+    package: x11proto-xinerama-dev
+    version: 2018.4-4
+    architecture: all
+   -
+    package: x11proto-xf86vidmode-dev
+    version: 2018.4-4
+    architecture: all
+   -
+    package: x11proto-xext-dev
+    version: 2018.4-4
+    architecture: all
+   -
+    package: x11proto-randr-dev
+    version: 2018.4-4
+    architecture: all
+   -
+    package: x11proto-input-dev
+    version: 2018.4-4
+    architecture: all
+   -
+    package: x11proto-fixes-dev
+    version: 1:2018.4-4
+    architecture: all
+   -
+    package: x11proto-dev
+    version: 2018.4-4
+    architecture: all
+   -
+    package: x11proto-damage-dev
+    version: 1:2018.4-4
+    architecture: all
+   -
+    package: x11proto-core-dev
+    version: 2018.4-4
+    architecture: all
+   -
+    package: x11proto-composite-dev
+    version: 1:2018.4-4
+    architecture: all
+   -
+    package: x11-common
+    version: 1:7.7+19
+    architecture: all
+   -
+    package: wx3.0-headers
+    version: 3.0.4+dfsg-8
+    architecture: all
+   -
+    package: wx-common
+    version: 3.0.4+dfsg-8
+    architecture: amd64
+   -
+    package: uuid-dev
+    version: 2.33.1-0.1
+    architecture: armhf
+   -
+    package: util-linux
+    version: 2.33.1-0.1
+    architecture: amd64
+    essential: true
+   -
+    package: ucf
+    version: 3.0038+nmu1
+    architecture: all
+   -
+    package: tar
+    version: 1.30+dfsg-6
+    architecture: amd64
+    essential: true
+   -
+    package: sysvinit-utils
+    version: 2.93-8
+    architecture: amd64
+    essential: true
+   -
+    package: shared-mime-info
+    version: 1.10-1
+    architecture: amd64
+   -
+    package: sensible-utils
+    version: 0.0.12
+    architecture: all
+   -
+    package: sed
+    version: 4.7-1
+    architecture: amd64
+    essential: true
+   -
+    package: sbuild-build-depends-main-dummy
+    version: 0.invalid.0
+    architecture: armhf
+   -
+    package: readline-common
+    version: 7.0-5
+    architecture: all
+   -
+    package: python3.7-minimal
+    version: 3.7.3-2
+    architecture: amd64
+   -
+    package: python3.7
+    version: 3.7.3-2
+    architecture: amd64
+   -
+    package: python3-minimal
+    version: 3.7.3-1
+    architecture: amd64
+   -
+    package: python3-lib2to3
+    version: 3.7.3-1
+    architecture: all
+   -
+    package: python3-distutils
+    version: 3.7.3-1
+    architecture: all
+   -
+    package: python3
+    version: 3.7.3-1
+    architecture: amd64
+   -
+    package: python2.7-minimal
+    version: 2.7.16-2
+    architecture: armhf
+   -
+    package: python2.7
+    version: 2.7.16-2
+    architecture: armhf
+   -
+    package: python2-minimal
+    version: 2.7.16-1
+    architecture: armhf
+   -
+    package: python2
+    version: 2.7.16-1
+    architecture: armhf
+   -
+    package: python-six
+    version: 1.12.0-1
+    architecture: all
+   -
+    package: python-minimal
+    version: 2.7.16-1
+    architecture: armhf
+   -
+    package: python-lldb-7
+    version: 1:7.0.1-8
+    architecture: armhf
+   -
+    package: python
+    version: 2.7.16-1
+    architecture: armhf
+   -
+    package: pseudo
+    version: 1.9.0+git20180920-1
+    architecture: amd64
+   -
+    package: procps
+    version: 2:3.3.15-2
+    architecture: amd64
+   -
+    package: po-debconf
+    version: 1.0.21
+    architecture: all
+   -
+    package: pkgconf
+    version: 1.6.0-1
+    architecture: amd64
+   -
+    package: perl-openssl-defaults
+    version: 3
+    architecture: amd64
+   -
+    package: perl-modules-5.28
+    version: 5.28.1-6
+    architecture: all
+   -
+    package: perl-base
+    version: 5.28.1-6
+    architecture: amd64
+    essential: true
+   -
+    package: perl
+    version: 5.28.1-6
+    architecture: amd64
+   -
+    package: patch
+    version: 2.7.6-4
+    architecture: amd64
+   -
+    package: pango1.0-tools
+    version: 1.42.4-6
+    architecture: amd64
+   -
+    package: openssl
+    version: 1.1.1c-1
+    architecture: amd64
+   -
+    package: netbase
+    version: 5.6
+    architecture: all
+   -
+    package: ncurses-bin
+    version: 6.1+20181013-2
+    architecture: amd64
+    essential: true
+   -
+    package: ncurses-base
+    version: 6.1+20181013-2
+    architecture: all
+    essential: true
+   -
+    package: mime-support
+    version: 3.62
+    architecture: all
+   -
+    package: mesa-common-dev
+    version: 18.3.6-2
+    architecture: armhf
+   -
+    package: man-db
+    version: 2.8.5-2
+    architecture: amd64
+   -
+    package: make-guile
+    version: 4.2.1-1.2
+    architecture: amd64
+   -
+    package: m4
+    version: 1.4.18-2
+    architecture: amd64
+   -
+    package: lsb-base
+    version: 10.2019051400
+    architecture: all
+   -
+    package: login
+    version: 1:4.5-1.1
+    architecture: amd64
+    essential: true
+   -
+    package: llvm-runtime
+    version: 1:7.0-47.1
+    architecture: armhf
+   -
+    package: llvm-7-runtime
+    version: 1:7.0.1-8
+    architecture: armhf
+   -
+    package: llvm-7-dev
+    version: 1:7.0.1-8
+    architecture: armhf
+   -
+    package: llvm-7
+    version: 1:7.0.1-8
+    architecture: armhf
+   -
+    package: llvm
+    version: 1:7.0-47.1
+    architecture: armhf
+   -
+    package: lldb-7
+    version: 1:7.0.1-8
+    architecture: armhf
+   -
+    package: linux-libc-dev-armhf-cross
+    version: 4.19.28-2cross2
+    architecture: all
+   -
+    package: linux-libc-dev
+    version: 4.19.37-5
+    architecture: armhf
+   -
+    package: linux-libc-dev
+    version: 4.19.37-5
+    architecture: amd64
+   -
+    package: libzstd1
+    version: 1.3.8+dfsg-3
+    architecture: armhf
+   -
+    package: libzstd1
+    version: 1.3.8+dfsg-3
+    architecture: amd64
+   -
+    package: libyaml-perl
+    version: 1.27-1
+    architecture: all
+   -
+    package: libxxf86vm1
+    version: 1:1.1.4-1+b2
+    architecture: armhf
+   -
+    package: libxxf86vm-dev
+    version: 1:1.1.4-1+b2
+    architecture: armhf
+   -
+    package: libxshmfence1
+    version: 1.3-1
+    architecture: armhf
+   -
+    package: libxshmfence-dev
+    version: 1.3-1
+    architecture: armhf
+   -
+    package: libxrender1
+    version: 1:0.9.10-1
+    architecture: armhf
+   -
+    package: libxrender1
+    version: 1:0.9.10-1
+    architecture: amd64
+   -
+    package: libxrender-dev
+    version: 1:0.9.10-1
+    architecture: armhf
+   -
+    package: libxrandr2
+    version: 2:1.5.1-1
+    architecture: armhf
+   -
+    package: libxrandr-dev
+    version: 2:1.5.1-1
+    architecture: armhf
+   -
+    package: libxml2-utils
+    version: 2.9.4+dfsg1-7+b3
+    architecture: amd64
+   -
+    package: libxml2
+    version: 2.9.4+dfsg1-7+b3
+    architecture: amd64
+   -
+    package: libxml-simple-perl
+    version: 2.25-1
+    architecture: all
+   -
+    package: libxml-sax-perl
+    version: 1.00+dfsg-1
+    architecture: all
+   -
+    package: libxml-sax-expat-perl
+    version: 0.51-1
+    architecture: all
+   -
+    package: libxml-sax-base-perl
+    version: 1.09-1
+    architecture: all
+   -
+    package: libxml-parser-perl
+    version: 2.44-4
+    architecture: amd64
+   -
+    package: libxml-namespacesupport-perl
+    version: 1.12-1
+    architecture: all
+   -
+    package: libxinerama1
+    version: 2:1.1.4-2
+    architecture: armhf
+   -
+    package: libxinerama-dev
+    version: 2:1.1.4-2
+    architecture: armhf
+   -
+    package: libxi6
+    version: 2:1.7.9-1
+    architecture: armhf
+   -
+    package: libxi-dev
+    version: 2:1.7.9-1
+    architecture: armhf
+   -
+    package: libxft2
+    version: 2.3.2-2
+    architecture: armhf
+   -
+    package: libxft2
+    version: 2.3.2-2
+    architecture: amd64
+   -
+    package: libxft-dev
+    version: 2.3.2-2
+    architecture: armhf
+   -
+    package: libxfixes3
+    version: 1:5.0.3-1
+    architecture: armhf
+   -
+    package: libxfixes-dev
+    version: 1:5.0.3-1
+    architecture: armhf
+   -
+    package: libxext6
+    version: 2:1.3.3-1+b2
+    architecture: armhf
+   -
+    package: libxext6
+    version: 2:1.3.3-1+b2
+    architecture: amd64
+   -
+    package: libxext-dev
+    version: 2:1.3.3-1+b2
+    architecture: armhf
+   -
+    package: libxdmcp6
+    version: 1:1.1.2-3
+    architecture: armhf
+   -
+    package: libxdmcp6
+    version: 1:1.1.2-3
+    architecture: amd64
+   -
+    package: libxdmcp-dev
+    version: 1:1.1.2-3
+    architecture: armhf
+   -
+    package: libxdamage1
+    version: 1:1.1.4-3+b3
+    architecture: armhf
+   -
+    package: libxdamage-dev
+    version: 1:1.1.4-3+b3
+    architecture: armhf
+   -
+    package: libxcursor1
+    version: 1:1.1.15-2
+    architecture: armhf
+   -
+    package: libxcursor-dev
+    version: 1:1.1.15-2
+    architecture: armhf
+   -
+    package: libxcomposite1
+    version: 1:0.4.4-2
+    architecture: armhf
+   -
+    package: libxcomposite-dev
+    version: 1:0.4.4-2
+    architecture: armhf
+   -
+    package: libxcb1-dev
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb1
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb1
+    version: 1.13.1-2
+    architecture: amd64
+   -
+    package: libxcb-xfixes0-dev
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-xfixes0
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-sync1
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-sync-dev
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-shm0-dev
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-shm0
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-shm0
+    version: 1.13.1-2
+    architecture: amd64
+   -
+    package: libxcb-shape0-dev
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-shape0
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-render0-dev
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-render0
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-render0
+    version: 1.13.1-2
+    architecture: amd64
+   -
+    package: libxcb-randr0-dev
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-randr0
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-present0
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-present-dev
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-glx0-dev
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-glx0
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-dri3-dev
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-dri3-0
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-dri2-0-dev
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxcb-dri2-0
+    version: 1.13.1-2
+    architecture: armhf
+   -
+    package: libxau6
+    version: 1:1.0.8-1+b2
+    architecture: armhf
+   -
+    package: libxau6
+    version: 1:1.0.8-1+b2
+    architecture: amd64
+   -
+    package: libxau-dev
+    version: 1:1.0.8-1+b2
+    architecture: armhf
+   -
+    package: libx11-xcb1
+    version: 2:1.6.7-1
+    architecture: armhf
+   -
+    package: libx11-xcb-dev
+    version: 2:1.6.7-1
+    architecture: armhf
+   -
+    package: libx11-dev
+    version: 2:1.6.7-1
+    architecture: armhf
+   -
+    package: libx11-data
+    version: 2:1.6.7-1
+    architecture: all
+   -
+    package: libx11-6
+    version: 2:1.6.7-1
+    architecture: armhf
+   -
+    package: libx11-6
+    version: 2:1.6.7-1
+    architecture: amd64
+   -
+    package: libwxsqlite3-3.0-dev
+    version: 3.4.1~dfsg-3
+    architecture: armhf
+   -
+    package: libwxsqlite3-3.0-0
+    version: 3.4.1~dfsg-3
+    architecture: armhf
+   -
+    package: libwxgtk3.0-dev
+    version: 3.0.4+dfsg-8
+    architecture: armhf
+   -
+    package: libwxgtk3.0-0v5
+    version: 3.0.4+dfsg-8
+    architecture: armhf
+   -
+    package: libwxbase3.0-dev
+    version: 3.0.4+dfsg-8
+    architecture: armhf
+   -
+    package: libwxbase3.0-0v5
+    version: 3.0.4+dfsg-8
+    architecture: armhf
+   -
+    package: libwxbase3.0-0v5
+    version: 3.0.4+dfsg-8
+    architecture: amd64
+   -
+    package: libwww-robotrules-perl
+    version: 6.02-1
+    architecture: all
+   -
+    package: libwww-perl
+    version: 6.36-2
+    architecture: all
+   -
+    package: libwebp6
+    version: 0.6.1-2
+    architecture: armhf
+   -
+    package: libwebp6
+    version: 0.6.1-2
+    architecture: amd64
+   -
+    package: libwayland-server0
+    version: 1.16.0-1
+    architecture: armhf
+   -
+    package: libwayland-client0
+    version: 1.16.0-1
+    architecture: armhf
+   -
+    package: libuv1
+    version: 1.24.1-1
+    architecture: amd64
+   -
+    package: libuuid1
+    version: 2.33.1-0.1
+    architecture: armhf
+   -
+    package: libuuid1
+    version: 2.33.1-0.1
+    architecture: amd64
+   -
+    package: liburi-perl
+    version: 1.76-1
+    architecture: all
+   -
+    package: libunistring2
+    version: 0.9.10-1
+    architecture: armhf
+   -
+    package: libunistring2
+    version: 0.9.10-1
+    architecture: amd64
+   -
+    package: libudev1
+    version: 241-5
+    architecture: amd64
+   -
+    package: libuchardet0
+    version: 0.0.6-3
+    architecture: amd64
+   -
+    package: libubsan1-armhf-cross
+    version: 8.3.0-7cross1
+    architecture: all
+   -
+    package: libubsan1
+    version: 8.3.0-7
+    architecture: armhf
+   -
+    package: libubsan1
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: libtsan0
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: libtry-tiny-perl
+    version: 0.30-1
+    architecture: all
+   -
+    package: libtool
+    version: 2.4.6-10
+    architecture: all
+   -
+    package: libtinfo6
+    version: 6.1+20181013-2
+    architecture: armhf
+   -
+    package: libtinfo6
+    version: 6.1+20181013-2
+    architecture: amd64
+   -
+    package: libtimedate-perl
+    version: 2.3000-2
+    architecture: all
+   -
+    package: libtiff5
+    version: 4.0.10-4
+    architecture: armhf
+   -
+    package: libtiff5
+    version: 4.0.10-4
+    architecture: amd64
+   -
+    package: libthai0
+    version: 0.1.28-2
+    architecture: armhf
+   -
+    package: libthai0
+    version: 0.1.28-2
+    architecture: amd64
+   -
+    package: libthai-data
+    version: 0.1.28-2
+    architecture: all
+   -
+    package: libtasn1-6
+    version: 4.13-3
+    architecture: armhf
+   -
+    package: libtasn1-6
+    version: 4.13-3
+    architecture: amd64
+   -
+    package: libstdc++6-armhf-cross
+    version: 8.3.0-7cross1
+    architecture: all
+   -
+    package: libstdc++6
+    version: 8.3.0-7
+    architecture: armhf
+   -
+    package: libstdc++6
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: libstdc++-8-dev-armhf-cross
+    version: 8.3.0-7cross1
+    architecture: all
+   -
+    package: libstdc++-8-dev
+    version: 8.3.0-7
+    architecture: armhf
+   -
+    package: libstdc++-8-dev
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: libssl1.1
+    version: 1.1.1c-1
+    architecture: armhf
+   -
+    package: libssl1.1
+    version: 1.1.1c-1
+    architecture: amd64
+   -
+    package: libssh2-1
+    version: 1.8.0-2.1
+    architecture: amd64
+   -
+    package: libssh-gcrypt-dev
+    version: 0.8.7-1
+    architecture: armhf
+   -
+    package: libssh-gcrypt-4
+    version: 0.8.7-1
+    architecture: armhf
+   -
+    package: libsqlite3-dev
+    version: 3.27.2-3
+    architecture: armhf
+   -
+    package: libsqlite3-0
+    version: 3.27.2-3
+    architecture: armhf
+   -
+    package: libsqlite3-0
+    version: 3.27.2-3
+    architecture: amd64
+   -
+    package: libsmartcols1
+    version: 2.33.1-0.1
+    architecture: amd64
+   -
+    package: libsm6
+    version: 2:1.2.3-1
+    architecture: armhf
+   -
+    package: libsm-dev
+    version: 2:1.2.3-1
+    architecture: armhf
+   -
+    package: libsigsegv2
+    version: 2.12-2
+    architecture: amd64
+   -
+    package: libsepol1-dev
+    version: 2.8-1
+    architecture: armhf
+   -
+    package: libsepol1
+    version: 2.8-1
+    architecture: armhf
+   -
+    package: libsensors5
+    version: 1:3.5.0-3
+    architecture: armhf
+   -
+    package: libsensors-config
+    version: 1:3.5.0-3
+    architecture: all
+   -
+    package: libselinux1-dev
+    version: 2.8-1+b1
+    architecture: armhf
+   -
+    package: libselinux1
+    version: 2.8-1+b1
+    architecture: armhf
+   -
+    package: libselinux1
+    version: 2.8-1+b1
+    architecture: amd64
+   -
+    package: libseccomp2
+    version: 2.3.3-4
+    architecture: amd64
+   -
+    package: libsasl2-modules-db
+    version: 2.1.27+dfsg-1
+    architecture: amd64
+   -
+    package: libsasl2-2
+    version: 2.1.27+dfsg-1
+    architecture: amd64
+   -
+    package: librtmp1
+    version: 2.4+20151223.gitfa8646d.1-2
+    architecture: amd64
+   -
+    package: librsvg2-common
+    version: 2.44.10-2.1
+    architecture: amd64
+   -
+    package: librsvg2-2
+    version: 2.44.10-2.1
+    architecture: amd64
+   -
+    package: librhash0
+    version: 1.3.8-1
+    architecture: amd64
+   -
+    package: libreadline7
+    version: 7.0-5
+    architecture: armhf
+   -
+    package: libreadline7
+    version: 7.0-5
+    architecture: amd64
+   -
+    package: libquadmath0
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: libpython3.7-stdlib
+    version: 3.7.3-2
+    architecture: amd64
+   -
+    package: libpython3.7-minimal
+    version: 3.7.3-2
+    architecture: amd64
+   -
+    package: libpython3-stdlib
+    version: 3.7.3-1
+    architecture: amd64
+   -
+    package: libpython2.7-stdlib
+    version: 2.7.16-2
+    architecture: armhf
+   -
+    package: libpython2.7-minimal
+    version: 2.7.16-2
+    architecture: armhf
+   -
+    package: libpython2.7
+    version: 2.7.16-2
+    architecture: armhf
+   -
+    package: libpython2-stdlib
+    version: 2.7.16-1
+    architecture: armhf
+   -
+    package: libpython-stdlib
+    version: 2.7.16-1
+    architecture: armhf
+   -
+    package: libpthread-stubs0-dev
+    version: 0.4-1
+    architecture: armhf
+   -
+    package: libpsl5
+    version: 0.20.2-2
+    architecture: amd64
+   -
+    package: libpseudo
+    version: 1.9.0+git20180920-1
+    architecture: amd64
+   -
+    package: libprocps7
+    version: 2:3.3.15-2
+    architecture: amd64
+   -
+    package: libpng16-16
+    version: 1.6.36-6
+    architecture: armhf
+   -
+    package: libpng16-16
+    version: 1.6.36-6
+    architecture: amd64
+   -
+    package: libpng-dev
+    version: 1.6.36-6
+    architecture: armhf
+   -
+    package: libpixman-1-dev
+    version: 0.36.0-1
+    architecture: armhf
+   -
+    package: libpixman-1-0
+    version: 0.36.0-1
+    architecture: armhf
+   -
+    package: libpixman-1-0
+    version: 0.36.0-1
+    architecture: amd64
+   -
+    package: libpipeline1
+    version: 1.5.1-2
+    architecture: amd64
+   -
+    package: libperl5.28
+    version: 5.28.1-6
+    architecture: amd64
+   -
+    package: libpcrecpp0v5
+    version: 2:8.39-12
+    architecture: armhf
+   -
+    package: libpcre32-3
+    version: 2:8.39-12
+    architecture: armhf
+   -
+    package: libpcre3-dev
+    version: 2:8.39-12
+    architecture: armhf
+   -
+    package: libpcre3
+    version: 2:8.39-12
+    architecture: armhf
+   -
+    package: libpcre3
+    version: 2:8.39-12
+    architecture: amd64
+   -
+    package: libpcre16-3
+    version: 2:8.39-12
+    architecture: armhf
+   -
+    package: libpangoxft-1.0-0
+    version: 1.42.4-6
+    architecture: armhf
+   -
+    package: libpangoxft-1.0-0
+    version: 1.42.4-6
+    architecture: amd64
+   -
+    package: libpangoft2-1.0-0
+    version: 1.42.4-6
+    architecture: armhf
+   -
+    package: libpangoft2-1.0-0
+    version: 1.42.4-6
+    architecture: amd64
+   -
+    package: libpangocairo-1.0-0
+    version: 1.42.4-6
+    architecture: armhf
+   -
+    package: libpangocairo-1.0-0
+    version: 1.42.4-6
+    architecture: amd64
+   -
+    package: libpango1.0-dev
+    version: 1.42.4-6
+    architecture: armhf
+   -
+    package: libpango-1.0-0
+    version: 1.42.4-6
+    architecture: armhf
+   -
+    package: libpango-1.0-0
+    version: 1.42.4-6
+    architecture: amd64
+   -
+    package: libpam0g
+    version: 1.3.1-5
+    architecture: amd64
+   -
+    package: libpam-runtime
+    version: 1.3.1-5
+    architecture: all
+   -
+    package: libpam-modules-bin
+    version: 1.3.1-5
+    architecture: amd64
+   -
+    package: libpam-modules
+    version: 1.3.1-5
+    architecture: amd64
+   -
+    package: libp11-kit0
+    version: 0.23.15-2
+    architecture: armhf
+   -
+    package: libp11-kit0
+    version: 0.23.15-2
+    architecture: amd64
+   -
+    package: libopengl0
+    version: 1.1.0-1
+    architecture: armhf
+   -
+    package: libobjc4
+    version: 8.3.0-7
+    architecture: armhf
+   -
+    package: libobjc-8-dev
+    version: 8.3.0-7
+    architecture: armhf
+   -
+    package: libnotify4
+    version: 0.7.7-4
+    architecture: armhf
+   -
+    package: libnghttp2-14
+    version: 1.37.0-1
+    architecture: amd64
+   -
+    package: libnettle6
+    version: 3.4.1-1
+    architecture: armhf
+   -
+    package: libnettle6
+    version: 3.4.1-1
+    architecture: amd64
+   -
+    package: libnet-ssleay-perl
+    version: 1.85-2+b1
+    architecture: amd64
+   -
+    package: libnet-http-perl
+    version: 6.18-1
+    architecture: all
+   -
+    package: libncursesw6
+    version: 6.1+20181013-2
+    architecture: armhf
+   -
+    package: libncursesw6
+    version: 6.1+20181013-2
+    architecture: amd64
+   -
+    package: libncurses6
+    version: 6.1+20181013-2
+    architecture: armhf
+   -
+    package: libncurses6
+    version: 6.1+20181013-2
+    architecture: amd64
+   -
+    package: libncurses-dev
+    version: 6.1+20181013-2
+    architecture: armhf
+   -
+    package: libmpx2
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: libmpfr6
+    version: 4.0.2-1
+    architecture: amd64
+   -
+    package: libmpdec2
+    version: 2.4.2-2
+    architecture: amd64
+   -
+    package: libmpc3
+    version: 1.1.0-1
+    architecture: amd64
+   -
+    package: libmount1
+    version: 2.33.1-0.1
+    architecture: armhf
+   -
+    package: libmount1
+    version: 2.33.1-0.1
+    architecture: amd64
+   -
+    package: libmount-dev
+    version: 2.33.1-0.1
+    architecture: armhf
+   -
+    package: libmagic1
+    version: 1:5.35-4
+    architecture: amd64
+   -
+    package: libmagic-mgc
+    version: 1:5.35-4
+    architecture: amd64
+   -
+    package: liblzo2-2
+    version: 2.10-0.1
+    architecture: armhf
+   -
+    package: liblzma5
+    version: 5.2.4-1
+    architecture: armhf
+   -
+    package: liblzma5
+    version: 5.2.4-1
+    architecture: amd64
+   -
+    package: liblz4-1
+    version: 1.8.3-1
+    architecture: amd64
+   -
+    package: liblwp-protocol-https-perl
+    version: 6.07-2
+    architecture: all
+   -
+    package: liblwp-mediatypes-perl
+    version: 6.02-1
+    architecture: all
+   -
+    package: libltdl7
+    version: 2.4.6-10
+    architecture: amd64
+   -
+    package: liblsan0
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: liblocale-gettext-perl
+    version: 1.07-3+b4
+    architecture: amd64
+   -
+    package: libllvm7
+    version: 1:7.0.1-8
+    architecture: armhf
+   -
+    package: liblldb-dev
+    version: 1:7.0-47.1
+    architecture: armhf
+   -
+    package: liblldb-7-dev
+    version: 1:7.0.1-8
+    architecture: armhf
+   -
+    package: liblldb-7
+    version: 1:7.0.1-8
+    architecture: armhf
+   -
+    package: libldap-common
+    version: 2.4.47+dfsg-3
+    architecture: all
+   -
+    package: libldap-2.4-2
+    version: 2.4.47+dfsg-3
+    architecture: amd64
+   -
+    package: libkrb5support0
+    version: 1.17-3
+    architecture: armhf
+   -
+    package: libkrb5support0
+    version: 1.17-3
+    architecture: amd64
+   -
+    package: libkrb5-3
+    version: 1.17-3
+    architecture: armhf
+   -
+    package: libkrb5-3
+    version: 1.17-3
+    architecture: amd64
+   -
+    package: libkeyutils1
+    version: 1.6-6
+    architecture: armhf
+   -
+    package: libkeyutils1
+    version: 1.6-6
+    architecture: amd64
+   -
+    package: libk5crypto3
+    version: 1.17-3
+    architecture: armhf
+   -
+    package: libk5crypto3
+    version: 1.17-3
+    architecture: amd64
+   -
+    package: libjsoncpp1
+    version: 1.7.4-3
+    architecture: amd64
+   -
+    package: libjpeg62-turbo
+    version: 1:1.5.2-2+b1
+    architecture: armhf
+   -
+    package: libjpeg62-turbo
+    version: 1:1.5.2-2+b1
+    architecture: amd64
+   -
+    package: libjbig0
+    version: 2.1-3.1+b2
+    architecture: armhf
+   -
+    package: libjbig0
+    version: 2.1-3.1+b2
+    architecture: amd64
+   -
+    package: libitm1
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: libisl19
+    version: 0.20-2
+    architecture: amd64
+   -
+    package: libio-string-perl
+    version: 1.08-3
+    architecture: all
+   -
+    package: libio-socket-ssl-perl
+    version: 2.060-3
+    architecture: all
+   -
+    package: libio-html-perl
+    version: 1.001-1
+    architecture: all
+   -
+    package: libidn2-0
+    version: 2.0.5-1
+    architecture: armhf
+   -
+    package: libidn2-0
+    version: 2.0.5-1
+    architecture: amd64
+   -
+    package: libicu63
+    version: 63.2-2
+    architecture: armhf
+   -
+    package: libicu63
+    version: 63.2-2
+    architecture: amd64
+   -
+    package: libicu-dev
+    version: 63.2-2
+    architecture: armhf
+   -
+    package: libice6
+    version: 2:1.0.9-2
+    architecture: armhf
+   -
+    package: libice-dev
+    version: 2:1.0.9-2
+    architecture: armhf
+   -
+    package: libhunspell-dev
+    version: 1.7.0-2
+    architecture: armhf
+   -
+    package: libhunspell-1.7-0
+    version: 1.7.0-2
+    architecture: armhf
+   -
+    package: libhttp-negotiate-perl
+    version: 6.01-1
+    architecture: all
+   -
+    package: libhttp-message-perl
+    version: 6.18-1
+    architecture: all
+   -
+    package: libhttp-date-perl
+    version: 6.02-1
+    architecture: all
+   -
+    package: libhttp-cookies-perl
+    version: 6.04-1
+    architecture: all
+   -
+    package: libhtml-tree-perl
+    version: 5.07-2
+    architecture: all
+   -
+    package: libhtml-tagset-perl
+    version: 3.20-3
+    architecture: all
+   -
+    package: libhtml-parser-perl
+    version: 3.72-3+b3
+    architecture: amd64
+   -
+    package: libhogweed4
+    version: 3.4.1-1
+    architecture: armhf
+   -
+    package: libhogweed4
+    version: 3.4.1-1
+    architecture: amd64
+   -
+    package: libharfbuzz0b
+    version: 2.3.1-1
+    architecture: armhf
+   -
+    package: libharfbuzz0b
+    version: 2.3.1-1
+    architecture: amd64
+   -
+    package: libharfbuzz-icu0
+    version: 2.3.1-1
+    architecture: armhf
+   -
+    package: libharfbuzz-gobject0
+    version: 2.3.1-1
+    architecture: armhf
+   -
+    package: libharfbuzz-dev
+    version: 2.3.1-1
+    architecture: armhf
+   -
+    package: libgtk2.0-dev
+    version: 2.24.32-3
+    architecture: armhf
+   -
+    package: libgtk2.0-common
+    version: 2.24.32-3
+    architecture: all
+   -
+    package: libgtk2.0-0
+    version: 2.24.32-3
+    architecture: armhf
+   -
+    package: libgssapi-krb5-2
+    version: 1.17-3
+    architecture: armhf
+   -
+    package: libgssapi-krb5-2
+    version: 1.17-3
+    architecture: amd64
+   -
+    package: libgraphite2-dev
+    version: 1.3.13-7
+    architecture: armhf
+   -
+    package: libgraphite2-3
+    version: 1.3.13-7
+    architecture: armhf
+   -
+    package: libgraphite2-3
+    version: 1.3.13-7
+    architecture: amd64
+   -
+    package: libgpg-error0
+    version: 1.35-1
+    architecture: armhf
+   -
+    package: libgpg-error0
+    version: 1.35-1
+    architecture: amd64
+   -
+    package: libgpg-error-dev
+    version: 1.35-1
+    architecture: armhf
+   -
+    package: libgomp1-armhf-cross
+    version: 8.3.0-7cross1
+    architecture: all
+   -
+    package: libgomp1
+    version: 8.3.0-7
+    architecture: armhf
+   -
+    package: libgomp1
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: libgnutls30
+    version: 3.6.7-4
+    architecture: armhf
+   -
+    package: libgnutls30
+    version: 3.6.7-4
+    architecture: amd64
+   -
+    package: libgmp10
+    version: 2:6.1.2+dfsg-4
+    architecture: armhf
+   -
+    package: libgmp10
+    version: 2:6.1.2+dfsg-4
+    architecture: amd64
+   -
+    package: libglx0
+    version: 1.1.0-1
+    architecture: armhf
+   -
+    package: libglx-mesa0
+    version: 18.3.6-2
+    architecture: armhf
+   -
+    package: libglvnd0
+    version: 1.1.0-1
+    architecture: armhf
+   -
+    package: libglvnd-dev
+    version: 1.1.0-1
+    architecture: armhf
+   -
+    package: libglvnd-core-dev
+    version: 1.1.0-1
+    architecture: armhf
+   -
+    package: libglu1-mesa-dev
+    version: 9.0.0-2.1+b3
+    architecture: armhf
+   -
+    package: libglu1-mesa
+    version: 9.0.0-2.1+b3
+    architecture: armhf
+   -
+    package: libglib2.0-dev-bin
+    version: 2.58.3-2
+    architecture: amd64
+   -
+    package: libglib2.0-dev
+    version: 2.58.3-2
+    architecture: armhf
+   -
+    package: libglib2.0-data
+    version: 2.58.3-2
+    architecture: all
+   -
+    package: libglib2.0-bin
+    version: 2.58.3-2
+    architecture: amd64
+   -
+    package: libglib2.0-0
+    version: 2.58.3-2
+    architecture: armhf
+   -
+    package: libglib2.0-0
+    version: 2.58.3-2
+    architecture: amd64
+   -
+    package: libgles2
+    version: 1.1.0-1
+    architecture: armhf
+   -
+    package: libgles1
+    version: 1.1.0-1
+    architecture: armhf
+   -
+    package: libglapi-mesa
+    version: 18.3.6-2
+    architecture: armhf
+   -
+    package: libgl1-mesa-dri
+    version: 18.3.6-2
+    architecture: armhf
+   -
+    package: libgl1-mesa-dev
+    version: 18.3.6-2
+    architecture: armhf
+   -
+    package: libgl1
+    version: 1.1.0-1
+    architecture: armhf
+   -
+    package: libgirepository-1.0-1
+    version: 1.58.3-2
+    architecture: armhf
+   -
+    package: libgdk-pixbuf2.0-dev
+    version: 2.38.1+dfsg-1
+    architecture: armhf
+   -
+    package: libgdk-pixbuf2.0-common
+    version: 2.38.1+dfsg-1
+    architecture: all
+   -
+    package: libgdk-pixbuf2.0-bin
+    version: 2.38.1+dfsg-1
+    architecture: amd64
+   -
+    package: libgdk-pixbuf2.0-0
+    version: 2.38.1+dfsg-1
+    architecture: armhf
+   -
+    package: libgdk-pixbuf2.0-0
+    version: 2.38.1+dfsg-1
+    architecture: amd64
+   -
+    package: libgdbm6
+    version: 1.18.1-4
+    architecture: amd64
+   -
+    package: libgdbm-compat4
+    version: 1.18.1-4
+    architecture: amd64
+   -
+    package: libgcrypt20-dev
+    version: 1.8.4-5
+    architecture: armhf
+   -
+    package: libgcrypt20
+    version: 1.8.4-5
+    architecture: armhf
+   -
+    package: libgcrypt20
+    version: 1.8.4-5
+    architecture: amd64
+   -
+    package: libgcc1-armhf-cross
+    version: 1:8.3.0-7cross1
+    architecture: all
+   -
+    package: libgcc1
+    version: 1:8.3.0-7
+    architecture: armhf
+   -
+    package: libgcc1
+    version: 1:8.3.0-7
+    architecture: amd64
+   -
+    package: libgcc-8-dev-armhf-cross
+    version: 8.3.0-7cross1
+    architecture: all
+   -
+    package: libgcc-8-dev
+    version: 8.3.0-7
+    architecture: armhf
+   -
+    package: libgcc-8-dev
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: libgc1c2
+    version: 1:7.6.4-0.4
+    architecture: armhf
+   -
+    package: libgc1c2
+    version: 1:7.6.4-0.4
+    architecture: amd64
+   -
+    package: libgbm1
+    version: 18.3.6-2
+    architecture: armhf
+   -
+    package: libfribidi0
+    version: 1.0.5-3.1
+    architecture: armhf
+   -
+    package: libfribidi0
+    version: 1.0.5-3.1
+    architecture: amd64
+   -
+    package: libfribidi-dev
+    version: 1.0.5-3.1
+    architecture: armhf
+   -
+    package: libfreetype6-dev
+    version: 2.9.1-3
+    architecture: armhf
+   -
+    package: libfreetype6
+    version: 2.9.1-3
+    architecture: armhf
+   -
+    package: libfreetype6
+    version: 2.9.1-3
+    architecture: amd64
+   -
+    package: libfontconfig1-dev
+    version: 2.13.1-2
+    architecture: armhf
+   -
+    package: libfontconfig1
+    version: 2.13.1-2
+    architecture: armhf
+   -
+    package: libfontconfig1
+    version: 2.13.1-2
+    architecture: amd64
+   -
+    package: libfile-which-perl
+    version: 1.23-1
+    architecture: all
+   -
+    package: libfile-stripnondeterminism-perl
+    version: 1.1.2-1
+    architecture: all
+   -
+    package: libfile-listing-perl
+    version: 6.04-1
+    architecture: all
+   -
+    package: libfile-homedir-perl
+    version: 1.004-1
+    architecture: all
+   -
+    package: libffi6
+    version: 3.2.1-9
+    architecture: armhf
+   -
+    package: libffi6
+    version: 3.2.1-9
+    architecture: amd64
+   -
+    package: libffi-dev
+    version: 3.2.1-9
+    architecture: armhf
+   -
+    package: libfdisk1
+    version: 2.33.1-0.1
+    architecture: amd64
+   -
+    package: libexpat1-dev
+    version: 2.2.6-2
+    architecture: armhf
+   -
+    package: libexpat1
+    version: 2.2.6-2
+    architecture: armhf
+   -
+    package: libexpat1
+    version: 2.2.6-2
+    architecture: amd64
+   -
+    package: libencode-locale-perl
+    version: 1.05-1
+    architecture: all
+   -
+    package: libelogind0
+    version: 241.1-1+debian1
+    architecture: armhf
+   -
+    package: libelogind0
+    version: 241.1-1+debian1
+    architecture: amd64
+   -
+    package: libelf1
+    version: 0.176-1.1
+    architecture: armhf
+   -
+    package: libelf1
+    version: 0.176-1.1
+    architecture: amd64
+   -
+    package: libegl1
+    version: 1.1.0-1
+    architecture: armhf
+   -
+    package: libegl-mesa0
+    version: 18.3.6-2
+    architecture: armhf
+   -
+    package: libedit2
+    version: 3.1-20181209-1
+    architecture: armhf
+   -
+    package: libdrm2
+    version: 2.4.97-1
+    architecture: armhf
+   -
+    package: libdrm-tegra0
+    version: 2.4.97-1
+    architecture: armhf
+   -
+    package: libdrm-radeon1
+    version: 2.4.97-1
+    architecture: armhf
+   -
+    package: libdrm-omap1
+    version: 2.4.97-1
+    architecture: armhf
+   -
+    package: libdrm-nouveau2
+    version: 2.4.97-1
+    architecture: armhf
+   -
+    package: libdrm-freedreno1
+    version: 2.4.97-1
+    architecture: armhf
+   -
+    package: libdrm-exynos1
+    version: 2.4.97-1
+    architecture: armhf
+   -
+    package: libdrm-etnaviv1
+    version: 2.4.97-1
+    architecture: armhf
+   -
+    package: libdrm-dev
+    version: 2.4.97-1
+    architecture: armhf
+   -
+    package: libdrm-common
+    version: 2.4.97-1
+    architecture: all
+   -
+    package: libdrm-amdgpu1
+    version: 2.4.97-1
+    architecture: armhf
+   -
+    package: libdpkg-perl
+    version: 1.19.7
+    architecture: all
+   -
+    package: libdebian-dpkgcross-perl
+    version: 2.6.15-3
+    architecture: all
+   -
+    package: libdebconfclient0
+    version: 0.249
+    architecture: amd64
+   -
+    package: libdbus-1-3
+    version: 1.12.16-1
+    architecture: armhf
+   -
+    package: libdb5.3
+    version: 5.3.28+dfsg1-0.6
+    architecture: armhf
+   -
+    package: libdb5.3
+    version: 5.3.28+dfsg1-0.6
+    architecture: amd64
+   -
+    package: libdatrie1
+    version: 0.2.12-2
+    architecture: armhf
+   -
+    package: libdatrie1
+    version: 0.2.12-2
+    architecture: amd64
+   -
+    package: libcurl4
+    version: 7.64.0-4
+    architecture: amd64
+   -
+    package: libcups2
+    version: 2.2.10-6
+    architecture: armhf
+   -
+    package: libcroco3
+    version: 0.6.12-3
+    architecture: amd64
+   -
+    package: libconfig-inifiles-perl
+    version: 3.000001-1
+    architecture: all
+   -
+    package: libconfig-auto-perl
+    version: 0.44-1
+    architecture: all
+   -
+    package: libcom-err2
+    version: 1.45.2-1
+    architecture: armhf
+   -
+    package: libcom-err2
+    version: 1.45.2-1
+    architecture: amd64
+   -
+    package: libclang1-7
+    version: 1:7.0.1-8
+    architecture: armhf
+   -
+    package: libclang-dev
+    version: 1:7.0-47.1
+    architecture: armhf
+   -
+    package: libclang-common-7-dev
+    version: 1:7.0.1-8
+    architecture: armhf
+   -
+    package: libclang-7-dev
+    version: 1:7.0.1-8
+    architecture: armhf
+   -
+    package: libcc1-0
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: libcap2
+    version: 1:2.25-2
+    architecture: armhf
+   -
+    package: libcap2
+    version: 1:2.25-2
+    architecture: amd64
+   -
+    package: libcap-ng0
+    version: 0.7.9-2
+    architecture: amd64
+   -
+    package: libcairo2-dev
+    version: 1.16.0-4
+    architecture: armhf
+   -
+    package: libcairo2
+    version: 1.16.0-4
+    architecture: armhf
+   -
+    package: libcairo2
+    version: 1.16.0-4
+    architecture: amd64
+   -
+    package: libcairo-script-interpreter2
+    version: 1.16.0-4
+    architecture: armhf
+   -
+    package: libcairo-gobject2
+    version: 1.16.0-4
+    architecture: armhf
+   -
+    package: libc6-dev-armhf-cross
+    version: 2.28-10cross2
+    architecture: all
+   -
+    package: libc6-dev
+    version: 2.28-10
+    architecture: armhf
+   -
+    package: libc6-dev
+    version: 2.28-10
+    architecture: amd64
+   -
+    package: libc6-armhf-cross
+    version: 2.28-10cross2
+    architecture: all
+   -
+    package: libc6
+    version: 2.28-10
+    architecture: armhf
+   -
+    package: libc6
+    version: 2.28-10
+    architecture: amd64
+   -
+    package: libc-dev-bin
+    version: 2.28-10
+    architecture: amd64
+   -
+    package: libc-bin
+    version: 2.28-10
+    architecture: amd64
+    essential: true
+   -
+    package: libbz2-1.0
+    version: 1.0.6-9.1
+    architecture: armhf
+   -
+    package: libbz2-1.0
+    version: 1.0.6-9.1
+    architecture: amd64
+   -
+    package: libbsd0
+    version: 0.9.1-2
+    architecture: armhf
+   -
+    package: libbsd0
+    version: 0.9.1-2
+    architecture: amd64
+   -
+    package: libblkid1
+    version: 2.33.1-0.1
+    architecture: armhf
+   -
+    package: libblkid1
+    version: 2.33.1-0.1
+    architecture: amd64
+   -
+    package: libblkid-dev
+    version: 2.33.1-0.1
+    architecture: armhf
+   -
+    package: libbinutils
+    version: 2.31.1-16
+    architecture: amd64
+   -
+    package: libavahi-common3
+    version: 0.7-4+b1
+    architecture: armhf
+   -
+    package: libavahi-common-data
+    version: 0.7-4+b1
+    architecture: armhf
+   -
+    package: libavahi-client3
+    version: 0.7-4+b1
+    architecture: armhf
+   -
+    package: libaudit1
+    version: 1:2.8.4-3
+    architecture: amd64
+   -
+    package: libaudit-common
+    version: 1:2.8.4-3
+    architecture: all
+   -
+    package: libattr1
+    version: 1:2.4.48-4
+    architecture: amd64
+   -
+    package: libatomic1-armhf-cross
+    version: 8.3.0-7cross1
+    architecture: all
+   -
+    package: libatomic1
+    version: 8.3.0-7
+    architecture: armhf
+   -
+    package: libatomic1
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: libatk1.0-dev
+    version: 2.30.0-2
+    architecture: armhf
+   -
+    package: libatk1.0-data
+    version: 2.30.0-2
+    architecture: all
+   -
+    package: libatk1.0-0
+    version: 2.30.0-2
+    architecture: armhf
+   -
+    package: libasan5-armhf-cross
+    version: 8.3.0-7cross1
+    architecture: all
+   -
+    package: libasan5
+    version: 8.3.0-7
+    architecture: armhf
+   -
+    package: libasan5
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: libarchive13
+    version: 3.3.3-4
+    architecture: amd64
+   -
+    package: libarchive-zip-perl
+    version: 1.64-1
+    architecture: all
+   -
+    package: libacl1
+    version: 2.2.53-4
+    architecture: amd64
+   -
+    package: intltool-debian
+    version: 0.35.0+20060710.5
+    architecture: all
+   -
+    package: init-system-helpers
+    version: 1.57
+    architecture: all
+    essential: true
+   -
+    package: icu-devtools
+    version: 63.2-2
+    architecture: amd64
+   -
+    package: hostname
+    version: 3.21
+    architecture: amd64
+    essential: true
+   -
+    package: hicolor-icon-theme
+    version: 0.17-2
+    architecture: all
+   -
+    package: gzip
+    version: 1.9-3
+    architecture: amd64
+    essential: true
+   -
+    package: guile-2.0-libs
+    version: 2.0.13+1-5.1
+    architecture: amd64
+   -
+    package: gtk-update-icon-cache
+    version: 3.24.5-1
+    architecture: amd64
+   -
+    package: groff-base
+    version: 1.22.4-3
+    architecture: amd64
+   -
+    package: grep
+    version: 3.3-1
+    architecture: amd64
+    essential: true
+   -
+    package: gnome-icon-theme
+    version: 3.12.0-3
+    architecture: all
+   -
+    package: gir1.2-pango-1.0
+    version: 1.42.4-6
+    architecture: armhf
+   -
+    package: gir1.2-harfbuzz-0.0
+    version: 2.3.1-1
+    architecture: armhf
+   -
+    package: gir1.2-gtk-2.0
+    version: 2.24.32-3
+    architecture: armhf
+   -
+    package: gir1.2-glib-2.0
+    version: 1.58.3-2
+    architecture: armhf
+   -
+    package: gir1.2-gdkpixbuf-2.0
+    version: 2.38.1+dfsg-1
+    architecture: armhf
+   -
+    package: gir1.2-freedesktop
+    version: 1.58.3-2
+    architecture: armhf
+   -
+    package: gir1.2-atk-1.0
+    version: 2.30.0-2
+    architecture: armhf
+   -
+    package: gettext-base
+    version: 0.19.8.1-9
+    architecture: amd64
+   -
+    package: gettext
+    version: 0.19.8.1-9
+    architecture: amd64
+   -
+    package: gcc-arm-linux-gnueabihf
+    version: 4:8.3.0-1
+    architecture: amd64
+   -
+    package: gcc-8-cross-base
+    version: 8.3.0-7cross1
+    architecture: all
+   -
+    package: gcc-8-base
+    version: 8.3.0-7
+    architecture: armhf
+   -
+    package: gcc-8-base
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: gcc-8-arm-linux-gnueabihf-base
+    version: 8.3.0-7cross1
+    architecture: amd64
+   -
+    package: gcc-8-arm-linux-gnueabihf
+    version: 8.3.0-7cross1
+    architecture: amd64
+   -
+    package: gcc-8
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: gcc
+    version: 4:8.3.0-1
+    architecture: amd64
+   -
+    package: gawk
+    version: 1:4.2.1+dfsg-1
+    architecture: amd64
+   -
+    package: g++-arm-linux-gnueabihf
+    version: 4:8.3.0-1
+    architecture: amd64
+   -
+    package: g++-8-arm-linux-gnueabihf
+    version: 8.3.0-7cross1
+    architecture: amd64
+   -
+    package: g++-8
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: g++
+    version: 4:8.3.0-1
+    architecture: amd64
+   -
+    package: fonts-liberation
+    version: 1:1.07.4-9
+    architecture: all
+   -
+    package: fontconfig-config
+    version: 2.13.1-2
+    architecture: all
+   -
+    package: fontconfig
+    version: 2.13.1-2
+    architecture: amd64
+   -
+    package: findutils
+    version: 4.6.0+git+20190209-2
+    architecture: amd64
+    essential: true
+   -
+    package: file
+    version: 1:5.35-4
+    architecture: amd64
+   -
+    package: fdisk
+    version: 2.33.1-0.1
+    architecture: amd64
+   -
+    package: dwz
+    version: 0.12-3
+    architecture: amd64
+   -
+    package: dpkg-dev
+    version: 1.19.7
+    architecture: all
+   -
+    package: dpkg-cross
+    version: 2.6.15-3
+    architecture: all
+   -
+    package: dpkg
+    version: 1.19.7
+    architecture: amd64
+    essential: true
+   -
+    package: diffutils
+    version: 1:3.7-3
+    architecture: amd64
+    essential: true
+   -
+    package: dh-strip-nondeterminism
+    version: 1.1.2-1
+    architecture: all
+   -
+    package: dh-autoreconf
+    version: 19
+    architecture: all
+   -
+    package: debianutils
+    version: 4.8.6.1
+    architecture: amd64
+    essential: true
+   -
+    package: debhelper
+    version: 12.1.1
+    architecture: all
+   -
+    package: debconf
+    version: 1.5.72
+    architecture: all
+   -
+    package: dash
+    version: 0.5.10.2-5
+    architecture: amd64
+    essential: true
+   -
+    package: crossbuild-essential-armhf
+    version: 12.6
+    architecture: all
+   -
+    package: cross-config
+    version: 2.6.15-3
+    architecture: all
+   -
+    package: cpp-arm-linux-gnueabihf
+    version: 4:8.3.0-1
+    architecture: amd64
+   -
+    package: cpp-8-arm-linux-gnueabihf
+    version: 8.3.0-7cross1
+    architecture: amd64
+   -
+    package: cpp-8
+    version: 8.3.0-7
+    architecture: amd64
+   -
+    package: cpp
+    version: 4:8.3.0-1
+    architecture: amd64
+   -
+    package: coreutils
+    version: 8.30-3
+    architecture: amd64
+    essential: true
+   -
+    package: cmake-data
+    version: 3.13.4-1
+    architecture: all
+   -
+    package: cmake
+    version: 3.13.4-1
+    architecture: amd64
+   -
+    package: ca-certificates
+    version: 20190110
+    architecture: all
+   -
+    package: bzip2
+    version: 1.0.6-9.1
+    architecture: amd64
+   -
+    package: build-essential
+    version: 12.6
+    architecture: amd64
+   -
+    package: bsdutils
+    version: 1:2.33.1-0.1
+    architecture: amd64
+    essential: true
+   -
+    package: bsdmainutils
+    version: 11.1.2+b1
+    architecture: amd64
+   -
+    package: binutils-x86-64-linux-gnu
+    version: 2.31.1-16
+    architecture: amd64
+   -
+    package: binutils-common
+    version: 2.31.1-16
+    architecture: amd64
+   -
+    package: binutils-arm-linux-gnueabihf
+    version: 2.31.1-16
+    architecture: amd64
+   -
+    package: binutils
+    version: 2.31.1-16
+    architecture: amd64
+   -
+    package: binfmt-support
+    version: 2.2.0-2
+    architecture: amd64
+   -
+    package: bash
+    version: 5.0-4
+    architecture: amd64
+    essential: true
+   -
+    package: base-passwd
+    version: 3.5.46
+    architecture: amd64
+    essential: true
+   -
+    package: base-files
+    version: 10.3
+    architecture: amd64
+    essential: true
+   -
+    package: autotools-dev
+    version: 20180224.1
+    architecture: all
+   -
+    package: autopoint
+    version: 0.19.8.1-9
+    architecture: all
+   -
+    package: automake
+    version: 1:1.16.1-4
+    architecture: all
+   -
+    package: autoconf
+    version: 2.69-11
+    architecture: all
+ 
+background-packages: 86702
+foreground-packages: 1
+total-packages: 86703
+broken-packages: 0
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package 'adwaita-icon-theme' is not installed, so not removed
+Package 'libatk1.0-data' is not installed, so not removed
+Package 'autoconf' is not installed, so not removed
+Package 'automake' is not installed, so not removed
+Package 'autotools-dev' is not installed, so not removed
+Package 'binfmt-support' is not installed, so not removed
+Package 'binutils-arm-linux-gnueabihf' is not installed, so not removed
+Package 'crossbuild-essential-armhf' is not installed, so not removed
+Package 'libcairo2' is not installed, so not removed
+Package 'cmake' is not installed, so not removed
+Package 'cmake-data' is not installed, so not removed
+Package 'libc6-armhf-cross' is not installed, so not removed
+Package 'libc6-dev-armhf-cross' is not installed, so not removed
+Package 'linux-libc-dev-armhf-cross' is not installed, so not removed
+Package 'libcurl4' is not installed, so not removed
+Package 'debhelper' is not installed, so not removed
+Package 'dh-autoreconf' is not installed, so not removed
+Package 'cross-config' is not installed, so not removed
+Package 'dpkg-cross' is not installed, so not removed
+Package 'libdebian-dpkgcross-perl' is not installed, so not removed
+Package 'dwz' is not installed, so not removed
+Package 'libexpat1' is not installed, so not removed
+Package 'file' is not installed, so not removed
+Package 'libmagic-mgc' is not installed, so not removed
+Package 'libmagic1' is not installed, so not removed
+Package 'fontconfig' is not installed, so not removed
+Package 'fontconfig-config' is not installed, so not removed
+Package 'libfontconfig1' is not installed, so not removed
+Package 'fonts-dejavu-core' is not installed, so not removed
+Package 'libfreetype6' is not installed, so not removed
+Package 'libfribidi0' is not installed, so not removed
+Package 'cpp-8-arm-linux-gnueabihf' is not installed, so not removed
+Package 'g++-8-arm-linux-gnueabihf' is not installed, so not removed
+Package 'gcc-8-arm-linux-gnueabihf' is not installed, so not removed
+Package 'gcc-8-arm-linux-gnueabihf-base' is not installed, so not removed
+Package 'gcc-8-cross-base' is not installed, so not removed
+Package 'libasan5-armhf-cross' is not installed, so not removed
+Package 'libatomic1-armhf-cross' is not installed, so not removed
+Package 'libgcc-8-dev-armhf-cross' is not installed, so not removed
+Package 'libgcc1-armhf-cross' is not installed, so not removed
+Package 'libgomp1-armhf-cross' is not installed, so not removed
+Package 'libstdc++-8-dev-armhf-cross' is not installed, so not removed
+Package 'libstdc++6-armhf-cross' is not installed, so not removed
+Package 'libubsan1-armhf-cross' is not installed, so not removed
+Package 'cpp-arm-linux-gnueabihf' is not installed, so not removed
+Package 'g++-arm-linux-gnueabihf' is not installed, so not removed
+Package 'gcc-arm-linux-gnueabihf' is not installed, so not removed
+Package 'libgdk-pixbuf2.0-0' is not installed, so not removed
+Package 'libgdk-pixbuf2.0-bin' is not installed, so not removed
+Package 'libgdk-pixbuf2.0-common' is not installed, so not removed
+Package 'autopoint' is not installed, so not removed
+Package 'gettext' is not installed, so not removed
+Package 'gettext-base' is not installed, so not removed
+Package 'libglib2.0-0' is not installed, so not removed
+Package 'libglib2.0-bin' is not installed, so not removed
+Package 'libglib2.0-data' is not installed, so not removed
+Package 'libglib2.0-dev-bin' is not installed, so not removed
+Package 'libgraphite2-3' is not installed, so not removed
+Package 'libgtk2.0-common' is not installed, so not removed
+Package 'gtk-update-icon-cache' is not installed, so not removed
+Package 'libharfbuzz0b' is not installed, so not removed
+Package 'hicolor-icon-theme' is not installed, so not removed
+Package 'icu-devtools' is not installed, so not removed
+Package 'libicu63' is not installed, so not removed
+Package 'intltool-debian' is not installed, so not removed
+Package 'libjbig0' is not installed, so not removed
+Package 'libkeyutils1' is not installed, so not removed
+Package 'libgssapi-krb5-2' is not installed, so not removed
+Package 'libk5crypto3' is not installed, so not removed
+Package 'libkrb5-3' is not installed, so not removed
+Package 'libkrb5support0' is not installed, so not removed
+Package 'libarchive13' is not installed, so not removed
+Package 'libarchive-zip-perl' is not installed, so not removed
+Package 'libconfig-auto-perl' is not installed, so not removed
+Package 'libconfig-inifiles-perl' is not installed, so not removed
+Package 'libcroco3' is not installed, so not removed
+Package 'libdatrie1' is not installed, so not removed
+Package 'libdrm-common' is not installed, so not removed
+Package 'libfile-homedir-perl' is not installed, so not removed
+Package 'libfile-which-perl' is not installed, so not removed
+Package 'libio-string-perl' is not installed, so not removed
+Package 'libjpeg62-turbo' is not installed, so not removed
+Package 'libjsoncpp1' is not installed, so not removed
+Package 'liblocale-gettext-perl' is not installed, so not removed
+Package 'libpng16-16' is not installed, so not removed
+Package 'libpsl5' is not installed, so not removed
+Package 'librsvg2-2' is not installed, so not removed
+Package 'librsvg2-common' is not installed, so not removed
+Package 'libsigsegv2' is not installed, so not removed
+Package 'libssh2-1' is not installed, so not removed
+Package 'libthai-data' is not installed, so not removed
+Package 'libthai0' is not installed, so not removed
+Package 'libtool' is not installed, so not removed
+Package 'libuv1' is not installed, so not removed
+Package 'libwebp6' is not installed, so not removed
+Package 'libx11-6' is not installed, so not removed
+Package 'libx11-data' is not installed, so not removed
+Package 'libxau6' is not installed, so not removed
+Package 'libxcb-render0' is not installed, so not removed
+Package 'libxcb-shm0' is not installed, so not removed
+Package 'libxcb1' is not installed, so not removed
+Package 'libxdmcp6' is not installed, so not removed
+Package 'libxext6' is not installed, so not removed
+Package 'libxml-libxml-perl' is not installed, so not removed
+Package 'libxml-namespacesupport-perl' is not installed, so not removed
+Package 'libxml-sax-base-perl' is not installed, so not removed
+Package 'libxml-sax-perl' is not installed, so not removed
+Package 'libxml-simple-perl' is not installed, so not removed
+Package 'libxml2' is not installed, so not removed
+Package 'libxml2-utils' is not installed, so not removed
+Package 'libxrender1' is not installed, so not removed
+Package 'libyaml-perl' is not installed, so not removed
+Package 'libsensors-config' is not installed, so not removed
+Package 'm4' is not installed, so not removed
+Package 'libmpdec2' is not installed, so not removed
+Package 'libncurses6' is not installed, so not removed
+Package 'libnghttp2-14' is not installed, so not removed
+Package 'libssl1.1' is not installed, so not removed
+Package 'libpango-1.0-0' is not installed, so not removed
+Package 'libpangocairo-1.0-0' is not installed, so not removed
+Package 'libpangoft2-1.0-0' is not installed, so not removed
+Package 'libpangoxft-1.0-0' is not installed, so not removed
+Package 'pango1.0-tools' is not installed, so not removed
+Package 'libpixman-1-0' is not installed, so not removed
+Package 'pkg-config' is not installed, so not removed
+Package 'po-debconf' is not installed, so not removed
+Package 'libprocps7' is not installed, so not removed
+Package 'procps' is not installed, so not removed
+Package 'libpython3-stdlib' is not installed, so not removed
+Package 'python3' is not installed, so not removed
+Package 'python3-minimal' is not installed, so not removed
+Package 'python3-distutils' is not installed, so not removed
+Package 'python3-lib2to3' is not installed, so not removed
+Package 'libpython3.7-minimal' is not installed, so not removed
+Package 'libpython3.7-stdlib' is not installed, so not removed
+Package 'python3.7' is not installed, so not removed
+Package 'python3.7-minimal' is not installed, so not removed
+Package 'librhash0' is not installed, so not removed
+Package 'librtmp1' is not installed, so not removed
+Package 'sensible-utils' is not installed, so not removed
+Package 'shared-mime-info' is not installed, so not removed
+Package 'python-six' is not installed, so not removed
+Package 'dh-strip-nondeterminism' is not installed, so not removed
+Package 'libfile-stripnondeterminism-perl' is not installed, so not removed
+Package 'libtiff5' is not installed, so not removed
+Package 'ucf' is not installed, so not removed
+Package 'libwxbase3.0-0v5' is not installed, so not removed
+Package 'wx-common' is not installed, so not removed
+Package 'wx3.0-headers' is not installed, so not removed
+Package 'libxft2' is not installed, so not removed
+Package 'x11-common' is not installed, so not removed
+Package 'xorg-sgml-doctools' is not installed, so not removed
+Package 'x11proto-composite-dev' is not installed, so not removed
+Package 'x11proto-core-dev' is not installed, so not removed
+Package 'x11proto-damage-dev' is not installed, so not removed
+Package 'x11proto-dev' is not installed, so not removed
+Package 'x11proto-fixes-dev' is not installed, so not removed
+Package 'x11proto-input-dev' is not installed, so not removed
+Package 'x11proto-randr-dev' is not installed, so not removed
+Package 'x11proto-xext-dev' is not installed, so not removed
+Package 'x11proto-xf86vidmode-dev' is not installed, so not removed
+Package 'x11proto-xinerama-dev' is not installed, so not removed
+Package 'xtrans-dev' is not installed, so not removed
+Package 'gir1.2-atk-1.0:armhf' is not installed, so not removed
+Package 'libatk1.0-0:armhf' is not installed, so not removed
+Package 'libatk1.0-dev:armhf' is not installed, so not removed
+Package 'libavahi-client3:armhf' is not installed, so not removed
+Package 'libavahi-common-data:armhf' is not installed, so not removed
+Package 'libavahi-common3:armhf' is not installed, so not removed
+Package 'libcairo-gobject2:armhf' is not installed, so not removed
+Package 'libcairo-script-interpreter2:armhf' is not installed, so not removed
+Package 'libcairo2:armhf' is not installed, so not removed
+Package 'libcairo2-dev:armhf' is not installed, so not removed
+Package 'libcups2:armhf' is not installed, so not removed
+Package 'libdbus-1-3:armhf' is not installed, so not removed
+Package 'libcom-err2:armhf' is not installed, so not removed. Did you mean 'libcom-err2'?
+Package 'libelf1:armhf' is not installed, so not removed. Did you mean 'libelf1'?
+Package 'libexpat1-dev:armhf' is not installed, so not removed
+Package 'libfontconfig1:armhf' is not installed, so not removed
+Package 'libfontconfig1-dev:armhf' is not installed, so not removed
+Package 'libfreetype6:armhf' is not installed, so not removed
+Package 'libfreetype6-dev:armhf' is not installed, so not removed
+Package 'libfribidi-dev:armhf' is not installed, so not removed
+Package 'libfribidi0:armhf' is not installed, so not removed
+Package 'libasan5:armhf' is not installed, so not removed. Did you mean 'libasan5'?
+Package 'libatomic1:armhf' is not installed, so not removed. Did you mean 'libatomic1'?
+Package 'libgcc-8-dev:armhf' is not installed, so not removed. Did you mean 'libgcc-8-dev'?
+Package 'libgomp1:armhf' is not installed, so not removed. Did you mean 'libgomp1'?
+Package 'libobjc-8-dev:armhf' is not installed, so not removed
+Package 'libobjc4:armhf' is not installed, so not removed
+Package 'libstdc++-8-dev:armhf' is not installed, so not removed. Did you mean 'libstdc++-8-dev'?
+Package 'libstdc++6:armhf' is not installed, so not removed. Did you mean 'libstdc++6'?
+Package 'libubsan1:armhf' is not installed, so not removed. Did you mean 'libubsan1'?
+Package 'gir1.2-gdkpixbuf-2.0:armhf' is not installed, so not removed
+Package 'libgdk-pixbuf2.0-0:armhf' is not installed, so not removed
+Package 'libgdk-pixbuf2.0-dev:armhf' is not installed, so not removed
+Package 'libglib2.0-0:armhf' is not installed, so not removed
+Package 'libglib2.0-dev:armhf' is not installed, so not removed
+Package 'libc6-dev:armhf' is not installed, so not removed. Did you mean 'libc6-dev'?
+Package 'libgmp10:armhf' is not installed, so not removed. Did you mean 'libgmp10'?
+Package 'libgnutls30:armhf' is not installed, so not removed. Did you mean 'libgnutls30'?
+Package 'gir1.2-freedesktop:armhf' is not installed, so not removed
+Package 'gir1.2-glib-2.0:armhf' is not installed, so not removed
+Package 'libgirepository-1.0-1:armhf' is not installed, so not removed
+Package 'libgraphite2-3:armhf' is not installed, so not removed
+Package 'libgraphite2-dev:armhf' is not installed, so not removed
+Package 'gir1.2-gtk-2.0:armhf' is not installed, so not removed
+Package 'libgtk2.0-0:armhf' is not installed, so not removed
+Package 'libgtk2.0-dev:armhf' is not installed, so not removed
+Package 'gir1.2-harfbuzz-0.0:armhf' is not installed, so not removed
+Package 'libharfbuzz-dev:armhf' is not installed, so not removed
+Package 'libharfbuzz-gobject0:armhf' is not installed, so not removed
+Package 'libharfbuzz-icu0:armhf' is not installed, so not removed
+Package 'libharfbuzz0b:armhf' is not installed, so not removed
+Package 'libhunspell-1.7-0:armhf' is not installed, so not removed
+Package 'libhunspell-dev:armhf' is not installed, so not removed
+Package 'libicu-dev:armhf' is not installed, so not removed
+Package 'libicu63:armhf' is not installed, so not removed
+Package 'libjbig0:armhf' is not installed, so not removed
+Package 'libkeyutils1:armhf' is not installed, so not removed
+Package 'libgssapi-krb5-2:armhf' is not installed, so not removed
+Package 'libk5crypto3:armhf' is not installed, so not removed
+Package 'libkrb5-3:armhf' is not installed, so not removed
+Package 'libkrb5support0:armhf' is not installed, so not removed
+Package 'libbsd0:armhf' is not installed, so not removed
+Package 'libdatrie1:armhf' is not installed, so not removed
+Package 'libdrm-amdgpu1:armhf' is not installed, so not removed
+Package 'libdrm-dev:armhf' is not installed, so not removed
+Package 'libdrm-etnaviv1:armhf' is not installed, so not removed
+Package 'libdrm-exynos1:armhf' is not installed, so not removed
+Package 'libdrm-freedreno1:armhf' is not installed, so not removed
+Package 'libdrm-nouveau2:armhf' is not installed, so not removed
+Package 'libdrm-omap1:armhf' is not installed, so not removed
+Package 'libdrm-radeon1:armhf' is not installed, so not removed
+Package 'libdrm-tegra0:armhf' is not installed, so not removed
+Package 'libdrm2:armhf' is not installed, so not removed
+Package 'libedit2:armhf' is not installed, so not removed
+Package 'libffi-dev:armhf' is not installed, so not removed
+Package 'libgc1c2:armhf' is not installed, so not removed
+Package 'libgcrypt20:armhf' is not installed, so not removed. Did you mean 'libgcrypt20'?
+Package 'libgcrypt20-dev:armhf' is not installed, so not removed
+Package 'libglu1-mesa:armhf' is not installed, so not removed
+Package 'libglu1-mesa-dev:armhf' is not installed, so not removed
+Package 'libegl1:armhf' is not installed, so not removed
+Package 'libgl1:armhf' is not installed, so not removed
+Package 'libgles1:armhf' is not installed, so not removed
+Package 'libgles2:armhf' is not installed, so not removed
+Package 'libglvnd-core-dev:armhf' is not installed, so not removed
+Package 'libglvnd-dev:armhf' is not installed, so not removed
+Package 'libglvnd0:armhf' is not installed, so not removed
+Package 'libglx0:armhf' is not installed, so not removed
+Package 'libopengl0:armhf' is not installed, so not removed
+Package 'libgpg-error-dev:armhf' is not installed, so not removed
+Package 'libgpg-error0:armhf' is not installed, so not removed. Did you mean 'libgpg-error0'?
+Package 'libice-dev:armhf' is not installed, so not removed
+Package 'libice6:armhf' is not installed, so not removed
+Package 'libidn2-0:armhf' is not installed, so not removed. Did you mean 'libidn2-0'?
+Package 'libjpeg62-turbo:armhf' is not installed, so not removed
+Package 'libnotify4:armhf' is not installed, so not removed
+Package 'libpng-dev:armhf' is not installed, so not removed
+Package 'libpng16-16:armhf' is not installed, so not removed
+Package 'libpthread-stubs0-dev:armhf' is not installed, so not removed
+Package 'libselinux1:armhf' is not installed, so not removed. Did you mean 'libselinux1'?
+Package 'libselinux1-dev:armhf' is not installed, so not removed
+Package 'libsepol1:armhf' is not installed, so not removed. Did you mean 'libsepol1'?
+Package 'libsepol1-dev:armhf' is not installed, so not removed
+Package 'libsm-dev:armhf' is not installed, so not removed
+Package 'libsm6:armhf' is not installed, so not removed
+Package 'libssh-gcrypt-4:armhf' is not installed, so not removed
+Package 'libssh-gcrypt-dev:armhf' is not installed, so not removed
+Package 'libtasn1-6:armhf' is not installed, so not removed. Did you mean 'libtasn1-6'?
+Package 'libthai0:armhf' is not installed, so not removed
+Package 'libunistring2:armhf' is not installed, so not removed. Did you mean 'libunistring2'?
+Package 'libwebp6:armhf' is not installed, so not removed
+Package 'libx11-6:armhf' is not installed, so not removed
+Package 'libx11-dev:armhf' is not installed, so not removed
+Package 'libx11-xcb-dev:armhf' is not installed, so not removed
+Package 'libx11-xcb1:armhf' is not installed, so not removed
+Package 'libxau-dev:armhf' is not installed, so not removed
+Package 'libxau6:armhf' is not installed, so not removed
+Package 'libxcb-dri2-0:armhf' is not installed, so not removed
+Package 'libxcb-dri2-0-dev:armhf' is not installed, so not removed
+Package 'libxcb-dri3-0:armhf' is not installed, so not removed
+Package 'libxcb-dri3-dev:armhf' is not installed, so not removed
+Package 'libxcb-glx0:armhf' is not installed, so not removed
+Package 'libxcb-glx0-dev:armhf' is not installed, so not removed
+Package 'libxcb-present-dev:armhf' is not installed, so not removed
+Package 'libxcb-present0:armhf' is not installed, so not removed
+Package 'libxcb-randr0:armhf' is not installed, so not removed
+Package 'libxcb-randr0-dev:armhf' is not installed, so not removed
+Package 'libxcb-render0:armhf' is not installed, so not removed
+Package 'libxcb-render0-dev:armhf' is not installed, so not removed
+Package 'libxcb-shape0:armhf' is not installed, so not removed
+Package 'libxcb-shape0-dev:armhf' is not installed, so not removed
+Package 'libxcb-shm0:armhf' is not installed, so not removed
+Package 'libxcb-shm0-dev:armhf' is not installed, so not removed
+Package 'libxcb-sync-dev:armhf' is not installed, so not removed
+Package 'libxcb-sync1:armhf' is not installed, so not removed
+Package 'libxcb-xfixes0:armhf' is not installed, so not removed
+Package 'libxcb-xfixes0-dev:armhf' is not installed, so not removed
+Package 'libxcb1:armhf' is not installed, so not removed
+Package 'libxcb1-dev:armhf' is not installed, so not removed
+Package 'libxcomposite-dev:armhf' is not installed, so not removed
+Package 'libxcomposite1:armhf' is not installed, so not removed
+Package 'libxcursor-dev:armhf' is not installed, so not removed
+Package 'libxcursor1:armhf' is not installed, so not removed
+Package 'libxdamage-dev:armhf' is not installed, so not removed
+Package 'libxdamage1:armhf' is not installed, so not removed
+Package 'libxdmcp-dev:armhf' is not installed, so not removed
+Package 'libxdmcp6:armhf' is not installed, so not removed
+Package 'libxext-dev:armhf' is not installed, so not removed
+Package 'libxext6:armhf' is not installed, so not removed
+Package 'libxfixes-dev:armhf' is not installed, so not removed
+Package 'libxfixes3:armhf' is not installed, so not removed
+Package 'libxi-dev:armhf' is not installed, so not removed
+Package 'libxi6:armhf' is not installed, so not removed
+Package 'libxinerama-dev:armhf' is not installed, so not removed
+Package 'libxinerama1:armhf' is not installed, so not removed
+Package 'libxrandr-dev:armhf' is not installed, so not removed
+Package 'libxrandr2:armhf' is not installed, so not removed
+Package 'libxrender-dev:armhf' is not installed, so not removed
+Package 'libxrender1:armhf' is not installed, so not removed
+Package 'libxshmfence-dev:armhf' is not installed, so not removed
+Package 'libxshmfence1:armhf' is not installed, so not removed
+Package 'libxxf86vm-dev:armhf' is not installed, so not removed
+Package 'libxxf86vm1:armhf' is not installed, so not removed
+Package 'libzstd1:armhf' is not installed, so not removed. Did you mean 'libzstd1'?
+Package 'linux-libc-dev:armhf' is not installed, so not removed. Did you mean 'linux-libc-dev'?
+Package 'libclang-dev:armhf' is not installed, so not removed
+Package 'liblldb-dev:armhf' is not installed, so not removed
+Package 'llvm:armhf' is not installed, so not removed
+Package 'llvm-runtime:armhf' is not installed, so not removed
+Package 'libclang-7-dev:armhf' is not installed, so not removed
+Package 'libclang-common-7-dev:armhf' is not installed, so not removed
+Package 'libclang1-7:armhf' is not installed, so not removed
+Package 'liblldb-7:armhf' is not installed, so not removed
+Package 'liblldb-7-dev:armhf' is not installed, so not removed
+Package 'libllvm7:armhf' is not installed, so not removed
+Package 'lldb-7:armhf' is not installed, so not removed
+Package 'llvm-7:armhf' is not installed, so not removed
+Package 'llvm-7-dev:armhf' is not installed, so not removed
+Package 'llvm-7-runtime:armhf' is not installed, so not removed
+Package 'python-lldb-7:armhf' is not installed, so not removed
+Package 'libsensors5:armhf' is not installed, so not removed
+Package 'liblz4-1:armhf' is not installed, so not removed. Did you mean 'liblz4-1'?
+Package 'liblzo2-2:armhf' is not installed, so not removed
+Package 'libegl-mesa0:armhf' is not installed, so not removed
+Package 'libgbm1:armhf' is not installed, so not removed
+Package 'libgl1-mesa-dev:armhf' is not installed, so not removed
+Package 'libgl1-mesa-dri:armhf' is not installed, so not removed
+Package 'libglapi-mesa:armhf' is not installed, so not removed
+Package 'libglx-mesa0:armhf' is not installed, so not removed
+Package 'mesa-common-dev:armhf' is not installed, so not removed
+Package 'libncurses-dev:armhf' is not installed, so not removed
+Package 'libncurses6:armhf' is not installed, so not removed
+Package 'libtinfo-dev:armhf' is not installed, so not removed
+Package 'libhogweed4:armhf' is not installed, so not removed. Did you mean 'libhogweed4'?
+Package 'libnettle6:armhf' is not installed, so not removed. Did you mean 'libnettle6'?
+Package 'libp11-kit0:armhf' is not installed, so not removed. Did you mean 'libp11-kit0'?
+Package 'gir1.2-pango-1.0:armhf' is not installed, so not removed
+Package 'libpango-1.0-0:armhf' is not installed, so not removed
+Package 'libpango1.0-dev:armhf' is not installed, so not removed
+Package 'libpangocairo-1.0-0:armhf' is not installed, so not removed
+Package 'libpangoft2-1.0-0:armhf' is not installed, so not removed
+Package 'libpangoxft-1.0-0:armhf' is not installed, so not removed
+Package 'libpcre16-3:armhf' is not installed, so not removed
+Package 'libpcre3:armhf' is not installed, so not removed. Did you mean 'libpcre3'?
+Package 'libpcre3-dev:armhf' is not installed, so not removed
+Package 'libpcre32-3:armhf' is not installed, so not removed
+Package 'libpcrecpp0v5:armhf' is not installed, so not removed
+Package 'libpixman-1-0:armhf' is not installed, so not removed
+Package 'libpixman-1-dev:armhf' is not installed, so not removed
+Package 'python:armhf' is not installed, so not removed
+Package 'python2:armhf' is not installed, so not removed
+Package 'libpython2.7:armhf' is not installed, so not removed
+Package 'libsqlite3-dev:armhf' is not installed, so not removed
+Package 'libsystemd0:armhf' is not installed, so not removed. Did you mean 'libsystemd0'?
+Package 'libtiff5:armhf' is not installed, so not removed
+Package 'libblkid-dev:armhf' is not installed, so not removed
+Package 'libblkid1:armhf' is not installed, so not removed. Did you mean 'libblkid1'?
+Package 'libmount-dev:armhf' is not installed, so not removed
+Package 'libmount1:armhf' is not installed, so not removed. Did you mean 'libmount1'?
+Package 'libuuid1:armhf' is not installed, so not removed. Did you mean 'libuuid1'?
+Package 'uuid-dev:armhf' is not installed, so not removed
+Package 'libwayland-client0:armhf' is not installed, so not removed
+Package 'libwayland-server0:armhf' is not installed, so not removed
+Package 'libwxsqlite3-3.0-0:armhf' is not installed, so not removed
+Package 'libwxsqlite3-3.0-dev:armhf' is not installed, so not removed
+Package 'libwxbase3.0-0v5:armhf' is not installed, so not removed
+Package 'libwxbase3.0-dev:armhf' is not installed, so not removed
+Package 'libwxgtk3.0-0v5:armhf' is not installed, so not removed
+Package 'libwxgtk3.0-dev:armhf' is not installed, so not removed
+Package 'libxft-dev:armhf' is not installed, so not removed
+Package 'libxft2:armhf' is not installed, so not removed
+Package 'liblzma5:armhf' is not installed, so not removed. Did you mean 'liblzma5'?
+Package 'zlib1g-dev:armhf' is not installed, so not removed
+Package 'sbuild-build-depends-main-dummy:armhf' is not installed, so not removed
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+E: Package build dependencies not satisfied; skipping
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 0
+Distribution: unstable-amd64-sbuild
+Fail-Stage: install-deps
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 0
+Job: /home/build/sbuild-setup/repo/pool/main/c/codelite/codelite_12.0+dfsg-1.dsc
+Machine Architecture: amd64
+Package: codelite
+Package-Time: 0
+Source-Version: 12.0+dfsg-1
+Space: n/a
+Status: given-back
+Version: 12.0+dfsg-1
+--------------------------------------------------------------------------------
+Finished at 2019-07-01T08:23:33Z
+Build needed 00:00:00, no disk space
