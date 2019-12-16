@@ -1,0 +1,1952 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 8e0e35ca7d18
+
++==============================================================================+
+| autofs 5.1.6-1 (armhf)                       Thu, 12 Dec 2019 03:19:31 +0000 |
++==============================================================================+
+
+Package: autofs
+Version: 5.1.6-1
+Source Version: 5.1.6-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-abc098cd-0bff-44e2-8f09-8194cbc2b9f5' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/autofs-wb0NhA/resolver-OtRewS' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://cdn-fastly.deb.debian.org/debian unstable InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgssapi-krb5-2 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/a/autofs/autofs_5.1.6-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/a/autofs; copying to chroot
+I: NOTICE: Log filtering will replace 'build/autofs-wb0NhA/autofs-5.1.6' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/autofs-wb0NhA' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper-compat (= 12), bison, dpkg-dev (>= 1.16.1.1~), e2fsprogs, flex, libhesiod-dev, libkrb5-dev, libldap-dev, libsasl2-dev, libssl-dev, libxml2-dev, pkg-config, sssd-common, libtirpc-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper-compat (= 12), bison, dpkg-dev (>= 1.16.1.1~), e2fsprogs, flex, libhesiod-dev, libkrb5-dev, libldap-dev, libsasl2-dev, libssl-dev, libxml2-dev, pkg-config, sssd-common, libtirpc-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [482 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [570 B]
+Fetched 2009 B in 0s (142 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgssapi-krb5-2 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  bison comerr-dev:armhf flex krb5-multidev:armhf libaudit1:armhf
+  libbasicobjects0:armhf libbz2-1.0:armhf libc-ares2:armhf libcap-ng0:armhf
+  libcollection4:armhf libdb5.3:armhf libdhash1:armhf libgssrpc4:armhf
+  libhesiod-dev:armhf libhesiod0:armhf libidn11:armhf libini-config5:armhf
+  libkadm5clnt-mit11:armhf libkadm5srv-mit11:armhf libkdb5-9:armhf
+  libkrb5-dev:armhf libldap-2.4-2:armhf libldap2-dev:armhf libldb2:armhf
+  libmpdec2:armhf libncursesw6:armhf libnfsidmap2:armhf libnl-3-200:armhf
+  libnl-route-3-200:armhf libnspr4:armhf libnss3:armhf libpam0g:armhf
+  libpath-utils1:armhf libpopt0:armhf libpython3-stdlib:armhf
+  libpython3.7:armhf libpython3.7-minimal:armhf libpython3.7-stdlib:armhf
+  libreadline8:armhf libref-array1:armhf libsasl2-2:armhf libsasl2-dev:armhf
+  libsasl2-modules-db:armhf libsemanage1:armhf libsqlite3-0:armhf
+  libssl-dev:armhf libsss-certmap0:armhf libsss-idmap0:armhf
+  libsss-nss-idmap0:armhf libtalloc2:armhf libtdb1:armhf libtevent0:armhf
+  libtinfo6:armhf libtirpc-common libtirpc-dev:armhf libtirpc3:armhf
+  python3:armhf python3-minimal:armhf python3-sss:armhf python3.7:armhf
+  python3.7-minimal:armhf sssd-common:armhf
+Suggested packages:
+  bison-doc doc-base:armhf flex-doc krb5-doc:armhf krb5-user:armhf
+  libpam-doc:armhf libssl-doc:armhf python3-doc:armhf python3-tk:armhf
+  python3-venv:armhf python3.7-venv:armhf python3.7-doc:armhf binutils:armhf
+  binfmt-support:armhf apparmor:armhf sssd-tools:armhf
+Recommended packages:
+  libfl-dev libgpm2:armhf libsasl2-modules:armhf sssd:armhf bind9-host:armhf
+  libnss-sss:armhf libpam-sss:armhf libsss-sudo:armhf
+The following packages will be REMOVED:
+  libatk1.0-dev:armhf* libcairo2-dev:armhf* libgdk-pixbuf2.0-dev:armhf*
+  libglib2.0-dev:armhf* libglib2.0-dev-bin* libgtk2.0-dev:armhf*
+  libharfbuzz-dev:armhf* libpango1.0-dev:armhf* python3* python3-distutils*
+  python3-lib2to3* python3-minimal* python3.7* python3.7-minimal*
+The following NEW packages will be installed:
+  bison comerr-dev:armhf flex krb5-multidev:armhf libaudit1:armhf
+  libbasicobjects0:armhf libbz2-1.0:armhf libc-ares2:armhf libcap-ng0:armhf
+  libcollection4:armhf libdb5.3:armhf libdhash1:armhf libgssrpc4:armhf
+  libhesiod-dev:armhf libhesiod0:armhf libidn11:armhf libini-config5:armhf
+  libkadm5clnt-mit11:armhf libkadm5srv-mit11:armhf libkdb5-9:armhf
+  libkrb5-dev:armhf libldap-2.4-2:armhf libldap2-dev:armhf libldb2:armhf
+  libmpdec2:armhf libncursesw6:armhf libnfsidmap2:armhf libnl-3-200:armhf
+  libnl-route-3-200:armhf libnspr4:armhf libnss3:armhf libpam0g:armhf
+  libpath-utils1:armhf libpopt0:armhf libpython3-stdlib:armhf
+  libpython3.7:armhf libpython3.7-minimal:armhf libpython3.7-stdlib:armhf
+  libreadline8:armhf libref-array1:armhf libsasl2-2:armhf libsasl2-dev:armhf
+  libsasl2-modules-db:armhf libsemanage1:armhf libsqlite3-0:armhf
+  libssl-dev:armhf libsss-certmap0:armhf libsss-idmap0:armhf
+  libsss-nss-idmap0:armhf libtalloc2:armhf libtdb1:armhf libtevent0:armhf
+  libtinfo6:armhf libtirpc-common libtirpc-dev:armhf libtirpc3:armhf
+  python3:armhf python3-minimal:armhf python3-sss:armhf python3.7:armhf
+  python3.7-minimal:armhf sbuild-build-depends-main-dummy:armhf
+  sssd-common:armhf
+0 upgraded, 63 newly installed, 14 to remove and 0 not upgraded.
+Need to get 996 B/15.5 MB of archives.
+After this operation, 13.1 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [996 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 996 B in 0s (0 B/s)
+(Reading database ... 31215 files and directories currently installed.)
+Removing libgtk2.0-dev:armhf (2.24.32-4) ...
+Removing libatk1.0-dev:armhf (2.34.1-1) ...
+Removing libpango1.0-dev:armhf (1.42.4-7) ...
+Removing libcairo2-dev:armhf (1.16.0-4) ...
+Removing libgdk-pixbuf2.0-dev:armhf (2.40.0+dfsg-1) ...
+Removing libharfbuzz-dev:armhf (2.6.4-1) ...
+Removing libglib2.0-dev:armhf (2.62.3-2) ...
+Removing libglib2.0-dev-bin (2.62.3-2) ...
+Removing python3-distutils (3.8.0-1) ...
+Removing python3-lib2to3 (3.8.0-1) ...
+Removing python3 (3.7.5-3) ...
+Removing python3-minimal (3.7.5-3) ...
+Removing python3.7 (3.7.5-2) ...
+Selecting previously unselected package flex.
+(Reading database ... 30028 files and directories currently installed.)
+Preparing to unpack .../flex_2.6.4-6.2_amd64.deb ...
+Unpacking flex (2.6.4-6.2) ...
+Selecting previously unselected package libpython3.7-minimal:armhf.
+Preparing to unpack .../libpython3.7-minimal_3.7.5-2_armhf.deb ...
+Unpacking libpython3.7-minimal:armhf (3.7.5-2) ...
+Selecting previously unselected package python3.7-minimal:armhf.
+Preparing to unpack .../python3.7-minimal_3.7.5-2_armhf.deb ...
+Unpacking python3.7-minimal:armhf (3.7.5-2) over (3.7.5-2) ...
+Setting up libpython3.7-minimal:armhf (3.7.5-2) ...
+Setting up python3.7-minimal:armhf (3.7.5-2) ...
+/var/lib/dpkg/info/python3.7-minimal.postinst: 46: /usr/bin/python3.7: Exec format error
+dpkg: error processing package python3.7-minimal:armhf (--configure):
+ installed python3.7-minimal:armhf package post-installation script subprocess returned error exit status 2
+Errors were encountered while processing:
+ python3.7-minimal:armhf
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+apt-get failed.
+E: Package installation failed
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  dbus flex krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgssapi-krb5-2 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0
+  libpython3.7-minimal:armhf libxcomposite1 libxcursor1 libxdamage1 libxfixes3
+  libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+Suggested packages:
+  libcairo2-doc:armhf libgirepository1.0-dev:armhf libglib2.0-doc:armhf
+  libgtk2.0-doc:armhf imagemagick:armhf libpango1.0-doc:armhf python3-doc
+  python3-tk python3-venv python3.7-venv python3.7-doc binfmt-support
+The following packages will be REMOVED:
+  python3.7-minimal:armhf*
+The following NEW packages will be installed:
+  libatk1.0-dev:armhf libcairo2-dev:armhf libgdk-pixbuf2.0-dev:armhf
+  libglib2.0-dev:armhf libglib2.0-dev-bin libgtk2.0-dev:armhf
+  libharfbuzz-dev:armhf libpango1.0-dev:armhf python3 python3-distutils
+  python3-lib2to3 python3-minimal python3.7 python3.7-minimal
+debconf: delaying package configuration, since apt-utils is not installed
+0 upgraded, 14 newly installed, 1 to remove and 0 not upgraded.
+2 not fully installed or removed.
+Need to get 0 B/7206 kB of archives.
+After this operation, 30.0 MB of additional disk space will be used.
+Selecting previously unselected package python3.7-minimal.
+(Reading database ... 30129 files and directories currently installed.)
+Preparing to unpack .../python3.7-minimal_3.7.5-2_amd64.deb ...
+Unpacking python3.7-minimal (3.7.5-2) over (3.7.5-2) ...
+Setting up python3.7-minimal (3.7.5-2) ...
+Selecting previously unselected package python3-minimal.
+(Reading database ... 30129 files and directories currently installed.)
+Preparing to unpack .../python3-minimal_3.7.5-3_amd64.deb ...
+Unpacking python3-minimal (3.7.5-3) ...
+Selecting previously unselected package python3.7.
+Preparing to unpack .../python3.7_3.7.5-2_amd64.deb ...
+Unpacking python3.7 (3.7.5-2) ...
+Setting up python3-minimal (3.7.5-3) ...
+(Reading database ... 30172 files and directories currently installed.)
+Preparing to unpack .../00-python3_3.7.5-3_amd64.deb ...
+Unpacking python3 (3.7.5-3) ...
+Selecting previously unselected package python3-lib2to3.
+Preparing to unpack .../01-python3-lib2to3_3.8.0-1_all.deb ...
+Unpacking python3-lib2to3 (3.8.0-1) ...
+Selecting previously unselected package python3-distutils.
+Preparing to unpack .../02-python3-distutils_3.8.0-1_all.deb ...
+Unpacking python3-distutils (3.8.0-1) ...
+Selecting previously unselected package libglib2.0-dev-bin.
+Preparing to unpack .../03-libglib2.0-dev-bin_2.62.3-2_amd64.deb ...
+Unpacking libglib2.0-dev-bin (2.62.3-2) ...
+Selecting previously unselected package libglib2.0-dev:armhf.
+Preparing to unpack .../04-libglib2.0-dev_2.62.3-2_armhf.deb ...
+Unpacking libglib2.0-dev:armhf (2.62.3-2) ...
+Selecting previously unselected package libatk1.0-dev:armhf.
+Preparing to unpack .../05-libatk1.0-dev_2.34.1-1_armhf.deb ...
+Unpacking libatk1.0-dev:armhf (2.34.1-1) ...
+Selecting previously unselected package libcairo2-dev:armhf.
+Preparing to unpack .../06-libcairo2-dev_1.16.0-4_armhf.deb ...
+Unpacking libcairo2-dev:armhf (1.16.0-4) ...
+Selecting previously unselected package libgdk-pixbuf2.0-dev:armhf.
+Preparing to unpack .../07-libgdk-pixbuf2.0-dev_2.40.0+dfsg-1_armhf.deb ...
+Unpacking libgdk-pixbuf2.0-dev:armhf (2.40.0+dfsg-1) ...
+Selecting previously unselected package libharfbuzz-dev:armhf.
+Preparing to unpack .../08-libharfbuzz-dev_2.6.4-1_armhf.deb ...
+Unpacking libharfbuzz-dev:armhf (2.6.4-1) ...
+Selecting previously unselected package libpango1.0-dev:armhf.
+Preparing to unpack .../09-libpango1.0-dev_1.42.4-7_armhf.deb ...
+Unpacking libpango1.0-dev:armhf (1.42.4-7) ...
+Selecting previously unselected package libgtk2.0-dev:armhf.
+Preparing to unpack .../10-libgtk2.0-dev_2.24.32-4_armhf.deb ...
+Unpacking libgtk2.0-dev:armhf (2.24.32-4) ...
+Setting up python3.7 (3.7.5-2) ...
+Setting up flex (2.6.4-6.2) ...
+Setting up python3 (3.7.5-3) ...
+Setting up python3-lib2to3 (3.8.0-1) ...
+Setting up python3-distutils (3.8.0-1) ...
+Setting up libglib2.0-dev-bin (2.62.3-2) ...
+Setting up libglib2.0-dev:armhf (2.62.3-2) ...
+Processing triggers for mime-support (3.64) ...
+Processing triggers for libglib2.0-0:amd64 (2.62.3-2) ...
+No schema files found: doing nothing.
+Processing triggers for libglib2.0-0:armhf (2.62.3-2) ...
+/var/lib/dpkg/info/libglib2.0-0:armhf.postinst: 17: /usr/lib/arm-linux-gnueabihf/glib-2.0/glib-compile-schemas: Exec format error
+Processing triggers for man-db (2.9.0-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Setting up libgdk-pixbuf2.0-dev:armhf (2.40.0+dfsg-1) ...
+Setting up libcairo2-dev:armhf (1.16.0-4) ...
+Setting up libatk1.0-dev:armhf (2.34.1-1) ...
+Setting up libharfbuzz-dev:armhf (2.6.4-1) ...
+Setting up libpango1.0-dev:armhf (1.42.4-7) ...
+Setting up libgtk2.0-dev:armhf (2.24.32-4) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package 'bison' is not installed, so not removed
+Package 'libtirpc-common' is not installed, so not removed
+Package 'libaudit1:armhf' is not installed, so not removed. Did you mean 'libaudit1'?
+Package 'libbz2-1.0:armhf' is not installed, so not removed. Did you mean 'libbz2-1.0'?
+Package 'libc-ares2:armhf' is not installed, so not removed
+Package 'libsasl2-2:armhf' is not installed, so not removed. Did you mean 'libsasl2-2'?
+Package 'libsasl2-dev:armhf' is not installed, so not removed
+Package 'libsasl2-modules-db:armhf' is not installed, so not removed. Did you mean 'libsasl2-modules-db'?
+Package 'libdb5.3:armhf' is not installed, so not removed. Did you mean 'libdb5.3'?
+Package 'libbasicobjects0:armhf' is not installed, so not removed
+Package 'libcollection4:armhf' is not installed, so not removed
+Package 'libdhash1:armhf' is not installed, so not removed
+Package 'libini-config5:armhf' is not installed, so not removed
+Package 'libpath-utils1:armhf' is not installed, so not removed
+Package 'libref-array1:armhf' is not installed, so not removed
+Package 'comerr-dev:armhf' is not installed, so not removed
+Package 'libhesiod-dev:armhf' is not installed, so not removed
+Package 'libhesiod0:armhf' is not installed, so not removed
+Package 'krb5-multidev:armhf' is not installed, so not removed
+Package 'libgssrpc4:armhf' is not installed, so not removed
+Package 'libkadm5clnt-mit11:armhf' is not installed, so not removed
+Package 'libkadm5srv-mit11:armhf' is not installed, so not removed
+Package 'libkdb5-9:armhf' is not installed, so not removed
+Package 'libkrb5-dev:armhf' is not installed, so not removed
+Package 'libldb2:armhf' is not installed, so not removed
+Package 'libcap-ng0:armhf' is not installed, so not removed. Did you mean 'libcap-ng0'?
+Package 'libidn11:armhf' is not installed, so not removed
+Package 'libnfsidmap2:armhf' is not installed, so not removed
+Package 'libnl-3-200:armhf' is not installed, so not removed
+Package 'libnl-route-3-200:armhf' is not installed, so not removed
+Package 'libsemanage1:armhf' is not installed, so not removed. Did you mean 'libsemanage1'?
+Package 'libtirpc-dev:armhf' is not installed, so not removed
+Package 'libtirpc3:armhf' is not installed, so not removed
+Package 'libmpdec2:armhf' is not installed, so not removed. Did you mean 'libmpdec2'?
+Package 'libncursesw6:armhf' is not installed, so not removed. Did you mean 'libncursesw6'?
+Package 'libtinfo6:armhf' is not installed, so not removed. Did you mean 'libtinfo6'?
+Package 'libnspr4:armhf' is not installed, so not removed
+Package 'libnss3:armhf' is not installed, so not removed
+Package 'libldap-2.4-2:armhf' is not installed, so not removed. Did you mean 'libldap-2.4-2'?
+Package 'libldap2-dev:armhf' is not installed, so not removed
+Package 'libssl-dev:armhf' is not installed, so not removed
+Package 'libpam0g:armhf' is not installed, so not removed. Did you mean 'libpam0g'?
+Package 'libpopt0:armhf' is not installed, so not removed
+Package 'libpython3-stdlib:armhf' is not installed, so not removed. Did you mean 'libpython3-stdlib'?
+Package 'python3:armhf' is not installed, so not removed. Did you mean 'python3'?
+Package 'python3-minimal:armhf' is not installed, so not removed. Did you mean 'python3-minimal'?
+Package 'libpython3.7:armhf' is not installed, so not removed
+Package 'libpython3.7-stdlib:armhf' is not installed, so not removed. Did you mean 'libpython3.7-stdlib'?
+Package 'python3.7:armhf' is not installed, so not removed. Did you mean 'python3.7'?
+Package 'libreadline8:armhf' is not installed, so not removed. Did you mean 'libreadline8'?
+Package 'libsqlite3-0:armhf' is not installed, so not removed. Did you mean 'libsqlite3-0'?
+Package 'libsss-certmap0:armhf' is not installed, so not removed
+Package 'libsss-idmap0:armhf' is not installed, so not removed
+Package 'libsss-nss-idmap0:armhf' is not installed, so not removed
+Package 'python3-sss:armhf' is not installed, so not removed
+Package 'sssd-common:armhf' is not installed, so not removed
+Package 'libtalloc2:armhf' is not installed, so not removed
+Package 'libtdb1:armhf' is not installed, so not removed
+Package 'libtevent0:armhf' is not installed, so not removed
+Package 'sbuild-build-depends-main-dummy:armhf' is not installed, so not removed
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgssapi-krb5-2 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  flex* libpython3.7-minimal:armhf*
+0 upgraded, 0 newly installed, 2 to remove and 0 not upgraded.
+After this operation, 5195 kB disk space will be freed.
+(Reading database ... 31316 files and directories currently installed.)
+Removing flex (2.6.4-6.2) ...
+Removing libpython3.7-minimal:armhf (3.7.5-2) ...
+Processing triggers for man-db (2.9.0-2) ...
+Not building database; man-db/auto-update is not 'true'.
+(Reading database ... 31215 files and directories currently installed.)
+Purging configuration files for libpython3.7-minimal:armhf (3.7.5-2) ...
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: dose-distcheck:amd64
+Filtered Build-Depends: dose-distcheck:amd64
+dpkg-deb: building package 'sbuild-build-depends-dose3-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-dose3-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [619 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [709 B]
+Fetched 2291 B in 0s (180 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install dose3 build dependencies (apt-based resolver)
+-----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgssapi-krb5-2 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  dose-distcheck libcap2 liblua5.2-0 libnspr4 libnss3 libpopt0 librpm8
+  librpmio8
+Recommended packages:
+  rpm-common
+The following NEW packages will be installed:
+  dose-distcheck libcap2 liblua5.2-0 libnspr4 libnss3 libpopt0 librpm8
+  librpmio8 sbuild-build-depends-dose3-dummy:armhf
+0 upgraded, 9 newly installed, 0 to remove and 0 not upgraded.
+Need to get 852 B/5480 kB of archives.
+After this operation, 13.5 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-dose3-dummy 0.invalid.0 [852 B]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 852 B in 0s (0 B/s)
+Selecting previously unselected package libcap2:amd64.
+(Reading database ... 31215 files and directories currently installed.)
+Preparing to unpack .../0-libcap2_1%3a2.27-1_amd64.deb ...
+Unpacking libcap2:amd64 (1:2.27-1) ...
+Selecting previously unselected package liblua5.2-0:amd64.
+Preparing to unpack .../1-liblua5.2-0_5.2.4-1.1+b3_amd64.deb ...
+Unpacking liblua5.2-0:amd64 (5.2.4-1.1+b3) ...
+Selecting previously unselected package libpopt0:amd64.
+Preparing to unpack .../2-libpopt0_1.16-14_amd64.deb ...
+Unpacking libpopt0:amd64 (1.16-14) ...
+Selecting previously unselected package libnspr4:amd64.
+Preparing to unpack .../3-libnspr4_2%3a4.23-1_amd64.deb ...
+Unpacking libnspr4:amd64 (2:4.23-1) ...
+Selecting previously unselected package libnss3:amd64.
+Preparing to unpack .../4-libnss3_2%3a3.47.1-1_amd64.deb ...
+Unpacking libnss3:amd64 (2:3.47.1-1) ...
+Selecting previously unselected package librpmio8.
+Preparing to unpack .../5-librpmio8_4.14.2.1+dfsg1-1+b1_amd64.deb ...
+Unpacking librpmio8 (4.14.2.1+dfsg1-1+b1) ...
+Selecting previously unselected package librpm8.
+Preparing to unpack .../6-librpm8_4.14.2.1+dfsg1-1+b1_amd64.deb ...
+Unpacking librpm8 (4.14.2.1+dfsg1-1+b1) ...
+Selecting previously unselected package dose-distcheck.
+Preparing to unpack .../7-dose-distcheck_5.0.1-14+b1_amd64.deb ...
+Unpacking dose-distcheck (5.0.1-14+b1) ...
+Selecting previously unselected package sbuild-build-depends-dose3-dummy:armhf.
+Preparing to unpack .../8-sbuild-build-depends-dose3-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-dose3-dummy:armhf (0.invalid.0) ...
+Setting up libcap2:amd64 (1:2.27-1) ...
+Setting up libnspr4:amd64 (2:4.23-1) ...
+Setting up liblua5.2-0:amd64 (5.2.4-1.1+b3) ...
+Setting up libpopt0:amd64 (1.16-14) ...
+Setting up libnss3:amd64 (2:3.47.1-1) ...
+Setting up librpmio8 (4.14.2.1+dfsg1-1+b1) ...
+Setting up librpm8 (4.14.2.1+dfsg1-1+b1) ...
+Setting up dose-distcheck (5.0.1-14+b1) ...
+Setting up sbuild-build-depends-dose3-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.9.0-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Processing triggers for libc-bin (2.29-6) ...
+(I)StdLoaders: Parsing and normalizing...
+(I)Packages: Parsing Packages file -...
+(I)Format822: total packages 85302
+(I)Distcheck: Cudf Universe: 85302 packages
+(I)Distcheck: --checkonly specified, consider all packages as background packages
+(I)Distcheck: Solving...
+output-version: 1.2
+native-architecture: amd64
+foreign-architecture: armhf
+report:
+ -
+  package: sbuild-build-depends-main-dummy
+  version: 0.invalid.0
+  architecture: armhf
+  status: ok
+  installationset:
+   -
+    package: zlib1g
+    version: 1:1.2.11.dfsg-1+b1
+    architecture: armhf
+   -
+    package: zlib1g
+    version: 1:1.2.11.dfsg-1+b1
+    architecture: amd64
+   -
+    package: xz-utils
+    version: 5.2.4-1+b1
+    architecture: amd64
+   -
+    package: util-linux
+    version: 2.34-0.1
+    architecture: amd64
+    essential: true
+   -
+    package: ucf
+    version: 3.0038+nmu1
+    architecture: all
+   -
+    package: tar
+    version: 1.30+dfsg-6+b1
+    architecture: amd64
+    essential: true
+   -
+    package: sysvinit-utils
+    version: 2.96-1
+    architecture: amd64
+    essential: true
+   -
+    package: sssd-common
+    version: 2.2.2-1+b1
+    architecture: armhf
+   -
+    package: sensible-utils
+    version: 0.0.12+nmu1
+    architecture: all
+   -
+    package: sed
+    version: 4.7-1
+    architecture: amd64
+    essential: true
+   -
+    package: sbuild-build-depends-main-dummy
+    version: 0.invalid.0
+    architecture: armhf
+   -
+    package: readline-common
+    version: 7.0-5
+    architecture: all
+   -
+    package: python3.7-minimal
+    version: 3.7.5-2
+    architecture: armhf
+   -
+    package: python3.7
+    version: 3.7.5-2
+    architecture: armhf
+   -
+    package: python3-sss
+    version: 2.2.2-1+b1
+    architecture: armhf
+   -
+    package: python3-minimal
+    version: 3.7.5-3
+    architecture: armhf
+   -
+    package: python3
+    version: 3.7.5-3
+    architecture: armhf
+   -
+    package: pseudo
+    version: 1.9.0+git20190515+996bead-2
+    architecture: amd64
+   -
+    package: po-debconf
+    version: 1.0.21
+    architecture: all
+   -
+    package: pkgconf
+    version: 1.6.3-4
+    architecture: amd64
+   -
+    package: perl-openssl-defaults
+    version: 3
+    architecture: amd64
+   -
+    package: perl-modules-5.30
+    version: 5.30.0-9
+    architecture: all
+   -
+    package: perl-base
+    version: 5.30.0-9
+    architecture: amd64
+    essential: true
+   -
+    package: perl
+    version: 5.30.0-9
+    architecture: amd64
+   -
+    package: patch
+    version: 2.7.6-6
+    architecture: amd64
+   -
+    package: passwd
+    version: 1:4.7-2
+    architecture: amd64
+   -
+    package: openssl
+    version: 1.1.1d-2
+    architecture: amd64
+   -
+    package: netbase
+    version: 5.8
+    architecture: all
+   -
+    package: ncurses-bin
+    version: 6.1+20191019-1
+    architecture: amd64
+    essential: true
+   -
+    package: ncurses-base
+    version: 6.1+20191019-1
+    architecture: all
+    essential: true
+   -
+    package: mime-support
+    version: 3.64
+    architecture: all
+   -
+    package: man-db
+    version: 2.9.0-2
+    architecture: amd64
+   -
+    package: make-guile
+    version: 4.2.1-1.2
+    architecture: amd64
+   -
+    package: m4
+    version: 1.4.18-4
+    architecture: amd64
+   -
+    package: lsb-base
+    version: 11.1.0
+    architecture: all
+   -
+    package: logsave
+    version: 1.45.4-1
+    architecture: amd64
+   -
+    package: login
+    version: 1:4.7-2
+    architecture: amd64
+    essential: true
+   -
+    package: linux-libc-dev-armhf-cross
+    version: 5.2.9-2cross7
+    architecture: all
+   -
+    package: linux-libc-dev
+    version: 5.3.15-1
+    architecture: armhf
+   -
+    package: linux-libc-dev
+    version: 5.3.15-1
+    architecture: amd64
+   -
+    package: libyaml-perl
+    version: 1.29-1
+    architecture: all
+   -
+    package: libxml2-dev
+    version: 2.9.4+dfsg1-8
+    architecture: armhf
+   -
+    package: libxml2
+    version: 2.9.4+dfsg1-8
+    architecture: armhf
+   -
+    package: libxml2
+    version: 2.9.4+dfsg1-8
+    architecture: amd64
+   -
+    package: libxml-simple-perl
+    version: 2.25-1
+    architecture: all
+   -
+    package: libxml-sax-perl
+    version: 1.02+dfsg-1
+    architecture: all
+   -
+    package: libxml-sax-expat-perl
+    version: 0.51-1
+    architecture: all
+   -
+    package: libxml-sax-base-perl
+    version: 1.09-1
+    architecture: all
+   -
+    package: libxml-parser-perl
+    version: 2.46-1+b1
+    architecture: amd64
+   -
+    package: libxml-namespacesupport-perl
+    version: 1.12-1
+    architecture: all
+   -
+    package: libwww-robotrules-perl
+    version: 6.02-1
+    architecture: all
+   -
+    package: libwww-perl
+    version: 6.43-1
+    architecture: all
+   -
+    package: libuuid1
+    version: 2.34-0.1
+    architecture: armhf
+   -
+    package: libuuid1
+    version: 2.34-0.1
+    architecture: amd64
+   -
+    package: liburi-perl
+    version: 1.76-1
+    architecture: all
+   -
+    package: libunistring2
+    version: 0.9.10-2
+    architecture: armhf
+   -
+    package: libunistring2
+    version: 0.9.10-2
+    architecture: amd64
+   -
+    package: libudev1
+    version: 244-3
+    architecture: amd64
+   -
+    package: libuchardet0
+    version: 0.0.6-3
+    architecture: amd64
+   -
+    package: libubsan1-armhf-cross
+    version: 9.2.1-21cross1
+    architecture: all
+   -
+    package: libubsan1
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: libubsan0
+    version: 7.5.0-3
+    architecture: armhf
+   -
+    package: libtsan0
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: libtry-tiny-perl
+    version: 0.30-1
+    architecture: all
+   -
+    package: libtool
+    version: 2.4.6-11
+    architecture: all
+   -
+    package: libtirpc3
+    version: 1.1.4-1
+    architecture: armhf
+   -
+    package: libtirpc-dev
+    version: 1.1.4-1
+    architecture: armhf
+   -
+    package: libtirpc-common
+    version: 1.1.4-1
+    architecture: all
+   -
+    package: libtinfo6
+    version: 6.1+20191019-1
+    architecture: armhf
+   -
+    package: libtinfo6
+    version: 6.1+20191019-1
+    architecture: amd64
+   -
+    package: libtimedate-perl
+    version: 2.3000-2
+    architecture: all
+   -
+    package: libtevent0
+    version: 0.10.1-4
+    architecture: armhf
+   -
+    package: libtdb1
+    version: 1.4.2-3
+    architecture: armhf
+   -
+    package: libtasn1-6
+    version: 4.15.0-2
+    architecture: armhf
+   -
+    package: libtalloc2
+    version: 2.3.0-3
+    architecture: armhf
+   -
+    package: libsub-override-perl
+    version: 0.09-2
+    architecture: all
+   -
+    package: libstdc++6-armhf-cross
+    version: 9.2.1-21cross1
+    architecture: all
+   -
+    package: libstdc++6
+    version: 9.2.1-21
+    architecture: armhf
+   -
+    package: libstdc++6
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: libstdc++-9-dev-armhf-cross
+    version: 9.2.1-21cross1
+    architecture: all
+   -
+    package: libstdc++-9-dev
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: libstdc++-7-dev
+    version: 7.5.0-3
+    architecture: armhf
+   -
+    package: libsss-nss-idmap0
+    version: 2.2.2-1+b1
+    architecture: armhf
+   -
+    package: libsss-idmap0
+    version: 2.2.2-1+b1
+    architecture: armhf
+   -
+    package: libsss-certmap0
+    version: 2.2.2-1+b1
+    architecture: armhf
+   -
+    package: libssl1.1
+    version: 1.1.1d-2
+    architecture: armhf
+   -
+    package: libssl1.1
+    version: 1.1.1d-2
+    architecture: amd64
+   -
+    package: libssl-dev
+    version: 1.1.1d-2
+    architecture: armhf
+   -
+    package: libss2
+    version: 1.45.4-1
+    architecture: amd64
+   -
+    package: libsqlite3-0
+    version: 3.30.1-1
+    architecture: armhf
+   -
+    package: libsqlite3-0
+    version: 3.30.1-1
+    architecture: amd64
+   -
+    package: libsmartcols1
+    version: 2.34-0.1
+    architecture: amd64
+   -
+    package: libsigsegv2
+    version: 2.12-2
+    architecture: amd64
+   -
+    package: libsepol1
+    version: 3.0-1
+    architecture: armhf
+   -
+    package: libsepol1
+    version: 3.0-1
+    architecture: amd64
+   -
+    package: libsemanage1
+    version: 2.9-3+b1
+    architecture: armhf
+   -
+    package: libsemanage1
+    version: 2.9-3+b1
+    architecture: amd64
+   -
+    package: libsemanage-common
+    version: 2.9-3
+    architecture: all
+   -
+    package: libselinux1
+    version: 3.0-1
+    architecture: armhf
+   -
+    package: libselinux1
+    version: 3.0-1
+    architecture: amd64
+   -
+    package: libseccomp2
+    version: 2.4.2-2
+    architecture: amd64
+   -
+    package: libsasl2-modules-db
+    version: 2.1.27+dfsg-1
+    architecture: armhf
+   -
+    package: libsasl2-dev
+    version: 2.1.27+dfsg-1
+    architecture: armhf
+   -
+    package: libsasl2-2
+    version: 2.1.27+dfsg-1
+    architecture: armhf
+   -
+    package: libref-array1
+    version: 0.6.1-2
+    architecture: armhf
+   -
+    package: libreadline8
+    version: 8.0-3
+    architecture: armhf
+   -
+    package: libreadline8
+    version: 8.0-3
+    architecture: amd64
+   -
+    package: libquadmath0
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: libpython3.7-stdlib
+    version: 3.7.5-2
+    architecture: armhf
+   -
+    package: libpython3.7-minimal
+    version: 3.7.5-2
+    architecture: armhf
+   -
+    package: libpython3.7
+    version: 3.7.5-2
+    architecture: armhf
+   -
+    package: libpython3-stdlib
+    version: 3.7.5-3
+    architecture: armhf
+   -
+    package: libpseudo
+    version: 1.9.0+git20190515+996bead-2
+    architecture: amd64
+   -
+    package: libpopt0
+    version: 1.16-14
+    architecture: armhf
+   -
+    package: libpipeline1
+    version: 1.5.1-2
+    architecture: amd64
+   -
+    package: libperl5.30
+    version: 5.30.0-9
+    architecture: amd64
+   -
+    package: libpcre3
+    version: 2:8.39-12+b1
+    architecture: armhf
+   -
+    package: libpcre3
+    version: 2:8.39-12+b1
+    architecture: amd64
+   -
+    package: libpcre2-8-0
+    version: 10.34-7
+    architecture: armhf
+   -
+    package: libpcre2-8-0
+    version: 10.34-7
+    architecture: amd64
+   -
+    package: libpath-utils1
+    version: 0.6.1-2
+    architecture: armhf
+   -
+    package: libpam0g
+    version: 1.3.1-5
+    architecture: armhf
+   -
+    package: libpam0g
+    version: 1.3.1-5
+    architecture: amd64
+   -
+    package: libpam-runtime
+    version: 1.3.1-5
+    architecture: all
+   -
+    package: libpam-modules-bin
+    version: 1.3.1-5
+    architecture: amd64
+   -
+    package: libpam-modules
+    version: 1.3.1-5
+    architecture: amd64
+   -
+    package: libp11-kit0
+    version: 0.23.18.1-2
+    architecture: armhf
+   -
+    package: libnss3
+    version: 2:3.47.1-1
+    architecture: armhf
+   -
+    package: libnspr4
+    version: 2:4.23-1
+    architecture: armhf
+   -
+    package: libnl-route-3-200
+    version: 3.4.0-1+b1
+    architecture: armhf
+   -
+    package: libnl-3-200
+    version: 3.4.0-1+b1
+    architecture: armhf
+   -
+    package: libnfsidmap2
+    version: 0.25-5.1
+    architecture: armhf
+   -
+    package: libnettle7
+    version: 3.5.1+really3.5.1-2
+    architecture: armhf
+   -
+    package: libnet-ssleay-perl
+    version: 1.88-2
+    architecture: amd64
+   -
+    package: libnet-http-perl
+    version: 6.19-1
+    architecture: all
+   -
+    package: libncursesw6
+    version: 6.1+20191019-1
+    architecture: armhf
+   -
+    package: libncursesw6
+    version: 6.1+20191019-1
+    architecture: amd64
+   -
+    package: libmpfr6
+    version: 4.0.2-1
+    architecture: amd64
+   -
+    package: libmpdec2
+    version: 2.4.2-2
+    architecture: armhf
+   -
+    package: libmpc3
+    version: 1.1.0-1
+    architecture: amd64
+   -
+    package: libmount1
+    version: 2.34-0.1
+    architecture: armhf
+   -
+    package: libmount1
+    version: 2.34-0.1
+    architecture: amd64
+   -
+    package: libmagic1
+    version: 1:5.37-6
+    architecture: amd64
+   -
+    package: libmagic-mgc
+    version: 1:5.37-6
+    architecture: amd64
+   -
+    package: liblzma5
+    version: 5.2.4-1+b1
+    architecture: armhf
+   -
+    package: liblzma5
+    version: 5.2.4-1+b1
+    architecture: amd64
+   -
+    package: liblwp-protocol-https-perl
+    version: 6.07-2
+    architecture: all
+   -
+    package: liblwp-mediatypes-perl
+    version: 6.04-1
+    architecture: all
+   -
+    package: libltdl7
+    version: 2.4.6-11
+    architecture: amd64
+   -
+    package: liblsan0
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: liblocale-gettext-perl
+    version: 1.07-4
+    architecture: amd64
+   -
+    package: libldb2
+    version: 2:2.0.7-4
+    architecture: armhf
+   -
+    package: libldap2-dev
+    version: 2.4.48+dfsg-1+b2
+    architecture: armhf
+   -
+    package: libldap-common
+    version: 2.4.48+dfsg-1
+    architecture: all
+   -
+    package: libldap-2.4-2
+    version: 2.4.48+dfsg-1+b2
+    architecture: armhf
+   -
+    package: libkrb5support0
+    version: 1.17-6
+    architecture: armhf
+   -
+    package: libkrb5-dev
+    version: 1.17-6
+    architecture: armhf
+   -
+    package: libkrb5-3
+    version: 1.17-6
+    architecture: armhf
+   -
+    package: libkeyutils1
+    version: 1.6-6
+    architecture: armhf
+   -
+    package: libkdb5-9
+    version: 1.17-6
+    architecture: armhf
+   -
+    package: libkadm5srv-mit11
+    version: 1.17-6
+    architecture: armhf
+   -
+    package: libkadm5clnt-mit11
+    version: 1.17-6
+    architecture: armhf
+   -
+    package: libk5crypto3
+    version: 1.17-6
+    architecture: armhf
+   -
+    package: libitm1
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: libisl22
+    version: 0.22-2
+    architecture: amd64
+   -
+    package: libio-string-perl
+    version: 1.08-3
+    architecture: all
+   -
+    package: libio-socket-ssl-perl
+    version: 2.066-1
+    architecture: all
+   -
+    package: libio-html-perl
+    version: 1.001-1
+    architecture: all
+   -
+    package: libini-config5
+    version: 0.6.1-2
+    architecture: armhf
+   -
+    package: libidn2-0
+    version: 2.2.0-2
+    architecture: armhf
+   -
+    package: libidn11
+    version: 1.33-2.2
+    architecture: armhf
+   -
+    package: libicu63
+    version: 63.2-2
+    architecture: armhf
+   -
+    package: libicu63
+    version: 63.2-2
+    architecture: amd64
+   -
+    package: libicu-dev
+    version: 63.2-2
+    architecture: armhf
+   -
+    package: libhttp-negotiate-perl
+    version: 6.01-1
+    architecture: all
+   -
+    package: libhttp-message-perl
+    version: 6.18-1
+    architecture: all
+   -
+    package: libhttp-date-perl
+    version: 6.05-1
+    architecture: all
+   -
+    package: libhttp-cookies-perl
+    version: 6.08-1
+    architecture: all
+   -
+    package: libhtml-tree-perl
+    version: 5.07-2
+    architecture: all
+   -
+    package: libhtml-tagset-perl
+    version: 3.20-4
+    architecture: all
+   -
+    package: libhtml-parser-perl
+    version: 3.72-3+b4
+    architecture: amd64
+   -
+    package: libhogweed5
+    version: 3.5.1+really3.5.1-2
+    architecture: armhf
+   -
+    package: libhesiod0
+    version: 3.2.1-3.1
+    architecture: armhf
+   -
+    package: libhesiod-dev
+    version: 3.2.1-3.1
+    architecture: armhf
+   -
+    package: libgssrpc4
+    version: 1.17-6
+    architecture: armhf
+   -
+    package: libgssapi-krb5-2
+    version: 1.17-6
+    architecture: armhf
+   -
+    package: libgomp1-armhf-cross
+    version: 9.2.1-21cross1
+    architecture: all
+   -
+    package: libgomp1
+    version: 9.2.1-21
+    architecture: armhf
+   -
+    package: libgomp1
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: libgnutls30
+    version: 3.6.10-5
+    architecture: armhf
+   -
+    package: libgmp10
+    version: 2:6.1.2+dfsg-4
+    architecture: armhf
+   -
+    package: libgmp10
+    version: 2:6.1.2+dfsg-4
+    architecture: amd64
+   -
+    package: libglib2.0-0
+    version: 2.62.3-2
+    architecture: armhf
+   -
+    package: libglib2.0-0
+    version: 2.62.3-2
+    architecture: amd64
+   -
+    package: libgdbm6
+    version: 1.18.1-5
+    architecture: amd64
+   -
+    package: libgdbm-compat4
+    version: 1.18.1-5
+    architecture: amd64
+   -
+    package: libgcc1-armhf-cross
+    version: 1:9.2.1-21cross1
+    architecture: all
+   -
+    package: libgcc1
+    version: 1:9.2.1-21
+    architecture: armhf
+   -
+    package: libgcc1
+    version: 1:9.2.1-21
+    architecture: amd64
+   -
+    package: libgcc-9-dev-armhf-cross
+    version: 9.2.1-21cross1
+    architecture: all
+   -
+    package: libgcc-9-dev
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: libgcc-7-dev
+    version: 7.5.0-3
+    architecture: armhf
+   -
+    package: libgc1c2
+    version: 1:7.6.4-0.4
+    architecture: amd64
+   -
+    package: libfile-which-perl
+    version: 1.23-1
+    architecture: all
+   -
+    package: libfile-stripnondeterminism-perl
+    version: 1.6.3-1
+    architecture: all
+   -
+    package: libfile-listing-perl
+    version: 6.04-1
+    architecture: all
+   -
+    package: libfile-homedir-perl
+    version: 1.004-1
+    architecture: all
+   -
+    package: libffi6
+    version: 3.2.1-9
+    architecture: armhf
+   -
+    package: libffi6
+    version: 3.2.1-9
+    architecture: amd64
+   -
+    package: libfdisk1
+    version: 2.34-0.1
+    architecture: amd64
+   -
+    package: libext2fs2
+    version: 1.45.4-1
+    architecture: amd64
+   -
+    package: libexpat1
+    version: 2.2.9-1
+    architecture: armhf
+   -
+    package: libexpat1
+    version: 2.2.9-1
+    architecture: amd64
+   -
+    package: libencode-locale-perl
+    version: 1.05-1
+    architecture: all
+   -
+    package: libelogind0
+    version: 241.3-1+debian2
+    architecture: armhf
+   -
+    package: libelogind0
+    version: 241.3-1+debian2
+    architecture: amd64
+   -
+    package: libelf1
+    version: 0.176-1.1
+    architecture: amd64
+   -
+    package: libdpkg-perl
+    version: 1.19.7
+    architecture: all
+   -
+    package: libdhash1
+    version: 0.6.1-2
+    architecture: armhf
+   -
+    package: libdebian-dpkgcross-perl
+    version: 2.6.15-3
+    architecture: all
+   -
+    package: libdebhelper-perl
+    version: 12.7.2
+    architecture: all
+   -
+    package: libdebconfclient0
+    version: 0.250
+    architecture: amd64
+   -
+    package: libdbus-1-3
+    version: 1.12.16-2
+    architecture: armhf
+   -
+    package: libdb5.3
+    version: 5.3.28+dfsg1-0.6
+    architecture: armhf
+   -
+    package: libdb5.3
+    version: 5.3.28+dfsg1-0.6
+    architecture: amd64
+   -
+    package: libcrypt1-dev
+    version: 1:4.4.10-5
+    architecture: armhf
+   -
+    package: libcrypt1-dev
+    version: 1:4.4.10-5
+    architecture: amd64
+   -
+    package: libcrypt1
+    version: 1:4.4.10-5
+    architecture: armhf
+   -
+    package: libcrypt1
+    version: 1:4.4.10-5
+    architecture: amd64
+   -
+    package: libcroco3
+    version: 0.6.13-1
+    architecture: amd64
+   -
+    package: libconfig-inifiles-perl
+    version: 3.000002-1
+    architecture: all
+   -
+    package: libconfig-auto-perl
+    version: 0.44-1
+    architecture: all
+   -
+    package: libcom-err2
+    version: 1.45.4-1
+    architecture: armhf
+   -
+    package: libcom-err2
+    version: 1.45.4-1
+    architecture: amd64
+   -
+    package: libcollection4
+    version: 0.6.1-2
+    architecture: armhf
+   -
+    package: libcilkrts5
+    version: 7.5.0-3
+    architecture: armhf
+   -
+    package: libcc1-0
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: libcap2
+    version: 1:2.27-1
+    architecture: armhf
+   -
+    package: libcap2
+    version: 1:2.27-1
+    architecture: amd64
+   -
+    package: libcap-ng0
+    version: 0.7.9-2.1+b1
+    architecture: armhf
+   -
+    package: libcap-ng0
+    version: 0.7.9-2.1+b1
+    architecture: amd64
+   -
+    package: libc6-dev-armhf-cross
+    version: 2.29-1cross7
+    architecture: all
+   -
+    package: libc6-dev
+    version: 2.29-6
+    architecture: armhf
+   -
+    package: libc6-dev
+    version: 2.29-6
+    architecture: amd64
+   -
+    package: libc6-armhf-cross
+    version: 2.29-1cross7
+    architecture: all
+   -
+    package: libc6
+    version: 2.29-6
+    architecture: armhf
+   -
+    package: libc6
+    version: 2.29-6
+    architecture: amd64
+   -
+    package: libc-dev-bin
+    version: 2.29-6
+    architecture: amd64
+   -
+    package: libc-bin
+    version: 2.29-6
+    architecture: amd64
+    essential: true
+   -
+    package: libc-ares2
+    version: 1.15.0-1
+    architecture: armhf
+   -
+    package: libbz2-1.0
+    version: 1.0.8-2
+    architecture: armhf
+   -
+    package: libbz2-1.0
+    version: 1.0.8-2
+    architecture: amd64
+   -
+    package: libbsd0
+    version: 0.10.0-1
+    architecture: amd64
+   -
+    package: libblkid1
+    version: 2.34-0.1
+    architecture: armhf
+   -
+    package: libblkid1
+    version: 2.34-0.1
+    architecture: amd64
+   -
+    package: libbinutils
+    version: 2.33.1-5
+    architecture: amd64
+   -
+    package: libbasicobjects0
+    version: 0.6.1-2
+    architecture: armhf
+   -
+    package: libaudit1
+    version: 1:2.8.5-2+b1
+    architecture: armhf
+   -
+    package: libaudit1
+    version: 1:2.8.5-2+b1
+    architecture: amd64
+   -
+    package: libaudit-common
+    version: 1:2.8.5-2
+    architecture: all
+   -
+    package: libattr1
+    version: 1:2.4.48-5
+    architecture: amd64
+   -
+    package: libatomic1-armhf-cross
+    version: 9.2.1-21cross1
+    architecture: all
+   -
+    package: libatomic1
+    version: 9.2.1-21
+    architecture: armhf
+   -
+    package: libatomic1
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: libasan5-armhf-cross
+    version: 9.2.1-21cross1
+    architecture: all
+   -
+    package: libasan5
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: libasan4
+    version: 7.5.0-3
+    architecture: armhf
+   -
+    package: libarchive-zip-perl
+    version: 1.67-1
+    architecture: all
+   -
+    package: libacl1
+    version: 2.2.53-5
+    architecture: amd64
+   -
+    package: krb5-multidev
+    version: 1.17-6
+    architecture: armhf
+   -
+    package: intltool-debian
+    version: 0.35.0+20060710.5
+    architecture: all
+   -
+    package: init-system-helpers
+    version: 1.57
+    architecture: all
+    essential: true
+   -
+    package: icu-devtools
+    version: 63.2-2
+    architecture: amd64
+   -
+    package: hostname
+    version: 3.23
+    architecture: amd64
+    essential: true
+   -
+    package: gzip
+    version: 1.9-3+b1
+    architecture: amd64
+    essential: true
+   -
+    package: guile-2.0-libs
+    version: 2.0.13+1-5.3
+    architecture: amd64
+   -
+    package: groff-base
+    version: 1.22.4-3
+    architecture: amd64
+   -
+    package: grep
+    version: 3.3-1
+    architecture: amd64
+    essential: true
+   -
+    package: gettext-base
+    version: 0.19.8.1-10
+    architecture: amd64
+   -
+    package: gettext
+    version: 0.19.8.1-10
+    architecture: amd64
+   -
+    package: gcc-arm-linux-gnueabihf
+    version: 4:9.2.1-3.1
+    architecture: amd64
+   -
+    package: gcc-9-cross-base
+    version: 9.2.1-21cross1
+    architecture: all
+   -
+    package: gcc-9-base
+    version: 9.2.1-21
+    architecture: armhf
+   -
+    package: gcc-9-base
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: gcc-9-arm-linux-gnueabihf-base
+    version: 9.2.1-21cross1
+    architecture: amd64
+   -
+    package: gcc-9-arm-linux-gnueabihf
+    version: 9.2.1-21cross1
+    architecture: amd64
+   -
+    package: gcc-9
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: gcc-7-base
+    version: 7.5.0-3
+    architecture: armhf
+   -
+    package: gcc
+    version: 4:9.2.1-3.1
+    architecture: amd64
+   -
+    package: gawk
+    version: 1:5.0.1+dfsg-1
+    architecture: amd64
+   -
+    package: g++-arm-linux-gnueabihf
+    version: 4:9.2.1-3.1
+    architecture: amd64
+   -
+    package: g++-9-arm-linux-gnueabihf
+    version: 9.2.1-21cross1
+    architecture: amd64
+   -
+    package: g++-9
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: g++
+    version: 4:9.2.1-3.1
+    architecture: amd64
+   -
+    package: flex
+    version: 2.6.4-6.2
+    architecture: amd64
+   -
+    package: findutils
+    version: 4.7.0-1
+    architecture: amd64
+    essential: true
+   -
+    package: file
+    version: 1:5.37-6
+    architecture: amd64
+   -
+    package: fdisk
+    version: 2.34-0.1
+    architecture: amd64
+   -
+    package: e2fsprogs
+    version: 1.45.4-1
+    architecture: amd64
+   -
+    package: dwz
+    version: 0.13-5
+    architecture: amd64
+   -
+    package: dpkg-dev
+    version: 1.19.7
+    architecture: all
+   -
+    package: dpkg-cross
+    version: 2.6.15-3
+    architecture: all
+   -
+    package: dpkg
+    version: 1.19.7
+    architecture: amd64
+    essential: true
+   -
+    package: diffutils
+    version: 1:3.7-3
+    architecture: amd64
+    essential: true
+   -
+    package: dh-strip-nondeterminism
+    version: 1.6.3-1
+    architecture: all
+   -
+    package: dh-autoreconf
+    version: 19
+    architecture: all
+   -
+    package: debianutils
+    version: 4.9.1
+    architecture: amd64
+    essential: true
+   -
+    package: debhelper
+    version: 12.7.2
+    architecture: all
+   -
+    package: debconf
+    version: 1.5.73
+    architecture: all
+   -
+    package: dash
+    version: 0.5.10.2-6
+    architecture: amd64
+    essential: true
+   -
+    package: crossbuild-essential-armhf
+    version: 12.8
+    architecture: all
+   -
+    package: cross-config
+    version: 2.6.15-3
+    architecture: all
+   -
+    package: cpp-arm-linux-gnueabihf
+    version: 4:9.2.1-3.1
+    architecture: amd64
+   -
+    package: cpp-9-arm-linux-gnueabihf
+    version: 9.2.1-21cross1
+    architecture: amd64
+   -
+    package: cpp-9
+    version: 9.2.1-21
+    architecture: amd64
+   -
+    package: cpp
+    version: 4:9.2.1-3.1
+    architecture: amd64
+   -
+    package: coreutils
+    version: 8.30-3+b1
+    architecture: amd64
+    essential: true
+   -
+    package: comerr-dev
+    version: 2.1-1.45.4-1
+    architecture: armhf
+   -
+    package: ca-certificates
+    version: 20190110
+    architecture: all
+   -
+    package: bzip2
+    version: 1.0.8-2
+    architecture: amd64
+   -
+    package: build-essential
+    version: 12.8
+    architecture: amd64
+   -
+    package: bsdutils
+    version: 1:2.34-0.1
+    architecture: amd64
+    essential: true
+   -
+    package: bsdmainutils
+    version: 11.1.2+b1
+    architecture: amd64
+   -
+    package: bison
+    version: 2:3.4.2+dfsg-1
+    architecture: amd64
+   -
+    package: binutils-x86-64-linux-gnu
+    version: 2.33.1-5
+    architecture: amd64
+   -
+    package: binutils-common
+    version: 2.33.1-5
+    architecture: amd64
+   -
+    package: binutils-arm-linux-gnueabihf
+    version: 2.33.1-5
+    architecture: amd64
+   -
+    package: binutils
+    version: 2.33.1-5
+    architecture: amd64
+   -
+    package: bash
+    version: 5.0-5
+    architecture: amd64
+    essential: true
+   -
+    package: base-passwd
+    version: 3.5.46
+    architecture: amd64
+    essential: true
+   -
+    package: base-files
+    version: 11
+    architecture: amd64
+    essential: true
+   -
+    package: autotools-dev
+    version: 20180224.1
+    architecture: all
+   -
+    package: autopoint
+    version: 0.19.8.1-10
+    architecture: all
+   -
+    package: automake
+    version: 1:1.16.1-4
+    architecture: all
+   -
+    package: autoconf
+    version: 2.69-11
+    architecture: all
+   -
+    package: adduser
+    version: 3.118
+    architecture: all
+ 
+background-packages: 85301
+foreground-packages: 1
+total-packages: 85302
+broken-packages: 0
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgssapi-krb5-2 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package 'bison' is not installed, so not removed
+Package 'libtirpc-common' is not installed, so not removed
+Package 'libaudit1:armhf' is not installed, so not removed. Did you mean 'libaudit1'?
+Package 'libbz2-1.0:armhf' is not installed, so not removed. Did you mean 'libbz2-1.0'?
+Package 'libc-ares2:armhf' is not installed, so not removed
+Package 'libsasl2-2:armhf' is not installed, so not removed. Did you mean 'libsasl2-2'?
+Package 'libsasl2-dev:armhf' is not installed, so not removed
+Package 'libsasl2-modules-db:armhf' is not installed, so not removed. Did you mean 'libsasl2-modules-db'?
+Package 'libdb5.3:armhf' is not installed, so not removed. Did you mean 'libdb5.3'?
+Package 'libbasicobjects0:armhf' is not installed, so not removed
+Package 'libcollection4:armhf' is not installed, so not removed
+Package 'libdhash1:armhf' is not installed, so not removed
+Package 'libini-config5:armhf' is not installed, so not removed
+Package 'libpath-utils1:armhf' is not installed, so not removed
+Package 'libref-array1:armhf' is not installed, so not removed
+Package 'comerr-dev:armhf' is not installed, so not removed
+Package 'libhesiod-dev:armhf' is not installed, so not removed
+Package 'libhesiod0:armhf' is not installed, so not removed
+Package 'krb5-multidev:armhf' is not installed, so not removed
+Package 'libgssrpc4:armhf' is not installed, so not removed
+Package 'libkadm5clnt-mit11:armhf' is not installed, so not removed
+Package 'libkadm5srv-mit11:armhf' is not installed, so not removed
+Package 'libkdb5-9:armhf' is not installed, so not removed
+Package 'libkrb5-dev:armhf' is not installed, so not removed
+Package 'libldb2:armhf' is not installed, so not removed
+Package 'libcap-ng0:armhf' is not installed, so not removed. Did you mean 'libcap-ng0'?
+Package 'libidn11:armhf' is not installed, so not removed
+Package 'libnfsidmap2:armhf' is not installed, so not removed
+Package 'libnl-3-200:armhf' is not installed, so not removed
+Package 'libnl-route-3-200:armhf' is not installed, so not removed
+Package 'libsemanage1:armhf' is not installed, so not removed. Did you mean 'libsemanage1'?
+Package 'libtirpc-dev:armhf' is not installed, so not removed
+Package 'libtirpc3:armhf' is not installed, so not removed
+Package 'libmpdec2:armhf' is not installed, so not removed. Did you mean 'libmpdec2'?
+Package 'libncursesw6:armhf' is not installed, so not removed. Did you mean 'libncursesw6'?
+Package 'libtinfo6:armhf' is not installed, so not removed. Did you mean 'libtinfo6'?
+Package 'libnspr4:armhf' is not installed, so not removed. Did you mean 'libnspr4'?
+Package 'libnss3:armhf' is not installed, so not removed. Did you mean 'libnss3'?
+Package 'libldap-2.4-2:armhf' is not installed, so not removed. Did you mean 'libldap-2.4-2'?
+Package 'libldap2-dev:armhf' is not installed, so not removed
+Package 'libssl-dev:armhf' is not installed, so not removed
+Package 'libpam0g:armhf' is not installed, so not removed. Did you mean 'libpam0g'?
+Package 'libpopt0:armhf' is not installed, so not removed. Did you mean 'libpopt0'?
+Package 'libpython3-stdlib:armhf' is not installed, so not removed. Did you mean 'libpython3-stdlib'?
+Package 'python3:armhf' is not installed, so not removed. Did you mean 'python3'?
+Package 'python3-minimal:armhf' is not installed, so not removed. Did you mean 'python3-minimal'?
+Package 'libpython3.7:armhf' is not installed, so not removed
+Package 'libpython3.7-stdlib:armhf' is not installed, so not removed. Did you mean 'libpython3.7-stdlib'?
+Package 'python3.7:armhf' is not installed, so not removed. Did you mean 'python3.7'?
+Package 'libreadline8:armhf' is not installed, so not removed. Did you mean 'libreadline8'?
+Package 'libsqlite3-0:armhf' is not installed, so not removed. Did you mean 'libsqlite3-0'?
+Package 'libsss-certmap0:armhf' is not installed, so not removed
+Package 'libsss-idmap0:armhf' is not installed, so not removed
+Package 'libsss-nss-idmap0:armhf' is not installed, so not removed
+Package 'python3-sss:armhf' is not installed, so not removed
+Package 'sssd-common:armhf' is not installed, so not removed
+Package 'libtalloc2:armhf' is not installed, so not removed
+Package 'libtdb1:armhf' is not installed, so not removed
+Package 'libtevent0:armhf' is not installed, so not removed
+Package 'sbuild-build-depends-main-dummy:armhf' is not installed, so not removed
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgssapi-krb5-2 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  dose-distcheck* libcap2* liblua5.2-0* libnspr4* libnss3* libpopt0* librpm8*
+  librpmio8* sbuild-build-depends-dose3-dummy:armhf*
+0 upgraded, 0 newly installed, 9 to remove and 0 not upgraded.
+After this operation, 13.5 MB disk space will be freed.
+(Reading database ... 31323 files and directories currently installed.)
+Removing sbuild-build-depends-dose3-dummy:armhf (0.invalid.0) ...
+Removing dose-distcheck (5.0.1-14+b1) ...
+Removing librpm8 (4.14.2.1+dfsg1-1+b1) ...
+Removing libcap2:amd64 (1:2.27-1) ...
+Removing librpmio8 (4.14.2.1+dfsg1-1+b1) ...
+Removing liblua5.2-0:amd64 (5.2.4-1.1+b3) ...
+Removing libnss3:amd64 (2:3.47.1-1) ...
+Removing libnspr4:amd64 (2:4.23-1) ...
+Removing libpopt0:amd64 (1.16-14) ...
+Processing triggers for man-db (2.9.0-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Processing triggers for libc-bin (2.29-6) ...
+E: Package build dependencies not satisfied; skipping
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: n/a
+Build-Time: 0
+Distribution: unstable-amd64-sbuild
+Fail-Stage: install-deps
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 0
+Job: /home/build/sbuild-setup/repo/pool/main/a/autofs/autofs_5.1.6-1.dsc
+Machine Architecture: amd64
+Package: autofs
+Package-Time: 0
+Source-Version: 5.1.6-1
+Space: n/a
+Status: given-back
+Version: 5.1.6-1
+--------------------------------------------------------------------------------
+Finished at 2019-12-12T03:19:31Z
+Build needed 00:00:00, no disk space
