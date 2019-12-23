@@ -1,0 +1,927 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 8e0e35ca7d18
+
++==============================================================================+
+| gcl 2.6.12-91 (armhf)                        Sat, 21 Dec 2019 10:18:40 +0000 |
++==============================================================================+
+
+Package: gcl
+Version: 2.6.12-91
+Source Version: 2.6.12-91
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-226c193e-979e-4716-81b5-37199dbc0f76' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/gcl-PFO2rS/resolver-53tWzr' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://deb.debian.org/debian unstable InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgssapi-krb5-2 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/g/gcl/gcl_2.6.12-91.dsc exists in /home/build/sbuild-setup/repo/pool/main/g/gcl; copying to chroot
+I: NOTICE: Log filtering will replace 'build/gcl-PFO2rS/gcl-2.6.12' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/gcl-PFO2rS' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper (>= 5), libreadline-dev, m4, tk8.6-dev, libgmp-dev, autotools-dev, libxmu-dev, libxaw7-dev, po-debconf, zlib1g-dev, tcl, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper (>= 5), libreadline-dev, m4, tk8.6-dev, libgmp-dev, autotools-dev, libxmu-dev, libxaw7-dev, po-debconf, zlib1g-dev, tcl, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [449 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [539 B]
+Fetched 1945 B in 0s (127 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgssapi-krb5-2 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  libgmp-dev:armhf libgmpxx4ldbl:armhf libncurses-dev:armhf libncurses6:armhf
+  libncursesw6:armhf libpthread-stubs0-dev libreadline-dev:armhf
+  libreadline8:armhf libtcl8.6 libtcl8.6:armhf libtinfo6:armhf libtk8.6
+  libtk8.6:armhf libx11-dev libxau-dev libxaw7:armhf libxaw7-dev:armhf
+  libxcb1-dev libxdmcp-dev libxmu-dev:armhf libxmu-headers libxmu6:armhf
+  libxpm-dev:armhf libxss-dev:armhf libxss1 libxss1:armhf libxt-dev:armhf
+  libxt6:armhf tcl tcl8.6 tcl8.6-dev:armhf tk8.6 tk8.6-dev:armhf
+  x11proto-scrnsaver-dev
+Suggested packages:
+  gmp-doc:armhf libgmp10-doc:armhf libmpfr-dev:armhf ncurses-doc:armhf
+  readline-doc:armhf libx11-doc libxaw-doc:armhf libxcb-doc libxt-doc:armhf
+  tcl-tclreadline tcl8.6-doc:armhf tk8.6-doc:armhf
+Recommended packages:
+  libgpm2:armhf xterm | x-terminal-emulator
+The following NEW packages will be installed:
+  libgmp-dev:armhf libgmpxx4ldbl:armhf libncurses-dev:armhf libncurses6:armhf
+  libncursesw6:armhf libpthread-stubs0-dev libreadline-dev:armhf
+  libreadline8:armhf libtcl8.6 libtcl8.6:armhf libtinfo6:armhf libtk8.6
+  libtk8.6:armhf libx11-dev libxau-dev libxaw7:armhf libxaw7-dev:armhf
+  libxcb1-dev libxdmcp-dev libxmu-dev:armhf libxmu-headers libxmu6:armhf
+  libxpm-dev:armhf libxss-dev:armhf libxss1 libxss1:armhf libxt-dev:armhf
+  libxt6:armhf sbuild-build-depends-main-dummy:armhf tcl tcl8.6
+  tcl8.6-dev:armhf tk8.6 tk8.6-dev:armhf x11proto-scrnsaver-dev
+0 upgraded, 35 newly installed, 0 to remove and 0 not upgraded.
+Need to get 5244 kB/9260 kB of archives.
+After this operation, 30.1 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [964 B]
+Get:2 http://deb.debian.org/debian unstable/main amd64 libtcl8.6 amd64 8.6.10+dfsg-1 [1007 kB]
+Get:3 http://deb.debian.org/debian unstable/main armhf libtcl8.6 armhf 8.6.10+dfsg-1 [906 kB]
+Get:4 http://deb.debian.org/debian unstable/main amd64 libxss1 amd64 1:1.2.3-1 [17.8 kB]
+Get:5 http://deb.debian.org/debian unstable/main amd64 libtk8.6 amd64 8.6.10-1 [773 kB]
+Get:6 http://deb.debian.org/debian unstable/main armhf libtk8.6 armhf 8.6.10-1 [690 kB]
+Get:7 http://deb.debian.org/debian unstable/main amd64 tcl8.6 amd64 8.6.10+dfsg-1 [124 kB]
+Get:8 http://deb.debian.org/debian unstable/main amd64 tcl amd64 8.6.9+1+b1 [5912 B]
+Get:9 http://deb.debian.org/debian unstable/main armhf tcl8.6-dev armhf 8.6.10+dfsg-1 [933 kB]
+Get:10 http://deb.debian.org/debian unstable/main amd64 tk8.6 amd64 8.6.10-1 [72.1 kB]
+Get:11 http://deb.debian.org/debian unstable/main armhf tk8.6-dev armhf 8.6.10-1 [714 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 5244 kB in 4s (1448 kB/s)
+Selecting previously unselected package libtinfo6:armhf.
+(Reading database ... 31208 files and directories currently installed.)
+Preparing to unpack .../00-libtinfo6_6.1+20191019-1_armhf.deb ...
+Unpacking libtinfo6:armhf (6.1+20191019-1) ...
+Selecting previously unselected package libreadline8:armhf.
+Preparing to unpack .../01-libreadline8_8.0-3_armhf.deb ...
+Unpacking libreadline8:armhf (8.0-3) ...
+Selecting previously unselected package libgmpxx4ldbl:armhf.
+Preparing to unpack .../02-libgmpxx4ldbl_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libgmp-dev:armhf.
+Preparing to unpack .../03-libgmp-dev_2%3a6.1.2+dfsg-4_armhf.deb ...
+Unpacking libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Selecting previously unselected package libncurses6:armhf.
+Preparing to unpack .../04-libncurses6_6.1+20191019-1_armhf.deb ...
+Unpacking libncurses6:armhf (6.1+20191019-1) ...
+Selecting previously unselected package libncursesw6:armhf.
+Preparing to unpack .../05-libncursesw6_6.1+20191019-1_armhf.deb ...
+Unpacking libncursesw6:armhf (6.1+20191019-1) ...
+Selecting previously unselected package libncurses-dev:armhf.
+Preparing to unpack .../06-libncurses-dev_6.1+20191019-1_armhf.deb ...
+Unpacking libncurses-dev:armhf (6.1+20191019-1) ...
+Selecting previously unselected package libpthread-stubs0-dev:amd64.
+Preparing to unpack .../07-libpthread-stubs0-dev_0.4-1_amd64.deb ...
+Unpacking libpthread-stubs0-dev:amd64 (0.4-1) ...
+Selecting previously unselected package libreadline-dev:armhf.
+Preparing to unpack .../08-libreadline-dev_8.0-3_armhf.deb ...
+Unpacking libreadline-dev:armhf (8.0-3) ...
+Selecting previously unselected package libtcl8.6:amd64.
+Preparing to unpack .../09-libtcl8.6_8.6.10+dfsg-1_amd64.deb ...
+Unpacking libtcl8.6:amd64 (8.6.10+dfsg-1) ...
+Selecting previously unselected package libtcl8.6:armhf.
+Preparing to unpack .../10-libtcl8.6_8.6.10+dfsg-1_armhf.deb ...
+Unpacking libtcl8.6:armhf (8.6.10+dfsg-1) ...
+Selecting previously unselected package libxss1:amd64.
+Preparing to unpack .../11-libxss1_1%3a1.2.3-1_amd64.deb ...
+Unpacking libxss1:amd64 (1:1.2.3-1) ...
+Selecting previously unselected package libtk8.6:amd64.
+Preparing to unpack .../12-libtk8.6_8.6.10-1_amd64.deb ...
+Unpacking libtk8.6:amd64 (8.6.10-1) ...
+Selecting previously unselected package libxss1:armhf.
+Preparing to unpack .../13-libxss1_1%3a1.2.3-1_armhf.deb ...
+Unpacking libxss1:armhf (1:1.2.3-1) ...
+Selecting previously unselected package libtk8.6:armhf.
+Preparing to unpack .../14-libtk8.6_8.6.10-1_armhf.deb ...
+Unpacking libtk8.6:armhf (8.6.10-1) ...
+Selecting previously unselected package libxau-dev:amd64.
+Preparing to unpack .../15-libxau-dev_1%3a1.0.8-1+b2_amd64.deb ...
+Unpacking libxau-dev:amd64 (1:1.0.8-1+b2) ...
+Selecting previously unselected package libxdmcp-dev:amd64.
+Preparing to unpack .../16-libxdmcp-dev_1%3a1.1.2-3_amd64.deb ...
+Unpacking libxdmcp-dev:amd64 (1:1.1.2-3) ...
+Selecting previously unselected package libxcb1-dev:amd64.
+Preparing to unpack .../17-libxcb1-dev_1.13.1-2_amd64.deb ...
+Unpacking libxcb1-dev:amd64 (1.13.1-2) ...
+Selecting previously unselected package libx11-dev:amd64.
+Preparing to unpack .../18-libx11-dev_2%3a1.6.8-1_amd64.deb ...
+Unpacking libx11-dev:amd64 (2:1.6.8-1) ...
+Selecting previously unselected package libxt6:armhf.
+Preparing to unpack .../19-libxt6_1%3a1.1.5-1+b3_armhf.deb ...
+Unpacking libxt6:armhf (1:1.1.5-1+b3) ...
+Selecting previously unselected package libxmu6:armhf.
+Preparing to unpack .../20-libxmu6_2%3a1.1.2-2+b3_armhf.deb ...
+Unpacking libxmu6:armhf (2:1.1.2-2+b3) ...
+Selecting previously unselected package libxaw7:armhf.
+Preparing to unpack .../21-libxaw7_2%3a1.0.13-1+b2_armhf.deb ...
+Unpacking libxaw7:armhf (2:1.0.13-1+b2) ...
+Selecting previously unselected package libxt-dev:armhf.
+Preparing to unpack .../22-libxt-dev_1%3a1.1.5-1+b3_armhf.deb ...
+Unpacking libxt-dev:armhf (1:1.1.5-1+b3) ...
+Selecting previously unselected package libxmu-headers.
+Preparing to unpack .../23-libxmu-headers_2%3a1.1.2-2_all.deb ...
+Unpacking libxmu-headers (2:1.1.2-2) ...
+Selecting previously unselected package libxmu-dev:armhf.
+Preparing to unpack .../24-libxmu-dev_2%3a1.1.2-2+b3_armhf.deb ...
+Unpacking libxmu-dev:armhf (2:1.1.2-2+b3) ...
+Selecting previously unselected package libxpm-dev:armhf.
+Preparing to unpack .../25-libxpm-dev_1%3a3.5.12-1_armhf.deb ...
+Unpacking libxpm-dev:armhf (1:3.5.12-1) ...
+Selecting previously unselected package libxaw7-dev:armhf.
+Preparing to unpack .../26-libxaw7-dev_2%3a1.0.13-1+b2_armhf.deb ...
+Unpacking libxaw7-dev:armhf (2:1.0.13-1+b2) ...
+Selecting previously unselected package x11proto-scrnsaver-dev.
+Preparing to unpack .../27-x11proto-scrnsaver-dev_2018.4-4_all.deb ...
+Unpacking x11proto-scrnsaver-dev (2018.4-4) ...
+Selecting previously unselected package libxss-dev:armhf.
+Preparing to unpack .../28-libxss-dev_1%3a1.2.3-1_armhf.deb ...
+Unpacking libxss-dev:armhf (1:1.2.3-1) ...
+Selecting previously unselected package tcl8.6.
+Preparing to unpack .../29-tcl8.6_8.6.10+dfsg-1_amd64.deb ...
+Unpacking tcl8.6 (8.6.10+dfsg-1) ...
+Selecting previously unselected package tcl.
+Preparing to unpack .../30-tcl_8.6.9+1+b1_amd64.deb ...
+Unpacking tcl (8.6.9+1+b1) ...
+Selecting previously unselected package tcl8.6-dev:armhf.
+Preparing to unpack .../31-tcl8.6-dev_8.6.10+dfsg-1_armhf.deb ...
+Unpacking tcl8.6-dev:armhf (8.6.10+dfsg-1) ...
+Selecting previously unselected package tk8.6.
+Preparing to unpack .../32-tk8.6_8.6.10-1_amd64.deb ...
+Unpacking tk8.6 (8.6.10-1) ...
+Selecting previously unselected package tk8.6-dev:armhf.
+Preparing to unpack .../33-tk8.6-dev_8.6.10-1_armhf.deb ...
+Unpacking tk8.6-dev:armhf (8.6.10-1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../34-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libxau-dev:amd64 (1:1.0.8-1+b2) ...
+Setting up libpthread-stubs0-dev:amd64 (0.4-1) ...
+Setting up libxdmcp-dev:amd64 (1:1.1.2-3) ...
+Setting up libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Setting up libxpm-dev:armhf (1:3.5.12-1) ...
+Setting up libtcl8.6:amd64 (8.6.10+dfsg-1) ...
+Setting up libtcl8.6:armhf (8.6.10+dfsg-1) ...
+Setting up libxt6:armhf (1:1.1.5-1+b3) ...
+Setting up libxss1:amd64 (1:1.2.3-1) ...
+Setting up libxss1:armhf (1:1.2.3-1) ...
+Setting up x11proto-scrnsaver-dev (2018.4-4) ...
+Setting up libtinfo6:armhf (6.1+20191019-1) ...
+Setting up tcl8.6 (8.6.10+dfsg-1) ...
+Setting up libxmu6:armhf (2:1.1.2-2+b3) ...
+Setting up libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Setting up libxcb1-dev:amd64 (1.13.1-2) ...
+Setting up tcl8.6-dev:armhf (8.6.10+dfsg-1) ...
+Setting up libtk8.6:amd64 (8.6.10-1) ...
+Setting up libtk8.6:armhf (8.6.10-1) ...
+Setting up libreadline8:armhf (8.0-3) ...
+Setting up libx11-dev:amd64 (2:1.6.8-1) ...
+Setting up libxaw7:armhf (2:1.0.13-1+b2) ...
+Setting up libxss-dev:armhf (1:1.2.3-1) ...
+Setting up libxt-dev:armhf (1:1.1.5-1+b3) ...
+Setting up libncurses6:armhf (6.1+20191019-1) ...
+Setting up libncursesw6:armhf (6.1+20191019-1) ...
+Setting up tcl (8.6.9+1+b1) ...
+Setting up tk8.6 (8.6.10-1) ...
+Setting up libncurses-dev:armhf (6.1+20191019-1) ...
+Setting up libxmu-headers (2:1.1.2-2) ...
+Setting up libreadline-dev:armhf (8.0-3) ...
+Setting up libxmu-dev:armhf (2:1.1.2-2+b3) ...
+Setting up tk8.6-dev:armhf (8.6.10-1) ...
+Setting up libxaw7-dev:armhf (2:1.0.13-1+b2) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.9.0-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Processing triggers for libc-bin (2.29-6) ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.33.1-6 dpkg-dev_1.19.7 g++-9_9.2.1-21 gcc-9_9.2.1-21 libc6-dev_2.29-6 libstdc++-9-dev_9.2.1-21 libstdc++-9-dev-armhf-cross_9.2.1-21cross1 libstdc++6_9.2.1-21 libstdc++6-armhf-cross_9.2.1-21cross1 linux-libc-dev_5.3.15-1
+Package versions: adduser_3.118 adwaita-icon-theme_3.34.0-2 apt_1.8.4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-10 autotools-dev_20180224.1 base-files_11 base-passwd_3.5.47 bash_5.0-5 binutils_2.33.1-6 binutils-arm-linux-gnueabihf_2.33.1-6 binutils-common_2.33.1-6 binutils-x86-64-linux-gnu_2.33.1-6 bsdmainutils_11.1.2+b1 bsdutils_1:2.34-0.1 build-essential_12.8 bzip2_1.0.8-2 ccache_3.7.6-1 coreutils_8.30-3+b1 cpp_4:9.2.1-3.1 cpp-9_9.2.1-21 cpp-9-arm-linux-gnueabihf_9.2.1-21cross1 cpp-arm-linux-gnueabihf_4:9.2.1-3.1 cross-config_2.6.15-3 crossbuild-essential-armhf_12.8 dash_0.5.10.2-6 dbus_1.12.16-2 debconf_1.5.73 debhelper_12.7.2 debian-archive-keyring_2019.1 debianutils_4.9.1 dh-autoreconf_19 dh-strip-nondeterminism_1.6.3-1 diffutils_1:3.7-3 dirmngr_2.2.17-3 dpkg_1.19.7 dpkg-cross_2.6.15-3 dpkg-dev_1.19.7 dwz_0.13-5 e2fsprogs_1.45.4-1 eatmydata_105-7 fakeroot_1.24-1 fdisk_2.34-0.1 file_1:5.37-6 findutils_4.7.0-1 fontconfig_2.13.1-2+b1 fontconfig-config_2.13.1-2 fonts-dejavu-core_2.37-1 g++_4:9.2.1-3.1 g++-9_9.2.1-21 g++-9-arm-linux-gnueabihf_9.2.1-21cross1 g++-arm-linux-gnueabihf_4:9.2.1-3.1 gcc_4:9.2.1-3.1 gcc-9_9.2.1-21 gcc-9-arm-linux-gnueabihf_9.2.1-21cross1 gcc-9-arm-linux-gnueabihf-base_9.2.1-21cross1 gcc-9-base_9.2.1-21 gcc-9-cross-base_9.2.1-21cross1 gcc-arm-linux-gnueabihf_4:9.2.1-3.1 gettext_0.19.8.1-10 gettext-base_0.19.8.1-10 gir1.2-atk-1.0_2.34.1-1 gir1.2-freedesktop_1.62.0-2 gir1.2-gdkpixbuf-2.0_2.40.0+dfsg-1 gir1.2-glib-2.0_1.62.0-2 gir1.2-gtk-2.0_2.24.32-4 gir1.2-harfbuzz-0.0_2.6.4-1 gir1.2-pango-1.0_1.42.4-7 gnupg_2.2.17-3 gnupg-l10n_2.2.17-3 gnupg-utils_2.2.17-3 gpg_2.2.17-3 gpg-agent_2.2.17-3 gpg-wks-client_2.2.17-3 gpg-wks-server_2.2.17-3 gpgconf_2.2.17-3 gpgsm_2.2.17-3 gpgv_2.2.17-3 grep_3.3-1 groff-base_1.22.4-3 gtk-update-icon-cache_3.24.13-1 gzip_1.9-3+b1 hicolor-icon-theme_0.17-2 hostname_3.23 icu-devtools_63.2-2 init-system-helpers_1.57 intltool-debian_0.35.0+20060710.5 krb5-locales_1.17-6 libacl1_2.2.53-5 libapparmor1_2.13.3-7 libapt-pkg5.0_1.8.4 libarchive-zip-perl_1.67-1 libasan5_9.2.1-21 libasan5-armhf-cross_9.2.1-21cross1 libassuan0_2.5.3-7 libatk1.0-0_2.34.1-1 libatk1.0-data_2.34.1-1 libatk1.0-dev_2.34.1-1 libatomic1_9.2.1-21 libatomic1-armhf-cross_9.2.1-21cross1 libattr1_1:2.4.48-5 libaudit-common_1:2.8.5-2 libaudit1_1:2.8.5-2+b1 libavahi-client3_0.7-5 libavahi-common-data_0.7-5 libavahi-common3_0.7-5 libbinutils_2.33.1-6 libblkid-dev_2.34-0.1 libblkid1_2.34-0.1 libbsd0_0.10.0-1 libbz2-1.0_1.0.8-2 libc-bin_2.29-6 libc-dev-bin_2.29-6 libc6_2.29-6 libc6-armhf-cross_2.29-1cross7 libc6-dev_2.29-6 libc6-dev-armhf-cross_2.29-1cross7 libcairo-gobject2_1.16.0-4 libcairo-script-interpreter2_1.16.0-4 libcairo2_1.16.0-4 libcairo2-dev_1.16.0-4 libcap-ng0_0.7.9-2.1+b1 libcc1-0_9.2.1-21 libcdt5_2.42.2-3 libcgraph6_2.42.2-3 libcom-err2_1.45.4-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000002-1 libcroco3_0.6.13-1 libcrypt1_1:4.4.10-7 libcrypt1-dev_1:4.4.10-7 libcups2_2.3.0-7 libdatrie1_0.2.12-3 libdb5.3_5.3.28+dfsg1-0.6 libdbus-1-3_1.12.16-2 libdebconfclient0_0.250 libdebhelper-perl_12.7.2 libdebian-dpkgcross-perl_2.6.15-3 libdpkg-perl_1.19.7 libeatmydata1_105-7 libelf1_0.176-1.1 libexpat1_2.2.9-1 libexpat1-dev_2.2.9-1 libext2fs2_1.45.4-1 libfakeroot_1.24-1 libfdisk1_2.34-0.1 libffi-dev_3.2.1-9 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-stripnondeterminism-perl_1.6.3-1 libfile-which-perl_1.23-1 libfontconfig1_2.13.1-2+b1 libfontconfig1-dev_2.13.1-2+b1 libfreetype-dev_2.10.1-2 libfreetype6_2.10.1-2 libfreetype6-dev_2.10.1-2 libfribidi-dev_1.0.8-2 libfribidi0_1.0.8-2 libgail-common_2.24.32-4 libgail18_2.24.32-4 libgcc-9-dev_9.2.1-21 libgcc-9-dev-armhf-cross_9.2.1-21cross1 libgcc1_1:9.2.1-21 libgcc1-armhf-cross_1:9.2.1-21cross1 libgcrypt20_1.8.5-3 libgd3_2.2.5-5.2 libgdbm-compat4_1.18.1-5 libgdbm6_1.18.1-5 libgdk-pixbuf2.0-0_2.40.0+dfsg-1 libgdk-pixbuf2.0-bin_2.40.0+dfsg-1 libgdk-pixbuf2.0-common_2.40.0+dfsg-1 libgdk-pixbuf2.0-dev_2.40.0+dfsg-1 libgirepository-1.0-1_1.62.0-2 libglib2.0-0_2.62.3-2 libglib2.0-bin_2.62.3-2 libglib2.0-data_2.62.3-2 libglib2.0-dev_2.62.3-2 libglib2.0-dev-bin_2.62.3-2 libgmp-dev_2:6.1.2+dfsg-4 libgmp10_2:6.1.2+dfsg-4 libgmpxx4ldbl_2:6.1.2+dfsg-4 libgnutls30_3.6.11.1-2 libgomp1_9.2.1-21 libgomp1-armhf-cross_9.2.1-21cross1 libgpg-error0_1.36-7 libgraphite2-3_1.3.13-11 libgraphite2-dev_1.3.13-11 libgssapi-krb5-2_1.17-6 libgtk2.0-0_2.24.32-4 libgtk2.0-bin_2.24.32-4 libgtk2.0-common_2.24.32-4 libgtk2.0-dev_2.24.32-4 libgts-0.7-5_0.7.6+darcs121130-4+b1 libgts-bin_0.7.6+darcs121130-4+b1 libgvpr2_2.42.2-3 libharfbuzz-dev_2.6.4-1 libharfbuzz-gobject0_2.6.4-1 libharfbuzz-icu0_2.6.4-1 libharfbuzz0b_2.6.4-1 libhogweed5_3.5.1+really3.5.1-2 libice-dev_2:1.0.9-2 libice6_2:1.0.9-2 libicu-dev_63.2-2 libicu63_63.2-2 libidn2-0_2.2.0-2 libio-string-perl_1.08-3 libisl21_0.21-2 libisl22_0.22-2 libitm1_9.2.1-21 libjbig0_2.1-3.1+b2 libjpeg62-turbo_1:1.5.2-2+b1 libjpeg62-turbo-dev_1:1.5.2-2+b1 libk5crypto3_1.17-6 libkeyutils1_1.6-6 libkrb5-3_1.17-6 libkrb5support0_1.17-6 libksba8_1.3.5-2 liblab-gamut1_2.42.2-3 libldap-2.4-2_2.4.48+dfsg-1+b2 libldap-common_2.4.48+dfsg-1 liblocale-gettext-perl_1.07-4 liblsan0_9.2.1-21 libltdl7_2.4.6-11 liblz4-1_1.9.2-2 liblzma5_5.2.4-1+b1 liblzo2-2_2.10-0.1 libmagic-mgc_1:5.37-6 libmagic1_1:5.37-6 libmount-dev_2.34-0.1 libmount1_2.34-0.1 libmpc3_1.1.0-1 libmpdec2_2.4.2-2 libmpfr6_4.0.2-1 libncurses-dev_6.1+20191019-1 libncurses6_6.1+20191019-1 libncursesw6_6.1+20191019-1 libnettle7_3.5.1+really3.5.1-2 libnpth0_1.6-1 libp11-kit0_0.23.18.1-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpango-1.0-0_1.42.4-7 libpango1.0-dev_1.42.4-7 libpangocairo-1.0-0_1.42.4-7 libpangoft2-1.0-0_1.42.4-7 libpangoxft-1.0-0_1.42.4-7 libpathplan4_2.42.2-3 libpcre16-3_2:8.39-12+b1 libpcre2-16-0_10.34-7 libpcre2-32-0_10.34-7 libpcre2-8-0_10.34-7 libpcre2-dev_10.34-7 libpcre2-posix2_10.34-7 libpcre3_2:8.39-12+b1 libpcre3-dev_2:8.39-12+b1 libpcre32-3_2:8.39-12+b1 libpcrecpp0v5_2:8.39-12+b1 libperl5.30_5.30.0-9 libpipeline1_1.5.1-3 libpixman-1-0_0.36.0-1 libpixman-1-dev_0.36.0-1 libpng-dev_1.6.37-1 libpng16-16_1.6.37-1 libpthread-stubs0-dev_0.4-1 libpython3-stdlib_3.7.5-3 libpython3.7-minimal_3.7.6-1 libpython3.7-stdlib_3.7.6-1 libquadmath0_9.2.1-21 libreadline-dev_8.0-3 libreadline8_8.0-3 librsvg2-2_2.46.4-1 librsvg2-common_2.46.4-1 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.4.2-2 libselinux1_3.0-1 libselinux1-dev_3.0-1 libsemanage-common_3.0-1 libsemanage1_3.0-1 libsepol1_3.0-1 libsepol1-dev_3.0-1 libsigsegv2_2.12-2 libsm-dev_2:1.2.3-1 libsm6_2:1.2.3-1 libsmartcols1_2.34-0.1 libsqlite3-0_3.30.1-1 libss2_1.45.4-1 libssl1.1_1.1.1d-2 libstdc++-9-dev_9.2.1-21 libstdc++-9-dev-armhf-cross_9.2.1-21cross1 libstdc++6_9.2.1-21 libstdc++6-armhf-cross_9.2.1-21cross1 libsub-override-perl_0.09-2 libsystemd0_244-3 libtasn1-6_4.15.0-2 libtcl8.6_8.6.10+dfsg-1 libthai-data_0.1.28-3 libthai0_0.1.28-3 libtiff5_4.1.0+git191117-1 libtinfo6_6.1+20191019-1 libtk8.6_8.6.10-1 libtool_2.4.6-11 libtsan0_9.2.1-21 libubsan1_9.2.1-21 libubsan1-armhf-cross_9.2.1-21cross1 libuchardet0_0.0.6-3 libudev1_244-3 libunistring2_0.9.10-2 libuuid1_2.34-0.1 libwebp6_0.6.1-2+b1 libx11-6_2:1.6.8-1 libx11-data_2:1.6.8-1 libx11-dev_2:1.6.8-1 libxau-dev_1:1.0.8-1+b2 libxau6_1:1.0.8-1+b2 libxaw7_2:1.0.13-1+b2 libxaw7-dev_2:1.0.13-1+b2 libxcb-render0_1.13.1-2 libxcb-render0-dev_1.13.1-2 libxcb-shm0_1.13.1-2 libxcb-shm0-dev_1.13.1-2 libxcb1_1.13.1-2 libxcb1-dev_1.13.1-2 libxcomposite-dev_1:0.4.4-2 libxcomposite1_1:0.4.4-2 libxcursor-dev_1:1.2.0-2 libxcursor1_1:1.2.0-2 libxdamage-dev_1:1.1.5-1 libxdamage1_1:1.1.5-1 libxdmcp-dev_1:1.1.2-3 libxdmcp6_1:1.1.2-3 libxdot4_2.42.2-3 libxext-dev_2:1.3.3-1+b2 libxext6_2:1.3.3-1+b2 libxfixes-dev_1:5.0.3-1 libxfixes3_1:5.0.3-1 libxft-dev_2.3.2-2 libxft2_2.3.2-2 libxi-dev_2:1.7.9-1 libxi6_2:1.7.9-1 libxinerama-dev_2:1.1.4-2 libxinerama1_2:1.1.4-2 libxml-libxml-perl_2.0134+dfsg-1+b1 libxml-namespacesupport-perl_1.12-1 libxml-sax-base-perl_1.09-1 libxml-sax-perl_1.02+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-8 libxml2-dev_2.9.4+dfsg1-8 libxml2-utils_2.9.4+dfsg1-8 libxmu-dev_2:1.1.2-2+b3 libxmu-headers_2:1.1.2-2 libxmu6_2:1.1.2-2+b3 libxpm-dev_1:3.5.12-1 libxpm4_1:3.5.12-1 libxrandr-dev_2:1.5.1-1 libxrandr2_2:1.5.1-1 libxrender-dev_1:0.9.10-1 libxrender1_1:0.9.10-1 libxss-dev_1:1.2.3-1 libxss1_1:1.2.3-1 libxt-dev_1:1.1.5-1+b3 libxt6_1:1.1.5-1+b3 libyaml-perl_1.29-1 libzstd1_1.4.4+dfsg-1 linux-libc-dev_5.3.15-1 linux-libc-dev-armhf-cross_5.2.9-2cross7 login_1:4.8-1 logsave_1.45.4-1 lsb-base_11.1.0 m4_1.4.18-4 make_4.2.1-1.2 man-db_2.9.0-2 mawk_1.3.3-17+b3 mime-support_3.64 mount_2.34-0.1 ncurses-base_6.1+20191019-1 ncurses-bin_6.1+20191019-1 pango1.0-tools_1.42.4-7 passwd_1:4.8-1 patch_2.7.6-6 perl_5.30.0-9 perl-base_5.30.0-9 perl-modules-5.30_5.30.0-9 pinentry-curses_1.1.0-3+b1 pkg-config_0.29-6 po-debconf_1.0.21 python3_3.7.5-3 python3-distutils_3.8.0-1 python3-lib2to3_3.8.0-1 python3-minimal_3.7.5-3 python3.7_3.7.6-1 python3.7-minimal_3.7.6-1 readline-common_8.0-3 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12+nmu1 shared-mime-info_1.10-1 sysvinit-utils_2.96-1 tar_1.30+dfsg-6+b1 tcl_8.6.9+1+b1 tcl8.6_8.6.10+dfsg-1 tcl8.6-dev_8.6.10+dfsg-1 tk8.6_8.6.10-1 tk8.6-dev_8.6.10-1 tzdata_2019c-3 ucf_3.0038+nmu1 util-linux_2.34-0.1 uuid-dev_2.34-0.1 x11-common_1:7.7+20 x11proto-composite-dev_1:2018.4-4 x11proto-core-dev_2018.4-4 x11proto-damage-dev_1:2018.4-4 x11proto-dev_2018.4-4 x11proto-fixes-dev_1:2018.4-4 x11proto-input-dev_2018.4-4 x11proto-randr-dev_2018.4-4 x11proto-scrnsaver-dev_2018.4-4 x11proto-xext-dev_2018.4-4 x11proto-xinerama-dev_2018.4-4 xorg-sgml-doctools_1:1.11-1 xtrans-dev_1.3.5-1 xz-utils_5.2.4-1+b1 zlib1g_1:1.2.11.dfsg-1+b1 zlib1g-dev_1:1.2.11.dfsg-1+b1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: gcl
+Binary: gcl, gcl-doc
+Architecture: any all
+Version: 2.6.12-91
+Maintainer: Camm Maguire <camm@debian.org>
+Homepage: http://gnu.org/software/gcl
+Standards-Version: 4.4.1
+Build-Depends: debhelper (>= 5), libreadline-dev, m4, tk8.6-dev, libgmp-dev, autotools-dev, libxmu-dev, libxaw7-dev, po-debconf, zlib1g-dev, tcl
+Package-List:
+ gcl deb lisp optional arch=any
+ gcl-doc deb doc optional arch=all
+Checksums-Sha1:
+ 254daa87dd2ca2666a30d432fb4069c9cbe84018 7031837 gcl_2.6.12.orig.tar.gz
+ eb4ed74c040829923ac52cc56c0fe7ca5e54708b 420020 gcl_2.6.12-91.debian.tar.xz
+Checksums-Sha256:
+ 8eb8491bccafc49683599e92a30ba36db0825dd4bb138a104cb662b9b0d090e8 7031837 gcl_2.6.12.orig.tar.gz
+ 8f584af8f6987b93352e3d6335d51cd8125c4b664bd405fee4d00c2427854b2e 420020 gcl_2.6.12-91.debian.tar.xz
+Files:
+ d7a0aee800f19b6cbc5cf7eec9e0f605 7031837 gcl_2.6.12.orig.tar.gz
+ 50311f48d0dc799dbb0786ba7ee2c1c4 420020 gcl_2.6.12-91.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEE/iFPNjaXdzJC6BbsuEXOUQ+bcU0FAl36iioACgkQuEXOUQ+b
+cU2arw/9ErrE0sJ/iRX8MkrkP/0g548DrKqlZ2GuSrrwq3hv966EH/OIBD2nwuwK
+vuqGStZR08TPVUzw31Bd6+3XiyjzIAwpFY2+1ynUahyJtxENLH92p1Z/e/CTSk+Z
+aQMOGDjZLZl+OnXgBCAYWTM+wqw7ydSb4OXiX5sCEPWbKq3cIdS/vZ5fAzwYRgOw
+Kj0HSqEgibG2pbBWuHFSyGTgQfkhTUZsxUKCIoKsSW8w4XoHJq0EdxRwjnSrHssx
+5YtiF5gGe3z9w7LpFHWB9CcPVB89RJWhPFs1bNn6IIpKNVmg9RQry8BEjKM++vvw
+y0yrX4O3bvUG7x6paDNIYljpRKLF7C/ZUKrg36nEMkEpdcp4DpQaISDXtxJ5xftJ
+keYFnzxBRpYWNWtAQ7y4ZdqrO6cBzh7tyRKjV690zQsuFXfDnhLmD6kNewUi23I1
+xYwUZxeaDTy2nIZUm5X8rgcyHu63apqm0PVFFMxvHJF51CRpr9REN5uBLnsaBPDy
+yvPB3XCzQkfhgyNRS/J9HjApJNjlOls49Gk/hMKnDYBM2ImA/hLxk0W9aKXeTK+V
+vAyXdFqm7NRErKWNKDUxGB3F45EvOgDjTFUV11dGPOdwE3PXecwePNTpdXTFavHW
+YUJd5dSn2NgXz8ZyrHQUMTUt/08+3lFvfvMxrnelFHCFmhHM/F4=
+=td6T
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Wed Dec 18 20:20:58 2019 UTC
+gpgv:                using RSA key FE214F363697773242E816ECB845CE510F9B714D
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./gcl_2.6.12-91.dsc
+dpkg-source: info: extracting gcl in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking gcl_2.6.12.orig.tar.gz
+dpkg-source: info: unpacking gcl_2.6.12-91.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying Version_2_6_13pre1
+dpkg-source: info: applying Version_2_6_13pre1a
+dpkg-source: info: applying Version_2_6_13pre1b
+dpkg-source: info: applying Version_2_6_13pre2
+dpkg-source: info: applying Version_2_6_13pre3
+dpkg-source: info: applying Version_2_6_13pre3a
+dpkg-source: info: applying Version_2_6_13pre4
+dpkg-source: info: applying Version_2_6_13pre5
+dpkg-source: info: applying Version_2_6_13pre6
+dpkg-source: info: applying Version_2_6_13pre7
+dpkg-source: info: applying Version_2_6_13pre8a
+dpkg-source: info: applying Version_2_6_13pre8b
+dpkg-source: info: applying Version_2_6_13pre12
+dpkg-source: info: applying Version_2_6_13pre13
+dpkg-source: info: applying Version_2_6_13pre16
+dpkg-source: info: applying Version_2_6_13pre17
+dpkg-source: info: applying Version_2_6_13pre18
+dpkg-source: info: applying Version_2_6_13pre19
+dpkg-source: info: applying Version_2_6_13pre20
+dpkg-source: info: applying Version_2_6_13pre22
+dpkg-source: info: applying Version_2_6_13pre25
+dpkg-source: info: applying Version_2_6_13pre26
+dpkg-source: info: applying Version_2_6_13pre27
+dpkg-source: info: applying Version_2_6_13pre28
+dpkg-source: info: applying Version_2_6_13pre29
+dpkg-source: info: applying Version_2_6_13pre30
+dpkg-source: info: applying Version_2_6_13pre31
+dpkg-source: info: applying Version_2_6_13pre32
+dpkg-source: info: applying Version_2_6_13pre33
+dpkg-source: info: applying Version_2_6_13pre34
+dpkg-source: info: applying Version_2_6_13pre35
+dpkg-source: info: applying Version_2_6_13pre36
+dpkg-source: info: applying Version_2_6_13pre38
+dpkg-source: info: applying Version_2_6_13pre39
+dpkg-source: info: applying data_bss_offset-in-unexec-sparc64-fix
+dpkg-source: info: applying Version_2_6_13pre41
+dpkg-source: info: applying Version_2_6_13pre45
+dpkg-source: info: applying Version_2_6_13pre46
+dpkg-source: info: applying Version_2_6_13pre47
+dpkg-source: info: applying Version_2_6_13pre48
+dpkg-source: info: applying Version_2_6_13pre49
+dpkg-source: info: applying Version_2_6_13pre50
+dpkg-source: info: applying pathnames1.1
+dpkg-source: info: applying ansi-test-clean-target
+dpkg-source: info: applying pathnames1.2
+dpkg-source: info: applying pathnames1.3
+dpkg-source: info: applying pathnames1.4
+dpkg-source: info: applying pathnames1.5
+dpkg-source: info: applying pathnames1.6
+dpkg-source: info: applying pathnames1.7
+dpkg-source: info: applying pathnames1.9
+dpkg-source: info: applying pathnames1.11
+dpkg-source: info: applying pathnames1.12
+dpkg-source: info: applying pathnames1.13
+dpkg-source: info: applying list_order.1
+dpkg-source: info: applying list_order.5
+dpkg-source: info: applying list_order.6
+dpkg-source: info: applying defined_real_maxpage
+dpkg-source: info: applying list_order.7
+dpkg-source: info: applying list_order.8
+dpkg-source: info: applying list_order.9
+dpkg-source: info: applying list_order.11
+dpkg-source: info: applying disable_gprof_aarch64
+dpkg-source: info: applying list_order.12
+dpkg-source: info: applying real_list_order.12
+dpkg-source: info: applying list_order.13
+dpkg-source: info: applying list_order.4
+dpkg-source: info: applying list_order.16
+dpkg-source: info: applying list_order.17
+dpkg-source: info: applying list_order.18
+dpkg-source: info: applying list_order.19
+dpkg-source: info: applying list_order.20
+dpkg-source: info: applying list_order.21
+dpkg-source: info: applying list_order.22
+dpkg-source: info: applying list_order.23
+dpkg-source: info: applying list_order.24
+dpkg-source: info: applying list_order.25
+dpkg-source: info: applying Version_2_6_13pre52
+dpkg-source: info: applying Version_2_6_13pre54
+dpkg-source: info: applying Version_2_6_13pre55
+dpkg-source: info: applying Version_2_6_13pre56
+dpkg-source: info: applying Version_2_6_13pre57
+dpkg-source: info: applying Version_2_6_13pre58
+dpkg-source: info: applying Version_2_6_13pre59
+dpkg-source: info: applying Version_2_6_13pre60
+dpkg-source: info: applying Version_2_6_13pre61
+dpkg-source: info: applying Version_2_6_13pre62
+dpkg-source: info: applying Version_2_6_13pre63
+dpkg-source: info: applying Version_2_6_13pre64
+dpkg-source: info: applying Version_2_6_13pre65
+dpkg-source: info: applying Version_2_6_13pre66
+dpkg-source: info: applying Version_2_6_13pre67
+dpkg-source: info: applying Version_2_6_13pre68
+dpkg-source: info: applying Version_2_6_13pre69
+dpkg-source: info: applying Version_2_6_13pre70
+dpkg-source: info: applying Version_2_6_13pre71
+dpkg-source: info: applying Version_2_6_13pre72
+dpkg-source: info: applying Version_2_6_13pre73
+dpkg-source: info: applying Version_2_6_13pre74
+dpkg-source: info: applying Version_2_6_13pre76
+dpkg-source: info: applying Version_2_6_13pre77
+dpkg-source: info: applying Version_2_6_13pre78
+dpkg-source: info: applying Version_2_6_13pre79
+dpkg-source: info: applying Version_2_6_13pre80
+dpkg-source: info: applying Version_2_6_13pre81
+dpkg-source: info: applying Version_2_6_13pre82
+dpkg-source: info: applying Version_2_6_13pre83
+dpkg-source: info: applying Version_2_6_13pre84
+dpkg-source: info: applying Version_2_6_13pre85
+dpkg-source: info: applying Version_2_6_13pre86
+dpkg-source: info: applying Version_2_6_13pre87
+dpkg-source: info: applying Version_2_6_13pre88
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-226c193e-979e-4716-81b5-37199dbc0f76
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package gcl
+dpkg-buildpackage: info: source version 2.6.12-91
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Camm Maguire <camm@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+rm -f `echo debian/control.rm | sed 's,\.rm$,,1'`
+cp debian/control. debian/control
+dh_testdir
+dh_testroot
+rm -f *stamp
+debconf-updatepo
+/usr/bin/make clean
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+(cd bin; /usr/bin/make clean)
+make[2]: Entering directory '/<<PKGBUILDDIR>>/bin'
+rm -f dpp append file-sub core a.out *.o gcl gclm.bat
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/bin'
+(cd mp ; /usr/bin/make clean)
+make[2]: Entering directory '/<<PKGBUILDDIR>>/mp'
+rm -f *.o *.a
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/mp'
+(cd o; /usr/bin/make clean)
+make[2]: Entering directory '/<<PKGBUILDDIR>>/o'
+rm -f typespec.o main.o alloc.o gbc.o bitop.o eval.o macros.o lex.o bds.o frame.o predicate.o reference.o assignment.o bind.o let.o conditional.o block.o iteration.o mapfun.o prog.o multival.o catch.o symbol.o cfun.o cmpaux.o package.o big.o number.o num_pred.o num_comp.o num_arith.o num_sfun.o num_co.o num_log.o num_rand.o earith.o character.o sequence.o list.o hash.o array.o string.o regexpr.o structure.o toplevel.o file.o read.o backq.o print.o format.o pathname.o unixfsys.o unixfasl.o error.o unixtime.o unixsys.o unixsave.o funlink.o fat_string.o run_process.o nfunlink.o usig.o usig2.o utils.o makefun.o sockets.o clxsocket.o init_pari.o nsocket.o sfasl.o prelink.o gprof.o   bcmp.o bcopy.o bzero.o user_init.o user_match.o  new_init.o    *.a grab_defs *.ini tmpx foo.c
+rm -f  cmpinclude.h new_init.c ../h/new_decl.h def undef udef.h void.h TAGS boot.h wpool
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/o'
+(cd lsp; /usr/bin/make clean)
+make[2]: Entering directory '/<<PKGBUILDDIR>>/lsp'
+rm -f *.o core a.out *.fn *.c *.data *.h
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/lsp'
+(cd cmpnew; /usr/bin/make clean)
+make[2]: Entering directory '/<<PKGBUILDDIR>>/cmpnew'
+rm -f *.o core a.out *.fn *.c *.data *.h
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/cmpnew'
+(cd unixport; /usr/bin/make clean)
+make[2]: Entering directory '/<<PKGBUILDDIR>>/unixport'
+ar: ../o/gcllib.a: No such file or directory
+rm -rf  saved_* raw_* *.o core a.out  sys_init.lsp \
+	../lsp/auto_new.lsp foo *maxima* init_*.lsp lib*.a gmp* bfd* *.lsp.tmp \
+	gazonk*.lsp plt*h *_map saved_* lib* raw_* msys out* log* tmp* gcl.script
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/unixport'
+(cd gcl-tk ; /usr/bin/make clean)
+make[2]: Entering directory '/<<PKGBUILDDIR>>/gcl-tk'
+rm -f guis.o tkAppInit.o tkMain.o  gcltkaux gcltksrv *.o */*.o demos/index.lsp *.fn demos/*.fn
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/gcl-tk'
+cd clcs && /usr/bin/make clean
+make[2]: Entering directory '/<<PKGBUILDDIR>>/clcs'
+rm -f *.o *.fn saved_full_gcl saved_full_gcl cmpinclude.h *.c *.h *.data saved_clcs_gcl
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/clcs'
+cd pcl && /usr/bin/make clean
+make[2]: Entering directory '/<<PKGBUILDDIR>>/pcl'
+rm -f *.o *.fn *.exe *.dll saved_gcl_pcl cmpinclude.h *.c *.h *.data *gazonk*
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/pcl'
+cd xgcl-2 && /usr/bin/make clean
+make[2]: Entering directory '/<<PKGBUILDDIR>>/xgcl-2'
+rm -f *.o *.data saved_*  cmpinclude.h dwdoc.aux dwdoc.log gmon.out
+rm -f gcl*c gcl*h gcl*data gcl_xrecompile* user-init* *fn
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/xgcl-2'
+(cd ansi-tests; /usr/bin/make clean)
+make[2]: Entering directory '/<<PKGBUILDDIR>>/ansi-tests'
+rm -f test.out *.fasl *.o *.so *~ *.fn *.x86f *.fasl *.ufsl
+rm -f foo.txt temp.dat file-that-was-renamed.txt tmp.dat tmp.dat.BAK tmp2.dat
+rm -rf scratch tmp.txt foo.lsp 'CLTEST:foo.txt'
+make[2]: Leaving directory '/<<PKGBUILDDIR>>/ansi-tests'
+rm -rf binutils
+rm -f foo.tcl config.log makedefs makedefsafter config.cache config.status makedefc
+rm -f h/config.h h/gclincl.h h/cmpinclude.h h/gmp.h
+rm -f xbin/gcl foo foo.c bin/gclm.bat gmp_all
+rm -f h/*-linux.defs h/bfd.h h/bfdlink.h h/ansidecl.h h/symcat.h
+rm -f windows/gcl.iss bin/gcl.bat windows/gcl.ansi.iss windows/install.ansi.lsp \
+	windows/install.lsp windows/sysdir.bat
+rm -rf windows/Output
+rm -f ansi-tests/test_results ansi-tests/gazonk*lsp
+rm -rf autom4te.cache h/mcompdefs.h
+rm -f config.log config.cache config.status tmpx unixport/gmon.out gcl.script machine system
+[ -z "" ] || (cd  && /usr/bin/make distclean)
+[ -z "" ] || rm -rf /.deps /libgmp.a
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+dh_clean
+rm -rf debian/gprof debian/ansi-gprof debian/trad debian/ansi debian/gcl-doc.README.Debian debian/gcl-doc.doc-base.si debian/gcl-doc.doc-base.tk debian/gcl-doc.doc-base.xgcl debian/gcl-doc.docs debian/gcl-doc.info debian/gcl-doc.install debian/gcl.config debian/gcl.docs debian/gcl.emacsen-compat debian/gcl.emacsen-install debian/gcl.emacsen-remove debian/gcl.emacsen-startup debian/gcl.install debian/gcl.manpages debian/gcl.postinst debian/gcl.postrm debian/substvars debian.upstream
+rm -rf *stamp
+for i in ./config.guess.ori ./config.sub.ori ; do ! [ -e $i ] || mv $i ${i%.ori} ; done
+ debian/rules build-arch
+! [ -e config.guess ] || [ -e config.guess.ori ] || cp config.guess config.guess.ori
+! [ -e config.sub ] || [ -e config.sub.ori ] || cp config.sub config.sub.ori
+[ $(/usr/share/misc/config.guess -t | tr -d '-') -le $(./config.guess -t | tr -d '-') ] || cp /usr/share/misc/config.guess config.guess
+[ $(/usr/share/misc/config.sub -t | tr -d '-') -le $(./config.sub -t | tr -d '-') ] || cp /usr/share/misc/config.sub config.sub
+touch config.guess.ori
+touch config.sub.ori
+dh_testdir
+dh_testdir
+dh_testdir
+dh_testdir
+! [ -e unixport/saved_pre_gcl ] || /usr/bin/make clean
+! [ -e unixport/saved_pre_gcl ] || /usr/bin/make clean
+! [ -e unixport/saved_pre_gcl ] || /usr/bin/make clean
+[ "trad" != "trad" ] || FLAGS="--disable-ansi" ; \
+[ "trad" != "gprof" ] || FLAGS="--disable-ansi --enable-gprof" ; \
+[ "trad" != "ansi-gprof" ] || FLAGS="--enable-gprof" ; \
+eval `dpkg-buildflags --export=sh` && CC=gcc ./configure \
+	--host=$(dpkg-architecture -qDEB_HOST_GNU_TYPE) \
+	--disable-statsysbfd \
+	--disable-custreloc \
+	--disable-dlopen \
+	--enable-prelink \
+	--enable-custreloc \
+	 \
+	 \
+	$FLAGS \
+	--prefix=/usr \
+	--mandir=\${prefix}/share/man \
+	--enable-infodir=\${prefix}/share/info \
+	--enable-emacsdir=\${prefix}/share/emacs/site-lisp
+[ "ansi-gprof" != "trad" ] || FLAGS="--disable-ansi" ; \
+[ "ansi-gprof" != "gprof" ] || FLAGS="--disable-ansi --enable-gprof" ; \
+[ "ansi-gprof" != "ansi-gprof" ] || FLAGS="--enable-gprof" ; \
+eval `dpkg-buildflags --export=sh` && CC=gcc ./configure \
+	--host=$(dpkg-architecture -qDEB_HOST_GNU_TYPE) \
+	--disable-statsysbfd \
+	--disable-custreloc \
+	--disable-dlopen \
+	--enable-prelink \
+	--enable-custreloc \
+	 \
+	 \
+	$FLAGS \
+	--prefix=/usr \
+	--mandir=\${prefix}/share/man \
+	--enable-infodir=\${prefix}/share/info \
+	--enable-emacsdir=\${prefix}/share/emacs/site-lisp
+[ "ansi" != "trad" ] || FLAGS="--disable-ansi" ; \
+[ "ansi" != "gprof" ] || FLAGS="--disable-ansi --enable-gprof" ; \
+[ "ansi" != "ansi-gprof" ] || FLAGS="--enable-gprof" ; \
+eval `dpkg-buildflags --export=sh` && CC=gcc ./configure \
+	--host=$(dpkg-architecture -qDEB_HOST_GNU_TYPE) \
+	--disable-statsysbfd \
+	--disable-custreloc \
+	--disable-dlopen \
+	--enable-prelink \
+	--enable-custreloc \
+	 \
+	 \
+	$FLAGS \
+	--prefix=/usr \
+	--mandir=\${prefix}/share/man \
+	--enable-infodir=\${prefix}/share/info \
+	--enable-emacsdir=\${prefix}/share/emacs/site-lisp
+! [ -e unixport/saved_pre_gcl ] || /usr/bin/make clean
+[ "gprof" != "trad" ] || FLAGS="--disable-ansi" ; \
+[ "gprof" != "gprof" ] || FLAGS="--disable-ansi --enable-gprof" ; \
+[ "gprof" != "ansi-gprof" ] || FLAGS="--enable-gprof" ; \
+eval `dpkg-buildflags --export=sh` && CC=gcc ./configure \
+	--host=$(dpkg-architecture -qDEB_HOST_GNU_TYPE) \
+	--disable-statsysbfd \
+	--disable-custreloc \
+	--disable-dlopen \
+	--enable-prelink \
+	--enable-custreloc \
+	 \
+	 \
+	$FLAGS \
+	--prefix=/usr \
+	--mandir=\${prefix}/share/man \
+	--enable-infodir=\${prefix}/share/info \
+	--enable-emacsdir=\${prefix}/share/emacs/site-lisp
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... checking build system type... checking build system type... checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+arm-unknown-linux-gnueabihf
+arm-unknown-linux-gnueabihf
+arm-unknown-linux-gnueabihf
+host=arm-unknown-linux-gnueabihf
+use=armhf-linux
+checking for arm-linux-gnueabihf-gcc... gcc
+host=arm-unknown-linux-gnueabihf
+use=armhf-linux
+host=arm-unknown-linux-gnueabihf
+use=armhf-linux
+checking for arm-linux-gnueabihf-gcc... gcc
+host=arm-unknown-linux-gnueabihf
+checking for arm-linux-gnueabihf-gcc... gcc
+use=armhf-linux
+checking for arm-linux-gnueabihf-gcc... gcc
+checking whether the C compiler works... checking whether the C compiler works... checking whether the C compiler works... checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... no
+configure: error: in `/<<PKGBUILDDIR>>':
+configure: error: C compiler cannot create executables
+See `config.log' for more details
+no
+no
+configure: error: in `/<<PKGBUILDDIR>>':
+configure: error: C compiler cannot create executables
+See `config.log' for more details
+configure: error: in `/<<PKGBUILDDIR>>':
+configure: error: C compiler cannot create executables
+See `config.log' for more details
+make: *** [debian/rules:83: configure-ansi-gprof-stamp] Error 77
+make: *** Waiting for unfinished jobs....
+make: *** [debian/rules:83: configure-trad-stamp] Error 77
+make: *** [debian/rules:83: configure-gprof-stamp] Error 77
+
+cat: confdefs.h: No such file or directory
+checking whether we are cross compiling... no
+checking for suffix of object files... cat: confdefs.h: No such file or directory
+o
+checking whether we are using the GNU C compiler... cat: confdefs.h: No such file or directory
+yes
+checking whether gcc accepts -g... cat: confdefs.h: No such file or directory
+yes
+checking for gcc option to accept ISO C89... cat: confdefs.h: No such file or directory
+none needed
+checking how to run the C preprocessor... cat: confdefs.h: No such file or directory
+cat: confdefs.h: No such file or directory
+gcc -E
+cat: confdefs.h: No such file or directory
+cat: confdefs.h: No such file or directory
+checking for CFLAG -fsigned-char... cat: confdefs.h: No such file or directory
+yes
+checking for CFLAG -pipe... cat: confdefs.h: No such file or directory
+yes
+checking for CFLAG -fno-builtin-malloc... cat: confdefs.h: No such file or directory
+yes
+checking for CFLAG -fno-builtin-free... cat: confdefs.h: No such file or directory
+yes
+checking for CFLAG -fno-PIE... cat: confdefs.h: No such file or directory
+yes
+checking for CFLAG -fno-pie... cat: confdefs.h: No such file or directory
+yes
+checking for CFLAG -fno-PIC... cat: confdefs.h: No such file or directory
+yes
+checking for CFLAG -fno-pic... cat: confdefs.h: No such file or directory
+yes
+checking for CFLAG -Wall... cat: confdefs.h: No such file or directory
+yes
+checking for CFLAG -Wno-builtin-requires-header... cat: confdefs.h: No such file or directory
+no
+checking for CFLAG -Wno-empty-body... cat: confdefs.h: No such file or directory
+yes
+checking for CFLAG -Wno-self-assign... cat: confdefs.h: No such file or directory
+no
+checking for CFLAG -Wno-unused-but-set-variable... cat: confdefs.h: No such file or directory
+yes
+checking for CFLAG -Wno-misleading-indentation... cat: confdefs.h: No such file or directory
+yes
+checking for LDFLAG -no-pie... cat: confdefs.h: No such file or directory
+yes
+checking for LDFLAG -Wl,-z,lazy... cat: confdefs.h: No such file or directory
+yes
+checking for clang... cat: confdefs.h: No such file or directory
+no
+checking for gawk... no
+checking for nawk... nawk
+checking for CFLAG -fdollars-in-identifiers... cat: confdefs.h: No such file or directory
+yes
+checking for CFLAG -g... cat: confdefs.h: No such file or directory
+yes
+checking system version (for dynamic loading)... checking for makeinfo... no
+Linux-3.16.0-4-amd64
+checking setjmp.h usability... cat: confdefs.h: No such file or directory
+yes
+checking setjmp.h presence... cat: confdefs.h: No such file or directory
+yes
+checking for setjmp.h... yes
+checking sizeof jmp_buf... 200
+checking unistd.h usability... yes
+checking unistd.h presence... yes
+checking for unistd.h... yes
+checking for sysconf in -lc... yes
+checking _SC_CLK_TCK... 0
+checking gmp.h usability... no
+checking gmp.h presence... no
+checking for gmp.h... no
+Cannot use dynamic gmp lib
+checking doing configure in gmp directory... 
+#
+#
+# -------------------
+# Subconfigure of GMP
+#
+#
+configure: loading site script /etc/dpkg-cross/cross-config.armhf
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-unknown-linux-gnueabihf
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-unknown-linux-gnueabihf-strip... no
+checking for strip... strip
+configure: WARNING: using cross tools not prefixed with host triplet
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking ABI=standard
+checking compiler gcc -g -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fsigned-char -pipe -fno-builtin-malloc -fno-builtin-free -fno-PIE -fno-pie -fno-PIC -fno-pic -Wall -Wno-empty-body -Wno-unused-but-set-variable -Wno-misleading-indentation -fdollars-in-identifiers -g  -Wdate-time -D_FORTIFY_SOURCE=2... no, gnupro alpha ev6 char spilling
+configure: error: could not find a working compiler, see config.log for details
+#
+#
+#
+# Subconfigure of GMP done
+# ------------------------
+#
+cp: cannot stat 'gmp4/gmp.h': No such file or directory
+checking for leading underscore in object symbols... "no"
+checking "for GNU ld option -Map"... "yes"
+checking for size of gmp limbs... configure: error: Cannot determine mpsize
+make: *** [debian/rules:83: configure-ansi-stamp] Error 1
+dpkg-buildpackage: error: debian/rules build-arch subprocess returned exit status 2
+--------------------------------------------------------------------------------
+Build finished at 2019-12-21T10:18:59Z
+
+Finished
+--------
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgssapi-krb5-2 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgssapi-krb5-2 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  libgmp-dev:armhf* libgmpxx4ldbl:armhf* libncurses-dev:armhf*
+  libncurses6:armhf* libncursesw6:armhf* libpthread-stubs0-dev*
+  libreadline-dev:armhf* libreadline8:armhf* libtcl8.6* libtcl8.6:armhf*
+  libtinfo6:armhf* libtk8.6* libtk8.6:armhf* libx11-dev* libxau-dev*
+  libxaw7:armhf* libxaw7-dev:armhf* libxcb1-dev* libxdmcp-dev*
+  libxmu-dev:armhf* libxmu-headers* libxmu6:armhf* libxpm-dev:armhf*
+  libxss-dev:armhf* libxss1* libxss1:armhf* libxt-dev:armhf* libxt6:armhf*
+  sbuild-build-depends-main-dummy:armhf* tcl* tcl8.6* tcl8.6-dev:armhf* tk8.6*
+  tk8.6-dev:armhf* x11proto-scrnsaver-dev*
+0 upgraded, 0 newly installed, 35 to remove and 0 not upgraded.
+After this operation, 30.1 MB disk space will be freed.
+(Reading database ... 32363 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing libgmp-dev:armhf (2:6.1.2+dfsg-4) ...
+Removing libgmpxx4ldbl:armhf (2:6.1.2+dfsg-4) ...
+Removing libreadline-dev:armhf (8.0-3) ...
+Removing libncurses-dev:armhf (6.1+20191019-1) ...
+Removing libncurses6:armhf (6.1+20191019-1) ...
+Removing libncursesw6:armhf (6.1+20191019-1) ...
+Removing libxaw7-dev:armhf (2:1.0.13-1+b2) ...
+Removing libxmu-dev:armhf (2:1.1.2-2+b3) ...
+Removing libxmu-headers (2:1.1.2-2) ...
+Removing libx11-dev:amd64 (2:1.6.8-1) ...
+Removing libxcb1-dev:amd64 (1.13.1-2) ...
+Removing libpthread-stubs0-dev:amd64 (0.4-1) ...
+Removing libreadline8:armhf (8.0-3) ...
+Removing tk8.6-dev:armhf (8.6.10-1) ...
+Removing tk8.6 (8.6.10-1) ...
+Removing libtk8.6:amd64 (8.6.10-1) ...
+Removing libtk8.6:armhf (8.6.10-1) ...
+Removing tcl8.6-dev:armhf (8.6.10+dfsg-1) ...
+Removing libtcl8.6:armhf (8.6.10+dfsg-1) ...
+Removing libtinfo6:armhf (6.1+20191019-1) ...
+Removing libxau-dev:amd64 (1:1.0.8-1+b2) ...
+Removing libxaw7:armhf (2:1.0.13-1+b2) ...
+Removing libxdmcp-dev:amd64 (1:1.1.2-3) ...
+Removing libxmu6:armhf (2:1.1.2-2+b3) ...
+Removing libxpm-dev:armhf (1:3.5.12-1) ...
+Removing libxss-dev:armhf (1:1.2.3-1) ...
+Removing libxss1:amd64 (1:1.2.3-1) ...
+Removing libxss1:armhf (1:1.2.3-1) ...
+Removing libxt-dev:armhf (1:1.1.5-1+b3) ...
+Removing libxt6:armhf (1:1.1.5-1+b3) ...
+Removing tcl (8.6.9+1+b1) ...
+Removing tcl8.6 (8.6.10+dfsg-1) ...
+Removing x11proto-scrnsaver-dev (2018.4-4) ...
+Removing libtcl8.6:amd64 (8.6.10+dfsg-1) ...
+Processing triggers for man-db (2.9.0-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Processing triggers for libc-bin (2.29-6) ...
+(Reading database ... 31208 files and directories currently installed.)
+Purging configuration files for tk8.6 (8.6.10-1) ...
+Purging configuration files for tcl8.6 (8.6.10+dfsg-1) ...
+E: Build failure (dpkg-buildpackage died)
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: 64000
+Build-Time: 5
+Distribution: unstable-amd64-sbuild
+Fail-Stage: build
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 8
+Job: /home/build/sbuild-setup/repo/pool/main/g/gcl/gcl_2.6.12-91.dsc
+Machine Architecture: amd64
+Package: gcl
+Package-Time: 19
+Source-Version: 2.6.12-91
+Space: 64000
+Status: attempted
+Version: 2.6.12-91
+--------------------------------------------------------------------------------
+Finished at 2019-12-21T10:18:59Z
+Build needed 00:00:19, 64000k disk space

@@ -1,0 +1,1805 @@
+sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 8e0e35ca7d18
+
++==============================================================================+
+| libmpdclient 2.17-1 (armhf)                  Sat, 21 Dec 2019 11:05:33 +0000 |
++==============================================================================+
+
+Package: libmpdclient
+Version: 2.17-1
+Source Version: 2.17-1
+Distribution: unstable-amd64-sbuild
+Machine Architecture: amd64
+Host Architecture: armhf
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-d8d88ade-2cda-4db3-bf76-9c75841ae6ab' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/libmpdclient-z8gkU4/resolver-nX4lCk' with '<<RESOLVERDIR>>'
+
++------------------------------------------------------------------------------+
+| Update chroot                                                                |
++------------------------------------------------------------------------------+
+
+Hit:1 http://deb.debian.org/debian unstable InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgssapi-krb5-2 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+
++------------------------------------------------------------------------------+
+| Fetch source files                                                           |
++------------------------------------------------------------------------------+
+
+
+Local sources
+-------------
+
+/home/build/sbuild-setup/repo/pool/main/libm/libmpdclient/libmpdclient_2.17-1.dsc exists in /home/build/sbuild-setup/repo/pool/main/libm/libmpdclient; copying to chroot
+I: NOTICE: Log filtering will replace 'build/libmpdclient-z8gkU4/libmpdclient-2.17' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/libmpdclient-z8gkU4' with '<<BUILDDIR>>'
+
++------------------------------------------------------------------------------+
+| Install package build dependencies                                           |
++------------------------------------------------------------------------------+
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: debhelper-compat (= 12), check, cmake, meson (>= 0.47), doxygen, pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: debhelper-compat (= 12), check, cmake, meson (>= 0.47), doxygen, pkg-config, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [430 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [522 B]
+Fetched 1909 B in 0s (147 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install main build dependencies (apt-based resolver)
+----------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  check:armhf cmake cmake-data doxygen libarchive13 libbrotli1 libclang1-9
+  libcurl4 libedit2 libjsoncpp1 libllvm9 libncurses6 libnghttp2-14 libprocps7
+  libpsl5 librhash0 librtmp1 libssh2-1 libsubunit-dev:armhf libsubunit0:armhf
+  libuv1 libxapian30 libz3-4 meson ninja-build procps
+Suggested packages:
+  cmake-doc doxygen-latex doxygen-doc doxygen-gui graphviz lrzip xapian-tools
+Recommended packages:
+  ca-certificates libgpm2 publicsuffix psmisc
+The following NEW packages will be installed:
+  check:armhf cmake cmake-data doxygen libarchive13 libbrotli1 libclang1-9
+  libcurl4 libedit2 libjsoncpp1 libllvm9 libncurses6 libnghttp2-14 libprocps7
+  libpsl5 librhash0 librtmp1 libssh2-1 libsubunit-dev:armhf libsubunit0:armhf
+  libuv1 libxapian30 libz3-4 meson ninja-build procps
+  sbuild-build-depends-main-dummy:armhf
+0 upgraded, 27 newly installed, 0 to remove and 0 not upgraded.
+Need to get 22.3 MB/46.9 MB of archives.
+After this operation, 202 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-main-dummy 0.invalid.0 [944 B]
+Get:2 http://deb.debian.org/debian unstable/main armhf libsubunit0 armhf 1.3.0-6 [9260 B]
+Get:3 http://deb.debian.org/debian unstable/main armhf libsubunit-dev armhf 1.3.0-6 [10.4 kB]
+Get:4 http://deb.debian.org/debian unstable/main armhf check armhf 0.12.0-0.1 [109 kB]
+Get:5 http://deb.debian.org/debian unstable/main amd64 libllvm9 amd64 1:9.0.1-1 [15.0 MB]
+Get:6 http://deb.debian.org/debian unstable/main amd64 libclang1-9 amd64 1:9.0.1-1 [6719 kB]
+Get:7 http://deb.debian.org/debian unstable/main amd64 ninja-build amd64 1.9.0-3 [95.9 kB]
+Get:8 http://deb.debian.org/debian unstable/main amd64 meson all 0.52.1-1 [358 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 22.3 MB in 5s (4700 kB/s)
+Selecting previously unselected package libncurses6:amd64.
+(Reading database ... 31208 files and directories currently installed.)
+Preparing to unpack .../00-libncurses6_6.1+20191019-1_amd64.deb ...
+Unpacking libncurses6:amd64 (6.1+20191019-1) ...
+Selecting previously unselected package libprocps7:amd64.
+Preparing to unpack .../01-libprocps7_2%3a3.3.15-2+b1_amd64.deb ...
+Unpacking libprocps7:amd64 (2:3.3.15-2+b1) ...
+Selecting previously unselected package procps.
+Preparing to unpack .../02-procps_2%3a3.3.15-2+b1_amd64.deb ...
+Unpacking procps (2:3.3.15-2+b1) ...
+Selecting previously unselected package libsubunit0:armhf.
+Preparing to unpack .../03-libsubunit0_1.3.0-6_armhf.deb ...
+Unpacking libsubunit0:armhf (1.3.0-6) ...
+Selecting previously unselected package libsubunit-dev:armhf.
+Preparing to unpack .../04-libsubunit-dev_1.3.0-6_armhf.deb ...
+Unpacking libsubunit-dev:armhf (1.3.0-6) ...
+Selecting previously unselected package check:armhf.
+Preparing to unpack .../05-check_0.12.0-0.1_armhf.deb ...
+Unpacking check:armhf (0.12.0-0.1) ...
+Selecting previously unselected package cmake-data.
+Preparing to unpack .../06-cmake-data_3.15.4-1_all.deb ...
+Unpacking cmake-data (3.15.4-1) ...
+Selecting previously unselected package libarchive13:amd64.
+Preparing to unpack .../07-libarchive13_3.4.0-1+b1_amd64.deb ...
+Unpacking libarchive13:amd64 (3.4.0-1+b1) ...
+Selecting previously unselected package libbrotli1:amd64.
+Preparing to unpack .../08-libbrotli1_1.0.7-5+b1_amd64.deb ...
+Unpacking libbrotli1:amd64 (1.0.7-5+b1) ...
+Selecting previously unselected package libnghttp2-14:amd64.
+Preparing to unpack .../09-libnghttp2-14_1.40.0-1_amd64.deb ...
+Unpacking libnghttp2-14:amd64 (1.40.0-1) ...
+Selecting previously unselected package libpsl5:amd64.
+Preparing to unpack .../10-libpsl5_0.20.2-2_amd64.deb ...
+Unpacking libpsl5:amd64 (0.20.2-2) ...
+Selecting previously unselected package librtmp1:amd64.
+Preparing to unpack .../11-librtmp1_2.4+20151223.gitfa8646d.1-2+b1_amd64.deb ...
+Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b1) ...
+Selecting previously unselected package libssh2-1:amd64.
+Preparing to unpack .../12-libssh2-1_1.8.0-2.1_amd64.deb ...
+Unpacking libssh2-1:amd64 (1.8.0-2.1) ...
+Selecting previously unselected package libcurl4:amd64.
+Preparing to unpack .../13-libcurl4_7.67.0-2_amd64.deb ...
+Unpacking libcurl4:amd64 (7.67.0-2) ...
+Selecting previously unselected package libjsoncpp1:amd64.
+Preparing to unpack .../14-libjsoncpp1_1.7.4-3+b1_amd64.deb ...
+Unpacking libjsoncpp1:amd64 (1.7.4-3+b1) ...
+Selecting previously unselected package librhash0:amd64.
+Preparing to unpack .../15-librhash0_1.3.8-1_amd64.deb ...
+Unpacking librhash0:amd64 (1.3.8-1) ...
+Selecting previously unselected package libuv1:amd64.
+Preparing to unpack .../16-libuv1_1.33.1-2_amd64.deb ...
+Unpacking libuv1:amd64 (1.33.1-2) ...
+Selecting previously unselected package cmake.
+Preparing to unpack .../17-cmake_3.15.4-1_amd64.deb ...
+Unpacking cmake (3.15.4-1) ...
+Selecting previously unselected package libedit2:amd64.
+Preparing to unpack .../18-libedit2_3.1-20191025-1_amd64.deb ...
+Unpacking libedit2:amd64 (3.1-20191025-1) ...
+Selecting previously unselected package libz3-4:amd64.
+Preparing to unpack .../19-libz3-4_4.8.7-2_amd64.deb ...
+Unpacking libz3-4:amd64 (4.8.7-2) ...
+Selecting previously unselected package libllvm9:amd64.
+Preparing to unpack .../20-libllvm9_1%3a9.0.1-1_amd64.deb ...
+Unpacking libllvm9:amd64 (1:9.0.1-1) ...
+Selecting previously unselected package libclang1-9.
+Preparing to unpack .../21-libclang1-9_1%3a9.0.1-1_amd64.deb ...
+Unpacking libclang1-9 (1:9.0.1-1) ...
+Selecting previously unselected package libxapian30:amd64.
+Preparing to unpack .../22-libxapian30_1.4.12-1_amd64.deb ...
+Unpacking libxapian30:amd64 (1.4.12-1) ...
+Selecting previously unselected package doxygen.
+Preparing to unpack .../23-doxygen_1.8.16-1_amd64.deb ...
+Unpacking doxygen (1.8.16-1) ...
+Selecting previously unselected package ninja-build.
+Preparing to unpack .../24-ninja-build_1.9.0-3_amd64.deb ...
+Unpacking ninja-build (1.9.0-3) ...
+Selecting previously unselected package meson.
+Preparing to unpack .../25-meson_0.52.1-1_all.deb ...
+Unpacking meson (0.52.1-1) ...
+Selecting previously unselected package sbuild-build-depends-main-dummy:armhf.
+Preparing to unpack .../26-sbuild-build-depends-main-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Setting up libxapian30:amd64 (1.4.12-1) ...
+Setting up libpsl5:amd64 (0.20.2-2) ...
+Setting up libarchive13:amd64 (3.4.0-1+b1) ...
+Setting up libprocps7:amd64 (2:3.3.15-2+b1) ...
+Setting up libbrotli1:amd64 (1.0.7-5+b1) ...
+Setting up libedit2:amd64 (3.1-20191025-1) ...
+Setting up libnghttp2-14:amd64 (1.40.0-1) ...
+Setting up libsubunit0:armhf (1.3.0-6) ...
+Setting up ninja-build (1.9.0-3) ...
+Setting up libz3-4:amd64 (4.8.7-2) ...
+Setting up libuv1:amd64 (1.33.1-2) ...
+Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b1) ...
+Setting up libncurses6:amd64 (6.1+20191019-1) ...
+Setting up librhash0:amd64 (1.3.8-1) ...
+Setting up procps (2:3.3.15-2+b1) ...
+update-alternatives: using /usr/bin/w.procps to provide /usr/bin/w (w) in auto mode
+Setting up libssh2-1:amd64 (1.8.0-2.1) ...
+Setting up cmake-data (3.15.4-1) ...
+Setting up libllvm9:amd64 (1:9.0.1-1) ...
+Setting up libjsoncpp1:amd64 (1.7.4-3+b1) ...
+Setting up libclang1-9 (1:9.0.1-1) ...
+Setting up libsubunit-dev:armhf (1.3.0-6) ...
+Setting up meson (0.52.1-1) ...
+Setting up doxygen (1.8.16-1) ...
+Setting up check:armhf (0.12.0-0.1) ...
+Setting up libcurl4:amd64 (7.67.0-2) ...
+Setting up cmake (3.15.4-1) ...
+Setting up sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.9.0-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Processing triggers for libc-bin (2.29-6) ...
+
++------------------------------------------------------------------------------+
+| Check architectures                                                          |
++------------------------------------------------------------------------------+
+
+Initial Foreign Architectures: armhf 
+Arch check ok (armhf included in any all)
+
++------------------------------------------------------------------------------+
+| Build environment                                                            |
++------------------------------------------------------------------------------+
+
+Kernel: Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.51-3 (2017-12-13) amd64 (x86_64)
+Toolchain package versions: binutils_2.33.1-6 dpkg-dev_1.19.7 g++-9_9.2.1-21 gcc-9_9.2.1-21 libc6-dev_2.29-6 libstdc++-9-dev_9.2.1-21 libstdc++-9-dev-armhf-cross_9.2.1-21cross1 libstdc++6_9.2.1-21 libstdc++6-armhf-cross_9.2.1-21cross1 linux-libc-dev_5.3.15-1
+Package versions: adduser_3.118 adwaita-icon-theme_3.34.0-2 apt_1.8.4 autoconf_2.69-11 automake_1:1.16.1-4 autopoint_0.19.8.1-10 autotools-dev_20180224.1 base-files_11 base-passwd_3.5.47 bash_5.0-5 binutils_2.33.1-6 binutils-arm-linux-gnueabihf_2.33.1-6 binutils-common_2.33.1-6 binutils-x86-64-linux-gnu_2.33.1-6 bsdmainutils_11.1.2+b1 bsdutils_1:2.34-0.1 build-essential_12.8 bzip2_1.0.8-2 ccache_3.7.6-1 check_0.12.0-0.1 cmake_3.15.4-1 cmake-data_3.15.4-1 coreutils_8.30-3+b1 cpp_4:9.2.1-3.1 cpp-9_9.2.1-21 cpp-9-arm-linux-gnueabihf_9.2.1-21cross1 cpp-arm-linux-gnueabihf_4:9.2.1-3.1 cross-config_2.6.15-3 crossbuild-essential-armhf_12.8 dash_0.5.10.2-6 dbus_1.12.16-2 debconf_1.5.73 debhelper_12.7.2 debian-archive-keyring_2019.1 debianutils_4.9.1 dh-autoreconf_19 dh-strip-nondeterminism_1.6.3-1 diffutils_1:3.7-3 dirmngr_2.2.17-3 doxygen_1.8.16-1 dpkg_1.19.7 dpkg-cross_2.6.15-3 dpkg-dev_1.19.7 dwz_0.13-5 e2fsprogs_1.45.4-1 eatmydata_105-7 fakeroot_1.24-1 fdisk_2.34-0.1 file_1:5.37-6 findutils_4.7.0-1 fontconfig_2.13.1-2+b1 fontconfig-config_2.13.1-2 fonts-dejavu-core_2.37-1 g++_4:9.2.1-3.1 g++-9_9.2.1-21 g++-9-arm-linux-gnueabihf_9.2.1-21cross1 g++-arm-linux-gnueabihf_4:9.2.1-3.1 gcc_4:9.2.1-3.1 gcc-9_9.2.1-21 gcc-9-arm-linux-gnueabihf_9.2.1-21cross1 gcc-9-arm-linux-gnueabihf-base_9.2.1-21cross1 gcc-9-base_9.2.1-21 gcc-9-cross-base_9.2.1-21cross1 gcc-arm-linux-gnueabihf_4:9.2.1-3.1 gettext_0.19.8.1-10 gettext-base_0.19.8.1-10 gir1.2-atk-1.0_2.34.1-1 gir1.2-freedesktop_1.62.0-2 gir1.2-gdkpixbuf-2.0_2.40.0+dfsg-1 gir1.2-glib-2.0_1.62.0-2 gir1.2-gtk-2.0_2.24.32-4 gir1.2-harfbuzz-0.0_2.6.4-1 gir1.2-pango-1.0_1.42.4-7 gnupg_2.2.17-3 gnupg-l10n_2.2.17-3 gnupg-utils_2.2.17-3 gpg_2.2.17-3 gpg-agent_2.2.17-3 gpg-wks-client_2.2.17-3 gpg-wks-server_2.2.17-3 gpgconf_2.2.17-3 gpgsm_2.2.17-3 gpgv_2.2.17-3 grep_3.3-1 groff-base_1.22.4-3 gtk-update-icon-cache_3.24.13-1 gzip_1.9-3+b1 hicolor-icon-theme_0.17-2 hostname_3.23 icu-devtools_63.2-2 init-system-helpers_1.57 intltool-debian_0.35.0+20060710.5 krb5-locales_1.17-6 libacl1_2.2.53-5 libapparmor1_2.13.3-7 libapt-pkg5.0_1.8.4 libarchive-zip-perl_1.67-1 libarchive13_3.4.0-1+b1 libasan5_9.2.1-21 libasan5-armhf-cross_9.2.1-21cross1 libassuan0_2.5.3-7 libatk1.0-0_2.34.1-1 libatk1.0-data_2.34.1-1 libatk1.0-dev_2.34.1-1 libatomic1_9.2.1-21 libatomic1-armhf-cross_9.2.1-21cross1 libattr1_1:2.4.48-5 libaudit-common_1:2.8.5-2 libaudit1_1:2.8.5-2+b1 libavahi-client3_0.7-5 libavahi-common-data_0.7-5 libavahi-common3_0.7-5 libbinutils_2.33.1-6 libblkid-dev_2.34-0.1 libblkid1_2.34-0.1 libbrotli1_1.0.7-5+b1 libbsd0_0.10.0-1 libbz2-1.0_1.0.8-2 libc-bin_2.29-6 libc-dev-bin_2.29-6 libc6_2.29-6 libc6-armhf-cross_2.29-1cross7 libc6-dev_2.29-6 libc6-dev-armhf-cross_2.29-1cross7 libcairo-gobject2_1.16.0-4 libcairo-script-interpreter2_1.16.0-4 libcairo2_1.16.0-4 libcairo2-dev_1.16.0-4 libcap-ng0_0.7.9-2.1+b1 libcc1-0_9.2.1-21 libcdt5_2.42.2-3 libcgraph6_2.42.2-3 libclang1-9_1:9.0.1-1 libcom-err2_1.45.4-1 libconfig-auto-perl_0.44-1 libconfig-inifiles-perl_3.000002-1 libcroco3_0.6.13-1 libcrypt1_1:4.4.10-7 libcrypt1-dev_1:4.4.10-7 libcups2_2.3.0-7 libcurl4_7.67.0-2 libdatrie1_0.2.12-3 libdb5.3_5.3.28+dfsg1-0.6 libdbus-1-3_1.12.16-2 libdebconfclient0_0.250 libdebhelper-perl_12.7.2 libdebian-dpkgcross-perl_2.6.15-3 libdpkg-perl_1.19.7 libeatmydata1_105-7 libedit2_3.1-20191025-1 libelf1_0.176-1.1 libexpat1_2.2.9-1 libexpat1-dev_2.2.9-1 libext2fs2_1.45.4-1 libfakeroot_1.24-1 libfdisk1_2.34-0.1 libffi-dev_3.2.1-9 libffi6_3.2.1-9 libfile-homedir-perl_1.004-1 libfile-stripnondeterminism-perl_1.6.3-1 libfile-which-perl_1.23-1 libfontconfig1_2.13.1-2+b1 libfontconfig1-dev_2.13.1-2+b1 libfreetype-dev_2.10.1-2 libfreetype6_2.10.1-2 libfreetype6-dev_2.10.1-2 libfribidi-dev_1.0.8-2 libfribidi0_1.0.8-2 libgail-common_2.24.32-4 libgail18_2.24.32-4 libgcc-9-dev_9.2.1-21 libgcc-9-dev-armhf-cross_9.2.1-21cross1 libgcc1_1:9.2.1-21 libgcc1-armhf-cross_1:9.2.1-21cross1 libgcrypt20_1.8.5-3 libgd3_2.2.5-5.2 libgdbm-compat4_1.18.1-5 libgdbm6_1.18.1-5 libgdk-pixbuf2.0-0_2.40.0+dfsg-1 libgdk-pixbuf2.0-bin_2.40.0+dfsg-1 libgdk-pixbuf2.0-common_2.40.0+dfsg-1 libgdk-pixbuf2.0-dev_2.40.0+dfsg-1 libgirepository-1.0-1_1.62.0-2 libglib2.0-0_2.62.3-2 libglib2.0-bin_2.62.3-2 libglib2.0-data_2.62.3-2 libglib2.0-dev_2.62.3-2 libglib2.0-dev-bin_2.62.3-2 libgmp10_2:6.1.2+dfsg-4 libgnutls30_3.6.11.1-2 libgomp1_9.2.1-21 libgomp1-armhf-cross_9.2.1-21cross1 libgpg-error0_1.36-7 libgraphite2-3_1.3.13-11 libgraphite2-dev_1.3.13-11 libgssapi-krb5-2_1.17-6 libgtk2.0-0_2.24.32-4 libgtk2.0-bin_2.24.32-4 libgtk2.0-common_2.24.32-4 libgtk2.0-dev_2.24.32-4 libgts-0.7-5_0.7.6+darcs121130-4+b1 libgts-bin_0.7.6+darcs121130-4+b1 libgvpr2_2.42.2-3 libharfbuzz-dev_2.6.4-1 libharfbuzz-gobject0_2.6.4-1 libharfbuzz-icu0_2.6.4-1 libharfbuzz0b_2.6.4-1 libhogweed5_3.5.1+really3.5.1-2 libice-dev_2:1.0.9-2 libice6_2:1.0.9-2 libicu-dev_63.2-2 libicu63_63.2-2 libidn2-0_2.2.0-2 libio-string-perl_1.08-3 libisl21_0.21-2 libisl22_0.22-2 libitm1_9.2.1-21 libjbig0_2.1-3.1+b2 libjpeg62-turbo_1:1.5.2-2+b1 libjpeg62-turbo-dev_1:1.5.2-2+b1 libjsoncpp1_1.7.4-3+b1 libk5crypto3_1.17-6 libkeyutils1_1.6-6 libkrb5-3_1.17-6 libkrb5support0_1.17-6 libksba8_1.3.5-2 liblab-gamut1_2.42.2-3 libldap-2.4-2_2.4.48+dfsg-1+b2 libldap-common_2.4.48+dfsg-1 libllvm9_1:9.0.1-1 liblocale-gettext-perl_1.07-4 liblsan0_9.2.1-21 libltdl7_2.4.6-11 liblz4-1_1.9.2-2 liblzma5_5.2.4-1+b1 liblzo2-2_2.10-0.1 libmagic-mgc_1:5.37-6 libmagic1_1:5.37-6 libmount-dev_2.34-0.1 libmount1_2.34-0.1 libmpc3_1.1.0-1 libmpdec2_2.4.2-2 libmpfr6_4.0.2-1 libncurses6_6.1+20191019-1 libncursesw6_6.1+20191019-1 libnettle7_3.5.1+really3.5.1-2 libnghttp2-14_1.40.0-1 libnpth0_1.6-1 libp11-kit0_0.23.18.1-2 libpam-modules_1.3.1-5 libpam-modules-bin_1.3.1-5 libpam-runtime_1.3.1-5 libpam0g_1.3.1-5 libpango-1.0-0_1.42.4-7 libpango1.0-dev_1.42.4-7 libpangocairo-1.0-0_1.42.4-7 libpangoft2-1.0-0_1.42.4-7 libpangoxft-1.0-0_1.42.4-7 libpathplan4_2.42.2-3 libpcre16-3_2:8.39-12+b1 libpcre2-16-0_10.34-7 libpcre2-32-0_10.34-7 libpcre2-8-0_10.34-7 libpcre2-dev_10.34-7 libpcre2-posix2_10.34-7 libpcre3_2:8.39-12+b1 libpcre3-dev_2:8.39-12+b1 libpcre32-3_2:8.39-12+b1 libpcrecpp0v5_2:8.39-12+b1 libperl5.30_5.30.0-9 libpipeline1_1.5.1-3 libpixman-1-0_0.36.0-1 libpixman-1-dev_0.36.0-1 libpng-dev_1.6.37-1 libpng16-16_1.6.37-1 libprocps7_2:3.3.15-2+b1 libpsl5_0.20.2-2 libpthread-stubs0-dev_0.4-1 libpython3-stdlib_3.7.5-3 libpython3.7-minimal_3.7.6-1 libpython3.7-stdlib_3.7.6-1 libquadmath0_9.2.1-21 libreadline8_8.0-3 librhash0_1.3.8-1 librsvg2-2_2.46.4-1 librsvg2-common_2.46.4-1 librtmp1_2.4+20151223.gitfa8646d.1-2+b1 libsasl2-2_2.1.27+dfsg-1 libsasl2-modules-db_2.1.27+dfsg-1 libseccomp2_2.4.2-2 libselinux1_3.0-1 libselinux1-dev_3.0-1 libsemanage-common_3.0-1 libsemanage1_3.0-1 libsepol1_3.0-1 libsepol1-dev_3.0-1 libsigsegv2_2.12-2 libsm-dev_2:1.2.3-1 libsm6_2:1.2.3-1 libsmartcols1_2.34-0.1 libsqlite3-0_3.30.1-1 libss2_1.45.4-1 libssh2-1_1.8.0-2.1 libssl1.1_1.1.1d-2 libstdc++-9-dev_9.2.1-21 libstdc++-9-dev-armhf-cross_9.2.1-21cross1 libstdc++6_9.2.1-21 libstdc++6-armhf-cross_9.2.1-21cross1 libsub-override-perl_0.09-2 libsubunit-dev_1.3.0-6 libsubunit0_1.3.0-6 libsystemd0_244-3 libtasn1-6_4.15.0-2 libthai-data_0.1.28-3 libthai0_0.1.28-3 libtiff5_4.1.0+git191117-1 libtinfo6_6.1+20191019-1 libtool_2.4.6-11 libtsan0_9.2.1-21 libubsan1_9.2.1-21 libubsan1-armhf-cross_9.2.1-21cross1 libuchardet0_0.0.6-3 libudev1_244-3 libunistring2_0.9.10-2 libuuid1_2.34-0.1 libuv1_1.33.1-2 libwebp6_0.6.1-2+b1 libx11-6_2:1.6.8-1 libx11-data_2:1.6.8-1 libx11-dev_2:1.6.8-1 libxapian30_1.4.12-1 libxau-dev_1:1.0.8-1+b2 libxau6_1:1.0.8-1+b2 libxcb-render0_1.13.1-2 libxcb-render0-dev_1.13.1-2 libxcb-shm0_1.13.1-2 libxcb-shm0-dev_1.13.1-2 libxcb1_1.13.1-2 libxcb1-dev_1.13.1-2 libxcomposite-dev_1:0.4.4-2 libxcomposite1_1:0.4.4-2 libxcursor-dev_1:1.2.0-2 libxcursor1_1:1.2.0-2 libxdamage-dev_1:1.1.5-1 libxdamage1_1:1.1.5-1 libxdmcp-dev_1:1.1.2-3 libxdmcp6_1:1.1.2-3 libxdot4_2.42.2-3 libxext-dev_2:1.3.3-1+b2 libxext6_2:1.3.3-1+b2 libxfixes-dev_1:5.0.3-1 libxfixes3_1:5.0.3-1 libxft-dev_2.3.2-2 libxft2_2.3.2-2 libxi-dev_2:1.7.9-1 libxi6_2:1.7.9-1 libxinerama-dev_2:1.1.4-2 libxinerama1_2:1.1.4-2 libxml-libxml-perl_2.0134+dfsg-1+b1 libxml-namespacesupport-perl_1.12-1 libxml-sax-base-perl_1.09-1 libxml-sax-perl_1.02+dfsg-1 libxml-simple-perl_2.25-1 libxml2_2.9.4+dfsg1-8 libxml2-dev_2.9.4+dfsg1-8 libxml2-utils_2.9.4+dfsg1-8 libxpm4_1:3.5.12-1 libxrandr-dev_2:1.5.1-1 libxrandr2_2:1.5.1-1 libxrender-dev_1:0.9.10-1 libxrender1_1:0.9.10-1 libyaml-perl_1.29-1 libz3-4_4.8.7-2 libzstd1_1.4.4+dfsg-1 linux-libc-dev_5.3.15-1 linux-libc-dev-armhf-cross_5.2.9-2cross7 login_1:4.8-1 logsave_1.45.4-1 lsb-base_11.1.0 m4_1.4.18-4 make_4.2.1-1.2 man-db_2.9.0-2 mawk_1.3.3-17+b3 meson_0.52.1-1 mime-support_3.64 mount_2.34-0.1 ncurses-base_6.1+20191019-1 ncurses-bin_6.1+20191019-1 ninja-build_1.9.0-3 pango1.0-tools_1.42.4-7 passwd_1:4.8-1 patch_2.7.6-6 perl_5.30.0-9 perl-base_5.30.0-9 perl-modules-5.30_5.30.0-9 pinentry-curses_1.1.0-3+b1 pkg-config_0.29-6 po-debconf_1.0.21 procps_2:3.3.15-2+b1 python3_3.7.5-3 python3-distutils_3.8.0-1 python3-lib2to3_3.8.0-1 python3-minimal_3.7.5-3 python3.7_3.7.6-1 python3.7-minimal_3.7.6-1 readline-common_8.0-3 sbuild-build-depends-main-dummy_0.invalid.0 sed_4.7-1 sensible-utils_0.0.12+nmu1 shared-mime-info_1.10-1 sysvinit-utils_2.96-1 tar_1.30+dfsg-6+b1 tzdata_2019c-3 ucf_3.0038+nmu1 util-linux_2.34-0.1 uuid-dev_2.34-0.1 x11-common_1:7.7+20 x11proto-composite-dev_1:2018.4-4 x11proto-core-dev_2018.4-4 x11proto-damage-dev_1:2018.4-4 x11proto-dev_2018.4-4 x11proto-fixes-dev_1:2018.4-4 x11proto-input-dev_2018.4-4 x11proto-randr-dev_2018.4-4 x11proto-xext-dev_2018.4-4 x11proto-xinerama-dev_2018.4-4 xorg-sgml-doctools_1:1.11-1 xtrans-dev_1.3.5-1 xz-utils_5.2.4-1+b1 zlib1g_1:1.2.11.dfsg-1+b1 zlib1g-dev_1:1.2.11.dfsg-1+b1
+
++------------------------------------------------------------------------------+
+| Build                                                                        |
++------------------------------------------------------------------------------+
+
+
+Unpack source
+-------------
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Format: 3.0 (quilt)
+Source: libmpdclient
+Binary: libmpdclient-dev, libmpdclient2, libmpdclient-doc
+Architecture: any all
+Version: 2.17-1
+Maintainer: mpd maintainers <pkg-mpd-maintainers@lists.alioth.debian.org>
+Uploaders: Sebastian Harl <tokkee@debian.org>, Florian Schlichting <fsfs@debian.org>
+Homepage: https://www.musicpd.org/libs/libmpdclient/
+Standards-Version: 4.4.1
+Vcs-Browser: https://salsa.debian.org/mpd-team/libmpdclient
+Vcs-Git: https://salsa.debian.org/mpd-team/libmpdclient.git
+Build-Depends: debhelper-compat (= 12), check, cmake, meson (>= 0.47), doxygen, pkg-config
+Package-List:
+ libmpdclient-dev deb libdevel optional arch=any
+ libmpdclient-doc deb doc optional arch=all
+ libmpdclient2 deb libs optional arch=any
+Checksums-Sha1:
+ 5f9f17139e2d845284e396f4eafab2976389e5bc 64880 libmpdclient_2.17.orig.tar.xz
+ 2ce86bc678a5315ddcbbe514110be5ce505061d7 833 libmpdclient_2.17.orig.tar.xz.asc
+ 1c0ddb35f900ed0cd8a0615200c320e2a357eb83 10180 libmpdclient_2.17-1.debian.tar.xz
+Checksums-Sha256:
+ ee9b8f1c7e95b65c8f18a354daf7b16bfcd455fc52a0f3b5abe402316bce3559 64880 libmpdclient_2.17.orig.tar.xz
+ 44d1f84806b41463140cdcb8ffeb7fec401a8e91cafad8817805d6f68c2ff09a 833 libmpdclient_2.17.orig.tar.xz.asc
+ 27e8ef7da70b430c67183abbea368e5a1be2ff6ede6c351d1aa8cd1937bf47bc 10180 libmpdclient_2.17-1.debian.tar.xz
+Files:
+ 937ffa3b1da76c44e08c5f7336c387bc 64880 libmpdclient_2.17.orig.tar.xz
+ 5aa0c8763dbd5935bbc028a4aabd3a5c 833 libmpdclient_2.17.orig.tar.xz.asc
+ a3024c55e47890300246805ee3936297 10180 libmpdclient_2.17-1.debian.tar.xz
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEMLI8i05qOwnqprZSEpc7bnLcB7UFAl3qaNgACgkQEpc7bnLc
+B7VJ/RAAgTFQMQrpnwI+HiGD+jY/7xcEZiwqhedXrnB2T7DcVXm9BGjoY2gGsxzT
+xhPado527X7W6lnlRvCRrZ7uRAc+OhV/Oa06ECWCwqdt3TobAJLgIJzAlPzIMxlu
+17BaSxMjVysUjw48Qt/FdwZWa34gjSG0rZD2zrBsREcdzDRYrWt4LRAoG8gSoXo7
+C7rV0xlhnsK1WQqmx6wlrGsSzpbdChFC9op1TBeDZaPsWWPSoF2+RUnlLwYwzpBO
+ymkWQedIz/a0NOVGqB3nJ0w8nMC11p72FQp8yA0cX2uOitPBXPJJ8mhCZtKyvvxu
+6l8T4hT9hV6EkBfMfGdqDNKVEqCP+35qgS0+TBKw5dYgQdfQfW+gVbJWcVLSn2c6
++NQ+wEVvNAFftHiu2UqPWTmTuKBUHgz3f2kM2LRqaX2eFy2RylQD3blSmWrP8tH8
+mPuGDmsPY/v6WUcTBUOXBUsQgYv27fQMjk+UHIcV5OdsFgyGGdvvi3WtcaXomZc+
+BWo84FDIF+0X093ytPXNNqHdmy2JnMPsUIYbp4K9w4K1ACba2tdjaRBHt72pm1tL
+FtTjKKXhRHVTg/+7C2akMY/2quxqg4eMDJBMUdE6iRl4iMowDb7g8JhPQmo2Ro3t
+YzdvQu/leTUOnm79f6vMeuBqY4l+RPALV/LgWOrMtmcyhz+PKhY=
+=SvSP
+-----END PGP SIGNATURE-----
+
+gpgv: unknown type of key resource 'trustedkeys.kbx'
+gpgv: keyblock resource '/sbuild-nonexistent/.gnupg/trustedkeys.kbx': General error
+gpgv: Signature made Fri Dec  6 14:42:32 2019 UTC
+gpgv:                using RSA key 30B23C8B4E6A3B09EAA6B65212973B6E72DC07B5
+gpgv: Can't check signature: No public key
+dpkg-source: warning: failed to verify signature on ./libmpdclient_2.17-1.dsc
+dpkg-source: info: extracting libmpdclient in /<<PKGBUILDDIR>>
+dpkg-source: info: unpacking libmpdclient_2.17.orig.tar.xz
+dpkg-source: info: unpacking libmpdclient_2.17-1.debian.tar.xz
+
+Check disk space
+----------------
+
+Sufficient free space for build
+
+User Environment
+----------------
+
+APT_CONFIG=/var/lib/sbuild/apt.conf
+CCACHE_COMPRESS=1
+CCACHE_DIR=/var/cache/ccache-sbuild
+CCACHE_UMASK=002
+CONFIG_SITE=/etc/dpkg-cross/cross-config.armhf
+DEB_BUILD_OPTIONS=nocheck
+HOME=/sbuild-nonexistent
+LANG=en_US.UTF-8
+LC_ALL=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/libeatmydata
+LD_PRELOAD=libeatmydata.so
+LOGNAME=build
+PATH=/usr/lib/ccache:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+PWD=/<<PKGBUILDDIR>>
+SCHROOT_ALIAS_NAME=unstable-amd64-sbuild
+SCHROOT_CHROOT_NAME=unstable-amd64-sbuild
+SCHROOT_COMMAND=env
+SCHROOT_GID=1000
+SCHROOT_GROUP=build
+SCHROOT_SESSION_ID=unstable-amd64-sbuild-d8d88ade-2cda-4db3-bf76-9c75841ae6ab
+SCHROOT_UID=1000
+SCHROOT_USER=build
+SHELL=/bin/sh
+USER=build
+
+dpkg-buildpackage
+-----------------
+
+Command: dpkg-buildpackage -aarmhf -Pcross,nocheck -us -uc -B -rfakeroot -j16
+dpkg-buildpackage: info: source package libmpdclient
+dpkg-buildpackage: info: source version 2.17-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Florian Schlichting <fsfs@debian.org>
+dpkg-architecture: warning: specified GNU system type arm-linux-gnueabihf does not match CC system type x86_64-linux-gnu, try setting a correct CC environment variable
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture armhf
+ fakeroot debian/rules clean
+dh clean
+   dh_clean
+ debian/rules build-arch
+dh build-arch
+   dh_update_autotools_config -a
+   dh_autoreconf -a
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_auto_configure -- -Ddocumentation=true -Dtest=true
+	cd obj-arm-linux-gnueabihf && LC_ALL=C.UTF-8 meson .. --wrap-mode=nodownload --buildtype=plain --prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=lib/arm-linux-gnueabihf --cross-file /<<PKGBUILDDIR>>/debian/.debhelper/generated/_source/meson-cross-file.conf -Ddocumentation=true -Dtest=true
+The Meson build system
+Version: 0.52.1
+Source dir: /<<PKGBUILDDIR>>
+Build dir: /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf
+Build type: cross build
+Project name: libmpdclient
+Project version: 2.17
+Appending CFLAGS from environment: '-g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security'
+Appending LDFLAGS from environment: ['-Wl,-z,relro', '-Wl,-z,now']
+Appending CPPFLAGS from environment: '-Wdate-time -D_FORTIFY_SOURCE=2'
+C compiler for the build machine: ccache cc (gcc 9.2.1 "cc (Debian 9.2.1-21) 9.2.1 20191130")
+C linker for the build machine: GNU ld.bfd 2.33.1
+C compiler for the host machine: /usr/lib/ccache/arm-linux-gnueabihf-gcc (gcc 9.2.1 "arm-linux-gnueabihf-gcc (Debian 9.2.1-21) 9.2.1 20191130")
+C linker for the host machine: GNU ld.bfd 2.33.1
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Host machine cpu family: arm
+Host machine cpu: arm7hlf
+Target machine cpu family: arm
+Target machine cpu: arm7hlf
+Checking for function "strndup" : YES 
+Checking for function "getaddrinfo" : YES 
+Configuring config.h using configuration
+Configuring version.h using configuration
+Compiler for C supports arguments -Wall: YES 
+Compiler for C supports arguments -Wextra: YES 
+Compiler for C supports arguments -Wno-deprecated-declarations -Wdeprecated-declarations: YES 
+Compiler for C supports arguments -Wmissing-prototypes: YES 
+Compiler for C supports arguments -Wshadow: YES 
+Compiler for C supports arguments -Wpointer-arith: YES 
+Compiler for C supports arguments -Wstrict-prototypes: YES 
+Compiler for C supports arguments -Wcast-qual: YES 
+Compiler for C supports arguments -Wwrite-strings: YES 
+WARNING: Consider using the builtin warning_level option instead of adding warning flags by hand.
+WARNING: Consider using the builtin warning_level option instead of adding warning flags by hand.
+Compiler for C supports link arguments -Wl,--version-script=/<<PKGBUILDDIR>>/libmpdclient.ld: YES 
+Program doxygen found: YES (/usr/bin/doxygen)
+Program dot found: NO
+Configuring doxygen.conf using configuration
+Found pkg-config: /usr/bin/arm-linux-gnueabihf-pkg-config (0.29)
+Run-time dependency check found: YES 0.12.0
+Build targets in project: 6
+Found ninja-1.9.0 at /usr/bin/ninja
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_auto_build -a
+	cd obj-arm-linux-gnueabihf && LC_ALL=C.UTF-8 ninja -j16 -v
+[1/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_error.c.o' -MF 'mpdclient@sha/src_error.c.o.d' -o 'mpdclient@sha/src_error.c.o' -c ../src/error.c
+[2/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_coutput.c.o' -MF 'mpdclient@sha/src_coutput.c.o.d' -o 'mpdclient@sha/src_coutput.c.o' -c ../src/coutput.c
+[3/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_fingerprint.c.o' -MF 'mpdclient@sha/src_fingerprint.c.o.d' -o 'mpdclient@sha/src_fingerprint.c.o' -c ../src/fingerprint.c
+[4/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_rdirectory.c.o' -MF 'mpdclient@sha/src_rdirectory.c.o.d' -o 'mpdclient@sha/src_rdirectory.c.o' -c ../src/rdirectory.c
+[5/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_capabilities.c.o' -MF 'mpdclient@sha/src_capabilities.c.o.d' -o 'mpdclient@sha/src_capabilities.c.o' -c ../src/capabilities.c
+[6/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_database.c.o' -MF 'mpdclient@sha/src_database.c.o.d' -o 'mpdclient@sha/src_database.c.o' -c ../src/database.c
+[7/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_idle.c.o' -MF 'mpdclient@sha/src_idle.c.o.d' -o 'mpdclient@sha/src_idle.c.o' -c ../src/idle.c
+[8/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_audio_format.c.o' -MF 'mpdclient@sha/src_audio_format.c.o.d' -o 'mpdclient@sha/src_audio_format.c.o' -c ../src/audio_format.c
+[9/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_mixer.c.o' -MF 'mpdclient@sha/src_mixer.c.o.d' -o 'mpdclient@sha/src_mixer.c.o' -c ../src/mixer.c
+[10/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_output.c.o' -MF 'mpdclient@sha/src_output.c.o.d' -o 'mpdclient@sha/src_output.c.o' -c ../src/output.c
+[11/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_fd_util.c.o' -MF 'mpdclient@sha/src_fd_util.c.o.d' -o 'mpdclient@sha/src_fd_util.c.o' -c ../src/fd_util.c
+[12/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_directory.c.o' -MF 'mpdclient@sha/src_directory.c.o.d' -o 'mpdclient@sha/src_directory.c.o' -c ../src/directory.c
+[13/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_password.c.o' -MF 'mpdclient@sha/src_password.c.o.d' -o 'mpdclient@sha/src_password.c.o' -c ../src/password.c
+[14/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_list.c.o' -MF 'mpdclient@sha/src_list.c.o.d' -o 'mpdclient@sha/src_list.c.o' -c ../src/list.c
+[15/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_connection.c.o' -MF 'mpdclient@sha/src_connection.c.o.d' -o 'mpdclient@sha/src_connection.c.o' -c ../src/connection.c
+[16/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_ierror.c.o' -MF 'mpdclient@sha/src_ierror.c.o.d' -o 'mpdclient@sha/src_ierror.c.o' -c ../src/ierror.c
+[17/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_cneighbor.c.o' -MF 'mpdclient@sha/src_cneighbor.c.o.d' -o 'mpdclient@sha/src_cneighbor.c.o' -c ../src/cneighbor.c
+[18/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_cmount.c.o' -MF 'mpdclient@sha/src_cmount.c.o.d' -o 'mpdclient@sha/src_cmount.c.o' -c ../src/cmount.c
+[19/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_entity.c.o' -MF 'mpdclient@sha/src_entity.c.o.d' -o 'mpdclient@sha/src_entity.c.o' -c ../src/entity.c
+[20/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_resolver.c.o' -MF 'mpdclient@sha/src_resolver.c.o.d' -o 'mpdclient@sha/src_resolver.c.o' -c ../src/resolver.c
+[21/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_quote.c.o' -MF 'mpdclient@sha/src_quote.c.o.d' -o 'mpdclient@sha/src_quote.c.o' -c ../src/quote.c
+[22/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_kvlist.c.o' -MF 'mpdclient@sha/src_kvlist.c.o.d' -o 'mpdclient@sha/src_kvlist.c.o' -c ../src/kvlist.c
+[23/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_iso8601.c.o' -MF 'mpdclient@sha/src_iso8601.c.o.d' -o 'mpdclient@sha/src_iso8601.c.o' -c ../src/iso8601.c
+[24/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_neighbor.c.o' -MF 'mpdclient@sha/src_neighbor.c.o.d' -o 'mpdclient@sha/src_neighbor.c.o' -c ../src/neighbor.c
+[25/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_mount.c.o' -MF 'mpdclient@sha/src_mount.c.o.d' -o 'mpdclient@sha/src_mount.c.o' -c ../src/mount.c
+[26/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_async.c.o' -MF 'mpdclient@sha/src_async.c.o.d' -o 'mpdclient@sha/src_async.c.o' -c ../src/async.c
+[27/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_rplaylist.c.o' -MF 'mpdclient@sha/src_rplaylist.c.o.d' -o 'mpdclient@sha/src_rplaylist.c.o' -c ../src/rplaylist.c
+[28/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_run.c.o' -MF 'mpdclient@sha/src_run.c.o.d' -o 'mpdclient@sha/src_run.c.o' -c ../src/run.c
+[29/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_parser.c.o' -MF 'mpdclient@sha/src_parser.c.o.d' -o 'mpdclient@sha/src_parser.c.o' -c ../src/parser.c
+[30/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_response.c.o' -MF 'mpdclient@sha/src_response.c.o.d' -o 'mpdclient@sha/src_response.c.o' -c ../src/response.c
+[31/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_cstatus.c.o' -MF 'mpdclient@sha/src_cstatus.c.o.d' -o 'mpdclient@sha/src_cstatus.c.o' -c ../src/cstatus.c
+[32/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_cplaylist.c.o' -MF 'mpdclient@sha/src_cplaylist.c.o.d' -o 'mpdclient@sha/src_cplaylist.c.o' -c ../src/cplaylist.c
+[33/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_playlist.c.o' -MF 'mpdclient@sha/src_playlist.c.o.d' -o 'mpdclient@sha/src_playlist.c.o' -c ../src/playlist.c
+[34/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_player.c.o' -MF 'mpdclient@sha/src_player.c.o.d' -o 'mpdclient@sha/src_player.c.o' -c ../src/player.c
+[35/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_cstats.c.o' -MF 'mpdclient@sha/src_cstats.c.o.d' -o 'mpdclient@sha/src_cstats.c.o' -c ../src/cstats.c
+[36/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_tag.c.o' -MF 'mpdclient@sha/src_tag.c.o.d' -o 'mpdclient@sha/src_tag.c.o' -c ../src/tag.c
+[37/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_recv.c.o' -MF 'mpdclient@sha/src_recv.c.o.d' -o 'mpdclient@sha/src_recv.c.o' -c ../src/recv.c
+[38/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_sticker.c.o' -MF 'mpdclient@sha/src_sticker.c.o.d' -o 'mpdclient@sha/src_sticker.c.o' -c ../src/sticker.c
+[39/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_send.c.o' -MF 'mpdclient@sha/src_send.c.o.d' -o 'mpdclient@sha/src_send.c.o' -c ../src/send.c
+[40/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_stats.c.o' -MF 'mpdclient@sha/src_stats.c.o.d' -o 'mpdclient@sha/src_stats.c.o' -c ../src/stats.c
+[41/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_cmessage.c.o' -MF 'mpdclient@sha/src_cmessage.c.o.d' -o 'mpdclient@sha/src_cmessage.c.o' -c ../src/cmessage.c
+[42/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_cpartition.c.o' -MF 'mpdclient@sha/src_cpartition.c.o.d' -o 'mpdclient@sha/src_cpartition.c.o' -c ../src/cpartition.c
+[43/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_partition.c.o' -MF 'mpdclient@sha/src_partition.c.o.d' -o 'mpdclient@sha/src_partition.c.o' -c ../src/partition.c
+[44/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_message.c.o' -MF 'mpdclient@sha/src_message.c.o.d' -o 'mpdclient@sha/src_message.c.o' -c ../src/message.c
+[45/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_status.c.o' -MF 'mpdclient@sha/src_status.c.o.d' -o 'mpdclient@sha/src_status.c.o' -c ../src/status.c
+[46/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_queue.c.o' -MF 'mpdclient@sha/src_queue.c.o.d' -o 'mpdclient@sha/src_queue.c.o' -c ../src/queue.c
+[47/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_settings.c.o' -MF 'mpdclient@sha/src_settings.c.o.d' -o 'mpdclient@sha/src_settings.c.o' -c ../src/settings.c
+[48/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_search.c.o' -MF 'mpdclient@sha/src_search.c.o.d' -o 'mpdclient@sha/src_search.c.o' -c ../src/search.c
+[49/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_socket.c.o' -MF 'mpdclient@sha/src_socket.c.o.d' -o 'mpdclient@sha/src_socket.c.o' -c ../src/socket.c
+[50/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_sync.c.o' -MF 'mpdclient@sha/src_sync.c.o.d' -o 'mpdclient@sha/src_sync.c.o' -c ../src/sync.c
+[51/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Impdclient@sha -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -MD -MQ 'mpdclient@sha/src_song.c.o' -MF 'mpdclient@sha/src_song.c.o.d' -o 'mpdclient@sha/src_song.c.o' -c ../src/song.c
+[52/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Itest/9f86d08@@t_iso8601@exe -Itest -I../test -I../src -I../include -I. -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -pthread -MD -MQ 'test/9f86d08@@t_iso8601@exe/.._src_iso8601.c.o' -MF 'test/9f86d08@@t_iso8601@exe/.._src_iso8601.c.o.d' -o 'test/9f86d08@@t_iso8601@exe/.._src_iso8601.c.o' -c ../src/iso8601.c
+[53/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Itest/9f86d08@@t_iso8601@exe -Itest -I../test -I../src -I../include -I. -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -pthread -MD -MQ 'test/9f86d08@@t_iso8601@exe/t_iso8601.c.o' -MF 'test/9f86d08@@t_iso8601@exe/t_iso8601.c.o.d' -o 'test/9f86d08@@t_iso8601@exe/t_iso8601.c.o' -c ../test/t_iso8601.c
+[54/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc  -o test/t_iso8601 'test/9f86d08@@t_iso8601@exe/t_iso8601.c.o' 'test/9f86d08@@t_iso8601@exe/.._src_iso8601.c.o' -Wl,--as-needed -Wl,--no-undefined -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z,relro -Wl,-z,now -Wl,--start-group /usr/lib/arm-linux-gnueabihf/libcheck_pic.a -pthread -lrt -lm /usr/lib/arm-linux-gnueabihf/libsubunit.so -Wl,--end-group
+[55/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Itest/9f86d08@@t_commands@exe -Itest -I../test -I../src -I../include -I. -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -pthread -MD -MQ 'test/9f86d08@@t_commands@exe/capture.c.o' -MF 'test/9f86d08@@t_commands@exe/capture.c.o.d' -o 'test/9f86d08@@t_commands@exe/capture.c.o' -c ../test/capture.c
+[56/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc  -o libmpdclient.so.2.17 'mpdclient@sha/src_async.c.o' 'mpdclient@sha/src_audio_format.c.o' 'mpdclient@sha/src_ierror.c.o' 'mpdclient@sha/src_resolver.c.o' 'mpdclient@sha/src_capabilities.c.o' 'mpdclient@sha/src_connection.c.o' 'mpdclient@sha/src_database.c.o' 'mpdclient@sha/src_directory.c.o' 'mpdclient@sha/src_rdirectory.c.o' 'mpdclient@sha/src_error.c.o' 'mpdclient@sha/src_fd_util.c.o' 'mpdclient@sha/src_fingerprint.c.o' 'mpdclient@sha/src_output.c.o' 'mpdclient@sha/src_coutput.c.o' 'mpdclient@sha/src_entity.c.o' 'mpdclient@sha/src_idle.c.o' 'mpdclient@sha/src_iso8601.c.o' 'mpdclient@sha/src_kvlist.c.o' 'mpdclient@sha/src_list.c.o' 'mpdclient@sha/src_mixer.c.o' 'mpdclient@sha/src_mount.c.o' 'mpdclient@sha/src_cmount.c.o' 'mpdclient@sha/src_neighbor.c.o' 'mpdclient@sha/src_cneighbor.c.o' 'mpdclient@sha/src_parser.c.o' 'mpdclient@sha/src_password.c.o' 'mpdclient@sha/src_player.c.o' 'mpdclient@sha/src_playlist.c.o' 'mpdclient@sha/src_rplaylist.c.o' 'mpdclient@sha/src_cplaylist.c.o' 'mpdclient@sha/src_queue.c.o' 'mpdclient@sha/src_quote.c.o' 'mpdclient@sha/src_recv.c.o' 'mpdclient@sha/src_response.c.o' 'mpdclient@sha/src_run.c.o' 'mpdclient@sha/src_search.c.o' 'mpdclient@sha/src_send.c.o' 'mpdclient@sha/src_socket.c.o' 'mpdclient@sha/src_song.c.o' 'mpdclient@sha/src_status.c.o' 'mpdclient@sha/src_cstatus.c.o' 'mpdclient@sha/src_stats.c.o' 'mpdclient@sha/src_cstats.c.o' 'mpdclient@sha/src_sync.c.o' 'mpdclient@sha/src_tag.c.o' 'mpdclient@sha/src_sticker.c.o' 'mpdclient@sha/src_settings.c.o' 'mpdclient@sha/src_message.c.o' 'mpdclient@sha/src_cmessage.c.o' 'mpdclient@sha/src_partition.c.o' 'mpdclient@sha/src_cpartition.c.o' -Wl,--as-needed -Wl,--no-undefined -shared -fPIC -Wl,--start-group -Wl,-soname,libmpdclient.so.2 -Wl,--end-group -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z,relro -Wl,-z,now -Wl,--version-script=/<<PKGBUILDDIR>>/libmpdclient.ld
+[57/64] /usr/bin/doxygen doc/doxygen.conf
+/<<PKGBUILDDIR>>/include/mpd/connection.h:98: warning: explicit link request to 'MPD_HOST' could not be resolved
+/<<PKGBUILDDIR>>/include/mpd/connection.h:98: warning: explicit link request to 'MPD_PORT' could not be resolved
+/<<PKGBUILDDIR>>/include/mpd/connection.h:99: warning: explicit link request to 'MPD_TIMEOUT' could not be resolved
+/<<PKGBUILDDIR>>/include/mpd/player.h:128: warning: argument 'id' of command @param is not found in the argument list of mpd_send_play_id(struct mpd_connection *connection, unsigned song_id)
+/<<PKGBUILDDIR>>/include/mpd/player.h:136: warning: The following parameters of mpd_send_play_id(struct mpd_connection *connection, unsigned song_id) are not documented:
+  parameter 'song_id'
+/<<PKGBUILDDIR>>/include/mpd/player.h:268: warning: argument 'id' of command @param is not found in the argument list of mpd_send_seek_id(struct mpd_connection *connection, unsigned song_id, unsigned t)
+/<<PKGBUILDDIR>>/include/mpd/player.h:277: warning: The following parameters of mpd_send_seek_id(struct mpd_connection *connection, unsigned song_id, unsigned t) are not documented:
+  parameter 'song_id'
+/<<PKGBUILDDIR>>/include/mpd/player.h:320: warning: explicit link request to 't' could not be resolved
+/<<PKGBUILDDIR>>/include/mpd/player.h:339: warning: The following parameters of mpd_run_seek_current(struct mpd_connection *connection, float t, bool relative) are not documented:
+  parameter 't'
+  parameter 'relative'
+/<<PKGBUILDDIR>>/include/mpd/queue.h:140: warning: The following parameters of mpd_send_queue_changes_meta_range(struct mpd_connection *connection, unsigned version, unsigned start, unsigned end) are not documented:
+  parameter 'version'
+/<<PKGBUILDDIR>>/include/mpd/queue.h:170: warning: The following parameters of mpd_send_queue_changes_brief_range(struct mpd_connection *connection, unsigned version, unsigned start, unsigned end) are not documented:
+  parameter 'version'
+/<<PKGBUILDDIR>>/include/mpd/search.h:103: warning: The following parameters of mpd_search_add_db_songs_to_playlist(struct mpd_connection *connection, const char *playlist_name) are not documented:
+  parameter 'playlist_name'
+/<<PKGBUILDDIR>>/include/mpd/search.h:263: warning: explicit link request to 'descending' could not be resolved
+[58/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Itest/9f86d08@@main@exe -Itest -I../test -I../src -I../include -I. -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -MD -MQ 'test/9f86d08@@main@exe/main.c.o' -MF 'test/9f86d08@@main@exe/main.c.o.d' -o 'test/9f86d08@@main@exe/main.c.o' -c ../test/main.c
+[59/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Iexample@exe -I. -I.. -I../src -I../include -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -MD -MQ 'example@exe/src_example.c.o' -MF 'example@exe/src_example.c.o.d' -o 'example@exe/src_example.c.o' -c ../src/example.c
+[60/64] /usr/bin/meson --internal symbolextractor libmpdclient.so.2.17 'mpdclient@sha/libmpdclient.so.2.17.symbols' --cross-host=linux
+[61/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc  -o test/main 'test/9f86d08@@main@exe/main.c.o' -Wl,--as-needed -Wl,--no-undefined -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z,relro -Wl,-z,now -Wl,--start-group libmpdclient.so.2.17 -Wl,--end-group '-Wl,-rpath,$ORIGIN/..' -Wl,-rpath-link,/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/
+[62/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc  -o example 'example@exe/src_example.c.o' -Wl,--as-needed -Wl,--no-undefined -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z,relro -Wl,-z,now -Wl,--start-group libmpdclient.so.2.17 -Wl,--end-group '-Wl,-rpath,$ORIGIN/' -Wl,-rpath-link,/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/
+[63/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc -Itest/9f86d08@@t_commands@exe -Itest -I../test -I../src -I../include -I. -I../ -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -std=c99 -D_GNU_SOURCE -Wall -Wextra -Wno-deprecated-declarations -Wmissing-prototypes -Wshadow -Wpointer-arith -Wstrict-prototypes -Wcast-qual -Wwrite-strings -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -pthread -MD -MQ 'test/9f86d08@@t_commands@exe/t_commands.c.o' -MF 'test/9f86d08@@t_commands@exe/t_commands.c.o.d' -o 'test/9f86d08@@t_commands@exe/t_commands.c.o' -c ../test/t_commands.c
+[64/64] /usr/lib/ccache/arm-linux-gnueabihf-gcc  -o test/t_commands 'test/9f86d08@@t_commands@exe/t_commands.c.o' 'test/9f86d08@@t_commands@exe/capture.c.o' -Wl,--as-needed -Wl,--no-undefined -g -O2 -fdebug-prefix-map=/<<PKGBUILDDIR>>=. -fstack-protector-strong -Wformat -Werror=format-security -Wl,-z,relro -Wl,-z,now -Wl,--start-group libmpdclient.so.2.17 /usr/lib/arm-linux-gnueabihf/libcheck_pic.a -pthread -lrt -lm /usr/lib/arm-linux-gnueabihf/libsubunit.so -Wl,--end-group '-Wl,-rpath,$ORIGIN/..' -Wl,-rpath-link,/<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/
+   dh_auto_test -a
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary-arch
+dh binary-arch
+   dh_testroot -a
+   dh_prep -a
+   dh_auto_install -a
+	cd obj-arm-linux-gnueabihf && DESTDIR=/<<PKGBUILDDIR>>/debian/tmp LC_ALL=C.UTF-8 ninja install
+[0/1] Installing files.
+Installing libmpdclient.so.2.17 to /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/parser_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__audio__format.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/song_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/neighbor_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/tag_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/fingerprint_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/output_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/send_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/sticker_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/capabilities_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/directory_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__connection.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/entity_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/closed.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/mixer_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/pair_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/nav_g.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/playlist_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/annotated.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__parser.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/menudata.js to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/stats_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/directory_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__status.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__partition.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/client_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/jquery.js to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/functions.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/list_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/sync_off.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/bc_s.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__async.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/idle_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/globals_enum.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__output.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/queue_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/recv_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/neighbor_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__pair-members.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/idle_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/bdwn.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/socket_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/queue_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/tag_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/dynsections.js to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/status_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/tab_h.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/splitbar.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/capabilities_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/player_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__playlist.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/globals_func.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/dir_89dd766eb2df7d7257dbe806a34404af.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/folderopen.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/mount_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__settings.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/response_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__message.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/output_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/partition_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/search_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/doc.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/nav_f.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/globals_type.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/password_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/async_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/audio__format_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/folderclosed.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/status_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__pair.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__song.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/async_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/settings_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/database_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/open.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__stats.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/password_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/connection_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/search_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__entity.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/partition_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/response_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/globals.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/classes.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/song_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/nav_h.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/globals_eval.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/player_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/tab_a.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/tab_s.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__neighbor.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/message_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__audio__format-members.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/index.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/audio__format_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/message_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/mixer_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/files.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/send_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/compiler_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/list_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/protocol_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/error_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/compiler_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/sticker_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/doxygen.css to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/socket_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/settings_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/connection_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/tab_b.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/playlist_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/menu.js to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/tabs.css to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/stats_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/sync_on.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__mount.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/structmpd__directory.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/recv_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/doxygen.png to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/client_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/error_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/fingerprint_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/pair_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/protocol_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/mount_8h.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/database_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/parser_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/functions_vars.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/doc/html/entity_8h_source.html to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient/html
+Installing /<<PKGBUILDDIR>>/include/mpd/async.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/audio_format.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/client.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/capabilities.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/compiler.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/connection.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/database.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/directory.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/entity.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/error.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/fingerprint.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/idle.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/list.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/mixer.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/mount.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/neighbor.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/parser.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/partition.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/password.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/player.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/playlist.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/protocol.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/queue.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/recv.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/response.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/send.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/status.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/stats.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/tag.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/output.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/pair.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/search.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/socket.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/song.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/sticker.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/settings.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/include/mpd/message.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/version.h to /<<PKGBUILDDIR>>/debian/tmp/usr/include/mpd
+Installing /<<PKGBUILDDIR>>/AUTHORS to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient
+Installing /<<PKGBUILDDIR>>/COPYING to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient
+Installing /<<PKGBUILDDIR>>/NEWS to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient
+Installing /<<PKGBUILDDIR>>/README.rst to /<<PKGBUILDDIR>>/debian/tmp/usr/share/doc/libmpdclient
+Installing /<<PKGBUILDDIR>>/vapi/libmpdclient.vapi to /<<PKGBUILDDIR>>/debian/tmp/usr/share/vala/vapi
+Installing /<<PKGBUILDDIR>>/obj-arm-linux-gnueabihf/meson-private/libmpdclient.pc to /<<PKGBUILDDIR>>/debian/tmp/usr/lib/arm-linux-gnueabihf/pkgconfig
+   dh_install -a
+   debian/rules override_dh_installdocs
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_installdocs -A AUTHORS
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   debian/rules override_dh_installchangelogs
+make[1]: Entering directory '/<<PKGBUILDDIR>>'
+dh_installchangelogs NEWS
+make[1]: Leaving directory '/<<PKGBUILDDIR>>'
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   dh_missing -a
+   dh_dwz -a
+   dh_strip -a
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+   dh_installdeb -a
+   dh_gencontrol -a
+   dh_md5sums -a
+   dh_builddeb -a
+dpkg-deb: building package 'libmpdclient-dev' in '../libmpdclient-dev_2.17-1_armhf.deb'.
+dpkg-deb: building package 'libmpdclient2' in '../libmpdclient2_2.17-1_armhf.deb'.
+dpkg-deb: building package 'libmpdclient2-dbgsym' in '../libmpdclient2-dbgsym_2.17-1_armhf.deb'.
+ dpkg-genbuildinfo --build=any
+ dpkg-genchanges --build=any >../libmpdclient_2.17-1_armhf.changes
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+--------------------------------------------------------------------------------
+Build finished at 2019-12-21T11:05:59Z
+
+Finished
+--------
+
+I: Built successfully
+
++------------------------------------------------------------------------------+
+| Changes                                                                      |
++------------------------------------------------------------------------------+
+
+
+libmpdclient_2.17-1_armhf.changes:
+----------------------------------
+
+Format: 1.8
+Date: Fri, 06 Dec 2019 22:12:05 +0800
+Source: libmpdclient
+Binary: libmpdclient-dev libmpdclient2 libmpdclient2-dbgsym
+Built-For-Profiles: cross nocheck
+Architecture: armhf
+Version: 2.17-1
+Distribution: unstable-amd64-sbuild
+Urgency: medium
+Maintainer: mpd maintainers <pkg-mpd-maintainers@lists.alioth.debian.org>
+Changed-By: Florian Schlichting <fsfs@debian.org>
+Description:
+ libmpdclient-dev - client library for the Music Player Daemon (development files)
+ libmpdclient2 - client library for the Music Player Daemon
+Changes:
+ libmpdclient (2.17-1) unstable; urgency=medium
+ .
+   * Import new upstream version 2.17
+   * Update copyright years
+   * Declare compliance with Debian Policy 4.4.1
+   * Set upstream metadata fields: Repository, Repository-Browse
+   * Add Multi-Arch markings as suggested by the hinter
+   * Update symbols file with added symbols in 2.17
+   * Mark as not-installed files that the build system installs but which we
+     get through other means
+   * Drop dbgsym migration complete after buster
+Checksums-Sha1:
+ 6a8c295ece2d41360012ad66dc7c7c01b409268c 32312 libmpdclient-dev_2.17-1_armhf.deb
+ ef45a4850b7a95c2f9038c6e0bd22ce6c166af90 110660 libmpdclient2-dbgsym_2.17-1_armhf.deb
+ 9df973cda5882dc72dc14d3b65a3717a6147f3cd 36672 libmpdclient2_2.17-1_armhf.deb
+ 0bb1c3e571817e63bea32b094d440e8f87b3b7ac 6569 libmpdclient_2.17-1_armhf.buildinfo
+Checksums-Sha256:
+ 23a82b9e50b683d873c5b7b1781952bcdd54ad55925142e5054a71a56bf67976 32312 libmpdclient-dev_2.17-1_armhf.deb
+ 938adf023a08f9d45abd7b20ae1ff21335336167d8b3d13fd4a1f2739ed35900 110660 libmpdclient2-dbgsym_2.17-1_armhf.deb
+ d94f12c2d0a31d58df0dfaac993a137a6ec32ff3e6de80a41ff59e0d9adff58c 36672 libmpdclient2_2.17-1_armhf.deb
+ 05e37789a432e2293fca34cbdf83d9e2b0b4b8ee4d815eb31a2d67224300f529 6569 libmpdclient_2.17-1_armhf.buildinfo
+Files:
+ e716bf16402867ba3c6a54a048747ea5 32312 libdevel optional libmpdclient-dev_2.17-1_armhf.deb
+ f80b6e0266615789d3d94f3bba3b7f21 110660 debug optional libmpdclient2-dbgsym_2.17-1_armhf.deb
+ 32cd1e82314fc593e6f42987336379cc 36672 libs optional libmpdclient2_2.17-1_armhf.deb
+ c32257a5a1391af7c29028561673f2f0 6569 libs optional libmpdclient_2.17-1_armhf.buildinfo
+
++------------------------------------------------------------------------------+
+| Buildinfo                                                                    |
++------------------------------------------------------------------------------+
+
+Format: 1.0
+Source: libmpdclient
+Binary: libmpdclient-dev libmpdclient2 libmpdclient-doc
+Architecture: armhf
+Version: 2.17-1
+Checksums-Md5:
+ e716bf16402867ba3c6a54a048747ea5 32312 libmpdclient-dev_2.17-1_armhf.deb
+ f80b6e0266615789d3d94f3bba3b7f21 110660 libmpdclient2-dbgsym_2.17-1_armhf.deb
+ 32cd1e82314fc593e6f42987336379cc 36672 libmpdclient2_2.17-1_armhf.deb
+Checksums-Sha1:
+ 6a8c295ece2d41360012ad66dc7c7c01b409268c 32312 libmpdclient-dev_2.17-1_armhf.deb
+ ef45a4850b7a95c2f9038c6e0bd22ce6c166af90 110660 libmpdclient2-dbgsym_2.17-1_armhf.deb
+ 9df973cda5882dc72dc14d3b65a3717a6147f3cd 36672 libmpdclient2_2.17-1_armhf.deb
+Checksums-Sha256:
+ 23a82b9e50b683d873c5b7b1781952bcdd54ad55925142e5054a71a56bf67976 32312 libmpdclient-dev_2.17-1_armhf.deb
+ 938adf023a08f9d45abd7b20ae1ff21335336167d8b3d13fd4a1f2739ed35900 110660 libmpdclient2-dbgsym_2.17-1_armhf.deb
+ d94f12c2d0a31d58df0dfaac993a137a6ec32ff3e6de80a41ff59e0d9adff58c 36672 libmpdclient2_2.17-1_armhf.deb
+Build-Origin: Debian
+Build-Architecture: amd64
+Build-Date: Sat, 21 Dec 2019 11:05:59 +0000
+Build-Path: /<<PKGBUILDDIR>>
+Installed-Build-Depends:
+ autoconf (= 2.69-11),
+ automake (= 1:1.16.1-4),
+ autopoint (= 0.19.8.1-10),
+ autotools-dev (= 20180224.1),
+ base-files (= 11),
+ base-passwd (= 3.5.47),
+ bash (= 5.0-5),
+ binutils (= 2.33.1-6),
+ binutils-common (= 2.33.1-6),
+ binutils-x86-64-linux-gnu (= 2.33.1-6),
+ bsdmainutils (= 11.1.2+b1),
+ bsdutils (= 1:2.34-0.1),
+ build-essential (= 12.8),
+ bzip2 (= 1.0.8-2),
+ check (= 0.12.0-0.1),
+ cmake (= 3.15.4-1),
+ cmake-data (= 3.15.4-1),
+ coreutils (= 8.30-3+b1),
+ cpp (= 4:9.2.1-3.1),
+ cpp-9 (= 9.2.1-21),
+ dash (= 0.5.10.2-6),
+ debconf (= 1.5.73),
+ debhelper (= 12.7.2),
+ debianutils (= 4.9.1),
+ dh-autoreconf (= 19),
+ dh-strip-nondeterminism (= 1.6.3-1),
+ diffutils (= 1:3.7-3),
+ doxygen (= 1.8.16-1),
+ dpkg (= 1.19.7),
+ dpkg-dev (= 1.19.7),
+ dwz (= 0.13-5),
+ fdisk (= 2.34-0.1),
+ file (= 1:5.37-6),
+ findutils (= 4.7.0-1),
+ g++ (= 4:9.2.1-3.1),
+ g++-9 (= 9.2.1-21),
+ gcc (= 4:9.2.1-3.1),
+ gcc-9 (= 9.2.1-21),
+ gcc-9-base (= 9.2.1-21),
+ gettext (= 0.19.8.1-10),
+ gettext-base (= 0.19.8.1-10),
+ grep (= 3.3-1),
+ groff-base (= 1.22.4-3),
+ gzip (= 1.9-3+b1),
+ hostname (= 3.23),
+ init-system-helpers (= 1.57),
+ intltool-debian (= 0.35.0+20060710.5),
+ libacl1 (= 2.2.53-5),
+ libarchive-zip-perl (= 1.67-1),
+ libarchive13 (= 3.4.0-1+b1),
+ libasan5 (= 9.2.1-21),
+ libatomic1 (= 9.2.1-21),
+ libattr1 (= 1:2.4.48-5),
+ libaudit-common (= 1:2.8.5-2),
+ libaudit1 (= 1:2.8.5-2+b1),
+ libbinutils (= 2.33.1-6),
+ libblkid1 (= 2.34-0.1),
+ libbrotli1 (= 1.0.7-5+b1),
+ libbsd0 (= 0.10.0-1),
+ libbz2-1.0 (= 1.0.8-2),
+ libc-bin (= 2.29-6),
+ libc-dev-bin (= 2.29-6),
+ libc6 (= 2.29-6),
+ libc6-dev (= 2.29-6),
+ libcap-ng0 (= 0.7.9-2.1+b1),
+ libcc1-0 (= 9.2.1-21),
+ libclang1-9 (= 1:9.0.1-1),
+ libcom-err2 (= 1.45.4-1),
+ libcroco3 (= 0.6.13-1),
+ libcrypt1 (= 1:4.4.10-7),
+ libcrypt1-dev (= 1:4.4.10-7),
+ libcurl4 (= 7.67.0-2),
+ libdb5.3 (= 5.3.28+dfsg1-0.6),
+ libdebconfclient0 (= 0.250),
+ libdebhelper-perl (= 12.7.2),
+ libdpkg-perl (= 1.19.7),
+ libedit2 (= 3.1-20191025-1),
+ libelf1 (= 0.176-1.1),
+ libexpat1 (= 2.2.9-1),
+ libfdisk1 (= 2.34-0.1),
+ libffi6 (= 3.2.1-9),
+ libfile-stripnondeterminism-perl (= 1.6.3-1),
+ libgcc-9-dev (= 9.2.1-21),
+ libgcc1 (= 1:9.2.1-21),
+ libgcrypt20 (= 1.8.5-3),
+ libgdbm-compat4 (= 1.18.1-5),
+ libgdbm6 (= 1.18.1-5),
+ libglib2.0-0 (= 2.62.3-2),
+ libgmp10 (= 2:6.1.2+dfsg-4),
+ libgnutls30 (= 3.6.11.1-2),
+ libgomp1 (= 9.2.1-21),
+ libgpg-error0 (= 1.36-7),
+ libgssapi-krb5-2 (= 1.17-6),
+ libhogweed5 (= 3.5.1+really3.5.1-2),
+ libicu63 (= 63.2-2),
+ libidn2-0 (= 2.2.0-2),
+ libisl22 (= 0.22-2),
+ libitm1 (= 9.2.1-21),
+ libjsoncpp1 (= 1.7.4-3+b1),
+ libk5crypto3 (= 1.17-6),
+ libkeyutils1 (= 1.6-6),
+ libkrb5-3 (= 1.17-6),
+ libkrb5support0 (= 1.17-6),
+ libldap-2.4-2 (= 2.4.48+dfsg-1+b2),
+ libldap-common (= 2.4.48+dfsg-1),
+ libllvm9 (= 1:9.0.1-1),
+ liblsan0 (= 9.2.1-21),
+ liblz4-1 (= 1.9.2-2),
+ liblzma5 (= 5.2.4-1+b1),
+ libmagic-mgc (= 1:5.37-6),
+ libmagic1 (= 1:5.37-6),
+ libmount1 (= 2.34-0.1),
+ libmpc3 (= 1.1.0-1),
+ libmpdec2 (= 2.4.2-2),
+ libmpfr6 (= 4.0.2-1),
+ libncurses6 (= 6.1+20191019-1),
+ libncursesw6 (= 6.1+20191019-1),
+ libnettle7 (= 3.5.1+really3.5.1-2),
+ libnghttp2-14 (= 1.40.0-1),
+ libp11-kit0 (= 0.23.18.1-2),
+ libpam-modules (= 1.3.1-5),
+ libpam-modules-bin (= 1.3.1-5),
+ libpam-runtime (= 1.3.1-5),
+ libpam0g (= 1.3.1-5),
+ libpcre2-8-0 (= 10.34-7),
+ libpcre3 (= 2:8.39-12+b1),
+ libperl5.30 (= 5.30.0-9),
+ libpipeline1 (= 1.5.1-3),
+ libprocps7 (= 2:3.3.15-2+b1),
+ libpsl5 (= 0.20.2-2),
+ libpython3-stdlib (= 3.7.5-3),
+ libpython3.7-minimal (= 3.7.6-1),
+ libpython3.7-stdlib (= 3.7.6-1),
+ libquadmath0 (= 9.2.1-21),
+ libreadline8 (= 8.0-3),
+ librhash0 (= 1.3.8-1),
+ librtmp1 (= 2.4+20151223.gitfa8646d.1-2+b1),
+ libsasl2-2 (= 2.1.27+dfsg-1),
+ libsasl2-modules-db (= 2.1.27+dfsg-1),
+ libseccomp2 (= 2.4.2-2),
+ libselinux1 (= 3.0-1),
+ libsigsegv2 (= 2.12-2),
+ libsmartcols1 (= 2.34-0.1),
+ libsqlite3-0 (= 3.30.1-1),
+ libssh2-1 (= 1.8.0-2.1),
+ libssl1.1 (= 1.1.1d-2),
+ libstdc++-9-dev (= 9.2.1-21),
+ libstdc++6 (= 9.2.1-21),
+ libsub-override-perl (= 0.09-2),
+ libsubunit-dev (= 1.3.0-6),
+ libsubunit0 (= 1.3.0-6),
+ libsystemd0 (= 244-3),
+ libtasn1-6 (= 4.15.0-2),
+ libtinfo6 (= 6.1+20191019-1),
+ libtool (= 2.4.6-11),
+ libtsan0 (= 9.2.1-21),
+ libubsan1 (= 9.2.1-21),
+ libuchardet0 (= 0.0.6-3),
+ libudev1 (= 244-3),
+ libunistring2 (= 0.9.10-2),
+ libuuid1 (= 2.34-0.1),
+ libuv1 (= 1.33.1-2),
+ libxapian30 (= 1.4.12-1),
+ libxml2 (= 2.9.4+dfsg1-8),
+ libz3-4 (= 4.8.7-2),
+ libzstd1 (= 1.4.4+dfsg-1),
+ linux-libc-dev (= 5.3.15-1),
+ login (= 1:4.8-1),
+ lsb-base (= 11.1.0),
+ m4 (= 1.4.18-4),
+ make (= 4.2.1-1.2),
+ man-db (= 2.9.0-2),
+ mawk (= 1.3.3-17+b3),
+ meson (= 0.52.1-1),
+ mime-support (= 3.64),
+ ncurses-base (= 6.1+20191019-1),
+ ncurses-bin (= 6.1+20191019-1),
+ ninja-build (= 1.9.0-3),
+ patch (= 2.7.6-6),
+ perl (= 5.30.0-9),
+ perl-base (= 5.30.0-9),
+ perl-modules-5.30 (= 5.30.0-9),
+ pkg-config (= 0.29-6),
+ po-debconf (= 1.0.21),
+ procps (= 2:3.3.15-2+b1),
+ python3 (= 3.7.5-3),
+ python3-minimal (= 3.7.5-3),
+ python3.7 (= 3.7.6-1),
+ python3.7-minimal (= 3.7.6-1),
+ readline-common (= 8.0-3),
+ sed (= 4.7-1),
+ sensible-utils (= 0.0.12+nmu1),
+ sysvinit-utils (= 2.96-1),
+ tar (= 1.30+dfsg-6+b1),
+ util-linux (= 2.34-0.1),
+ xz-utils (= 5.2.4-1+b1),
+ zlib1g (= 1:1.2.11.dfsg-1+b1)
+Environment:
+ DEB_BUILD_OPTIONS="nocheck parallel=16"
+ DEB_BUILD_PROFILES="cross nocheck"
+ LANG="en_US.UTF-8"
+ LC_ALL="C.UTF-8"
+ LD_LIBRARY_PATH="/usr/lib/libeatmydata"
+ MAKEFLAGS=" -j16"
+ SOURCE_DATE_EPOCH="1575641525"
+
+
++------------------------------------------------------------------------------+
+| Package contents                                                             |
++------------------------------------------------------------------------------+
+
+
+libmpdclient-dev_2.17-1_armhf.deb
+---------------------------------
+
+ new Debian package, version 2.0.
+ size 32312 bytes: control archive=1888 bytes.
+     693 bytes,    18 lines      control              
+    2738 bytes,    44 lines      md5sums              
+ Package: libmpdclient-dev
+ Source: libmpdclient
+ Version: 2.17-1
+ Architecture: armhf
+ Maintainer: mpd maintainers <pkg-mpd-maintainers@lists.alioth.debian.org>
+ Installed-Size: 258
+ Depends: libmpdclient2 (= 2.17-1)
+ Section: libdevel
+ Priority: optional
+ Multi-Arch: same
+ Homepage: https://www.musicpd.org/libs/libmpdclient/
+ Description: client library for the Music Player Daemon (development files)
+  libmpdclient provides an API for interfacing the Music Player Daemon (MPD). It
+  offers a low-level asynchronous API which knowns the MPD protocol syntax as
+  well as a higher level synchronous API implementing the MPD commands and
+  parsing all responses.
+  .
+  This package contains the header files.
+
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/include/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/include/mpd/
+-rw-r--r-- root/root      7032 2019-12-04 15:37 ./usr/include/mpd/async.h
+-rw-r--r-- root/root      2894 2019-12-04 15:37 ./usr/include/mpd/audio_format.h
+-rw-r--r-- root/root      6308 2019-12-04 15:37 ./usr/include/mpd/capabilities.h
+-rw-r--r-- root/root      2634 2019-12-04 15:37 ./usr/include/mpd/client.h
+-rw-r--r-- root/root      2149 2019-12-04 15:37 ./usr/include/mpd/compiler.h
+-rw-r--r-- root/root      9610 2019-12-04 15:37 ./usr/include/mpd/connection.h
+-rw-r--r-- root/root      5792 2019-12-04 15:37 ./usr/include/mpd/database.h
+-rw-r--r-- root/root      3782 2019-12-04 15:37 ./usr/include/mpd/directory.h
+-rw-r--r-- root/root      4630 2019-12-04 15:37 ./usr/include/mpd/entity.h
+-rw-r--r-- root/root      2307 2019-12-04 15:37 ./usr/include/mpd/error.h
+-rw-r--r-- root/root      3443 2019-12-04 15:37 ./usr/include/mpd/fingerprint.h
+-rw-r--r-- root/root      6319 2019-12-04 15:37 ./usr/include/mpd/idle.h
+-rw-r--r-- root/root      2773 2019-12-04 15:37 ./usr/include/mpd/list.h
+-rw-r--r-- root/root      6079 2019-12-04 15:37 ./usr/include/mpd/message.h
+-rw-r--r-- root/root      3014 2019-12-04 15:37 ./usr/include/mpd/mixer.h
+-rw-r--r-- root/root      4999 2019-12-04 15:37 ./usr/include/mpd/mount.h
+-rw-r--r-- root/root      3890 2019-12-04 15:37 ./usr/include/mpd/neighbor.h
+-rw-r--r-- root/root      7851 2019-12-04 15:37 ./usr/include/mpd/output.h
+-rw-r--r-- root/root      1776 2019-12-04 15:37 ./usr/include/mpd/pair.h
+-rw-r--r-- root/root      5023 2019-12-04 15:37 ./usr/include/mpd/parser.h
+-rw-r--r-- root/root      4554 2019-12-04 15:37 ./usr/include/mpd/partition.h
+-rw-r--r-- root/root      2064 2019-12-04 15:37 ./usr/include/mpd/password.h
+-rw-r--r-- root/root     15843 2019-12-04 15:37 ./usr/include/mpd/player.h
+-rw-r--r-- root/root      6976 2019-12-04 15:37 ./usr/include/mpd/playlist.h
+-rw-r--r-- root/root      2061 2019-12-04 15:37 ./usr/include/mpd/protocol.h
+-rw-r--r-- root/root     18751 2019-12-04 15:37 ./usr/include/mpd/queue.h
+-rw-r--r-- root/root      3120 2019-12-04 15:37 ./usr/include/mpd/recv.h
+-rw-r--r-- root/root      2357 2019-12-04 15:37 ./usr/include/mpd/response.h
+-rw-r--r-- root/root      9660 2019-12-04 15:37 ./usr/include/mpd/search.h
+-rw-r--r-- root/root      2066 2019-12-04 15:37 ./usr/include/mpd/send.h
+-rw-r--r-- root/root      3795 2019-12-04 15:37 ./usr/include/mpd/settings.h
+-rw-r--r-- root/root      1770 2019-12-04 15:37 ./usr/include/mpd/socket.h
+-rw-r--r-- root/root      6130 2019-12-04 15:37 ./usr/include/mpd/song.h
+-rw-r--r-- root/root      4267 2019-12-04 15:37 ./usr/include/mpd/stats.h
+-rw-r--r-- root/root      7180 2019-12-04 15:37 ./usr/include/mpd/status.h
+-rw-r--r-- root/root      5918 2019-12-04 15:37 ./usr/include/mpd/sticker.h
+-rw-r--r-- root/root      3454 2019-12-04 15:37 ./usr/include/mpd/tag.h
+-rw-r--r-- root/root      2272 2019-12-06 14:12 ./usr/include/mpd/version.h
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/lib/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/lib/arm-linux-gnueabihf/
+lrwxrwxrwx root/root         0 2019-12-06 14:12 ./usr/lib/arm-linux-gnueabihf/libmpdclient.so -> libmpdclient.so.2
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/lib/arm-linux-gnueabihf/pkgconfig/
+-rw-r--r-- root/root       218 2019-12-06 14:12 ./usr/lib/arm-linux-gnueabihf/pkgconfig/libmpdclient.pc
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/share/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/share/doc/libmpdclient-dev/
+-rw-r--r-- root/root       518 2019-12-04 15:37 ./usr/share/doc/libmpdclient-dev/AUTHORS
+-rw-r--r-- root/root      1629 2019-12-06 14:12 ./usr/share/doc/libmpdclient-dev/changelog.Debian.gz
+-rw-r--r-- root/root      2040 2019-12-04 15:37 ./usr/share/doc/libmpdclient-dev/changelog.gz
+-rw-r--r-- root/root      3335 2019-12-06 14:06 ./usr/share/doc/libmpdclient-dev/copyright
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/share/vala/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/share/vala/vapi/
+-rw-r--r-- root/root     25357 2019-12-04 15:37 ./usr/share/vala/vapi/libmpdclient.vapi
+
+
+libmpdclient2-dbgsym_2.17-1_armhf.deb
+-------------------------------------
+
+ new Debian package, version 2.0.
+ size 110660 bytes: control archive=540 bytes.
+     397 bytes,    13 lines      control              
+     106 bytes,     1 lines      md5sums              
+ Package: libmpdclient2-dbgsym
+ Source: libmpdclient
+ Version: 2.17-1
+ Auto-Built-Package: debug-symbols
+ Architecture: armhf
+ Maintainer: mpd maintainers <pkg-mpd-maintainers@lists.alioth.debian.org>
+ Installed-Size: 149
+ Depends: libmpdclient2 (= 2.17-1)
+ Section: debug
+ Priority: optional
+ Multi-Arch: same
+ Description: debug symbols for libmpdclient2
+ Build-Ids: 2476987a78a2ae3b74c0f0ea41ccf57fb7a44e29
+
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/lib/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/lib/debug/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/lib/debug/.build-id/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/lib/debug/.build-id/24/
+-rw-r--r-- root/root    142104 2019-12-06 14:12 ./usr/lib/debug/.build-id/24/76987a78a2ae3b74c0f0ea41ccf57fb7a44e29.debug
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/share/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/share/doc/
+lrwxrwxrwx root/root         0 2019-12-06 14:12 ./usr/share/doc/libmpdclient2-dbgsym -> libmpdclient2
+
+
+libmpdclient2_2.17-1_armhf.deb
+------------------------------
+
+ new Debian package, version 2.0.
+ size 36672 bytes: control archive=2908 bytes.
+     659 bytes,    18 lines      control              
+     382 bytes,     5 lines      md5sums              
+      39 bytes,     1 lines      shlibs               
+   15198 bytes,   382 lines      symbols              
+      67 bytes,     2 lines      triggers             
+ Package: libmpdclient2
+ Source: libmpdclient
+ Version: 2.17-1
+ Architecture: armhf
+ Maintainer: mpd maintainers <pkg-mpd-maintainers@lists.alioth.debian.org>
+ Installed-Size: 105
+ Depends: libc6 (>= 2.28)
+ Section: libs
+ Priority: optional
+ Multi-Arch: same
+ Homepage: https://www.musicpd.org/libs/libmpdclient/
+ Description: client library for the Music Player Daemon
+  libmpdclient provides an API for interfacing the Music Player Daemon (MPD). It
+  offers a low-level asynchronous API which knowns the MPD protocol syntax as
+  well as a higher level synchronous API implementing the MPD commands and
+  parsing all responses.
+  .
+  This package contains the shared library.
+
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/lib/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/lib/arm-linux-gnueabihf/
+lrwxrwxrwx root/root         0 2019-12-06 14:12 ./usr/lib/arm-linux-gnueabihf/libmpdclient.so.2 -> libmpdclient.so.2.17
+-rw-r--r-- root/root     71028 2019-12-06 14:12 ./usr/lib/arm-linux-gnueabihf/libmpdclient.so.2.17
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/share/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/share/doc/
+drwxr-xr-x root/root         0 2019-12-06 14:12 ./usr/share/doc/libmpdclient2/
+-rw-r--r-- root/root       518 2019-12-04 15:37 ./usr/share/doc/libmpdclient2/AUTHORS
+-rw-r--r-- root/root      1629 2019-12-06 14:12 ./usr/share/doc/libmpdclient2/changelog.Debian.gz
+-rw-r--r-- root/root      2040 2019-12-04 15:37 ./usr/share/doc/libmpdclient2/changelog.gz
+-rw-r--r-- root/root      3335 2019-12-06 14:06 ./usr/share/doc/libmpdclient2/copyright
+
+
+lintian
+-------
+
+
+Setup apt archive
+-----------------
+
+Merged Build-Depends: lintian:amd64
+Filtered Build-Depends: lintian:amd64
+dpkg-deb: building package 'sbuild-build-depends-lintian-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-lintian-dummy.deb'.
+Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
+Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [564 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [650 B]
+Fetched 2177 B in 0s (180 kB/s)
+Reading package lists...
+Reading package lists...
+
+Install lintian build dependencies (apt-based resolver)
+-------------------------------------------------------
+
+Installing build dependencies
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+The following additional packages will be installed:
+  diffstat libapt-pkg-perl libb-hooks-endofscope-perl libb-hooks-op-check-perl
+  libberkeleydb-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclass-method-modifiers-perl
+  libclass-xsaccessor-perl libclone-perl libdevel-callchecker-perl
+  libdigest-hmac-perl libdynaloader-functions-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfile-find-rule-perl
+  libfont-ttf-perl libfuture-perl libhtml-parser-perl libhtml-tagset-perl
+  libimport-into-perl libio-async-loop-epoll-perl libio-async-perl
+  libio-pty-perl libio-socket-ssl-perl libipc-run-perl
+  libipc-system-simple-perl liblinux-epoll-perl liblist-compare-perl
+  liblist-moreutils-perl libmailtools-perl libmldbm-perl
+  libmodule-implementation-perl libmodule-runtime-perl libmoo-perl
+  libmoox-aliases-perl libnamespace-clean-perl libnet-dns-perl
+  libnet-domain-tld-perl libnet-ip-perl libnet-smtp-ssl-perl
+  libnet-ssleay-perl libnumber-compare-perl libpackage-stash-perl
+  libparams-classify-perl libpath-tiny-perl librole-tiny-perl
+  libstrictures-perl libstruct-dumb-perl libsub-exporter-progressive-perl
+  libsub-identify-perl libsub-name-perl libsub-quote-perl libtext-glob-perl
+  libtext-levenshtein-perl libtimedate-perl libtry-tiny-perl libtype-tiny-perl
+  liburi-perl libvariable-magic-perl libyaml-0-2 libyaml-libyaml-perl lintian
+  netbase patchutils perl-openssl-defaults t1utils
+Suggested packages:
+  libxml-parser-perl libdata-dump-perl ca-certificates libscalar-number-perl
+  libbareword-filehandles-perl libindirect-perl libmultidimensional-perl
+  libdevel-lexalias-perl libdevel-stacktrace-perl libwww-perl
+  binutils-multiarch libtext-template-perl
+Recommended packages:
+  libcgi-fast-perl libhttp-message-perl libasync-mergepoint-perl
+  libsereal-perl libtest-fatal-perl libtest-refcount-perl libfreezethaw-perl
+  libdigest-bubblebabble-perl libnet-dns-sec-perl libnet-libidn-perl
+  libperl4-corelibs-perl libauthen-sasl-perl libpackage-stash-xs-perl
+  libunicode-utf8-perl libref-util-perl libtype-tiny-xs-perl
+  libperlio-gzip-perl
+The following NEW packages will be installed:
+  diffstat libapt-pkg-perl libb-hooks-endofscope-perl libb-hooks-op-check-perl
+  libberkeleydb-perl libcapture-tiny-perl libcgi-pm-perl
+  libclass-accessor-perl libclass-method-modifiers-perl
+  libclass-xsaccessor-perl libclone-perl libdevel-callchecker-perl
+  libdigest-hmac-perl libdynaloader-functions-perl libemail-valid-perl
+  libexporter-tiny-perl libfile-basedir-perl libfile-find-rule-perl
+  libfont-ttf-perl libfuture-perl libhtml-parser-perl libhtml-tagset-perl
+  libimport-into-perl libio-async-loop-epoll-perl libio-async-perl
+  libio-pty-perl libio-socket-ssl-perl libipc-run-perl
+  libipc-system-simple-perl liblinux-epoll-perl liblist-compare-perl
+  liblist-moreutils-perl libmailtools-perl libmldbm-perl
+  libmodule-implementation-perl libmodule-runtime-perl libmoo-perl
+  libmoox-aliases-perl libnamespace-clean-perl libnet-dns-perl
+  libnet-domain-tld-perl libnet-ip-perl libnet-smtp-ssl-perl
+  libnet-ssleay-perl libnumber-compare-perl libpackage-stash-perl
+  libparams-classify-perl libpath-tiny-perl librole-tiny-perl
+  libstrictures-perl libstruct-dumb-perl libsub-exporter-progressive-perl
+  libsub-identify-perl libsub-name-perl libsub-quote-perl libtext-glob-perl
+  libtext-levenshtein-perl libtimedate-perl libtry-tiny-perl libtype-tiny-perl
+  liburi-perl libvariable-magic-perl libyaml-0-2 libyaml-libyaml-perl lintian
+  netbase patchutils perl-openssl-defaults
+  sbuild-build-depends-lintian-dummy:armhf t1utils
+0 upgraded, 70 newly installed, 0 to remove and 0 not upgraded.
+Need to get 5264 kB/5410 kB of archives.
+After this operation, 17.9 MB of additional disk space will be used.
+Get:1 copy:/<<RESOLVERDIR>>/apt_archive ./ sbuild-build-depends-lintian-dummy 0.invalid.0 [844 B]
+Get:2 http://deb.debian.org/debian unstable/main amd64 libapt-pkg-perl amd64 0.1.36+b2 [71.3 kB]
+Get:3 http://deb.debian.org/debian unstable/main amd64 libb-hooks-op-check-perl amd64 0.22-1+b2 [11.3 kB]
+Get:4 http://deb.debian.org/debian unstable/main amd64 libdynaloader-functions-perl all 0.003-1 [12.6 kB]
+Get:5 http://deb.debian.org/debian unstable/main amd64 libdevel-callchecker-perl amd64 0.008-1+b1 [15.9 kB]
+Get:6 http://deb.debian.org/debian unstable/main amd64 libparams-classify-perl amd64 0.015-1+b2 [25.6 kB]
+Get:7 http://deb.debian.org/debian unstable/main amd64 libmodule-runtime-perl all 0.016-1 [19.4 kB]
+Get:8 http://deb.debian.org/debian unstable/main amd64 libtry-tiny-perl all 0.30-1 [23.3 kB]
+Get:9 http://deb.debian.org/debian unstable/main amd64 libmodule-implementation-perl all 0.09-1 [12.9 kB]
+Get:10 http://deb.debian.org/debian unstable/main amd64 libsub-exporter-progressive-perl all 0.001013-1 [7588 B]
+Get:11 http://deb.debian.org/debian unstable/main amd64 libvariable-magic-perl amd64 0.62-1+b2 [46.0 kB]
+Get:12 http://deb.debian.org/debian unstable/main amd64 libb-hooks-endofscope-perl all 0.24-1 [18.6 kB]
+Get:13 http://deb.debian.org/debian unstable/main amd64 libberkeleydb-perl amd64 0.62-1+b1 [124 kB]
+Get:14 http://deb.debian.org/debian unstable/main amd64 libcapture-tiny-perl all 0.48-1 [26.0 kB]
+Get:15 http://deb.debian.org/debian unstable/main amd64 libhtml-tagset-perl all 3.20-4 [13.0 kB]
+Get:16 http://deb.debian.org/debian unstable/main amd64 liburi-perl all 1.76-1 [89.9 kB]
+Get:17 http://deb.debian.org/debian unstable/main amd64 libhtml-parser-perl amd64 3.72-3+b4 [105 kB]
+Get:18 http://deb.debian.org/debian unstable/main amd64 libcgi-pm-perl all 4.44-1 [223 kB]
+Get:19 http://deb.debian.org/debian unstable/main amd64 libsub-name-perl amd64 0.26-1 [13.5 kB]
+Get:20 http://deb.debian.org/debian unstable/main amd64 libclass-accessor-perl all 0.51-1 [23.2 kB]
+Get:21 http://deb.debian.org/debian unstable/main amd64 libclass-method-modifiers-perl all 2.13-1 [19.2 kB]
+Get:22 http://deb.debian.org/debian unstable/main amd64 libclass-xsaccessor-perl amd64 1.19-3+b3 [38.4 kB]
+Get:23 http://deb.debian.org/debian unstable/main amd64 libclone-perl amd64 0.43-2 [15.0 kB]
+Get:24 http://deb.debian.org/debian unstable/main amd64 libdigest-hmac-perl all 1.03+dfsg-2 [10.6 kB]
+Get:25 http://deb.debian.org/debian unstable/main amd64 perl-openssl-defaults amd64 3 [6782 B]
+Get:26 http://deb.debian.org/debian unstable/main amd64 libnet-ssleay-perl amd64 1.88-2 [321 kB]
+Get:27 http://deb.debian.org/debian unstable/main amd64 libio-socket-ssl-perl all 2.066-1 [210 kB]
+Get:28 http://deb.debian.org/debian unstable/main amd64 libnet-smtp-ssl-perl all 1.04-1 [6184 B]
+Get:29 http://deb.debian.org/debian unstable/main amd64 libtimedate-perl all 2.3000-2 [42.2 kB]
+Get:30 http://deb.debian.org/debian unstable/main amd64 libmailtools-perl all 2.21-1 [95.5 kB]
+Get:31 http://deb.debian.org/debian unstable/main amd64 libnet-ip-perl all 1.26-2 [29.0 kB]
+Get:32 http://deb.debian.org/debian unstable/main amd64 libnet-dns-perl all 1.21-1 [368 kB]
+Get:33 http://deb.debian.org/debian unstable/main amd64 libnet-domain-tld-perl all 1.75-1 [33.3 kB]
+Get:34 http://deb.debian.org/debian unstable/main amd64 libemail-valid-perl all 1.202-1 [23.0 kB]
+Get:35 http://deb.debian.org/debian unstable/main amd64 libexporter-tiny-perl all 1.002001-1 [36.9 kB]
+Get:36 http://deb.debian.org/debian unstable/main amd64 libipc-system-simple-perl all 1.25-5 [26.7 kB]
+Get:37 http://deb.debian.org/debian unstable/main amd64 libfile-basedir-perl all 0.08-1 [17.7 kB]
+Get:38 http://deb.debian.org/debian unstable/main amd64 libnumber-compare-perl all 0.03-1 [7642 B]
+Get:39 http://deb.debian.org/debian unstable/main amd64 libtext-glob-perl all 0.10-1 [8362 B]
+Get:40 http://deb.debian.org/debian unstable/main amd64 libfile-find-rule-perl all 0.34-1 [30.6 kB]
+Get:41 http://deb.debian.org/debian unstable/main amd64 libfont-ttf-perl all 1.06-1 [317 kB]
+Get:42 http://deb.debian.org/debian unstable/main amd64 libfuture-perl all 0.42-1 [82.6 kB]
+Get:43 http://deb.debian.org/debian unstable/main amd64 libimport-into-perl all 1.002005-1 [11.6 kB]
+Get:44 http://deb.debian.org/debian unstable/main amd64 libstruct-dumb-perl all 0.09-1 [11.1 kB]
+Get:45 http://deb.debian.org/debian unstable/main amd64 libio-async-perl all 0.75-1 [269 kB]
+Get:46 http://deb.debian.org/debian unstable/main amd64 liblinux-epoll-perl amd64 0.017-1 [16.8 kB]
+Get:47 http://deb.debian.org/debian unstable/main amd64 libio-async-loop-epoll-perl all 0.20-1 [11.9 kB]
+Get:48 http://deb.debian.org/debian unstable/main amd64 libio-pty-perl amd64 1:1.12-1 [36.3 kB]
+Get:49 http://deb.debian.org/debian unstable/main amd64 libipc-run-perl all 20180523.0-2 [101 kB]
+Get:50 http://deb.debian.org/debian unstable/main amd64 liblist-compare-perl all 0.53-1 [68.9 kB]
+Get:51 http://deb.debian.org/debian unstable/main amd64 liblist-moreutils-perl amd64 0.416-1+b5 [63.6 kB]
+Get:52 http://deb.debian.org/debian unstable/main amd64 libmldbm-perl all 2.05-2 [18.4 kB]
+Get:53 http://deb.debian.org/debian unstable/main amd64 librole-tiny-perl all 2.001004-1 [20.8 kB]
+Get:54 http://deb.debian.org/debian unstable/main amd64 libstrictures-perl all 2.000006-1 [18.6 kB]
+Get:55 http://deb.debian.org/debian unstable/main amd64 libsub-quote-perl all 2.006006-1 [21.0 kB]
+Get:56 http://deb.debian.org/debian unstable/main amd64 libmoo-perl all 2.003006-1 [58.7 kB]
+Get:57 http://deb.debian.org/debian unstable/main amd64 libmoox-aliases-perl all 0.001006-1 [10.2 kB]
+Get:58 http://deb.debian.org/debian unstable/main amd64 libpackage-stash-perl all 0.38-1 [21.7 kB]
+Get:59 http://deb.debian.org/debian unstable/main amd64 libsub-identify-perl amd64 0.14-1+b2 [12.0 kB]
+Get:60 http://deb.debian.org/debian unstable/main amd64 libnamespace-clean-perl all 0.27-1 [17.3 kB]
+Get:61 http://deb.debian.org/debian unstable/main amd64 libpath-tiny-perl all 0.108-1 [53.3 kB]
+Get:62 http://deb.debian.org/debian unstable/main amd64 libtext-levenshtein-perl all 0.13-1 [11.1 kB]
+Get:63 http://deb.debian.org/debian unstable/main amd64 libtype-tiny-perl all 1.008000-1 [332 kB]
+Get:64 http://deb.debian.org/debian unstable/main amd64 libyaml-0-2 amd64 0.2.2-1 [49.6 kB]
+Get:65 http://deb.debian.org/debian unstable/main amd64 libyaml-libyaml-perl amd64 0.80+repack-2+b1 [34.8 kB]
+Get:66 http://deb.debian.org/debian unstable/main amd64 t1utils amd64 1.41-3 [62.3 kB]
+Get:67 http://deb.debian.org/debian unstable/main amd64 lintian all 2.42.0 [1304 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 5264 kB in 1s (4302 kB/s)
+Selecting previously unselected package netbase.
+(Reading database ... 34327 files and directories currently installed.)
+Preparing to unpack .../00-netbase_5.8_all.deb ...
+Unpacking netbase (5.8) ...
+Selecting previously unselected package diffstat.
+Preparing to unpack .../01-diffstat_1.63-1_amd64.deb ...
+Unpacking diffstat (1.63-1) ...
+Selecting previously unselected package libapt-pkg-perl.
+Preparing to unpack .../02-libapt-pkg-perl_0.1.36+b2_amd64.deb ...
+Unpacking libapt-pkg-perl (0.1.36+b2) ...
+Selecting previously unselected package libb-hooks-op-check-perl.
+Preparing to unpack .../03-libb-hooks-op-check-perl_0.22-1+b2_amd64.deb ...
+Unpacking libb-hooks-op-check-perl (0.22-1+b2) ...
+Selecting previously unselected package libdynaloader-functions-perl.
+Preparing to unpack .../04-libdynaloader-functions-perl_0.003-1_all.deb ...
+Unpacking libdynaloader-functions-perl (0.003-1) ...
+Selecting previously unselected package libdevel-callchecker-perl.
+Preparing to unpack .../05-libdevel-callchecker-perl_0.008-1+b1_amd64.deb ...
+Unpacking libdevel-callchecker-perl (0.008-1+b1) ...
+Selecting previously unselected package libparams-classify-perl.
+Preparing to unpack .../06-libparams-classify-perl_0.015-1+b2_amd64.deb ...
+Unpacking libparams-classify-perl (0.015-1+b2) ...
+Selecting previously unselected package libmodule-runtime-perl.
+Preparing to unpack .../07-libmodule-runtime-perl_0.016-1_all.deb ...
+Unpacking libmodule-runtime-perl (0.016-1) ...
+Selecting previously unselected package libtry-tiny-perl.
+Preparing to unpack .../08-libtry-tiny-perl_0.30-1_all.deb ...
+Unpacking libtry-tiny-perl (0.30-1) ...
+Selecting previously unselected package libmodule-implementation-perl.
+Preparing to unpack .../09-libmodule-implementation-perl_0.09-1_all.deb ...
+Unpacking libmodule-implementation-perl (0.09-1) ...
+Selecting previously unselected package libsub-exporter-progressive-perl.
+Preparing to unpack .../10-libsub-exporter-progressive-perl_0.001013-1_all.deb ...
+Unpacking libsub-exporter-progressive-perl (0.001013-1) ...
+Selecting previously unselected package libvariable-magic-perl.
+Preparing to unpack .../11-libvariable-magic-perl_0.62-1+b2_amd64.deb ...
+Unpacking libvariable-magic-perl (0.62-1+b2) ...
+Selecting previously unselected package libb-hooks-endofscope-perl.
+Preparing to unpack .../12-libb-hooks-endofscope-perl_0.24-1_all.deb ...
+Unpacking libb-hooks-endofscope-perl (0.24-1) ...
+Selecting previously unselected package libberkeleydb-perl:amd64.
+Preparing to unpack .../13-libberkeleydb-perl_0.62-1+b1_amd64.deb ...
+Unpacking libberkeleydb-perl:amd64 (0.62-1+b1) ...
+Selecting previously unselected package libcapture-tiny-perl.
+Preparing to unpack .../14-libcapture-tiny-perl_0.48-1_all.deb ...
+Unpacking libcapture-tiny-perl (0.48-1) ...
+Selecting previously unselected package libhtml-tagset-perl.
+Preparing to unpack .../15-libhtml-tagset-perl_3.20-4_all.deb ...
+Unpacking libhtml-tagset-perl (3.20-4) ...
+Selecting previously unselected package liburi-perl.
+Preparing to unpack .../16-liburi-perl_1.76-1_all.deb ...
+Unpacking liburi-perl (1.76-1) ...
+Selecting previously unselected package libhtml-parser-perl.
+Preparing to unpack .../17-libhtml-parser-perl_3.72-3+b4_amd64.deb ...
+Unpacking libhtml-parser-perl (3.72-3+b4) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../18-libcgi-pm-perl_4.44-1_all.deb ...
+Unpacking libcgi-pm-perl (4.44-1) ...
+Selecting previously unselected package libsub-name-perl.
+Preparing to unpack .../19-libsub-name-perl_0.26-1_amd64.deb ...
+Unpacking libsub-name-perl (0.26-1) ...
+Selecting previously unselected package libclass-accessor-perl.
+Preparing to unpack .../20-libclass-accessor-perl_0.51-1_all.deb ...
+Unpacking libclass-accessor-perl (0.51-1) ...
+Selecting previously unselected package libclass-method-modifiers-perl.
+Preparing to unpack .../21-libclass-method-modifiers-perl_2.13-1_all.deb ...
+Unpacking libclass-method-modifiers-perl (2.13-1) ...
+Selecting previously unselected package libclass-xsaccessor-perl.
+Preparing to unpack .../22-libclass-xsaccessor-perl_1.19-3+b3_amd64.deb ...
+Unpacking libclass-xsaccessor-perl (1.19-3+b3) ...
+Selecting previously unselected package libclone-perl.
+Preparing to unpack .../23-libclone-perl_0.43-2_amd64.deb ...
+Unpacking libclone-perl (0.43-2) ...
+Selecting previously unselected package libdigest-hmac-perl.
+Preparing to unpack .../24-libdigest-hmac-perl_1.03+dfsg-2_all.deb ...
+Unpacking libdigest-hmac-perl (1.03+dfsg-2) ...
+Selecting previously unselected package perl-openssl-defaults:amd64.
+Preparing to unpack .../25-perl-openssl-defaults_3_amd64.deb ...
+Unpacking perl-openssl-defaults:amd64 (3) ...
+Selecting previously unselected package libnet-ssleay-perl.
+Preparing to unpack .../26-libnet-ssleay-perl_1.88-2_amd64.deb ...
+Unpacking libnet-ssleay-perl (1.88-2) ...
+Selecting previously unselected package libio-socket-ssl-perl.
+Preparing to unpack .../27-libio-socket-ssl-perl_2.066-1_all.deb ...
+Unpacking libio-socket-ssl-perl (2.066-1) ...
+Selecting previously unselected package libnet-smtp-ssl-perl.
+Preparing to unpack .../28-libnet-smtp-ssl-perl_1.04-1_all.deb ...
+Unpacking libnet-smtp-ssl-perl (1.04-1) ...
+Selecting previously unselected package libtimedate-perl.
+Preparing to unpack .../29-libtimedate-perl_2.3000-2_all.deb ...
+Unpacking libtimedate-perl (2.3000-2) ...
+Selecting previously unselected package libmailtools-perl.
+Preparing to unpack .../30-libmailtools-perl_2.21-1_all.deb ...
+Unpacking libmailtools-perl (2.21-1) ...
+Selecting previously unselected package libnet-ip-perl.
+Preparing to unpack .../31-libnet-ip-perl_1.26-2_all.deb ...
+Unpacking libnet-ip-perl (1.26-2) ...
+Selecting previously unselected package libnet-dns-perl.
+Preparing to unpack .../32-libnet-dns-perl_1.21-1_all.deb ...
+Unpacking libnet-dns-perl (1.21-1) ...
+Selecting previously unselected package libnet-domain-tld-perl.
+Preparing to unpack .../33-libnet-domain-tld-perl_1.75-1_all.deb ...
+Unpacking libnet-domain-tld-perl (1.75-1) ...
+Selecting previously unselected package libemail-valid-perl.
+Preparing to unpack .../34-libemail-valid-perl_1.202-1_all.deb ...
+Unpacking libemail-valid-perl (1.202-1) ...
+Selecting previously unselected package libexporter-tiny-perl.
+Preparing to unpack .../35-libexporter-tiny-perl_1.002001-1_all.deb ...
+Unpacking libexporter-tiny-perl (1.002001-1) ...
+Selecting previously unselected package libipc-system-simple-perl.
+Preparing to unpack .../36-libipc-system-simple-perl_1.25-5_all.deb ...
+Unpacking libipc-system-simple-perl (1.25-5) ...
+Selecting previously unselected package libfile-basedir-perl.
+Preparing to unpack .../37-libfile-basedir-perl_0.08-1_all.deb ...
+Unpacking libfile-basedir-perl (0.08-1) ...
+Selecting previously unselected package libnumber-compare-perl.
+Preparing to unpack .../38-libnumber-compare-perl_0.03-1_all.deb ...
+Unpacking libnumber-compare-perl (0.03-1) ...
+Selecting previously unselected package libtext-glob-perl.
+Preparing to unpack .../39-libtext-glob-perl_0.10-1_all.deb ...
+Unpacking libtext-glob-perl (0.10-1) ...
+Selecting previously unselected package libfile-find-rule-perl.
+Preparing to unpack .../40-libfile-find-rule-perl_0.34-1_all.deb ...
+Unpacking libfile-find-rule-perl (0.34-1) ...
+Selecting previously unselected package libfont-ttf-perl.
+Preparing to unpack .../41-libfont-ttf-perl_1.06-1_all.deb ...
+Unpacking libfont-ttf-perl (1.06-1) ...
+Selecting previously unselected package libfuture-perl.
+Preparing to unpack .../42-libfuture-perl_0.42-1_all.deb ...
+Unpacking libfuture-perl (0.42-1) ...
+Selecting previously unselected package libimport-into-perl.
+Preparing to unpack .../43-libimport-into-perl_1.002005-1_all.deb ...
+Unpacking libimport-into-perl (1.002005-1) ...
+Selecting previously unselected package libstruct-dumb-perl.
+Preparing to unpack .../44-libstruct-dumb-perl_0.09-1_all.deb ...
+Unpacking libstruct-dumb-perl (0.09-1) ...
+Selecting previously unselected package libio-async-perl.
+Preparing to unpack .../45-libio-async-perl_0.75-1_all.deb ...
+Unpacking libio-async-perl (0.75-1) ...
+Selecting previously unselected package liblinux-epoll-perl.
+Preparing to unpack .../46-liblinux-epoll-perl_0.017-1_amd64.deb ...
+Unpacking liblinux-epoll-perl (0.017-1) ...
+Selecting previously unselected package libio-async-loop-epoll-perl.
+Preparing to unpack .../47-libio-async-loop-epoll-perl_0.20-1_all.deb ...
+Unpacking libio-async-loop-epoll-perl (0.20-1) ...
+Selecting previously unselected package libio-pty-perl.
+Preparing to unpack .../48-libio-pty-perl_1%3a1.12-1_amd64.deb ...
+Unpacking libio-pty-perl (1:1.12-1) ...
+Selecting previously unselected package libipc-run-perl.
+Preparing to unpack .../49-libipc-run-perl_20180523.0-2_all.deb ...
+Unpacking libipc-run-perl (20180523.0-2) ...
+Selecting previously unselected package liblist-compare-perl.
+Preparing to unpack .../50-liblist-compare-perl_0.53-1_all.deb ...
+Unpacking liblist-compare-perl (0.53-1) ...
+Selecting previously unselected package liblist-moreutils-perl.
+Preparing to unpack .../51-liblist-moreutils-perl_0.416-1+b5_amd64.deb ...
+Unpacking liblist-moreutils-perl (0.416-1+b5) ...
+Selecting previously unselected package libmldbm-perl.
+Preparing to unpack .../52-libmldbm-perl_2.05-2_all.deb ...
+Unpacking libmldbm-perl (2.05-2) ...
+Selecting previously unselected package librole-tiny-perl.
+Preparing to unpack .../53-librole-tiny-perl_2.001004-1_all.deb ...
+Unpacking librole-tiny-perl (2.001004-1) ...
+Selecting previously unselected package libstrictures-perl.
+Preparing to unpack .../54-libstrictures-perl_2.000006-1_all.deb ...
+Unpacking libstrictures-perl (2.000006-1) ...
+Selecting previously unselected package libsub-quote-perl.
+Preparing to unpack .../55-libsub-quote-perl_2.006006-1_all.deb ...
+Unpacking libsub-quote-perl (2.006006-1) ...
+Selecting previously unselected package libmoo-perl.
+Preparing to unpack .../56-libmoo-perl_2.003006-1_all.deb ...
+Unpacking libmoo-perl (2.003006-1) ...
+Selecting previously unselected package libmoox-aliases-perl.
+Preparing to unpack .../57-libmoox-aliases-perl_0.001006-1_all.deb ...
+Unpacking libmoox-aliases-perl (0.001006-1) ...
+Selecting previously unselected package libpackage-stash-perl.
+Preparing to unpack .../58-libpackage-stash-perl_0.38-1_all.deb ...
+Unpacking libpackage-stash-perl (0.38-1) ...
+Selecting previously unselected package libsub-identify-perl.
+Preparing to unpack .../59-libsub-identify-perl_0.14-1+b2_amd64.deb ...
+Unpacking libsub-identify-perl (0.14-1+b2) ...
+Selecting previously unselected package libnamespace-clean-perl.
+Preparing to unpack .../60-libnamespace-clean-perl_0.27-1_all.deb ...
+Unpacking libnamespace-clean-perl (0.27-1) ...
+Selecting previously unselected package libpath-tiny-perl.
+Preparing to unpack .../61-libpath-tiny-perl_0.108-1_all.deb ...
+Unpacking libpath-tiny-perl (0.108-1) ...
+Selecting previously unselected package libtext-levenshtein-perl.
+Preparing to unpack .../62-libtext-levenshtein-perl_0.13-1_all.deb ...
+Unpacking libtext-levenshtein-perl (0.13-1) ...
+Selecting previously unselected package libtype-tiny-perl.
+Preparing to unpack .../63-libtype-tiny-perl_1.008000-1_all.deb ...
+Unpacking libtype-tiny-perl (1.008000-1) ...
+Selecting previously unselected package libyaml-0-2:amd64.
+Preparing to unpack .../64-libyaml-0-2_0.2.2-1_amd64.deb ...
+Unpacking libyaml-0-2:amd64 (0.2.2-1) ...
+Selecting previously unselected package libyaml-libyaml-perl.
+Preparing to unpack .../65-libyaml-libyaml-perl_0.80+repack-2+b1_amd64.deb ...
+Unpacking libyaml-libyaml-perl (0.80+repack-2+b1) ...
+Selecting previously unselected package patchutils.
+Preparing to unpack .../66-patchutils_0.3.4-2+b1_amd64.deb ...
+Unpacking patchutils (0.3.4-2+b1) ...
+Selecting previously unselected package t1utils.
+Preparing to unpack .../67-t1utils_1.41-3_amd64.deb ...
+Unpacking t1utils (1.41-3) ...
+Selecting previously unselected package lintian.
+Preparing to unpack .../68-lintian_2.42.0_all.deb ...
+Unpacking lintian (2.42.0) ...
+Selecting previously unselected package sbuild-build-depends-lintian-dummy:armhf.
+Preparing to unpack .../69-sbuild-build-depends-lintian-dummy_0.invalid.0_armhf.deb ...
+Unpacking sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Setting up libapt-pkg-perl (0.1.36+b2) ...
+Setting up libberkeleydb-perl:amd64 (0.62-1+b1) ...
+Setting up libstruct-dumb-perl (0.09-1) ...
+Setting up libdynaloader-functions-perl (0.003-1) ...
+Setting up libtext-glob-perl (0.10-1) ...
+Setting up libclass-method-modifiers-perl (2.13-1) ...
+Setting up liblist-compare-perl (0.53-1) ...
+Setting up libio-pty-perl (1:1.12-1) ...
+Setting up libclone-perl (0.43-2) ...
+Setting up libyaml-0-2:amd64 (0.2.2-1) ...
+Setting up libsub-identify-perl (0.14-1+b2) ...
+Setting up libhtml-tagset-perl (3.20-4) ...
+Setting up libfuture-perl (0.42-1) ...
+Setting up libyaml-libyaml-perl (0.80+repack-2+b1) ...
+Setting up libtry-tiny-perl (0.30-1) ...
+Setting up perl-openssl-defaults:amd64 (3) ...
+Setting up libmldbm-perl (2.05-2) ...
+Setting up libtext-levenshtein-perl (0.13-1) ...
+Setting up libnumber-compare-perl (0.03-1) ...
+Setting up libio-async-perl (0.75-1) ...
+Setting up patchutils (0.3.4-2+b1) ...
+Setting up libfile-find-rule-perl (0.34-1) ...
+Setting up libdigest-hmac-perl (1.03+dfsg-2) ...
+Setting up libipc-system-simple-perl (1.25-5) ...
+Setting up libnet-domain-tld-perl (1.75-1) ...
+Setting up t1utils (1.41-3) ...
+Setting up liblinux-epoll-perl (0.017-1) ...
+Setting up diffstat (1.63-1) ...
+Setting up libvariable-magic-perl (0.62-1+b2) ...
+Setting up libb-hooks-op-check-perl (0.22-1+b2) ...
+Setting up libipc-run-perl (20180523.0-2) ...
+Setting up libsub-exporter-progressive-perl (0.001013-1) ...
+Setting up libcapture-tiny-perl (0.48-1) ...
+Setting up libtimedate-perl (2.3000-2) ...
+Setting up libsub-name-perl (0.26-1) ...
+Setting up libpath-tiny-perl (0.108-1) ...
+Setting up librole-tiny-perl (2.001004-1) ...
+Setting up netbase (5.8) ...
+Setting up libstrictures-perl (2.000006-1) ...
+Setting up libsub-quote-perl (2.006006-1) ...
+Setting up libclass-xsaccessor-perl (1.19-3+b3) ...
+Setting up libexporter-tiny-perl (1.002001-1) ...
+Setting up libclass-accessor-perl (0.51-1) ...
+Setting up libfont-ttf-perl (1.06-1) ...
+Setting up libnet-ip-perl (1.26-2) ...
+Setting up liburi-perl (1.76-1) ...
+Setting up libnet-ssleay-perl (1.88-2) ...
+Setting up libfile-basedir-perl (0.08-1) ...
+Setting up liblist-moreutils-perl (0.416-1+b5) ...
+Setting up libtype-tiny-perl (1.008000-1) ...
+Setting up libnet-dns-perl (1.21-1) ...
+Setting up libdevel-callchecker-perl (0.008-1+b1) ...
+Setting up libio-async-loop-epoll-perl (0.20-1) ...
+Setting up libhtml-parser-perl (3.72-3+b4) ...
+Setting up libio-socket-ssl-perl (2.066-1) ...
+Setting up libparams-classify-perl (0.015-1+b2) ...
+Setting up libcgi-pm-perl (4.44-1) ...
+Setting up libnet-smtp-ssl-perl (1.04-1) ...
+Setting up libmodule-runtime-perl (0.016-1) ...
+Setting up libmailtools-perl (2.21-1) ...
+Setting up libmodule-implementation-perl (0.09-1) ...
+Setting up libemail-valid-perl (1.202-1) ...
+Setting up libpackage-stash-perl (0.38-1) ...
+Setting up libimport-into-perl (1.002005-1) ...
+Setting up libmoo-perl (2.003006-1) ...
+Setting up libmoox-aliases-perl (0.001006-1) ...
+Setting up libb-hooks-endofscope-perl (0.24-1) ...
+Setting up libnamespace-clean-perl (0.27-1) ...
+Setting up lintian (2.42.0) ...
+Setting up sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Processing triggers for man-db (2.9.0-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Processing triggers for libc-bin (2.29-6) ...
+
+I: Lintian run was successful.
+
++------------------------------------------------------------------------------+
+| Post Build                                                                   |
++------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+| Cleanup                                                                      |
++------------------------------------------------------------------------------+
+
+Purging /<<BUILDDIR>>
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following packages were automatically installed and are no longer required:
+  dbus krb5-locales libapparmor1 libatk1.0-0 libavahi-client3
+  libavahi-common-data libavahi-common3 libcups2 libdbus-1-3 libgail-common
+  libgail18 libgssapi-krb5-2 libgtk2.0-0 libgtk2.0-bin libgts-0.7-5 libgts-bin
+  libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libxcomposite1
+  libxcursor1 libxdamage1 libxfixes3 libxi6 libxinerama1 libxrandr2
+Use 'apt autoremove' to remove them.
+The following packages will be REMOVED:
+  check:armhf* cmake* cmake-data* diffstat* doxygen* libapt-pkg-perl*
+  libarchive13* libb-hooks-endofscope-perl* libb-hooks-op-check-perl*
+  libberkeleydb-perl* libbrotli1* libcapture-tiny-perl* libcgi-pm-perl*
+  libclang1-9* libclass-accessor-perl* libclass-method-modifiers-perl*
+  libclass-xsaccessor-perl* libclone-perl* libcurl4*
+  libdevel-callchecker-perl* libdigest-hmac-perl*
+  libdynaloader-functions-perl* libedit2* libemail-valid-perl*
+  libexporter-tiny-perl* libfile-basedir-perl* libfile-find-rule-perl*
+  libfont-ttf-perl* libfuture-perl* libhtml-parser-perl* libhtml-tagset-perl*
+  libimport-into-perl* libio-async-loop-epoll-perl* libio-async-perl*
+  libio-pty-perl* libio-socket-ssl-perl* libipc-run-perl*
+  libipc-system-simple-perl* libjsoncpp1* liblinux-epoll-perl*
+  liblist-compare-perl* liblist-moreutils-perl* libllvm9* libmailtools-perl*
+  libmldbm-perl* libmodule-implementation-perl* libmodule-runtime-perl*
+  libmoo-perl* libmoox-aliases-perl* libnamespace-clean-perl* libncurses6*
+  libnet-dns-perl* libnet-domain-tld-perl* libnet-ip-perl*
+  libnet-smtp-ssl-perl* libnet-ssleay-perl* libnghttp2-14*
+  libnumber-compare-perl* libpackage-stash-perl* libparams-classify-perl*
+  libpath-tiny-perl* libprocps7* libpsl5* librhash0* librole-tiny-perl*
+  librtmp1* libssh2-1* libstrictures-perl* libstruct-dumb-perl*
+  libsub-exporter-progressive-perl* libsub-identify-perl* libsub-name-perl*
+  libsub-quote-perl* libsubunit-dev:armhf* libsubunit0:armhf*
+  libtext-glob-perl* libtext-levenshtein-perl* libtimedate-perl*
+  libtry-tiny-perl* libtype-tiny-perl* liburi-perl* libuv1*
+  libvariable-magic-perl* libxapian30* libyaml-0-2* libyaml-libyaml-perl*
+  libz3-4* lintian* meson* netbase* ninja-build* patchutils*
+  perl-openssl-defaults* procps* sbuild-build-depends-lintian-dummy:armhf*
+  sbuild-build-depends-main-dummy:armhf* t1utils*
+0 upgraded, 0 newly installed, 97 to remove and 0 not upgraded.
+After this operation, 220 MB disk space will be freed.
+(Reading database ... 38289 files and directories currently installed.)
+Removing sbuild-build-depends-main-dummy:armhf (0.invalid.0) ...
+Removing check:armhf (0.12.0-0.1) ...
+Removing cmake (3.15.4-1) ...
+Removing cmake-data (3.15.4-1) ...
+Removing sbuild-build-depends-lintian-dummy:armhf (0.invalid.0) ...
+Removing lintian (2.42.0) ...
+Removing diffstat (1.63-1) ...
+Removing doxygen (1.8.16-1) ...
+Removing libapt-pkg-perl (0.1.36+b2) ...
+Removing libarchive13:amd64 (3.4.0-1+b1) ...
+Removing libnamespace-clean-perl (0.27-1) ...
+Removing libb-hooks-endofscope-perl (0.24-1) ...
+Removing libmoox-aliases-perl (0.001006-1) ...
+Removing libmoo-perl (2.003006-1) ...
+Removing libpackage-stash-perl (0.38-1) ...
+Removing libmodule-implementation-perl (0.09-1) ...
+Removing libberkeleydb-perl:amd64 (0.62-1+b1) ...
+Removing libcurl4:amd64 (7.67.0-2) ...
+Removing libbrotli1:amd64 (1.0.7-5+b1) ...
+Removing libcapture-tiny-perl (0.48-1) ...
+Removing libcgi-pm-perl (4.44-1) ...
+Removing libclang1-9 (1:9.0.1-1) ...
+Removing libclass-accessor-perl (0.51-1) ...
+Removing librole-tiny-perl (2.001004-1) ...
+Removing libclass-method-modifiers-perl (2.13-1) ...
+Removing libclass-xsaccessor-perl (1.19-3+b3) ...
+Removing libclone-perl (0.43-2) ...
+Removing libemail-valid-perl (1.202-1) ...
+Removing libnet-dns-perl (1.21-1) ...
+Removing libdigest-hmac-perl (1.03+dfsg-2) ...
+Removing libllvm9:amd64 (1:9.0.1-1) ...
+Removing libedit2:amd64 (3.1-20191025-1) ...
+Removing libtype-tiny-perl (1.008000-1) ...
+Removing liblist-moreutils-perl (0.416-1+b5) ...
+Removing libexporter-tiny-perl (1.002001-1) ...
+Removing libfile-basedir-perl (0.08-1) ...
+Removing libfile-find-rule-perl (0.34-1) ...
+Removing libfont-ttf-perl (1.06-1) ...
+Removing libio-async-loop-epoll-perl (0.20-1) ...
+Removing libio-async-perl (0.75-1) ...
+Removing libfuture-perl (0.42-1) ...
+Removing libhtml-parser-perl (3.72-3+b4) ...
+Removing libhtml-tagset-perl (3.20-4) ...
+Removing libimport-into-perl (1.002005-1) ...
+Removing libipc-run-perl (20180523.0-2) ...
+Removing libio-pty-perl (1:1.12-1) ...
+Removing libmailtools-perl (2.21-1) ...
+Removing libnet-smtp-ssl-perl (1.04-1) ...
+Removing libio-socket-ssl-perl (2.066-1) ...
+Removing libipc-system-simple-perl (1.25-5) ...
+Removing libjsoncpp1:amd64 (1.7.4-3+b1) ...
+Removing liblinux-epoll-perl (0.017-1) ...
+Removing liblist-compare-perl (0.53-1) ...
+Removing libmldbm-perl (2.05-2) ...
+Removing procps (2:3.3.15-2+b1) ...
+Removing libncurses6:amd64 (6.1+20191019-1) ...
+Removing libnet-domain-tld-perl (1.75-1) ...
+Removing libnet-ip-perl (1.26-2) ...
+Removing libnet-ssleay-perl (1.88-2) ...
+Removing libnghttp2-14:amd64 (1.40.0-1) ...
+Removing libnumber-compare-perl (0.03-1) ...
+Removing libpath-tiny-perl (0.108-1) ...
+Removing libprocps7:amd64 (2:3.3.15-2+b1) ...
+Removing libpsl5:amd64 (0.20.2-2) ...
+Removing librhash0:amd64 (1.3.8-1) ...
+Removing librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b1) ...
+Removing libssh2-1:amd64 (1.8.0-2.1) ...
+Removing libstrictures-perl (2.000006-1) ...
+Removing libstruct-dumb-perl (0.09-1) ...
+Removing libsub-exporter-progressive-perl (0.001013-1) ...
+Removing libsub-identify-perl (0.14-1+b2) ...
+Removing libsub-name-perl (0.26-1) ...
+Removing libsub-quote-perl (2.006006-1) ...
+Removing libsubunit-dev:armhf (1.3.0-6) ...
+Removing libsubunit0:armhf (1.3.0-6) ...
+Removing libtext-glob-perl (0.10-1) ...
+Removing libtext-levenshtein-perl (0.13-1) ...
+Removing libtimedate-perl (2.3000-2) ...
+Removing libtry-tiny-perl (0.30-1) ...
+Removing liburi-perl (1.76-1) ...
+Removing libuv1:amd64 (1.33.1-2) ...
+Removing libvariable-magic-perl (0.62-1+b2) ...
+Removing libxapian30:amd64 (1.4.12-1) ...
+Removing libyaml-libyaml-perl (0.80+repack-2+b1) ...
+Removing libyaml-0-2:amd64 (0.2.2-1) ...
+Removing libz3-4:amd64 (4.8.7-2) ...
+Removing meson (0.52.1-1) ...
+Removing netbase (5.8) ...
+Removing ninja-build (1.9.0-3) ...
+Removing patchutils (0.3.4-2+b1) ...
+Removing perl-openssl-defaults:amd64 (3) ...
+Removing t1utils (1.41-3) ...
+Removing libmodule-runtime-perl (0.016-1) ...
+Removing libparams-classify-perl (0.015-1+b2) ...
+Removing libdevel-callchecker-perl (0.008-1+b1) ...
+Removing libb-hooks-op-check-perl (0.22-1+b2) ...
+Removing libdynaloader-functions-perl (0.003-1) ...
+Processing triggers for man-db (2.9.0-2) ...
+Not building database; man-db/auto-update is not 'true'.
+Processing triggers for libc-bin (2.29-6) ...
+(Reading database ... 31218 files and directories currently installed.)
+Purging configuration files for lintian (2.42.0) ...
+Purging configuration files for procps (2:3.3.15-2+b1) ...
+Purging configuration files for netbase (5.8) ...
+Purging configuration files for cmake-data (3.15.4-1) ...
+
++------------------------------------------------------------------------------+
+| Summary                                                                      |
++------------------------------------------------------------------------------+
+
+Build Architecture: amd64
+Build Profiles: cross nocheck
+Build Type: any
+Build-Space: 9676
+Build-Time: 8
+Distribution: unstable-amd64-sbuild
+Foreign Architectures: armhf
+Host Architecture: armhf
+Install-Time: 15
+Job: /home/build/sbuild-setup/repo/pool/main/libm/libmpdclient/libmpdclient_2.17-1.dsc
+Lintian: pass
+Machine Architecture: amd64
+Package: libmpdclient
+Package-Time: 26
+Source-Version: 2.17-1
+Space: 9676
+Status: successful
+Version: 2.17-1
+--------------------------------------------------------------------------------
+Finished at 2019-12-21T11:05:59Z
+Build needed 00:00:26, 9676k disk space
