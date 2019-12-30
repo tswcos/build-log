@@ -1,12 +1,12 @@
 sbuild (Debian sbuild) 0.78.1 (09 February 2019) on 8e0e35ca7d18
 
 +==============================================================================+
-| lintian 2.9.1 (armhf)                        Sat, 28 Dec 2019 10:17:16 +0000 |
+| libvigraimpex 1.11.1+dfsg-5 (armhf)          Sat, 28 Dec 2019 10:14:03 +0000 |
 +==============================================================================+
 
-Package: lintian
-Version: 2.9.1
-Source Version: 2.9.1
+Package: libvigraimpex
+Version: 1.11.1+dfsg-5
+Source Version: 1.11.1+dfsg-5
 Distribution: unstable-amd64-sbuild
 Machine Architecture: amd64
 Host Architecture: armhf
@@ -14,8 +14,8 @@ Build Architecture: amd64
 Build Profiles: cross nocheck
 Build Type: any
 
-I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-736ae7ca-e142-4a5c-8fdc-4da6860cda65' with '<<CHROOT>>'
-I: NOTICE: Log filtering will replace 'build/lintian-z8ROlG/resolver-Fp3Enb' with '<<RESOLVERDIR>>'
+I: NOTICE: Log filtering will replace 'var/run/schroot/mount/unstable-amd64-sbuild-76123a03-c006-4f58-be31-cbb7de778f55' with '<<CHROOT>>'
+I: NOTICE: Log filtering will replace 'build/libvigraimpex-kUi07t/resolver-0SqPsE' with '<<RESOLVERDIR>>'
 
 +------------------------------------------------------------------------------+
 | Update chroot                                                                |
@@ -44,9 +44,9 @@ Use 'apt autoremove' to remove them.
 Local sources
 -------------
 
-/home/build/sbuild-setup/repo/pool/main/l/lintian/lintian_2.9.1.dsc exists in /home/build/sbuild-setup/repo/pool/main/l/lintian; copying to chroot
-I: NOTICE: Log filtering will replace 'build/lintian-z8ROlG/lintian-2.9.1' with '<<PKGBUILDDIR>>'
-I: NOTICE: Log filtering will replace 'build/lintian-z8ROlG' with '<<BUILDDIR>>'
+/home/build/sbuild-setup/repo/pool/main/libv/libvigraimpex/libvigraimpex_1.11.1+dfsg-5.dsc exists in /home/build/sbuild-setup/repo/pool/main/libv/libvigraimpex; copying to chroot
+I: NOTICE: Log filtering will replace 'build/libvigraimpex-kUi07t/libvigraimpex-1.11.1+dfsg' with '<<PKGBUILDDIR>>'
+I: NOTICE: Log filtering will replace 'build/libvigraimpex-kUi07t' with '<<BUILDDIR>>'
 
 +------------------------------------------------------------------------------+
 | Install package build dependencies                                           |
@@ -56,15 +56,15 @@ I: NOTICE: Log filtering will replace 'build/lintian-z8ROlG' with '<<BUILDDIR>>'
 Setup apt archive
 -----------------
 
-Merged Build-Depends: debhelper-compat (= 12), docbook-utils, docbook-xml, dpkg (>= 1.17.14), libio-async-perl, libpath-tiny-perl, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
-Filtered Build-Depends: debhelper-compat (= 12), docbook-utils, docbook-xml, dpkg (>= 1.17.14), libio-async-perl, libpath-tiny-perl, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Merged Build-Depends: cmake, debhelper-compat (= 12), dh-python, libboost-python-dev, libfftw3-dev, libhdf5-dev, libjpeg-dev, libopenexr-dev, libpng-dev, libtiff5-dev, python3-all-dev, python3-nose, python3-numpy, libboost-thread-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
+Filtered Build-Depends: cmake, debhelper-compat (= 12), dh-python, libboost-python-dev, libfftw3-dev, libhdf5-dev, libjpeg-dev, libopenexr-dev, libpng-dev, libtiff5-dev, python3-all-dev, python3-nose, python3-numpy, libboost-thread-dev, build-essential:amd64, fakeroot:amd64, crossbuild-essential-armhf:amd64, libc-dev:armhf, libstdc++-dev:armhf
 dpkg-deb: building package 'sbuild-build-depends-main-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-main-dummy.deb'.
 Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
-Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [960 B]
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [957 B]
 Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
-Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [947 B]
-Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [535 B]
-Fetched 2442 B in 0s (156 kB/s)
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [472 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [560 B]
+Fetched 1989 B in 0s (149 kB/s)
 Reading package lists...
 Reading package lists...
 
@@ -82,8 +82,9 @@ or been moved out of Incoming.
 The following information may help to resolve the situation:
 
 The following packages have unmet dependencies:
- sbuild-build-depends-main-dummy:armhf : Depends: libio-async-perl:armhf but it is not installable
-                                         Depends: libpath-tiny-perl:armhf but it is not installable
+ sbuild-build-depends-main-dummy:armhf : Depends: dh-python:armhf
+                                         Depends: libboost-python-dev:armhf but it is not going to be installed
+                                         Depends: python3-all-dev:armhf but it is not going to be installed
 E: Unable to correct problems, you have held broken packages.
 apt-get failed.
 E: Package installation failed
@@ -117,11 +118,11 @@ Merged Build-Depends: dose-distcheck:amd64
 Filtered Build-Depends: dose-distcheck:amd64
 dpkg-deb: building package 'sbuild-build-depends-dose3-dummy' in '/<<RESOLVERDIR>>/apt_archive/sbuild-build-depends-dose3-dummy.deb'.
 Ign:1 copy:/<<RESOLVERDIR>>/apt_archive ./ InRelease
-Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [966 B]
+Get:2 copy:/<<RESOLVERDIR>>/apt_archive ./ Release [963 B]
 Ign:3 copy:/<<RESOLVERDIR>>/apt_archive ./ Release.gpg
-Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [1092 B]
-Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [670 B]
-Fetched 2728 B in 0s (177 kB/s)
+Get:4 copy:/<<RESOLVERDIR>>/apt_archive ./ Sources [608 B]
+Get:5 copy:/<<RESOLVERDIR>>/apt_archive ./ Packages [696 B]
+Fetched 2267 B in 0s (149 kB/s)
 Reading package lists...
 Reading package lists...
 
@@ -210,12 +211,47 @@ report:
   status: broken
   reasons:
    -
-    missing:
-     pkg:
-      package: sbuild-build-depends-main-dummy
-      version: 0.invalid.0
+    conflict:
+     pkg1:
+      package: python3
+      version: 3.7.5-3
+      architecture: amd64
+      unsat-conflict: python3
+     pkg2:
+      package: python3
+      version: 3.7.5-3
       architecture: armhf
-      unsat-dependency: libio-async-perl:armhf
+     depchain1:
+      -
+       depchain:
+        -
+         package: sbuild-build-depends-main-dummy
+         version: 0.invalid.0
+         architecture: armhf
+         depends: dh-python:armhf
+        -
+         package: dh-python
+         version: 4.20191017
+         architecture: all
+         depends: python3-distutils:amd64 | python3:amd64 (< 3.6.5~rc1-1)
+        -
+         package: python3-distutils
+         version: 3.8.0-1
+         architecture: all
+         depends: python3:amd64 (>= 3.7.1-1~)
+     depchain2:
+      -
+       depchain:
+        -
+         package: sbuild-build-depends-main-dummy
+         version: 0.invalid.0
+         architecture: armhf
+         depends: python3-all-dev:armhf
+        -
+         package: python3-all-dev
+         version: 3.7.5-3
+         architecture: armhf
+         depends: python3:armhf (= 3.7.5-3)
  
 background-packages: 85849
 foreground-packages: 1
@@ -282,14 +318,14 @@ Fail-Stage: install-deps
 Foreign Architectures: armhf
 Host Architecture: armhf
 Install-Time: 0
-Job: /home/build/sbuild-setup/repo/pool/main/l/lintian/lintian_2.9.1.dsc
+Job: /home/build/sbuild-setup/repo/pool/main/libv/libvigraimpex/libvigraimpex_1.11.1+dfsg-5.dsc
 Machine Architecture: amd64
-Package: lintian
+Package: libvigraimpex
 Package-Time: 0
-Source-Version: 2.9.1
+Source-Version: 1.11.1+dfsg-5
 Space: n/a
 Status: given-back
-Version: 2.9.1
+Version: 1.11.1+dfsg-5
 --------------------------------------------------------------------------------
-Finished at 2019-12-28T10:17:16Z
+Finished at 2019-12-28T10:14:03Z
 Build needed 00:00:00, no disk space
